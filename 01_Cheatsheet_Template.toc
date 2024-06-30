@@ -1,4 +1,15 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Chapter 1}{1}{section.1}%
-\contentsline {section}{\numberline {2}Chapter 2}{1}{section.2}%
-\contentsline {section}{\numberline {3}Chapter 3}{1}{section.3}%
+\contentsline {section}{\numberline {1}Week 1}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Hanhee}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Week 2}{2}{section.2}%
+\contentsline {section}{\numberline {3}Week 3}{2}{section.3}%
+\contentsline {section}{\numberline {4}Week 4}{2}{section.4}%
+\contentsline {section}{\numberline {5}Week 5}{2}{section.5}%
+\contentsline {section}{\numberline {6}Week 6}{2}{section.6}%
+\contentsline {section}{\numberline {7}Week 7}{2}{section.7}%
+\contentsline {section}{\numberline {8}Week 8}{2}{section.8}%
+\contentsline {section}{\numberline {9}Week 9}{2}{section.9}%
+\contentsline {section}{\numberline {10}Week 10}{2}{section.10}%
+\contentsline {section}{\numberline {11}Week 11}{2}{section.11}%
+\contentsline {section}{\numberline {12}Week 12}{2}{section.12}%
+\contentsline {section}{\numberline {13}Week 13}{2}{section.13}%
