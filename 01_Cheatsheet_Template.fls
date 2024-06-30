@@ -545,6 +545,10 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 OUTPUT 01_Cheatsheet_Template.toc
+INPUT ./01_Cheatsheet_Template.lof
+INPUT ./01_Cheatsheet_Template.lof
+INPUT 01_Cheatsheet_Template.lof
+OUTPUT 01_Cheatsheet_Template.lof
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc

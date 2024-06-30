@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  30 JUN 2024 23:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  1 JUL 2024 07:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1097,6 +1097,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \tf@toc=\write5
 \openout5 = `01_Cheatsheet_Template.toc'.
 
+ (./01_Cheatsheet_Template.lof)
+\tf@lof=\write6
+\openout6 = `01_Cheatsheet_Template.lof'.
+
  [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
@@ -1124,10 +1128,10 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-<00_Images/diagram_circuit.png, id=88, 2368.85pt x 1646.15pt>
+<00_Images/diagram_circuit.png, id=96, 2368.85pt x 1646.15pt>
 File: 00_Images/diagram_circuit.png Graphic file (type png)
 <use 00_Images/diagram_circuit.png>
-Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 74.
+Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 76.
 (pdftex.def)             Requested size: 263.78506pt x 183.28746pt.
  [2] [3 <./00_Images/diagram_circuit.png>] (./01_Cheatsheet_Template.aux)
  ***********
@@ -1135,21 +1139,21 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `01_Cheatsheet_Template.out' has not changed.
-(rerunfilecheck)             Checksum: 18448155220D9A79678833346669A454;1104.
+(rerunfilecheck)             Checksum: CB7F78B394B0D90D9BB342C30823DCDA;1187.
  ) 
 Here is how much of TeX's memory you used:
- 48842 strings out of 474116
- 1157991 string characters out of 5743682
+ 48852 strings out of 474116
+ 1158208 string characters out of 5743682
  1945187 words of memory out of 5000000
- 70364 multiletter control sequences out of 15000+600000
+ 70369 multiletter control sequences out of 15000+600000
  609643 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,107p,811b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on 01_Cheatsheet_Template.pdf (3 pages, 1603261 bytes).
+Output written on 01_Cheatsheet_Template.pdf (3 pages, 1605668 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 142 PDF objects out of 1000 (max. 8388607)
+ 124 compressed objects within 2 object streams
+ 27 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 
