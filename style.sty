@@ -62,6 +62,9 @@
 \definecolor{my-orange}{HTML}{FE5F55}
 \definecolor{background}{HTML}{f2f2f2}
 \definecolor{my-yellow}{HTML}{F6BD60}
+\definecolor{my-purple}{RGB}{153,102,255}
+\definecolor{my-teal}{RGB}{0,128,128}
+\definecolor{my-black}{RGB}{0,0,0}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,8 +121,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newtcolorbox[auto counter]{example}{
-    one-sided-color=my-green,
-    title=\textbf{Example} \thetcbcounter,
+    one-sided-color=my-black,
+    title=\textbf{Example},
     % add a `\thetcbcounter` to the end if you want to keep track of numberings.
 }
 
@@ -128,9 +131,9 @@
     title=\textbf{Definition},
 }
 
-\newtcolorbox{mnemonic}{
-    one-sided-color=my-green,
-    title=\textbf{Mnemonic},
+\newtcolorbox{process}{
+    one-sided-color=my-yellow,
+    title=\textbf{Process},
 }
 
 \newtcolorbox{theorem}{
@@ -139,13 +142,13 @@
 }
 
 \newtcolorbox{intuition}{
-    one-sided-color=my-yellow,
+    one-sided-color=my-teal,
     title=\textbf{Intuition},
 }
 
 \newtcolorbox{derivation}{
-    one-sided-color=my-blue,
-    title=\textbf{Tip},
+    one-sided-color=my-purple,
+    title=\textbf{Derivation},
 }
 
 \newtcolorbox{warning}{
