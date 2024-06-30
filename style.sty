@@ -66,6 +66,8 @@
 \definecolor{my-purple}{RGB}{153,102,255}
 \definecolor{my-teal}{RGB}{0,128,128}
 \definecolor{my-black}{RGB}{0,0,0}
+\definecolor{my-red}{RGB}{255,0,0}
+\definecolor{my-light-blue}{RGB}{173,216,230}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -120,11 +122,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%   Box Definitions %%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+% add a `\thetcbcounter` to the end if you want to keep track of numberings.
 \newtcolorbox[auto counter]{example}{
     one-sided-color=my-black,
     title=\textbf{Example},
-    % add a `\thetcbcounter` to the end if you want to keep track of numberings.
 }
 
 \newtcolorbox{definition}{
@@ -153,14 +154,13 @@
 }
 
 \newtcolorbox{warning}{
-    one-sided-color=my-pink,
+    one-sided-color=my-red,
     title=\textbf{Warning},
 }
 
-\newtcolorbox[auto counter]{custom-simple}[1][]{
-    simple,
-    title={#1},
-    % add a `\thetcbcounter` to the end if you want to keep track of numberings.
+\newtcolorbox{summary}{
+    one-sided-color=my-light-blue,
+    title=\textbf{Summary},
 }
 
 \newtcolorbox[auto counter]{solution}{

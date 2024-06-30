@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  30 JUN 2024 23:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  30 JUN 2024 23:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -759,23 +759,22 @@ Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
 \tcb@cur@hbadness=\count344
 ))
 \c@tcb@cnt@example=\count345
-\c@tcb@cnt@custom-simple=\count346
-\c@tcb@cnt@solution=\count347
+\c@tcb@cnt@solution=\count346
  (/usr/local/texlive/2024/texmf-dist/tex/latex/import/import.sty
 Package: import 2020/04/01  v 6.2
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/xifthen/xifthen.sty
 Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
  (/usr/local/texlive/2024/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count348
-\calc@Bcount=\count349
+\calc@Acount=\count347
+\calc@Bcount=\count348
 \calc@Adimen=\dimen298
 \calc@Bdimen=\dimen299
 \calc@Askip=\skip69
 \calc@Bskip=\skip70
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count350
+\calc@Ccount=\count349
 \calc@Cskip=\skip71
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
@@ -794,13 +793,13 @@ Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count351
+\pdfpages@includegraphics@status=\count350
 \AM@pagebox=\box112
 \AM@global@opts=\toks57
-\AM@pagecnt=\count352
+\AM@pagecnt=\count351
 \AM@toc@title=\toks58
 \AM@lof@heading=\toks59
-\c@AM@survey=\count353
+\c@AM@survey=\count352
 \AM@templatesizebox=\box113
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/transparent/transparent.sty
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
@@ -818,20 +817,20 @@ Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
 \XKV@toks=\toks60
 \XKV@tempa@toks=\toks61
 )
-\XKV@depth=\count354
+\XKV@depth=\count353
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv)
-\pstFP@xs=\count355
-\pstFP@xia=\count356
-\pstFP@xib=\count357
-\pstFP@xfa=\count358
-\pstFP@xfb=\count359
-\pstFP@rega=\count360
-\pstFP@regb=\count361
-\pstFP@regs=\count362
-\pstFP@times=\count363
+\pstFP@xs=\count354
+\pstFP@xia=\count355
+\pstFP@xib=\count356
+\pstFP@xfa=\count357
+\pstFP@xfb=\count358
+\pstFP@rega=\count359
+\pstFP@regb=\count360
+\pstFP@regs=\count361
+\pstFP@times=\count362
 )
-\psLoopIndex=\count364
+\psLoopIndex=\count363
 
 `PSTricks' v3.19c  <2024/02/02> (tvz,hv)
 \pst@dima=\dimen305
@@ -847,24 +846,24 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \pst@hbox=\box114
 \pst@ibox=\box115
 \pst@boxg=\box116
-\pst@cnta=\count365
-\pst@cntb=\count366
-\pst@cntc=\count367
-\pst@cntd=\count368
-\pst@cntg=\count369
-\pst@cnth=\count370
-\pst@cntm=\count371
-\pst@cntn=\count372
-\pst@cnto=\count373
-\pst@cntp=\count374
-\@zero=\count375
+\pst@cnta=\count364
+\pst@cntb=\count365
+\pst@cntc=\count366
+\pst@cntd=\count367
+\pst@cntg=\count368
+\pst@cnth=\count369
+\pst@cntm=\count370
+\pst@cntn=\count371
+\pst@cnto=\count372
+\pst@cntp=\count373
+\@zero=\count374
 \pst@toks=\toks62
 --- We are running latex or xelatex ---
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks.con) (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks-color.tex)
 \psunit=\dimen315
 \psxunit=\dimen316
 \psyunit=\dimen317
-\pst@C@@rType=\count376
+\pst@C@@rType=\count375
 \pslinewidth=\dimen318
 \psk@startLW=\dimen319
 \psk@endLW=\dimen320
@@ -884,7 +883,7 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \sh@wgridXunit=\dimen329
 \sh@wgridYunit=\dimen330
 \pst@shift=\dimen331
-\ps@imagectr=\count377
+\ps@imagectr=\count376
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks.con))
 File: pstricks.tex 2024/02/02 v3.19c `PSTricks' (tvz,hv)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pst-fp.tex `pst-fp' v0.06, 2020/11/20 (hv))
@@ -894,40 +893,40 @@ Package: pst-xkey 2005/11/25 v1.6 package wrapper for pst-xkey.tex (HA)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/multido/multido.sty
 Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/multido/multido.tex  v1.42, 2010/05/14 <tvz>
-\multido@count=\count378
-\multidocount=\count379
+\multido@count=\count377
+\multidocount=\count378
 \multido@stuff=\toks65
 )
 File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
 )
 Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-plot/pst-plot.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-tools/pst-tools.tex `PST-tools' v0.12, 2021/09/23 (hv)
-\randomi=\count380
-\ranval=\count381
+\randomi=\count379
+\ranval=\count380
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-node/pst-node.tex  v1.43, 2022/01/31
-\psrow=\count382
-\pscol=\count383
-\psmatrixcnt=\count384
+\psrow=\count381
+\pscol=\count382
+\psmatrixcnt=\count383
 \psrowsep=\skip72
 \pscolsep=\skip73
-\pst@args=\count385
-\num@pts=\count386
-\pst@argcnt=\count387
+\pst@args=\count384
+\num@pts=\count385
+\pst@argcnt=\count386
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-arrow/pst-arrow.tex `pst-arrow' v0.05, 2021/11/16 (dr,hv)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-3d/pst-3d.tex `PST-3d' v1.11, 2010/02/14 (tvz)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-math/pst-math.tex `pst-math' v0.67 , (CJ,hv)) `pstricks-add' v3.94, 2023/04/17 (dr,hv)
 \psparallelogramsep=\dimen332
-\pst@cntC=\count388
-\pst@stepcount=\count389
+\pst@cntC=\count387
+\pst@stepcount=\count388
 \chart@ColorIndex=\dimen333
 \chart@ColorStep=\dimen334
 \pst@chartHeight=\dimen335
 \pst@chartStackDepth=\dimen336
 \pst@chartStackWidth=\dimen337
-\chart@Toggle=\count390
-\psVectorCtr=\count391
+\chart@Toggle=\count389
+\psVectorCtr=\count390
 )  v1.94, 2022/11/21 (tvz,hv)
 \pstRadUnit=\dimen338
 \pstRadUnitInv=\dimen339
-\pst@linecnt=\count392
+\pst@linecnt=\count391
 \RCD@file=\read5
 \psxlabelsep=\dimen340
 \psylabelsep=\dimen341
@@ -938,7 +937,7 @@ Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
 \pst@yticksizeA=\dimen346
 \pst@yticksizeB=\dimen347
 \pst@yticksizeC=\dimen348
-\@digitcounter=\count393
+\@digitcounter=\count392
 \psk@llx=\dimen349
 \psk@lly=\dimen350
 \psk@urx=\dimen351
@@ -1024,16 +1023,16 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 8.
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count394
+\scratchcounter=\count393
 \scratchdimen=\dimen355
 \scratchbox=\box117
-\nofMPsegments=\count395
-\nofMParguments=\count396
+\nofMPsegments=\count394
+\nofMParguments=\count395
 \everyMPshowfont=\toks66
-\MPscratchCnt=\count397
+\MPscratchCnt=\count396
 \MPscratchDim=\dimen356
-\MPnumerator=\count398
-\makeMPintoPDFobject=\count399
+\MPnumerator=\count397
+\makeMPintoPDFobject=\count398
 \everyMPtoPDFconversion=\toks67
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1094,7 +1093,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <00_Images/diagram_circuit.png, id=22, 2368.85pt x 1646.15pt>
 File: 00_Images/diagram_circuit.png Graphic file (type png)
 <use 00_Images/diagram_circuit.png>
-Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 53.
+Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 58.
 (pdftex.def)             Requested size: 263.78506pt x 183.28746pt.
  [1
 Non-PDF special ignored!
@@ -1131,15 +1130,15 @@ Package rerunfilecheck Info: File `01_Cheatsheet_Template.out' has not changed.
 (rerunfilecheck)             Checksum: D6D7E476C9B4EAD81E0A497086E81E37;273.
  ) 
 Here is how much of TeX's memory you used:
- 48764 strings out of 474116
- 1157114 string characters out of 5743682
- 1944187 words of memory out of 5000000
- 70319 multiletter control sequences out of 15000+600000
+ 48763 strings out of 474116
+ 1157066 string characters out of 5743682
+ 1946187 words of memory out of 5000000
+ 70318 multiletter control sequences out of 15000+600000
  591857 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,107p,807b,983s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on 01_Cheatsheet_Template.pdf (2 pages, 1597024 bytes).
+Output written on 01_Cheatsheet_Template.pdf (2 pages, 1597534 bytes).
 PDF statistics:
  68 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
