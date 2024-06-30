@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  30 JUN 2024 23:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  30 JUN 2024 23:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1093,7 +1093,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <00_Images/diagram_circuit.png, id=22, 2368.85pt x 1646.15pt>
 File: 00_Images/diagram_circuit.png Graphic file (type png)
 <use 00_Images/diagram_circuit.png>
-Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 58.
+Package pdftex.def Info: 00_Images/diagram_circuit.png  used on input line 63.
 (pdftex.def)             Requested size: 263.78506pt x 183.28746pt.
  [1
 Non-PDF special ignored!
@@ -1130,18 +1130,18 @@ Package rerunfilecheck Info: File `01_Cheatsheet_Template.out' has not changed.
 (rerunfilecheck)             Checksum: D6D7E476C9B4EAD81E0A497086E81E37;273.
  ) 
 Here is how much of TeX's memory you used:
- 48763 strings out of 474116
- 1157066 string characters out of 5743682
- 1946187 words of memory out of 5000000
- 70318 multiletter control sequences out of 15000+600000
+ 48774 strings out of 474116
+ 1157269 string characters out of 5743682
+ 1948187 words of memory out of 5000000
+ 70325 multiletter control sequences out of 15000+600000
  591857 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,11n,107p,807b,983s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb>
-Output written on 01_Cheatsheet_Template.pdf (2 pages, 1597534 bytes).
+Output written on 01_Cheatsheet_Template.pdf (2 pages, 1597741 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 73 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
  42 words of extra memory for PDF output out of 10000 (max. 10000000)
 
