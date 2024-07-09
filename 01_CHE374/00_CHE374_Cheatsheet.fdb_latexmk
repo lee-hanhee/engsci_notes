@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1719973399.05875 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/00_CHE374_Cheatsheet.tex" "00_CHE374_Cheatsheet.pdf" "00_CHE374_Cheatsheet" 1719973405.93507 0
-  "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/00_CHE374_Cheatsheet.tex" 1719973383.92759 4271 82df51153ea81eab0e89132b4683fdd8 ""
+["pdflatex"] 1720510375.55628 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/00_CHE374_Cheatsheet.tex" "00_CHE374_Cheatsheet.pdf" "00_CHE374_Cheatsheet" 1720510393.33448 0
+  "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/00_CHE374_Cheatsheet.tex" 1720510373.97686 5527 ecd6b34089565e091a309c6a9c7e3ade ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -322,12 +322,12 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1719752029.93807 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1719751986 8221423 2c2f6a8d1093cb5ce4c00448e0a0c0bb ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "00_CHE374_Cheatsheet.aux" 1719973405.14685 1883 17c581efb6c96605d2002ddc9a637dab "pdflatex"
-  "00_CHE374_Cheatsheet.lof" 1719973405.15231 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "00_CHE374_Cheatsheet.lot" 1719973405.1525 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "00_CHE374_Cheatsheet.out" 1719973405.15034 1323 83cec346037341a1463041e9550c7956 "pdflatex"
-  "00_CHE374_Cheatsheet.tex" 1719973383.92759 4271 82df51153ea81eab0e89132b4683fdd8 ""
-  "00_CHE374_Cheatsheet.toc" 1719973405.15149 1017 cb87cf80d962a608b38e1a5ed93c8395 "pdflatex"
+  "00_CHE374_Cheatsheet.aux" 1720510391.44123 2121 8c0f4032ca0e6ab84c4ab7956543b2c4 "pdflatex"
+  "00_CHE374_Cheatsheet.lof" 1720510391.4582 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "00_CHE374_Cheatsheet.lot" 1720510391.45948 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "00_CHE374_Cheatsheet.out" 1720510391.45261 1565 773505fff95e79899488ac3bc59c7738 "pdflatex"
+  "00_CHE374_Cheatsheet.tex" 1720510373.97686 5527 ecd6b34089565e091a309c6a9c7e3ade ""
+  "00_CHE374_Cheatsheet.toc" 1720510391.45758 1173 d3b109f0a019b98e787cd311f9ce98f1 "pdflatex"
   "style.sty" 1719969999.69871 5176 e430beec0f44ea07d3bf77e4a2819cee ""
   (generated)
   "00_CHE374_Cheatsheet.aux"

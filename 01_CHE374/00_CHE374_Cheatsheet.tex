@@ -103,17 +103,49 @@
         
 
 \section{Week 3}
+    \subsection{Mortgage Terms}
+        \begin{terminology}
+            \textbf{Mortgage}
+            \begin{enumerate}
+                \item \textbf{Principle:} The amount of money you borrow to pay for a real property.
+                \item \textbf{Down Payment:} The fraction of the cost of the real property that you pay upfront yourself. (Usually 20\%)
+                \item \textbf{Loan-to-Value Ratio (LTV):} Ratio of mortgage loan to value of the property.
+                \item \textbf{Mortgage Rate:} The interest rate charged on the mortgage. 
+                \item \textbf{Amortization Period:} Time horizon for mortgage payment. 
+                \item \textbf{Term:} Duration of time where the mortgage rate is fixed. When term ends, re-evaluate how much you still owe, then use new interest rate to calculate monthly payment based on time left in amortization period. 
+            \end{enumerate}
+        \end{terminology}
+    
+    \begin{definition}
+        \textbf{Net amount owed at end of term}
+        \begin{equation}
+            Net = P\left(1+i\right)^{t \times N} - A \left(\frac{\left(1+i\right)^{t \times N} - 1}{i}\right)
+        \end{equation}
+        \begin{itemize}
+            \item P (Mortgage principle)
+            \item A (Regular mortgage payment (usually per month))
+            \item i (Mortgage rate per annum based)
+            \item N (Number of payment periods per year)
+            \item t (Number of years in term)
+        \end{itemize}
+    \end{definition}
+
+    \begin{definition}
+        \textbf{Net monthly payment}
+        \begin{equation}
+            A = P(\frac{i}{1 - (1+i)^{-t \times N}})
+        \end{equation}
+    \end{definition}
+
+\subsection{Bond Terms}
     \begin{terminology}
-        \textbf{Mortgage}
+        \textbf{Bond}
         \begin{enumerate}
-            \item \textbf{Principle:} The amount of money you borrow to pay for a real property.
-            \item \textbf{Down Payment:} The fraction of the cost of the real property that you pay upfront yourself. (Usually 20\%)
-            \item \textbf{Loan-to-Value Ratio (LTV):} Ratio of mortgage loan to value of the property.
-            \item \textbf{Mortgage Rate:} The interest rate charged on the mortgage. 
-            \item \textbf{Amortization Period:} Time horizon for mortgage payment. 
-            \item \textbf{Term:} Duration of time where the mortgage rate is fixed. When term ends, re-evaluate how much you still owe, then use new interest rate to calculate monthly payment based on time left in amortization period. 
+            \item \textbf{Bond:} A type of loan where the creditor pays a stated amount at specified intervals for a defined period (Coupon Payments), plus a final amount at a specified date (Face Value).
+            \item \textbf{Coupon Rate:} The rate used to calculate coupon payments.
         \end{enumerate}
     \end{terminology}
+
 
 \section{Week 4}
 
