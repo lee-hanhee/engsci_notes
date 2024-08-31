@@ -16,8 +16,6 @@
 \usepackage{physics} % various physics related changes
 \usepackage{xcolor} % more colors
 \usepackage{float} % allows for the use of [H] in figures
-\usepackage{tikz} % For drawing diagrams
-\usetikzlibrary{arrows.meta, positioning}
 
 
 
@@ -196,13 +194,3 @@
     \import{./figures/}{#1.pdf_tex}
 }
 \usepackage{pst-plot}
-
-% IMAGES 
-% Define a new command for a standardized figure
-\newcommand{\customFigure}[3][]{%
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width=#1\textwidth]{#2}
-        \caption{#3}
-    \end{figure}
-}

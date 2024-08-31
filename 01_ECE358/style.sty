@@ -16,10 +16,6 @@
 \usepackage{physics} % various physics related changes
 \usepackage{xcolor} % more colors
 \usepackage{float} % allows for the use of [H] in figures
-\usepackage{tikz} % For drawing diagrams
-\usetikzlibrary{arrows.meta, positioning}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% STYLE %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -147,7 +143,7 @@
 
 \newtcolorbox{intuition}{
     one-sided-color=my-teal,
-    title=\textbf{Intuition},
+    title=\textbf{Intuition/Tips},
 }
 
 \newtcolorbox{derivation}{
@@ -206,3 +202,32 @@
         \caption{#3}
     \end{figure}
 }
+
+% CODE
+\usepackage{listings} % Import the listings package
+\usepackage{xcolor}   % For customizing colors
+
+% Define the style for pseudocode
+\lstdefinestyle{pseudocode}{
+    backgroundcolor=\color{white},   % Background color
+    commentstyle=\color{gray},       % Style for comments
+    keywordstyle=\color{blue},       % Style for keywords
+    numberstyle=\tiny\color{gray},   % Style for line numbers
+    basicstyle=\ttfamily\footnotesize,  % Basic font style
+    breaklines=true,                 % Line breaking
+    captionpos=b,                    % Caption position
+    keepspaces=true,                 % Keep spaces in text
+    numbers=left,                    % Line numbers on the left
+    numbersep=5pt,                   % Space between line numbers and code
+    showspaces=false,                % Do not show spaces
+    showstringspaces=false,          % Do not show spaces in strings
+    showtabs=false,                  % Do not show tab characters
+    tabsize=4,                       % Size of tabs
+    xleftmargin=0pt,                 % Set left margin to zero for left alignment
+    frame=single                     % Adds a frame around the code
+}
+
+% Apply the style to pseudocode
+\lstset{style=pseudocode}
+
+

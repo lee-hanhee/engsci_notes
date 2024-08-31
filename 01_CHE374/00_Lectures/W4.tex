@@ -1,0 +1,163 @@
+\subsection{Terms}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Valuation:} Analytical process of determining future cash flows.
+        
+        \item \textbf{Financial Risk:} Uncertainty in a future payoff.
+        
+        \item \textbf{Variance of Returns:} The variance in the rate of return from a vector of return rates of a given stock, company, portfolio, etc.
+        \[
+        \sigma_i^2 = \text{Var}(\vec{R}_i), \quad \vec{R}_i = \begin{bmatrix}
+        r_{t_1} \\
+        r_{t_2} \\
+        \vdots \\
+        r_{t_m}
+        \end{bmatrix}
+        \]
+        
+        \item \textbf{Volatility ($\sigma_i$):} The standard deviation of the variance of return; is a form of risk (and therefore uncertainty).
+        
+        \item \textbf{Market Portfolio (MP):} Portfolio representing the whole market, often estimated through a stock index.
+        
+        \item \textbf{Systematic Risk:} Risk associated with the market as a whole, e.g. effect of economy on sales and stock value.
+        
+        \item \textbf{Idiosyncratic Risk:} Risk independent of the economy and specific to a company.
+        
+        \item \textbf{Arbitrage:} Taking advantage of a price difference between two or more markets to achieve a risk-free gain.
+        
+        \item \textbf{Forward Contract (Forwards):} An obligation to buy or sell a certain asset:
+        \begin{itemize}
+            \item At a specified price
+            \item At a specified time
+        \end{itemize}
+        
+        \item \textbf{Futures Contracts:} Similar to forwards except settled daily (not just at maturity), so they can be bought and sold, and are also traded on exchanges.
+    \end{itemize}            
+\end{terminology}
+
+\subsection{Capital Asset Pricing Model (CAPM)}
+\begin{definition}
+    \begin{equation}
+        E[R_c] = r_f + \beta_c \left(E[R_{mp}] - r_f\right)
+    \end{equation}
+        
+    \begin{itemize}
+        \item $E[R_c]$: Expected rate of return for a company
+        \item $r_f$: Risk-free rate
+        \item $\beta_c$: Measure of risk for the company, systematic risk, related to market risk
+        \item $E[R_{mp}]$: Expected rate of return of the market portfolio, represents the whole market
+    \end{itemize}
+
+    \vspace{1em}
+
+    Relationships for $\beta$:
+    \begin{equation}
+        \beta_i = \frac{\sigma_{i, MP}}{\sigma^2_{MP}} = \rho_{i, MP} \frac{\sigma_i}{\sigma_{MP}}
+    \end{equation}
+    
+    \begin{itemize}
+        \item $\sigma_{i, MP}$: Covariance between $i^{th}$ company and market portfolio (MP)
+        \item $\sigma^2_{MP}$: Variance of MP
+        \item $\rho_{i, MP}$: Correlation of returns between $i^{th}$ company and MP
+        \item $\sigma_i$: Volatility of $i^{th}$ company
+        \item $\sigma_{MP}$: Volatility of MP
+    \end{itemize}
+\end{definition}
+
+\subsection{Replication (FIX)}
+\begin{definition}
+    \begin{itemize}
+        \item Given present market price $P_{MP}$ will take on certain values if it goes up or down: $P_{MP+}$; $P_{MP-}$
+            \begin{itemize}
+                \item Probability of market going up is $X$, down is $(X-1)$ (interchangeable)
+            \end{itemize}
+        \item Given project/investment/etc. price $P_I$ will take on certain values depending on if market goes up or down: $P_{I+}$; $P_{I-}$
+    \end{itemize}
+
+    \vspace{1em}
+    Want to find present value of project:
+
+    \begin{itemize}
+        \item Risk-free rate is $r_f$
+    \end{itemize}
+
+    \vspace{1em}
+
+    The following networks are Market, $R_f$, and Project:
+
+    \begin{tikzpicture}[->, >=stealth, auto, node distance=2.5cm, thick]
+
+        \node (Market) {$P_{MP}$};
+        \node (MarketUp) [above right=of Market] {$P_{MP+}$};
+        \node (MarketDown) [below right=of Market] {$P_{MP-}$};
+    
+        \draw[->] (Market) -- (MarketUp) node[midway, above] {up};
+        \draw[->] (Market) -- (MarketDown) node[midway, below] {down};
+    
+        \node (Rf) [right=4cm of Market] {$P_r = 1$};
+        \node (RfPlus) [above right=of Rf] {$1 \times (1+r_f) = P_{r+}$};
+        \node (RfMinus) [below right=of Rf] {$1 \times (1+r_f) = P_{r-}$};
+        
+        \draw[->] (Rf) -- (RfPlus);
+        \draw[->] (Rf) -- (RfMinus);
+        
+        \node (Project) [right=4cm of Rf] {$P_I$};
+        \node (ProjectUp) [above right=of Project] {$P_{I+}$};
+        \node (ProjectDown) [below right=of Project] {$P_{I-}$};
+    
+        \draw[->] (Project) -- (ProjectUp) node[midway, above] {up};
+        \draw[->] (Project) -- (ProjectDown) node[midway, below] {down};
+    
+    \end{tikzpicture}
+
+    \begin{itemize}
+        \item Replication wants to model a portfolio with the same risk-value as the project:
+            \begin{itemize}
+                \item $a$: \# of $MP$ shares
+                \item $b$: \# of risk-free shares/bonds/etc.
+            \end{itemize}
+    \end{itemize}
+    
+    \begin{equation*}
+        \begin{aligned}
+            &\text{Up:} \quad a P_{MP+} + b P_{r+} = P_{I+} \\
+            &\text{Down:} \quad a P_{MP-} + b P_{r-} = P_{I-}
+        \end{aligned}
+        \quad \text{Solve for } a, b
+    \end{equation*}
+    
+    \[
+    P_I = a \times P_{MP} + b \times P_r \quad \text{with} \quad P_r = 1
+    \]
+    
+    \begin{itemize}
+        \item Can also find $\beta$:
+    \end{itemize}
+    
+    \[
+    E[R_{MP}] = \frac{P_{MP+} X + P_{MP-} (X-1)}{P_{MP}}
+    \]
+    
+    \[
+    E[R_I] = \frac{P_{I+} X + P_{I-} (X-1)}{P_I}
+    \]
+    
+    \[
+    \therefore \quad \beta = \frac{E[R_I] - r_f}{E[R_{MP}] - r_f}
+    \]
+
+\end{definition}
+
+\subsection{Forward Rate}
+\begin{definition}
+    Given rates for investments between $t=0$ and $t=t_1$, or $t=t_2$:
+    \[
+    r_{0,t_1}, \quad r_{0,t_2}
+    \]
+
+    \noindent The interest forward rate $t_1$ years from $t=0$ for a duration of $(t_2 - t_1)$ years is:
+    
+    \begin{equation}
+        r_{t_1,t_2} = \frac{r_{0,t_2} \cdot t_2 - r_{0,t_1} \cdot t_1}{t_2 - t_1}
+    \end{equation}            
+\end{definition}

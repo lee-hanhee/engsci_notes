@@ -1,0 +1,137 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Asymptotics (Ch. 3.1-2 pg. 50-63, L2)}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Big-O}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Big-Omega}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Big-Theta}{4}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Theorem 3.1}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Asymptotic notation and running times}{5}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Abuses of asymptotic notation}{5}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Comparing function properties}{6}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Polynomially-bounded}{6}{subsection.1.8}%
+\contentsline {subsection}{\numberline {1.9}Limit method}{6}{subsection.1.9}%
+\contentsline {subsubsection}{\numberline {1.9.1}L'Hôpital's rule}{7}{subsubsection.1.9.1}%
+\contentsline {subsubsection}{\numberline {1.9.2}Logs of limits and limits of logs}{7}{subsubsection.1.9.2}%
+\contentsline {section}{\numberline {2}Logarithms, Summations (L7)}{7}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Logarithms (Ch. 3.3 pg. 66-7)}{7}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Definition and notation}{7}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Properties}{7}{subsubsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.2}Functional iteration}{8}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Iterated logarithm function}{8}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Fibonacci Numbers (Ch. 3.3)}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Definition}{8}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Golden ratio and its conjugate}{8}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Summations (Ap. A.1 pg. 1140-51)}{9}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Arithmetic series}{9}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}General arithmetic series}{9}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Sums of squares and cubes}{9}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Finite geometric series}{9}{subsubsection.2.5.4}%
+\contentsline {subsubsection}{\numberline {2.5.5}Infinite decreasing geometric series}{9}{subsubsection.2.5.5}%
+\contentsline {subsubsection}{\numberline {2.5.6}Harmonic series}{9}{subsubsection.2.5.6}%
+\contentsline {subsubsection}{\numberline {2.5.7}Telescoping series}{9}{subsubsection.2.5.7}%
+\contentsline {subsubsection}{\numberline {2.5.8}Reindexing summations}{10}{subsubsection.2.5.8}%
+\contentsline {subsubsection}{\numberline {2.5.9}Products}{10}{subsubsection.2.5.9}%
+\contentsline {subsubsection}{\numberline {2.5.10}Product to summation}{10}{subsubsection.2.5.10}%
+\contentsline {section}{\numberline {3}Induction, Contradiction (L3)}{10}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Induction (Ap. A.2)}{10}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Contradiction}{11}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Recurrences (Ch. 2.3, L4)}{12}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Recurrences introduction (Ch. 4.1)}{12}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Mergesort}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Master theorem (Ch. 4.5 pg. 101-6)}{14}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Substitution (Ch. 4.3 pg. 90-4)}{16}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Recursion tree method (Ch. 4.4 pg. 95-101)}{17}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Graphs, Trees (Ap. B.4-5, L6)}{19}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Graphs}{19}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Directed and undirected graphs}{19}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Terminology}{19}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Graph representation}{20}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Clique}{21}{subsubsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.2}Free trees}{21}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Properties}{21}{subsubsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.3}Forest}{21}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Rooted and ordered trees}{21}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Rooted trees}{21}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Ordered trees}{21}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Terminology}{22}{subsubsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.5}Binary and positional trees}{22}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Binary trees}{22}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Terminology}{22}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Positional trees}{23}{subsubsection.5.5.3}%
+\contentsline {subsubsection}{\numberline {5.5.4}K-ary trees}{23}{subsubsection.5.5.4}%
+\contentsline {section}{\numberline {6}Permutations, Combinations (Ap. C.1, L5)}{23}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Rule of sum and product}{23}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Permutations}{23}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Permutations with identical items}{23}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Permutations with repetitions}{23}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Combinations}{23}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Binomial theorem}{24}{subsection.6.6}%
+\contentsline {section}{\numberline {7}Probability (Ap. C.2, L8)}{24}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Sample space}{24}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Event}{24}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Probability axioms}{24}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Additive rule}{24}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Uniform distribution}{24}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Independence}{24}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Bayes theorem}{24}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Bayes' rule with total probability}{25}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Discrete random variable}{25}{subsection.7.9}%
+\contentsline {subsection}{\numberline {7.10}Probability mass function}{25}{subsection.7.10}%
+\contentsline {subsection}{\numberline {7.11}Expectation}{25}{subsection.7.11}%
+\contentsline {subsection}{\numberline {7.12}Properties of expectation}{25}{subsection.7.12}%
+\contentsline {section}{\numberline {8}Heaps, Heapsort (Ch. 6, L9)}{26}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Intro to heapsort}{26}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}In-place Sorting}{26}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Indexing}{26}{subsubsection.8.1.2}%
+\contentsline {subsubsection}{\numberline {8.1.3}Heap-tree: (2 properties)}{26}{subsubsection.8.1.3}%
+\contentsline {subsubsection}{\numberline {8.1.4}Height}{26}{subsubsection.8.1.4}%
+\contentsline {subsection}{\numberline {8.2}Heap operations}{26}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Insert}{26}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Bubble up}{27}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Extract max}{27}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Bubble down}{27}{subsubsection.8.2.4}%
+\contentsline {subsection}{\numberline {8.3}Heapsort}{28}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Build heap}{29}{subsubsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.4}Heap runtime and priority queue}{30}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Tight bound for build heap}{30}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Priority queue}{31}{subsubsection.8.4.2}%
+\contentsline {section}{\numberline {9}Quicksort (Ch. 7, L10)}{31}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Intro}{31}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}QS algorithm}{31}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Partition}{31}{subsubsection.9.1.2}%
+\contentsline {subsection}{\numberline {9.2}QS basic analysis}{32}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}QS best case}{32}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}QS worst case}{32}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}QS average case}{33}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Worst-case (formal)}{34}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Randomized QS}{34}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Motivation for randomized QS}{34}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Random partition}{35}{subsubsection.9.4.2}%
+\contentsline {section}{\numberline {10}Counting sort, Radix sort (Ch. 8)}{36}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Lower bound on sorting and counting sort}{36}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Radix sort}{36}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Selection sort, Binary search trees (Ch. 12)}{36}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Selection sort}{36}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Binary search trees}{36}{subsection.11.2}%
+\contentsline {section}{\numberline {12}Red black trees (Ch. 13)}{36}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Properties}{36}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Balance proof}{36}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Operations}{36}{subsection.12.3}%
+\contentsline {section}{\numberline {13}Hash tables, Hashing (Ch. 11)}{36}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Motivation}{36}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Resolution by chaining}{36}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Resolution by open addressing}{36}{subsection.13.3}%
+\contentsline {section}{\numberline {14}Dynamic programming (Ch. 14)}{36}{section.14}%
+\contentsline {subsection}{\numberline {14.1}DP matrix multiplication}{36}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}DP longest common subsequence}{36}{subsection.14.2}%
+\contentsline {section}{\numberline {15}Greedy algorithms (Ch. 15)}{36}{section.15}%
+\contentsline {section}{\numberline {16}Amortized analysis (Ch. 16)}{36}{section.16}%
+\contentsline {section}{\numberline {17}Splay trees}{36}{section.17}%
+\contentsline {section}{\numberline {18}Graph algorithms (Ch. 20)}{36}{section.18}%
+\contentsline {subsection}{\numberline {18.1}Intro}{36}{subsection.18.1}%
+\contentsline {subsection}{\numberline {18.2}Breadth-first search}{36}{subsection.18.2}%
+\contentsline {subsection}{\numberline {18.3}Depth-first search}{36}{subsection.18.3}%
+\contentsline {section}{\numberline {19}Minimum spanning trees (Ch. 21)}{36}{section.19}%
+\contentsline {section}{\numberline {20}Shortest paths (Ch. 22)}{36}{section.20}%
+\contentsline {section}{\numberline {21}Maximum flow (Ch. 24)}{36}{section.21}%
+\contentsline {section}{\numberline {22}P, NP, and NPC introduction (Ch. 34)}{36}{section.22}%
+\contentsline {section}{\numberline {23}NPC (Ch. 34)}{36}{section.23}%

@@ -1,0 +1,90 @@
+\subsection{Comparison methods terminology}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Internal Rate of Return (IRR):} The discount rate at which the present worth of a project is equal to 0.
+            \begin{itemize}
+                \item More profitable projects have higher IRR.
+            \end{itemize}
+        
+        \item \textbf{Simple Investment:} When all negative cash flows occur before all positive cash flows.
+            \begin{itemize}
+                \item Can have multiple IRR when cash flows are not simple.
+            \end{itemize}
+        
+        \item \textbf{Payback Period:} Time it takes for the sum of revenues/savings to equal the initial investment.
+        
+        \item \textbf{Discounted Payback Period:} Time it takes for the sum of present worth (PW) of revenues/savings to equal the initial investment.
+        
+        \item \textbf{Incremental IRR:} Evaluates the difference (increment) between two mutually exclusive alternatives.
+        
+        \item \textbf{De Facto MARR:} The IRR of the project that, when summing the financial commitments (FC) of all projects by highest IRR, is the last to be taken on before exceeding the allotted budget.
+    
+    \end{itemize}
+\end{terminology}
+
+\subsection{IRR calculation}
+\begin{process}
+
+    \textbf{Analytical method}
+        \begin{enumerate}
+            \item Write PW equation for all cash flows using explicit formulas for cash flow factors, leaving discount rate as $i$.
+            \item Enter the equation into Desmos, iteratively solve for $i > 0$ that makes PW equal to 0.
+            \item If $IRR > MARR$, project is worthwhile.
+            \item If $IRR < MARR$, project is not worthwhile.
+        \end{enumerate}
+
+    \vspace{1em}
+    \textbf{Excel method}
+        \begin{enumerate}
+            \item Enter cash flows into Excel starting at year 0.
+            \item Use IRR function: $=IRR(cashflows, i\% \quad guess)$
+            \item If $IRR > MARR$, project is worthwhile.
+            \item If $IRR < MARR$, project is not worthwhile.
+        \end{enumerate}            
+\end{process}
+
+\subsection{Payback period calculation}
+\subsubsection{Non-Discounted}
+    \begin{definition}
+        \begin{enumerate}
+            \item Find the year when the sum of revenues/savings equals the initial investment.
+            \item If between periods, interpolate:
+            
+            \begin{equation}
+                \frac{N - y_1}{y_2 - y_1} = \frac{FC - c_1}{c_2 - c_1} \Rightarrow N = (y_2 - y_1) \frac{FC - c_1}{c_2 - c_1} + Y_1
+            \end{equation}
+        \end{enumerate}
+
+        \begin{itemize}
+            \item $N$: Payback period (a decimal value when interpolating)
+            \item $FC$: First cost/initial investment (positive)
+            \item $y_1$: Lower bound of the period of interpolation $(y_1 \leq y_2)$
+            \item $y_2$: Upper bound of the period of interpolation
+            \item $c_1$: Cumulative sum of revenues/savings at period $y_1 (c_1 \leq c_2)$
+            \item $c_2$: Cumulative sum of revenues/savings at period $y_2$
+        \end{itemize}
+    \end{definition}
+
+\subsubsection{Discounted}
+    \begin{definition}
+        \begin{enumerate}
+            \item Discount revenue at year $y_N$ by $(P/F, i, N)$.
+            \item Add discounted revenue to cumulative discounted revenue of the previous year; the sum is the cumulative discounted revenue in year $y_N$.
+            \item Visually identify the discounted payback period or interpolate as seen in the Non-Discounted section.
+        \end{enumerate}
+    \end{definition}
+
+\subsection{Incremental IRR}
+\begin{process}
+    \begin{enumerate}
+        \item Order alternatives in increasing order of $FC$ (First cost).
+        
+        \item Start with the "do-nothing" alternative.
+        
+        \item Using $\Delta FC$ and $\Delta A$ between the current choice and the option being evaluated as the $FC$ and $A$, if the resultant $IRR > MARR$, switch to that alternative as the reference.
+        
+        \item Repeat step 3 for the rest of the options.
+        
+        \item Final choice is the most profitable project.
+    \end{enumerate}
+\end{process}

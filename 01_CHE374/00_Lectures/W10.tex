@@ -1,0 +1,251 @@
+\subsection{Inflation terms}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Inflation:} A rise in the average price of goods and services over time, reflecting a decline in the purchasing power of the dollar.
+        \item \textbf{Deflation:} A decrease in the average price of goods and services over time.
+        \item \textbf{Consumer Price Index (CPI):} A measure that examines the weighted average of prices of a basket of goods and services which are of primary consumer needs.
+        \item \textbf{CPI Base Year:} 2002
+        \item \textbf{CPI Base Year Index:} 100
+        \begin{itemize}
+            \item Index for any other year indicates the number of dollars needed in that year to buy the basket of goods that cost \$100 in 2002.
+        \end{itemize}
+        \item \textbf{Actual (current, nominal) dollars:} Expressed in the monetary units at the time the cash flow occurs.
+        \item \textbf{Real (constant) dollars:} Expressed in the monetary units of constant purchasing power, and must always be associated with a particular date.
+        \item \textbf{Purchasing Power Ratio:} Ratio of actual investment value over price of good when base values are identical.
+        \item \textbf{Actual Interest Rate} (\(i, i_A\)): Observed interest rate based on actual dollars.
+        \item \textbf{Real Interest Rate} (\(i', i_R\)): Interest rate based on dollars of constant purchasing power.
+        \begin{equation}
+            1 + i_R = \frac{1 + i_A}{1 + f}
+        \end{equation}
+        \item \(f\): Inflation rate
+    \end{itemize}
+\end{terminology}
+
+\subsection{Calculating CPI \& inflation}
+\subsubsection{CPI index}
+    \begin{definition}
+        \begin{equation}
+            \text{Index} = \left( \frac{\text{Basket Value in Year } N}{\text{Basket Value in Base Year}} \right) \times 100
+        \end{equation}
+    \end{definition}
+
+\subsubsection{Inflation rate from CPI index}
+    \begin{definition}
+        \begin{equation}
+            1 + f = \frac{\text{Index in Year } N_2 - \text{Index in Year } N_1}{\text{Index in Year } N_1};\: N_2 > N_1
+        \end{equation}
+        \begin{itemize}
+            \item \(f\): Inflation from year $N_1$ to $N_2$.
+        \end{itemize}
+        \begin{equation}
+            1 + f_N = \frac{\text{CPI}_{N} - \text{CPI}_{N-1}}{\text{CPI}_{N-1}}
+        \end{equation}
+        
+        \begin{itemize}
+            \item $f_N$: Inflation in year N from CPI.
+        \end{itemize}
+    \end{definition}
+
+\subsubsection{Average inflation from CPI}
+    \begin{definition}
+        \begin{equation}
+            1 + f_{N_1 \rightarrow N_2} = \frac{\text{CPI}_{N_2}}{\text{CPI}_{N_1}}
+        \end{equation}
+        
+        \begin{equation}
+            (1 + f_{\text{avg}})^{N_2 - N_1} = 1 + f_{N_1 \rightarrow N_2}
+        \end{equation}
+    \end{definition}
+
+\subsection{Real value}
+\subsubsection{Real rate}
+    \begin{definition}
+        \begin{equation}
+            1 + r_{real} = \frac{1 + r_{actual}}{1 + f}
+        \end{equation}
+        \begin{itemize}
+            \item \(f\): Inflation rate
+            \item \(r_{actual}\): Actual rate of growth (e.g. of investment)
+        \end{itemize}
+        \vspace{1em}
+
+        If continuously compounding: 
+        \begin{align}
+            e^{r_{real}} = e^{r_{actual} - f} \\
+            \therefore r_{real} = r_{actual} - f
+        \end{align}
+        
+    \end{definition}
+
+\subsubsection{Real value from purchasing power}
+    \begin{definition}
+        \begin{equation}
+            \text{Real Value}_N = \text{CPI}_o \times \text{PP}_N = \text{CPI}_o \times \left (\frac{1 + r_{actual}}{1 + f} \right)^N = \text{CPI}_o \times (1 + r_{real})^N
+        \end{equation}        
+    \end{definition}
+
+\subsection{Economic valuation with inflation}
+\subsubsection{Actual vs. real values}
+    \begin{definition}
+
+        \textbf{Actual values}
+            \begin{itemize}
+                \item Must adjust for inflation. 
+                \item Use actual MARR: \(i_A\)
+                \item Most market interest rates given with actual rates
+            \end{itemize}
+        \textbf{Real values}
+            \begin{itemize}
+                \item Do not adjust for inflation. 
+                \item Use real MARR: \(i_R\) 
+            \end{itemize}
+    \end{definition}
+\subsubsection{Cash flow with inflation}
+    \begin{definition}
+        \begin{itemize}
+            \item If \(A\) is given in actual dollars:
+            \begin{equation}
+                \text{PW} = -\text{FC} + A (P/A, i_A, N)
+            \end{equation}
+        
+            \item If \(A\) is given in real dollars:
+            \begin{equation}
+                \text{PW} = -\text{FC} + A (P/A, i_R, N)
+            \end{equation}
+        \end{itemize}
+    \end{definition}
+
+\subsubsection{Loan with inflation}
+    \begin{process}
+        \begin{enumerate}
+            \item Convert loan interest rate to effective annual rate:
+            \begin{equation}
+                1 + i_e = \left(1 + \frac{r}{m}\right)^m
+            \end{equation}
+        
+            \item Find real effective interest rate:
+            \begin{equation}
+                1 + i_R = \frac{1 + i_A}{1 + f}
+            \end{equation}
+        \end{enumerate}
+    \end{process}
+
+\subsubsection{Bond with inflation}
+    \begin{process}
+        \begin{enumerate}
+            \item Convert to actual effective rate \( i_A \) (yield):
+            \begin{equation}
+                1 + i_R = \frac{1 + i_A}{1 + f}
+            \end{equation}
+        
+            \item Convert to interest rate with compounding period matching coupon amounts:
+            \begin{equation}
+                1 + i_A = \left(1 + \frac{r}{m} \right)^m
+            \end{equation}
+        
+            \item Calculate bond price:
+            \begin{equation}
+                \text{Coupon amount} = \frac{\text{Coupon rate} \times \text{Face Value}}{\text{Payment Frequency}}
+            \end{equation}
+            \begin{align}
+                P = A\left(P/A, \frac{i}{m}, N\right) + F\left(P/F, \frac{i}{m}, N\right) \\
+                P = A \left( \frac{(1+\frac{i}{m})^{N} - 1}{\frac{i}{m} (1 + \frac{i}{m})^N} \right) + F \left( \frac{1}{(1+\frac{i}{m})^N} \right)
+            \end{align}
+        \end{enumerate}
+
+        \begin{itemize}
+            \item \( i \): Yield (\( i_A \)).
+            \item \( m \): Frequency of coupon payments per time unit (e.g., year).
+            \item \( N \): Number of periods to maturity (\( m \times \text{time unit} \)).
+            \item \( A \): Value of each coupon payment.
+        \end{itemize}
+    \end{process}
+
+\subsection{Inflation with tax benefits}
+Depreciation factors are in actual dollars, so actual interest rates must be used in tax benefit factors.
+
+\subsubsection{Tax benefit factors with inflation}
+    \begin{process}
+        \begin{enumerate}
+            \item Calculate the actual rate:
+            \begin{equation}
+                1 + i_A = (1 + i_R)(1 + f)
+            \end{equation}
+            
+            \item If \( S \) is given in today's dollars, convert to actual dollars. Alternatively, use the shortcut:
+            \begin{equation}
+                S_A = S(1 + f)^N
+            \end{equation}
+            
+            \item Calculate present worth (PW):
+            \begin{align}
+                PW = -FC \times CTF + S_A \times CSF \left(P/A,i_A,N \right) \\ 
+                = -FC \times CTF + S \frac{(1 + f)^N}{(1 + i_A)^N} \times CSF \\ 
+                = -FC \times CTF + S \frac{1}{(1 + i_R)^N} \times CSF
+            \end{align}
+            \begin{itemize}
+                \item If \( S \) is given in real dollars, only need to discount at real MARR:
+            \end{itemize} 
+            \begin{equation}
+                PW = -FC \times CTF + S_R (P/F, i_R, N) \times CSF
+            \end{equation}
+        
+            \begin{itemize}
+                \item Always use actual values for tax benefit factors:
+            \end{itemize}
+            \begin{equation}
+                \tau_{db} = \frac{td}{i + d};\: CSF = 1-\tau_{db}
+            \end{equation}
+            \begin{itemize}
+                \item $t$: Tax rate
+                \item $d$: Depreciation rate
+                \item $i$: After-tax MARR
+            \end{itemize}
+
+            \begin{equation}
+                \tau_{1/2} = \frac{td}{i + t_d} \cdot \frac{1 + i/2}{1+i}; \: CTF = 1 - \tau_{1/2}
+            \end{equation}
+            \vspace{1em}
+        
+            \item If benefits are present (annuity or geometric sequence):
+            \vspace{1em}
+
+            Multiply further by $(P/\text{geom}, i_A, f, N)$ if using actual values.
+            \begin{itemize}
+                \item Find \( i_R \) if \textbf{geometric}, discount at \( i_R \) increasing/decreasing at \(+/-\: g\% \):
+                \begin{equation}
+                    PW = G \left({P/\text{geom}, i_R, g_R, N} \right)
+                \end{equation}
+                \begin{itemize}
+                    \item Discount if value given for end of year and is actual:
+                \end{itemize}
+                \begin{equation}
+                    PW = \frac{G}{1+f} \left(P/\text{geom}, i_R, g_R, N\right)
+                \end{equation}
+                \begin{itemize}
+                    \item Taxes if revenue:
+                \end{itemize}
+                \begin{equation}
+                    PW = G \left(P/\text{geom}, i_R, g_R, N\right) (1-t)
+                \end{equation}
+
+                \item If \textbf{annuity}, find PW using \( i_R \):
+                \begin{equation}
+                    PW = A \left(P/A, i_R, N \right)
+                \end{equation}
+                \begin{itemize}
+                    \item Discount if value given for end of year and is actual:
+                \end{itemize}
+                \begin{equation}
+                    PW = \frac{A}{1+f} \left(P/A, i_R, N \right)
+                \end{equation}
+                \begin{itemize}
+                    \item Taxes if revenue:
+                \end{itemize}
+                \begin{equation}
+                    PW = \left(P/A, i_R, N \right) (1-t)
+                \end{equation}
+                \item Sum to PW of FC and SV to get total PW.
+            \end{itemize}
+        \end{enumerate}
+    \end{process}

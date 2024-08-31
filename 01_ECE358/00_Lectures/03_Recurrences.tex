@@ -1,0 +1,446 @@
+\subsection{Recurrences introduction (Ch. 4.1)}
+Divide-and-conquer method is useful to solve recurrences, which has three steps: 
+\begin{enumerate}
+    \item \textbf{Divide} the problem into one or more subproblems that are smaller instances of the same problem.
+    \item \textbf{Conquer} the subproblems by solving them recursively.
+    \item \textbf{Combine} the subproblem solutions to form a solution to the original problem.
+\end{enumerate}
+
+\begin{definition}
+    A \textbf{recurrence} is an equation (or inequality) that describes a function in terms of its value on other, typically smaller, arguments.
+    \begin{itemize}
+        \item \textbf{Inequality:} You will use $\Omega$ (i.e. lower bound) or $O$ (i.e. upper bound).
+    \end{itemize}
+    \vspace{1em}
+
+    A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \textbf{threshold} constant $n_0 >0$, the following two properties hold:
+    \begin{enumerate}
+        \item $\forall$ $n<n_0$, $T(n) = \Theta(1)$ (i.e. $\exists \; c_1, \; c_2 \in \mathbb{R}$ s.t. $0<c_1\leq T(n) \leq c_2 \text{ for } n<n_0$)
+        \item $\forall$ $n \geq n_0$, every path of recursion terminates in a defined base case within a finite number of recursive invocations (prevents infinite recursive loop or failure to compute a solution).
+    \end{enumerate}
+\end{definition}
+
+\begin{intuition}
+    Whenever a recurrence is stated without an explicit base case, we assume that the recurrence is algorithmic.
+    \begin{itemize}
+        \item \textbf{Implication:} This means we can pick any sufficiently large threshold constant $n_0$.
+    \end{itemize}
+\end{intuition}
+
+
+\subsection{Mergesort}
+    \begin{definition}
+        The Merge Sort algorithm is defined as:
+        \begin{equation}
+            \text{mergesort}(A, p, r) \rightarrow O(n \log n)
+        \end{equation}
+        where \( A \) is the array to be sorted, \( p \) is the starting index, and \( r \) is the ending index.   
+       
+        \begin{lstlisting}[language=Python, caption=Merge Sort Pseudocode]
+            def merge_sort(A, p, r):
+                if p >= r:                  # zero or one element?
+                    return
+                
+                q = (p + r) // 2            # midpoint of A[p : r] 
+                merge_sort(A, p, q)         # recursively sort A[p : q] --> T(n/2)
+                merge_sort(A, q + 1, r)     # recursively sort A[q + 1 : r] --> T(n/2)
+                # Merge A[p : q] and A[q + 1 : r] into A[p : r]
+                merge(A, p, q, r) # --> O(n)
+        \end{lstlisting}   
+        \vspace{1em}
+        The time complexity of mergesort is
+        \begin{equation}
+            T(n) = 2T\left(\frac{n}{2}\right) + O(n)
+        \end{equation} 
+        \begin{itemize}
+            \item $2T(n/2)$ is the recursive time complexity of handling a subproblem half the size. 
+            \item $O(n)$ is the linear time required to merge the results.
+        \end{itemize}
+    \end{definition}
+
+    \customFigure[0.5]{00_Images/Merge_Sort.png}{Merge sort visualization.}
+
+\subsection{Master theorem (Ch. 4.5 pg. 101-6)}
+    \begin{theorem}
+        Let \( a \geq 1 \), \( b > 1 \), and \( f(n) \) be a function, so that the recurrence is 
+
+        \begin{equation}
+            T(n) = aT\left(\frac{n}{b}\right) + f(n)
+        \end{equation}
+
+        Then the asymptotic behavior of \( T(n) \) is
+        \begin{enumerate}
+            \item If \( f(n) = O\left(n^{\log_b (a) - \epsilon}\right) \) for \( \epsilon > 0 \), then \( T(n) = \Theta\left(n^{\log_b a}\right) \).
+            
+            \item If \( f(n) = \Theta\left(n^{\log_b (a)}\right) \), then \( T(n) = \Theta\left(n^{\log_b a} \log n\right) \).
+            
+            \item If \( f(n) = \Omega\left(n^{\log_b (a) + \epsilon}\right) \) for \( \epsilon > 0 \) and \( af\left(\frac{n}{b}\right) \leq cf(n) \) for \( 0 < c < 1 \), then \( T(n) = \Theta(f(n)) \).
+        \end{enumerate}
+    \end{theorem}
+
+    \begin{process}
+        \begin{enumerate}
+            \item Identify the recurrence relationship.
+            \item State $a$, $b$, and $f(n)$. Make sure the conditions are met.
+            \item Calculate $n^{\log_b a}$. 
+            \item Compare $f(n)$ with $n^{\log_b a}$ to see which case the function applies too.
+            \begin{enumerate}
+                \item If $\epsilon$ case is used, then apply an abitrary value to see (usually natural numbers work well).
+            \end{enumerate}
+            \item Write down the answer by applying the Master Theorem.
+        \end{enumerate}
+    \end{process}
+    
+    \begin{example}
+        Find the time complexity of Merge Sort using Master Theorem.
+        \begin{enumerate}
+            \item \textbf{Identify the Recurrence Relation:}
+            \begin{itemize}
+                \item The recurrence relation for the merge sort algorithm is given by:
+                \[
+                T(n) = 2T\left(\frac{n}{2}\right) + O(n)
+                \]
+                \item This represents dividing the problem into two subproblems of half the size and then merging the results in linear time.
+            \end{itemize}
+        
+            \item \textbf{State Parameters:}
+            \begin{itemize}
+                \item Compare the recurrence relation with the general form:
+                \[
+                T(n) = aT\left(\frac{n}{b}\right) + f(n)
+                \]
+                \item For the given problem:
+                \begin{itemize}
+                    \item \( a = 2 \): The number of subproblems.
+                    \item \( b = 2 \): The factor by which the problem size is divided.
+                    \item \( f(n) = O(n) \): The cost of dividing and merging the results.
+                \end{itemize}
+            \end{itemize}
+        
+            \item \textbf{Calculate \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item Compute \( \log_b a \):
+                \[
+                \log_b a = \log_2 2 = 1
+                \]
+                \item Thus, \( n^{\log_b a} = n^1 = n \).
+            \end{itemize}
+        
+            \item \textbf{Compare \( f(n) \) with \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item \( f(n) = O(n) \) and \( n^{\log_b a} = n \).
+                \item Since \( f(n) = O(n) \) and \( f(n) = \Theta(n^{\log_b a}) = \Theta(n) \), this fits Case 2 of the Master Theorem.
+            \end{itemize}
+        
+            \item \textbf{Apply the Master Theorem - Case 2:}
+            \begin{itemize}
+                \item Case 2 states: If \( f(n) = \Theta(n^{\log_b a}) \), then:
+                \[
+                T(n) = \Theta(n^{\log_b a} \log n) = \Theta(n \log n)
+                \]
+                \item Therefore, the time complexity of merge sort is:
+                \[
+                T(n) = \Theta(n \log n)
+                \]
+            \end{itemize}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        Find the time complexity of this recurrence using Master Theorem.
+        \begin{enumerate}
+            \item \textbf{Identify the Recurrence Relation:}
+            \begin{itemize}
+                \item The recurrence relation is:
+                \[
+                T(n) = 9T\left(\frac{n}{3}\right) + n
+                \]
+            \end{itemize}
+            
+            \item \textbf{State Parameters:}
+            \begin{itemize}
+                \item Comparing with the general form \( T(n) = aT\left(\frac{n}{b}\right) + f(n) \), we have:
+                \begin{itemize}
+                    \item \( a = 9 \): Number of subproblems.
+                    \item \( b = 3 \): Factor by which the problem size is divided.
+                    \item \( f(n) = n \): The cost of the work done outside the recursive calls.
+                \end{itemize}
+            \end{itemize}
+            
+            \item \textbf{Calculate \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item Compute \( \log_b a \):
+                \[
+                \log_3 9 = 2
+                \]
+                \item Thus, \( n^{\log_b a} = n^2 \).
+            \end{itemize}
+            
+            \item \textbf{Compare \( f(n) \) with \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item Given \( f(n) = n \), we have:
+                \[
+                f(n) = n = O\left(n^{\log_b a - \epsilon}\right) = O\left(n^{2-1}\right) = O(n)
+                \]
+                \item Since \( f(n) = O\left(n^{\log_b a - \epsilon}\right) \), this fits Case 1 of the Master Theorem.
+            \end{itemize}
+            
+            \item \textbf{Apply the Master Theorem - Case 1:}
+            \begin{itemize}
+                \item Case 1 states: If \( f(n) = O\left(n^{\log_b a - \epsilon}\right) \) for some \( \epsilon > 0 \), then:
+                \[
+                T(n) = \Theta\left(n^{\log_b a}\right) = \Theta(n^2)
+                \]
+                \item Hence, the time complexity is:
+                \[
+                T(n) = \Theta(n^2)
+                \]
+            \end{itemize}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        Find the time complexity of this recurrence using Master Theorem.
+        \begin{enumerate}
+            \item \textbf{Identify the Recurrence Relation:}
+            \begin{itemize}
+                \item The recurrence relation is:
+                \[
+                T(n) = 3T\left(\frac{n}{4}\right) + n \log(n)
+                \]
+            \end{itemize}
+            
+            \item \textbf{State Parameters:}
+            \begin{itemize}
+                \item Comparing with the general form \( T(n) = aT\left(\frac{n}{b}\right) + f(n) \), we have:
+                \begin{itemize}
+                    \item \( a = 3 \): Number of subproblems.
+                    \item \( b = 4 \): Factor by which the problem size is divided.
+                    \item \( f(n) = n \log(n) \): The cost of the work done outside the recursive calls.
+                \end{itemize}
+            \end{itemize}
+            
+            \item \textbf{Calculate \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item Compute \( \log_b a \):
+                \[
+                \log_4 3 \approx 0.793
+                \]
+                \item Thus, \( n^{\log_b a} = n^{0.793} \).
+            \end{itemize}
+            
+            \item \textbf{Compare \( f(n) \) with \( n^{\log_b a} \):}
+            \begin{itemize}
+                \item \( f(n) = n \log(n) \) is compared with \( \Omega\left(n^{0.793 + 0.2}\right) \), which implies:
+                \[
+                n \log(n) = \Omega\left(n^{0.993}\right)
+                \]
+                \item This indicates that \( f(n) \) dominates \( n^{\log_b a} \) with a polynomial difference, which suggests considering Case 3 of the Master Theorem.
+            \end{itemize}
+            
+            \item \textbf{Verify Condition for Case 3 of the Master Theorem:}
+            \begin{itemize}
+                \item Check if \( af\left(\frac{n}{b}\right) \leq cf(n) \) for some \( c < 1 \):
+                \[
+                3 \left(\frac{n}{4}\right) \log\left(\frac{n}{4}\right) \leq \frac{3}{4} n \log(n)
+                \]
+                \item This inequality is true for the chosen constants, satisfying Case 3.
+            \end{itemize}
+            
+            \item \textbf{Apply the Master Theorem - Case 3:}
+            \begin{itemize}
+                \item Since \( f(n) = \Omega\left(n^{\log_b a + \epsilon}\right) \) and the regularity condition is satisfied, we conclude:
+                \[
+                T(n) = \Theta(n \log n)
+                \]
+            \end{itemize}
+        \end{enumerate}
+    \end{example}
+
+\subsection{Substitution (Ch. 4.3 pg. 90-4)}
+    \begin{process}
+        \begin{enumerate}
+            \item Guess the form of the solution for $T(n)=?$
+            \item Use induction to show that the solution works.
+            \begin{enumerate}
+                \item Basis: Find the base case using values of n that correspond (i.e. make sense) with the guessed solution.
+                \item Inductive hypothesis:
+                \item Inductive step:
+            \end{enumerate}
+            \item Find the constants.
+        \end{enumerate}
+    \end{process}
+    
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Bounds:} Rather than trying to prove $\Theta$-bound directly, first prove an $O$-bound, and then prove an $\Omega$-bound, then use Theorem 3.1.
+            \item \textbf{Making a good guess:}
+            \begin{itemize}
+                \item See if the recurrence is similar to one you've seen before, then guessing a similar solution.
+                \item Determine loose upper and lower bounds on the recurrence and then reduce your range of uncertainty.
+            \end{itemize}
+            \item \textbf{Trick:} Subtract a lower-order term when the math fails to work out in the induction proof.
+            \item \textbf{Avoid:} 
+            \begin{itemize}
+                \item Don't use asymptotic notation in the inductive hypothesis for the sub-method.
+                \item You must be careful that the constants hidden by any asymptotic notation are the same constants throughout the proof.
+            \end{itemize}
+        \end{itemize}
+    \end{intuition}
+
+    \begin{example}
+        Find the time complexity of the recurrence using sub-method. 
+        \begin{enumerate}
+            \item \textbf{Guess the Form of the Solution:}
+            \begin{itemize}
+                \item Given recurrence relation:
+                \[
+                T(n) = 2T\left(\left\lfloor \frac{n}{2} \right\rfloor\right) + n
+                \]
+                \item Guess: \( T(n) = cn \log n \).
+            \end{itemize}
+        
+            \item \textbf{Basis:}
+            \begin{itemize}
+                \item Check the base cases:
+                \[
+                T(2) = 4, \quad T(3) = 5
+                \]
+                \item Both satisfy \( T(n) = cn \log n \), verifying the base cases.
+            \end{itemize}
+            
+            \item \textbf{Inductive Hypothesis:}
+            \begin{itemize}
+                \item Assume \( T(k) \leq ck \log k \) for all \( k < n \).
+                \item Specifically, assume:
+                \[
+                T\left(\frac{n}{2}\right) \leq c \cdot \frac{n}{2} \log\left(\frac{n}{2}\right)
+                \]
+            \end{itemize}
+        
+            \item \textbf{Inductive Step:}
+            \begin{itemize}
+                \item Show it holds for \( T(n) \):
+                \[
+                T(n) = 2T\left(\frac{n}{2}\right) + n
+                \]
+                \item Substitute the inductive hypothesis:
+                \[
+                T(n) \leq 2 \left(c \cdot \frac{n}{2} \log\left(\frac{n}{2}\right)\right) + n
+                \]
+                \item Simplify:
+                \[
+                = cn \log\left(\frac{n}{2}\right) + n
+                \]
+                \item Use the logarithm property \( \log(ab) = \log a + \log b \):
+                \[
+                = cn(\log n - \log 2) + n
+                \]
+                \[
+                = cn \log n - cn \log 2 + n
+                \]
+                \item Factor \( n \):
+                \[
+                = n(c \log n - c \log 2 + 1)
+                \]
+            \end{itemize}
+        
+            \item \textbf{Find the Constant \( c \):}
+            \begin{itemize}
+                \item To keep \( T(n) \leq cn \log n \), ensure:
+                \[
+                c \log n - c \log 2 + 1 \leq c \log n
+                \]
+                \item Simplifying, we need:
+                \[
+                -c \log 2 + 1 \leq 0
+                \]
+                \item This implies:
+                \[
+                c \geq \frac{1}{\log 2}
+                \]
+                \item Choose \( c \geq 2 \) (since \( \log 2 \approx 0.693 \)), which satisfies the inequality $2 \geq 1.44$.
+            \end{itemize}
+        \end{enumerate}
+    \end{example}
+
+\subsection{Recursion tree method (Ch. 4.4 pg. 95-101)}
+    \begin{definition}
+        In a recursion tree, each node represents the cost of a single subproblem somewhere in the set of recursive function invocations.
+    \end{definition}
+
+    \begin{process}
+        \begin{enumerate}
+            \item Sum the costs within each level of the tree to obtain the per-level costs.
+            \item Sum all the per-level costs to determine the total cost of all levels of the recursion. 
+            \item (1) Generate a good-guess, then verify using sub-method. (2) Use as a direct solution.
+        \end{enumerate}
+    \end{process}
+
+    \begin{intuition}
+        How to make the recursion tree based on the recurrence.
+    \end{intuition}
+
+    \begin{example}
+        \begin{enumerate}
+            \item \textbf{Given Recurrence Relation:}
+            \begin{itemize}
+                \item The recurrence relation is:
+                \[
+                T(n) = T\left(\frac{n}{4}\right) + T\left(\frac{2n}{3}\right) + n
+                \]
+            \end{itemize}
+            
+            \item \textbf{Building the Recursion Tree:}
+            \begin{itemize}
+                \item The tree starts with \( T(n) \) at the root.
+                \item Each node \( T(n) \) branches into two child nodes:
+                \[
+                T\left(\frac{n}{4}\right) \quad \text{and} \quad T\left(\frac{2n}{3}\right)
+                \]
+                \item This branching continues recursively until the problem size becomes small (base case).
+            \end{itemize}
+            \customFigure[0.75]{00_Images/Recursion_Tree.png}{Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}
+            
+            \item \textbf{Calculating Work Done at Each Level:}
+            \begin{itemize}
+                \item At the root, the work done is \( n \).
+                \item At the next level, the work is divided between:
+                \[
+                T\left(\frac{n}{4}\right) \quad \text{and} \quad T\left(\frac{2n}{3}\right)
+                \]
+                \item This pattern continues, and the work at each level is the sum of the work done by each subproblem.
+                \item The total work at each level is \( n \), as shown by the distribution of the work across the nodes.
+            \end{itemize}
+            
+            \item \textbf{Height of the Tree:}
+            \begin{itemize}
+                \item The longest path (height \( h \)) of the tree is determined by the rightmost path since \( \frac{2}{3} \) is larger than \( \frac{1}{4} \).
+                \item The height \( h \) can be calculated using the formula:
+                \[
+                \left(\frac{2}{3}\right)^h \cdot n = 1
+                \]
+                \item Solving for \( h \):
+                \[
+                h = \log_{3/2}(n)
+                \]
+            \end{itemize}
+            
+            \item \textbf{Total Work Done in the Tree:}
+            \begin{itemize}
+                \item The total work is the sum of the work done at each level times the height of the tree:
+                \[
+                h \cdot n
+                \]
+                \item Substituting the value of \( h \):
+                \[
+                h \cdot n = \log_{3/2}(n) \cdot n
+                \]
+                \item This expression simplifies to:
+                \[
+                O(n \log n)
+                \]
+                \item Therefore, the total work done by the recursion tree is \( O(n \log n) \).
+            \end{itemize}
+        \end{enumerate}
+    \end{example}

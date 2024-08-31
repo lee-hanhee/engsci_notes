@@ -1,0 +1,132 @@
+\subsection{Induction (Ap. A.2)}
+    \textbf{Motivation:} The most basic way to evaluate a series is to use induction.
+    \begin{process}
+        Given proposition $P(n)$
+        \begin{enumerate}
+            \item Basis: Prove the base case $P(1)$
+            \item Inductive hypothesis: Assume true for $P(n)$
+            \item Inductive step: Use the hypothesis to show its true for $P(n) \rightarrow P(n+1)$
+        \end{enumerate}
+        Therefore, $\forall \; n P(n)$.
+    \end{process}
+
+    \begin{intuition}
+        You don't always need to guess the exact value of a summation in order to use induction. Instead, use induction to prove an upper or lower bound on a summation.
+    \end{intuition}
+
+    \begin{example}
+        Prove $\sum_{k=1}^{n} k = 1 + 2 + \ldots + n = \frac{n(n+1)}{2}$
+        \begin{enumerate}
+            \item \textbf{Basis:} $n=1 \text{, } \frac{1(1+1)}{2} = 1$
+            \item \textbf{Inductive hypothesis:} Assume true for n, $1 + 2 + \ldots + n = \frac{n(n+1)}{2}$
+            \item \textbf{Inductive step:} Prove for $n+1$: $1 + 2 + \ldots + n + (n+1) = \frac{n(n+1)}{2} + (n+1) = \frac{(n+1)(n+2)}{2}$
+        \end{enumerate}
+        Therefore, we proved by induction that the formula, $\sum_{k=1}^{n} k = \frac{n(n+1)}{2} \text{ for } n+1$ is true for $n+1$.
+    \end{example}
+
+    \begin{example}
+        Prove the asymptotic upper bound $\sum_{k=0}^{n} 3^k = O\left(3^n\right)$ or $\sum_{k=0}^{n} 3^k \leq c3^n$ for some constant $c$.
+        \begin{enumerate}
+            \item \textbf{Basis:} $n = 0 \text{: } \sum_{k=0}^{0} 3^k = 1 \leq c \text{ as long as } c \geq 1$
+            \item \textbf{Inductive hypothesis:} Assume that the bound holds for $n$.
+            \item \textbf{Inductive step:} Prove for $n+1$: 
+            \begin{align*}
+                \sum_{k=0}^{n+1} 3^k &= \sum_{k=0}^{n} 3^k + 3^{n+1} \\
+                                    &\leq c3^n + 3^{n+1} \text{ by the inductive hypothesis} \\ 
+                                    &= \left(\frac{1}{3} + \frac{1}{c}\right) c3^{n+1} \text{ by factoring out } c3^{n+1}\\
+                                    &\leq c3^{n+1} \text{ since we are using the inequality it still holds true}
+            \end{align*}
+        \end{enumerate} 
+        Therefore, as long as $\left(\frac{1}{3} + \frac{1}{c}\right) \leq 1 \text{ or } c \geq \frac{3}{2}. \text{ Thus, } \sum_{k=0}^{n} 3^k = O(3^n)$.
+    \end{example}
+
+    \begin{warning}
+        Consider the following fallacious proof that \( \sum_{k=1}^n k = O(n) \). 
+        \begin{enumerate}
+            \item \textbf{Basis:} \( \sum_{k=1}^1 k = O(1) \) 
+            \item \textbf{Inductive hypothesis:} Assume that the bound holds for \( n \).
+            \item \textbf{Inductive step:} Prove for $n+1$:
+            \begin{align*}
+                \sum_{k=1}^{n+1} k &= \sum_{k=1}^{n} k + (n + 1) \\
+                                    &= O(n) + (n + 1) \\
+                                    &= O(n + 1) \quad \text{(wrong!)}
+            \end{align*}
+        \end{enumerate}
+
+        The bug in the argument is that the “constant” hidden by the “big-O” grows with \( n \) and thus is not constant. We have not shown that the same constant works for all \( n \).
+    \end{warning}
+
+\subsection{Contradiction}
+    \begin{process}
+        Property $P(n)$ which you want to prove true, and it can be true or false. 
+        \begin{enumerate}
+            \item If want to prove true, assume $\neg P(n)$.
+            \item Work towards a contradiction by working with the expression $\neg P(n)$ and prove this to be false.
+            \item If this resulted in a false statement then $P(n)$ is true. 
+        \end{enumerate}
+        
+    \end{process}
+
+    \begin{example}
+        Prove that if $x^2 - 5x + 4 < 0, \text{ then } x >0$
+        \begin{enumerate}
+            \item \textbf{ATaC:} Assume towards a contradiction (ATaC) that \( x^2 - 5x + 4 < 0 \) but \( x \leq 0 \).
+            \vspace{1em}
+            \item Analyze the quadratic expression:
+            \[
+            x^2 - 5x + 4 = (x - 1)(x - 4)
+            \]
+            Thus, the inequality becomes:
+            \[
+            (x - 1)(x - 4) < 0
+            \]
+            
+            \item This inequality implies that \( x \) must lie between the roots 1 and 4, i.e., \( 1 < x < 4 \).
+            \vspace{1em}
+            \item \textbf{Contradiction:} However, the assumption \( x \leq 0 \) contradicts this because there are no values of \( x \leq 0 \) that satisfy \( 1 < x < 4 \).
+            \end{enumerate}
+            \vspace{1em}
+            Therefore, the contradiction shows that the assumption \( x \leq 0 \) cannot be true if \( x^2 - 5x + 4 < 0 \). Hence, if \( x^2 - 5x + 4 < 0 \), it must be that \( x > 0 \).
+    \end{example}
+
+    \begin{example}
+        Prove $\sqrt{2}$ is irrational.
+        \begin{enumerate}
+            \item \textbf{ATaC:} Suppose \(\sqrt{2}\) is rational. Then we can write:
+            
+            \[
+            \sqrt{2} = \frac{a}{b}
+            \]
+            
+            where \( a \) and \( b \) are integers with no common divisors other than 1 (i.e., the fraction is in its simplest form).
+            \vspace{1em}
+            \item \textbf{Square Both Sides:}
+            
+            \[
+            2 = \frac{a^2}{b^2}
+            \Rightarrow a^2 = 2b^2
+            \]
+            
+            This implies that \( a^2 \) is even (since it is twice an integer). Therefore, \( a \) must also be even (by a lemma which states that if \( a^2 \) is even, then \( a \) is even).
+            \vspace{1em}
+
+            \item \textbf{Express \( a \) as an Even Number:}
+            
+            \[
+            a = 2k \text{ for some integer } k
+            \]
+            
+            Substitute \( a = 2k \) into the equation:
+            
+            \[
+            (2k)^2 = 2b^2 \Rightarrow 4k^2 = 2b^2 \Rightarrow 2k^2 = b^2
+            \]
+            
+            This implies that \( b^2 \) is even, and thus \( b \) must also be even.
+            \vspace{1em}
+            \item \textbf{Contradiction:} Since both \( a \) and \( b \) are even, they have a common factor of 2. This contradicts our initial assumption that \( \frac{a}{b} \) is in its simplest form.
+            \vspace{1em}
+        
+        \end{enumerate}
+        The contradiction shows that our assumption that \(\sqrt{2}\) is rational is false. Therefore, \(\sqrt{2}\) is irrational.
+    \end{example}

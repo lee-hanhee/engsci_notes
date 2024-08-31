@@ -1,0 +1,56 @@
+\subsection{Rule of sum and product}
+    \begin{definition}
+        If there are m-ways for event $A$ to happen and n-ways for event $B$ to happen then\dots
+        \vspace{1em}
+
+        \textbf{Rule of product:} $\exists \; m\times n$ ways for $A$ \emph{and} $B$ to happen. 
+        \vspace{1em}
+
+        \textbf{Rule of sum:} $\exists \; m + n$ ways for $A$ \emph{or} $B$ to happen. 
+    \end{definition}
+
+\subsection{Permutations}
+    \begin{definition}
+        Number of ways to pick $r$ distinct objects out of $n$ where \emph{order matters} and \emph{repetition isn't allowed}.
+        \begin{equation}
+            P(n,r) = n(n-1)(n-2)\cdots(n-r+1) = \frac{n!}{(n-r)!} 
+        \end{equation}
+        \begin{itemize}
+            \item $n$: total number of elements in the set.
+            \item $r$: number of elements taken from the set.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Permutations with identical items}
+    \begin{definition}
+        If there are $m$ kinds of items and $q_k$, $k=1,\ldots,m$ of each kind, then total number of permutations where \emph{order matters} is 
+        \begin{equation}
+            \binom{n}{q_1, \ldots, q_m} = \frac{n!}{q_1! \, q_2! \, \cdots \, q_m!}
+        \end{equation}
+        \begin{itemize}
+            \item $\sum_{k=1}^{m} q_k = n$
+        \end{itemize}
+    \end{definition}
+
+\subsection{Permutations with repetitions}
+    \begin{definition}
+        Number of ways to arrange \( r \)-objects out of \( n \) objects with unlimited repetition is given by: $n^r$.
+    \end{definition}
+
+\subsection{Combinations}
+    \begin{definition}
+        Number of ways to choose $r$ objects from $n$ where \emph{order doesn't matter}. 
+        \begin{equation}
+            C(n,r) = \binom{n}{r} = \frac{P(n,r)}{r!} = \frac{n!}{r!(n-r)!}
+        \end{equation}
+    \end{definition}
+
+\subsection{Binomial theorem}
+    \begin{definition}
+        \begin{equation}
+            (x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^k y^{n-k}
+        \end{equation}
+        \begin{itemize}
+            \item $n \in \mathbb{N} \text{ and } x,y\in \mathbb{R}$
+        \end{itemize}
+    \end{definition}

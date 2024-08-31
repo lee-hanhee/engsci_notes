@@ -1,0 +1,187 @@
+Asymptotic efficiency focuses on understanding how the running time of an algorithm grows with the input size, particularly for large inputs.
+\subsection{Big-O}
+    \begin{definition}
+        $ O(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c \text{ and } n_0 \text{ such that } 0 \leq f(n) \leq c g(n) \; \forall \; n \geq n_0 \right\} $
+        \begin{itemize}
+            \item \textbf{Asymptotic upper bound:} Grows \textbf{no faster} than a certain rate, based on the highest-order term.
+        \end{itemize}
+    \end{definition}
+
+    \begin{warning}
+        Every function $f(n)$ in the set $O(g(n))$ must be \textbf{asymptotically nonnegative} (i.e. $f(n)$ must be positive whenever $n$ is sufficiently large).
+    \end{warning}
+
+\subsection{Big-Omega}
+    \begin{definition}
+        $ \Omega(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c \text{ and } n_0 \text{ such that } 0 \leq c g(n) \leq f(n) \; \forall \; n \geq n_0 \right\} $
+        \begin{itemize}
+            \item \textbf{Asymptotic lower bound:} Grows \textbf{at least as fast} as a certain rate, based on the highest-order term.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Big-Theta}
+    \begin{definition}
+        $ \Theta(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c_1, \; c_2, \text{ and } n_0 \text{ such that } 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n) \; \forall \; n \geq n_0 \right\} $
+        \begin{itemize}
+            \item \textbf{Asymptotically tight bounds:} Grows \textbf{precisely} at a certain rate, based on the highest-order term.
+            \item \textbf{Constant factor:} Characterizes the rate of growth of the function to within a constant factor from above and below. These two constant factors need not be equal.
+        \end{itemize}
+    \end{definition}
+
+\customFigure[1]{00_Images/BigO_Omega_Theta_Notation.png}{Graphical examples of the Big-O, Big-Omega, and Big-Theta.}
+
+\begin{example}
+    Find the Big-O, Big-Omega, and Big-Theta of the following function: $7n^3 + 100n^2 - 20n + 6$. 
+
+    \begin{enumerate}
+        \item \textbf{Highest-order term:} $7n^3$
+        \item \textbf{Remove constants:} $n^3$
+        \item \textbf{Big-O notation:} $\text{O}(n^3)$
+        \begin{itemize}
+            \item In general, $\text{O}(n^c)$ for any constant $c\geq3$ because the function grows no faster than this.
+        \end{itemize}
+        \item \textbf{Big-Omega notation:} $\Omega (n^3)$
+        \begin{itemize}
+            \item In general, $\Omega (n^c)$ for any constant $c\leq3$ because the function grows at least as fast than this.
+        \end{itemize}
+        \item \textbf{Big-Theta:} Since O and $\Omega$ are the same, therefore, $\Theta (n^3)$ (by theorem)
+    \end{enumerate}
+\end{example}
+
+\begin{intuition}
+    In all asymptotic notations, you are trying to describe a function after $n_0$ (i.e. ignore all flunctuation before).
+\end{intuition}
+
+\subsection{Theorem 3.1}
+    \begin{theorem}
+        For any two functions $f(n)$ and $g(n)$, we have $f(n) = \Theta(g(n))$ iff $f(n) = O(g(n))$ and $f(n)=\Omega(g(n))$.
+    \end{theorem}
+
+\subsection{Asymptotic notation and running times}
+    \begin{warning}
+        Make sure that the asymptotic notation you use is as precise as possible without overstating which running time (i.e. worst-case, best-case, or any other-case) it applies to.
+    \end{warning}
+
+    \begin{example}
+        What asymptotic notation should you use for insertion sort's worst-case, best-case, and general running time? 
+        \vspace{1em}
+
+        \begin{itemize}
+            \item \textbf{Worst-case:} $O(n^2)\text{, } \Omega(n^2)\text{, and } \Theta(n^2)$ can be used, but $\Theta(n^2)$ is the most precise. 
+            \item \textbf{Best-case:} $O(n)\text{, } \Omega(n)\text{, and } \Theta(n)$ can be used, but $\Theta(n)$ is the most precise. 
+            \item \textbf{General:} $O(n^2)$ because in all cases, its running time grows no faster than $n^2$. Or $\Omega(n)$ because in all cases, its running time is at least as fast as $n$.
+        \end{itemize}
+    \end{example}
+
+\subsection{Abuses of asymptotic notation}
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Equality:}
+            \begin{itemize}
+                \item When asymptotic notation stands alone on the RS of an equation (or inequality), then $= \text{ means } \in$.
+                \item When asymptotic notation is in a formula, it is an anonymous function (AF) that we do not care to name.
+                \item When asymptotic notation appears on the LS of an equation: No matter how the AF is chosen on the LS, there is a way to choose the AF on the RS to make the equation valid.
+            \end{itemize}
+            \item \textbf{Variable tending toward $\infty$ must be inferred from context:}
+            \begin{itemize}
+                \item e.g. $O(g(n))$, then we are interested in the growth of $g(n)$ as $n$ grows.
+                \item e.g. $f(n) = O(1)$, then $f(n)$ is bounded from above by a constant as $n$ goes to $\infty$.
+                \item e.g. $T(n) = O(1) \text{ for } n<3$ is that there exists a positive constant $c$ such that $T(n) \leq c \text{ for } n<3$.
+            \end{itemize}
+        \end{itemize}
+    \end{intuition}
+
+\subsection{Comparing function properties}
+    \begin{definition}
+        
+        \textbf{Transitivity:}
+        \begin{itemize}
+            \item $f(n) = \Theta(g(n)) \text{ and } g(n)=\Theta(h(n)) \text{ imply } f(n) = \Theta(h(n))$
+            \item $f(n) = O(g(n)) \text{ and } g(n)=O(h(n)) \text{ imply } f(n) = O(h(n))$
+            \item $f(n) = \Omega(g(n)) \text{ and } g(n)=\Omega(h(n)) \text{ imply } f(n) = \Omega(h(n))$
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Reflexivity:}
+        \begin{itemize}
+            \item $f(n) = \Theta(f(n))$
+            \item $f(n) = O(f(n))$
+            \item $f(n) = \Omega(f(n))$
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Symmetry:}
+        \begin{itemize}
+            \item $f(n) = \Theta(g(n)) \text{ iff } g(n) = \Theta(f(n))$.
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Transpose symmetry:}
+        \begin{itemize}
+            \item $f(n) = O(g(n)) \text{ iff } g(n) = \Omega(f(n))$
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Different functions:}
+        \begin{itemize}
+            \item \( n^a \in O(n^b) \), iff \( a \leq b \).
+            \item \( \log_a(n) \in O(\log_b(n)) \), for all \( a, b \).
+            \item \( c^n \in O(d^n) \), iff \( c \leq d \).
+            \item If \( f(n) \in O(f'(n)) \) and \( g(n) \in O(g'(n)) \), then:
+            \begin{itemize}
+                \item \( f(n) \cdot g(n) \in O(f'(n) \cdot g'(n)) \).
+                \item \( f(n) + g(n) \in O(\max\{f'(n), g'(n)\}) \).
+            \end{itemize}
+        \end{itemize}
+        
+    \end{definition}
+
+    \begin{intuition}
+        
+        \begin{itemize}
+            \item $f(n) = O(g(n)) \text{ is like } a \leq b$
+            \item $f(n) = \Omega(g(n)) \text{ is like } a \geq b$
+            \item $f(n) = \Theta(g(n)) \text{ is like } a = b$
+        \end{itemize}
+    \end{intuition}
+
+\subsection{Polynomially-bounded}
+    \begin{definition}
+        $f(n)$ is polynomially-bounded if $f(n)=O\left(n^k\right)$ for some real value of $k$.
+    \end{definition}
+
+    \begin{theorem}
+        $f(n)=O\left(n^k\right)$ iff $lg(f(n))=O(lg(n))$
+    \end{theorem}
+
+\subsection{Limit method}
+    \begin{definition}
+        Find the asymptotic relationship between two functions for which you might not have any intuition about. 
+        \begin{equation}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0 \implies f(n) = \mathcal{O}(g(n))
+        \end{equation}
+        
+        \begin{equation}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = c, \; 0 < c < \infty \implies f(n) = \Theta(g(n))
+        \end{equation}
+        
+        \begin{equation}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty \implies f(n) = \Omega(g(n))
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{L'Hôpital's rule}
+    \begin{definition}
+        If $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$ or $\pm \infty$, then:
+        \begin{equation}
+            \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}
+        \end{equation}
+        
+    \end{definition}
+
+    \subsubsection{Logs of limits and limits of logs}
+        \begin{definition}
+            \begin{equation}
+                \lg \left( \lim_{x \to c} g(x) \right) = \lim_{x \to c} \lg(g(x))
+            \end{equation}
+        \end{definition}

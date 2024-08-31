@@ -1,0 +1,74 @@
+\subsection{Mortgage Terms}
+\begin{terminology}
+    \begin{enumerate}
+        \item \textbf{Principle:} The amount of money you borrow to pay for a real property.
+        \item \textbf{Down Payment:} The fraction of the cost of the real property that you pay upfront yourself. (Usually 20\%)
+        \item \textbf{Loan-to-Value Ratio (LTV):} Ratio of mortgage loan to value of the property.
+        \item \textbf{Mortgage Rate:} The interest rate charged on the mortgage. Compounding period usually matches frequency of payments.
+        \item \textbf{Amortization Period:} Time horizon for mortgage payment. 
+        \item \textbf{Term:} Duration of time where the mortgage rate is fixed. When term ends, re-evaluate how much you still owe, then use new interest rate to calculate monthly payment based on time left in amortization period. 
+    \end{enumerate}
+\end{terminology}
+
+\subsection{Net amount owed at end of term:}
+\begin{definition}
+    \begin{equation}
+        \begin{aligned}
+            \text{Net} &= P \left(F/P, \, \frac{i}{N}, \, t \times N\right) - A \left(F/A, \, \frac{i}{N}, \, t \times N\right) \\
+                       &= P (1 + i)^{t \times N} - A \left[\frac{(1 + i)^{t \times N} - 1}{i}\right]
+        \end{aligned}
+    \end{equation}
+    \begin{itemize}
+        \item $P$: Mortgage principle
+        \item $A$: Regular mortgage payment (usually per month)
+        \item $i$: Mortgage rate per annum based
+        \item $N$: Number of payment periods per year
+        \item $t$: Number of years in term
+    \end{itemize}
+\end{definition}
+
+\subsection{Net monthly payment:}
+\begin{definition}
+    \begin{equation}
+        A = P \left(A/P, \, \frac{i}{N}, \, t \times N\right) = A \left[\frac{i (1+i)^{t \times N}}{(1+i)^{t \times N} - 1}\right]
+    \end{equation}
+    \begin{itemize}
+        \item $P$: Mortgage principal (or what is left)
+        \item $A$: Regular mortgage payment (usually per month)
+        \item $i$: Mortgage rate per annum
+        \item $N$: Number of payment periods per year
+        \item $t$: Number of years in amortization (or what is left)
+    \end{itemize}
+\end{definition}
+
+\subsection{Bond Terms}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Bond:} A type of loan where the creditor pays a stated amount at specified intervals for a defined period (\textit{Coupon Payments}), plus a final amount at a specified date (\textit{Face Value}).
+        \item \textbf{Coupon Rate:} The rate used to calculate coupon payments.
+        \item \textbf{Coupon Payments:} Regular payments made over the course of a bond’s lifetime. Amount is determined by coupon rate and frequency of payment (per the same time unit as the coupon rate).
+        \begin{equation}
+            \text{Coupon Amount} = (\text{Coupon Rate}) \times \frac{\text{Face Value}}{\text{Payment Frequency}}
+        \end{equation}
+        
+        \item \textbf{Yield:} Hypothetical interest rate of a bond given a purchase price. Solved using interpolation.
+        
+        \item \textbf{Bond Price:}
+        \begin{equation}
+            \begin{aligned}
+                P &= A \left(P/A, \, \frac{i}{m}, \, N\right) + F \left(P/F, \, \frac{i}{m}, \, N\right) \\
+                &= A \left[\frac{(1 + \frac{i}{m})^{N} - 1}{\frac{i}{m} (1 + \frac{i}{m})^{N}}\right] + F \left[\frac{1}{(1 + \frac{i}{m})^{N}}\right]
+            \end{aligned}
+        \end{equation}
+        
+    \end{itemize}
+    
+    % Definitions for the variables used in bond price calculations
+    
+    \begin{itemize}
+        \item $i$: Yield
+        \item $m$: Frequency of coupon payments per time unit (e.g. year)
+        \item $N$: Number of periods to maturity ($m \times \text{time unit}$)
+        \item $A$: Value of coupon payment
+    \end{itemize}
+\end{terminology}

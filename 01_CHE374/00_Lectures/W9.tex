@@ -1,0 +1,260 @@
+\subsection{Taxable income (FIX)}
+\begin{definition}
+    \begin{equation}
+        \text{Taxable Income} = \text{Revenue} - \text{Expenses}
+    \end{equation}
+\end{definition}
+
+\subsection{Flat corporate tax}
+\begin{definition}
+    \begin{equation}
+        \text{Corporate Tax Payable} = \text{Taxable Income} \times \text{Tax Rate}
+    \end{equation}
+
+    \begin{itemize}
+        \item Paying tax results in a negative cash flow.
+        \item Tax savings result in a positive cash flow.
+    \end{itemize}    
+\end{definition}
+
+\subsection{Types of revenue}
+\begin{terminology}
+    \begin{itemize}
+        \item Sales revenues
+        \item Interest revenues (interest earned)
+        \item Capital gains: $Salvage \: Value - Book \: Value$
+    \end{itemize}
+\end{terminology}
+
+\subsection{Types of expenses}
+\begin{terminology}
+    \begin{itemize}
+        \item Cost of goods sold (raw materials)
+        \item General expenses/SG\&A (salaries)
+        \item Interest expenses (debt)
+        \item Depreciation expenses
+        \item Capital losses
+        \item Not included
+        \begin{itemize}
+            \item Dividends 
+            \item Asset purchases 
+            \item Others
+        \end{itemize}
+    \end{itemize}            
+\end{terminology}
+
+\subsection{Discounting after-tax cash flow requires lower rate of return}
+\begin{definition} \textbf{Modified Rates:}
+    \begin{equation}
+        \text{(After tax) MARR} = \text{MARR (before tax)} \times (1 - \text{tax rate})
+    \end{equation}
+    \begin{equation}
+        \text{(After tax) IRR} = \text{IRR (before tax)} \times (1 - \text{tax rate})
+    \end{equation}
+\end{definition}
+
+\subsection{Capital cost allowance (CCA)}
+\begin{definition} Amount depreciated in a given year.
+    \begin{equation}
+        \text{CCA}_N = \text{CCA Rate} \times \left( \frac{1}{2} \text{ This year's addition} + \text{UCC}_{N-1} \right)
+    \end{equation}
+    \begin{itemize}
+        \item $ \text{UCC}_{N-1} $: UCC from last year
+    \end{itemize}
+\end{definition}
+
+\subsection{Undepreciated capital cost (UCC)}
+\begin{definition}
+    Book value in given year.
+    \begin{equation}
+        \text{UCC}_N = \text{UCC}_{N-1} + \text{This year's addition} - \text{CCA}
+    \end{equation}
+\end{definition}
+
+\subsection{CCA pooling}
+\begin{definition}
+    All assets in a class are pooled together, with depreciation expenses based on UCC of all assets in that class.
+\end{definition}
+
+\subsection{CCA half-year rule}
+\begin{definition}
+    \begin{itemize}
+        \item Additions in the current year are depreciated at half the CCA rate. 
+        \item Carried-over UCC is depreciated at the normal rate.
+    \end{itemize}
+\end{definition}
+
+\subsection{Tax savings from depreciation}
+\begin{definition}
+    \begin{equation}
+        \text{Tax savings} = \text{CCA} \times t 
+    \end{equation}
+    \begin{itemize}
+        \item $t$: Tax rate
+    \end{itemize}
+\end{definition}
+
+\subsection{CCA rules on disposition (selling asset)}
+\begin{definition}
+    \begin{itemize}
+        \item If other items remain in pool: \textbf{Open Book}
+        \begin{itemize}
+            \item Pool not closed upon sale of asset.
+            \item UCC reduced by sales proceeds (\( S \)). % sales proceed may be wrong.
+        \end{itemize}
+        \item If no other items in pool: \textbf{Closed Book}
+        \begin{itemize}
+            \item If \( S < \text{Book Value (BV)} \): \textbf{Terminal loss}, claim \( \text{BV} - S \) as expense, reduce taxable income by loss.
+            \item If \( S > \text{BV} \) and \( S < \text{Cost (C)} \): \textbf{Recapture}, report \( S - \text{BV} \) as income, increase taxable income by \( S - \text{BV} \).
+            \item If \( S > \text{C} \): \textbf{Capital Gain}.
+            \item UCC must always be zero after the pool is closed. % after the pool is closed is different
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{Calculating PW with taxes: explicit method}
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Find After-Tax MARR:}
+        \begin{equation}
+            \text{(After-tax) MARR} = \text{MARR (before-tax)} \times (1 - \text{tax rate})
+        \end{equation}
+        \vspace{1em}
+    
+        \item \textbf{Calculate After-Tax Revenue, Find Present Worth Over Lifespan:}
+        \begin{align}
+            A &= \text{Revenue} \times (1 - t) \\
+            \text{PW}(A) &= A \left( P/A, i\%_{\text{MARR}}, N \right)
+        \end{align}
+        \vspace{1em}
+
+        \item \textbf{Find FC}
+        \vspace{1em}
+    
+        \item \textbf{Find tax savings from depreciation, discount appropriately to find PW of all tax savings over \(N\) years:}
+        \begin{align}
+            \text{CCA}_N &= \text{CCA Rate} \times \left( \frac{1}{2} \text{ This year's addition} + \text{UCC}_{N-1} \right) \\
+            \text{UCC}_N &= \text{UCC}_{N-1} + \text{This year's addition} - \text{CCA}_N \\
+            (P/A, i, N) &= \frac{1}{i} - \frac{1}{i(1+i)^N} = \frac{(1+i)^N - 1}{i(1+i)^N}
+        \end{align}
+        \vspace{1em}
+    
+        \item \textbf{Depend on Whether Open or Closed Book:}
+        \begin{itemize}
+            \item Open book:
+            \begin{itemize}
+                \item Discount \(S\) to PW.
+            \end{itemize}
+            \item Closed book:
+            \begin{itemize}
+                \item Claim/report gain/recapture/loss by finding \(\left| S - \text{BV} \right|\) and calculating taxed or tax savings.
+            \end{itemize}
+        \end{itemize}
+        \vspace{1em}
+
+        \item \textbf{Sum results of steps 1-5:}
+        \begin{itemize}
+            \item Evaluate like MARR evaluation
+        \end{itemize}
+    \end{enumerate}
+\end{process}
+
+\subsection{Calculating PW with taxes: tax benefit factor}
+\subsubsection{Tax benefit factor:}
+    \begin{definition}
+        For every dollar spent, the present worth (PW) of future tax savings is $\tau$ dollars:
+        \begin{equation}
+            \tau = \frac{\text{PW}(\text{tax savings})}{FC}
+        \end{equation}
+        \vspace{1em}
+
+        \textbf{Depends on depreciation method:}
+        \begin{enumerate}
+            \item \textbf{Declining Balance:}
+            \begin{equation}
+                \tau_{db} = \frac{td}{i + d} \quad \text{(After-tax MARR)}
+            \end{equation}
+            \begin{itemize}
+                \item \( t \): Tax rate 
+                \item \( d \): Depreciation rate
+                \item \( i \): After-tax MARR
+            \end{itemize}
+            
+            \item \textbf{Declining Balance with Half-Year Rule:}
+            \begin{equation}
+                \tau_{\frac{1}{2}} = \frac{td}{i + d} \cdot \frac{1 + i/2}{1 + i} 
+            \end{equation}
+            \begin{itemize}
+                \item Applies to CCA asset purchases
+            \end{itemize}
+        \end{enumerate}
+    \end{definition}
+
+\subsubsection{Effective first cost:}
+    \begin{definition}
+        Reduced first cost due to tax savings:
+        \begin{equation}
+            \text{PW}(\text{FC}) = - \text{FC} + \text{FC} \times \tau_{1/2} = -\text{FC}(1 - \tau_{1/2})
+        \end{equation}
+    \end{definition}
+
+\subsubsection{Effective salvage value:}
+    \begin{definition}
+        Reduction in salvage value due to loss of tax benefits associated with disposition:
+        \begin{equation}
+            \text{PW}(S) = (S - R \times \tau_{db}) (P/F, i, N)
+        \end{equation}
+        
+        \begin{itemize}
+            \item \(S\): Original salvage value 
+            \item \(R\): Amount reduced in asset pool
+            \begin{itemize}
+                \item \(R=S\): Open book 
+                \item \(R=UCC\): Closed book
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
+
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Find Effective Fixed Cost (FC):}
+        \begin{equation}
+            \text{PW}(\text{FC}) = - \text{FC} \cdot (1 - \tau_{1/2})
+        \end{equation}
+    
+        \item \textbf{Find After-Tax Revenues:}
+        \begin{equation}
+            A = \text{Revenue} \cdot (1 - t)
+        \end{equation}
+        \begin{equation}
+            \text{PW}(A) = A \cdot (P/A, i\%_{\text{MARR}}, N)
+        \end{equation}
+    
+        \item \textbf{Find Effective Salvage Value:}
+        \begin{itemize}
+            \item Open Book:
+            \begin{equation}
+                \text{PW}(S) = S \cdot (1 - \tau_{db}) \cdot (P/F, i\%, N)
+            \end{equation}
+            \item Closed Book:
+            \begin{equation}
+                R = UCC_N, \quad T = \begin{cases} 
+                +(BV-S) \cdot t & \text{if losses} \\
+                -(S-BV) \cdot t & \text{if gains/recapture}
+                \end{cases}
+            \end{equation}
+            \begin{equation}
+                \text{PW}(S) = (S - R \times \tau_{db} + T) \cdot (P/F, i\%, N)
+            \end{equation}
+            \begin{itemize}
+                \item \(T>0\): Losses
+                \item \(T<0\): Gains/recapture 
+            \end{itemize}
+        \end{itemize}
+    
+        \item \textbf{Sum all values from steps 1--3:}
+        \begin{itemize}
+            \item Evaluate like MARR evaluation.
+        \end{itemize}
+    \end{enumerate}
+\end{process}

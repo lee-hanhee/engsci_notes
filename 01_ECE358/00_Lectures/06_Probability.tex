@@ -1,0 +1,101 @@
+\subsection{Sample space}
+    \begin{definition}
+        The set of \emph{all possible outcomes} of a statistical experiment, denoted by $S$.
+    \end{definition}
+
+\subsection{Event}
+    \begin{definition}
+        A subset of a sample space $S$. An event is any outcome or combination of outcomes.
+    \end{definition}
+
+\subsection{Probability axioms}
+    \begin{definition}
+        For $A$, $B \subseteq S$
+        \begin{enumerate}
+            \item $0 \leq P(A) \leq 1$
+            \item $P(S) = 1$
+            \item $P(A \cup B) = P(A) + P(B)$ for two mutually exclusive events $A$ and $B$. 
+        \end{enumerate}
+    \end{definition}
+
+\subsection{Additive rule}
+    \begin{definition}
+        \begin{equation}
+            P(A \cup B) = P(A) + P(B) - P(A\cap B)
+        \end{equation}
+    \end{definition}
+
+\subsection{Uniform distribution}
+    \begin{definition}
+        If $\forall s\in S$ has probability $P(s) = \frac{1}{\abs{S}}$, then it is a uniform distribution.
+    \end{definition}
+
+\subsection{Independence}
+    \begin{definition}
+        $P(A \cap B) = P(A)P(B)$ if $A$, $B$ independent.
+    \end{definition}
+
+\subsection{Bayes theorem}
+    \begin{definition}
+        For events with $P(A)>0$ and $P(B)>0$, the probability $A$ happens given $B$ happens is:
+        \begin{equation}
+            P(B|A) = \frac{P(B\cap A)}{P(A)} = \frac{P(A|B)P(B)}{P(A)}
+        \end{equation}
+    \end{definition}
+
+\subsection{Bayes' rule with total probability}
+    \begin{definition}
+        Suppose $C_1,\ldots,C_k$ is a partition. Then 
+        \begin{equation}
+            P(B|A) = \frac{P(B)P(A|B)}{\sum_{i=1}^{k} P\left(C_i\right)P\left(A|C_i\right)}
+        \end{equation}
+        Often $B$ is an element of $C_1,\ldots,C_k$, say $B=C_n$. Then 
+        \begin{equation}
+            P\left(C_n|A\right) = \frac{P\left(C_n\right)P\left(A|C_n\right)}{\sum_{i=1}^{k} P\left(C_i\right)P\left(A|C_i\right)}
+        \end{equation}
+    \end{definition}
+
+    \begin{process}
+        \begin{enumerate}
+            \item Write down all the probabilities. 
+            \item Try solving the problem directly using definitions. 
+        \end{enumerate}
+    \end{process}
+
+    \begin{intuition}
+        If given P(A|B) and want P(B|A), then automatically use Bayes’ Rule. 
+    \end{intuition}
+
+\subsection{Discrete random variable}
+    \begin{definition}
+        An RV is a function that associates a real number with each element of the sample space. Denote RVs with capital letters.    
+    \end{definition}
+
+\subsection{Probability mass function}
+    \begin{definition}
+        The set of ordered pairs $(x,f(x))$ of the discrete RV X if, for each possible outcome $x$, 
+        \begin{enumerate}
+            \item $f(x) \geq 0$ for each outcome $X=x$ 
+            \item $\sum_{x} f(x) = 1$ (i.e. total probability sums to 1)
+            \item $f(x) = P(X=x)$ (i.e. probability of each outcome)
+        \end{enumerate}
+    \end{definition}
+    
+\subsection{Expectation}
+    \begin{definition}
+        Let $X$ be an RV with distribution $f(x)$, then 
+        \begin{equation}
+            E[X] = \sum_{x\in X} xf(x)
+        \end{equation}
+        where the sum is taken over all possible values of $X$.
+    \end{definition}
+
+\subsection{Properties of expectation}
+    \begin{definition}
+        
+        \begin{enumerate}
+            \item $E[X+Y] = E[X] + E[Y]$ (linearity)
+            \item $E[\alpha X] = \alpha E[X]$ (linearity)
+            \item $E[XY] = E[X]E[Y]$ if independent
+        \end{enumerate}
+    \end{definition}

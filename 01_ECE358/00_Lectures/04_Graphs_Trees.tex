@@ -1,0 +1,195 @@
+\subsection{Graphs}
+    \subsubsection{Directed and undirected graphs}
+        \begin{definition}
+            \begin{itemize}
+                \item \textbf{Directed graph (digraph):} G is a pair $(V,E)$, which are vertices $V$ and edges $E$.
+                \begin{itemize}
+                    \item \textbf{Self-loop:} Edges from a vertex to itself.
+                \end{itemize}
+                \item \textbf{Undirected graph:} $G=(V,E)$, where $E$ consists of \emph{unordered} pairs of vertices (i.e. direction doesn't matter)
+                \begin{itemize}
+                    \item \textbf{Self-loop:} Forbidden.
+                \end{itemize}
+            \end{itemize}
+        \end{definition}
+
+        \customFigure[0.75]{00_Images/Directed_Undirected.png}{(a) Directed graph, (b) Undirected graph.}
+
+    \subsubsection{Terminology}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Weighted G:} e.g. distance, cost, etc.
+
+            \item \textbf{Path:} A sequence of vertices in which each vertex is adjacent to the next one.
+            \item \textbf{Simple Path:} A path with no repetition of vertices.
+
+            \item \textbf{Simple Cycle:} Simple path with same start/end vertex.
+
+            \item \textbf{Acyclic Graph:} A graph with no cycles is an acyclic graph.
+            \item \textbf{Directed Acyclic Graph:} A DAG is a directed acyclic graph.
+
+            \item \textbf{Connected:} Two vertices are connected if there is a path between them.
+            \item \textbf{Connected graph:} $\exists$ path between $\forall \; 2$ vertices. 
+
+            \item \textbf{Degree of V (Undirected G):} Number of edges incident on it.
+            \item \textbf{In/Out Degree of V (Directed G):} Out-degree is the \# of edges leaving it, while in-degree is the \# of edges entering it.
+            \item \textbf{Degree of V (Directed G):} In-degree plus out-degree.
+            \item \textbf{Degrees of all V}: $2E$
+
+            \item \textbf{Bipartite Gs:} $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \null$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
+            \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
+
+            \item \textbf{Induced subgraph:} Subset of $G$ and the associated edges.
+            \item \textbf{Complete G (clique):} $\exists$ edge between $\forall \; 2$ vertices. 
+        \end{itemize}
+    \end{terminology}
+
+    \subsubsection{Graph representation}
+    \begin{definition}
+        
+        \textbf{Adjacency matrix (AM):} An $n\times n$ matrix where $M[i][j]=1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise.
+        \vspace{1em}
+
+        \textbf{Adjacency list (AL):} For $n=\abs{V}$ vertices, $n$ linked lists. The $ith$ linked list, $L[i]$ is a list of all the vertices that are adjacent to vertex $i$.
+        \vspace{1em}
+
+        \textbf{Is there an edge between $v_i$ and $v_j$?}
+        \begin{itemize}
+            \item \textbf{AM:} $O(1)$
+            \item \textbf{AL:} $O(d)$ where $d$ is the maximum degree in the graph.
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Find all vertices adjacent to $v_i$:}
+        \begin{itemize}
+            \item \textbf{AM:} $O(\abs{V})$ where $\abs{V}$ is the number of vertices in the graph.
+            \item \textbf{AL:} $O(d)$ 
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Space requirements:}
+        \begin{itemize}
+            \item \textbf{AM:} $O(\abs{V}^2)$
+            \item \textbf{AL:} $O(\abs{V}+\abs{E})$
+            \begin{itemize}
+                \item AL is good for sparse $G$ (i.e. $E<<V^2$).
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
+    \customFigure[1]{00_Images/DG_AM_AL.png}{(i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}
+
+    \subsubsection{Clique}
+    \begin{definition}
+        Every two vertices have an edge. 
+        \begin{equation*}
+            \# edges = \frac{V(V-1)}{2}
+        \end{equation*}
+    \end{definition}
+
+\subsection{Free trees}
+    \begin{definition}
+        A free tree is a connected, acyclic, undirected graph. 
+    \end{definition}
+
+    \subsubsection{Properties}
+    \begin{definition}
+        Let $G=(V,E)$ be an undirected graph. The following statements are equivalent:
+        \begin{enumerate}
+            \item $G$ is a free tree. 
+            \item Any two vertices in $G$ are connected by a unique simple path. 
+            \item $G$ is connected, but if any edge is removed from $E$, the resulting graph is disconnected. 
+            \item $G$ is connected, and $\abs{E} = \abs{V} - 1$.
+            \item $G$ is acyclic, and $\abs{E} = \abs{V} - 1$.
+            \item $G$ is acyclic, but if any edge is added to $E$, the resulting graph contains a cycle.
+        \end{enumerate}
+        \begin{itemize}
+            \item \textbf{Note:} There's a proof to show each of these statements are equivalent.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Forest}
+    \begin{definition}
+        An undirected graph is acyclic but possibly disconnected.
+    \end{definition}
+
+    \customFigure[1]{00_Images/Tree_Forest_Difference.png}{(a) A free tree, (b) A forest, (c) a graph that contains a cycle and is therefore neither a tree nor a forest.}
+
+\subsection{Rooted and ordered trees}
+    \subsubsection{Rooted trees}
+    \begin{definition}
+        A \textbf{rooted tree} is a free tree in which one of the vertices is distinguished from the others.
+        \begin{itemize}
+            \item \textbf{Root:} Distinguished vertex of the tree.
+            \item \textbf{Node:} Vertex of a rooted tree.
+        \end{itemize}
+    \end{definition}
+    
+    \subsubsection{Ordered trees}
+    \begin{definition}
+        An \textbf{ordered tree} is a rooted tree in which the children of each node are ordered.
+    \end{definition}
+
+    \customFigure[1]{00_Images/Rooted_Ordered_Trees.png}{Rooted and ordered trees. If the tree is ordered, the relative left-to-right order of the children of a node matters, but if rooted, then they are the same tree.}
+
+    \subsubsection{Terminology}
+    \begin{terminology}
+        \begin{itemize}            
+            \item \textbf{Parent:} A node \( y \) is the parent of node \( x \) if \( y \) is directly connected to \( x \) on the path from the root.
+            
+            \item \textbf{Child:} A node \( x \) is a child of node \( y \) if \( y \) is the parent of \( x \).
+            
+            \item \textbf{Siblings:} Nodes are siblings if they share the same parent.
+            
+            \item \textbf{Leaf (or External Node):} A leaf is a node with no children.
+            
+            \item \textbf{Internal Node:} An internal node is a nonleaf node, which means it has at least one child.
+            
+            \item \textbf{Degree:} The degree of a node \( x \) is the number of children it has.
+            
+            \item \textbf{Depth:} The depth of a node \( x \) is the length of the path from the root to \( x \).
+            
+            \item \textbf{Level:} A level of a tree consists of all nodes at the same depth.
+            
+            \item \textbf{Height:} The height of a node is the number of edges in the longest path from that node to a leaf.
+            \begin{itemize}
+                \item \textbf{Height of tree:} From root to any leaf.
+            \end{itemize}
+            
+        \end{itemize}
+    \end{terminology}
+
+\subsection{Binary and positional trees}
+    \subsubsection{Binary trees}
+    \begin{definition}
+        A \textbf{binary tree} $T$ is a structure defined on a finite set of nodes that either
+        \begin{itemize}
+            \item contains no nodes, or 
+            \item is composed of three disjoint sets of nodes: a \textbf{root} node, a \textbf{left subtree}, and a \textbf{right subtree}.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Terminology}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Empty Tree:} A binary tree with no nodes.
+            \item \textbf{Left and Right Child:} The roots of the non-empty left and right subtrees of the root.
+            \item \textbf{Full Binary Tree:} Every node is either a leaf or has exactly two children.
+            \item \textbf{Position Matters:} The distinction between left and right children is crucial in a binary tree, unlike in general ordered trees.
+        \end{itemize}
+    \end{terminology}
+
+    \subsubsection{Positional trees}
+    \begin{definition}
+        The children of a node are labeled with distinct positive integers.
+    \end{definition}
+
+    \subsubsection{K-ary trees}
+    \begin{definition}
+            A positional tree in which each $\text{node} \leq k$ children. A binary tree has \( k = 2 \).
+            \vspace{1em}
+
+            A \textbf{complete k-ary tree} is a k-ary tree in which all leaves have the same depth, and every internal node has exactly \( k \) children. 
+    \end{definition}
+
+    
+

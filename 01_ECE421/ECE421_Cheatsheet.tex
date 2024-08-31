@@ -1,0 +1,100 @@
+\documentclass{article}
+\AtBeginDocument{\RenewCommandCopy\qty\SI}
+\usepackage{style}
+\title{ECE421 Cheatsheet}
+\author{Hanhee Lee}
+\lhead{ECE421}
+\rhead{Hanhee Lee}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\section{Introduction}
+    \subsection{What is a ML task?}
+        \subsubsection{Different types of learning}
+            \begin{definition}
+                \begin{itemize}
+                    \item \textbf{Supervised Learning:} Trains models using labeled data to learn a mapping from inputs to outputs.
+                    \begin{itemize}
+                        \item \textbf{Data:} Labeled
+                        \item \textbf{Goal:} Predict correct label
+                    \end{itemize}
+                    \item \textbf{Reinforcement Learning:} Involves an agent interacting with an environment to maximize cumulative rewards based on its actions.
+                    \begin{itemize}
+                        \item \textbf{Data:} Reward signal
+                        \item \textbf{Goal:} Maximize reward signal
+                    \end{itemize}
+                    \item \textbf{Unsupervised Learning:} Discovers patterns or structures in unlabeled data, often used for clustering or dimensionality reduction.
+                    \begin{itemize}
+                        \item \textbf{Data:} Unlabeled data
+                        \item \textbf{Goal:} Varies (typically looking for interesting patterns in data)
+                    \end{itemize}
+                \end{itemize}            
+            \end{definition}
+        \subsubsection{Typical ML pipeline}
+            \begin{process}
+                \begin{enumerate}
+                    \item Input representation: what each dimension of x contains
+                    \item Model hypothesis class: y = g(wx + b)
+                    \item Training algorithm to find w and b
+                    \item Test model
+                \end{enumerate}
+            \end{process}
+
+\section{Unsupervised learning}
+    \subsection{What is unsupervised learning?}
+        \subsubsection{Applications of unsupervised learning}
+            \begin{definition}
+                \begin{itemize}
+                    \item \textbf{Clustering:} Involves grouping similar data points together based on their features. The goal is to partition the dataset into clusters where data points within the same cluster are more similar to each other than to those in other clusters.
+                    \item \textbf{Dimensionality Reduction:} Reduce the number of features in a dataset while preserving its essential structure. This is useful for simplifying data, reducing noise, and improving computational efficiency. 
+                    \item \textbf{Data Visualization:} Graphical representation of data to help understand and interpret the underlying patterns and relationships. 
+                \end{itemize}
+            \end{definition}
+
+    \subsection{Clustering with the k-means algorithm}
+        \subsubsection{Notation}
+            \href{http://shabal.in/visuals/kmeans/6.html}{K-means Visualization}
+
+
+    \subsection{Distortion in the k-means algorithm}
+
+    \subsection{Principle component analysis}
+
+\section{Supervised learning with linear models}
+    \subsection{Linear regression}
+
+    \subsection{Vectorization}
+
+    \subsection{What is linearly classifiable?}
+
+    \subsection{Why is XOR not linearly separable?}
+
+    \subsection{Perceptron learning rule}
+
+    \subsection{Support vector machines}
+
+
+\section{Adapting linear models to non-linear data}
+
+\section{Minimizing losses with gradient descent}
+
+\section{Deep neural networks}
+
+\section{Backpropagating through deep neural networks}
+
+\section{Generalization in deep learning}
+
+\section{Convolutional neural networks}
+
+\section{Language modeling with deep learning}
+
+\section{Deep residual networks}
+
+\end{document}
