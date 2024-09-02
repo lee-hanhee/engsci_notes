@@ -1,0 +1,117 @@
+\subsection{Review of complex numbers}
+\begin{definition}
+    \begin{itemize}
+        \item $z = a + jb, \quad j \triangleq \sqrt{-1}$
+        \item $r = |z| = \sqrt{a^2 + b^2}$
+        \item $\theta \triangleq \angle z = \arctan\left(\frac{b}{a}\right)$
+        \item $z = re^{j\theta} = r (\cos(\theta) + j \sin(\theta))$
+        \item $\cos(\theta) = \frac{e^{j\theta} + e^{-j\theta}}{2}, \quad \sin(\theta) = \frac{e^{j\theta} - e^{-j\theta}}{2j}$
+    \end{itemize}
+\end{definition}
+
+\subsection{CT Complex exponential and sinusoidal signals}
+    \subsubsection{Complex exponential signal}
+    \begin{definition} The complex exponential signal is of the form
+        \begin{equation}
+            x(t) = Ce^{at}, \; C,a\in \mathbb{C}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Periodic complex exponential and sinusoidal signal}
+    \begin{definition}
+        \begin{equation}
+            x(t) = C e^{j \omega_0 t} = \abs{C} e^{j(\omega_0 t + \phi)} = \abs{C} cos(\omega_0 t + \phi) + j sin(\omega_0 t + \phi)
+        \end{equation}
+        \begin{itemize}
+            \item $\omega_0 = 2\pi f_0$: Fundamental frequency
+            \item $C = \abs{C} e^{j\phi}$
+            \item $T_0 = \frac{2\pi}{\abs{\omega_0}}$: Fundamental period
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{General complex exponential signal}
+    \begin{definition}
+        \begin{equation}
+            x(t) = |C| e^{rt} e^{j(\omega_0 t + \phi)} = |C| e^{rt} \cos(\omega_0 t + \phi) + j |C| e^{rt} \sin(\omega_0 t + \phi)
+        \end{equation}
+        \begin{itemize}
+            \item $Re\{x(t)\} = |C| e^{rt} \cos(\omega_0 t + \phi)$
+            \item $Im\{x(t)\} = |C| e^{rt} \sin(\omega_0 t + \phi)$
+        \end{itemize}
+
+        \customFigure[0.5]{00_Images/General_Complex_Exp.png}{Real part of the general form. (a) $r>0$ and (b) $r<0$}
+    \end{definition}
+
+    \subsubsection{Properties}
+    \begin{definition}
+        \begin{enumerate}
+            \item The larger the magnitude of \(\omega_0\), the higher is the rate of oscillation in the signal.
+            \item \(e^{j\omega_0 t}\) is periodic for any value of \(\omega_0\).
+        \end{enumerate}
+    \end{definition}
+
+\subsection{DT Complex exponential and sinusoidal signals}
+    \subsubsection{Complex exponential sequence}
+    \begin{definition}
+        The complex exponential sequence is of the form
+        \begin{equation}
+            x[n] = Ce^{\beta n}
+        \end{equation}
+        \begin{itemize}
+            \item $C,\beta \in \mathbb{C}$
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Sinusoidal signals}
+    \begin{definition}
+        \begin{equation}
+            x[n] = e^{j \omega_0 n} = cos(\omega_0 n) + j sin(\omega_0 n)
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{General complex exponential signal}
+    \begin{definition}
+        \begin{equation}
+            x[n] = C \alpha^n = |C| |\alpha|^n \cos(\omega_0 n + \phi) + j |C| |\alpha|^n \sin(\omega_0 n + \phi)
+        \end{equation}
+        \begin{itemize}
+            \item $C = \abs{C} e^{j\phi}$
+            \item $\alpha = \abs{\alpha} e^{j\omega_0 }$
+            \begin{itemize}
+                \item For \(|\alpha| = 1\), the real and imaginary parts of a complex exponential sequence are sinusoidal.
+                \item For \(|\alpha| < 1\), they correspond to sinusoidal sequences multiplied by a decaying exponential.
+                \item For \(|\alpha| > 1\), they correspond to sinusoidal sequences multiplied by a growing exponential.
+            \end{itemize}
+            
+        \end{itemize}
+    \end{definition}
+
+\subsection{Comparison between CT and DT signals}
+\begin{intuition}   
+    Assumes that $m$ and $N$ do not have any factors in common. 
+
+    $e^{j \omega_0 t}$: 
+    \begin{itemize}
+        \item Distinct signals for distinct values of $\omega_0$
+        \item Periodic for any choice of $\omega_0$
+        \item Fundamental frequency $\omega_0$
+        \item Fundamental period
+        \begin{itemize}
+            \item $\omega_0 = 0$: undefined
+            \item $\omega_0 \neq 0$: $\frac{2\pi}{\omega_0}$
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+
+    $e^{j \omega_0 n}$:
+    \begin{itemize}
+        \item Identical signals for values of $\omega_0$ separated by multiples of $2\pi$
+        \item Periodic only if $\omega_0 = \frac{2\pi m}{N}$ for some integers $N > 0$ and $m$
+        \item Fundamental frequency* $\frac{\omega_0}{m}$
+        \item Fundamental period*
+        \begin{itemize}
+            \item $\omega_0 = 0$: undefined
+            \item $\omega_0 \neq 0$: $m\left(\frac{2\pi}{\omega_0}\right)$
+        \end{itemize}
+    \end{itemize}    
+\end{intuition}

@@ -1,0 +1,106 @@
+\subsection{Commutative}
+\begin{definition}
+    
+    \textbf{DT:}
+    \begin{equation}
+        x[n] * h[n] = h[n] * x[n] = \sum_{k=-x}^{+x} h[k] x[n - k]
+    \end{equation}
+    
+    \textbf{CT:}
+    \begin{equation}
+        x(t) * h(t) = h(t) * x(t) = \int_{-x}^{+x} h(\tau) x(t - \tau) \, d\tau
+    \end{equation}
+\end{definition}
+
+\subsection{Distributive}
+\begin{definition}
+
+    \textbf{DT:}
+    \begin{equation}
+        x[n] * (h_1[n] + h_2[n]) = x[n] * h_1[n] + x[n] * h_2[n]
+    \end{equation}
+
+    \textbf{CT:}
+    \begin{equation}
+        x(t) * [h_1(t) + h_2(t)] = x(t) * h_1(t) + x(t) * h_2(t)
+    \end{equation}
+    \customFigure[0.5]{00_Images/Distributive.png}{Distributive property for a parallel interconnection of LTI systems}
+\end{definition}
+
+\subsection{Consequence of commutative and distributive}
+\begin{definition}
+    The response of an LTI system to the sum of two inputs must equal the sum of the responses to these signals individually.
+
+    \textbf{DT:}
+    \begin{equation}
+        [x_1[n] + x_2[n]] * h[n] = x_1[n] * h[n] + x_2[n] * h[n]
+    \end{equation}
+
+    \textbf{CT:}
+    \begin{equation}
+        [x_1(t) + x_2(t)] * h(t) = x_1(t) * h(t) + x_2(t) * h(t)
+    \end{equation}
+\end{definition}
+
+\subsection{Associative}
+\begin{definition}
+
+    \textbf{DT:}
+    \begin{equation}
+        x[n] * (h_1[n] * h_2[n]) = (x[n] * h_1[n]) * h_2[n]
+    \end{equation}
+    \textbf{CT:}
+    \begin{equation}
+        x(t) * [h_1(t) * h_2(t)] = [x(t) * h_1(t)] * h_2(t)
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Key:} It does not matter in which order we convolve these signals.
+    \end{itemize}
+    \customFigure[0.5]{00_Images/Associative.png}{Associative property of convolution and the implication of this and the commutative property for the series interconnection of LTI systems.}
+\end{definition}
+
+\subsection{Memory}
+\begin{definition}
+    
+    \textbf{DT:} If $h[n] = 0$ for $n \neq 0$, then an LTI system is memoryless iff $h[n] = K\delta[n]$, where $K=h[0]$ is a constant, so the convolution sum reduces to $y[n] = Kx[n]$
+    \vspace{1em}
+
+    \textbf{CT:} If $h(t)=0$ for $t \neq 0$, then an LTI system is memoryless iff $h(t)=K\delta(t)$, where $K$ is a constant, so the convolution integral reduces to $y(t) = Kx(t)$
+\end{definition}
+
+\subsection{Invertibility}
+\begin{definition}
+    If an LTI system is invertible, then it has an LTI inverse.
+
+    \customFigure[0.5]{00_Images/LTI_Invertibility.png}{Inverse system for CT LTI systems. The system with impulse response $h_1(t)$ is the inverse of the system with impulse response $h(t)$}
+
+    \begin{itemize}
+        \item \textbf{DT:} $h[n] \star h_1[n] = \delta[n]$
+        \item \textbf{CT:} $h(t) \star h_1(t) = \delta(t)$
+    \end{itemize}
+    
+\end{definition}
+
+\subsection{Causality}
+\begin{definition}
+
+    \textbf{DT:} A LTI system is causal if $h[n] = 0 $ for $n<0$, so the convolution sum becomes $y[n] = \sum_{k=0}^{\infty} h[k]x[n-k]$
+    \vspace{1em}
+
+    \textbf{CT:} A LTI system is causal if $h(t) = 0 $ for $t<0$, so the convolution integral becomes $y(t) = \int_{0}^{\infty} h(\tau) x(t-\tau) d\tau$
+
+    \begin{itemize}
+        \item \textbf{Initial rest:} Equivalent to the initial rest condition if $x(t) = 0$ for $t<t_0$, then $y(t)=0$ for $t<t_0$
+        \item \textbf{Signal causality:} Causality of an LTI system is equivalent to its impulse response being a causal signal.
+    \end{itemize}
+\end{definition}
+
+\subsection{Stability}
+\begin{definition}
+    
+    \textbf{DT:} The LTI system is stable if the impulse response is \emph{absolutely summable}, that is, if $\sum_{k=-\infty}^{+\infty} \abs{h[k]} < \infty$.
+    \vspace{1em}
+
+    \textbf{CT:} The LTI system is stable if the impulse response is \emph{absolutely integrable}, that is, if $\int_{-\infty}^{+\infty} \abs{h(\tau)} d\tau < \infty$.
+\end{definition}
+

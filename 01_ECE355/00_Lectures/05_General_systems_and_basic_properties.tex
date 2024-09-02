@@ -1,0 +1,86 @@
+\subsection{Systems}
+\begin{definition}
+    A process that transforms input signals into output signals.
+    \begin{itemize}
+        \item \textbf{Note:} Signals can be discrete or continuous.
+        \begin{itemize}
+            \item \textbf{CT:} $x(t)\rightarrow y(t)$
+            \item \textbf{DT:} $x[n] \rightarrow y[n]$
+        \end{itemize} 
+    \end{itemize}
+\end{definition}
+
+\subsection{Interconnection of systems}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Series:}
+            \customFigure[0.5]{00_Images/Series.png}{Series system.}
+            \item \textbf{Parallel:}
+            \customFigure[0.5]{00_Images/Parallel.png}{Parallel system.}
+            \item \textbf{Series and parallel:}
+            \customFigure[0.5]{00_Images/Series_Parallel.png}{Series and parallel system.}
+            \item \textbf{Feedback:}
+            \customFigure[0.5]{00_Images/Feedback.png}{Feedback system.}
+        \end{itemize}
+    \end{definition}
+
+\subsection{Basic properties}
+    \subsubsection{Memory}
+    \begin{definition}
+        A system is said to be \emph{memoryless} if $y(t_0)$ depends only on $x(t_0)$, $\forall t_0$ 
+    \end{definition}
+
+    \subsubsection{Invertibility}
+    \begin{definition}
+        A system is invertible if distinct input leads to distinct output.
+        \customFigure[0.5]{00_Images/Inverse.png}{Inverse system concept.}
+    \end{definition}
+
+    \subsubsection{Causality}
+    \begin{definition}
+        A system is causal if the output at any time depends only on values of the input at the present time and in the past.
+        \vspace{1em}
+
+        \textbf{DT:} $y[n_0]$ does not depend on values of $x[n]$ for $n > n_0$.
+
+        \vspace{1em}
+        
+        \textbf{CT:} $y(t_0)$ does not depend on values of $x(t)$ for $t > t_0$.
+        
+    \end{definition}
+
+    \subsubsection{Stability}
+    \begin{definition}
+        A system is bounded-input-bounded-output (BIBO) stable if bounded input signals (i.e. $\abs{x(t)} < \infty \; \forall t$), leads to bounded output signals (i.e. $\abs{y(t)} < \infty \; \forall t$)
+        
+    \end{definition}
+
+    \subsubsection{Time invariance}
+    \begin{definition}
+        A system is time invariant if a time shift in the input signal results in an identical time shift in the output signal.
+        \begin{itemize}
+            \item \textbf{DT:} If $y[n]$ is the output of a time-invariant system when $x[n]$ is the input, then $y[n - n_0]$ is the output when $x[n - n_0]$ is applied.
+            \item \textbf{CT:} If $y(t)$ is the output of a time-invariant system when $x(t)$ is the input, then $y(t - t_0)$ is the output when $x(t - t_0)$ is applied.
+        \end{itemize}        
+    \end{definition}
+
+    \subsubsection{Linearity}
+    \begin{definition}
+
+        Suppose for inputs $x_1$, $x_2$ correspond to outputs $y_1$, $y_2$ respectively, then a system is linear if:
+        \begin{enumerate}
+            \item \textbf{Additivity:} The response to $x_1 + x_2$ is $y_1 + y_2$.
+            \item \textbf{Homogeneity:} The response to $ax_1$ is $ay_1$, where $a \in \mathbb{C}$.
+        \end{enumerate}
+        \vspace{1em}
+
+        \textbf{Superposition:}
+        If $x_k$, $k = 1, 2, 3, \ldots$, are a set of inputs to a linear system with corresponding outputs $y_k$, $k = 1, 2, 3, \ldots$, then the response to a linear combination of these inputs given by
+
+        \[
+        x = \sum_k a_k x_k \text{ is } y = \sum_k a_k y_k 
+        \]
+        \begin{itemize}
+            \item \textbf{Consequence:} $x = 0 \rightarrow y = 0$
+        \end{itemize}
+    \end{definition}

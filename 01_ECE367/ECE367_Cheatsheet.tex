@@ -15,346 +15,36 @@
 
 \listoftables
 
-\section{Week 1 (Ch. 2.1-2.2)}
-    \subsection{Vectors}
-        \begin{definition}
-            A single collection of numbers, where \( x_i \in \mathbb{R}\) or \(\mathbb{C}\)
-            \begin{equation*}
-                \mathbf{x} = \begin{bmatrix}
-                    x_1 \\
-                    x_2 \\
-                    \vdots \\
-                    x_n
-                \end{bmatrix}, \quad 
-                \mathbf{x}^T = \begin{bmatrix}
-                    x_1 & x_2 & \cdots & x_n
-                \end{bmatrix}.
-            \end{equation*}
-            
-            \begin{itemize}
-                \item $n$: Dimension of $\mathbf{x}$
-                \item $\mathbf{x}$: Column vector
-                \item $\mathbf{x}^T$: Row vector
-                \item $T$: Transpose
-            \end{itemize}
-        \end{definition}
+\section{Vectors, Norms, Inner Products (Ch. 2.1-2.2)}
 
-    \subsubsection{Vector spaces}
-        \begin{definition}
-            A set of vectors \(\mathcal{V}\) that are closed under addition and scalar multiplication.
-            \vspace{1em}
+\section{Orthogonal Decomposition, Projecting onto Subspaces, Gram-Schmidt, QR Decomposition, Hyperplanes and Half-Spaces (Ch. 2.2-2.3)}
 
-            \textbf{Components:}
-            \begin{itemize}
-                \item $\mathbf{v}^{(1)}+\mathbf{v}^{(2)}$ is the sum of the corresponding components: $v_{i}^{(1)}+v_{i}^{(2)}$.
-                \item $\alpha \mathbf{v}$ is multiplying each component by $\alpha$: $\alpha v_{i}$.
-            \end{itemize}
+\section{Non-Euclidean Projection, Projection onto Affine Sets, Functions, Gradients and Hessians (Ch. 2.3-2.4)}
 
-        \end{definition}
+\section{Matrices, Range, Null Space, Eigenvalues, Eigenvectors, Matrix Diagonalization (Ch. 3.1-3.5)}
 
-        \customFigure[0.5]{00_Images/00_Vector_Space.png}{Vector addition and scalar multiplication.}
-    
-    \subsubsection{Properties of vector spaces}
-        \begin{definition}
-            \begin{itemize}
-                \item $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
-                \item $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$
-                \item $\alpha (\mathbf{u} + \mathbf{v}) = \alpha \mathbf{u} + \alpha \mathbf{v}$
-                \item $(\alpha + \beta)\mathbf{u} = \alpha \mathbf{u} + \beta \mathbf{u}$
-                \item $\exists\; \mathbf{0} \in \mathbb{V} \text{ s.t. } \mathbf{u} + \mathbf{0} = \mathbf{u}$
-                \item $\exists\; -\mathbf{u} \in \mathbb{V} \text{ s.t. } \mathbf{u} + (-\mathbf{u}) = \mathbf{0}$
-                \item $\exists\; \alpha \: \text{ s.t. } \alpha \mathbf{u} = \mathbf{u} \quad (\alpha = 1)$
-            \end{itemize}
-        \end{definition}
+\section{Symmetric Matrices, Orthogonal Matrices, Spectral Decomposition, Positive Semidefinite Matrices, Ellipsoids (Ch. 4.1-4.4)}
 
-    \subsubsection{Span and subspace}
-        \begin{definition}
-            Let \( S = \left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\} \), then the \textbf{span} is
-            \begin{equation*}
-                \text{Span}(S) = \left\{\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)} \text{ | } \alpha_i \in \mathbb{R}\right\}
-            \end{equation*}
-            \begin{itemize}
-                \item \textbf{Note:} The span of a set of vectors is always a subspace.
-            \end{itemize}
-        \end{definition}
+\section{Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}
 
-        \begin{definition}
-            A \textbf{subspace} is a subset of a vector space that is a vector space by itself.
-            \begin{itemize}
-                \item \textbf{Note:} $0$ is always in a subspace.
-            \end{itemize}
-        \end{definition}
-
-    \subsubsection{Linear independent (LI) set}
-        \begin{definition}
-            \begin{itemize}
-                \item \( S = \left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\} \) is LI if no element of $S$ can be expressed as a LC of other elements in S (i.e. The only $\alpha_i$'s that makes $\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)} = 0$ is $\alpha_i = 0, \; \forall i$).
-                \item If S is a LI set, then for any $u\in span(S)$, there is a unique set of $\alpha_i$'s s.t. $u=\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)}$ (i.e. there is no redundancies in representation)
-                \item If a set of $\left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\}$ has redundancy, then we can remove the vector that can be represented as a LC of other vectors until all the redundancies are removed.
-                \begin{itemize}
-                    \item \textbf{Note:} Such an irreducible LI set can serve as a basis for $Span\left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\}$.
-                \end{itemize}
-            \end{itemize}
-        \end{definition}
-
-    \subsubsection{Basis}
-        \begin{definition}
-            A set of vectors $\mathcal{B}$ is a basis of a vector space $\mathcal{V}$ if (i) $\mathcal{B}$ is LI, (ii) $Span(\mathcal{B})=\mathcal{V}$
-        \end{definition}
-
-        \begin{example}
-            What is the standard basis?
-            \vspace{1em}
-
-            \[
-            \mathbf{e}^{(1)} = \begin{bmatrix}
-            1 \\
-            0 \\
-            \vdots \\
-            0
-            \end{bmatrix}, \quad
-            \mathbf{e}^{(2)} = \begin{bmatrix}
-            0 \\
-            1 \\
-            \vdots \\
-            0
-            \end{bmatrix}, \quad \dots \quad, \quad
-            \mathbf{e}^{(n)} = \begin{bmatrix}
-            0 \\
-            0 \\
-            \vdots \\
-            1
-            \end{bmatrix}
-            \quad \text{for } \mathbb{R}^n
-            \]
-        \end{example}
-    
-    \subsubsection{Cardinality}
-        \begin{definition}
-            The dimension of vector spaces $\mathcal{V}$ is the \textbf{cardinality} of $\mathcal{B}$.
-            \begin{itemize}
-                \item \textbf{Cardinality:} A set refers to the number of elements in the set.
-                \item \textbf{Note:} Basis is not unique. But $dim(\mathcal{V})$ is well-defined.
-            \end{itemize}
-        \end{definition}
-    
-    \subsection{Norms}
-    In optimization problems, different norms are used to achieve various goals.
-        \begin{definition}
-            Notion of distance, where $\left\lVert \mathbf{v} \right\rVert$ is a function that maps $\mathcal{V} \rightarrow \mathbb{R}$ that satisfies 
-            \begin{enumerate}
-                \item \( \| \mathbf{v} \| \geq 0, \; \forall \mathbf{v} \in \mathcal{V}, \text{ and } \| \mathbf{v} \| = 0 \text{ iff } \mathbf{v} = \mathbf{0} \)
-                \item \( \| \alpha \mathbf{v} \| = |\alpha| \| \mathbf{v} \| \; \forall \mathbf{v} \in \mathcal{V}, \; \alpha \in \mathbb{R} \)
-                \item \( \| \mathbf{u} + \mathbf{v} \| \leq \| \mathbf{u} \| + \| \mathbf{v} \| \), $\forall x$, $y\in \mathcal{V}$ (triangular inequality)
-            \end{enumerate}
-        \end{definition}
-
-        \begin{example}
-            $\ell_p$ norms:
-            \[
-            \| \mathbf{x} \|_p \equiv \left( \sum_{k=1}^{n} |x_k|^p \right)^{1/p}, \quad 1 \leq p < \infty.
-            \]
-            \begin{itemize}
-                \item \textbf{Sum-of-absolute-values length} $p=1$: $\| \mathbf{x} \|_1 \equiv \sum_{k=1}^{n} |x_k|$
-                \begin{itemize}
-                    \item For $p<1$, triangular inequality doesn't hold.
-                \end{itemize}
-                \item \textbf{Euclidean length} $p=2$: $\| \mathbf{x} \|_2 \equiv \sqrt{\sum_{k=1}^{n} x_k^2}$
-                \item \textbf{Max absolute value norm} $p=\infty$: $\| \mathbf{x} \|_\infty \equiv \max_{k=1,\ldots,n} |x_k|$
-                \begin{itemize}
-                    \item Longest term will dominate.
-                \end{itemize}
-                \item \textbf{Cardinality} $p=0$: The number of non-zero vectors in $x$ is 
-                        \[
-                            \| \mathbf{x} \|_0 = \text{card}(\mathbf{x}) \equiv \sum_{k=1}^{n} \mathbb{I}(x_k \neq 0), \quad \text{where} \quad \mathbb{I}(x_k \neq 0) \equiv 
-                        \begin{cases}
-                        1 & \text{if } x_k \neq 0 \\
-                        0 & \text{otherwise}.
-                        \end{cases}
-                        \]
-                \begin{itemize}
-                    \item Not a norm since $ \|\alpha \mathbf{x}\|_0 = \|\mathbf{x}\|_0 \neq |\alpha| \cdot \|\mathbf{x}\|_0$
-                \end{itemize}
-            \end{itemize}
-        \end{example}
-
-        \subsubsection{Norm balls}
-        
-            \begin{definition}
-                The set of all vectors with $\ell_p$ norm less than or equal to one, 
-                \begin{equation}
-                    B_p = \left\{ \mathbf{x} \in \mathbb{R}^n : \| \mathbf{x} \|_p \leq 1 \right\}
-                \end{equation}
-            \end{definition}
-
-            \begin{example}
-                \begin{itemize}
-                    \item \( \ell_2: \; B_2 = \left\{ \mathbf{x} \ \middle| \ \sqrt{x_1^2 + x_2^2} \leq 1 \right\} \)
-                    \item \( \ell_1: \; B_1 = \left\{ \mathbf{x} \ \middle| \ |x_1| + |x_2| \leq 1 \right\} \)
-                    \item \( \ell_\infty: \; B_\infty = \left\{ \mathbf{x} \ \middle| \ \max |x_i| \leq 1 \right\} \)
-                    \item \( \ell_0: \; B_0 = \left\{ \mathbf{x} \ \middle| \ \text{card}(\mathbf{x}) \leq 1 \right\} \)
-                \end{itemize}
-
-                \customFigure[0.5]{00_Images/Norm_Balls.png}{Norm balls of different p values.}
-            \end{example}
-    \subsection{Inner products}
-        \begin{definition}
-            \( \mathbf{x}, \mathbf{y} \in \mathcal{V} \): $\mathcal{V}\rightarrow \mathbb{R}$ into a scalar denoted by \( \langle \mathbf{x}, \mathbf{y} \rangle \). The inner product satisfies the following axioms: for any \( \mathbf{x}, \mathbf{y}, \mathbf{z} \in \mathcal{V} \) and scalar \( \alpha \),
-
-            \begin{itemize}
-                \item \( \langle \mathbf{x}, \mathbf{x} \rangle \geq 0 \)
-                \item \( \langle \mathbf{x}, \mathbf{x} \rangle = 0 \) iff \( \mathbf{x} = 0 \)
-                \item \( \langle \mathbf{x} + \mathbf{y}, \mathbf{z} \rangle = \langle \mathbf{x}, \mathbf{z} \rangle + \langle \mathbf{y}, \mathbf{z} \rangle \)
-                \item \( \langle \alpha \mathbf{x}, \mathbf{y} \rangle = \alpha \langle \mathbf{x}, \mathbf{y} \rangle \)
-                \item \( \langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y}, \mathbf{x} \rangle \) in $\mathbb{R}^n$ and \( \langle \mathbf{x}, \mathbf{y} \rangle = \overline{\langle \mathbf{y}, \mathbf{x} \rangle} \) in \( \mathbb{C}^n \).
-            \end{itemize}
-        \end{definition}
-
-        \subsubsection{Standard inner product}
-        \begin{definition}
-            Notion of angle between two vectors in $\mathbb{R}^n$, defined as the row-column product of two vectors:
-            \begin{itemize}
-                \item In \( \mathbb{R}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} x_i y_i = \mathbf{x}^\top \mathbf{y}$
-                \item In \( \mathbb{C}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} \overline{x_i} y_i = \mathbf{x}^H \mathbf{y}$
-            \end{itemize}
-        \end{definition}
-
-        \subsubsection{Connect inner product with angle}
-            \begin{definition}
-                \begin{equation}
-                    \cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|_2 \|\mathbf{y}\|_2} = \left\langle \frac{\mathbf{x}}{\|\mathbf{x}\|_2}, \frac{\mathbf{y}}{\|\mathbf{y}\|_2} \right\rangle
-                \end{equation}
-                \begin{itemize}
-                    \item \textbf{Orthogonal:} \( \langle \mathbf{x}, \mathbf{y} \rangle = 0 \), the angle between vectors \( \mathbf{x} \) and \( \mathbf{y} \) is \( \theta = \pm 90^\circ \).
-                    \item \textbf{Parallel:} When the angle \( \theta \) is \( 0^\circ \) or \( \pm 180^\circ \), vectors \( \mathbf{x} \) and \( \mathbf{y} \) are aligned, meaning \( \mathbf{y} = \alpha \mathbf{x} \) for some scalar \( \alpha \).
-                \end{itemize}
-            \end{definition}
-            \customFigure[0.25]{00_Images/Angle_Between_Vectors.png}{Visual representation of angle between vectors.}
-        
-        \subsubsection{Cauchy-Schwartz inequality and its generalization}
-        \begin{definition}
-                \begin{equation}
-                    | \langle \mathbf{x}, \mathbf{y} \rangle | \leq \|\mathbf{x}\|_2 \|\mathbf{y}\|_2    
-                \end{equation}
-                \vspace{1em}
-
-                \textbf{Hölder's Inequality (generalization):}
-                \begin{equation}
-                    | \langle \mathbf{x}, \mathbf{y} \rangle | \leq \|\mathbf{x}\|_p \|\mathbf{y}\|_q \quad \text{where } 1 \leq p, q < \infty \text{ and } \frac{1}{p} + \frac{1}{q} = 1
-                \end{equation}
-        \end{definition}
-
-    \subsection{Orthogonal decomposition}
-        \subsubsection{Orthogonality}
-        \begin{definition}
-            A set of non-zero vectors \( S = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \) is \textbf{mutually orthogonal} if \( \langle \mathbf{v}^{(i)}, \mathbf{v}^{(j)} \rangle = 0 \) $\forall$ \( i \neq j \).
-            \begin{itemize}
-                \item \textbf{Fact:} Orthogonal set of vectors form a basis for \( Span = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \)
-            \end{itemize}
-        \end{definition}
-
-        \subsubsection{Orthonormal basis}
-        \begin{definition}
-            Set of orthogonal basis vectors that have unit norm:
-            \[
-            \left\{ \frac{\mathbf{v}^{(1)}}{\|\mathbf{v}^{(1)}\|}, \ldots, \frac{\mathbf{v}^{(d)}}{\|\mathbf{v}^{(d)}\|} \right\}
-            \]
-        \end{definition}
-
-        \subsubsection{Orthogonal component}
-        \begin{definition}
-            Given \( S \subseteq \mathcal{V} \) is a subspace of \( \mathcal{V} \), a vector \( \mathbf{x} \in \mathcal{V} \) is said to be \textbf{orthogonal} to \( S \) if \( \forall \mathbf{v} \in S \), we have \( \langle \mathbf{x}, \mathbf{v} \rangle = 0 \).
-        \end{definition}
-
-        \subsubsection{Orthogonal complement}
-        \begin{definition}
-            A vector $\mathbf{x} \in \mathcal{V}$ is orthogonal to a subset $S$ of an inner product space $\mathcal{V}$ if $\mathbf{x} \perp s$ for all $s \in S$. The set of vectors in $\mathcal{V}$ that are orthogonal to $S$ is called the \textit{orthogonal complement} of $S$:
-
-            \begin{equation}
-                S^\perp = \left\{ \mathbf{x} \in \mathcal{V} \mid \mathbf{x} \perp S \right\}
-            \end{equation}
-            \begin{itemize}
-                \item $dim(S) + dim(S^\perp) = dim(\mathcal{V})$
-            \end{itemize}
-        \end{definition}
-
-        \customFigure[0.5]{00_Images/Orthogonal_Complement.png}{Orthogonal complement.}
-
-        \subsubsection{Orthogonal decomposition}
-        \begin{definition}
-            Any $\mathbf{x} \in \mathcal{V}$ can be expressed as 
-            \begin{itemize}
-                \item $\mathbf{x} = \mathbf{x}_S + \mathbf{x}_{S^\perp}$
-                \item $\mathcal{V} = S \oplus S^\perp$
-            \end{itemize}
-        \end{definition}
-
-\section{Week 2 (Ch. 2.3)}
-    \subsection{Projection onto subspaces}
-    
-    \subsubsection{Problem that projections solve}
-        \begin{definition}
-            Given a vector $\mathbf{x}\in \mathcal{V}$. Find the closest point in $S$ to $x$: 
-            \begin{equation}
-                \text{Proj}_S(x) = \arg\min_{y \in S} \| y - x \|
-            \end{equation}
-            \begin{itemize}
-                \item $\| y - x \|$: Some norm.
-            \end{itemize}
-        \end{definition}
-
-    \subsubsection{Higher dimensional S} % L3 Pg2-3 skipped
-    \begin{definition}
-    \end{definition}
-
-    \subsection{Fourier series}
-    
-    \subsection{Gram-Schmidt and QR decomposition}
-    \subsection{Hyperplanes and half-spaces}
-    \subsection{Non-euclidean projection}
-
-\section{Week 3 (Ch. 2.3-2.4)}
-    \subsection{Projection onto affine sets}
-    \subsection{Functions}
-    \subsection{Gradients}
-    \subsection{Hessians}
-
-\section{Week 4 (Ch. 3.1-3.5)}
-    \subsection{Matrices}
-    \subsection{Range}
-    \subsection{Null Space}
-    \subsection{Eigenvalues and eigenvectors}
-    \subsection{Matrices diagonalization}
-
-\section{Week 5 (Ch. 4.1-4.4)}
-    \subsection{Symmetric matrices}
-    \subsection{Orthogonal matrices}
-    \subsection{Spectral decomposition}
-    \subsection{Positive semidefinite matrices}
-    \subsection{Ellipsoids}
-
-\section{Week 6 (Ch. 5.1, 5.3.2)}
-    \subsection{Singular value decomposition}
-    \subsection{Principle component analysis}
-
-\section{Week 7 (Ch. 5.2-5.3.1)}
+\section{Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}
     \subsection{Interpretation of SVD}
     \subsection{Low-rank approximation}
 
-\section{Week 8 (Ch. 6.1-6.4)}
+\section{Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}
     \subsection{Least squares}
     \subsection{Overdetermined linear equation}
     \subsection{Underdetermined linear equation}
 
-\section{Week 9 (Ch. 6.7.3, 8.1-8.4)}
+\section{Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}
     \subsection{Regularized least-squares}
     \subsection{Convex sets and convex functions}
 
-\section{Week 10 (Ch. 8.5, 9.1-9.6)}
+\section{Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}
     \subsection{Lagrangian method for constrained optimization}
     \subsection{Linear programming and quadratic programming}
 
-\section{Week 11 (Ch. 12.1-12.3)}
+\section{Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}
     \subsection{Numerical algorithms for unconstrained optimization}
     \subsection{Numerical algorithms for constrained optimization}
 

@@ -1,0 +1,42 @@
+\subsection{DT Sifting property}
+\begin{definition}
+    Any DT signal can be written as 
+    \begin{equation}
+        x[n] = \sum_{k=-\infty}^{+\infty} x[k]\delta [n-k]
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Key:} $\delta [n-k]$ is nonzero only when $k=n$, so it preserves only that value. 
+    \end{itemize}
+\end{definition}
+
+\subsection{DT Unit impulse response}
+\begin{definition}
+    $h[n]$ is the output of the LTI system when $\delta [n]$ is the input.
+    \begin{equation}
+        h[n] = h_0 [n]
+    \end{equation}
+\end{definition}
+
+\begin{intuition}
+    $\delta[n] \rightarrow \text{LTI} \rightarrow h[n]$
+\end{intuition}
+
+\subsection{CT Sifting property}
+\begin{definition}
+    Any CT signal can be written as
+    \begin{equation}
+        x(t) = \int_{-x}^{+x} x(\tau) \delta(t - \tau) \, d\tau
+    \end{equation}
+\end{definition}
+
+\subsection{CT Unit impulse response}
+\begin{definition}
+    $h(t)$ is the output of the LTI system when $\delta (t)$ is the input.
+    \begin{equation}
+        h(t) = h_0 (t)
+    \end{equation}
+\end{definition}
+
+\begin{intuition}
+    $\delta(t) \rightarrow \text{LTI} \rightarrow h(t)$
+\end{intuition}

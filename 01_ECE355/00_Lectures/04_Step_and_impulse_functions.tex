@@ -1,0 +1,93 @@
+\subsection{DT Unit impulse and step sequences}
+    \subsubsection{Unit impulse}
+    \begin{definition}
+        \begin{equation}
+            \delta[n] = 
+            \begin{cases}
+                0, & n \neq 0 \\
+                1, & n = 0
+            \end{cases}
+        \end{equation}
+        \customFigure[0.75]{00_Images/Impulse.png}{DT unit impulse}
+
+    \end{definition}
+
+    \subsubsection{Unit step}
+    \begin{definition}
+        \begin{equation}
+            u[n] = 
+            \begin{cases}
+                0, & n < 0 \\
+                1, & n \geq 0
+            \end{cases}
+        \end{equation}
+        \customFigure[0.75]{00_Images/Step.png}{DT unit step}
+    \end{definition}
+
+    \subsubsection{Relationship between impulse and step}
+    \begin{definition}
+        \begin{enumerate}
+            \item \textbf{First Difference:}
+            \[
+            \delta[n] = u[n] - u[n-1]
+            \]
+        
+            \item \textbf{Running Sum:}
+            \[
+            u[n] = \sum_{m=-\infty}^{n} \delta[m]
+            \]
+
+            Let $k=n-m$:
+            \[
+            u[n] = \sum_{k=\infty}^{0} \delta[n-k] = \sum_{k=0}^{\infty} \delta[n-k]
+            \]
+        \end{enumerate}
+    \end{definition}
+
+    \subsubsection{Sampling}
+    \begin{definition}
+        If we consider a unit impulse $\delta [n-n_0]$ at $n=n_0$, then
+        \begin{equation}
+            x[n] \delta[n - n_0] = x[n_0] \delta[n - n_0]
+        \end{equation}
+    \end{definition}
+
+\subsection{CT Unit impulse and step functions}
+    \subsubsection{Impulse}
+    \begin{definition}
+        \begin{equation}
+            \delta(t) = \frac{du(t)}{dt}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Step}
+    \begin{definition}
+        \begin{equation}
+            u(t) = 
+            \begin{cases}
+                0, & t < 0 \\
+                1, & t > 0
+            \end{cases}
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Note:} Step is discontinuous at $t=0$.
+        \end{itemize}
+        \customFigure[0.5]{00_Images/CT_Step.png}{CT unit step function}
+    \end{definition}
+
+    \subsubsection{Running integral}
+    \begin{definition}
+        \begin{equation}
+            u(t) = \int_{-\infty}^{t} \delta(\tau) \, d\tau = \int_{0}^{x} \delta(t - \sigma) \, d\sigma
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Sampling}
+    \begin{definition}
+        For an impulse at $t_0$ then,
+        \begin{equation}
+            x(t) \delta(t - t_0) = x(t_0) \delta(t - t_0)
+        \end{equation}
+    \end{definition}
+
+    

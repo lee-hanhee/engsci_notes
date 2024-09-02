@@ -1,0 +1,16 @@
+\subsection{Convolution sum}
+\begin{definition}
+    For an LTI system, the convolution of the sequences $x[n]$ and $h[n]$ (i.e. the sliding of $h[n-k]$ past $x[k]$ is
+    \begin{equation}
+        y[n] = x[n] \star h[n] = \sum_{k=-\infty}^{+\infty} x[k] h[n-k]
+    \end{equation}
+    \begin{itemize}
+        \item $x[k]$: Input applied at time $k$.
+        \item $x[k]h[n-k]$: Response due to the input (i.e. it is a shifted and scaled version of $h[n]$).
+        \item $y[n]$: 
+        \begin{itemize}
+            \item Output from the superposition of all these time-shifted impulse responses.
+            \item Output from the sum over $k$ of functions $x[k]h[n-k]$ in $n$.
+        \end{itemize}
+    \end{itemize}
+\end{definition}

@@ -1,0 +1,77 @@
+\subsection{Time shifting}
+\begin{definition}
+    
+    \textbf{CT:} $x(t) = x(t-t_0), \; t_0 \in \mathbb{R}$
+    \vspace{1em}
+
+    \textbf{DT:} $x[n] = x[n-n_0], \; n_0 \in \mathbb{Z}$
+
+\end{definition}
+
+\subsection{Time scaling}
+\begin{definition}
+    
+    \textbf{CT:} $x(t) = x(at), \; a\in \mathbb{R}$
+    \begin{itemize}
+        \item $\abs{a} > 1$: Contraction
+        \item $\abs{a} < 1$: Expansion
+        \item $a < 0$: Time reversal (reflect across y-axis)
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{DT:} $y[n] = x[an], \; an\in \mathbb{Z}$
+\end{definition}
+
+\subsection{Scaling and shifting (CT)}
+\begin{definition}
+    \begin{equation}
+        y(t) = x(at+b), \; a,b\in \mathbb{R}
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Order:} Apply the shift, then the scaling.
+    \end{itemize}
+\end{definition}
+
+\subsection{Periodic signals}
+\begin{definition}
+    
+    \textbf{CT:} $x(t)$ is periodic with $T$ iff $\exists \; T>0$, s.t. $x(t)=x(t+T)$, $\forall t$. 
+    \vspace{1em}
+
+    \textbf{DT:} $x[n]$ is periodic with $N$ iff $\exists \; N>0$, s.t. $x[n]=x[n+N]$, $\forall n$. 
+\end{definition}
+
+    \subsubsection{Fundamental period:}
+    \begin{definition}
+        
+        \textbf{CT:} $T_0$ of $x(t)$ is the smallest period.
+        \vspace{1em}
+
+        \textbf{DT:} $N_0$ of $x[t]$ is the smallest period.
+    \end{definition}
+
+\subsection{Even and odd signals}
+\begin{definition}
+    
+    \textbf{CT:} 
+    \begin{itemize}
+        \item \textbf{Even:} $x(-t) = x(t)$ (symmetrical about y-axis)
+        \item \textbf{Odd:} $x(-t) = - x(t)$ (symmetrical about origin)
+    \end{itemize}
+
+    \textbf{DT:} 
+    \begin{itemize}
+        \item \textbf{Even:} $x[-n] = x[n]$ 
+        \item \textbf{Odd:} $x[-n] = - x[n]$ 
+    \end{itemize}
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{Note:} Odd signal must be $0$ at $t=0$ or $n=0$.
+    \end{itemize}
+\end{definition}
+
+\subsection{Fact:}
+\begin{definition}
+    Any signal can be broken into a sum of an even and odd signal.
+\end{definition}

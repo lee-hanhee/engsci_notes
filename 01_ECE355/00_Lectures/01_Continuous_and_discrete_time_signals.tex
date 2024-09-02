@@ -1,0 +1,63 @@
+\subsection{Signal energy and power}
+    \subsubsection{Total energy}
+    \begin{definition}
+        
+        \textbf{Continuous:} Total energy from $t_1 \leq t \leq t_2$ is 
+        \begin{equation}
+            E_{[t_1,t_2]} = \int_{t_1}^{t_2} \abs{x(t)}^2 dt
+        \end{equation}
+        \begin{itemize}
+            \item $x(t)$: Continuous-time signal
+            \item $\abs{x}$: Magnitude of the number
+        \end{itemize}
+
+        \textbf{Discrete:} Total energy from $n_1 \leq n \leq n_2$ is
+        \begin{equation}
+            E_{[t_1,t_2]} = \sum_{n=n_1}^{n_2} \abs{x[n]}^2
+        \end{equation}
+        \begin{itemize}
+            \item $x[t]$: Discrete-time signal
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Average power}
+    \begin{definition}
+
+        \textbf{Continuous:} Average power from $t_1 \leq t \leq t_2$ is 
+        \begin{equation}
+            P_{[t_1,t_2]} = \frac{E_{[t_1,t_2]}}{t_2 - t_1} 
+        \end{equation}
+
+        \textbf{Discrete:} Average power from $n_1 \leq n \leq n_2$ is
+        \begin{equation}
+            P_{[t_1,t_2]} = \frac{E_{[t_1,t_2]}}{n_2 - n_1 + 1} 
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Total energy over infinite time interval}
+    \begin{definition}
+
+        \textbf{Continuous:}
+        \begin{equation}
+            E_{\infty} \triangleq \lim_{T \to \infty} \int_{-T}^{T} |x(t)|^2 \, dt = \int_{-\infty}^{\infty} |x(t)|^2 \, dt
+        \end{equation}
+
+        \textbf{Discrete:}
+        \begin{equation}
+            E_{\infty} \triangleq \lim_{N \to \infty} \sum_{n=-N}^{+N} |x[n]|^2 = \sum_{n=-\infty}^{\infty} |x[n]|^2
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Average power over infinite time interval}
+    \begin{definition}
+
+        \textbf{Continuous:}
+        \begin{equation}
+            P_{\infty} \triangleq \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{T} |x(t)|^2 \, dt
+        \end{equation}
+
+        \textbf{Discrete:}
+        \begin{equation}
+            P_{\infty} \triangleq \lim_{N \to \infty} \frac{1}{2N + 1} \sum_{n=-N}^{+N} |x[n]|^2
+        \end{equation}
+    \end{definition}

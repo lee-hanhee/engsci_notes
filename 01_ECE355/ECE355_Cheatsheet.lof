@@ -1,1 +1,13 @@
 \babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Real part of the general form. (a) $r>0$ and (b) $r<0$}}{6}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces DT unit impulse}}{7}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces DT unit step}}{8}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces CT unit step function}}{9}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Series system.}}{9}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Parallel system.}}{10}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Series and parallel system.}}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Feedback system.}}{10}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Inverse system concept.}}{10}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Distributive property for a parallel interconnection of LTI systems}}{13}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Associative property of convolution and the implication of this and the commutative property for the series interconnection of LTI systems.}}{14}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Inverse system for CT LTI systems. The system with impulse response $h_1(t)$ is the inverse of the system with impulse response $h(t)$}}{15}{figure.12}%

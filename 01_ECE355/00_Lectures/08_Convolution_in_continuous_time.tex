@@ -1,0 +1,26 @@
+\subsection{Convolution integral}
+\begin{definition}
+    The convolution of two signals $x(t)$ and $h(t)$ is 
+    \begin{equation}
+        y(t) = x(t) \star h(t) = \int_{-x}^{+x} x(\tau) h(t - \tau) \, d\tau
+    \end{equation}
+    \begin{itemize}
+        \item $x(\tau)$: Input 
+        \item $h(t-\tau)$: Weight
+        \item $y(t)$: Weighted integral of the input 
+    \end{itemize}
+\end{definition}
+
+\begin{process}
+    \begin{enumerate}
+        \item Flip $h(\tau)$ about the y-axis for $h(-\tau)$
+        \item Slide $h(-\tau)$ from left to right for $h(t-\tau)$
+        \item For any $t$, multiply $x(\tau)$ and $h(t-\tau)$ 
+        \item Integrate from $\tau = -\infty$ to $\tau = +\infty$ to obtain $y(t)$
+    \end{enumerate}
+\end{process}
+
+\subsection{Consequence of convolution}
+\begin{intuition}
+    For LTI systems, the characteristics of the system is completely determined by its impulse response.
+\end{intuition}
