@@ -1,13 +1,22 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Real part of the general form. (a) $r>0$ and (b) $r<0$}}{6}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces DT unit impulse}}{7}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces DT unit step}}{8}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces CT unit step function}}{9}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Series system.}}{9}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Parallel system.}}{10}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Series and parallel system.}}{10}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Feedback system.}}{10}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Inverse system concept.}}{10}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Distributive property for a parallel interconnection of LTI systems}}{13}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Associative property of convolution and the implication of this and the commutative property for the series interconnection of LTI systems.}}{14}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Inverse system for CT LTI systems. The system with impulse response $h_1(t)$ is the inverse of the system with impulse response $h(t)$}}{15}{figure.12}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{6}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{6}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{7}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{7}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{7}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{9}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{10}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{10}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{11}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{11}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{12}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{13}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Zero}}{15}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Rectangular}}{15}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Impulse}}{15}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Cosine}}{16}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Cosine}}{16}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Impulse function with zero energy. (Top): Showing the extreme case. Bottom: Showing the delta case as it goes to 0.}}{17}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Finite number of locations will have zero energy.}}{17}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Countable number of locations will have zero energy.}}{17}{figure.21}%

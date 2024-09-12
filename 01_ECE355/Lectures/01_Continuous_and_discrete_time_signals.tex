@@ -1,0 +1,222 @@
+\subsection{4 main classes of signals}
+\begin{definition}
+    \begin{enumerate}
+        \item $\mathbb{R}^\mathbb{Z}$ (i.e. real-valued, discrete time)
+        \item $\mathbb{C}^\mathbb{Z}$ (i.e. complex-valued, discrete time)
+        \item $\mathbb{R}^\mathbb{R}$ (i.e. real-valued, continuous time)
+        \item $\mathbb{C}^\mathbb{R}$ (i.e. complex-valued, continuous time)
+    \end{enumerate}
+
+    \begin{itemize}
+        \item \textbf{Assumption:} Complex unless told otherwise.
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item $()$ is continuous time. 
+        \item $[]$ is discrete time.
+    \end{itemize}
+\end{intuition}
+
+\subsection{Support}
+\begin{definition}
+    The support of a CT signal \( x \in \mathbb{C}^{\mathbb{R}} \), $x(t) \neq \text{zero}$ is the smallest interval $[a,b]$ s.t.:
+    \[
+    x(t) = 0 \; \text{for} \; t \notin [a, b] 
+    \]
+    \customFigure[0.5]{00_Images/Support.png}{Support of a nonzero signal.}
+    The support of a DT signal \( x \in \mathbb{C}^{\mathbb{Z}} \), $x[n] \neq \text{zero}$ is the smallest interval $\{a,a+1,\ldots,b\}$ s.t.:
+    \[
+    x[n] = 0 \; \text{for} \; n \notin \{a, a+1,\ldots,b\} 
+    \]
+\end{definition}
+
+\begin{example}
+    \[
+    \delta[n] = 
+    \begin{cases}
+    1 & \text{if } n = 0 \\
+    0 & \text{otherwise}
+    \end{cases}
+    \]
+    has support \( \{0\} \).
+
+    \begin{center}
+    \begin{tikzpicture}
+        % Axes
+        \draw[->] (-3,0) -- (3,0) node[right] {$n$};
+        
+        % Delta function value at n=0
+        \filldraw (0,0) circle (2pt) node[above] {$1$};
+        \draw[->] (0,0) -- (0,1.5);
+        
+        % Other points (n=-2, -1, 1, 2)
+        \filldraw (-2,0) circle (2pt);
+        \filldraw (-1,0) circle (2pt);
+        \filldraw (1,0) circle (2pt);
+        \filldraw (2,0) circle (2pt);
+    \end{tikzpicture}
+    \end{center}
+\end{example}
+
+\begin{process}
+    \textbf{DT:}
+    \begin{enumerate}
+        \item Understand the support of the original signal: $\text{Support of } x[n] = {n_1,\ldots,n_k}$
+        \item Time shift by $k$:
+        \begin{enumerate}
+            \item Right shift: $\text{Support of } x[n-k] = \left\{ n_1 + k, \ldots, n_k + k \right\}$
+            \item Left shift: $\text{Support of } x[n+k] = \left\{ n_1 - k, \ldots, n_k - k \right\}$
+        \end{enumerate}
+        \item Time reversal: Reflects the signal across the vertical axis s.t. $\text{Support of } x[-n] = \left\{ -n_1 , \ldots, -n_k \right\}$
+        \item Time scaling: Scaling by $a$ (keep only integers) s.t. $\text{Support of } x[an] = \left\{ \frac{n_1}{a}, \ldots, \frac{n_k}{a} \right\}$
+        \begin{enumerate}
+            \item If $a>1$, then compression
+            \item If $0<a<1$, then expanded
+        \end{enumerate}
+    \end{enumerate}
+    \vspace{1em}
+
+    \textbf{CT:}
+    \begin{enumerate}
+        \item Understand the support of the original signal:
+        \begin{itemize}
+            \item Identify the range of \( t \) for which the signal \( x(t) \neq 0 \). This range is known as the support of the signal.
+        \end{itemize}
+        \item Set the argument (e.g. if $x(1-t)$, then the argument is $1-t$) as an inequality to the support. 
+        \item Solve for $t$.
+        \item If it is a product or a sum, then you must use logic to see which function will take priority to include all cases. 
+        \begin{enumerate}
+            \item Product: The lowest bound should take priority b/c the product will be zero as soon as either signal is zero (i.e. only non-zero when both signals are non-zero)
+            \item Sum: The highest bound should take priority b/c a sum will be zero when both signals are zero. 
+        \end{enumerate}
+    \end{enumerate}
+\end{process}
+
+\begin{warning}
+    You might look for the values s.t. it is guaranteed to be 0.
+\end{warning}
+
+\subsection{Signal energy and power}
+    \subsubsection{Energy}
+    \begin{definition}
+        Energy of a signal (if it exists) as
+        \begin{enumerate}
+            \item \textbf{CT:} $ E_x = \int_{-\infty}^{+\infty} |x(t)|^2 dt \quad \in \mathbb{R} \geq 0 $
+            \item \textbf{DT:} $ E_x = \sum_{n=-\infty}^{+\infty} |x[n]|^2 \quad \in \mathbb{R} \geq 0 $
+        \end{enumerate}
+        \begin{itemize}
+            \item \textbf{Energy signal:} A signal of finite energy (i.e. zero average power) is called an \textbf{energy signal}.
+            \item \textbf{Negative:} No negative energies.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Power}
+    \begin{definition}
+        The \textbf{average power} is defined (if it exists) as: 
+        \begin{enumerate}
+            \item \textbf{CT:} \( x \in \mathbb{C}^\mathbb{R} \) then $P_x = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{+T} |x(t)|^2 \, dt$
+            \item \textbf{DT:} \( x \in \mathbb{C}^\mathbb{Z} \) then $P_x = \lim_{N \to \infty} \frac{1}{2N+1} \sum_{n=-N}^{N} |x[n]|^2$
+        \end{enumerate}
+        \begin{itemize}
+            \item \textbf{Power signal:} A signal of finite average power is called a \textbf{power signal}.
+        \end{itemize}
+    \end{definition}
+    
+
+    \begin{warning}
+        \begin{itemize}
+            \item \textbf{Zero average power:} Every energy signal has zero average power. This is because the energy is finite and spread out over an infinite time, causing the power to approach zero. 
+            \item \textbf{Infinite energy:} Power signal only when there is infinite energy.
+        \end{itemize}
+    \end{warning}
+
+    \subsubsection{Examples of energy and power signals}
+    \begin{example}        
+        \customFigure[0.5]{00_Images/Zero.png}{Zero}
+        \customFigure[0.5]{00_Images/Rect.png}{Rectangular}
+        \customFigure[0.5]{00_Images/Impulse_Sig.png}{Impulse}
+        \customFigure[0.5]{00_Images/Complex.png}{Cosine}
+        \customFigure[1]{00_Images/Power.jpeg}{Cosine}
+    \end{example}
+
+    \begin{intuition}
+        Sketch the signal whenever possible.
+    \end{intuition}
+
+\subsection{Zero-energy signals}
+    \begin{definition}
+        
+        \textbf{DT:} $\text{zero}[n]$ has zero energy.
+        \begin{itemize}
+            \item \textbf{Are there others?} No, if $x[i] \neq 0$ for some $i$. $E_x \geq \abs{x[i]}^2 > 0$
+        \end{itemize}
+
+        \textbf{CT:} $\text{zero}(t)$ has zero energy.
+        \begin{itemize}
+            \item \textbf{Are there others?} Yes, examples are below.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Examples of CT zero energy signals}
+    \begin{example}
+        \customFigure[0.5]{00_Images/Impulse_2.png}{Impulse function with zero energy. (Top): Showing the extreme case. Bottom: Showing the delta case as it goes to 0.}
+        \customFigure[0.5]{00_Images/Finite.png}{Finite number of locations will have zero energy.}
+        \customFigure[0.5]{00_Images/Countable.png}{Countable number of locations will have zero energy.}
+    \end{example}
+
+    \subsubsection{Almost everywhere}
+    \begin{definition}
+        If $x(t)$ has zero energy, we will say $x(t) = \text{zero}(t)$ almost everywhere.
+        \begin{equation}
+            x \overset{\text{a.e.}}{=} \text{zero}
+        \end{equation}
+
+        $x(t) = y(t)$ almost everywhere (i.e.  $x \overset{\text{a.e.}}{=} y$) if $x-y \overset{\text{a.e.}}{=} \text{zero}$
+        \begin{itemize}
+            \item \textbf{English:} Physically indistinguishable, where signals that are equal almost everywhere are treated as equivalent because discrepancies occur in regions.
+            \item \textbf{Implication:} On exams, if they are equal almost everywhere, then it be given leeway in marking to be the same. 
+        \end{itemize}
+    \end{definition}
+
+\subsection{Signal spaces are vector spaces}
+    This holders for all 4 main classes of signals. 
+
+    \subsubsection{Signal addition}
+    \begin{definition}
+        Given two signals $x,y\in \mathbb{R}^\mathbb{R}$, we can form a new signal $x+y$
+        \begin{equation}
+            (x+y)(t) = x(t) + y(t) \quad \text{by superposition}
+        \end{equation}
+        \vspace{1em}
+
+        $\mathbb{R}^\mathbb{R}$ is closed under VA. $\forall x,y,z \in \mathbb{R}^{\mathbb{R}}$:
+        \begin{enumerate}
+            \item \textbf{Commutative:} $x+y=y+x$
+            \item \textbf{Associative:} $x+(y+z) = (x+y) + z$
+            \item \textbf{Additive identity:} $\text{zero}(t)$ is the identity fcn.
+            \item \textbf{Additive inverse:} Every signal $x$ has an additive inverse $-x$, s.t. $x+(-x)=\text{zero}$
+        \end{enumerate}
+    \end{definition}
+
+    \subsubsection{Scalar multiplication}
+    \begin{definition}
+        Given any scalar $a \in \mathbb{R}$, and any signal $x \in \mathbb{R}^{\mathbb{R}}$ we can form a new signal $ax \in \mathbb{R}^{\mathbb{R}}$
+        \begin{equation}
+            (ax)(t) = ax(t)
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Amplify:} $\abs{a}>1$
+            \item \textbf{Attentuate:} $\abs{a}<1$
+        \end{itemize}
+        \vspace{1em}
+
+        $\mathbb{R}^\mathbb{R}$ is closed under SM. $\forall a,b \in \mathbb{R}, \forall x,y \in \mathbb{R}^{\mathbb{R}}$:
+        \begin{enumerate}
+            \item \textbf{Distributivity of signals:} $a(x+y) = (ax) + (ay)$
+            \item \textbf{Associativity:} $a(bx) = (ab)x$
+            \item \textbf{Scalar identity:} $1x=x$
+            \item \textbf{Distributivity of scalars:} $(a+b)x = ax + bx$
+        \end{enumerate}
+    \end{definition}

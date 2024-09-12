@@ -102,7 +102,7 @@
 \subsection{Compound interest with subperiods}
 \begin{definition}
     \begin{equation}
-        F = P(1 + i_s)^{m} = P(1 + i_e) 
+        F = P(1 + i_s)^{m} = P(1 + i_e) = Pe^{r_{cc}t}
     \end{equation}
     \begin{itemize}
         \item \(F\): Future amount 
@@ -114,3 +114,144 @@
 \end{definition}
 
 \customFigure[0.5]{00_Images/Compound_Interest_Subperiods.png}{Compound interest in which there is interest that can occur within the nominal interest rate over m times.}
+
+\subsection{L1 Takeaways}
+
+\begin{intuition}
+    \begin{itemize}
+        \item Rates are always happening, analogous to $1m/s,km/h,mi/h$
+        \item The only difference between the rates is just language. We are converting into different rates based on compounding and the period (but they are all the same).
+    \end{itemize}
+\end{intuition}
+
+\begin{example}
+    What is the final value of \$100 at an interest rate of 10\% per year, compounded semi-annually?
+
+    \begin{enumerate}
+        \item \textbf{Break down the interest rate}: 
+        Since the interest is compounded semi-annually, the 10\% annual interest rate is divided into two periods, each with a 5\% interest rate per period. 
+        
+        \item \textbf{Calculate the future value after the first 6 months:} 
+        \[
+        \text{Value after 6 months} = 100 \times (1 + 0.05) = 100 \times 1.05 = 105.
+        \]
+        
+        \item \textbf{Calculate the future value after 1 year:} 
+        The interest is compounded again after another 6 months. The new value is obtained by applying another 5\% interest on \$105:
+        \[
+        \text{Value after 1 year} = 105 \times (1 + 0.05) = 105 \times 1.05 = 110.25.
+        \]
+        
+        \item \textbf{Final result:} 
+        The final amount is:
+        \[
+        \boxed{110.25}
+        \]
+    \end{enumerate}
+
+    What is the effective annual interest rate, given a nominal rate of 10\% per year, compounded semi-annually?
+
+    \begin{enumerate}        
+        \item \textbf{Determine the effective annual interest rate}: 
+        The effective annual rate, \( r_{\text{eff}} \), is the rate that gives the same final value if compounded annually. We solve for \( r_{\text{eff}} \) using:
+        \[
+        100 \times (1 + r_{\text{eff}}) = 100(1+5\%)^2 = 110.25.
+        \]
+        Solving for \( r_{\text{eff}} \):
+        \[
+        1 + r_{\text{eff}} = 1.1025 \quad \Rightarrow \quad r_{\text{eff}} = 0.1025 = 10.25\%.
+        \]
+        
+        \item \textbf{Final result}: 
+        Therefore, the effective annual interest rate is:
+        \[
+        \boxed{10.25\%}
+        \]
+    \end{enumerate}
+
+    What is the continuously compounded interest rate, given a final value of \$110.25 after 1 year on an initial investment of \$100?
+
+    \begin{enumerate}
+        \item \textbf{Apply the continuously compounding formula}: 
+        For continuous compounding, the formula to find the future value is:
+        \[
+        F = P e^{r_{\text{cc}} \cdot t},
+        \]
+        where:
+        \begin{itemize}
+            \item \(F\) is the final amount (\$110.25),
+            \item \(P\) is the initial principal (\$100),
+            \item \(r_{\text{cc}}\) is the continuously compounded interest rate, and
+            \item \(t\) is the time in years (1 year in this case).
+        \end{itemize}
+        Substituting the known values into the formula:
+        \[
+        100 e^{r_{\text{cc}} \cdot 1} = 110.25.
+        \]
+
+        \item \textbf{Solve for \(r_{\text{cc}}\)}: 
+        Dividing both sides by 100, we get:
+        \[
+        e^{r_{\text{cc}}} = 1.1025.
+        \]
+        Taking the natural logarithm of both sides to isolate \(r_{\text{cc}}\):
+        \[
+        r_{\text{cc}} = \ln(1.1025) \approx 0.09758 = 9.758\%.
+        \]
+
+        \item \textbf{Final result}: 
+        Therefore, the continuously compounded interest rate is:
+        \[
+        \boxed{9.758\%/\text{year}}
+        \]
+        \begin{itemize}
+            \item $t$: Important for continuous compounding.
+        \end{itemize}
+    \end{enumerate}
+\end{example}
+
+\subsection{How to solve for equivalent interest rates?}
+\begin{process}
+    \begin{enumerate}
+        \item Identify the variables and values using the $r_{x/y}$ notation. 
+        \item Set the effective interest rates equal to each other using variables using the general formula or CC version.
+        \begin{itemize}
+            \item If using the continuous compound version and are looking for something other than $\%/year$, then you convert it by doing a simple unit change in the exponent
+        \end{itemize}
+        \item Solve for the variable of interest. 
+    \end{enumerate}
+\end{process}
+
+\begin{intuition}
+    $r_{x/y}$
+    \begin{itemize}
+        \item $x$: How much is interest compounded (e.g. monthly compounding, daily compounding, quarterly compounding, etc)
+        \item $y$: How long of a period (e.g. per year, monthly, per month, etc)
+    \end{itemize}
+\end{intuition}
+
+\begin{warning}
+    \begin{itemize}
+        \item Assume for any rate to be per year unless stated otherwise. 
+        \item Assume interest is compounded once per period (unless specified)
+    \end{itemize}
+\end{warning}
+
+\subsection{General formula}
+\begin{definition}
+    \begin{equation}
+        r_{y/y} = \left(1 + \frac{r_{n/m}}{n_m}\right)^{n_y} - 1 
+    \end{equation}
+    \begin{itemize}
+        \item $n_m$: \# of compounding periods $n$ in time $m$.
+        \item $n_y$: \# of compounding periods $n$ per year
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item Dividing by $n_m$ gives you the interest rate applied at each compounding period within a certain time frame $m$.
+        \item Raising to the power of $n_y$ accumulates that periodic interest over a year, resulting in the effective interest rate. This will always be due to the first part (i.e. if $r_{x/y}$ then it is based on x to determine how many times we compound it over that year)
+        \item If $\left(1 + r_{x/x}\right)^{n_x}$, then $n_x$ is the number of compounding periods in one year. You don't need to divide since it is already the interest rate per compounding period. Therefore, the only thing you need to do is find the accumulative interest over a year by raising it to the number of compounding periods per year.
+    \end{itemize}
+\end{intuition}

@@ -1,27 +1,64 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}What is a ML task?}{2}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Different types of learning}{2}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Typical ML pipeline}{2}{subsubsection.1.1.2}%
-\contentsline {section}{\numberline {2}Unsupervised learning}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}What is unsupervised learning?}{2}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Applications of unsupervised learning}{2}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}Clustering with the k-means algorithm}{2}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Notation}{2}{subsubsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.3}Distortion in the k-means algorithm}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Principle component analysis}{3}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Supervised learning with linear models}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Linear regression}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Vectorization}{3}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}What is linearly classifiable?}{3}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Why is XOR not linearly separable?}{3}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Perceptron learning rule}{3}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Support vector machines}{3}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Adapting linear models to non-linear data}{3}{section.4}%
-\contentsline {section}{\numberline {5}Minimizing losses with gradient descent}{3}{section.5}%
-\contentsline {section}{\numberline {6}Deep neural networks}{3}{section.6}%
-\contentsline {section}{\numberline {7}Backpropagating through deep neural networks}{3}{section.7}%
-\contentsline {section}{\numberline {8}Generalization in deep learning}{3}{section.8}%
-\contentsline {section}{\numberline {9}Convolutional neural networks}{3}{section.9}%
-\contentsline {section}{\numberline {10}Language modeling with deep learning}{3}{section.10}%
-\contentsline {section}{\numberline {11}Deep residual networks}{3}{section.11}%
+\contentsline {section}{\numberline {1}Introduction to ML, Nearest neighbors, Linear classification (LFD: 1.1-1.2)}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Types of learning}{3}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{3}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{4}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{5}{subsubsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.2}Classification problem setup}{6}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{6}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{8}{subsubsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.4}Error process for classification}{8}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Types of error}{8}{subsubsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.5}Hyperparameters}{8}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{8}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{9}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{9}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{9}{subsubsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.8}Linear classification}{9}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{10}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{10}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.3}Training}{10}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.4}Prediction}{10}{subsubsection.1.8.4}%
+\contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{10}{subsubsection.1.8.5}%
+\contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{12}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{12}{subsection.1.10}%
+\contentsline {subsubsection}{\numberline {1.10.1}Training}{13}{subsubsection.1.10.1}%
+\contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{13}{subsubsection.1.10.2}%
+\contentsline {section}{\numberline {2}Linear regression, Regularization (LFD: 3.2.1, 3.4.1, Appendix B)}{13}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Perceptron learning algorithm}{13}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}New Formulation of Binary Linear Classification}{13}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Algorithm}{14}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Why does PLA work? (intutive explanation)}{14}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Rosenblett Theorem (analytical proof why PLA works)}{15}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Remarks about PLA (uniqueness and error)}{15}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}What would happen if we use PLA for not linearly separable datasets?}{15}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Multiary classification}{15}{subsubsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.2}Pocket algorithm}{15}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Visual intuition}{16}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Algorithm}{16}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Linear regression}{16}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Matrix-vector algebraic representation}{17}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}When is the error 0? (Motivation for least squares)}{17}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Least squares}{17}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Gradient}{18}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Basic gradients}{18}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Problem setup}{19}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Solution}{19}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Why is it called pseudo-inverse of X?}{19}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Prediction}{20}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Geometric interpretation of least squares}{20}{subsubsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.5}Regularized linear regression / least squares}{21}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Difference between LS and RLS}{21}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}How do we solve this problem?}{22}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Non-linear models}{22}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Circular decision boundary example}{22}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}General form}{23}{subsubsection.2.6.2}%
+\contentsline {section}{\numberline {3}Logistic Regression (LFD: 3.3)}{24}{section.3}%
+\contentsline {section}{\numberline {4}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{24}{section.4}%
+\contentsline {section}{\numberline {5}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{24}{section.5}%
+\contentsline {section}{\numberline {6}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{24}{section.6}%
+\contentsline {section}{\numberline {7}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{24}{section.7}%
+\contentsline {section}{\numberline {8}EM (LFD: 6.4)}{24}{section.8}%
+\contentsline {section}{\numberline {9}Markov Decision Process (AIMA: 16)}{24}{section.9}%
+\contentsline {section}{\numberline {10}Reinforcement Learning (AIMA: 23.1-23.4)}{24}{section.10}%
+\contentsline {section}{\numberline {11}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{24}{section.11}%

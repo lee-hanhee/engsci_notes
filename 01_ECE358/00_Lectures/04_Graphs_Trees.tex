@@ -1,82 +1,161 @@
 \subsection{Graphs}
-    \subsubsection{Directed and undirected graphs}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Graph:} $G = (V, E)$, where $V = \{\text{vertices}\}$ and $E = \{\text{edges}\}$.
+            \item \textbf{Subgraph:} $G' = (V', E')$ is a subgraph of a graph $G$ iff:
+            \begin{itemize}
+                \item $V' \subseteq V$
+                \item $E' \subseteq E$
+                \item If $e = (v, u) \in E'$, then $v \in V'$ and $u \in V'$
+            \end{itemize}
+            \item \textbf{Adjacent vertices:} $N(v) = \{u : (v, u) \in E\}$
+            \item \textbf{Incident edges:} $I(v) = \{(u, v) : (u, v) \in E\}$
+            \item \textbf{Degree of a vertex:} Number of neighbors that a vertex has.
+            \item \textbf{Aside:} Vertices are labeled, and no pair of adjacent vertices are the same.
+        \end{itemize}            
+    \end{definition}
+    \subsubsection{Directed and Undirected, Weighted Graphs}
         \begin{definition}
             \begin{itemize}
-                \item \textbf{Directed graph (digraph):} G is a pair $(V,E)$, which are vertices $V$ and edges $E$.
+                \item \textbf{Directed graph (digraph):} Each edge has a direction from one vertex to another. 
                 \begin{itemize}
+                    \item \textbf{Edges:} $(v_1,v_2)$ and $(v_2,v_1)$ are different.
                     \item \textbf{Self-loop:} Edges from a vertex to itself.
+                    \item \textbf{In/Out Degree of V:} Out-degree is the \# of edges leaving it, while in-degree is the \# of edges entering it.
+                    \item \textbf{Degree of V:} In-degree plus out-degree.
                 \end{itemize}
-                \item \textbf{Undirected graph:} $G=(V,E)$, where $E$ consists of \emph{unordered} pairs of vertices (i.e. direction doesn't matter)
+                \item \textbf{Undirected graph:} Each edge does not have a specific direction.
                 \begin{itemize}
+                    \item \textbf{Edges:} $(v_1,v_2)$ and $(v_2,v_1)$ are indifferent.
                     \item \textbf{Self-loop:} Forbidden.
+                    \item \textbf{Degree of V:} Number of edges incident on it.
                 \end{itemize}
+                \item \textbf{Weighted graph:} A graph where each edge is associated with a value (weight).
             \end{itemize}
         \end{definition}
 
         \customFigure[0.75]{00_Images/Directed_Undirected.png}{(a) Directed graph, (b) Undirected graph.}
 
-    \subsubsection{Terminology}
-    \begin{terminology}
-        \begin{itemize}
-            \item \textbf{Weighted G:} e.g. distance, cost, etc.
-
-            \item \textbf{Path:} A sequence of vertices in which each vertex is adjacent to the next one.
-            \item \textbf{Simple Path:} A path with no repetition of vertices.
-
-            \item \textbf{Simple Cycle:} Simple path with same start/end vertex.
-
-            \item \textbf{Acyclic Graph:} A graph with no cycles is an acyclic graph.
-            \item \textbf{Directed Acyclic Graph:} A DAG is a directed acyclic graph.
-
-            \item \textbf{Connected:} Two vertices are connected if there is a path between them.
-            \item \textbf{Connected graph:} $\exists$ path between $\forall \; 2$ vertices. 
-
-            \item \textbf{Degree of V (Undirected G):} Number of edges incident on it.
-            \item \textbf{In/Out Degree of V (Directed G):} Out-degree is the \# of edges leaving it, while in-degree is the \# of edges entering it.
-            \item \textbf{Degree of V (Directed G):} In-degree plus out-degree.
-            \item \textbf{Degrees of all V}: $2E$
-
-            \item \textbf{Bipartite Gs:} $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \null$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
-            \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
-
-            \item \textbf{Induced subgraph:} Subset of $G$ and the associated edges.
-            \item \textbf{Complete G (clique):} $\exists$ edge between $\forall \; 2$ vertices. 
-        \end{itemize}
-    \end{terminology}
-
     \subsubsection{Graph representation}
     \begin{definition}
         
         \textbf{Adjacency matrix (AM):} An $n\times n$ matrix where $M[i][j]=1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise.
+        \begin{itemize}
+            \item \textbf{Time:} $O(1)$
+            \item \textbf{Space:} $O(V^2)$
+            \item Good for dense $G$ (i.e. $E>>V^2$)
+        \end{itemize}
         \vspace{1em}
 
         \textbf{Adjacency list (AL):} For $n=\abs{V}$ vertices, $n$ linked lists. The $ith$ linked list, $L[i]$ is a list of all the vertices that are adjacent to vertex $i$.
+        \begin{itemize}
+            \item \textbf{Time:} $O(V)$
+            \item \textbf{Space:} $O(V+E)$ 
+            \item Good for sparse $G$ (i.e. $E<<V^2$).
+        \end{itemize}
         \vspace{1em}
 
         \textbf{Is there an edge between $v_i$ and $v_j$?}
         \begin{itemize}
             \item \textbf{AM:} $O(1)$
-            \item \textbf{AL:} $O(d)$ where $d$ is the maximum degree in the graph.
+            \item \textbf{AL:} $O(d)$ 
+            \begin{itemize}
+                \item $d$: Maximum degree in the graph.
+            \end{itemize}
         \end{itemize}
         \vspace{1em}
 
         \textbf{Find all vertices adjacent to $v_i$:}
         \begin{itemize}
-            \item \textbf{AM:} $O(\abs{V})$ where $\abs{V}$ is the number of vertices in the graph.
+            \item \textbf{AM:} $O(V)$ 
             \item \textbf{AL:} $O(d)$ 
-        \end{itemize}
-        \vspace{1em}
-
-        \textbf{Space requirements:}
-        \begin{itemize}
-            \item \textbf{AM:} $O(\abs{V}^2)$
-            \item \textbf{AL:} $O(\abs{V}+\abs{E})$
-            \begin{itemize}
-                \item AL is good for sparse $G$ (i.e. $E<<V^2$).
-            \end{itemize}
         \end{itemize}
     \end{definition}
     \customFigure[1]{00_Images/DG_AM_AL.png}{(i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}
+
+    \subsubsection{Types of walks, trails, and paths}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Walk:} A sequence of vertices in which each vertex is adjacent to the next. Both vertices and edges can be repeated.
+            \begin{itemize}
+                \item e.g. 1-2-3-5-2-1-5-3
+            \end{itemize}
+            
+            \item \textbf{Trail:} A walk with no repeated edges.
+            \begin{itemize}
+                \item e.g. 1-2-3-5-2-6
+            \end{itemize}
+            
+            \item \textbf{Path:} A trail with no repeated vertices, except the start and end vertices in the case of a cycle.
+            \begin{itemize}
+                \item e.g. 1-2-3-5-4
+            \end{itemize}
+            
+            \item \textbf{Simple Path:} A path with no repetition of vertices.
+            \begin{itemize}
+                \item e.g. 1-2-3-5
+            \end{itemize}
+            
+            \item \textbf{Circuit:} A trail that begins and ends at the same vertex.
+            \begin{itemize}
+                \item e.g. 5-2-1-5-3-4-5
+            \end{itemize}
+            
+            \item \textbf{Cycle:} A path that begins and ends at the same vertex, with no other repeated vertices.
+            \begin{itemize}
+                \item e.g. 5-3-4-5
+            \end{itemize}
+            
+        \end{itemize}
+    \end{terminology}
+
+    \subsubsection{Morphisms}
+    \begin{definition}
+        \begin{itemize}
+            \item A \textbf{homomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a mapping
+            \[
+            f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \Rightarrow (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
+            \]
+            \item An \textbf{isomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a bijection
+            \[
+            f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \iff (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
+            \]
+            We say that $G_1$ is isomorphic to $G_2$ or $G_1 \cong G_2$.
+        \end{itemize}
+        
+        \textbf{Explanation in English:}
+        \begin{itemize}
+            \item \textbf{Homomorphism:}
+            \begin{itemize}
+                \item A function that maps vertices of one graph to another while preserving edges.
+            \end{itemize}
+
+            \item \textbf{Isomorphism:}
+            \begin{itemize}
+                \item A bijective function that maps one graph onto another, preserving edges both ways. The two graphs are identical in structure.
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
+    \subsubsection{Terminology}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Acyclic Graph:} A graph with no cycles is an acyclic graph.
+            \item \textbf{Directed Acyclic Graph:} A DAG is a directed acyclic graph.
+
+            \item \textbf{Connected:} Two vertices are connected if there is a path between them.
+            \item \textbf{Connected graph:} $\exists$ path between $\forall \; 2$ vertices. 
+            
+            \item \textbf{Simple graph:} Graph with no self-loops, or multi-edges.
+            \item \textbf{Spanning subgraph:} Let $G' = (V',E')$ be a subgraph of $G=(V,E)$, $G'$ is a spanning subgraph if $V'=V$.
+
+            \item \textbf{Degrees of all V}: $\sum_{v\in V} degree(v) = 2\abs{E}$
+
+            \item \textbf{Bipartite Gs:} $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \emptyset$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
+            \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
+
+            \item \textbf{Complete G (clique):} $\exists$ edge between $\forall \; 2$ vertices. 
+        \end{itemize}
+    \end{terminology}
 
     \subsubsection{Clique}
     \begin{definition}
@@ -85,6 +164,48 @@
             \# edges = \frac{V(V-1)}{2}
         \end{equation*}
     \end{definition}
+
+    \subsubsection{Graph examples}
+    \begin{example}
+        \textbf{In a graph with } $n$ \textbf{ vertices, how many edges are there?}
+
+        \textbf{At least:}
+        \begin{enumerate}
+            \item connected: $n - 1$
+            \begin{itemize}
+                \item This refers to a tree, which is the simplest connected graph with $n$ vertices. In a tree, there is exactly one path between any two vertices, and the minimum number of edges is $n-1$. Adding fewer edges would result in a disconnected graph.
+            \end{itemize}
+            
+            \item not connected: $0$
+            \begin{itemize}
+                \item A graph with no edges at all is completely disconnected. This represents the trivial case where no vertices are connected to each other.
+            \end{itemize}
+        \end{enumerate}
+
+        \textbf{At most:}
+        \begin{enumerate}
+            \item simple: 
+            \[
+            \binom{n}{2} = \frac{n(n-1)}{2}
+            \]
+            \begin{itemize}
+                \item In a simple graph, there are no loops (edges from a vertex to itself) and no multiple edges between the same pair of vertices. The maximum number of edges occurs when every vertex is connected to every other vertex. This is a complete graph, and the number of edges in a complete graph is given by the binomial coefficient $\binom{n}{2}$, which counts all possible pairs of distinct vertices.
+            \end{itemize}
+            
+            \item not simple: No upper bound
+            \begin{itemize}
+                \item For graphs that allow loops and multiple edges, there is no upper bound on the number of edges. You can add as many edges between two vertices as you like, including loops (edges that connect a vertex to itself). Thus, the number of edges is unbounded.
+            \end{itemize}
+        \end{enumerate}
+
+        \textbf{Number of edges and degrees of vertices (undirected graph):}
+        \[
+        \sum_{v \in V} \deg(v) = 2m, \quad \text{where } m \text{ is the number of edges.}
+        \]
+        \begin{itemize}
+            \item In an undirected graph, the sum of the degrees of all the vertices equals twice the number of edges. This is because each edge contributes to the degree of two vertices (its endpoints), so when counting the degrees, each edge is counted twice.
+        \end{itemize}
+    \end{example}
 
 \subsection{Free trees}
     \begin{definition}
@@ -105,6 +226,11 @@
         \begin{itemize}
             \item \textbf{Note:} There's a proof to show each of these statements are equivalent.
         \end{itemize}
+    \end{definition}
+
+    \subsubsection{Spanning tree}
+    \begin{definition}
+        $G'$ is a spanning tree of $G$, if it is a tree and $V'=V$.
     \end{definition}
 
 \subsection{Forest}

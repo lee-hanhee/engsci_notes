@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  23 AUG 2024 17:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  12 SEP 2024 14:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -805,7 +805,7 @@ File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 Package: transparent 2022-10-27 v1.5 Transparency with color stacks
  (/usr/local/texlive/2024/texmf-dist/tex/latex/transparent/transparent-nometadata.sty
 Package: transparent-nometadata 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)
-))) (/usr/local/texlive/2024/texmf-dist/tex/latex/pst-plot/pst-plot.sty
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pst-plot/pst-plot.sty
 Package: pst-plot 2011/06/05 v1.00 LaTeX wrapper for `pst-plot' (HV)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pstricks/pstricks.sty
 Package: pstricks 2024/02/02 v0.75 LaTeX wrapper for `PSTricks' (RN,HV)
@@ -946,7 +946,7 @@ Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
 \pst@yunit=\dimen354
 )
 File: pst-plot.tex 2022/11/21 1.94 `pst-plot' (tvz,hv)
-)
+))
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 9.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -1093,18 +1093,6 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 3.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 3.
-)
-\tf@toc=\write5
-\openout5 = `ECE421_Cheatsheet.toc'.
-
- (./ECE421_Cheatsheet.lof)
-\tf@lof=\write6
-\openout6 = `ECE421_Cheatsheet.lof'.
-
- (./ECE421_Cheatsheet.lot)
-\tf@lot=\write7
-\openout7 = `ECE421_Cheatsheet.lot'.
-
  [1
 Non-PDF special ignored!
 <special> header=pstricks.pro
@@ -1131,27 +1119,171 @@ Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@refangle 0.  def grestore  e...
 Non-PDF special ignored!
 <special> ps:tx@Dict begin  gsave STV CP T /ps@rot 0 def grestore  end
-{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] [3] (./ECE421_Cheatsheet.aux)
+{/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}])
+\tf@toc=\write5
+\openout5 = `ECE421_Cheatsheet.toc'.
+
+ (./ECE421_Cheatsheet.lof)
+\tf@lof=\write6
+\openout6 = `ECE421_Cheatsheet.lof'.
+
+ (./ECE421_Cheatsheet.lot)
+\tf@lot=\write7
+\openout7 = `ECE421_Cheatsheet.lot'.
+
+ (./00_Lectures/W1.tex [2{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}]
+<00_Images/Linear_Class.png, id=387, 304.13625pt x 234.8775pt>
+File: 00_Images/Linear_Class.png Graphic file (type png)
+<use 00_Images/Linear_Class.png>
+Package pdftex.def Info: 00_Images/Linear_Class.png  used on input line 26.
+(pdftex.def)             Requested size: 249.55872pt x 192.7334pt.
+<00_Images/Linear_Regression.png, id=389, 358.33875pt x 351.3125pt>
+File: 00_Images/Linear_Regression.png Graphic file (type png)
+<use 00_Images/Linear_Regression.png>
+Package pdftex.def Info: 00_Images/Linear_Regression.png  used on input line 45.
+(pdftex.def)             Requested size: 249.55872pt x 244.66805pt.
+<00_Images/Non_Linear.png, id=390, 883.3pt x 344.28625pt>
+File: 00_Images/Non_Linear.png Graphic file (type png)
+<use 00_Images/Non_Linear.png>
+Package pdftex.def Info: 00_Images/Non_Linear.png  used on input line 48.
+(pdftex.def)             Requested size: 249.55872pt x 97.2663pt.
+ [3{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./00_Images/Linear_Class.png>]
+<00_Images/Kmeans_clustering.png, id=402, 225.84375pt x 230.8625pt>
+File: 00_Images/Kmeans_clustering.png Graphic file (type png)
+<use 00_Images/Kmeans_clustering.png>
+Package pdftex.def Info: 00_Images/Kmeans_clustering.png  used on input line 99.
+(pdftex.def)             Requested size: 249.55872pt x 255.11905pt.
+<00_Images/Density_Estimation.png, id=403, 572.1375pt x 183.68625pt>
+File: 00_Images/Density_Estimation.png Graphic file (type png)
+<use 00_Images/Density_Estimation.png>
+Package pdftex.def Info: 00_Images/Density_Estimation.png  used on input line 101.
+(pdftex.def)             Requested size: 249.55872pt x 80.12148pt.
+ [4 <./00_Images/Linear_Regression.png> <./00_Images/Non_Linear.png>] [5 <./00_Images/Kmeans_clustering.png> <./00_Images/Density_Estimation.png>]
+<00_Images/NN_Example.png, id=417, 995.72pt x 521.95pt>
+File: 00_Images/NN_Example.png Graphic file (type png)
+<use 00_Images/NN_Example.png>
+Package pdftex.def Info: 00_Images/NN_Example.png  used on input line 175.
+(pdftex.def)             Requested size: 374.33807pt x 196.22455pt.
+<00_Images/Complex_Example.png, id=418, 969.6225pt x 449.68pt>
+File: 00_Images/Complex_Example.png Graphic file (type png)
+<use 00_Images/Complex_Example.png>
+Package pdftex.def Info: 00_Images/Complex_Example.png  used on input line 188.
+(pdftex.def)             Requested size: 374.33807pt x 173.6042pt.
+ [6]
+<00_Images/NN_Comparison.png, id=431, 974.64125pt x 419.5675pt>
+File: 00_Images/NN_Comparison.png Graphic file (type png)
+<use 00_Images/NN_Comparison.png>
+Package pdftex.def Info: 00_Images/NN_Comparison.png  used on input line 193.
+(pdftex.def)             Requested size: 249.55872pt x 107.42683pt.
+ [7 <./00_Images/NN_Example.png> <./00_Images/Complex_Example.png> <./00_Images/NN_Comparison.png>]
+<00_Images/Over_under.png, id=441, 675.52374pt x 370.38374pt>
+File: 00_Images/Over_under.png Graphic file (type png)
+<use 00_Images/Over_under.png>
+Package pdftex.def Info: 00_Images/Over_under.png  used on input line 273.
+(pdftex.def)             Requested size: 249.55872pt x 136.83072pt.
+ [8] [9 <./00_Images/Over_under.png>] [10]
+<00_Images/Linear_Classification.png, id=473, 996.72375pt x 265.99374pt>
+File: 00_Images/Linear_Classification.png Graphic file (type png)
+<use 00_Images/Linear_Classification.png>
+Package pdftex.def Info: 00_Images/Linear_Classification.png  used on input line 451.
+(pdftex.def)             Requested size: 374.33807pt x 99.89757pt.
+<00_Images/Summary.png, id=474, 951.555pt x 516.93124pt>
+File: 00_Images/Summary.png Graphic file (type png)
+<use 00_Images/Summary.png>
+Package pdftex.def Info: 00_Images/Summary.png  used on input line 473.
+(pdftex.def)             Requested size: 249.55872pt x 135.56633pt.
+ [11 <./00_Images/Linear_Classification.png>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 492.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [12{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./00_Images/Summary.png>]
+<00_Images/Decision_Bound_Ex.png, id=498, 935.495pt x 218.8175pt>
+File: 00_Images/Decision_Bound_Ex.png Graphic file (type png)
+<use 00_Images/Decision_Bound_Ex.png>
+Package pdftex.def Info: 00_Images/Decision_Bound_Ex.png  used on input line 522.
+(pdftex.def)             Requested size: 374.33807pt x 87.55882pt.
+<00_Images/LS_NLS.png, id=499, 659.46375pt x 176.66pt>
+File: 00_Images/LS_NLS.png Graphic file (type png)
+<use 00_Images/LS_NLS.png>
+Package pdftex.def Info: 00_Images/LS_NLS.png  used on input line 530.
+(pdftex.def)             Requested size: 249.55872pt x 66.85115pt.
+) (./00_Lectures/W2.tex [13 <./00_Images/Decision_Bound_Ex.png> <./00_Images/LS_NLS.png>]
+<00_Images/Table.png, id=510, 927.465pt x 446.66875pt>
+File: 00_Images/Table.png Graphic file (type png)
+<use 00_Images/Table.png>
+Package pdftex.def Info: 00_Images/Table.png  used on input line 51.
+(pdftex.def)             Requested size: 249.55872pt x 120.18642pt.
+ [14 <./00_Images/Table.png>]
+<00_Images/PLA.png, id=520, 410.53375pt x 289.08pt>
+File: 00_Images/PLA.png Graphic file (type png)
+<use 00_Images/PLA.png>
+Package pdftex.def Info: 00_Images/PLA.png  used on input line 93.
+(pdftex.def)             Requested size: 249.55872pt x 175.7254pt.
+<00_Images/PLA_Error.png, id=521, 503.8825pt x 183.68625pt>
+File: 00_Images/PLA_Error.png Graphic file (type png)
+<use 00_Images/PLA_Error.png>
+Package pdftex.def Info: 00_Images/PLA_Error.png  used on input line 114.
+(pdftex.def)             Requested size: 249.55872pt x 90.974pt.
+ [15 <./00_Images/PLA.png>]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 119.
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [16 <./00_Images/PLA_Error.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+ []
+
+[17]
+<00_Images/Example.png, id=556, 643.40375pt x 210.7875pt>
+File: 00_Images/Example.png Graphic file (type png)
+<use 00_Images/Example.png>
+Package pdftex.def Info: 00_Images/Example.png  used on input line 293.
+(pdftex.def)             Requested size: 374.33807pt x 122.64279pt.
+ [18 <./00_Images/Example.png>] [19]
+<00_Images/Col_Span.png, id=578, 991.705pt x 603.25375pt>
+File: 00_Images/Col_Span.png Graphic file (type png)
+<use 00_Images/Col_Span.png>
+Package pdftex.def Info: 00_Images/Col_Span.png  used on input line 473.
+(pdftex.def)             Requested size: 374.33807pt x 227.71078pt.
+ [20 <./00_Images/Col_Span.png>]
+<00_Images/Sine.png, id=586, 999.735pt x 553.06625pt>
+File: 00_Images/Sine.png Graphic file (type png)
+<use 00_Images/Sine.png>
+Package pdftex.def Info: 00_Images/Sine.png  used on input line 529.
+(pdftex.def)             Requested size: 374.33807pt x 207.08708pt.
+ [21 <./00_Images/Sine.png>]
+<00_Images/Circular.png, id=599, 999.735pt x 552.0625pt>
+File: 00_Images/Circular.png Graphic file (type png)
+<use 00_Images/Circular.png>
+Package pdftex.def Info: 00_Images/Circular.png  used on input line 576.
+(pdftex.def)             Requested size: 374.33807pt x 206.71124pt.
+ [22 <./00_Images/Circular.png>]
+<00_Images/Quadratic.png, id=614, 980.66376pt x 286.06876pt>
+File: 00_Images/Quadratic.png Graphic file (type png)
+<use 00_Images/Quadratic.png>
+Package pdftex.def Info: 00_Images/Quadratic.png  used on input line 613.
+(pdftex.def)             Requested size: 249.55872pt x 72.79596pt.
+ [23 <./00_Images/Quadratic.png>]) (./00_Lectures/W3.tex) (./00_Lectures/W4.tex) (./00_Lectures/W5.tex) (./00_Lectures/W6.tex) (./00_Lectures/W7.tex) (./00_Lectures/W8.tex) (./00_Lectures/W9.tex) (./00_Lectures/W10.tex) (./00_Lectures/W11.tex) [24] (./ECE421_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `ECE421_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: 86EA09DE9D77D635AEA03342DFD815D2;5159.
+(rerunfilecheck)             Checksum: 9EC4F4EA8A4EF39D9E9FF05F1B32ABF9;15716.
  ) 
 Here is how much of TeX's memory you used:
- 48839 strings out of 474116
- 1157493 string characters out of 5743682
- 1946187 words of memory out of 5000000
- 70342 multiletter control sequences out of 15000+600000
- 609643 words of font info for 93 fonts, out of 8000000 for 9000
+ 49478 strings out of 474116
+ 1170511 string characters out of 5743682
+ 1956187 words of memory out of 5000000
+ 70765 multiletter control sequences out of 15000+600000
+ 629384 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,11n,107p,812b,1159s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on ECE421_Cheatsheet.pdf (3 pages, 155987 bytes).
+ 99i,16n,107p,1145b,1320s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ECE421_Cheatsheet.pdf (24 pages, 5705800 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
- 186 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 221 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 747 PDF objects out of 1000 (max. 8388607)
+ 638 compressed objects within 7 object streams
+ 201 named destinations out of 1000 (max. 500000)
+ 622 words of extra memory for PDF output out of 10000 (max. 10000000)
 

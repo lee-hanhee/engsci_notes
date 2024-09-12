@@ -1,6 +1,41 @@
+\subsection{Linear transformation}
+\begin{definition} 
+    $T: \; X\rightarrow Y$ that satisfies
+    \begin{enumerate}
+        \item \textbf{Additivity:} $T(x_1 + x_2) = T(x_1) + T(x_2)$ 
+        \item \textbf{Homogeneity:} $T(\alpha x) = \alpha T(x)$
+    \end{enumerate}
+    \begin{itemize}
+        \item \textbf{Note:} Linear algebra is the study of linear transformations over vector spaces.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Matrix representation of a linear transformation}
+\begin{definition}
+    Let \( \mathcal{V} \) and \( \mathcal{W} \) be vector spaces. Let \( T: \mathcal{V} \to \mathcal{W} \) be a linear transformation. When \( \mathcal{V} = \mathbb{R}^n \) (or \( \mathbb{C}^n \)) and \( \mathcal{W} = \mathbb{R}^m \) (or \( \mathbb{C}^m \)), then \( T \) can be uniquely represented as a matrix \( A \in \mathbb{R}^{m \times n} \) such that:
+
+    \[
+    T(\mathbf{x}) = A \mathbf{x}
+    \]
+
+    where
+
+    \[
+    A = \begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{bmatrix}
+    \]
+    \begin{itemize}
+        \item \textbf{Key:} Any linear transformation is a matrix multiplication. Any matrix multiplication is a linear transformation.
+    \end{itemize}
+\end{definition}
+
 \subsection{Vectors}
 \begin{definition}
-    A single collection of numbers, where \( x_i \in \mathbb{R}\) or \(\mathbb{C}\)
+    Ordered collection of numbers, where \( x_i \in \mathbb{R}\) or \(\mathbb{C}\)
     \begin{equation*}
         \mathbf{x} = \begin{bmatrix}
             x_1 \\
@@ -16,76 +51,215 @@
     \begin{itemize}
         \item $n$: Dimension of $\mathbf{x}$
         \item $\mathbf{x}$: Column vector
-        \item $\mathbf{x}^T$: Row vector
+        \item $\mathbf{x}^T$: Transpose of x (row vector)
         \item $T$: Transpose
+        \item $x_i$: i-th element of x.
     \end{itemize}
 \end{definition}
 
-\subsubsection{Vector spaces}
+\subsection{Vector spaces} 
 \begin{definition}
-    A set of vectors \(\mathcal{V}\) that are closed under addition and scalar multiplication.
+    A vector space over a field $\mathbb{F}$ (e.g. $\mathbb{R} \text{/} \mathbb{C}$) consists of: 
+    \begin{enumerate}
+        \item A set of vectors \(\mathcal{V}\) 
+        \item A vector addition operator $+$: $\mathcal{V} \times \mathcal{V} \rightarrow \mathcal{V}$ s.t. $\forall x,y\in \mathcal{V} \rightarrow x+y\in \mathcal{V}$ (i.e. closed under VA)
+        \item A scalar multiplication operator $\cdot$: $\mathbb{F} \times \mathcal{V} \rightarrow \mathcal{V}$ s.t. $\forall \alpha \in \mathbb{F}, \; \forall x\in \mathcal{V} \rightarrow \alpha x \in \mathcal{V}$ (i.e. closed under SM)
+    \end{enumerate}
+    \begin{itemize}
+        \item $\times$ is not scalar multiplication.
+    \end{itemize}
     \vspace{1em}
 
-    \textbf{Components:}
-    \begin{itemize}
-        \item $\mathbf{v}^{(1)}+\mathbf{v}^{(2)}$ is the sum of the corresponding components: $v_{i}^{(1)}+v_{i}^{(2)}$.
-        \item $\alpha \mathbf{v}$ is multiplying each component by $\alpha$: $\alpha v_{i}$.
-    \end{itemize}
+    For \( \mathbf{x}, \mathbf{y}, \mathbf{z} \in \mathcal{V} \) and \( \alpha, \beta \in \mathbb{F} \). The following properties are satisfied:
 
+    \begin{itemize}
+        \item \textbf{Vector addition} satisfies (i.e., Abelian group):
+            \begin{enumerate}
+                \item \textbf{Commutativity:} \( \mathbf{x} + \mathbf{y} = \mathbf{y} + \mathbf{x} \).
+                \item \textbf{Associativity:} \( \mathbf{x} + (\mathbf{y} + \mathbf{z}) = (\mathbf{x} + \mathbf{y}) + \mathbf{z} \).
+                \item \textbf{Additive identity:} \( \exists \; \mathbf{0} \in \mathcal{V} \; \text{s.t.} \; \mathbf{x} + \mathbf{0} = \mathbf{0} + \mathbf{x} = \mathbf{x} \).
+                \item \textbf{Additive inverse:} \( \forall \; \mathbf{x}, \; \exists \; \mathbf{y} \; \text{ s.t. } \; \mathbf{x} + \mathbf{y} = \mathbf{0} \) \; (i.e. \( \mathbf{y} = -\mathbf{x} \)).
+            \end{enumerate}
+        \item \textbf{Scalar multiplication} satisfies:
+            \begin{enumerate}
+                \item \textbf{Associativity:} \( \alpha \cdot (\beta \cdot \mathbf{x}) = (\alpha \cdot \beta) \cdot \mathbf{x} \).
+                \item \textbf{Multiplicative Identity:} \( \exists \; 1 \in \mathbb{F} \; \text{s.t.} \; 1 \cdot \mathbf{x} = \mathbf{x} \).
+                \item \textbf{Right Distributivity:} \( \alpha \cdot (\mathbf{x} + \mathbf{y}) = \alpha \cdot \mathbf{x} + \alpha \cdot \mathbf{y} \).
+                \item \textbf{Left Distributivity:} \( (\alpha + \beta) \cdot \mathbf{x} = \alpha \cdot \mathbf{x} + \beta \cdot \mathbf{x} \).
+            \end{enumerate}
+    \end{itemize}
 \end{definition}
 
 \customFigure[0.5]{00_Images/00_Vector_Space.png}{Vector addition and scalar multiplication.}
 
-\subsubsection{Properties of vector spaces}
+    \subsubsection{How to prove or disprove a vector space?}
+    \begin{process}
+
+        \textbf{Prove:}
+        \begin{enumerate}
+            \item Prove that $\mathcal{V}$ is closed under VA and SM.
+            \item Prove all the properties under VA and SM.
+        \end{enumerate}
+        \vspace{1em}
+
+        \textbf{Disprove:}
+        \begin{enumerate}
+            \item Disprove one of the properties or that it isn't closed under VA and SM.
+        \end{enumerate}
+    \end{process}
+
+    \begin{warning}
+        If standard addition and multiplication then, closed under VA and SM properties is enough to prove it's a vector space.
+    \end{warning}
+
+    \begin{example}
+        \begin{itemize}
+            \item Let \( \mathcal{V} = \mathbb{R}^n \) and \( \mathbb{F} = \mathbb{R} \): This represents vectors of dimension \( n \) where each element belongs to \( \mathbb{R} \).
+            \[
+            \mathcal{V} = \mathbb{R}^n = \left\{ \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} : x_i \in \mathbb{R} \right\}
+            \]
+            For \( \mathbf{x} = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \in \mathbb{R}^n \) and \( \mathbf{y} = \begin{bmatrix} y_1 \\ \vdots \\ y_n \end{bmatrix} \in \mathbb{R}^n \):
+            \[
+            \mathbf{x} + \mathbf{y} = \begin{bmatrix} x_1 + y_1 \\ \vdots \\ x_n + y_n \end{bmatrix}
+            \]
+            For \( \alpha, \beta \in \mathbb{R} \):
+            \[
+            \alpha \cdot \mathbf{x} = \begin{bmatrix} \alpha x_1 \\ \vdots \\ \alpha x_n \end{bmatrix}
+            \]
+        
+            \item Let \( \mathcal{V} = \mathbb{C}^n \) and \( \mathbb{F} = \mathbb{C} \): This represents vectors of dimension \( n \) with complex components.
+            \[
+            \mathcal{V} = \left\{ \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} : x_i \in \mathbb{C} \right\}
+            \]
+            \( \mathcal{V} \) is a vector space over \( \mathbb{C} \) under element-wise addition and scalar multiplication.
+        
+            \item Let \( \mathcal{V} = \left\{ \text{set of all continuous functions } f: \mathbb{R} \to \mathbb{R}^n \right\} \) and \( \mathbb{F} = \mathbb{R} \):
+            
+            Let \( f_1, f_2 \in \mathcal{V} \), and for \( t \in \mathbb{R} \):
+            \[
+            (f_1 + f_2)(t) = f_1(t) + f_2(t) \quad \Rightarrow \quad f_1 + f_2 \in \mathcal{V}
+            \]
+            For \( \alpha \in \mathbb{R} \):
+            \[
+            (\alpha f)(t) = \alpha f(t) \quad \Rightarrow \quad \alpha f \in \mathcal{V}
+            \]
+            \begin{itemize}
+                \item $f$ is the vector, $\mathbb{R} \rightarrow \mathbb{R}^n$ is the input-output relationship. For 2D, $f(x) = [x_1,x_2]^T$, where x is the input, the vector is the output in 2D, and the vector is f.
+            \end{itemize}
+        
+            \item Let \( \mathcal{V} = \mathcal{P}_n \), the set of all polynomials with real coefficients and degree \( \leq n \):
+            \[
+            \mathcal{V} = \mathcal{P}_n = \left\{ p(x) = a_0 + a_1 x + a_2 x^2 + \ldots + a_n x^n : a_0, a_1, \ldots, a_n \in \mathbb{R} \right\}
+            \]
+            \( \mathcal{V} \) is a vector space over \( \mathbb{R} \) under standard addition and scalar multiplication.
+        \end{itemize}    
+    \end{example}
+
+\subsection{Subspace}
+
 \begin{definition}
+    A \textbf{subspace} is a subset of a vector space $\mathcal{V}$ that is a vector space by itself.
     \begin{itemize}
-        \item $\mathbf{u} + \mathbf{v} = \mathbf{v} + \mathbf{u}$
-        \item $(\mathbf{u} + \mathbf{v}) + \mathbf{w} = \mathbf{u} + (\mathbf{v} + \mathbf{w})$
-        \item $\alpha (\mathbf{u} + \mathbf{v}) = \alpha \mathbf{u} + \alpha \mathbf{v}$
-        \item $(\alpha + \beta)\mathbf{u} = \alpha \mathbf{u} + \beta \mathbf{u}$
-        \item $\exists\; \mathbf{0} \in \mathbb{V} \text{ s.t. } \mathbf{u} + \mathbf{0} = \mathbf{u}$
-        \item $\exists\; -\mathbf{u} \in \mathbb{V} \text{ s.t. } \mathbf{u} + (-\mathbf{u}) = \mathbf{0}$
-        \item $\exists\; \alpha \: \text{ s.t. } \alpha \mathbf{u} = \mathbf{u} \quad (\alpha = 1)$
+        \item \textbf{Test:} To check whether a subset is a subspace, check that it is closed under VA \& SM.
     \end{itemize}
 \end{definition}
 
-\subsubsection{Span and subspace}
+\begin{example}
+    \begin{itemize}
+        \item Let \( \mathcal{V} = \mathbb{R}^3 \), and consider the set:
+        \[
+        S = \left\{ \begin{bmatrix} x_1 \\ x_2 \\ 0 \end{bmatrix} : x_1, x_2 \in \mathbb{R} \right\}
+        \]
+        This set \( S \) is a subspace of \( \mathbb{R}^3 \).
+    
+        \item Let \( \mathcal{V} = \mathbb{R}^3 \), and consider the set:
+        \[
+        S = \left\{ \begin{bmatrix} x_1 \\ x_2 \\ 1 \end{bmatrix} : x_1, x_2 \in \mathbb{R} \right\}
+        \]
+        This set \( S \) is \textbf{not} a subspace of \( \mathbb{R}^3 \) because adding two vectors will make the last component $2$. 
+    
+        \item Let \( \mathcal{V} = \mathbb{R}^n \), and consider the set:
+        \[
+        S = \left\{ \mathbf{0} \right\}
+        \]
+        This set \( S \) is a subspace of \( \mathbb{R}^n \).
+    \end{itemize}
+\end{example}
+
+\subsection{Span}
 \begin{definition}
-    Let \( S = \left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\} \), then the \textbf{span} is
+    Given a finite set of vectors $S = \{\mathbf{v}_1, \ldots, \mathbf{v}_k\}$ in the same vector space $\mathcal{V}$ over some field $\mathbb{F}$ then, 
     \begin{equation*}
-        \text{Span}(S) = \left\{\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)} \text{ | } \alpha_i \in \mathbb{R}\right\}
+        \text{Span}(S) = \left\{\sum_{i=1}^{m} \alpha_i \mathbf{v}_i \text{ | } \alpha_i \in \mathbb{F}\right\}
     \end{equation*}
     \begin{itemize}
-        \item \textbf{Note:} The span of a set of vectors is always a subspace.
+        \item \textbf{Note:} Span$(S)$ is always a subspace of $V$.
     \end{itemize}
 \end{definition}
 
-\begin{definition}
-    A \textbf{subspace} is a subset of a vector space that is a vector space by itself.
-    \begin{itemize}
-        \item \textbf{Note:} $0$ is always in a subspace.
-    \end{itemize}
-\end{definition}
+    \subsubsection{How to draw the span?}
+    \begin{process}
+        \begin{enumerate}
+            \item Identify the vectors.
+            \item Plot the vectors: Plot each vector on a coordinate plane starting at the origin.
+            \item Draw the span: Extend the vectors in both directions to show the line or plane formed by their span. If they span the entire plane, draw dashed lines extending their direction.
+        \end{enumerate}
+    \end{process}
 
-\subsubsection{Linear independent (LI) set}
-\begin{definition}
-    \begin{itemize}
-        \item \( S = \left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\} \) is LI if no element of $S$ can be expressed as a LC of other elements in S (i.e. The only $\alpha_i$'s that makes $\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)} = 0$ is $\alpha_i = 0, \; \forall i$).
-        \item If S is a LI set, then for any $u\in span(S)$, there is a unique set of $\alpha_i$'s s.t. $u=\sum_{i=1}^{m} \alpha_i \mathbf{v}^{(i)}$ (i.e. there is no redundancies in representation)
-        \item If a set of $\left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\}$ has redundancy, then we can remove the vector that can be represented as a LC of other vectors until all the redundancies are removed.
+    \begin{example}
         \begin{itemize}
-            \item \textbf{Note:} Such an irreducible LI set can serve as a basis for $Span\left\{\mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(m)}\right\}$.
+            \item Let \( S = \left\{ \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix} \right\} \):
+            \[
+            \text{span}(S) = \left\{ \begin{bmatrix} x_1 \\ x_2 \\ 0 \end{bmatrix} : x_1, x_2 \in \mathbb{R} \right\}
+            \]
+            This set \( \text{span}(S) \) forms a plane in \( \mathbb{R}^3 \). The vectors span the xy-plane with the z-coordinate fixed at zero.
+        
+            \item Let \( S = \left\{ \begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}, \begin{bmatrix} -1 \\ -1 \\ 0 \end{bmatrix} \right\} \):
+            \[
+            \text{span}(S) = \left\{ x \begin{bmatrix} 1 \\ 1\\ 0 \end{bmatrix} : x \in \mathbb{R} \right\}
+            \]
+            In this case, \( \text{span}(S) \) is a line in \( \mathbb{R}^3 \) along the x-axis with y and z coordinates fixed at zero.
+        \end{itemize}
+    
+\end{example}
+
+\subsection{Linear independent (LI) set}
+\begin{definition}
+    A set of vectors \( S = \left\{\mathbf{v}_1, \ldots, \mathbf{v}_k\right\} \) is LI if no vector in $S$ can be written as a LC of other vectors in S. In other words, the only $\alpha_i$'s that makes $\sum_{i=1}^{m} \alpha_i \mathbf{v}_i = 0$ is $\alpha_i = 0, \; \forall i$.
+    \begin{itemize}
+        \item If \( S = \{ \mathbf{v}_1, \mathbf{v}_2, \ldots, \mathbf{v}_k \} \) is LI, then $\forall$ \( \mathbf{u} \in \text{span}(S) \), there is a \textbf{unique} set of $\alpha_i$'s s.t. $\mathbf{u} = \sum_{i=1}^k \alpha_i \mathbf{v}_i$ (i.e. there is no redundancies in representation)
+        \begin{itemize}
+            \item \textbf{Coordinates:} \( \{ \alpha_1, \alpha_2, \ldots, \alpha_k \} \) of \( \mathbf{u} \) w.r.t. \( S \).
+        \end{itemize}
+        \item If $S$ is linearly dependent, then one of the vectors can be written as a LC of the other vectors. In this case, we can remove that vector and continue this process until the remaining set is LI.
+        \begin{itemize}
+            \item \textbf{Note:} Such an irreducible linearly independent set is called a \textbf{basis} of \( \text{span}(S) \).
         \end{itemize}
     \end{itemize}
 \end{definition}
 
-\subsubsection{Basis}
+    \subsubsection{How to determine if a set is linearly independent}
+    \begin{process}
+        \begin{enumerate}
+            \item Write a linear combination with coefficients $\alpha_1,\ldots, \alpha_k$. 
+            \item Set the linear combination equal to $0$. 
+            \item Solve for $\alpha_1,\ldots, \alpha_k$ by solving the set of equations (i.e. each component is one equation).
+            \item If $\alpha_1 =\ldots=\alpha_k=0$, then it is linearly independent. 
+            \item Else, linearly dependent by finding a counter example, where the linear combination is $0$ for $\alpha_1,\ldots,\alpha_k$ not all equal to $0$.
+        \end{enumerate}
+    \end{process}
+
+\subsection{Basis}
 \begin{definition}
-    A set of vectors $\mathcal{B}$ is a basis of a vector space $\mathcal{V}$ if (i) $\mathcal{B}$ is LI, (ii) $Span(\mathcal{B})=\mathcal{V}$
+    A set of vectors $B$ is a basis of a vector space $\mathcal{V}$ if 
+    \begin{itemize}
+        \item $B$ is LI
+        \item $Span(B)=\mathcal{V}$
+    \end{itemize} 
 \end{definition}
 
 \begin{example}
-    What is the standard basis?
+    What is the standard basis for $\mathcal{V} = \mathbb{R}^n$?
     \vspace{1em}
 
     \[
@@ -109,25 +283,40 @@
     \end{bmatrix}
     \quad \text{for } \mathbb{R}^n
     \]
+
+    If \( \mathbf{x} = \begin{bmatrix} x_1 \\ \vdots \\ x_n \end{bmatrix} \in \mathbb{R}^n \), then:
+
+    \[
+    \mathbf{x} = x_1 \mathbf{e}_1 + x_2 \mathbf{e}_2 + \cdots + x_n \mathbf{e}_n
+    \]
 \end{example}
 
-\subsubsection{Cardinality}
+\subsubsection{Dimension}
 \begin{definition}
-    The dimension of vector spaces $\mathcal{V}$ is the \textbf{cardinality} of $\mathcal{B}$.
+    The dimension is the number of basis vectors.
     \begin{itemize}
-        \item \textbf{Cardinality:} A set refers to the number of elements in the set.
         \item \textbf{Note:} Basis is not unique. But $dim(\mathcal{V})$ is well-defined.
     \end{itemize}
 \end{definition}
 
-\subsection{Norms}
-In optimization problems, different norms are used to achieve various goals.
+\begin{example}
+    \begin{itemize}
+        \item \( \dim \left( \text{span} \left( \left\{ \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \begin{bmatrix} 0 \\ 1 \end{bmatrix} \right\} \right) \right) = 2 \)
+        
+        \item \( \dim \left( \text{span} \left( \left\{ \begin{bmatrix} 1 \\ 0 \end{bmatrix} \right\} \right) \right) = 1 \)
+        
+        \item \( \dim \left( \{ \mathbf{0} \} \right) = 0 \)
+        \item The dimension for $\mathcal{V}=\mathbb{R}^n$ of the standard basis is $n$
+    \end{itemize}
+\end{example}
+
+\subsection{Norms (Notion of distance)}
 \begin{definition}
-    Notion of distance, where $\left\lVert \mathbf{v} \right\rVert$ is a function that maps $\mathcal{V} \rightarrow \mathbb{R}$ that satisfies 
+    Let $\mathcal{V}$ be a vector space over $\mathbb{R}$ or $\mathbb{C}$. A norm is a function $\left\lVert \cdot \right\rVert$: $\mathcal{V} \rightarrow \mathbb{R}$ that satisfies 
     \begin{enumerate}
-        \item \( \| \mathbf{v} \| \geq 0, \; \forall \mathbf{v} \in \mathcal{V}, \text{ and } \| \mathbf{v} \| = 0 \text{ iff } \mathbf{v} = \mathbf{0} \)
-        \item \( \| \alpha \mathbf{v} \| = |\alpha| \| \mathbf{v} \| \; \forall \mathbf{v} \in \mathcal{V}, \; \alpha \in \mathbb{R} \)
-        \item \( \| \mathbf{u} + \mathbf{v} \| \leq \| \mathbf{u} \| + \| \mathbf{v} \| \), $\forall x$, $y\in \mathcal{V}$ (triangular inequality)
+        \item \textbf{Non-negativity:} \( \| \mathbf{x} \| \geq 0, \; \forall \mathbf{x} \in \mathcal{V}, \text{ and } \| \mathbf{x} \| = 0 \text{ iff } \mathbf{x} = \mathbf{0} \)
+        \item \textbf{Homogeneity:} \( \| \alpha \mathbf{x} \| = |\alpha| \| \mathbf{x} \| \; \forall \mathbf{x} \in \mathcal{V}, \; \alpha \in \mathbb{F} \)
+        \item \textbf{Triangle inequality:} \( \| \mathbf{x} + \mathbf{y} \| \leq \| \mathbf{x} \| + \| \mathbf{y} \| \), $\forall \mathbf{x}$, $\mathbf{y}\in \mathcal{V}$ (triangular inequality)
     \end{enumerate}
 \end{definition}
 
@@ -137,14 +326,14 @@ In optimization problems, different norms are used to achieve various goals.
     \| \mathbf{x} \|_p \equiv \left( \sum_{k=1}^{n} |x_k|^p \right)^{1/p}, \quad 1 \leq p < \infty.
     \]
     \begin{itemize}
+        \item \textbf{Note:} For $p<1$, triangular inequality doesn't hold.
+    \end{itemize}
+    \begin{enumerate}
         \item \textbf{Sum-of-absolute-values length} $p=1$: $\| \mathbf{x} \|_1 \equiv \sum_{k=1}^{n} |x_k|$
-        \begin{itemize}
-            \item For $p<1$, triangular inequality doesn't hold.
-        \end{itemize}
         \item \textbf{Euclidean length} $p=2$: $\| \mathbf{x} \|_2 \equiv \sqrt{\sum_{k=1}^{n} x_k^2}$
         \item \textbf{Max absolute value norm} $p=\infty$: $\| \mathbf{x} \|_\infty \equiv \max_{k=1,\ldots,n} |x_k|$
         \begin{itemize}
-            \item Longest term will dominate.
+            \item Largest term will dominate as if we common factor out the largest term, each of the other terms will go to 0 as noted in the lp norm.
         \end{itemize}
         \item \textbf{Cardinality} $p=0$: The number of non-zero vectors in $x$ is 
                 \[
@@ -155,63 +344,132 @@ In optimization problems, different norms are used to achieve various goals.
                 \end{cases}
                 \]
         \begin{itemize}
-            \item Not a norm since $ \|\alpha \mathbf{x}\|_0 = \|\mathbf{x}\|_0 \neq |\alpha| \cdot \|\mathbf{x}\|_0$
+            \item \textbf{Key:} Not a norm since $ \|\alpha \mathbf{x}\|_0 = \|\mathbf{x}\|_0 \neq |\alpha| \cdot \|\mathbf{x}\|_0$ (e.g. if $\alpha=2$ then this would double the count of number of non-zero vectors for the RS)
         \end{itemize}
-    \end{itemize}
+    \end{enumerate}
 \end{example}
 
-\subsubsection{Norm balls}
+    \subsubsection{Norm balls}
 
     \begin{definition}
         The set of all vectors with $\ell_p$ norm less than or equal to one, 
         \begin{equation}
-            B_p = \left\{ \mathbf{x} \in \mathbb{R}^n : \| \mathbf{x} \|_p \leq 1 \right\}
+            B_p = \left\{ \mathbf{x}: \| \mathbf{x} \|_p \leq 1 \right\}
         \end{equation}
     \end{definition}
 
-    \begin{example}
+    \begin{example} For 2D, the norm balls are as follows: 
         \begin{itemize}
             \item \( \ell_2: \; B_2 = \left\{ \mathbf{x} \ \middle| \ \sqrt{x_1^2 + x_2^2} \leq 1 \right\} \)
             \item \( \ell_1: \; B_1 = \left\{ \mathbf{x} \ \middle| \ |x_1| + |x_2| \leq 1 \right\} \)
-            \item \( \ell_\infty: \; B_\infty = \left\{ \mathbf{x} \ \middle| \ \max |x_i| \leq 1 \right\} \)
+            \item \( \ell_\infty: \; B_\infty = \left\{ \mathbf{x} \ \middle| \ \max |x_i| \leq 1 \text{ or } \abs{x_1} \leq 1, \abs{x_2} \leq 1\right\} \)
             \item \( \ell_0: \; B_0 = \left\{ \mathbf{x} \ \middle| \ \text{card}(\mathbf{x}) \leq 1 \right\} \)
         \end{itemize}
 
         \customFigure[0.5]{00_Images/Norm_Balls.png}{Norm balls of different p values.}
     \end{example}
-\subsection{Inner products}
-\begin{definition}
-    \( \mathbf{x}, \mathbf{y} \in \mathcal{V} \): $\mathcal{V}\rightarrow \mathbb{R}$ into a scalar denoted by \( \langle \mathbf{x}, \mathbf{y} \rangle \). The inner product satisfies the following axioms: for any \( \mathbf{x}, \mathbf{y}, \mathbf{z} \in \mathcal{V} \) and scalar \( \alpha \),
 
-    \begin{itemize}
-        \item \( \langle \mathbf{x}, \mathbf{x} \rangle \geq 0 \)
-        \item \( \langle \mathbf{x}, \mathbf{x} \rangle = 0 \) iff \( \mathbf{x} = 0 \)
-        \item \( \langle \mathbf{x} + \mathbf{y}, \mathbf{z} \rangle = \langle \mathbf{x}, \mathbf{z} \rangle + \langle \mathbf{y}, \mathbf{z} \rangle \)
-        \item \( \langle \alpha \mathbf{x}, \mathbf{y} \rangle = \alpha \langle \mathbf{x}, \mathbf{y} \rangle \)
-        \item \( \langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y}, \mathbf{x} \rangle \) in $\mathbb{R}^n$ and \( \langle \mathbf{x}, \mathbf{y} \rangle = \overline{\langle \mathbf{y}, \mathbf{x} \rangle} \) in \( \mathbb{C}^n \).
-    \end{itemize}
+    \subsubsection{Motivation for Norms}
+    \begin{example}
+        In optimization problems, different norms are used to achieve various goals. Suppose we are trying to solve an optimal control problem, where $x=(x_1,\ldots,x_n)$ are some action variables.
+        \begin{itemize}
+            \item $\text{min} \left\lVert \mathbf{x} \right\rVert_2^2 = x_1^2 + \ldots + x_n^2$ (i.e. minimizing the total energy (power) in $\mathbf{x}$)
+            \item $\text{min} \left\lVert \mathbf{x} \right\rVert_\infty$ (i.e. minimizing the peak energy in $\mathbf{x}$).
+            \item $\text{min} \left\lVert \mathbf{x} \right\rVert_1$ (i.e. minimizing the sum of action variables).
+            \item $\text{min} \left\lVert \mathbf{x} \right\rVert_0$ (i.e. find sparse solution)
+        \end{itemize}
+    \end{example}
+
+    \subsubsection{Distance metric}
+    \begin{definition}
+        A norm induces a distance metric between two vectors $x$ and $y$ in $\mathbb{V}$ as
+        \[
+        d(x, y) = \|x - y\|
+        \]
+
+        \begin{itemize}
+            \item \textbf{Note:} The $\ell_2$-norm induces the Euclidean distance
+            \[
+            \|x - y\|_2 = \sqrt{\sum_{i=1}^{n} (x_i - y_i)^2}
+            \]
+        \end{itemize}
+    \end{definition}
+
+\subsection{Inner product (Notion of angle)}
+\begin{definition}
+    An inner product on a vector space $\mathcal{V}$ is a function $\langle \cdot, \cdot \rangle : \mathcal{V} \times \mathcal{V} \to \mathcal{F}$ such that:
+
+    \begin{enumerate}
+        \item \textbf{Positive definiteness:} \( \langle \mathbf{x}, \mathbf{x} \rangle \geq 0 \) $\forall \mathbf{x} \in \mathcal{V}$ and \( \langle \mathbf{x}, \mathbf{x} \rangle = 0 \) iff \( \mathbf{x} = 0 \)
+        \item \textbf{Conjugate Symmetry:} \( \langle \mathbf{x}, \mathbf{y} \rangle = \overline{\langle \mathbf{y}, \mathbf{x} \rangle} \) 
+        \begin{itemize}
+            \item \( \langle \mathbf{x}, \mathbf{y} \rangle = \langle \mathbf{y}, \mathbf{x} \rangle \) in $\mathbb{R}^n$ 
+            \item \( \langle \mathbf{x}, \mathbf{y} \rangle = \overline{\langle \mathbf{y}, \mathbf{x} \rangle} \) in \( \mathbb{C}^n \).
+        \end{itemize}
+        \item \textbf{Linearity in first argument:} $\langle \alpha \mathbf{x} + \mathbf{y}, \mathbf{z} \rangle = \alpha \langle \mathbf{x}, \mathbf{z} \rangle + \langle \mathbf{y}, \mathbf{z} \rangle \quad \forall \, \mathbf{x}, \mathbf{y}, \mathbf{z} \in \mathcal{V}, \, \alpha \in \mathbb{F}$
+    \end{enumerate}
 \end{definition}
 
-\subsubsection{Standard inner product}
-\begin{definition}
-    Notion of angle between two vectors in $\mathbb{R}^n$, defined as the row-column product of two vectors:
-    \begin{itemize}
-        \item In \( \mathbb{R}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} x_i y_i = \mathbf{x}^\top \mathbf{y}$
-        \item In \( \mathbb{C}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} \overline{x_i} y_i = \mathbf{x}^H \mathbf{y}$
-    \end{itemize}
-\end{definition}
+\begin{example} How to use the properties of inner products?
+    \begin{align*}
+        \langle x, \alpha y + z \rangle &\overset{(2)}= \overline{\langle \alpha y + z, x \rangle} \\
+        &\overset{(3)}{=} \overline{\alpha} \, \overline{\langle y, x \rangle} + \overline{\langle z, x \rangle} \quad \text{ also by conjugate prop.}\\
+        &\overset{(2)}{=} \overline{\alpha} \langle x, y \rangle + \langle x, z \rangle
+    \end{align*}
+\end{example}
 
-\subsubsection{Connect inner product with angle}
+\subsubsection{Examples of inner products}
+\begin{example}
+    \begin{itemize}
+        \item In \( \mathbb{R}^n \) (Dot product): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} x_i y_i = \mathbf{x}^\top \mathbf{y}=\mathbf{y}^\top \mathbf{x}$
+        \begin{itemize}
+            \item \textbf{Key:} $\langle \mathbf{x}, \mathbf{x} \rangle = \sum_{i=1}^{n} x_i^2 = \mathbf{x}^\top \mathbf{x} = \lVert \mathbf{x} \rVert_2^2$ 
+        \end{itemize}
+        \item In \( \mathbb{C}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} \overline{x_i} y_i = \mathbf{x}^H \mathbf{y} = \overline{\mathbf{y}^H \mathbf{x}}$
+        \begin{itemize}
+            \item $
+                \mathbf{x} = \begin{bmatrix}
+                x_1 \\
+                \vdots \\
+                x_n
+                \end{bmatrix}
+                \quad
+                \mathbf{x}^H = \begin{bmatrix}
+                \overline{x_1} & \cdots & \overline{x_n}
+                \end{bmatrix}
+                $
+        \end{itemize}
+        \item $\mathcal{V} = \left\{ f : \mathbb{R} \to \mathbb{R} \, ; \, \int_{-\infty}^{+\infty} f^2(t) \, dt < \infty \right\}$ (i.e. the set of square integrable functions)
+
+        \[
+        \langle f, g \rangle = \int_{-\infty}^{+\infty} f(t) g(t) \, dt
+        \]
+
+    \end{itemize}
+\end{example}
+
+\subsubsection{Connection of inner product to angle}
+In $\mathbb{R}^n$, the notion of inner product has a geometric interpretation, and is closely related to the notion of angle between vectors. 
     \begin{definition}
         \begin{equation}
             \cos\theta = \frac{\langle \mathbf{x}, \mathbf{y} \rangle}{\|\mathbf{x}\|_2 \|\mathbf{y}\|_2} = \left\langle \frac{\mathbf{x}}{\|\mathbf{x}\|_2}, \frac{\mathbf{y}}{\|\mathbf{y}\|_2} \right\rangle
         \end{equation}
         \begin{itemize}
-            \item \textbf{Orthogonal:} \( \langle \mathbf{x}, \mathbf{y} \rangle = 0 \), the angle between vectors \( \mathbf{x} \) and \( \mathbf{y} \) is \( \theta = \pm 90^\circ \).
-            \item \textbf{Parallel:} When the angle \( \theta \) is \( 0^\circ \) or \( \pm 180^\circ \), vectors \( \mathbf{x} \) and \( \mathbf{y} \) are aligned, meaning \( \mathbf{y} = \alpha \mathbf{x} \) for some scalar \( \alpha \).
+            \item $\langle \mathbf{x}, \mathbf{y} \rangle = 0 \Rightarrow \cos\theta = 0 \Rightarrow \theta = \frac{\pi}{2}$ (i.e. perpendicular)
+            
+            \item $\langle \mathbf{x}, \mathbf{y} \rangle = \|\mathbf{x}\|_2 \|\mathbf{y}\|_2 \Rightarrow \cos\theta = 1 \Rightarrow \theta = 0$ (i.e. $\mathbf{x} \text{ and } \mathbf{y} \text{ are aligned}$)
+            
+            \item $\langle \mathbf{x}, \mathbf{y} \rangle = - \|\mathbf{x}\|_2 \|\mathbf{y}\|_2 \Rightarrow \cos\theta = -1 \Rightarrow \theta = \pi$ (i.e $\mathbf{x} \text{ and } \mathbf{y} \text{ are in opposite directions}$)
+            
+            \item $\langle \mathbf{x}, \mathbf{y} \rangle > 0 \Rightarrow \cos\theta > 0 \Rightarrow \text{angle is acute}$
+            
+            \item $\langle \mathbf{x}, \mathbf{y} \rangle < 0 \Rightarrow \cos\theta < 0 \Rightarrow \text{angle is obtuse}$
         \end{itemize}
     \end{definition}
-    \customFigure[0.25]{00_Images/Angle_Between_Vectors.png}{Visual representation of angle between vectors.}
+
+    \begin{derivation}
+        L3: Inner products and orthogonality.
+    \end{derivation}
 
 \subsubsection{Cauchy-Schwartz inequality and its generalization}
 \begin{definition}
@@ -226,47 +484,81 @@ In optimization problems, different norms are used to achieve various goals.
         \end{equation}
 \end{definition}
 
+\begin{example}
+    For \( p = 1 \) and \( q = \infty \), we have:
+
+    \[
+    | \langle \mathbf{x}, \mathbf{y} \rangle | \leq \|\mathbf{x}\|_1 \cdot \|\mathbf{y}\|_\infty
+    \]
+
+    \[
+    | \langle \mathbf{x}, \mathbf{y} \rangle | \leq \left( \sum_{i=1}^{n} |x_i| \right) \cdot \max_i |y_i|
+    \]
+\end{example}
+
+\subsubsection{Inner product induces a norm}
+\begin{definition}
+    Any inner product induces a norm, but not all norms are induced by an inner product.
+    \begin{itemize}
+        \item \textbf{Key:} If given an inner product, take the square root of the inner product to get the norm.
+        \begin{itemize}
+            \item e.g. $\lVert \mathbf{x} \rVert_2 = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$
+        \end{itemize}
+        \customFigure[0.5]{00_Images/Ordering.png}{Ordering of the vector spaces.}
+    \end{itemize}
+\end{definition}
+
 \subsection{Orthogonal decomposition}
-\subsubsection{Orthogonality}
+\subsubsection{Mutually orthogonal}
 \begin{definition}
     A set of non-zero vectors \( S = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \) is \textbf{mutually orthogonal} if \( \langle \mathbf{v}^{(i)}, \mathbf{v}^{(j)} \rangle = 0 \) $\forall$ \( i \neq j \).
     \begin{itemize}
-        \item \textbf{Fact:} Orthogonal set of vectors form a basis for \( Span = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \)
+        \item \textbf{Fact:} Orthogonal set of vectors \( S = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \) is linearly independent.
+        \begin{itemize}
+            \item \textbf{Proof:} In L3.
+        \end{itemize}
     \end{itemize}
 \end{definition}
 
 \subsubsection{Orthonormal basis}
 \begin{definition}
-    Set of orthogonal basis vectors that have unit norm:
-    \[
-    \left\{ \frac{\mathbf{v}^{(1)}}{\|\mathbf{v}^{(1)}\|}, \ldots, \frac{\mathbf{v}^{(d)}}{\|\mathbf{v}^{(d)}\|} \right\}
-    \]
+    Set of orthogonal basis vectors that have unit norm.
+    \vspace{1em}
+
+    If \( S = \left\{ \mathbf{v}^{(1)}, \mathbf{v}^{(2)}, \ldots, \mathbf{v}^{(d)} \right\} \) is a set of mutually orthogonal vectors, then $\left\{ \frac{\mathbf{v}_{1}}{\|\mathbf{v}_{1}\|}, \ldots, \frac{\mathbf{v}_{d}}{\|\mathbf{v}_{d}\|} \right\}$ is an orthonormal basis for $span(S)$
 \end{definition}
 
-\subsubsection{Orthogonal component}
+\begin{example}
+    Standard basis is an orthonormal basis for $\mathbb{R}^n$
+\end{example}
+
+\subsubsection{Orthogonal}
 \begin{definition}
-    Given \( S \subseteq \mathcal{V} \) is a subspace of \( \mathcal{V} \), a vector \( \mathbf{x} \in \mathcal{V} \) is said to be \textbf{orthogonal} to \( S \) if \( \forall \mathbf{v} \in S \), we have \( \langle \mathbf{x}, \mathbf{v} \rangle = 0 \).
+    Consider \( \mathbf{x} \in \mathcal{V} \), and let \( S \) be a subspace of \( \mathcal{V} \). We say \( \mathbf{x} \) is orthogonal to \( S \) if:
+        \[
+        \langle \mathbf{x}, \mathbf{v} \rangle = 0 \quad \forall \, \mathbf{v} \in S.
+        \]
+        
+        We write: \( \mathbf{x} \perp S \). 
 \end{definition}
 
 \subsubsection{Orthogonal complement}
 \begin{definition}
-    A vector $\mathbf{x} \in \mathcal{V}$ is orthogonal to a subset $S$ of an inner product space $\mathcal{V}$ if $\mathbf{x} \perp s$ for all $s \in S$. The set of vectors in $\mathcal{V}$ that are orthogonal to $S$ is called the \textit{orthogonal complement} of $S$:
+    The \textbf{orthogonal complement} of \( S \), denoted \( S^\perp \), is the set of all orthogonal vectors to \( S \):
 
-    \begin{equation}
-        S^\perp = \left\{ \mathbf{x} \in \mathcal{V} \mid \mathbf{x} \perp S \right\}
-    \end{equation}
+    \[
+    S^\perp = \{ \mathbf{x} \in \mathcal{V} \, : \, \mathbf{x} \perp S \}
+    \]
+
     \begin{itemize}
-        \item $dim(S) + dim(S^\perp) = dim(\mathcal{V})$
-    \end{itemize}
-\end{definition}
+        \item \( S^\perp \) is a subspace. (Closed under addition and scalar multiplication)
+        
+        \item \( S \cap S^\perp = \{ \mathbf{0} \} \)
+        
+        \item \textbf{Orthogonal decomposition:} Any \( \mathbf{x} \in \mathcal{V} \) can be uniquely written as: $\mathbf{x} = \mathbf{x}_S + \mathbf{x}_{S^\perp} \text{ where } \mathbf{x}_S \in S \text{ and } \mathbf{x}_{S^\perp} \in S^\perp$
+        \customFigure[0.25]{00_Images/Example.png}{Drawing any x.}
 
-\customFigure[0.5]{00_Images/Orthogonal_Complement.png}{Orthogonal complement.}
-
-\subsubsection{Orthogonal decomposition}
-\begin{definition}
-    Any $\mathbf{x} \in \mathcal{V}$ can be expressed as 
-    \begin{itemize}
-        \item $\mathbf{x} = \mathbf{x}_S + \mathbf{x}_{S^\perp}$
-        \item $\mathcal{V} = S \oplus S^\perp$
+        \item $\mathcal{V} = S + S^\perp = \left\{ \mathbf{u} + \mathbf{v} \, : \, \mathbf{u} \in S, \, \mathbf{v} \in S^\perp \right\}$
+        
     \end{itemize}
 \end{definition}

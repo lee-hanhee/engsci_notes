@@ -1,14 +1,18 @@
 \subsection{Induction (Ap. A.2)}
-    \textbf{Motivation:} The most basic way to evaluate a series is to use induction.
+    \textbf{Motivation:} 45\% induction, 45\% contradiction, 10\% math
     \begin{process}
-        Given proposition $P(n)$
+        Given predicate $P(n)$: $[P(1) \land \; \forall n \; P(n) \rightarrow P(n+1)] \rightarrow \forall n P(n)$
         \begin{enumerate}
-            \item Basis: Prove the base case $P(1)$
-            \item Inductive hypothesis: Assume true for $P(n)$
-            \item Inductive step: Use the hypothesis to show its true for $P(n) \rightarrow P(n+1)$
+            \item \textbf{Basis Step:} Prove $P(c)$ for some value $c$. 
+            \item \textbf{Hypothesis:} Assume true for $P(n)$.
+            \item \textbf{Inductive step:} Use the hypothesis to show its true for $P(n) \implies P(n+1)$.
         \end{enumerate}
-        Therefore, $\forall \; n P(n)$.
+        Therefore, $\forall \; n \; P(n)$.
     \end{process}
+
+    \begin{intuition}
+        Think about how this builds an argument incrementally from the base cases up to $P(n+1)$. Induction proves $P(n)$ by first proving $P(i)$, for every $i$ from $c$ to $n$.
+    \end{intuition}
 
     \begin{intuition}
         You don't always need to guess the exact value of a summation in order to use induction. Instead, use induction to prove an upper or lower bound on a summation.
@@ -40,6 +44,164 @@
         Therefore, as long as $\left(\frac{1}{3} + \frac{1}{c}\right) \leq 1 \text{ or } c \geq \frac{3}{2}. \text{ Thus, } \sum_{k=0}^{n} 3^k = O(3^n)$.
     \end{example}
 
+    \begin{example}
+        Prove that for all integers \( n \geq 1 \), the following inequality holds: $n < 2^n$
+
+        \begin{enumerate}
+            \item \textbf{Basis:} 
+            We check the case where \( n = 1 \):
+            \[
+            1 < 2^1 = 2.
+            \]
+            Since this is true, the base case holds.
+
+            \item \textbf{Inductive Hypothesis:} 
+            Assume that the inequality holds for some integer \( n \geq 1 \), i.e.,
+            \[
+            n < 2^n.
+            \]
+            
+            \item \textbf{Inductive Step:} 
+            We need to prove that the inequality holds for \( n = n+1 \), i.e.,
+            \[
+            n+1 < 2^{n+1}.
+            \]
+            Starting with the left-hand side:
+            \[
+            n+1 < \boxed{2^n} + 1 < 2^n + 2^n = 2 \cdot 2^n = 2^{n+1}.
+            \]
+            Therefore, the inequality holds for \( n = n+1 \).
+            \begin{itemize}
+                \item \textbf{Note:} The boxed in part is applying the hypothesis.
+            \end{itemize}
+
+        \end{enumerate}
+
+        \textbf{Conclusion:} By the principle of mathematical induction, the inequality \( n < 2^n \) holds for all \( n \geq 1 \).
+    \end{example}
+
+    \begin{example}
+        Prove that the sum of the first \( n \) odd positive integers is \( n^2 \), i.e.,
+        \[
+        1 + 3 + 5 + \dots + (2n-1) = n^2.
+        \]
+
+        \begin{enumerate}
+            \item \textbf{Basis:} 
+            For \( n = 1 \), the sum of the first odd positive integer is just \( 1 \):
+            \[
+            1 = 1^2.
+            \]
+            Therefore, the formula holds for \( n = 1 \).
+            
+            \item \textbf{Inductive Hypothesis:} 
+            Assume that the formula holds for some integer \( n \), i.e.,
+            \[
+            1 + 3 + 5 + \dots + (2n-1) = n^2.
+            \]
+            
+            \item \textbf{Inductive Step:} 
+            We need to prove that the formula holds for \( n+1 \), i.e., 
+            \[
+            \boxed{1 + 3 + 5 + \dots + (2n-1)} + (2n+1) = (n+1)^2.
+            \]
+            Using the inductive hypothesis, we know:
+            \[
+            1 + 3 + 5 + \dots + (2n-1) = n^2.
+            \]
+            Now, adding the next odd integer \( 2n + 1 \) to both sides, we get:
+            \[
+            n^2 + (2n + 1) = (n+1)^2.
+            \]
+            Therefore, both sides are equal, proving that the formula holds for \( n+1 \).
+
+        \end{enumerate}
+
+        \textbf{Conclusion:} By the principle of mathematical induction, the formula for the sum of the first \( n \) odd positive integers, \( 1 + 3 + 5 + \dots + (2n-1) = n^2 \), holds for all \( n \geq 1 \).
+    \end{example}
+
+    \begin{example}
+        Prove that the power set of a set \( S \), where \( |S| = n \), has \( 2^n \) elements.
+
+        \begin{enumerate}
+            \item \textbf{Basis:} 
+            For \( n = 0 \), let \( S = \emptyset \) (the empty set). The power set of \( S \) is:
+            \[
+            2^S = \{\emptyset\}.
+            \]
+            This power set contains exactly 1 element, which matches \( 2^0 = 1 \). 
+            
+            Now consider \( n = 1 \), where \( S = \{A\} \). The power set of \( S \) is:
+            \[
+            2^S = \{\emptyset, \{A\}\}.
+            \]
+            This power set contains 2 elements, which matches \( 2^1 = 2 \). Thus, the base case holds for \( n = 0 \) and \( n = 1 \).
+
+            \item \textbf{Inductive Hypothesis:} 
+            Assume that for a set \( S \) with \( |S| = n \), the power set of \( S \) has \( 2^n \) elements. 
+            
+            \item \textbf{Inductive Step:} 
+            We need to prove that if \( |S| = n+1 \), then the power set of \( S \), \( 2^S \), contains \( 2^{n+1} \) elements.
+            \vspace{1em}
+
+            Let \( S \) be a set with \( n+1 \) elements, and let \( a \) be an additional element such that \( S = S' \cup \{a\} \), where \( S' \) is a set of \( n \) elements. 
+            
+            \vspace{1em}
+            The power set of \( S \) consists of:
+            \begin{itemize}
+                \item Subsets of \( S' \) that do not include \( a \). By the inductive hypothesis, there are \( 2^n \) such subsets.
+                \item Subsets of \( S' \) that include \( a \). There are \( 2^n \) such subsets as well, since each subset of \( S' \) can either include or exclude \( a \).
+            \end{itemize}
+            
+            Therefore, the total number of subsets in \( 2^S \) is:
+            \[
+            2^n + 2^n = 2 \cdot 2^n = 2^{n+1}.
+            \]
+            This proves that the power set of a set with \( n+1 \) elements contains \( 2^{n+1} \) elements.
+            
+        \end{enumerate}
+
+        \textbf{Conclusion:} By the principle of mathematical induction, the power set of a set \( S \) with \( |S| = n \) contains \( 2^n \) elements for all \( n \geq 0 \).
+    \end{example}
+
+    \begin{example}
+        Show that any \( 2^n \times 2^n \) chessboard with one square missing can be tiled using L-shaped tiles.
+
+        \begin{enumerate}
+            \item \textbf{Basis:} 
+            For \( n = 1 \), the chessboard is a \( 2 \times 2 \) grid. With one square removed, it is clear that the remaining three squares can be covered by a single L-shaped tile, as shown in the diagram below:
+            \[
+            \begin{matrix}
+            \square & \square \\
+            \square & \text{x} 
+            \end{matrix}
+            \]
+            This satisfies the base case for \( n = 1 \).
+
+            \item \textbf{Inductive Hypothesis:} 
+            Assume that for a \( 2^n \times 2^n \) chessboard with any single square removed, the board can be tiled using L-shaped tiles. That is, the tiling is possible for a board of size \( 2^n \times 2^n \) where one square is missing.
+
+            \item \textbf{Inductive Step:} 
+            We need to prove that a \( 2^{n+1} \times 2^{n+1} \) chessboard with one square removed can also be tiled with L-shaped tiles.
+
+            Divide the \( 2^{n+1} \times 2^{n+1} \) chessboard into four \( 2^n \times 2^n \) quadrants. One of these quadrants will have the missing square. To apply the inductive hypothesis, place an L-shaped tile at the center of the chessboard to cover one square from each of the other three quadrants, as shown below:
+            
+            \[
+            \begin{matrix}
+            \square & \square & \square & \square \\
+            \square & \text{x} & \text{L} & \square \\
+            \square & \text{L} & \text{L} & \square \\
+            \square & \square & \square & \square 
+            \end{matrix}
+            \]
+            
+            Now, each of the four \( 2^n \times 2^n \) quadrants either has one square removed (the original missing square or the square covered by the L-shaped tile in the other three quadrants). By the inductive hypothesis, each \( 2^n \times 2^n \) quadrant can be tiled using L-shaped tiles. Hence, the entire \( 2^{n+1} \times 2^{n+1} \) board can be tiled.
+
+        \end{enumerate}
+
+        \textbf{Conclusion:} By the principle of mathematical induction, any \( 2^n \times 2^n \) chessboard with one square removed can be tiled with L-shaped tiles for all \( n \geq 1 \).
+    \end{example}
+
     \begin{warning}
         Consider the following fallacious proof that \( \sum_{k=1}^n k = O(n) \). 
         \begin{enumerate}
@@ -58,11 +220,11 @@
 
 \subsection{Contradiction}
     \begin{process}
-        Property $P(n)$ which you want to prove true, and it can be true or false. 
+        Predicate $P(n)$ either true or false.
         \begin{enumerate}
             \item If want to prove true, assume $\neg P(n)$.
-            \item Work towards a contradiction by working with the expression $\neg P(n)$ and prove this to be false.
-            \item If this resulted in a false statement then $P(n)$ is true. 
+            \item Work towards a contradiction by working with the expression $\neg P(n)$ to get to a contradiction.
+            \item If this resulted in a contradiction then $P(n)$ is true. 
         \end{enumerate}
         
     \end{process}
@@ -129,4 +291,36 @@
         
         \end{enumerate}
         The contradiction shows that our assumption that \(\sqrt{2}\) is rational is false. Therefore, \(\sqrt{2}\) is irrational.
+    \end{example}
+
+    \begin{example}
+            Show that if \( a^2 \) is even, then \( a \) is even.
+
+        \begin{enumerate}
+            \item \textbf{Assume the opposite:} 
+            Suppose \( a^2 \) is even, but \( a \) is odd.
+            
+            \item \textbf{Write the form of an odd number:} 
+            If \( a \) is odd, then we can express \( a \) as:
+            \[
+            a = 2k + 1 \quad \text{for some integer } k.
+            \]
+            
+            \item \textbf{Square both sides:} 
+            Now, compute \( a^2 \):
+            \[
+            a^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1.
+            \]
+            
+            \item \textbf{Analyze the result:} 
+            From the equation, we can see that \( a^2 = 2(2k^2 + 2k) + 1 \), which is an odd number (because it is of the form \( 2m + 1 \), where \( m \) is an integer).
+
+            \item \textbf{Contradiction:} 
+            This contradicts the assumption that \( a^2 \) is even, as we have just shown that \( a^2 \) must be odd if \( a \) is odd.
+
+        \end{enumerate}
+
+        Since assuming \( a \) is odd leads to a contradiction, it must be the case that \( a \) is even. 
+
+        \textbf{Conclusion:} If \( a^2 \) is even, then \( a \) must be even.
     \end{example}

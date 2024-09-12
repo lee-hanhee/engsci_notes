@@ -1,21 +1,110 @@
 \subsection{Projection onto subspaces}
     
-    \subsubsection{Problem that projections solve}
+    \subsubsection{Basic problem}
         \begin{definition}
-            Given a vector $\mathbf{x}\in \mathcal{V}$. Find the closest point in $S$ to $x$: 
+            Given $x\in \mathcal{V}$ and a subspace $S$. Find the closest point (in norm) in $S$ to $x$: 
             \begin{equation}
                 \text{Proj}_S(x) = \arg\min_{y \in S} \| y - x \|
             \end{equation}
             \begin{itemize}
                 \item $\| y - x \|$: Some norm.
+                \item \textbf{Subspace:} $S$ doesn't have to be a subspace. 
+                \item $\arg\min$: Vector $y$ that minimizes $\lVert x - y\rVert$
             \end{itemize}
         \end{definition}
+        
+        \begin{example}
+            Projection onto a 1-dimensional subspace.
 
-    \subsubsection{Higher dimensional S} % L3 Pg2-3 skipped
-    \begin{definition}
-    \end{definition}
+            Let \( S = \text{span}(\mathbf{v}) \), and we denote the projection of \( \mathbf{x} \) onto \( S \) as:
+            \[
+            \text{Proj}_S(\mathbf{x}) = \mathbf{x}^*
+            \]
+            Under the Euclidean norm, we have nice geometry: we should have
+            \[
+            \langle \mathbf{x} - \mathbf{x}^*, \mathbf{v} \rangle = 0
+            \]
+            Since \( \mathbf{x}^* \in S \), \( \mathbf{x}^* = \alpha \mathbf{v} \) for some scalar \( \alpha \).
 
-\subsection{Fourier series}
+            We need to find \( \alpha \).
+
+            So,
+            \[
+            \langle \mathbf{x} - \alpha \mathbf{v}, \mathbf{v} \rangle = 0
+            \]
+            \[
+            \Rightarrow \langle \mathbf{x}, \mathbf{v} \rangle - \alpha \langle \mathbf{v}, \mathbf{v} \rangle = 0
+            \]
+            \[
+            \Rightarrow \alpha = \frac{\langle \mathbf{x}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle}
+            \]
+            Thus, 
+            \[
+            \mathbf{x}^* = \alpha \mathbf{v} = \frac{\langle \mathbf{x}, \mathbf{v} \rangle}{\langle \mathbf{v}, \mathbf{v} \rangle} \mathbf{v}
+            \]
+            which simplifies to:
+            \[
+            \mathbf{x}^* = \frac{\mathbf{x}^\top \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v} = \left\langle \mathbf{x}, \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rangle \frac{\mathbf{v}}{\|\mathbf{v}\|_2}
+            \]
+            \begin{itemize}
+                \item \textbf{Note:} \( \left\lVert \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rVert_2 = 1 \), so we can think of \( \left\{ \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\} \) as an orthonormal basis for \( S \).
+                \item \textbf{Note:} $x^*$ is the point we are looking for in the projection problem.
+            \end{itemize}
+            \customFigure[0.5]{00_Images/Example_Projection.png}{Visual representation of the projection problem.}
+        \end{example}
+
+        \begin{example}
+        This can be generalized to higher dimensions. Let \( S \) be a subspace of \( \mathcal{V} \), and let \( \{ \mathbf{v}_1, \dots, \mathbf{v}_d \} \) be an orthonormal basis of \( S \).
+
+        Let 
+        \[
+        \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i
+        \]
+        \textbf{Goal:} Find \( \alpha_1, \dots, \alpha_d \) so as to minimize the norm \( \|\mathbf{x} - \mathbf{x}^*\|_2 \).
+
+        By geometry, we require that 
+        \[
+        \langle \mathbf{e}, \mathbf{v}_j \rangle = 0 \quad \forall \, j = 1, \dots, d
+        \]
+        which implies:
+        \[
+        \langle \mathbf{x} - \mathbf{x}^*, \mathbf{v}_j \rangle = 0 \quad \forall \, j
+        \]
+        \[
+        \Rightarrow \langle \mathbf{x} - \sum_{i=1}^{d} \alpha_i \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \quad \forall \, j
+        \]
+        Using linearity of the inner product:
+        \[
+        \Rightarrow \langle \mathbf{x}, \mathbf{v}_j \rangle = \sum_{i=1}^{d} \alpha_i \langle \mathbf{v}_i, \mathbf{v}_j \rangle
+        \]
+        Since \( \langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \) if \( i \neq j \) and \( 1 \) if \( i = j \), this simplifies to:
+        \[
+        \alpha_j = \langle \mathbf{x}, \mathbf{v}_j \rangle \quad \text{b/c only the i=j term survives}
+        \]
+        Thus,
+        \[
+        \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i = \sum_{i=1}^{d} \langle \mathbf{x}, \mathbf{v}_i \rangle \mathbf{v}_i
+        \]
+        \[
+        = \sum_{i=1}^{d} (\mathbf{x}^\top \mathbf{v}_i) \mathbf{v}_i
+        \]
+        where \( \mathbf{v}_i \in \mathbb{R}^n \).
+
+        \[
+        \mathbf{e} = \mathbf{x} - \mathbf{x}^* \in S^\perp, \quad \mathbf{x}^* \in S
+        \]
+        So, 
+        \[
+        \mathbf{x} = \mathbf{x}^* + \mathbf{e}, \quad \text{where} \quad \mathbf{x}^* \in S, \quad \mathbf{e} \in S^\perp
+        \]
+
+        This is an example of orthogonal decomposition.
+        \customFigure[0.5]{00_Images/General.png}{Generalization of projection.}
+        \end{example}
+
+        \begin{example}
+            Fourier series in L3.
+        \end{example}
 
 \subsection{Gram-Schmidt and QR decomposition}
 \subsection{Hyperplanes and half-spaces}

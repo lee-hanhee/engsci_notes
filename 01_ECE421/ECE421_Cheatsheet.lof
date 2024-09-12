@@ -1,1 +1,22 @@
 \babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{3}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{4}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{4}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{5}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{5}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{7}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{7}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Nearest neighbour comparison.}}{7}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Over and under fitting of k-nearest neighbours.}}{9}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Linear classification example.}}{11}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{12}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{13}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Linearly separable vs. Not linearly seperable}}{13}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Table for classification}}{14}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces PLA not unique.}}{15}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces The best weight is the weight with the lowest error at this iteration.}}{16}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces The dimensionality is 0, where the derivative being negative indicates that the steepest increase is to the left. The derivative being positive indicates that the steepest increase is to the right.}}{18}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Column span example.}}{20}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Example of a sine for regularization.}}{21}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Circular boundary.}}{22}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}}{23}{figure.21}%

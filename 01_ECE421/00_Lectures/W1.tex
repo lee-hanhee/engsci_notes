@@ -1,0 +1,535 @@
+\subsection{Types of learning}
+    \subsubsection{Supervised learning}
+    \begin{definition}
+        \begin{itemize}
+            \item Given \textbf{known/labeled} data samples
+            \item Train machines to recognize \textbf{new/unlabeled} data samples.
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \textbf{Linear classification:}
+
+        \begin{itemize}
+            \item \textbf{Given} \( N \) training samples:
+            \[
+            (\underline{x}_1, y_1), (\underline{x}_2, y_2), \dots, (\underline{x}_N, y_N)
+            \]
+            where \( \underline{x}_i \in \mathbb{R}^d \) and \( y_i \in \{ +1, -1 \} \).
+            
+            \item \textbf{Determine} a classification rule:
+            \[
+            y = \text{Sign} \left( \sum_{j=0}^{d} w_j x_j \right)
+            \]
+            to minimize classification error.
+        \end{itemize}
+        \customFigure[0.5]{00_Images/Linear_Class.png}{Linear classification}
+
+        \textbf{Linear regression:}
+        \begin{itemize}
+            \item \textbf{Given} \( N \) training samples:
+            \[
+            (\underline{x}_1, y_1), (\underline{x}_2, y_2), \dots, (\underline{x}_N, y_N)
+            \]
+            where \( \underline{x}_i \in \mathbb{R}^d \) and \( y_i \in \mathbb{R} \).
+            
+            \item \textbf{Determine} a "regression rule":
+            \[
+            \hat{y} = \sum_{i=0}^{d} w_i x_i
+            \]
+            to minimize the prediction error:
+            \[
+            \sum_{i=1}^{N} \left( y_i - \hat{y}_i \right)^2
+            \]
+        \end{itemize}
+        \customFigure[0.5]{00_Images/Linear_Regression.png}{Linear regression}
+
+        \textbf{Non-linear transformation of data:}
+        \customFigure[0.5]{00_Images/Non_Linear.png}{Non-linear transformation of data}
+
+        \textbf{Neural networks}
+        \begin{itemize}
+            \item \textbf{Given} \( N \) training samples:
+            \[
+            (\underline{x}_1, y_1), (\underline{x}_2, y_2), \dots, (\underline{x}_N, y_N)
+            \]
+            where \( \underline{x}_i \in \mathbb{R}^d \) and \( y_i \in \mathbb{R} \).
+            
+            \item \textbf{Fix:}
+            \begin{itemize}
+                \item Number of hidden units per layer
+                \item Activation function \( \phi \)
+            \end{itemize}
+            
+            \item \textbf{Learn} weights \( w_{ij}^k \) by minimizing the loss function:
+            \[
+            E(W) = \sum_{i=1}^{N} l_W(y_i, \hat{y}_i)
+            \]
+        \end{itemize}
+    \end{example}
+
+    \subsubsection{Unsupervised learning}
+    \begin{definition}
+        \begin{itemize}
+            \item Given \textbf{unlabeled} data samples.
+            \item Train machines to find the \textbf{pattern} behind these data samples.
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \textbf{K-Means Clustering}:
+
+            \begin{itemize}
+                \item \textbf{Cluster Centers}: $\mu_1, \mu_2, \dots, \mu_K$
+                
+                where \( \mu_k \) represents the center of the \( k \)-th cluster.
+                
+                \item \textbf{Partitions}: 
+                The data points are divided into \( K \) clusters, denoted as: $S_1, S_2, \dots, S_K$
+
+                where each \( S_k \) represents the set of data points assigned to the \( k \)-th cluster.
+                
+                \item \textbf{Objective Function to Minimize}:
+                The goal is to minimize the total within-cluster variance
+                \[
+                \sum_{j=1}^{N} \| \underline{x}_j - \mu(\underline{x}_j) \|^2
+                \]
+                where \( \underline{x}_j \) is the \( j \)-th data point, and \( \mu(\underline{x}_j) \) is the cluster center closest to \( \underline{x}_j \).
+            \end{itemize}
+        \customFigure[0.5]{00_Images/Kmeans_clustering.png}{K-Means Clustering}
+        \textbf{Density Estimation-Gaussian Mixture Models}
+        \customFigure[0.5]{00_Images/Density_Estimation.png}{Density Estimation-Gaussian Mixture Models}
+    \end{example}
+
+    \subsubsection{Reinforcement learning}
+    \begin{definition}
+        \begin{itemize}
+            \item Gives machine guidance signals ("rewards") for its action.
+            \item Train machine to explore the environment and find optimal actions.
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \textbf{Markov Decision Processes (MDP)}:
+        \begin{itemize}
+            \item This is a formalism for modeling how the world works.
+            
+            \item An MDP is a five-tuple \( (S, A, P_{sa}, \gamma, R) \) where:
+            \begin{itemize}
+                \item \( S \): the set of states.
+                \item \( A \): the set of actions.
+                \item \( P_{sa} \): state transition probabilities. For any state-action pair, the transition probabilities must sum to 1:
+                \[
+                \sum_{s' \in S} P_{sa}(s') = 1
+                \]
+                \item \( \gamma \): the discount factor, with \( \gamma \in [0, 1] \), which determines how future rewards are valued relative to immediate rewards.
+                \item \( R \): the reward function, which gives the immediate reward received after transitioning from one state to another.
+                \item \textbf{Total Payoff}: The total expected payoff for a sequence of actions is the sum of the discounted rewards:
+                \[
+                R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \dots
+                \]
+            \end{itemize}
+            
+            \item \textbf{Goal}: Choose actions over time to maximize the expected total payoff:
+            \[
+            \mathbb{E}\left[R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \dots \right]
+            \]
+        \end{itemize}
+    \end{example}
+
+    \begin{warning}
+        If the MDP is initially unknown, how can we find a policy?
+
+        We learn the MDP model \textbf{or} the parts with which we can find the optimal policy (e.g., Value functions or Q-functions).
+    \end{warning}
+
+\subsection{Classification problem setup}
+\begin{definition}
+    \begin{enumerate}
+        \item Collected training points with class labels (i.e. some observations belong to class C; some don't)
+        \begin{itemize}
+            \item Given a \textbf{sample} of $N$ \textbf{observations}, each with $d$ \textbf{features} (i.e. attributes). 
+            \item \textbf{Sample point/feature vector/independent variables (regression):} Represent each observation as a point in d-dimensional.
+        \end{itemize}
+        \item Evaluate new data points to predict their class.
+    \end{enumerate}
+\end{definition}
+
+\subsection{k-Nearest neighbour}
+\begin{definition}
+    Classifies a data point based on the majority label of its $k$ closest points in the feature space, where "closeness" is measured using a norm. 
+    \begin{itemize}
+        \item \textbf{Note:} The algorithm is non-parametric and instance-based, meaning it stores all training data and makes predictions by comparing new data points directly to this stored data.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    What is the difference between a 1-nearest neighbour and a linear classifier?
+    \vspace{1em}
+
+    The new point that we want to classify (i.e. green point) can be done in two ways: 
+    \begin{enumerate}
+        \item \textbf{1-nearest-neighbour:} Compares the new data point with the closest known point (e.g. red), so this green point is red. 
+        \item \textbf{Linear classifier:} Compares the new data point with the line. Since the arrow indicates the red side, therefore, the green point is blue. 
+    \end{enumerate}
+    \customFigure[0.75]{00_Images/NN_Example.png}{1-nearest neighbour and linear classifier example.}
+
+    For a complex dataset, which is better?
+    \begin{itemize}
+        \item Which one computes the correct answer for all training point?
+        \begin{itemize}
+            \item 1-nearest neighbour because the model overfits the data s.t. every training point will be classified correctly.
+        \end{itemize}
+        \item Which one conforms to some real insight about the data?
+        \begin{itemize}
+            \item Linear classifier because the model generalizes as it doesn't overfit the data.
+        \end{itemize}
+    \end{itemize}
+    \customFigure[0.75]{00_Images/Complex_Example.png}{1-nearest neighbour and linear classifier complex example.}
+\end{example}
+
+\begin{example}
+    1-nearest neighbour vs. 15-nearest neighbour:
+    \customFigure[0.5]{00_Images/NN_Comparison.png}{Nearest neighbour comparison.}
+\end{example}
+
+    \subsubsection{Decision boundary}
+    \begin{definition}
+        The boundary by our classifier to seperate items in the class from those not. 
+    \end{definition}
+
+\subsection{Error process for classification}
+\begin{process}
+    How to make sure that the trained model has statistical validity?
+
+    \begin{enumerate}
+        \item Given labeled data (i.e. sample points with class labels).
+        \item \textbf{Validation set:} Hold back a subset of the labeled points (e.g. 20\% of the data). \textbf{Training set:} The other 80\%.
+        \item Train one or more classifiers to learn to distinguish the two classes. 
+        \begin{itemize}
+            \item \textbf{Training set:} To learn weights/parameters of the model. 
+            \item \textbf{Validation set:} Do \textbf{NOT} use your validation data to train!
+            \item \textbf{Note:} We usually train multiple learning algorithms, or one algorithm with multiple hyperparameter settings, or both.
+        \end{itemize}
+        \item Validate the trained classifiers on the validation set. Choose classifiers/hyperparameters with the lowest validation error.
+        \begin{itemize}
+            \item \textbf{Note:} When we do validation, our classifiers are not learning anymore.
+    
+            \item \textbf{Note:} We use validation error to judge our classifiers. We do \textbf{NOT} use training error to judge our classifiers.
+        \end{itemize}
+        \item Test the best classifier on a test set of new data. Typically, you do not have the labels. A third party judges you using the test error.
+    \end{enumerate}
+\end{process}
+
+    \subsubsection{Types of error}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Training Error:} The fraction of the training set not classified correctly.
+            
+            \item \textbf{Validation Error:} The fraction of the validation set not classified correctly.
+            \begin{itemize}
+                \item \textbf{Purpose:} Use this error to choose our classifier/hyperparameters.
+            \end{itemize}
+            
+            \item \textbf{Test Error:} The fraction of the test set not classified correctly.
+            \begin{itemize}
+                \item \textbf{Purpose:} Used to evaluate you.
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
+
+\subsection{Hyperparameters}
+\begin{definition}
+    Configuration settings for machine learning models that are set before training and control the learning process.
+    \begin{itemize}
+        \item \textbf{Key:} Controls the trade-off between over/underfitting. 
+    \end{itemize}
+\end{definition}
+
+\subsection{Over/underfitting, Outliers}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Overfitting}: When the validation/test error deteriorates because too sensitive outliers or other spurious patterns.
+
+        \item \textbf{Underfitting}: When the validation/test error deteriorates because the classifier is not flexible enough to fit patterns.
+        
+        \item \textbf{Outliers}: Points with atypical labels. 
+        \begin{itemize}
+            \item The more outliers you have, the more they increase the risk of \textbf{overfitting}.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    We want a compromise between over/underfitting as we want a classifier that can generalize to new examples.
+\end{intuition}
+
+\begin{example}
+    Graphical example of under/overfitting:
+    \begin{itemize}
+        \item \textbf{Underfit:} If there are 100 datapoints, where 60 are red and 40 are blue. Therefore, with 100-nearest neighbour, all the new datapoints will be classified as red.
+        \item \textbf{Overfit:} If 1-nearest neighbour, the new data point will be classified as the colour which is closest to the new DP.
+    \end{itemize}
+    \customFigure[0.5]{00_Images/Over_under.png}{Over and under fitting of k-nearest neighbours.}
+\end{example}
+
+\subsection{Encoding (Ways to transform data)}
+\textbf{Motivation:} How should we prepare the data? Many ML models only operate on numeric values. In addition, we want numeric data that are reasonable (i.e. not very small or very large that can cause issues and instability).
+    \subsubsection{Transform numeric data}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Normalizing the features}
+            \begin{itemize}
+                \item Transforms the features to be on a similar scale
+                \item Improves the performance and training stability
+            \end{itemize}
+            
+            \item \textbf{Sometimes the Dataset contains extreme outliers}
+            \begin{itemize}
+                \item By feature clipping, you can cap all feature values above or below (i.e. use conditionals).
+            \end{itemize}
+        \end{itemize}    
+    \end{definition}
+    
+    \subsubsection{Transform categorical data}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Ordinal Encoding}: Assigns a unique integer to ecah category based on the natural order of categories. e.g., "terrible" $\rightarrow$ 0, "bad" $\rightarrow$ 1, ...
+            \item \textbf{One-Hot Encoding}: Transforms each category into a new binary column for every unique category. A vector, where we set corresponding elements to 1, set all other elements to 0.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Linear classification}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Input:} $\mathcal{X}$ is the input space (i.e., the set of all possible $\underline{x}$).
+        \item \textbf{Output (label):} $\mathcal{Y}$ is the output space (e.g. $\mathcal{Y} = \{+1,-1\}$).
+        \item \textbf{Unknown target function:} $f: \mathcal{X} \rightarrow \mathcal{Y}$, maps each input to an output.
+        \item \textbf{Historical dataset:} $\mathcal{D} = \left\{ (\underline{x}_1, y_1), \dots, (\underline{x}_N, y_N) \right\}$.
+        \item \textbf{Goal:} Design a learning algorithm that uses $\mathcal{D}$ to pick a mapping $g: \mathcal{X} \to \mathcal{Y}$ that approximates $f$.
+        \begin{itemize}
+            \item The algorithm chooses $g \in \mathcal{H}$ (i.e.. chooses $g$ from a set of candidate mappings $\mathcal{H}$).
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+    \subsubsection{What is the hypothesis set for linear classification problem?}
+    \begin{example}
+        $\mathcal{H} \text{ would be the set of all possible hyperplanes that partition the input space.}$
+    \end{example}
+
+    \subsubsection{How to describe hypothesis set through a function form?}
+    \begin{definition}
+        $h \in \mathcal{H}$ for linear classification can be described as
+        $$
+        h(\underline{x}) = \text{sign}\left(\sum_{i=1}^{d} w_i x_i + b\right), \quad
+        \text{where } \text{sign}(z) = 
+        \begin{cases} 
+        +1 & \text{if } z > 0 \\
+        -1 & \text{if } z < 0
+        \end{cases}
+        $$
+
+        \begin{itemize}
+            \item \textbf{Weight vector:} $\underline{w} = (w_1, w_2, \dots, w_d) \in \mathbb{R}^d$
+            \item \textbf{Bias:} $b \in \mathbb{R}$
+            \begin{enumerate}
+                \item $\sum_{i=1}^{d} w_i x_i > -b \quad \text{if } h(\mathbf{x}) = +1$
+                \item $\sum_{i=1}^{d} w_i x_i < -b \quad \text{if } h(\mathbf{x}) = -1$
+            \end{enumerate}
+            \item $-b$: Threshold (i.e. the classifier switches between predicting $+1$ or $-1$)
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Training}
+    \begin{definition}
+        Want a good $g$ (i.e. a good weight and bias) to give us the minimum possible error.
+        \[
+        \epsilon (h) = \frac{1}{N} \sum_{n=1}^{N} \mathbb{1}(f(\underline{x}_n) \neq h(\underline{x}_n)) = \frac{1}{N} \sum_{n=1}^{N} \mathbb{1}\left( y_n \neq \text{sign}\left( \sum_{i=1}^{d} w_i x_{ni} + b \right) \right)
+        \]
+        \begin{itemize}
+            \item $\underline{x}_n = (x_{n1}, x_{n2}, \dots, x_{nd})$.
+            \item $\mathbb{1}$ is the indicator function. $\mathbb{1}(\text{statement})$ equals 1 if the statement is true (i.e. no match), otherwise it returns 0 (i.e. match).
+            \item \textbf{Note:} The sum calculates the number of misclassified data points. 
+            \item \textbf{Reminder:} $f$ is the unknown target function for which we have the labels for.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Prediction}
+    \begin{definition}
+        Given a new customer $\underline{x}$, use
+        \[
+        \sum_{i=1}^{d} w_i x_i \begin{cases} 
+        > -b & \hat{y} = +1 \\
+        < -b & \hat{y} = -1
+        \end{cases}
+        \]
+        to determine $\hat{y}$.
+    \end{definition}
+
+    \subsubsection{How to find and draw decision boundaries?}
+    \begin{process}
+        \textbf{Draw:}
+        \begin{enumerate}
+            \item Plug in $\underline{w}$ and $b$ into $h$. 
+            \item Set the argument equal to 0. 
+            \item Solve for the function. 
+            \item Use $\underline{w}$ to determine direction (i.e. draw the vector on the decision boundary)
+        \end{enumerate}
+        \vspace{1em}
+
+        \textbf{Find $\underline{w}$ and $b$}
+        \begin{enumerate}
+            \item Determine function from the drawing.
+            \item Bring all terms to one side to have one side equal to 0. 
+            \item Determine weights and bias. 
+            \item See if the weight vector makes sense in terms of the drawing direction.
+        \end{enumerate}
+    \end{process}
+    \begin{example}
+        \begin{enumerate}
+            \item \textbf{Left:} Draw the decision boundary for $\underline{w} = (0,1)$ and $b = -\frac{1}{2}$. Use arrow to show the positive prediction side.
+            \begin{enumerate}
+    
+                \item Write the decision function:
+                \[
+                h(\mathbf{x}) = \text{sign}(\mathbf{w}^T \mathbf{x} + b)
+                \]
+                Substituting \( \mathbf{w} = (0,1) \) and \( b = -\frac{1}{2} \):
+                \[
+                h(\mathbf{x}) = \text{sign}(0 \cdot x_1 + 1 \cdot x_2 - \frac{1}{2})
+                \]
+        
+                \item Set the decision function equal to zero to find the decision boundary:
+                \[
+                1 \cdot x_2 - \frac{1}{2} = 0
+                \]
+                Solving for \( x_2 \):
+                \[
+                x_2 = \frac{1}{2}
+                \]
+                Thus, the decision boundary is a horizontal line at \( x_2 = \frac{1}{2} \).
+        
+                \item Identify the positive prediction side:
+                For \(h(\mathbf{x}) = 0 \cdot x_1 + 1 \cdot x_2 - \frac{1}{2} \), when \( x_2 > \frac{1}{2} \), the decision function is positive. Therefore, the positive prediction side (class \( +1 \)) is the region where \( x_2 > \frac{1}{2} \).
+        
+                \item Draw the decision boundary:
+                The decision boundary is a horizontal line at \( x_2 = \frac{1}{2} \), with an arrow pointing upward to indicate the positive prediction side.
+            
+            \end{enumerate}
+            \item \textbf{Right:} Find $\underline{w}$ and $b$ for the decision boundary above. Note the direction of arrow indicating $+1$ prediciton side.
+            \begin{enumerate}
+    
+                \item Write the decision function:
+                \[
+                h(\mathbf{x}) = \mathbf{w}^T \mathbf{x} + b
+                \]
+                Substituting \( \mathbf{w} = (1,1) \) and \( b = -1 \):
+                \[
+                h(\mathbf{x}) = 1 \cdot x_1 + 1 \cdot x_2 - 1
+                \]
+        
+                \item Set the decision function equal to zero to find the decision boundary:
+                \[
+                x_1 + x_2 - 1 = 0
+                \]
+                Solving for \( x_1 + x_2 \):
+                \[
+                x_1 + x_2 = 1
+                \]
+                Thus, the decision boundary is a diagonal line with a slope of -1, intercepting the \( x_1 \)-axis at \( (1, 0) \) and the \( x_2 \)-axis at \( (0, 1) \).
+        
+                \item Identify the positive prediction side:
+                For \(h(\mathbf{x}) = 1 \cdot x_1 + 1 \cdot x_2 - 1 \), when \( x_1 + x_2 > 1 \), the decision function is positive. Therefore, the positive prediction side (class \( +1 \)) is the region where \( x_1 + x_2 > 1 \).
+        
+                \item Draw the decision boundary:
+                The decision boundary is a diagonal line where \( x_1 + x_2 = 1 \), with an arrow pointing away from the line in the direction where \( x_1 + x_2 > 1 \), indicating the positive prediction side.
+            
+            \end{enumerate}
+        \end{enumerate}
+
+        \customFigure[0.75]{00_Images/Linear_Classification.png}{Linear classification example.}
+    \end{example}
+    
+
+\subsection{Basic setup of learning problem of supervised learning}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Input:} Data points: $\underline{x} = (x_1, \dots, x_d) \in \mathcal{X}$ 
+        \item \textbf{Output:} Label $y \in \mathcal{Y}$ 
+        \begin{itemize}
+            \item Classification: if the label has discrete values 
+            \item Regression: if the label is continuous 
+        \end{itemize}
+        \item \textbf{Unknown Mapping:} Target function $f: \mathcal{X} \rightarrow \mathcal{Y}$, $y = f(\underline{x})$ 
+        \item \textbf{Learning Task:} Given training data $\mathcal{D} = \{ (\underline{x}_1, y_1), (\underline{x}_2, y_2), \dots, (\underline{x}_N, y_N) \}$  produce a function $g: \mathcal{X} \rightarrow \mathcal{Y}$ to make predictions on new inputs (i.e., $\hat{y} = g(\underline{x})$).
+        \item \textbf{Learning Model:} Hypothesis Set: $\mathcal{H} = \{h_1, h_2, \dots, h_m\}$ with each $h_i: \mathbb{R}^d \rightarrow \mathbb{R}$, $y = h_i(x)$, being a candidate function.
+        \begin{itemize}
+            \item e.g. Linear models, neural networks, polynomial functions, etc.
+        \end{itemize}
+        \item \textbf{Learning Algorithm:} Select $g \in \mathcal{H}$ using the training set, which has the best performance using a loss function.
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/Summary.png}{Summary of the process.}
+\end{definition}
+
+\subsection{Basic setup of learning problem of binary linear classification}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Training Set:} $\mathcal{D} = \{(\underline{x}_1, y_1), \dots, (\underline{x}_N, y_N)\}$
+        \begin{itemize}
+            \item $\underline{x}_n = (x_{n1}, x_{n2}, \dots, x_{nd}) \in \mathcal{X}$
+            \item $y_n \in \{-1, +1\} = \mathcal{Y}$
+        \end{itemize}
+        \item \textbf{Task:} Given any $\underline{x} \in \mathcal{X}$, output $y \in \{-1, +1\} = \mathcal{Y}$
+    
+        \item \textbf{Hypothesis (Decision Rule):} 
+        \begin{itemize}
+            \item Weight vector: $\underline{w} = (w_1, \dots, w_d) \in \mathbb{R}^d$ 
+            \item Bias: $b \in \mathbb{R}$
+            \item Given any data point $\underline{x} = (x_1, \dots, x_d)$, then $h(\underline{x}) = \text{sign}\left(\sum_{i=1}^{d} w_i x_i + b\right)$ is 
+            \begin{itemize}
+                \item $\text{if } \sum_{i=1}^{d} w_i x_i + b > 0, \quad \hat{y} = +1$
+                \item $\text{if } \sum_{i=1}^{d} w_i x_i + b < 0, \quad \hat{y} = -1$
+                \item $\text{if } \sum_{i=1}^{d} w_i x_i + b = 0, \quad \text{output either } +1 \text{ or } -1 \text{ (Unimportant)}$
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}        
+\end{definition}
+
+    \subsubsection{Training}
+    \begin{definition}
+        Compare decision rule with training data, to choose the "best" parameter values for decision rule — "best" hypothesis.
+        \vspace{1em}
+
+        Given $\mathcal{D}$, find $(\underline{w}, b)$ to minimize the training error: Average error on the training set.
+
+        $$
+        E_{\text{in}}(\underline{w}, b) = \frac{1}{N} \sum_{n=1}^{N} \mathbb{1}(f(\underline{x}_n) \neq h(\underline{x}_n)) = \frac{1}{N} \sum_{n=1}^{N} \mathbb{1}\left( y_n \neq \text{sign}\left( \sum_{i=1}^{d} w_i x_{ni} + b \right) \right)
+        $$
+
+        \begin{itemize}
+            \item $E_{\text{in}}(\underline{w}, b)$: In sample error
+            \item $\mathbb{1}(\cdot)$: Indicator function 
+            \item $y_n$: true label for $\underline{x}_n$ 
+            \item $\hat{y}_n=\text{sign}\left( \sum_{i=1}^{d} w_i x_{ni} + b \right) $: output of decision rule on example $\underline{x}_n$ 
+            \item $x_{ni}$: the $i$-th coordinate of the $n$-th input, i.e., $\underline{x}_n$
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{How hard is it to find the best decision boundary? (i.e. minimizing the error)}
+    \begin{example}
+        \customFigure[0.75]{00_Images/Decision_Bound_Ex.png}{Example of making a decision boundary.}
+        
+        \begin{itemize}
+            \item \textbf{Good News:} Finding the best linear classifier (i.e. $\underline{w}$ and $b$) is hard in general. 
+            \item \textbf{Bad News:} If $\mathcal{D}$ is linearly separable, we can find the solution (i.e. $\underline{w}$ and $b$) efficiently.
+        \end{itemize}
+
+        What is linearly separable vs. not linearly separable?
+        \customFigure[0.5]{00_Images/LS_NLS.png}{Linearly separable vs. Not linearly seperable}
+        \begin{itemize}
+            \item \textbf{Minimum possible error for LS:} $E_in(\underline{w}, b) = 0$
+            \item \textbf{Minimum possible error for NLS:} $E_in(\underline{w}, b) = 1/4$
+        \end{itemize}
+    \end{example}

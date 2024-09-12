@@ -1,3 +1,68 @@
+\subsection{4 main classes of signals}
+\begin{definition}
+    \begin{enumerate}
+        \item $\mathbb{R}^\mathbb{Z}$ (i.e. real-valued, discrete time)
+        \item $\mathbb{C}^\mathbb{Z}$ (i.e. complex-valued, discrete time)
+        \item $\mathbb{R}^\mathbb{R}$ (i.e. real-valued, continuous time)
+        \item $\mathbb{C}^\mathbb{R}$ (i.e. complex-valued, continuous time)
+    \end{enumerate}
+
+    \begin{itemize}
+        \item \textbf{Assumption:} Complex unless told otherwise.
+    \end{itemize}
+\end{definition}
+
+\subsection{Support}
+\begin{definition}
+    The support of a CT signal \( x \in \mathbb{C}^{\mathbb{R}} \), $x(t) \neq \text{zero}$ is the smallest interval $[a,b]$ s.t.:
+    \[
+    x(t) = 0 \; \text{for} \; t \notin [a, b] 
+    \]
+    \customFigure[0.5]{00_Images/Support.png}{Support of a nonzero signal.}
+    The support of a DT signal \( x \in \mathbb{C}^{\mathbb{Z}} \), $x[n] \neq \text{zero}$ is the smallest interval $\{a,a+1,\ldots,b\}$ s.t.:
+    \[
+    x[n] = 0 \; \text{for} \; n \notin \{a, a+1,\ldots,b\} 
+    \]
+\end{definition}
+
+\begin{process}
+    \textbf{DT:}
+    \begin{enumerate}
+        \item Understand the support of the original signal: $\text{Support of } x[n] = {n_1,\ldots,n_k}$
+        \item Time shift by $k$:
+        \begin{enumerate}
+            \item Right shift: $\text{Support of } x[n-k] = \left\{ n_1 + k, \ldots, n_k + k \right\}$
+            \item Left shift: $\text{Support of } x[n+k] = \left\{ n_1 - k, \ldots, n_k - k \right\}$
+        \end{enumerate}
+        \item Time reversal: Reflects the signal across the vertical axis s.t. $\text{Support of } x[-n] = \left\{ -n_1 , \ldots, -n_k \right\}$
+        \item Time scaling: Scaling by $a$ (keep only integers) s.t. $\text{Support of } x[an] = \left\{ \frac{n_1}{a}, \ldots, \frac{n_k}{a} \right\}$
+        \begin{enumerate}
+            \item If $a>1$, then compression
+            \item If $0<a<1$, then expanded
+        \end{enumerate}
+    \end{enumerate}
+    \vspace{1em}
+
+    \textbf{CT:}
+    \begin{enumerate}
+        \item Understand the support of the original signal:
+        \begin{itemize}
+            \item Identify the range of \( t \) for which the signal \( x(t) \neq 0 \). This range is known as the support of the signal.
+        \end{itemize}
+        \item Set the argument (e.g. if $x(1-t)$, then the argument is $1-t$) as an inequality to the support. 
+        \item Solve for $t$.
+        \item If it is a product or a sum, then you must use logic to see which function will take priority to include all cases. 
+        \begin{enumerate}
+            \item Product: The lowest bound should take priority b/c the product will be zero as soon as either signal is zero (i.e. only non-zero when both signals are non-zero)
+            \item Sum: The highest bound should take priority b/c a sum will be zero when both signals are zero. 
+        \end{enumerate}
+    \end{enumerate}
+\end{process}
+
+\begin{warning}
+    You might look for the values s.t. it is guaranteed to be 0.
+\end{warning}
+
 \subsection{Signal energy and power}
     \subsubsection{Total energy}
     \begin{definition}
@@ -61,3 +126,7 @@
             P_{\infty} \triangleq \lim_{N \to \infty} \frac{1}{2N + 1} \sum_{n=-N}^{+N} |x[n]|^2
         \end{equation}
     \end{definition}
+
+    \begin{intuition}
+        A finite energy signal has zero average power. This is because the energy is finite and spread out over an infinite time, causing the power to approach zero.
+    \end{intuition}

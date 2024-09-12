@@ -1,3 +1,17 @@
+\subsection{Categories of Cash-flows}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{First (Capital) Cost:} Expense to build/buy and install.
+        \item \textbf{Revenues (Sales):} Receipts from sale of products or services.
+        \item \textbf{Operation and Maintenance (O\&M) Costs:} Expenses that are incurred on a regular basis. 
+        \item \textbf{Overhaul:} Major (capital) expenditure that occurs part way through the life of an asset. 
+        \item \textbf{Salvage Value:} Net receipt at project termination for sale/disposal of equipment.
+        \item \textbf{Scrap value:} Value in materials of which item is made.
+        \item \textbf{Disposal costs:} Costs to dispose of waste.
+        \item \textbf{Project life-cycle costs:} Costs that occur at the start, during or end of a project. 
+    \end{itemize}
+\end{terminology}
+
 \subsection{Cash-Flow diagrams}
 \begin{definition}
     A simple graph that summarizes the \textbf{timing} and \textbf{magnitude} of cash-flows.
@@ -10,95 +24,312 @@
                 \item UP arrow is CASH inflow (receipts)
             \end{itemize}
     \end{itemize}
+    \customFigure[0.5]{00_Images/Cash_Flow.png}{Cash flow diagrams.}
 \end{definition}
+    
+    \subsubsection{The end of one period is the beginning of the next}
+    \begin{definition}
+        $N$ periods from now is end of period $N$ and start of period $N+1$.
+    \end{definition}
+
+    \subsubsection{Conventions and Assumptions}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{First costs:} Typically accounted for at \emph{time 0}.
+            \item \textbf{Cash-flows:} 
+            \begin{itemize}
+                \item Assumed to occur at the \emph{end of the period}.
+                \item Occuring during the period are \emph{summed} and accounted for at the \emph{end of the period}.
+            \end{itemize}
+            \item \textbf{Interest:} Compounded once per period (unless specified)
+        \end{itemize}
+    \end{definition}
 
 \subsection{Types of cash flows}
 \begin{definition}
     \begin{itemize}
-        \item \textbf{Single payment (receipts):} One-time cash flow at some time or period
+        \item \textbf{Single payment(s) (receipts):} One-time cash flow at some time or period
+        \customFigure[0.5]{00_Images/Single_Payment.png}{Single payment(s) / receipts}
         \item \textbf{Perpetuity:} Cash flow of magnitude \(A\) that occurs at regular intervals until perpetuity (forever)
-        \item \textbf{Annuity:} Cash flow of magnitude \(A\) that occurs in regular intervals for \(N\) periods
-        \item \textbf{Arithmetic gradient:} Cash flow of magnitude \(A\) in the first period that grows incrementally each period with magnitude \(G\) up to \(N\) periods.
+        \customFigure[0.5]{00_Images/Perpetuity.png}{Perpetuity}
+        \item \textbf{Annuity (uniform payments or receipts):} Cash flow of magnitude \(A\) that occurs in regular intervals for \(N\) periods
+        \customFigure[0.5]{00_Images/Annuity.png}{Annuity}
+        \item \textbf{Arithmetic gradient:} Cash flow of magnitude \(A\) in the first period that grows incrementally each period with magnitude \(G\) up to \(N\) periods, where $A$ or $G$ can be positive or negative.
         \begin{itemize}
             \item Period 1: Mag \(= A\)
             \item Period 2: Mag \(= A + G\)
             \item Period 3: Mag \(= A + 2G\)
             \item Period N: Mag \(= A + (N - 1)G\)
         \end{itemize}
-        \item \textbf{Geometric gradient:} Cash flow of magnitude \(A\) in the first period that grows at a rate \(G\) for each period.
+        \customFigure[0.5]{00_Images/Arithmetic_Gradient.png}{Arithmetic gradient with positive A.}
+        \item \textbf{Geometric gradient:} Cash flow of magnitude \(A\) in the first period that grows at a rate \(G\) for each period, where $A$ or $G$ can be positive or negative.
         \begin{itemize}
             \item Period 1: Mag \(= A\) 
             \item Period 2: Mag \(= A(1+G)\)
             \item Period 3: Mag \(= A(1+G)^2\)
             \item Period 4: Mag \(= A(1+G)^{N-1}\)
         \end{itemize}
+        \customFigure[0.5]{00_Images/Geometric_Gradient.png}{Geometric gradient series for receipts with positive growth}
     \end{itemize}
 \end{definition}
 
-\subsection{Equivalence Factors}
-\[
-\left(X/Y, \, i, \, N\right) \text{ reads: } X \text{ given } Y, \, i, \, N
-\]
-
-\subsection{Invertibility:}
+\subsection{Equivalence}
 \begin{definition}
-    \begin{equation}
-        \left(X/Y, \, i, \, N\right) = \frac{1}{\left(Y/X, \, i, \, N\right)}
-    \end{equation}
-\end{definition}
-
-\subsection{Compound amount factor:}
-\begin{definition}
-    \begin{equation}
-        \left(F/P, \, i, \, N\right) = (1+i)^N
-    \end{equation}
-\end{definition}
-
-\subsection{Present worth factor:}
-\begin{definition}
-    \begin{equation}
-        \left(P/F, \, i, \, N\right) = \frac{1}{(1+i)^N}
-    \end{equation}            
-\end{definition}
-
-\subsection{Present value of a perpetuity (no factor):}
-\begin{definition}
-    \begin{equation}
-        P = \frac{A}{i}, \quad A = Pi
-    \end{equation}
-\end{definition}
-
-\subsection{Series present worth factor:}
-\begin{definition}
-    \begin{equation}
-        \left(P/A, \, i, \, N\right) = \left[\frac{1}{i} - \frac{1}{i(1+i)^N}\right] = \left[\frac{(1+i)^N - 1}{i(1+i)^N}\right]
-    \end{equation}
-\end{definition}
-
-\subsection{Present value of an arithmetic gradient:}
-\begin{definition}
-    \begin{equation}
-        \left(P/G, \, i, \, N\right) = \frac{1}{i^2} \left(1 - \frac{1 + iN}{(1+i)^N}\right)
-    \end{equation}
-    \begin{equation}
-        P = A \left(P/A, \, i, \, N\right) + G \left(P/G, \, i, \, N\right)
-    \end{equation}
     \begin{itemize}
-        \item Annuity $A$ at $t=1$
-        \item Growth value $G$ starting at $t=2$
-    \end{itemize}
+        \item \textbf{Mathematical Equivalence:} A consequence of the mathematical relationship between time and money.
+        \item \textbf{Market Equivalence:} A consequence of the ability to exchange one cash-flow for another at zero cost.
+        \item \textbf{Decisional Equivalence} - Due to indifference on the part of the decision maker among available choices.
+    \end{itemize}    
 \end{definition}
+    
+    \subsubsection{Mathematical equivalence}
+    \begin{definition}
+        \textbf{Equivalence in terms of future:}
+        \begin{itemize}
+            \item Two cash-flows, \( P_t \) at time \( t \) and \( F_{t+N} \) at time \( t+N \), are mathematically equivalent w.r.t. interest rate \( i \), if:
+            \begin{equation}
+            F_{t+N} = P_t(1 + i)^N \tag{1}
+            \end{equation}
+        
+            \item If \( F_{t+N+M} \) (where \( M \) is a second number of periods) is equivalent to \( P_t \), then:
+            \begin{equation}
+            F_{t+N+M} = P_t(1 + i)^{N+M} \tag{2}
+            \end{equation}
+            \begin{equation}
+            F_{t+N+M} = F_{t+N}(1 + i)^M \tag{3}
+            \end{equation}
+        \end{itemize} 
+        
+        \textbf{Equivalence in terms of present}
+        \begin{equation}
+        P_t = \frac{F_{t+N}}{(1 + i)^N}
+        \end{equation}
+        
+        \begin{equation}
+        P_t = \frac{F_{t+N+M}}{(1 + i)^{N+M}}
+        \end{equation}
 
-\subsection{Present value of a geometric series:}
-\begin{definition}
-    \begin{equation}
-        \left(P/Geom, \, i, \, g, \, N\right) = \frac{1}{1+g} \left(P/A, \, i^0, \, N\right), \quad i^0 = \frac{1+i}{1+g} - 1
-    \end{equation}
-    \textbf{OR:}
-    \begin{equation}
-        \left(P/Geom, \, i, \, g, \, N\right) = \frac{1 - \left(\frac{1+g}{1+i}\right)^N}{i - g}
-    \end{equation}
-    \begin{itemize}
-        \item Growth rate: $g$
-    \end{itemize}
-\end{definition}
+        \customFigure[0.75]{00_Images/Math_Eq.png}{Mathematical equivalence.}  
+    \end{definition}
+
+    \subsubsection{Market equivalence}
+    \begin{definition}
+        One can exchange cash-flows between present and future amounts:
+        \begin{itemize}
+            \item \textbf{Borrowing}: Exchanging a future cash-flow for a present one.
+            \item \textbf{Lending/Investing}: Giving up a current cash-flow for a future one.
+        \end{itemize}
+        
+    \end{definition}
+
+    \subsubsection{Decisional equivalence}
+    \begin{definition}
+        \begin{itemize}
+            \item For a decision maker, two cash-flows, \( P_t \) at time \( t \) and \( F_{t+N} \) at time \( t+N \), are equivalent if they are indifferent between the two.
+            \item Here, the interest rate is not a prior information.
+            \item \textbf{Implied} interest rate relating to \( P_t \) and \( F_{t+N} \) can be calculated from the decision that the cash-flows are equivalent.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Calculate the present value of (regular) cash-flows}
+    \subsubsection{A factor approach}
+    \begin{definition}
+        We assume equivalence:
+        \begin{enumerate}
+            \item Interest is compounded once per period.
+            \item Cash-flow occurs at the end of the period.
+            \item Time 0 is period 0 or the start of period 1.
+            \item All periods are the same length.
+        \end{enumerate}
+    \end{definition}
+
+    \subsubsection{Equivalence Factors}
+    \begin{definition}
+        \[
+        \left(X/Y, \, i, \, N\right) \text{ reads: } \text{What is } X \text{ given } Y, \, i, \, N
+        \]
+    \end{definition}
+
+    \subsubsection{Factor notation}
+    \begin{definition}
+        \begin{itemize}
+            \item (X/Y, i\%, N) 
+            \begin{itemize}
+                \item X and Y are chosen from the cash-flow symbols \( P \), \( F \), \( A \), \( G \), and Geom.
+            \end{itemize}
+            \item If you have Y multiplied by a factor, you get the equivalent value of X. 
+            \begin{itemize}
+                \item e.g. \( P = F(P/F, i, N) \).
+            \end{itemize}
+            \item Convert from a present value \( P \) to a future cash-flow \( F \) in year \( N \), then:
+            \[
+            F = P(F/P, i, N)
+            \]
+            \item For the geometric gradient:
+            \[
+            P = G(P/G, i, g, N) \quad \text{or} \quad P = G(P/\text{Geom}, i, g, N)
+            \]
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Economic equivalence factors}
+    \begin{definition}
+        Equivalence factors are used to convert between different types of cash flows. 
+        \begin{itemize}
+            \item \((F/P, i, N)\) \textbf{Compound amount factor}
+            \item \((P/F, i, N)\) \textbf{Present worth factor}
+            \item \((A/F, i, N)\) \textbf{Sinking fund factor}
+            \item \((F/A, i, N)\) \textbf{Series compound amount factor}
+            \item \((A/P, i, N)\) \textbf{Capital recovery factor}
+            \item \((P/A, i, N)\) \textbf{Series present worth factor}
+            \item $(P/G, i, N)$ \textbf{Arithmetic gradient to present worth}
+            \item $(P/\text{Geom}, i, g, N)$ \textbf{Geometric gradient to present worth}
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Relationship among factors (Invertibility):}
+    \begin{definition}
+        \begin{equation}
+            \left(X/Y, \, i, \, N\right) = \frac{1}{\left(Y/X, \, i, \, N\right)}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Compound amount factor:}
+    \begin{definition}
+        \begin{equation}
+            \left(F/P, \, i, \, N\right) = (1+i)^N
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Present worth factor:}
+    \begin{definition}
+        \begin{equation}
+            \left(P/F, \, i, \, N\right) = \frac{1}{(1+i)^N}
+        \end{equation}            
+    \end{definition}
+
+    \subsubsection{Present value of a perpetuity (no factor):}
+    \begin{definition}
+        \begin{equation}
+            P = \frac{A}{i}, \quad A = Pi
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Note:} Present value of this perpetuity is finite.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Series present worth factor:}
+    \begin{definition}
+        \begin{equation}
+            \left(P/A, \, i, \, N\right) = \left[\frac{1}{i} - \frac{1}{i(1+i)^N}\right] = \left[\frac{(1+i)^N - 1}{i(1+i)^N}\right]
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Present value of an arithmetic gradient:}
+    \begin{definition}
+        \begin{equation}
+            P = A \left(P/A, \, i, \, N\right) + G \left(P/G, \, i, \, N\right)
+        \end{equation}
+        \begin{itemize}
+            \item Initial annuity $A$ that is constant starting at $t=1$
+            \item Growth value $G$ grows arithmetically starting at $t=2$
+            \begin{equation*}
+                \left(P/G, \, i, \, N\right) = \frac{1}{i^2} \left(1 - \frac{1 + iN}{(1+i)^N}\right)
+            \end{equation*}
+            \item Assumes no cash-flow at time $0$.
+            \item 4 possibilities besides $G=0$
+            \begin{enumerate}
+                \item \( A > 0 \) and \( G > 0 \) - means positive and increasing.
+                \item \( A > 0 \) and \( G < 0 \) - means positive but decreasing.
+                \item \( A < 0 \) and \( G > 0 \) - means negative but becoming less so.
+                \item \( A < 0 \) and \( G < 0 \) - means negative and becoming more so.
+            \end{enumerate}
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Present value of a geometric series:}
+    \begin{definition}
+        \begin{equation}
+            \left(P/Geom, \, i, \, g, \, N\right) = \frac{1}{1+g} \left(P/A, \, i^0, \, N\right)
+        \end{equation}
+        \begin{itemize}
+            \item $i^o = \frac{1+i}{1+g} - 1$
+        \end{itemize}
+        \textbf{OR:}
+        \begin{equation}
+            \left(P/Geom, \, i, \, g, \, N\right) = \frac{1 - \left(\frac{1+g}{1+i}\right)^N}{i - g}
+        \end{equation}
+        \begin{itemize}
+            \item Growth rate: $g$
+        \end{itemize}
+    \end{definition}
+
+    \subsection{How to perform cash-flow analysis}
+    \begin{process}
+        \begin{enumerate}
+            \item Draw a cash-flow diagrams (optional)
+            \item Identify variables with corresponding values.
+            \item Find the interest rates that are appropriate for the factors.
+        \end{enumerate}
+    \end{process}
+
+    \begin{intuition}
+        \begin{itemize}
+            \item If you are looking for X given Y, but you have Z given X and Y given Z, then multiply as $(X/Y)=(Z/X)(Y/Z)$
+            \item Use invertibility when you can.
+            \item To discount a value back to the present value, multiply by $(P/F,i,N)$ where N is the amount of time you want to discount back.
+        \end{itemize}
+    \end{intuition}
+
+    \subsubsection{Examples}
+    \begin{example}
+        Claudia wants to deposit an amount P now such that she can withdraw an equal amount of $\$2,000$ each year for the first 5 years and then $\$3,000$ for the following 3 years. Calculate P if the interest earned is 8\% per year. 
+        \begin{enumerate}
+            \item \textbf{Phase 1:} Calculate the present value of the first set of withdrawals ($2,000 \, \text{for 5 years}$). 
+            The present value of an annuity is given by the formula:
+            \[
+            P_1 = 2000 \times (P/A, 8\%, 5)
+            \]
+            Where $(P/A, 8\%, 5)$ is the annuity factor for 5 periods at 8% interest.
+        
+            \item \textbf{Phase 2:} Calculate the present value of the future withdrawals ($3,000$ for 3 years), but first, we need to compute the future value at the end of year 5.
+            The future value of these withdrawals at the end of year 5 is:
+            \[
+            F_5 = 3000 \times (P/A, 8\%, 3)
+            \]
+            
+            \item Now, discount \( F_5 \) back to the present (time 0) using the present value of a single sum formula:
+            \[
+            P_2 = F_5 \times (P/F, 8\%, 5)
+            \]
+            Where $(P/F, 8\%, 5)$ is the present value factor for 5 periods at 8%.
+        
+            \item \textbf{Total Present Value:} The total present value \( P \) is the sum of the present values from phase 1 and phase 2:
+            \[
+            P = P_1 + P_2
+            \]
+        \end{enumerate}
+
+        We calculate $F_5$ (the future value at the end of year 5) and then discount it to find $P_2$ for the following reasons:
+
+        \begin{itemize}
+            \item \textbf{Why Calculate $F_5$?} 
+            
+            The \$3,000 withdrawals start in year 6. To account for these future payments, we first determine their value at the end of year 5, denoted as $F_5$, since these withdrawals begin after year 5.
+            
+            \item \textbf{Why Discount $F_5$ to Find $P_2$?} 
+            
+            Once $F_5$ is known, we discount it to the present (year 0) to find $P_2$, which represents the portion of the deposit needed today to fund the future withdrawals.
+            
+            \item \textbf{Summary:}
+            
+            \begin{enumerate}
+                \item Calculate $F_5$: The future value of the \$3,000 withdrawals at the end of year 5.
+                \item Discount $F_5$: Convert it to $P_2$ using present value factors.
+            \end{enumerate}
+
+            \item \textbf{Why Not Use a Single Formula for \$3,000 Withdrawals?}
+    
+            Since the \$3,000 withdrawals start after year 5, their value at year 0 differs from the value of the earlier \$2,000 withdrawals. Directly using a single annuity formula for the \$3,000 withdrawals would neglect the fact that these payments occur later. 
+        \end{itemize}
+    \end{example}

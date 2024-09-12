@@ -9,6 +9,33 @@
         \textbf{Rule of sum:} $\exists \; m + n$ ways for $A$ \emph{or} $B$ to happen. 
     \end{definition}
 
+    \begin{example}
+        Find the number of ways to choose 2 books, one from each of the following categories: 5 Latin books, 7 Greek books, and 10 French books.
+
+        We can choose:
+        \begin{itemize}
+            \item 1 Latin book and 1 Greek book: \( 5 \times 7 \)
+            \item 1 Latin book and 1 French book: \( 5 \times 10 \)
+            \item 1 Greek book and 1 French book: \( 7 \times 10 \)
+        \end{itemize}
+
+        Thus, the total number of ways to choose 2 books from different categories is:
+        \[
+        5 \times 7 + 5 \times 10 + 7 \times 10
+        \]
+        \[
+        = 35 + 50 + 70 = 155.
+        \]
+    \end{example}
+
+\subsection{Factorials}
+\begin{definition}
+    Number of ways to arrange $n$ distinct objects when order is important.
+    \begin{equation}
+        n! = n(n-1)(n-2)\cdots 2\cdot 1
+    \end{equation}
+\end{definition}
+
 \subsection{Permutations}
     \begin{definition}
         Number of ways to pick $r$ distinct objects out of $n$ where \emph{order matters} and \emph{repetition isn't allowed}.
@@ -20,6 +47,17 @@
             \item $r$: number of elements taken from the set.
         \end{itemize}
     \end{definition}
+
+    \begin{example}
+        In how many ways can \( n \) people sit around a round table?
+        \vspace{1em}
+
+        The number of ways \( n \) people can sit around a round table is given by:
+        \[
+        \frac{P(n,n)}{n} = (n-1)!
+        \]
+        where \( P(n,n) \) is the number of ways to arrange \( n \) people linearly, and dividing by \( n \) accounts for the fact that rotations of the seating arrangement are considered the same.
+    \end{example}
 
 \subsection{Permutations with identical items}
     \begin{definition}
@@ -45,6 +83,94 @@
         \end{equation}
     \end{definition}
 
+    \begin{example}
+        How many diagonals does a decagon have?
+
+        A decagon has 10 vertices. To form a diagonal, we need to choose two distinct vertices, and the number of ways to choose 2 vertices from 10 is given by:
+        \[
+        \binom{10}{2}
+        \]
+        The formula for the number of diagonals is the total number of ways to connect two vertices minus the number of sides (i.e. adjacent vertices). A decagon has 10 sides, so the number of diagonals is:
+        \[
+        \binom{10}{2} - 10
+        \]
+        Now, calculate \( \binom{10}{2} \):
+        \[
+        \binom{10}{2} = \frac{10 \times 9}{2} = 45
+        \]
+        Thus, the number of diagonals is:
+        \[
+        45 - 10 = 35
+        \]
+
+        Therefore, a decagon has 35 diagonals.
+    \end{example}
+
+    \begin{example}
+        In how many ways can three distinct numbers be selected from the set \( [1, 2, \dots, 300] \) such that their sum is divisible by 3?
+        \vspace{1em}
+
+        Each number in the set \( [1, 2, \dots, 300] \) leaves a remainder of 0, 1, or 2 when divided by 3. Since there are 300 numbers in total, we have:
+        \begin{itemize}
+            \item 100 numbers that leave a remainder of 0 when divided by 3,
+            \item 100 numbers that leave a remainder of 1 when divided by 3,
+            \item 100 numbers that leave a remainder of 2 when divided by 3.
+        \end{itemize}
+        \vspace{1em}
+
+        To ensure that the sum of the selected numbers is divisible by 3, we must select:
+        \begin{itemize}
+            \item Either three numbers that all leave the same remainder (i.e., all three numbers leave a remainder of 0, 1, or 2),
+            \item Or one number from each remainder category (i.e., one number leaving a remainder of 0, one leaving a remainder of 1, and one leaving a remainder of 2).
+        \end{itemize}
+        \vspace{1em}
+
+        Thus, the total number of ways to choose three numbers such that their sum is divisible by 3 is:
+        \[
+        \binom{100}{3} \quad (\text{all remainder 0}) + \binom{100}{3} \quad (\text{all remainder 1}) + \binom{100}{3} \quad (\text{all remainder 2}) + 100^3 \quad (\text{one from each category})
+        \]
+
+        \textbf{Conclusion:} The number of ways to select three distinct numbers from \( [1, 2, \dots, 300] \) such that their sum is divisible by 3 is given by the expression:
+        \[
+        \binom{100}{3} + \binom{100}{3} + \binom{100}{3} + 100^3
+        \]
+        which can be simplified further for specific values.
+    \end{example}
+
+    \begin{example}
+        Eleven scientists are working on a secret project. They lock documents in a cabinet that can be opened if and only if at least 6 scientists are present.
+
+        \begin{enumerate}
+            \item Smallest number of locks needed
+            \begin{itemize}
+                \item To solve this problem, we use a combinatorial secret-sharing scheme. Each lock on the cabinet represents a group of scientists, and we need to make sure that the cabinet can only be opened if at least 6 scientists are present.
+                \item The smallest number of locks corresponds to the number of ways to select 5 scientists from the group of 11, because if exactly 5 scientists are present, they should not be able to open the cabinet. Therefore, we need to place a lock for each group of 5 scientists, ensuring that the presence of any such group prevents the cabinet from being opened.
+                \item The number of ways to select 5 scientists from a group of 11 is given by the combination:
+                \[
+                \binom{11}{5} = \frac{11 \times 10 \times 9 \times 8 \times 7}{5 \times 4 \times 3 \times 2 \times 1} = 462.
+                \]
+                \item Thus, the smallest number of locks needed is 462.
+            \end{itemize}
+
+            \item Number of keys each scientist should have
+            \begin{itemize}
+                \item Each scientist should be able to open the cabinet if 5 other scientists are present. This means that each scientist must have the keys to every lock that does not involve them, i.e., the locks corresponding to the groups of 5 scientists that do not include that particular scientist.
+    
+                \item The number of locks each scientist must have the key to is the number of ways to select 4 other scientists from the remaining 10 (since the scientist themselves is not included in the group of 5). The number of such selections is given by the combination:
+                \[
+                \binom{10}{4} = \frac{10 \times 9 \times 8 \times 7}{4 \times 3 \times 2 \times 1} = 210.
+                \]
+                \item Thus, each scientist must have 210 keys.
+            \end{itemize}
+        \end{enumerate}
+
+        \begin{itemize}
+            \item The smallest number of locks needed for the cabinet is 462.
+            \item Each scientist needs to hold 210 keys to ensure that the cabinet can only be opened if at least 6 scientists are present.
+        \end{itemize}
+
+    \end{example}
+
 \subsection{Binomial theorem}
     \begin{definition}
         \begin{equation}
@@ -54,3 +180,214 @@
             \item $n \in \mathbb{N} \text{ and } x,y\in \mathbb{R}$
         \end{itemize}
     \end{definition}
+
+\subsection{Combinatorial argument}
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Question:} Ask a question relating to the formula you would like to prove. Choose the easier side to start and make the question based on this side.
+        \item \textbf{LHS:} Argue why the LHS answers the question.
+        \item \textbf{RHS:} Argue why the RHS answers the question.
+    \end{enumerate}
+\end{process}
+
+\begin{intuition}
+    \begin{itemize}
+        \item $+$: Or event
+        \item $\cdot$: And event
+        \item Subtracting inside a combination usually means were \textbf{excluding} or \textbf{removing} objects.
+    \end{itemize}
+\end{intuition}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Question (Q):} 
+        How do we show that \( (k!)! \) is divisible by \( (k!)(k-1)! \)?
+    
+        \item \textbf{Combinatorial Argument:} 
+        Consider a bucket of \( k \)-types of balls, each type having \( k! \) balls.
+        
+        \begin{itemize}
+            \item You have \( k \) balls of the first kind (e.g., red),
+            \item \( k \) balls of the second kind (e.g., blue),
+            \item \dots
+            \item \( k \) balls of the \( (k-1)! \)-th kind.
+        \end{itemize}
+        
+        The total number of balls is \( k \times (k-1)! = k! \) balls in total.
+    
+        We want to partition these \( k! \) balls. By arranging them using factorial logic, the number of ways to partition the total \( k! \) balls is:
+        \[
+        \frac{(k!)!}{k! \cdot k! \dots k!} = \frac{(k!)!}{(k!)^{(k-1)!}} 
+        \]
+        where we partition \( k! \) into \( (k-1)! \) kinds.
+    
+        Since we are dividing them \( (k-1)! \) times, this simplifies to:
+        \[
+        \frac{(k!)!}{(k!)(k-1)!}
+        \]
+        which shows the desired result.
+    
+    \end{enumerate}
+    
+    \textbf{Conclusion:} 
+    By using the bucket analogy and partitioning, we have shown that \( (k!)! \) is divisible by \( (k!)(k-1)! \).
+\end{example}
+
+\begin{example}
+    \[
+    \binom{n}{k} = \binom{n}{n-k}
+    \]
+    \begin{enumerate}
+        \item \textbf{Question:} How many ways can you choose $k$ objects from a set of $n$?
+        \item \textbf{LHS:} By definition, $\binom{n}{k}$ is the number of ways to choose $k$ objects from $n$.
+        \item \textbf{RHS:} Instead of choosing $k$ objects directly, we can equivalently think of removing $n-k$ objects, leaving exactly $k$ objects behind. Thus, $\binom{n}{n-k}$ counts the same thing.
+        \item \textbf{Explanation:} The RHS illustrates that choosing $k$ objects is the same as leaving out $n-k$ objects. Both approaches yield the same result.
+    \end{enumerate}
+
+    \[
+    a^{n+m} = a^n a^m
+    \]
+    \begin{enumerate}
+        \item \textbf{Question:} How many ways can you make a string of size $n$ and a string of size $m$ from an alphabet of $a$ letters?
+        \item \textbf{RHS:} The number of ways to make a string of size $n$ is $a^n$, and the number of ways to make a string of size $m$ is $a^m$. By the Rule of Product, the total number of ways to construct both strings is $a^n a^m$.
+        \item \textbf{LHS:} We can think of the two strings of size $n$ and $m$ as a single string of size $n+m$, giving $a^{n+m}$ ways to form the string.
+        \item \textbf{Explanation:} The LHS and RHS are equivalent because both represent the total number of ways to create strings from the alphabet. The Rule of Product ensures that multiplying the possibilities for each string gives the correct total.
+    \end{enumerate}
+
+    \[
+    \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+    \]
+    \begin{enumerate}
+        \item \textbf{Question:} How many ways can you select $k$ objects from a set of $n$ objects?
+        \item \textbf{LHS:} By definition, $\binom{n}{k}$ represents the number of ways to choose $k$ objects from a set of $n$ objects.
+        \item \textbf{RHS:} Consider a specific object $x$ in the set:
+        \begin{itemize}
+            \item If $x$ is one of the $k$ objects chosen, then we need to choose the remaining $k-1$ objects from the remaining $n-1$ objects, which is given by $\binom{n-1}{k-1}$.
+            \item If $x$ is not chosen, we must choose all $k$ objects from the remaining $n-1$ objects, which is given by $\binom{n-1}{k}$.
+        \end{itemize}
+        \item \textbf{Explanation:} The RHS breaks the problem into two cases based on whether a specific object is included in the selection or not. Adding the results of these two cases gives the total number of ways to select $k$ objects from $n$.
+    \end{enumerate}
+
+    \[
+    \binom{n}{p} \binom{p}{k} = \binom{n}{p-k} \binom{n-p+k}{k}, \quad \text{where } n > p > k
+    \]
+    \begin{enumerate}
+        \item \textbf{Question:} How many ways can you choose $p$ objects from a set of $n$, and then select $k$ objects from that set of $p$?
+        \item \textbf{LHS:} By definition:
+        \begin{itemize}
+            \item $\binom{n}{p}$ is the number of ways to select $p$ objects from a set of $n$ objects.
+            \item $\binom{p}{k}$ is the number of ways to select $k$ objects from the set of $p$.
+        \end{itemize}
+        Together, this represents selecting $p$ objects from $n$, and then selecting $k$ objects from those $p$.
+        
+        \item \textbf{RHS:} The right-hand side involves an alternate method of counting the same selection:
+        \begin{itemize}
+            \item First, choose $p-k$ objects from the set of $n$ to exclude. This is done in $\binom{n}{p-k}$ ways.
+            \item After excluding those $p-k$ objects, you are left with a set of size $n - (p - k) = n - p + k$.
+            \item From this remaining set, choose $k$ objects. This is done in $\binom{n - p + k}{k}$ ways.
+        \end{itemize}
+        
+        \item \textbf{Explanation:} The LHS and RHS both represent the same process of selecting $k$ objects from a set of $n$ through two different approaches:
+        \begin{itemize}
+            \item The LHS does this directly: first selecting $p$ from $n$, then $k$ from $p$.
+            \item The RHS splits the problem into two parts: first excluding some objects, then selecting the remaining $k$ from the modified set.
+        \end{itemize}
+    \end{enumerate}
+\end{example}
+
+    \subsubsection{Examples}
+
+    \begin{example}
+        How many ways to make an $n$-letter string with $\{a, b, c\}$ in alphabetical order?
+
+        \begin{enumerate}
+            \item \textbf{Step 1 - Problem Setup:}
+            \begin{itemize}
+                \item We want to form an $n$-letter string using the letters \{a, b, c\} in alphabetical order.
+                \item This means that the string will have a sequence of $a$'s, followed by $b$'s, and then $c$'s, but we don’t care about how many of each letter there are, except that they appear in the correct order.
+                \item Let $x_a$ be the number of $a$'s, $x_b$ the number of $b$'s, and $x_c$ the number of $c$'s.
+                \item The total number of letters must sum to $n$, i.e.
+                \[
+                x_a + x_b + x_c = n
+                \]
+                where $x_a, x_b, x_c \geq 0$ (non-negative integers).
+            \end{itemize}
+            
+            \item \textbf{Step 2 - Stars and Bars:}
+            \begin{itemize}
+                \item Now, the problem reduces to finding how many ways we can split $n$ letters into 3 groups: the $a$'s, $b$'s, and $c$'s.
+                \item This is exactly a "stars and bars" problem, where:
+                \begin{itemize}
+                    \item The stars represent the $n$ letters.
+                    \item The bars will divide the stars into 3 groups (for $a$'s, $b$'s, and $c$'s).
+                \end{itemize}
+                \item Since there are 3 groups, we need exactly 2 bars to create 3 sections: one for each letter.
+            \end{itemize}
+            
+            \item \textbf{Step 3 - Example:} 
+            \begin{itemize}
+                \item Suppose $n = 5$. Imagine the stars are the letters, and we place 2 bars to divide them into groups:
+                \item Example 1: 
+                \[
+                **|***| 
+                \]
+                This represents $x_a = 2$, $x_b = 3$, and $x_c = 0$, meaning the string is \texttt{aabbb}.
+                \item Example 2: 
+                \[
+                |***|**
+                \]
+                This represents $x_a = 0$, $x_b = 3$, and $x_c = 2$, meaning the string is \texttt{bbbcc}.
+                \item Example 3: 
+                \[
+                ****||*
+                \]
+                This represents $x_a = 4$, $x_b = 0$, and $x_c = 1$, meaning the string is \texttt{aaaac}.
+            \end{itemize}
+            
+            \item \textbf{Step 4 - Total Number of Ways:}
+            \begin{itemize}
+                \item In general, we need to place 2 bars among $n$ stars, so we are choosing 2 positions from the total $n + 2$ positions (the $n$ stars and 2 bars).
+                \item The number of ways to do this is given by the binomial coefficient:
+                \[
+                \binom{n+2}{2}
+                \]
+                \item This formula counts how many ways we can place 2 bars among $n + 2$ positions, which gives the number of ways to form an $n$-letter string with $a$'s, $b$'s, and $c$'s in alphabetical order.
+            \end{itemize}
+            
+            \item \textbf{Conclusion:} The total number of ways to create an $n$-letter string using the letters \{a, b, c\} in alphabetical order is:
+            \[
+            \binom{n+2}{2}
+            \]
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        How many ways are there to distribute 7 questions among 4 students such that each student receives at least 1 question?
+    \end{example}
+
+    \begin{example}
+        How many numbers in the set $\{0, 10^n - 1\}$ have a digit $3$ in it?
+
+        \begin{enumerate}
+            \item \textbf{Total number of numbers:}  
+            The set contains all numbers from $0$ to $10^n - 1$, which means there are a total of $10^n$ numbers.
+            
+            \item \textbf{Numbers without the digit 3:}
+            \begin{itemize}
+                \item Each digit of a number can take any of the values from $\{0, 1, 2, 4, 5, 6, 7, 8, 9\}$ (9 possible digits).
+                \item There are $n$ digits in each number, and each digit can be filled in $9$ ways (since we are excluding the digit 3).
+                \item Therefore, the total number of numbers that do not contain the digit 3 is $9^n$.
+            \end{itemize}
+
+            \item \textbf{Numbers with at least one digit 3:}
+            \begin{itemize}
+                \item The total number of numbers that contain at least one digit 3 is the complement of the numbers without any digit 3.
+                \item Thus, the number of numbers with at least one digit 3 is given by:
+                \[
+                \text{Numbers with at least one digit 3} = 10^n - 9^n
+                \]
+            \end{itemize}
+        \end{enumerate}
+
+        Therefore, the number of numbers in the set $\{0, 1, 2, \dots, 10^n - 1\}$ that have a digit 3 in them is $10^n - 9^n$.
+    \end{example}

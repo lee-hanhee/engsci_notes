@@ -1,0 +1,680 @@
+\subsection{Perceptron learning algorithm}
+    \textbf{Motivation:} Find a perfect discriminator for linearly separable data set (i.e. find an algorithm that can find the perfect linear classifier efficiently and always)
+    \subsubsection{New Formulation of Binary Linear Classification}
+    \textbf{Motivation:} Cleaner math by putting the bias term inside the weight vector.
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Training Set}: $\mathcal{D} = \{(\underline{x}_1, y_1), \dots, (\underline{x}_N, y_N)\}$
+            \begin{itemize}
+                \item $\underline{x}_n \in \{1\} \times \mathcal{X}$, $\underline{x}_n = (x_{n0} = 1, x_{n1}, x_{n2}, \dots, x_{nd})$
+                \item $y_n \in \{-1, +1\} = \mathcal{Y}$
+            \end{itemize}
+            \item \textbf{Hypothesis Set}: $h_{\underline{w}} \in \mathcal{H}$, where $h_{\underline{w}}(\underline{x}) = \text{sign}(\underline{w}^T \underline{x})$ (i.e. perceptron) 
+            \begin{itemize}
+                \item \textbf{Weight vector}: $\underline{w} = (w_0=b, w_1, \dots, w_d) \in \mathbb{R}^{d+1}$, where 1 is from the bias term.
+                \item $\underline{w}^T \underline{x} = b + w_1 x_1 + \ldots + w_d x_d$
+            \end{itemize}
+            \item \textbf{Training}: Minimize $E_{in}(\underline{w}) = \frac{1}{N} \sum_{n=1}^N \mathbb{1}(y_n \neq h_{\underline{w}}(\underline{x})) = \frac{1}{N} \sum_{n=1}^N \mathbb{1}(y_n \neq \text{sign}{(\underline{w}}^T \underline{x}))$
+        \end{itemize}
+    \end{definition}
+    
+    \subsubsection{Algorithm}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Input}: Training set $\mathcal{D}$ that is linearly separable.
+            \item \textbf{Output}: $\underline{w} \in \mathbb{R}^{d+1}$ that achieves $E_{in}(\underline{w}) = 0$.
+            \item \textbf{Initialization}: Choose arbitrary $\underline{w}$, e.g., $\underline{w} = \underline{0}$.
+        \end{itemize}
+
+        \begin{enumerate}
+            \item \textbf{Step 1}: Check if $E_{in}(\underline{w}) = 0$ (i.e. perfect classifier). If yes, stop and return $\underline{w}$.
+            \item \textbf{Step 2}: Let $(\underline{x}_n, y_n)$ be a misclassified point (i.e. $y_n \neq \hat{y}_n$ (including points on the boundary)).
+            \begin{itemize}
+                \item Update as $\underline{w} \leftarrow \underline{w} + y_n \underline{x}_n$:
+                \begin{itemize}
+                    \item If $y_n = +1$, update $\underline{w} \leftarrow \underline{w} + \underline{x}_n$.
+                    \item If $y_n = -1$, update $\underline{w} \leftarrow \underline{w} - \underline{x}_n$.
+                \end{itemize}
+            \end{itemize}
+            \item Go to Step 1.
+        \end{enumerate}
+        \href{https://vinizinho.net/projects/perceptron-viz/}{Perceptron Visualization}
+    \end{definition}
+
+    \begin{warning}
+        Be careful about dimensions when working with vectors.
+    \end{warning}
+
+    \subsubsection{Why does PLA work? (intutive explanation)}
+    \begin{intuition}
+        Consider datapoint $(x_n,y_n)$:
+        \customFigure[0.5]{00_Images/Table.png}{Table for classification}
+        \begin{itemize}
+            \item \textbf{Col 1:} True label.
+            \item \textbf{Col 2:} Prediction score using in $h$, which outputs $1$ or $-1$.
+            \item \textbf{Col 3:} If the sign of col 1 matches col 2, then the datapoint is classified correctly. If $0$, then by convention, we assume it's classified incorrectly.
+            \item \textbf{Col 4:} Classification indicator.
+            \begin{itemize}
+                \item $>0$ means that the classification is correct (i.e. same signs). 
+                \item $\leq 0$ means the classification is incorrect (i.e. opposite signs)
+            \end{itemize}
+        \end{itemize}
+        \vspace{1em}
+        \begin{enumerate}
+            \item Suppose $(\underline{x}_n,y_n)$ is misclassified.
+            \begin{equation*}
+                \underline{w}_{new} = \underline{w} + y_n \underline{x}_n \quad \text{from the update}             
+            \end{equation*}
+            \item What is the impact of updating $\underline{w}$ on how we classify $\underline{x}_n$ (i.e. col 4)
+            \begin{equation*}
+                y_n \underline{w}_{new}^T \underline{x}_n = y_n \underline{w}^T \underline{x}_n + y_n^2 \lVert \underline{x}_n \rVert^2
+            \end{equation*}
+            \begin{itemize}
+                \item $y_n \underline{w}^T \underline{x}_n$: Non-positive because classified incorrectly.
+                \item $y_n^2=1$: Because $(1)^2=(-1)^2=1$
+                \item $\lVert \underline{x}_n \rVert^2 > 0$: Because there are no zero vectors for $x_n$ since we defined the first entry as always $1$. 
+            \end{itemize}
+            \item Therefore, $ y_n \underline{w}_{new}^T \underline{x}_n > y_n \underline{w}^T \underline{x}_n$ because $y_n^2 \lVert \underline{x}_n \rVert^2$ adds a positive quantity increasing the value. 
+            \begin{itemize}
+                \item \textbf{Key:} The model is moving closer to correctly classifying the misclassified point, improving the overall accuracy.
+            \end{itemize}
+        \end{enumerate}
+    \end{intuition}
+
+    \subsubsection{Rosenblett Theorem (analytical proof why PLA works)}
+    \begin{theorem}
+        Given a linearly seperable dataset, PLA terminates in a finite number of steps yielding $E_{in} (\underline{w}) = 0$
+    \end{theorem}
+
+    \subsubsection{Remarks about PLA (uniqueness and error)}
+    \begin{intuition}
+        \begin{enumerate}
+            \item Even thoguh all of these lines have $E_{in} = 0$, the preferred line is green because it is more generalizable.
+            \customFigure[0.5]{00_Images/PLA.png}{PLA not unique.}
+            \item The error is not strictly decreasing.
+        \end{enumerate}
+    \end{intuition}
+
+    \subsubsection{What would happen if we use PLA for not linearly separable datasets?}
+    \begin{intuition}
+        The algorithm would never converge because PLA would never be able to find a linear classifier for a not linearly separable dataset.
+    \end{intuition}
+
+    \subsubsection{Multiary classification}
+    \begin{intuition}
+        It's hard to do with PLA, so it's motivation for MLP and NN. However, one approach using PLA is to breakdown a multi-class problem into multiple binary classification problems, each distinguishing one class.
+    \end{intuition}
+
+\subsection{Pocket algorithm}
+\textbf{Motivation:} PA extends PLA for not linearly separable datasets.
+
+    \subsubsection{Visual intuition}
+    \begin{intuition}
+        Keep the best weight vector upto iteration $t$ in the pocket.
+        \customFigure[0.5]{00_Images/PLA_Error.png}{The best weight is the weight with the lowest error at this iteration.}
+    \end{intuition}
+
+    \subsubsection{Algorithm}
+    \begin{definition}
+        \begin{verbatim}
+            0: Pick time horizon T 
+            1: Set pocketed weight vector w* to w(0) in PLA.
+            2: for t = 1, 2, ..., T:
+            3:      Run PLA for one update to obtain w(t)
+            4:      Evaluate Ein(w(t))
+            5:      if Ein(w(t)) < Ein(w*), then
+            6:          Set w* = w(t)
+            7:      End if
+            8: End for
+            9: Return w*
+        \end{verbatim}
+        \begin{itemize}
+            \item \textbf{Notation:} $w$ is $\underline{w}$.
+            \item \textbf{Goal:} Iteratively run PLA while keeping track of the best weight vector (based on the lowest in-sample error) during a fixed number of updates, ensuring a solution even if the data is not linearly separable.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Linear regression}
+\begin{definition}
+    \begin{enumerate}
+        \item \textbf{Training Set:} $\mathcal{D} = \{(\underline{x}_n, y_n)\}_{n=1}^N, \; \underline{x}_n \in \mathbb{R}^d, \; y_n \in \mathbb{R}$
+    
+        \item \textbf{Decision Rule (Hypothesis set, learning model):} 
+        \begin{itemize}
+            \item $\underline{x} = (x_0 = 1, x_1, x_2, \dots, x_d) \in \{1\} \times \mathbb{R}^d$
+            \item $h_{\underline{w}}(\underline{x}) = \underline{w}^T \underline{x} = w_0 + w_1 x_1 + w_2 x_2 + \cdots + w_d x_d$
+        \end{itemize}
+    
+        \item \textbf{Criterion:} Average Squared Error
+        \[
+        E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} (y_n - \hat{y}_n)^2 = \frac{1}{N} \sum_{n=1}^{N} \left( y_n - \underline{w}^T \underline{x}_n \right)^2
+        \]
+        \begin{itemize}
+            \item $e_n(\underline{w}) = y_n - \hat{y}_n$ is the error for the $n$-th sample.
+        \end{itemize}
+    
+        \item \textbf{Goal:} Given $\mathcal{D}$, find $\underline{w}$ that minimizes $E_{\text{in}}(\underline{w})$.
+    \end{enumerate}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Larger weight:} Proportional to importance of a feature $x_i$ to predicting.
+        \item \textbf{Positive weight:} Feature's value will increase the predicted output.
+        \item \textbf{Negative weight:} Feature's value will decrease the predicted output.
+    \end{itemize}
+\end{intuition}
+
+    \subsubsection{Matrix-vector algebraic representation}
+    \begin{definition}
+        \begin{enumerate}
+            \item \textbf{Data matrix:} \[
+                                        X = 
+                                        \begin{bmatrix}
+                                            \underline{x}_1^T \\
+                                            \underline{x}_2^T \\
+                                            \vdots \\
+                                            \underline{x}_N^T
+                                        \end{bmatrix} \in \mathbb{R}^{N \times (d+1)}
+                                        \] 
+            \item \textbf{Target vector:} \[
+                                        \underline{y} = 
+                                        \begin{bmatrix}
+                                            y_1 \\
+                                            y_2 \\
+                                            \vdots \\
+                                            y_N
+                                        \end{bmatrix} \in \mathbb{R}^{N}
+                                        \]
+            \item \textbf{Weight vector:} 
+            \[
+            \underline{w} = (w_0, \dots, w_d) \in \mathbb{R}^{d+1}
+            \]
+        
+            \item \textbf{Model:} 
+            \[
+            \underline{\hat{y}} = \begin{bmatrix}
+            \hat{y}_1 \\
+            \hat{y}_2 \\
+            \vdots \\
+            \hat{y}_N
+            \end{bmatrix}
+            = \begin{bmatrix}
+            \underline{x}_1^T \underline{w} \\
+            \underline{x}_2^T \underline{w} \\
+            \vdots \\
+            \underline{x}_N^T \underline{w}
+            \end{bmatrix}
+            = \begin{bmatrix}
+            \underline{x}_1^T \\
+            \underline{x}_2^T \\
+            \vdots \\
+            \underline{x}_N^T
+            \end{bmatrix} \underline{w}
+            = X \underline{w}
+            \]
+            \begin{itemize}
+                \item \(X\) is the matrix of all input vectors
+                \item \(\underline{w}\) is the weight vector.
+            \end{itemize}
+
+            \item \textbf{Error:} 
+            \[
+            E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} (y_n - \hat{y}_n)^2 = \frac{1}{N} \left\| \begin{bmatrix}
+                y_1 - \hat{y}_1 \\
+                y_2 - \hat{y}_2 \\
+                \vdots \\
+                y_N - \hat{y}_N
+                \end{bmatrix} \right\|^2 = \frac{1}{N} \left\| \underline{y} - \hat{y} \right\|^2 = \frac{1}{N} \left\| \underline{y} - X \underline{w} \right\|^2
+            \]
+                    
+        \end{enumerate}
+    \end{definition}
+
+    \subsubsection{When is the error 0? (Motivation for least squares)}
+    \begin{intuition}
+        \begin{enumerate}
+
+            \item For all datapoints, $y_n = \hat{y}_n = w^T x_n$: \\
+            \[
+            \begin{cases}
+            y_1 = w^T x_1 \\
+            y_2 = w^T x_2 \\
+            \vdots \\
+            y_N = w^T x_N
+            \end{cases}
+            \]
+            This is a system of linear equations that we have to solve to get the "perfect" \( w \).
+        
+            \begin{itemize}
+                \item \textbf{Number of linear equations:} $N$ 
+                \item \textbf{Number of unknown parameters:} $d+1$
+            \end{itemize}
+        
+            \item \textbf{In practice:} If $N \gg d+1$, there is no solution (i.e. "overdetermined" system of equations).
+        
+            \item Instead, we find a $\underline{w}$ that minimizes $E_{\text{in}}(\underline{w})$ using the least squares method.
+        
+        \end{enumerate}
+    \end{intuition}
+
+\subsection{Least squares}
+    \begin{intuition}
+        There are 3 ways to look at the col-span.
+        \begin{enumerate}
+            \item Gradient equal to 0 interpretation (i.e. minimum)
+            \item Pseudo-inverse interpretation (i.e. invertibility)
+            \item Geometric interpretation (i.e. col-span)
+        \end{enumerate}
+    \end{intuition}
+    \subsubsection{Gradient}
+    \begin{definition}
+        The gradient of \( g(\underline{z}) \) w.r.t. \( \underline{z} \) is denoted by \( \nabla_{\underline{z}} g(\underline{z}) \) and is defined as:
+        \begin{equation}
+            \nabla_{\underline{z}} g(\underline{z}) = 
+            \begin{bmatrix}
+                \frac{\partial g(\underline{z})}{\partial \underline{z}_1} \\
+                \frac{\partial g(\underline{z})}{\partial \underline{z}_2} \\
+                \vdots \\
+                \frac{\partial g(\underline{z})}{\partial \underline{z}_d}
+            \end{bmatrix}
+        \end{equation}
+
+        \begin{itemize}
+            \item \textbf{Key:} Gradient points in the direction of steepest increase (i.e. think to one-variable calculus).
+        \end{itemize}
+    \end{definition}
+
+    \begin{warning}
+        Check the dimensionality of the gradient is the same as $\underline{z}$.
+    \end{warning}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/Example.png}{The dimensionality is 0, where the derivative being negative indicates that the steepest increase is to the left. The derivative being positive indicates that the steepest increase is to the right.}
+    \end{example}
+
+    \subsubsection{Basic gradients}
+    \begin{definition}
+        The gradient of $\underline{w}^T \underline{x}_n$ is $\underline{x}_n$ because it is a linear function.
+        \begin{align}
+            \nabla_{\underline{w}} \left( \underline{w}^T \underline{x}_n \right) &= \nabla_{\underline{w}} \left( \sum_{i=0}^{d} w_i x_{ni} \right) 
+            = 
+            \begin{bmatrix}
+                \frac{\partial}{\partial w_0} \left( \sum_{i=0}^{d} w_i x_{ni} \right) \\
+                \frac{\partial}{\partial w_1} \left( \sum_{i=0}^{d} w_i x_{ni} \right) \\
+                \vdots \\
+                \frac{\partial}{\partial w_d} \left( \sum_{i=0}^{d} w_i x_{ni} \right)
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                x_{n0} \\
+                x_{n1} \\
+                \vdots \\
+                x_{nd}
+            \end{bmatrix}
+            = \underline{x}_n
+        \end{align}
+
+        The gradient of $\underline{x}_n^T \underline{w}$ (i.e. the opposite of the first equation)
+        \begin{equation}
+            \nabla_{\underline{w}} \left( \underline{x}_n^T \underline{w} \right) = \underline{x}_n    
+        \end{equation}
+        
+        \begin{equation}
+            \nabla_{\underline{w}} \left( \underline{w}^T A \underline{w} \right) = 2A \underline{w}
+        \end{equation}
+
+        The inner product:
+        \begin{equation}
+            \|\underline{a}\|^2 = \underline{a}^T \underline{a}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Problem setup}
+    \begin{definition}
+        Overall, want to minimize:
+        \[
+        E_{\text{in}}(\underline{w}) = \frac{1}{N} \left\| \underline{y} - \underline{\hat{y}} \right\|^2 
+        \]
+
+        Since $\frac{1}{N}$ is only a constant, we want to minimize:
+        \[
+        f(\underline{w}) = \left\| \underline{y} - \underline{\hat{y}} \right\|^2 = \left\| \underline{y} - X \underline{w} \right\|^2 = \sum_{n=1}^{N} \left( y_n - \underline{w}^T \underline{x}_n \right)^2
+        \]
+
+        Hence, we must find a \(\underline{w}\) s.t.:
+        \[
+        \nabla_{\underline{w}} f(\underline{w}) = 0
+        \]
+        \begin{itemize}
+            \item \textbf{Minimum:} This finds the minimum w.r.t all $\underline{w}$. components.
+        \end{itemize}
+        \vspace{1em}
+
+        Let's find \( \nabla_w f(w) \):
+
+        \begin{equation}
+            \nabla_{\underline{w}} f(\underline{w}) = 2 X^T (X \underline{w} - \underline{y})    
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Derivation:} W02, L2 pg. 10
+            \item $(AB)^T = B^T A^T$
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Solution}
+    \begin{definition}
+        The \textbf{least square solution}, $\underline{w}_{ls}$ is the weight vector s.t. $\nabla_{\underline{w}} f \left(\underline{w}_{ls} \right) = \underline{0}$
+
+        \begin{equation}
+            \underline{w}_{\text{ls}} = X^{\dagger} \underline{y} 
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Reasonable assumption:} $X^T X$ is invertible (i.e. there are $d+1$ rows of $X$ (i.e. $d+1$ datapoints) that are linearly independent) since $N >> d+1$.
+            \begin{itemize}
+                \item \textbf{Rank theorem:} $\text{Rank}(X) = d+1 \iff X^{\top} X \text{ is invertible}$
+            \end{itemize}
+            \item \textbf{Pseudo-Inverse of $X$:} $X^{\dagger} = \left( X^{\top} X \right)^{-1} X^{\top}$.
+            
+            \item \textbf{Derivation:} W02, L2, pg. 11.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Why is it called pseudo-inverse of X?}
+    \begin{intuition}
+        \begin{enumerate}
+            \item Observe that:
+            \[
+            X^T X = \left( X^T X \right)^{-1} X^T X = I
+            \]
+            
+            But,
+            \[
+            X X^T \neq X \left( X^T X \right)^{-1} X^T \neq I
+            \]
+            \item Originally, we had the system of equations \( \underline{y} = X \underline{w} \) and wanted to solve it.
+
+            \begin{itemize}
+            
+                \item To solve this equation system, we must find the inverse of \( X \) so that:
+                \[
+                X^{-1} \underline{y} = X^{-1} X \underline{w} = I \underline{w} = \underline{w}
+                \]
+            
+                \item But \( X \) is not invertible (it is not even a square matrix; inverses are only defined for square matrices).
+            
+                \item However, \( X^{\dagger} \) would do the trick. From \( \underline{y} = X \underline{w} \):
+                \[
+                X^{\dagger} y = X^{\dagger} X \underline{w} = I\underline{w} = \underline{w}
+                \]
+                This gives us the solution for \( w \).
+            
+            \end{itemize}
+        \end{enumerate}
+    \end{intuition}
+
+    \subsubsection{Prediction}
+    \begin{definition}
+        The prediction by $\underline{w}_{ls}$
+
+        \begin{equation}
+            \hat{\underline{y}}_{\text{ls}} = X \underline{w}_{\text{ls}} = X X^{\dagger} \underline{y}
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Note:} It's like we take $\underline{y}$ and with a projection matrix transforming it into a predicted $\underline{\hat{y_{ls}}}$, where $XX^{\dagger}$ is a projection matrix.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Geometric interpretation of least squares}
+    \begin{intuition}
+        \begin{itemize}
+            \item \[
+                    \hat{y} = X w = 
+                    \begin{bmatrix}
+                    x_{10} & x_{11} & \dots & x_{1d} \\
+                    x_{20} & x_{21} & \dots & x_{2d} \\
+                    \vdots & \vdots & \dots & \vdots \\
+                    x_{N0} & x_{N1} & \dots & x_{Nd}
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    w_0 \\
+                    w_1 \\
+                    \vdots \\
+                    w_d
+                    \end{bmatrix}
+                    = w_0 
+                    \begin{bmatrix}
+                    x_{10} \\
+                    x_{20} \\
+                    \vdots \\
+                    x_{N0}
+                    \end{bmatrix}
+                    + w_1 
+                    \begin{bmatrix}
+                    x_{11} \\
+                    x_{21} \\
+                    \vdots \\
+                    x_{N1}
+                    \end{bmatrix}
+                    + \dots + w_d 
+                    \begin{bmatrix}
+                    x_{1d} \\
+                    x_{2d} \\
+                    \vdots \\
+                    x_{Nd}
+                    \end{bmatrix}
+                    \]
+            \item $\hat{y}$ is a linear combination of columns of $X$ (i.e. $\underline{\hat{y}}$ is in $\text{col-span}\{X\}$)
+            \item \textbf{Col-span:} The space of all possible linear combination of columns of $X$ is called $\text{col-span}\{X\}$.
+        \end{itemize}
+    \end{intuition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/Col_Span.png}{Column span example.}
+        \begin{itemize}
+            \item \textbf{Col-span:} \[
+            \text{Col-span}(X) = \left\{ 
+            \begin{bmatrix}
+            y_1 \\
+            y_2 \\
+            y_3
+            \end{bmatrix}
+            : -y_1 + 2 y_2 - y_3 = 0 
+            \right\}
+            \]
+            \begin{itemize}
+                \item A plane that goes through the origin. 
+                \item It is a subspace of \( \mathbb{R}^N \).
+            \end{itemize}
+            \item \textbf{Red plane:} The space of possible $\underline{\hat{y}}$, which is the projection from $\underline{y}$ (i.e. perpendicular to the plane)
+            \item \textbf{Euclidean distance:} To minimize \( \| \underline{y} - \hat{y} \| \): Euclidean distance between \( \underline{y} \) and \( \hat{y} \). One must find \( \hat{y} \) on Col-span(\(X\)) that is closest to \( \underline{y} \). 
+        \end{itemize}
+    \end{example}
+    
+    \begin{derivation}
+        The following shows a derivation of the original formula derived in the last lecture. 
+
+        \begin{enumerate}
+            \item \textbf{Projection:} The best \( \underline{\hat{y}} \) (i.e., \( \underline{\hat{y}_{\text{ls}}} \)) is the projection of \( \underline{y} \) onto Col-span(\(X\)).
+
+            \item \textbf{Orthogonal:} \( \underline{y} - \underline{\hat{y}_{\text{ls}}} \) must be orthogonal to any vector in Col-span(\(X\)).
+            \begin{itemize}
+                \item Thus, \( \underline{y} - \underline{\hat{y}_{\text{ls}}} \) is orthogonal to every column of \( X \).
+                \item \textbf{Reminder:} \( A \perp B \iff A^T B = 0 \)
+            \end{itemize}
+        
+            \item Since they are orthogonal, therefore, 
+            \[
+            X^T (\underline{y} - \underline{\hat{y}_{\text{ls}}}) = 0 \implies X^T (\underline{y} - X \underline{w_{\text{ls}}}) = 0
+            \]
+            \[
+            \implies X^T X \underline{w_{\text{ls}}} = X^T \underline{y} \implies \underline{w_{\text{ls}}} = (X^T X)^{-1} X^T \underline{y}
+            \]
+        \end{enumerate}
+    \end{derivation}
+
+\subsection{Regularized linear regression / least squares}
+\textbf{Motivation:} Avoid overfitting, where (1) data is noisy, (2) not enough data.
+\begin{definition}
+    In regularized version, we minimize:
+    \[
+    \left\| X \underline{w} - \underline{y} \right\|^2 + \lambda \left\| \underline{w} \right\|^2
+    \]
+    \begin{itemize}
+        \item $\lambda \left\| \underline{w} \right\|^2$: Penalty function (against large weight)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/Sine.png}{Example of a sine for regularization.}
+    \begin{itemize}
+        \item \textbf{Note:} 
+        In RLS, the slope is smaller because the regularization term penalizes large weights in the model. This encourages the model to favor simpler solutions (i.e., with smaller slopes), reducing overfitting by controlling the complexity of the model, leading to a more generalized solution.
+    \end{itemize}
+\end{example}
+
+    \subsubsection{Difference between LS and RLS}
+    \begin{intuition}
+        \begin{enumerate}
+            \item \( \lambda = 0 \implies \) Least Squares (LS)
+            \item How to choose \( \lambda \)? \quad \textit{Validation}
+        \end{enumerate}        
+    \end{intuition}
+
+    \subsubsection{How do we solve this problem?}
+    \begin{definition}
+        \begin{enumerate}
+
+            \item We want to
+            \[
+            \min_{\underline{w}} \left\| X\underline{w} - \underline{y} \right\|^2 + \lambda \left\| \underline{w} \right\|^2
+            \]
+        
+            \item Let \( f(\underline{w}) = \left\| X\underline{w} - \underline{y} \right\|^2 + \lambda \left\| \underline{w} \right\|^2 \)
+        
+            \item Observe that
+            \[
+            \nabla_{\underline{w}} f(\underline{w}) = 2X^{\top} (X\underline{w} - \underline{y}) + 2\lambda \underline{w}
+            \]
+        
+            \item We want
+            \[
+            \nabla_{\underline{w}} f(\underline{w}) = 0 \implies (X^{\top} X + \lambda I) \underline{w} = X^{\top} \underline{y}
+            \]
+        
+            \item Therefore,
+            \[
+            \underline{w}_{\text{RLS}} = (X^{\top} X + \lambda I)^{-1} X^{\top} \underline{y}
+            \]
+        
+        \end{enumerate}
+    \end{definition}
+
+\subsection{Non-linear models}
+    \subsubsection{Circular decision boundary example}
+    \begin{example}
+        \customFigure[0.75]{00_Images/Circular.png}{Circular boundary.}
+        \begin{enumerate}
+
+            \item \textbf{Linear Models are Limited:} True decision boundary is a circle, given by \( x_1^2 + x_2^2 = 1 \) (blue curve).
+        
+            \item \textbf{Nonlinear Feature Transformation:}
+            \begin{itemize}
+                \item Define new variables \( z_1 = x_1^2 \) and \( z_2 = x_2^2 \).
+                \item Instead of working with \( x_1 \) and \( x_2 \), we now work in the \( z_1, z_2 \)-space, where the data becomes easier to classify.
+                \item In the transformed space, the nonlinear circular decision boundary becomes a straight line, making it possible to separate the points using a linear boundary.
+            \end{itemize}
+        
+            \item \textbf{Linearly Separable in Transformed Space:}
+            \begin{itemize}
+                \item PLA can find a suitable decision boundary. For example, \( h(z) = \text{sign}(z_1 + z_2 - 1) \), which corresponds to \( g(x) = \text{sign}(x_1^2 + x_2^2 - 1) \) in the original space.
+                \item This effectively captures the original nonlinear decision boundary.
+            \end{itemize}
+        
+        \end{enumerate}
+    \end{example}
+
+    \subsubsection{General form}
+    \begin{definition}
+        \begin{itemize}
+            \item Let \( \underline{z} = \Phi(\underline{x}) \) be a non-linear transformation ("feature transformation").
+            
+            \item Let \( h(\underline{z}) \) be a linear classifier/regression function in \( \underline{z} \)-space 
+            \[
+            h(\underline{z}) = \text{sign}(w^\top \underline{z}) \quad \text{or} \quad h(\underline{z}) = w^\top \underline{z}
+            \]
+            
+            \item Then \( g(x) = h(\Phi(\underline{x})) \) is a non-linear classifier in \( \underline{x} \)-space.
+            
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/Quadratic.png}{There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}
+        \begin{itemize}
+                \item The quadratic regression model is expressed as:
+                \[
+                \underline{\hat{y}} = = w_0 + w_1 z_1 + w_2 y_2 = w_0 + w_1 x + w_2 x^2 
+                \]
+                \begin{itemize}
+                    \item \textbf{Weights:} \( w_0 \), \( w_1 \), and \( w_2 \) are the parameters to be determined.
+                    \item \textbf{Note:} Linear in $\underline{z}$, but quadratic in $\underline{x}$.
+                    \item \textbf{Note:} $\underline{z}=(z_0 = 1, z_1=x, z_2 = x^2)$
+                \end{itemize}
+                
+                \item Augmented vector to represent the input data for each \( x_i \):
+                \[
+                \underline{x}_1 = \begin{bmatrix} 1 \\ 0 \end{bmatrix}, \quad 
+                \underline{x}_2 = \begin{bmatrix} 1 \\ 1 \end{bmatrix}, \quad 
+                \underline{x}_3 = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
+                \]
+                \begin{itemize}
+                    \item \textbf{Note:} The first component is always $1$ for the bias, while the second component represents the input $x=0,1,2$.
+                \end{itemize}
+                \vspace{1em}
+                
+                \item Transforming to $z$:
+                \[
+                \underline{z}_i = \begin{bmatrix} z_0 \\ z_1 \\ z_2 \end{bmatrix} = \begin{bmatrix} 1 \\ x \\ x^2 \end{bmatrix}
+                \]
+                \begin{itemize}
+                    \item \textbf{Bias:} The first element \( 1 \) accounts for the bias term \( w_0 \). This allows the model to estimate \( w_0 \), the y-intercept, during the regression process.
+                \end{itemize}
+                \vspace{1em}
+
+                The following elements represent how $x=0,1,2$ are transformed:
+                \[
+                \underline{z}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+                \underline{z}_2 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}, \quad
+                \underline{z}_3 = \begin{bmatrix} 1 \\ 2 \\ 4 \end{bmatrix}
+                \]
+                \[
+                Z = \begin{bmatrix} 
+                1 & 0 & 0 \\ 
+                1 & 1 & 1 \\ 
+                1 & 2 & 4 
+                \end{bmatrix}
+                \]
+                \begin{itemize}
+                    \item \textbf{Note:} The vectors are placed horizontally in the matrix because we are stacking the data points N horizontally by defintion (i.e. big X)
+                \end{itemize}
+
+                \item Label from the diagram:
+                \begin{equation*}
+                    \underline{y} = \begin{bmatrix} 6 \\ 0 \\ 0 \end{bmatrix}
+                \end{equation*}
+
+                \item Find the weight from least squares
+                \begin{align*}
+                    \underline{w}_{\text{LS}} = (Z^T Z)^{-1} Z^T \underline{y} = \cdots = \begin{pmatrix} 6 \\ -9 \\ 3 \end{pmatrix} \\
+                \end{align*}
+                
+                \item Find the prediction
+                \begin{equation*}
+                    \hat{y} = \underline{w}_{\text{LS}}^T \underline{z} = 6 - 9z_1 + 3z_2 = 6 - 9x + 3x^2
+                \end{equation*}
+                
+        \end{itemize}
+    \end{example}
+
+

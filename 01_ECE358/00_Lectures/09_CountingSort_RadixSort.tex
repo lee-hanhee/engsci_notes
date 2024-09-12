@@ -1,3 +1,51 @@
 \subsection{Lower bound on sorting and counting sort}
+    \subsubsection{Lower bound on comparison-based sorting}
+    \begin{definition}
+        No \textbf{comparison-based} sorting algorithm on \textbf{unrestricted} range (i.e. any numbers) can do better than $\Omega(nlog(n))$.    
+    \end{definition}
+
+    \subsubsection{Counting sort}
+    \begin{definition}
+        \begin{lstlisting}[language=Python, caption={Counting Sort Pseudocode}]
+            C[i] = 0 for all i in [0...k]
+            for j = 1 ... length(A) do  # O(n)
+                C[A[j]] = C[A[j]] + 1
+            for i = 1 ... k /* prefix sums */ # O(k)
+                C[i] = C[i] + C[i-1]
+            for j = length(A) ... 1 do # O(n)
+                B[C[A[j]]] = A[j]
+                C[A[j]] = C[A[j]] - 1 
+        \end{lstlisting}
+        \begin{itemize}
+            \item A: array to be sorted. 
+            \item Assume numbers in range $[0...k]$.
+            \item Not in-place but stable sorting. 
+            \item Time $O(n+k)$ if $O(k) = O(n)$ implies $O(n)$
+        \end{itemize}
+    \end{definition}
+
+
+
 
 \subsection{Radix sort}
+\begin{definition}
+    \begin{lstlisting}[language=Python, caption={Radix Sort Pseudocode}]
+        for i = Least significant bit (LSB) -> Most significant bit (MSB)
+            counting_sort(digit)
+    \end{lstlisting}
+\end{definition}
+
+\subsubsection{Runtime}
+\begin{definition}
+    \begin{itemize}
+        \item n: \# numbers 
+        \item r: range of numbers 
+        \item d: \# digits
+        \item One pass: $=O(n+r)$
+        \item All passes: $dO(n+r) = O(dn + dr)$
+        \item If $r=d=O(1)$, then $O(n)$ true.
+        \item $1000\#$'s 64 bits. 
+        \item Quicksort: $O(nlog(n)) = \frac{O(1000log(1000))}{1000}$
+        \item $log(1000) \approx 10$ passes./number
+    \end{itemize}
+\end{definition}
