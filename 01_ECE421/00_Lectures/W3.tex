@@ -13,17 +13,35 @@
         \begin{itemize}
             \item $\underline{x} \in \mathbb{R}^{d+1}$, $y \in \{-1, +1\}$, $\hat{y} = \text{Sign}\left(w^T \underline{x}\right)$
             \item Illustrating as Neuron:
+            \customFigure[0.75]{00_Images/LC.png}{Linear classification represented as a neuron.}
         \end{itemize}
     
         \item \textbf{Linear Regression}
         \begin{itemize}
             \item $\underline{x} \in \mathbb{R}^{d+1}$, $y \in \mathbb{R}$, $\hat{y} = w^T \underline{x}$
             \item Illustrating as Neuron:
+            \customFigure[0.75]{00_Images/LR.png}{Linear regression represented as a neuron.}
         \end{itemize}
     \end{enumerate}
 \end{definition}
 
+\begin{intuition}
+    Augmented means the additional columns of $1$.
+\end{intuition}
+
 \subsection{Logistic regression}
+
+    \subsubsection{Motivation}
+    \begin{example}
+        \begin{enumerate}
+            \item Deterministic hypothesis
+            \customFigure[0.75]{00_Images/DH.png}{Given an input, the decision boundary classifies as either $+1$ or $-1$.}
+
+            \item What if we want randomness in our prediction?
+            \customFigure[0.75]{00_Images/PR.png}{Probability based on distance to the decision boundary.}
+        \end{enumerate}    
+    \end{example}
+
 \begin{process}
     \begin{enumerate}
         \item Predict with randomness $\hat{P}_{\underline{w}} (y = +1| \underline{x})$.

@@ -56,18 +56,19 @@
 \contentsline {section}{\numberline {3}Logistic Regression (LFD: 3.3)}{24}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Difference between linear classification and regression}{24}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Logistic regression}{25}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Illustrating logistic regression as a neuron}{25}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Remarks}{25}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Notation}{25}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}What is the Error Criterion?}{25}{subsubsection.3.2.4}%
-\contentsline {subsubsection}{\numberline {3.2.5}Benefits over linear classification}{26}{subsubsection.3.2.5}%
-\contentsline {subsubsection}{\numberline {3.2.6}Maximum likelihood interpretation}{26}{subsubsection.3.2.6}%
-\contentsline {subsubsection}{\numberline {3.2.7}Cross-entropy interpretation}{26}{subsubsection.3.2.7}%
-\contentsline {section}{\numberline {4}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{26}{section.4}%
-\contentsline {section}{\numberline {5}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{26}{section.5}%
-\contentsline {section}{\numberline {6}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{26}{section.6}%
-\contentsline {section}{\numberline {7}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{26}{section.7}%
-\contentsline {section}{\numberline {8}EM (LFD: 6.4)}{26}{section.8}%
-\contentsline {section}{\numberline {9}Markov Decision Process (AIMA: 16)}{26}{section.9}%
-\contentsline {section}{\numberline {10}Reinforcement Learning (AIMA: 23.1-23.4)}{26}{section.10}%
-\contentsline {section}{\numberline {11}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{26}{section.11}%
+\contentsline {subsubsection}{\numberline {3.2.1}Motivation}{25}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Illustrating logistic regression as a neuron}{26}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Remarks}{27}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Notation}{27}{subsubsection.3.2.4}%
+\contentsline {subsubsection}{\numberline {3.2.5}What is the Error Criterion?}{27}{subsubsection.3.2.5}%
+\contentsline {subsubsection}{\numberline {3.2.6}Benefits over linear classification}{27}{subsubsection.3.2.6}%
+\contentsline {subsubsection}{\numberline {3.2.7}Maximum likelihood interpretation}{27}{subsubsection.3.2.7}%
+\contentsline {subsubsection}{\numberline {3.2.8}Cross-entropy interpretation}{27}{subsubsection.3.2.8}%
+\contentsline {section}{\numberline {4}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{27}{section.4}%
+\contentsline {section}{\numberline {5}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{27}{section.5}%
+\contentsline {section}{\numberline {6}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{27}{section.6}%
+\contentsline {section}{\numberline {7}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{27}{section.7}%
+\contentsline {section}{\numberline {8}EM (LFD: 6.4)}{27}{section.8}%
+\contentsline {section}{\numberline {9}Markov Decision Process (AIMA: 16)}{27}{section.9}%
+\contentsline {section}{\numberline {10}Reinforcement Learning (AIMA: 23.1-23.4)}{27}{section.10}%
+\contentsline {section}{\numberline {11}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{27}{section.11}%

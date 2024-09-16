@@ -20,4 +20,8 @@
 \contentsline {figure}{\numberline {19}{\ignorespaces Example of a sine for regularization.}}{22}{figure.19}%
 \contentsline {figure}{\numberline {20}{\ignorespaces Circular boundary.}}{23}{figure.20}%
 \contentsline {figure}{\numberline {21}{\ignorespaces There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}}{23}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Logistic regression.}}{25}{figure.22}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Linear classification represented as a neuron.}}{25}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Linear regression represented as a neuron.}}{25}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Given an input, the decision boundary classifies as either $+1$ or $-1$.}}{26}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Probability based on distance to the decision boundary.}}{26}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Logistic regression.}}{27}{figure.26}%

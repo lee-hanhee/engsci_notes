@@ -1,24 +1,263 @@
 \subsection{CT: Complex exponential signals}
+    \begin{definition}
+        A \textbf{complex exponential} signal \(x\) in CT is a signal of the form
+        \begin{equation}
+            x(t) = A e^{st} \in \mathbb{C}^\mathbb{R}
+        \end{equation}
+        where \(A\) and \(s\) are arbitrary complex-valued constants.
 
-\subsubsection{Real-valued exponential signals}
+        \begin{itemize}
+            \item \(A\): A scalar (affecting the magnitude and phase \(x\)), so only consider the special case when \(A = 1\).
+            \item \(s = \alpha + j\omega\) for \(\alpha, \omega \in \mathbb{R}\): These parameters control the shape of the complex exponential signal \(x\).
+            \item \(\omega\): Angular frequency (if \(t\) is measured in seconds, \(\omega\) is measured in radians per second).
+            \item \(f \in \mathbb{R}\): Frequency s.t. \(\omega = 2 \pi f\) (if \(t\) is measured in seconds, \(f\) is measured in hertz (Hz)).
+        \end{itemize}
+    \end{definition}
 
-\subsubsection{Sinusoidal complex exponential signals}
 
-\subsubsection{Rotating unit-magnitude phasor}
+\subsection{CT: Real-valued exponential signals}
+\begin{definition}
+    If \(\omega = 0\) (equivalently, \(f = 0\)), then \(s = \alpha\) is purely real, and we get a purely-real signal:
+    \begin{equation}
+    x(t) = e^{\alpha t}, \quad \alpha \in \mathbb{R}.
+    \end{equation}
 
-\subsubsection{Real and imaginary parts}
+    Three different general behaviours are possible:
+    \customFigure[0.75]{00_Images/CE_W0.png}{The three different general behaviours when the complex part is 0.}
+\end{definition}
 
-\subsubsection{The general case}
+\subsection{CT: Sinusoidal complex exponential signals}
+\begin{definition}
+    If \(\alpha = 0\), then \(s = j\omega = j 2\pi f\) is purely imaginary, and we get
+        \begin{equation}
+            x(t) = e^{j\omega t} = e^{j 2 \pi f t}
+        \end{equation}
+    \begin{itemize}
+        \item \(x(t) = e^{j\omega t}\): \textbf{Rotating unit-magnitude phasor} in the complex plane
+        \begin{itemize}
+            \item Rotating \textit{counter-clockwise} if \(\omega > 0\) 
+            \item Rotating \textit{clockwise} if \(\omega < 0\).
+        \end{itemize}
+        \item If \(t\) is measured in seconds, the phasor performs \(|f|\) revolutions (cycles) per second.        
+    \end{itemize}
+    \customFigure[0.75]{00_Images/CCW_CW.png}{CCW and CW being illustrated depending on the value of the angular frequency.}
+\end{definition}
 
-\subsubsection{Real and imaginary parts}
+    \subsubsection{CT: Rotating unit-magnitude phasor}
+    \begin{definition}
+
+        For $x(t) = e^{j\omega t} = e^{j 2 \pi f t}$, the graphs can be illustrated as
+        \customFigure[0.75]{00_Images/RUMP.png}{Rotating unit-magnitude phasor for both general cases of omega.}
+        \begin{itemize}
+            \item \textbf{Fun. Period:} $T_0 = \frac{1}{f} = \frac{2\pi}{\omega}$
+        \end{itemize}
+
+    \end{definition}
+
+    \subsubsection{CT: Real and imaginary parts}
+    \begin{definition}
+        For $e^{j\omega t} = \cos(\omega t) + j \sin(\omega t)$, then 
+        \begin{equation}
+            \text{Re}(e^{j\omega t}) = \cos(\omega t) \quad \text{and} \quad \text{Im}(e^{j\omega t}) = \sin(\omega t)
+        \end{equation}
+
+        For $e^{j 2\pi f t} = \cos(2\pi f t) + j \sin(2\pi f t)$, then 
+        \begin{equation}
+            \text{Re}(e^{j 2\pi f t}) = \cos(2\pi f t) \quad \text{and} \quad \text{Im}(e^{j 2\pi f t}) = \sin(2\pi f t)
+        \end{equation}
+        
+        \customFigure[0.75]{00_Images/RE_IM.png}{Real and imaginary components for both cases of omega.}
+    \end{definition}
+
+\subsection{The general case}
+\begin{definition}
+    If \(s = \alpha + j\omega = \alpha + j 2\pi f\), with \(\alpha \neq 0\) and \(\omega \neq 0\), we obtain \(e^{(\alpha + j\omega)t}\), a \textbf{rotating phasor} in the complex plane with a \textbf{time-varying magnitude}.
+    \customFigure[0.75]{00_Images/GC.png}{The general case for the CT complex exponential signal}
+\end{definition}
+
+    \subsubsection{Real and imaginary parts}
+    \begin{definition}
+        \customFigure[0.75]{00_Images/RE_IM_GC.png}{Real and imaginary parts of the general case for two cases of omega and alpha.}
+    \end{definition}
 
 \subsection{DT: Complex exponential signals}
+\begin{definition}
+    A \textbf{complex exponential} signal \(x\) in DT is a signal of the form
+    \begin{equation}
+        x[n] = A e^{sn} \in \mathbb{C}^\mathbb{Z}
+    \end{equation}
+    where \(A\) and \(s\) are arbitrary complex-valued constants.
 
-\subsubsection{Equivalent frequencies}
+    \begin{itemize}
+        \item \(A\): A scalar (affecting the magnitude and phase \(x\)), so only consider the special case when \(A = 1\).
+        \item $s = \alpha + j \omega = \alpha + j 2 \pi f \quad \text{for} \quad \alpha, \omega = 2 \pi f \in \mathbb{R}.$
+        \begin{itemize}
+            \item If \(\alpha \neq 0\), we obtain an increasing or decreasing \textbf{signal envelope}, just as in CT, so we will only consider the special case when \(\alpha = 0\).
+        \end{itemize} 
+        \item \(\omega\): Natural frequency (If time \(n\) is measured in samples, then \(\omega\) has units of radians per sample).
+        \item \(f\): Frequency has units of cycles per sample (since a "sample" is a dimensionless quantity, frequency is dimensionless in DT).
+    \end{itemize}
 
-\subsubsection{When is a DT complex exponential signal periodic?}
+\end{definition}
+    
+    \subsubsection{Oscillatory vs. Periodic}
+    \begin{intuition}
+        Depending on the value of \(\omega\), we expect \(e^{j\omega n}\) to be \textbf{oscillatory} (though not necessarily \textbf{periodic}):
+        \customFigure[0.75]{00_Images/RE_IM_DT.png}{Real and imaginary components of a DT signal.}
+        \begin{enumerate}
+            \item A discrete-time complex exponential signal is given by:
+            \[
+            x[n] = e^{j\omega n} = \cos(\omega n) + j \sin(\omega n).
+            \]
+            
+            \item The signal is always \textbf{oscillatory} because the sine and cosine functions cause continuous wave-like oscillations for any value of \(\omega\).
+            
+            \item The signal is \textbf{periodic} if there exists an integer \(N\) such that:
+            \[
+            x[n + N] = x[n] \quad \text{for all} \quad n.
+            \]
+            This leads to the condition:
+            \[
+            e^{j\omega N} = 1 \quad \text{or} \quad \omega N = 2\pi k, \quad k \in \mathbb{Z}.
+            \]
+            
+            \item The signal is periodic if and only if \(\omega / 2\pi\) is a \textbf{rational number}, i.e., \(\omega = 2\pi \frac{k}{N}\) for integers \(k\) and \(N\).
+            
+            \item If \(\omega / 2\pi\) is an \textbf{irrational number}, no such \(N\) exists, and the signal will be oscillatory but \textbf{not periodic}, as the signal never repeats exactly.
+            
+        \end{enumerate}        
+    \end{intuition}
 
-\subsubsection{Computing the fundamental period}
+    \subsubsection{Equivalent frequencies}
+    \begin{definition}
+    Natural frequencies \(\omega_1\) and \(\omega_2\) are said to be \textbf{complex-exponential equivalent}, written \(\omega_1 \equiv \omega_2\), if \(e^{j\omega_1 n} = e^{j\omega_2 n}\) for all \(n \in \mathbb{Z}\). 
+    \begin{itemize}
+        \item I.e. \(\omega_1 \equiv \omega_2\) if the complex exponential signals \(e^{j\omega_1 n}\) and \(e^{j\omega_2 n}\) are \textbf{identical}.
+    \end{itemize}
+    \end{definition}
+    
+    \begin{theorem}
+    \textbf{Complex logarithms of unity:} For \(z \in \mathbb{C}\), \(e^z = 1\) if and only if \(z = j 2\pi m\) for some \(m \in \mathbb{Z}\).
+    \begin{itemize}
+        \item \textbf{Key:} Help us to determine when \(\omega_1 \equiv \omega_2\):
+    \end{itemize}
+    \end{theorem}
+    
+    \begin{derivation}
+        Let \( z = a + j b \), where \( a, b \in \mathbb{R} \). Then,
+        \[
+        e^z = e^a e^{j b}.
+        \]
+        
+        \begin{enumerate}
+            \item For \(e^z\) to have \textit{unit magnitude}, we require \( a = 0 \), since \( e^a = 1 \) only if \( a = 0 \).
+            
+            \item Now, we consider the term \( e^{j b} \). The only purely real values that \( e^{j b} \) can achieve are \( +1 \) and \( -1 \). This is because \( e^{j b} \) lies on the unit circle in the complex plane, and for it to be purely real, it must lie at one of the two real-axis points on the circle.
+            
+            \item The value \( e^{j b} = +1 \) is achieved if and only if \( b = j 2\pi m \) for some \( m \in \mathbb{Z} \).
+        \end{enumerate}
+        
+        Thus, \( z = j 2\pi m \) for some \( m \in \mathbb{Z} \) is necessary and sufficient for \( e^z = 1 \).
+    \end{derivation}
+        
+
+    \begin{theorem}
+        \textbf{Equivalent Frequencies:} Natural frequencies \(\omega_1\) and \(\omega_2\) are complex-exponential equivalent if and only if \(\omega_1 - \omega_2 = 2\pi m\) for some \(m \in \mathbb{Z}\).
+        \vspace{1em}
+
+        Frequencies \(f_1\) and \(f_2\) are complex-exponential equivalent if and only if \(f_1 - f_2 = m\) for some \(m \in \mathbb{Z}\).
+    \end{theorem}
+        
+    \begin{derivation}
+        We have \(e^{j \omega_1 n} = e^{j \omega_2 n}\) for all \(n \in \mathbb{Z}\) if and only if \(e^{j (\omega_1 - \omega_2) n} = 1\) for all \(n \in \mathbb{Z}\). 
+        
+        \begin{enumerate}
+            \item For \(n = 1\), the previous theorem implies that it is necessary for \(\omega_1 - \omega_2 = j 2\pi m\) for some \(m \in \mathbb{Z}\). This ensures that \(e^{j (\omega_1 - \omega_2) n} = 1\) holds when \(n = 1\).
+            
+            \item However, the condition \(\omega_1 - \omega_2 = j 2\pi m\) is also sufficient to guarantee that \(e^{j (\omega_1 - \omega_2) n} = 1\) holds for all \(n \in \mathbb{Z}\). This shows that the condition works for all integer values of \(n\).
+            
+            \item Thus, the condition \(\omega_1 - \omega_2 = j 2\pi m\) is both necessary and sufficient for \(\omega_1\) and \(\omega_2\) to be equivalent.
+        \end{enumerate}
+        
+        In conclusion, \(\omega_1 \equiv \omega_2\) if and only if \(\omega_1 - \omega_2 = j 2\pi m\) for some \(m \in \mathbb{Z}\).
+    \end{derivation}
+
+    \begin{intuition}
+        \begin{itemize}
+            \item Because \(\omega \equiv \omega + 2\pi m\) for any integer \(m\), it is useful to select \(\omega\) to satisfy
+            \[
+            -\pi < \omega \leq \pi.
+            \]
+            \begin{itemize}
+                \item Natural frequencies outside of this range can be reduced to this range by adding or subtracting a suitable integer multiple of \(2\pi\).
+            \end{itemize}
+            
+            \item Because \(f \equiv f + m\) for any integer \(m\), it is useful to select \(f\) to satisfy
+            \[
+            -\frac{1}{2} < f \leq \frac{1}{2}.
+            \]
+        \end{itemize}        
+    \end{intuition}
+
+    \begin{example}
+        The \textbf{highest frequency} discrete-time complex exponential signal, with \(\omega = \pi\) (rad/sample) or \(f = \frac{1}{2}\) (cycles/sample), is
+            \[
+            x[n] = e^{j \pi n} = (-1)^n.
+            \]       
+        \customFigure[0.75]{00_Images/SIG_EX.png}{Example of a DT signal with its highest frequency.}
+
+        \begin{enumerate}
+            \item \textbf{Angular Frequency \(\omega = \pi\):}
+            Represents the highest possible angular frequency in DT. 
+            \begin{itemize}
+                \item Therefore, \(\omega = \pi\) is the midpoint of the frequency range \( -\pi < \omega \leq \pi \), and beyond this, frequencies wrap around (i.e., \(\omega + 2\pi m\) for integer \(m\)).
+            \end{itemize}
+
+            \item \textbf{Oscillatory Behavior:}
+            At \(\omega = \pi\), the signal alternates between \(1\) and \(-1\) with every sample.
+            \[
+            x[n] = (-1)^n = \begin{cases} 
+                1 & \text{if } n \text{ is even}, \\
+                -1 & \text{if } n \text{ is odd}.
+            \end{cases}
+            \]
+            This fast alternation between \(1\) and \(-1\) represents the maximum rate of oscillation that can be captured in a DT system.
+
+            \item \textbf{Frequency:}
+            \(f = \frac{1}{2}\) cycles/sample. This is because the signal completes one full oscillation (from \(1\) to \(-1\) and back to \(1\)) every two samples. Therefore, the frequency \(f = \frac{1}{2}\) is the highest possible frequency in terms of cycles per sample.
+
+            \item \textbf{Effect on Sampling:}
+            Any frequency higher than this would be indistinguishable from a lower frequency due to aliasing effects (i.e. already represented in lower signals).
+        \end{enumerate}
+    \end{example}
+        
+    \subsubsection{When is a DT complex exponential signal periodic?}
+    \begin{theorem}
+        The DT complex exponential signal \( e^{j 2 \pi f n} \) is periodic if and only if \( f \in \mathbb{Q} \).
+        \begin{itemize}
+            \item \textbf{Note:} This was shown in oscillatory vs. periodic.
+        \end{itemize}
+    \end{theorem}
+
+    \subsubsection{Computing the fundamental period}
+    \begin{definition}
+         Let \( x[n] = e^{j 2 \pi f n} = e^{j 2 \pi \left( \frac{a}{b} \right) n}\) 
+         \begin{itemize}
+            \item \( f = \frac{a}{b}: \) Rational frequency
+            \begin{itemize}
+                \item \(a\) and \(b\) are integers, with \(b \neq 0\) and with \(b = 1\) if \(a = 0\). 
+                \item \(a\) and \(b\) to have no common factors, (i.e. \(\frac{a}{b}\) is reduced to lowest terms).
+            \end{itemize}
+         \end{itemize}
+         \vspace{1em}
+         Then the \textbf{fundamental period} is 
+            \[
+            N_0 = b.
+            \]
+        \begin{itemize}
+            \item i.e. The smallest positive integer \(N_0\) such that \(fN_0\) is $N_0 =b$ since no smaller multiple of \(f\) clears the denominator.
+        \end{itemize}
+    \end{definition}
 
 
 

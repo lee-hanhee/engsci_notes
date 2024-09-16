@@ -133,5 +133,60 @@
     \end{warning}
 
 \subsection{Even and Odd Signals}
+\begin{definition} 
+
+    A signal \(x\) is said to be \textbf{even} if \(x = \tilde{x}\).
+    \begin{itemize}
+        \item An even signal has mirror-image symmetry about the time origin.
+    \end{itemize}
+    \vspace{1em}
+
+    A signal \(x\) is said to be \textbf{odd} if \(x = -\tilde{x}\).
+
+    \begin{itemize}
+        \item An odd signal has reversed mirror-image symmetry about the time origin.
+        \begin{itemize}
+            \item Therefore an odd signal must have value 0 at the time origin.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/EO.png}{Even and odd examples.}
+\end{example}
+
+    \subsubsection{Even and odd parts of a signal}
+    \begin{definition}
+
+        The \textbf{even part} of a signal \(x\) is the signal
+        \begin{equation}
+            x_{\text{even}} = \frac{1}{2}(x + \tilde{x})    
+        \end{equation}
+
+        The \textbf{odd part} of a signal \(x\) is the signal
+        \begin{equation}
+            x_{\text{odd}} = \frac{1}{2}(x - \tilde{x})
+        \end{equation}
+
+        \begin{itemize}
+            \item $x_{even} + x_{odd} = x$
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        Prove $x_{even} (-t) = x_{even} (t)$ and prove $x_{odd} (-t) = - x_{odd} (t)$
+
+        \[
+        x_{\text{even}}(-t) = \frac{1}{2}(x(-t) + \tilde{x}(-t)) = \frac{1}{2}(\tilde{x}(t) + x(t)) = x_{\text{even}}(t)
+        \]
+
+        \[
+        x_{\text{odd}}(-t) = \frac{1}{2}(x(-t) - \tilde{x}(-t)) = \frac{1}{2}(\tilde{x}(t) - x(t)) = -x_{\text{odd}}(t)
+        \]
+    \end{example}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/EO_Ex.png}{Even and odd decomposition example.}
+    \end{example}
     
 
