@@ -182,7 +182,6 @@
     \end{center}    
 \end{example}
 
-\subsection{Classes of functions}
     \subsubsection{Injective}
     \begin{definition}
         A function \( f: A \to B \) is called injective (or an injection or one-to-one) if $\forall a_1 \forall a_2$
@@ -253,33 +252,33 @@
         \customFigure[0.25]{00_Images/Bijective.png}{Bijective function.}
     \end{definition}
 
-\subsection{Composition of g with f}
-\begin{definition}
-    If \( f: A \to B \) and \( g: B \to C \), then \( g \circ f: A \to C \) s.t. $a \rightarrow g(f(a))$ (i.e. first apply $f$, then apply $g$)
-    
-    \customFigure[0.5]{00_Images/Composition.png}{Composition example}
-    \begin{itemize}
-        \item \textbf{Order is important:} $ f(g(a)) \neq g(f(a)) $
-    \end{itemize}
-\end{definition}
+    \subsubsection{Composition of g with f}
+    \begin{definition}
+        If \( f: A \to B \) and \( g: B \to C \), then \( g \circ f: A \to C \) s.t. $a \rightarrow g(f(a))$ (i.e. first apply $f$, then apply $g$)
+        
+        \customFigure[0.5]{00_Images/Composition.png}{Composition example}
+        \begin{itemize}
+            \item \textbf{Order is important:} $ f(g(a)) \neq g(f(a)) $
+        \end{itemize}
+    \end{definition}
 
-\subsection{Identity map}
-\begin{definition}
-    \[
-    \text{id}_A: A \to A \quad \text{id}(a) = a \; \forall a \in A
-    \]
-\end{definition}
+    \subsubsection{Identity map}
+    \begin{definition}
+        \[
+        \text{id}_A: A \to A \quad \text{id}(a) = a \; \forall a \in A
+        \]
+    \end{definition}
 
-\subsection{Bijective property}
-\begin{definition}
-    Let \( f: A \to B \), then iff \( f \text{ is bijective, } \exists \text{ a function } f^{-1}: B \to A \text{ s.t. } f^{-1} \circ f = \text{id}_A \text{ and } f \circ f^{-1} = \text{id}_B \).
-    \customFigure[0.5]{00_Images/Bijective_Property.png}{Illustration of bijective function}
-\end{definition}
+    \subsubsection{Bijective property}
+    \begin{definition}
+        Let \( f: A \to B \), then iff \( f \text{ is bijective, } \exists \text{ a function } f^{-1}: B \to A \text{ s.t. } f^{-1} \circ f = \text{id}_A \text{ and } f \circ f^{-1} = \text{id}_B \).
+        \customFigure[0.5]{00_Images/Bijective_Property.png}{Illustration of bijective function}
+    \end{definition}
 
-\subsection{Set of all functions with domain and codomain}
-\begin{definition}
-    The set of all fcns with domain $A$ and codomain $B$ is itself a set denoted $B^A$.
-\end{definition}
+    \subsubsection{Set of all functions with domain and codomain}
+    \begin{definition}
+        The set of all fcns with domain $A$ and codomain $B$ is itself a set denoted $B^A$.
+    \end{definition}
 
 \begin{example}
     % Example of the set of all functions from A to B

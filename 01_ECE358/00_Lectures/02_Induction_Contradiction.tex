@@ -1,18 +1,103 @@
-\subsection{Induction (Ap. A.2)}
-    \textbf{Motivation:} 45\% induction, 45\% contradiction, 10\% math
+\textbf{Motivation:} 45\% induction, 45\% contradiction, 10\% math
+
+\subsection{Direct proof}
+\begin{process}
+    \begin{enumerate}
+        \item Start with the givens
+        \item Mathematically manipulate the givens and/or reason about the givens to arrive at the conclusion.
+    \end{enumerate}
+\end{process}
+
+\begin{example}
+    Prove that \( |a + b| \leq |a| + |b| \).
+    
+    \begin{enumerate}
+    
+        \item \textbf{Express \( |a + b|^2 \).}
+        To begin, we square both sides of the inequality. This allows us to work with non-negative quantities:
+        \[
+        (a + b)^2 = a^2 + b^2 + 2ab
+        \]
+        
+        \item \textbf{Use the fact that \( ab \leq |a||b| \).}
+        Since \( ab \leq |a||b| \), we can write:
+        \[
+        a^2 + b^2 + 2ab \leq a^2 + b^2 + 2|a||b|
+        \]
+        Therefore, we have:
+        \[
+        (a + b)^2 \leq (|a| + |b|)^2
+        \]
+        
+        \item \textbf{Take square roots.}
+        Taking the square root of both sides gives us:
+        \[
+        |a + b| \leq |a| + |b|
+        \]
+        
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    \[
+    \sum_{i=0}^{n-1} i a^i = \frac{a - a^n}{(1 - a)^2} - \frac{(n - 1) a^n}{1 - a}
+    \]
+        
+    \begin{enumerate}
+        \item \textbf{Write out the summation.}
+        We begin by expressing the summation explicitly:
+        \[
+        \sum_{i=0}^{n-1} i a^i = 0 \cdot 1 + 1 \cdot a + 2 \cdot a^2 + 3 \cdot a^3 + \cdots + (n - 1) \cdot a^{n-1}
+        \]
+        We will refer to this summation as equation \( (1) \).
+        
+        \item \textbf{Multiply the summation by \( a \).}
+        Multiply both sides of the summation by \( a \), which results in:
+        \[
+        a \sum_{i=0}^{n-1} i a^i = 0 \cdot a + 1 \cdot a^2 + 2 \cdot a^3 + \cdots + (n-1) \cdot a^n
+        \]
+        This is equation \( (2) \).
+        
+        \item \textbf{Subtract equation \( (2) \) from equation \( (1) \).}
+        Now subtract equation \( (2) \) from equation \( (1) \), which gives:
+        \[
+        (1 - a) \sum_{i=0}^{n-1} i a^i = a + a^2 + a^3 + \cdots + a^{n-1} - (n-1) \cdot a^n
+        \]
+        The right-hand side is a geometric series, and the sum of the geometric series can be written as:
+        \[
+        a + a^2 + \cdots + a^{n-1} = \frac{a(1 - a^{n-1})}{1 - a}
+        \]
+        Thus, we now have:
+        \[
+        (1 - a) \sum_{i=0}^{n-1} i a^i = \frac{a - a^n}{1 - a} - (n-1) a^n
+        \]
+        
+        \item \textbf{Solve for the summation.}
+        Divide both sides by \( 1 - a \) to isolate the summation:
+        \[
+        \sum_{i=0}^{n-1} i a^i = \frac{a - a^n}{(1 - a)^2} - \frac{(n - 1) a^n}{1 - a}
+        \]
+    \end{enumerate}
+\end{example}
+
+\subsection{Disprove by counterexample}
+\begin{process}
+    \begin{enumerate}
+        \item Provide a case where the proposition is not true.
+    \end{enumerate}
+\end{process}
+
+\subsection{Weak Induction (Ap. A.2)}
+    
     \begin{process}
         Given predicate $P(n)$: $[P(1) \land \; \forall n \; P(n) \rightarrow P(n+1)] \rightarrow \forall n P(n)$
         \begin{enumerate}
-            \item \textbf{Basis Step:} Prove $P(c)$ for some value $c$. 
-            \item \textbf{Hypothesis:} Assume true for $P(n)$.
-            \item \textbf{Inductive step:} Use the hypothesis to show its true for $P(n) \implies P(n+1)$.
+            \item \textbf{Basis Step:} Prove $P(n_0)$ for some value $n_0$. 
+            \item \textbf{Hypothesis:} Assume true for $P(n)$ for a $n=k$.
+            \item \textbf{Inductive step:} Use the hypothesis to show its true for $P(n=k) \implies P(n+1=k+1)$.
         \end{enumerate}
-        Therefore, $\forall \; n \; P(n)$.
+        Therefore, $\forall n \geq c \text{, } P(n)$.
     \end{process}
-
-    \begin{intuition}
-        Think about how this builds an argument incrementally from the base cases up to $P(n+1)$. Induction proves $P(n)$ by first proving $P(i)$, for every $i$ from $c$ to $n$.
-    \end{intuition}
 
     \begin{intuition}
         You don't always need to guess the exact value of a summation in order to use induction. Instead, use induction to prove an upper or lower bound on a summation.
@@ -202,6 +287,41 @@
         \textbf{Conclusion:} By the principle of mathematical induction, any \( 2^n \times 2^n \) chessboard with one square removed can be tiled with L-shaped tiles for all \( n \geq 1 \).
     \end{example}
 
+    \begin{example}
+        Prove that \( 11^n - 6 \) is divisible by 5 for all \( n \geq 1 \).
+
+        \begin{enumerate}
+            \item \textbf{Base Case:} Let \( n = 1 \).
+            \[
+            11^1 - 6 = 11 - 6 = 5
+            \]
+            Clearly, 5 divides 5, so the base case holds. Thus, \( P(1) \) is true.
+
+            \item \textbf{Inductive Hypothesis:} Assume that for some \( n = k \), \( 11^k - 6 \) is divisible by 5. That is, assume:
+            \[
+            P(k): \quad 5 \mid (11^k - 6)
+            \]
+            This means there exists some integer \( m \) such that:
+            \[
+            11^k - 6 = 5m
+            \]
+
+            \item \textbf{Inductive Step:} Now we need to show that \( P(k+1) \) is true, i.e., \( 11^{k+1} - 6 \) is divisible by 5. Start by expressing \( 11^{k+1} \) in terms of \( 11^k \):
+            \[
+            11^{k+1} - 6 = 11 \cdot 11^k - 6
+            \]
+            Using the inductive hypothesis, substitute \( 11^k - 6 = 5m \) into the equation:
+            \[
+            11^{k+1} - 6 = 11 \cdot 11^k - 6 = 11 \cdot 5m 
+            \]
+            Simplifying the expression:
+            \[
+            11^{k+1} - 6 = 5(11m)
+            \]
+            Since \( 11^{k+1} - 6 = 5(11m) \), it follows that \( 11^{k+1} - 6 \) is divisible by 5.
+        \end{enumerate}
+    \end{example}
+
     \begin{warning}
         Consider the following fallacious proof that \( \sum_{k=1}^n k = O(n) \). 
         \begin{enumerate}
@@ -218,12 +338,105 @@
         The bug in the argument is that the “constant” hidden by the “big-O” grows with \( n \) and thus is not constant. We have not shown that the same constant works for all \( n \).
     \end{warning}
 
+\subsection{Strong Induction}
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Basis:} Show \( P(n_0), P(n_1), \ldots \) are true.
+        \item \textbf{Hypothesis:} Assume \( P(k) \) is true, \( \forall k \leq n \).
+        \item \textbf{Step:} Show \( P(n_0) \land \cdots \land P(k) \land \cdots \land P(n) \Rightarrow P(n+1) \).
+    \end{enumerate}    
+\end{process}
+
+\begin{warning}
+    \begin{itemize}
+        \item \textbf{Weak:} Assume for a specific case $n=k$
+        \item \textbf{Strong:} Assume for all cases up to $n=k+1$
+    \end{itemize}
+\end{warning}
+
+\begin{example}
+    Prove the Fundamental Theorem of Arithmetic, which states that every integer \( n \geq 2 \) can be expressed as the product of one or more prime numbers.
+
+    \begin{enumerate}
+
+        \item \textbf{Base Case:} \( n = 2 \)
+        \[
+        2 \text{ is a prime number, and it can be written as the product of itself.}
+        \]
+        Hence, the base case is true for \( n = 2 \).
+
+        \item \textbf{Inductive Hypothesis:} Assume that for all integers \( k \) such that \( 2 \leq k \leq n \), the number \( k \) can be expressed as the product of one or more prime numbers.
+        \[
+        \text{That is, assume that all numbers in the range } [2, n] \text{ can be written as the product of primes.}
+        \]
+
+        \item \textbf{Inductive Step:} Now, we need to prove that \( n + 1 \) can also be written as the product of one or more prime numbers.
+        
+        \begin{enumerate}
+            \item \textbf{Case 1:} If \( n + 1 \) is prime, then it can be written as the product of itself, since a prime number is, by definition, a product of primes (in this case, just one prime).
+            \[
+            n + 1 \text{ is a prime } \Rightarrow n + 1 = n + 1 \text{ (a product of itself)}.
+            \]
+            
+            \item \textbf{Case 2:} If \( n + 1 \) is not prime, then \( n + 1 \) can be written as the product of two smaller integers, say \( k_1 \) and \( k_2 \), where \( 2 \leq k_1, k_2 \leq n \).
+            \[
+            n + 1 = k_1 \cdot k_2 \quad \text{for some } k_1, k_2 \text{ where } k_1, k_2 < n+1.
+            \]
+            By the inductive hypothesis, both \( k_1 \) and \( k_2 \) can be written as the product of one or more primes (since \( k_1, k_2 \leq n \)).
+            Therefore, \( n + 1 \) is also the product of primes:
+            \[
+            n + 1 = \text{(product of primes)} \times \text{(product of primes)}.
+            \]
+        \end{enumerate}
+    \end{enumerate}
+
+\end{example}
+
+\begin{example}
+    Prove that using \$2 and \$5 bills, we can make any amount of money greater than or equal to \$4.
+    \begin{enumerate}
+
+        \item \textbf{Base Cases:}
+        \begin{enumerate}
+            \item For \( n = 4 \), we can make 4 dollars using two \$2 bills:
+            \[
+            4 = 2 + 2
+            \]
+            \item For \( n = 5 \), we can make 5 dollars using one \$5 bill:
+            \[
+            5 = 5
+            \]
+        \end{enumerate}
+        Thus, the base cases hold for \( n = 4 \) and \( n = 5 \).
+
+        \item \textbf{Inductive Hypothesis:} Assume that for any amount \( k \) such that \( 4 \leq k \leq n \), we can make \( k \) dollars using \$2 and \$5 bills. That is, assume we can form any amount from 4 dollars to \( n \) dollars with the given denominations.
+
+        \item \textbf{Inductive Step:} We now need to show that we can make \( n + 1 \) dollars using \$2 and \$5 bills.
+
+        \begin{enumerate}
+            \item If \( n + 1 \geq 6 \), then:
+            \[
+            n + 1 = (n - 1) + 2
+            \]
+            Since by the inductive hypothesis we know that \( n - 1 \) dollars can be made using \$2 and \$5 bills (because \( n - 1 \geq 4 \)), we can add a \$2 bill to make \( n + 1 \).
+
+            \item If \( n + 1 = 6 \), we can make 6 dollars using three \$2 bills:
+            \[
+            6 = 2 + 2 + 2
+            \]
+        \end{enumerate}
+        Therefore, we can make \( n + 1 \) dollars using \$2 and \$5 bills for any \( n \geq 4 \).
+    \end{enumerate}
+
+\end{example}
+
 \subsection{Contradiction}
     \begin{process}
         Predicate $P(n)$ either true or false.
         \begin{enumerate}
-            \item If want to prove true, assume $\neg P(n)$.
-            \item Work towards a contradiction by working with the expression $\neg P(n)$ to get to a contradiction.
+            \item Assume toward a contradiction $\neg P(n)$.
+            \item Make some argument by working with the expression $\neg P(n)$ to get to a contradiction.
+            \item Arrive at a contradiction
             \item If this resulted in a contradiction then $P(n)$ is true. 
         \end{enumerate}
         
@@ -323,4 +536,48 @@
         Since assuming \( a \) is odd leads to a contradiction, it must be the case that \( a \) is even. 
 
         \textbf{Conclusion:} If \( a^2 \) is even, then \( a \) must be even.
+    \end{example}
+
+    \begin{example}
+        Prove that there are infinitely many prime numbers.
+
+        \begin{enumerate}
+            \item \textbf{Assume the opposite.} 
+            Assume, for the sake of contradiction, that there are only finitely many prime numbers. Let the set of all prime numbers be:
+            \[
+            S = \{p_1, p_2, p_3, \dots, p_k\}
+            \]
+            where \( p_1, p_2, \dots, p_k \) are all the primes. This implies that no other primes exist.
+        
+            \item \textbf{Construct a number from all primes.} 
+            Consider the number \( P \) constructed by multiplying all primes in \( S \) and adding 1:
+            \[
+            P = \left( \prod_{x \in S} x \right) + 1 = (p_1 \cdot p_2 \cdot \dots \cdot p_k) + 1
+            \]
+            By construction, \( P \) is greater than any prime in \( S \).
+        
+            \item \textbf{Show that \( P \) is not divisible by any prime in \( S \).} 
+            Now, consider dividing \( P \) by any prime \( p_i \) from the set \( S \). Since \( P \) is the product of all primes in \( S \) plus 1, the remainder when \( P \) is divided by any prime \( p_i \) is:
+            \[
+            P \mod p_i = (p_1 \cdot p_2 \cdot \dots \cdot p_k + 1) \mod p_i = 1
+            \]
+            This means that \( P \) leaves a remainder of 1 when divided by any prime \( p_i \), i.e., \( P \) is \textbf{not divisible} by any prime in \( S \).
+        
+            \item \textbf{\( P \) must either be a prime or divisible by some other prime.} 
+            Since \( P \) is not divisible by any of the primes in \( S \), either:
+            \begin{enumerate}
+                \item \( P \) is itself a prime, or
+                \item \( P \) is divisible by some other prime that is not in \( S \).
+            \end{enumerate}
+        
+            \item \textbf{Reach a contradiction.}
+            Both cases lead to a contradiction:
+            \begin{enumerate}
+                \item If \( P \) is a prime, it should be in the set \( S \) (since we assumed \( S \) contains all primes). But \( P \) is greater than any prime in \( S \), so \( P \notin S \).
+                \item If \( P \) is divisible by some other prime not in \( S \), then we have found a prime outside of \( S \), contradicting the assumption that \( S \) contains all primes.
+            \end{enumerate}
+            
+            \item \textbf{Step 6: Conclusion.}
+            Therefore, there are infinitely many prime numbers.
+        \end{enumerate}
     \end{example}

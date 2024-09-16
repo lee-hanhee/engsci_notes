@@ -98,6 +98,35 @@
     You might look for the values s.t. it is guaranteed to be 0.
 \end{warning}
 
+\subsubsection{How to sketch CT signals?}
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Factor Out Scaling and Shifting:} If the transformation is of the form \( x(at + b) \), factor out the scaling term to rewrite it as \( x\left(a\left(t + \frac{b}{a}\right)\right) \).
+    
+        \item \textbf{Time Scaling:} If the transformation involves a factor \( a \) (e.g., \( x(at) \)), first scale the time axis.
+        \begin{itemize}
+            \item Compress the signal if \( |a| > 1 \) or stretch it if \( 0 < |a| < 1 \).
+            \item Adjust the support accordingly: \( [t_1, t_2] \to \left[ \frac{t_1}{a}, \frac{t_2}{a} \right] \).
+        \end{itemize}
+        
+        \item \textbf{Time Reversal:} If the transformation involves \( -t \) (e.g., \( x(-t) \)), apply the reversal after scaling.
+        \begin{itemize}
+            \item Reflect the signal across the vertical axis.
+            \item Reverse the support: \( [t_1, t_2] \to [-t_2, -t_1] \).
+        \end{itemize}
+        
+        \item \textbf{Time Shifting:} If the transformation involves a shift \( t_0 \) (e.g., \( x(t \pm t_0) \)), apply the shift last.
+        \begin{itemize}
+            \item Move the signal to the right for \(- t_0 \) or to the left for \(+ t_0 \).
+            \item \textbf{Right shift:} Adjust the support by adding \( t_0 \) to both limits: \( [t_1, t_2] \to [t_1 + t_0, t_2 + t_0] \).
+            \item \textbf{Left shift:} Adjust the support by adding \( t_0 \) to both limits: \( [t_1, t_2] \to [t_1 - t_0, t_2 - t_0] \).
+        \end{itemize}
+
+        \item \textbf{Sketch:} Sketch the signal. 
+        \item \textbf{Label the axes and key points:} Max/min values, supports, etc.
+    \end{enumerate}    
+\end{process}
+
 \subsection{Signal energy and power}
     \subsubsection{Energy}
     \begin{definition}

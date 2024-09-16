@@ -1,0 +1,152 @@
+%% PRELIMINARIES
+\subsection{Algorithm}
+\begin{definition}
+    An algorithm is any well-defined computational procedure tht takes some value, or set of values, as input and produces some value, or set of values, as output in a finite amount of time. 
+\end{definition}
+
+\subsection{Pseudocode}
+\begin{definition}
+    A description of the steps in an algorithm using a mix of conventions of programming languages (like assignment operator, conditional operator, loop) with informal, usually self-explanatory, notation of actions and conditions.
+\end{definition}
+
+%% ASYMPTOTITCS
+\begin{example}
+    What asymptotic notation should you use for insertion sort's worst-case, best-case, and general running time? 
+    \vspace{1em}
+
+    \begin{itemize}
+        \item \textbf{Worst-case:} $O(n^2)\text{, } \Omega(n^2)\text{, and } \Theta(n^2)$ can be used, but $\Theta(n^2)$ is the most precise. 
+        \item \textbf{Best-case:} $O(n)\text{, } \Omega(n)\text{, and } \Theta(n)$ can be used, but $\Theta(n)$ is the most precise. 
+        \item \textbf{Average-case:} $O(n^2)$ because in all cases, its running time grows no faster than $n^2$. Or $\Omega(n)$ because in all cases, its running time is at least as fast as $n$.
+    \end{itemize}
+\end{example}
+
+\subsection{Deterministic vs. Randomized}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Deterministic algorithms}: These algorithms produce the same output for a given input every time they are run, as their execution follows a predictable sequence of steps.
+        \item \textbf{Randomized algorithms}: These algorithms incorporate random choices in their logic, which may lead to different outputs or different execution paths for the same input across multiple runs.
+    \end{itemize}
+\end{definition}
+
+\subsection{Types of analysis}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Best-case}: The algorithm runs in the shortest time due to optimal input.
+        \item \textbf{Worst-case}: The algorithm takes the longest time due to the most challenging input.
+        \item \textbf{Average-case}: The running time averaged over all inputs, assuming equal likelihood.
+        \item \textbf{Expected-case}: The running time based on a probability distribution of inputs.
+        \item \textbf{Amortized}: The average time per operation over a sequence of operations.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Proofs}
+
+    \begin{derivation} Transitivity
+        \begin{enumerate}
+            \item \textbf{Show $f(n) = \Theta(g(n))$}
+            
+            From the first condition, we know that there exist constants $C_1$, $C_2$, and $n_1$ such that for all $n \geq n_1$:
+            \[
+            0 \leq C_1 \cdot g(n) \leq f(n) \leq C_2 \cdot g(n)
+            \]
+            
+            \item \textbf{Show $g(n) = \Theta(h(n))$}
+            
+            Next, from the second condition, we know there exist constants $C_3$, $C_4$, and $n_2$ such that for all $n \geq n_2$:
+            \[
+            0 \leq C_3 \cdot h(n) \leq g(n) \leq C_4 \cdot h(n)
+            \]
+            
+            \item \textbf{Combine the Results}
+            
+            Since $g(n) = \Theta(h(n))$, we can combine this result with the earlier bounds on $f(n)$. We now have:
+            \[
+            0 \leq C_1 \cdot C_3 \cdot h(n) \leq C_1 \cdot g(n) \leq f(n) \leq C_2 \cdot g(n) \leq C_2 \cdot C_4 \cdot h(n)
+            \]
+            Thus, $f(n)$ is bounded above and below by $h(n)$ for sufficiently large $n$. This is obtained by subbing in $C_3 h(n) \leq g(n)$ into the lower bound for $f(n)$ (i.e. $C_1 g(n)$). The same is done for the upper bound. 
+            
+            \item \textbf{Define New Constants}
+            
+            Let us define new constants $C'_1 = C_1 \cdot C_3$ and $C'_2 = C_2 \cdot C_4$. We now have:
+            \[
+            0 \leq C'_1 \cdot h(n) \leq f(n) \leq C'_2 \cdot h(n)
+            \]
+            This holds for all $n \geq \max(n_1, n_2)$, or for simplicity, we can state $n \geq n_1 + n_2$.
+            
+            \item \textbf{Conclusion:} Therefore, we have shown that:
+                \[
+                f(n) = \Theta(h(n))
+                \]
+        \end{enumerate}
+            
+    \end{derivation}
+
+    \begin{derivation}
+        \( f(n) = O(g(n)) \iff g(n) = \Omega(f(n)) \)
+        \begin{enumerate}
+            
+            \item \textbf{Proof:} We start with the assumption that \( f(n) = O(g(n)) \), which implies the following inequality for some constants \( C > 0 \) and \( n_0 \geq 0 \):
+            \[
+            0 \leq f(n) \leq C \cdot g(n) \quad \forall n \geq n_0
+            \]
+            
+            \item \textbf{Apply the inequality.}
+            Rewriting the inequality, we get the following bound for \( f(n) \):
+            \[
+            0 \leq \frac{1}{C} \cdot f(n) \leq g(n) \quad \forall n \geq n_0
+            \]
+            
+            \item \textbf{Conclude \( g(n) = \Omega(f(n)) \).}
+        \end{enumerate}        
+    \end{derivation}
+
+    \begin{derivation} \( f(n) = \Theta(g(n)) \iff g(n) = \Theta(f(n)) \)
+        \begin{enumerate}
+            
+            \item \textbf{Express \( f(n) = \Theta(g(n)) \) in terms of \( O \) and \( \Omega \).}
+            \[
+            f(n) = \Theta(g(n)) \iff f(n) = O(g(n)) \quad \text{and} \quad f(n) = \Omega(g(n))
+            \]
+        
+            \item \textbf{Apply the equivalence of Big-O and Big-Omega.}
+            From the equivalence proven earlier, we know that:
+            \[
+            f(n) = O(g(n)) \iff g(n) = \Omega(f(n)) \quad \text{and} \quad f(n) = \Omega(g(n)) \iff g(n) = O(f(n))
+            \]
+            
+            \item \textbf{Step 3: Transpose the statements.}
+            By applying the equivalences, we can substitute them into the definition of \( f(n) = \Theta(g(n)) \):
+            \[
+            f(n) = \Theta(g(n)) \iff g(n) = \Omega(f(n)) \quad \text{and} \quad g(n) = O(f(n))
+            \]
+            
+            \item \textbf{Step 4: Conclusion.}
+            Therefore, since we have established both \( g(n) = O(f(n)) \) and \( g(n) = \Omega(f(n)) \), we can conclude that:
+            \[
+            g(n) = \Theta(f(n))
+            \]
+        \end{enumerate}
+    \end{derivation}
+
+%% RECCURRENCES
+A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \textbf{threshold} constant $n_0 >0$, the following two properties hold:
+\begin{enumerate}
+    \item $\forall$ $n<n_0$, $T(n) = \Theta(1)$ (i.e. $\exists \; c_1, \; c_2 \in \mathbb{R}$ s.t. $0<c_1\leq T(n) \leq c_2 \text{ for } n<n_0$)
+    \item $\forall$ $n \geq n_0$, every path of recursion terminates in a defined base case within a finite number of recursive invocations (prevents infinite recursive loop or failure to compute a solution).
+\end{enumerate}
+
+\begin{intuition}
+    Whenever a recurrence is stated without an explicit base case, we assume that the recurrence is algorithmic.
+    \begin{itemize}
+        \item \textbf{Implication:} This means we can pick any sufficiently large threshold constant $n_0$.
+    \end{itemize}
+\end{intuition}
+
+\item \textbf{Bounds:} Rather than trying to prove $\Theta$-bound directly, first prove an $O$-bound, and then prove an $\Omega$-bound, then use Theorem 3.1.
+            \item \textbf{Making a good guess:}
+            \begin{itemize}
+                \item See if the recurrence is similar to one you've seen before, then guessing a similar solution.
+                \item Determine loose upper and lower bounds on the recurrence and then reduce your range of uncertainty.
+            \end{itemize}
+            \item \textbf{Trick:} Subtract a lower-order term when the math fails to work out in the induction proof.

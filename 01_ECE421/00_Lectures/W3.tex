@@ -1,0 +1,82 @@
+\subsection{Difference between linear classification and regression}
+\begin{definition}
+    \textbf{Setup:}
+    \begin{itemize}
+        \item \textbf{Given:} $\mathcal{D} = \left\{ \left( \underline{x}_n, y_n \right) \right\}_{n=1}^{N}$
+        \item \textbf{Unknown Target Function:} $y = f(\underline{x})$
+        \item \textbf{Hypothesis Set:} $\hat{y} = h(\underline{x})$, where $h \in \mathcal{H}$
+    \end{itemize}
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item \textbf{Linear Classification}
+        \begin{itemize}
+            \item $\underline{x} \in \mathbb{R}^{d+1}$, $y \in \{-1, +1\}$, $\hat{y} = \text{Sign}\left(w^T \underline{x}\right)$
+            \item Illustrating as Neuron:
+        \end{itemize}
+    
+        \item \textbf{Linear Regression}
+        \begin{itemize}
+            \item $\underline{x} \in \mathbb{R}^{d+1}$, $y \in \mathbb{R}$, $\hat{y} = w^T \underline{x}$
+            \item Illustrating as Neuron:
+        \end{itemize}
+    \end{enumerate}
+\end{definition}
+
+\subsection{Logistic regression}
+\begin{process}
+    \begin{enumerate}
+        \item Predict with randomness $\hat{P}_{\underline{w}} (y = +1| \underline{x})$.
+        \item What hypothesis set $\mathcal{H}$ should we use?
+        \item Let's use hyperplane $\underline{w}^T \underline{x} = 0$, and make predictions based on the distance between the point and the hyperplane.
+        \item What is the distance? Assuming $\|\underline{w}\| = 1$, $d = \underline{w}^T \underline{x}$.
+        \item How do you want to model your predicted likelihood based on $d$?
+        \begin{enumerate}
+            \item $\underline{w}^T \underline{x} \rightarrow +\infty$, $\hat{P}_w(1|x) \rightarrow 1$.
+            \item $\underline{w}^T \underline{x} \rightarrow 0$, $\hat{P}_w(1|x) \rightarrow 1/2$.
+            \item $\underline{w}^T \underline{x} \rightarrow -\infty$, $\hat{P}_w(1|x) \rightarrow 0$.
+            \item Symmetry.
+        \end{enumerate}
+        \item Logistic function is a suitable choice $\theta(s) = \frac{1}{1 + e^{-s}}$.
+        \item $\mathcal{H}$ is $\hat{P}_w(1|x) = \frac{1}{1 + e^{-\underline{w}^T \underline{x}}}$.
+    \end{enumerate}    
+\end{process}
+
+    \subsubsection{Illustrating logistic regression as a neuron}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Given}: $\mathcal{D} = \left\{ \left( \underline{x}_n, y_n \right) \right\}_{n=1}^{N}$ , $\underline{x}_n \in \mathbb{R}^{d+1}$, $y_n \in \{+1, -1\}$
+            \item \textbf{Unknown Target Function}: $y = f(\underline{x})$
+            \item \textbf{Hypothesis Set}: $\hat{y} = \theta\left( \underline{w}^T \underline{x} \right) = \frac{1}{1 + e^{-\underline{w}^T \underline{x}}}$
+            \item $\hat{P}_w(y = +1| \underline{x}) = \theta(s) = \frac{1}{1 + e^{-s}}$
+            \item $\theta(s)$ is called the "logistic function."
+            \begin{itemize}
+                \item Logistic function is an example of "Sigmoid functions."
+                \item "Sigmoid" functions is the class of functions that are "S"-shaped.
+            \end{itemize}
+        \end{itemize}
+        \customFigure[0.75]{00_Images/Logistic_Regression.png}{Logistic regression.}
+    \end{definition}
+
+    \subsubsection{Remarks}
+
+    \subsubsection{Notation}
+
+    \subsubsection{What is the Error Criterion?}
+    \begin{definition}
+        \begin{equation}
+            E_{in}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} e_n(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \log \left( 1 + e^{-y_n \underline{w}^T \underline{x}_n} \right)
+        \end{equation}
+    \end{definition}
+
+    \begin{example}
+        
+    \end{example}
+
+    \subsubsection{Benefits over linear classification}
+
+    \subsubsection{Maximum likelihood interpretation}
+
+    \subsubsection{Cross-entropy interpretation}
+
+    

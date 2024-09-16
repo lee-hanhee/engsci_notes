@@ -1,0 +1,61 @@
+\subsubsection{Examples}
+    \begin{example}
+        Claudia wants to deposit an amount P now such that she can withdraw an equal amount of $\$2,000$ each year for the first 5 years and then $\$3,000$ for the following 3 years. Calculate P if the interest earned is 8\% per year. 
+        \begin{enumerate}
+            \item \textbf{Phase 1:} Calculate the present value of the first set of withdrawals ($2,000 \, \text{for 5 years}$). 
+            The present value of an annuity is given by the formula:
+            \[
+            P_1 = 2000 \times (P/A, 8\%, 5)
+            \]
+            Where $(P/A, 8\%, 5)$ is the annuity factor for 5 periods at 8% interest.
+        
+            \item \textbf{Phase 2:} Calculate the present value of the future withdrawals ($3,000$ for 3 years), but first, we need to compute the future value at the end of year 5.
+            The future value of these withdrawals at the end of year 5 is:
+            \[
+            F_5 = 3000 \times (P/A, 8\%, 3)
+            \]
+            
+            \item Now, discount \( F_5 \) back to the present (time 0) using the present value of a single sum formula:
+            \[
+            P_2 = F_5 \times (P/F, 8\%, 5)
+            \]
+            Where $(P/F, 8\%, 5)$ is the present value factor for 5 periods at 8%.
+        
+            \item \textbf{Total Present Value:} The total present value \( P \) is the sum of the present values from phase 1 and phase 2:
+            \[
+            P = P_1 + P_2
+            \]
+        \end{enumerate}
+
+        We calculate $F_5$ (the future value at the end of year 5) and then discount it to find $P_2$ for the following reasons:
+
+        \begin{itemize}
+            \item \textbf{Why Calculate $F_5$?} 
+            
+            The \$3,000 withdrawals start in year 6. To account for these future payments, we first determine their value at the end of year 5, denoted as $F_5$, since these withdrawals begin after year 5.
+            
+            \item \textbf{Why Discount $F_5$ to Find $P_2$?} 
+            
+            Once $F_5$ is known, we discount it to the present (year 0) to find $P_2$, which represents the portion of the deposit needed today to fund the future withdrawals.
+            
+            \item \textbf{Summary:}
+            
+            \begin{enumerate}
+                \item Calculate $F_5$: The future value of the \$3,000 withdrawals at the end of year 5.
+                \item Discount $F_5$: Convert it to $P_2$ using present value factors.
+            \end{enumerate}
+
+            \item \textbf{Why Not Use a Single Formula for \$3,000 Withdrawals?}
+    
+            Since the \$3,000 withdrawals start after year 5, their value at year 0 differs from the value of the earlier \$2,000 withdrawals. Directly using a single annuity formula for the \$3,000 withdrawals would neglect the fact that these payments occur later. 
+        \end{itemize}
+    \end{example}
+
+    \item Convert from a present value \( P \) to a future cash-flow \( F \) in year \( N \), then:
+    \[
+    F = P(F/P, i, N)
+    \]
+    \item For the geometric gradient:
+    \[
+    P = G(P/G, i, g, N) \quad \text{or} \quad P = G(P/\text{Geom}, i, g, N)
+    \]

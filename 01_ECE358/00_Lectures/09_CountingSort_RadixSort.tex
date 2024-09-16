@@ -1,31 +1,90 @@
 \subsection{Lower bound on sorting and counting sort}
     \subsubsection{Lower bound on comparison-based sorting}
     \begin{definition}
-        No \textbf{comparison-based} sorting algorithm on \textbf{unrestricted} range (i.e. any numbers) can do better than $\Omega(nlog(n))$.    
+        No \textbf{comparison-based} sorting algorithm on \textbf{unrestricted} range (i.e. any numbers) can do better than $\Omega(n\log(n))$.    
     \end{definition}
 
-    \subsubsection{Counting sort}
-    \begin{definition}
-        \begin{lstlisting}[language=Python, caption={Counting Sort Pseudocode}]
-            C[i] = 0 for all i in [0...k]
-            for j = 1 ... length(A) do  # O(n)
-                C[A[j]] = C[A[j]] + 1
-            for i = 1 ... k /* prefix sums */ # O(k)
-                C[i] = C[i] + C[i-1]
-            for j = length(A) ... 1 do # O(n)
-                B[C[A[j]]] = A[j]
-                C[A[j]] = C[A[j]] - 1 
-        \end{lstlisting}
+\subsection{Counting sort}
+\begin{definition}
+    \begin{lstlisting}[language=Python, caption={Counting Sort Pseudocode}]
+        C[i] = 0 for all i in [0...k]
+        for j = 1 ... length(A) do  # O(n)
+            C[A[j]] = C[A[j]] + 1
+        for i = 1 ... k /* prefix sums */ # O(k)
+            C[i] = C[i] + C[i-1]
+        for j = length(A) ... 1 do # O(n)
+            B[C[A[j]]] = A[j]
+            C[A[j]] = C[A[j]] - 1 
+    \end{lstlisting}
+    \begin{itemize}
+        \item $A$: array to be sorted. 
+        \item Assume numbers in range $[0...k]$.
+        \item \textbf{Stable sorting:} Not in-place but stable sorting. 
+        \item \textbf{Time complexity:} Time $O(n+k)$ if $O(k) = O(n)$ implies $O(n)$
+        \item \textbf{Additional arrays:} $C [0\ldots k]$ and $B [1 \ldots n]$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Create the Input Array \( A \)}:
+            \[
+            A = [2, 5, 3, 0, 2, 3, 0, 3]
+            \]
+        
+        The elements of \( A \) are integers within a known range (e.g., \( 0 \) to \( 5 \)).
+
+        
+        \item \textbf{Count the Occurrences (Frequency Array)}:
         \begin{itemize}
-            \item A: array to be sorted. 
-            \item Assume numbers in range $[0...k]$.
-            \item Not in-place but stable sorting. 
-            \item Time $O(n+k)$ if $O(k) = O(n)$ implies $O(n)$
+            \item Create an auxiliary array \( C \), where each index represents a possible value in \( A \), and the value at each index in \( C \) represents the number of times that value appears in \( A \).
+            \item Initialize \( C \) with zeros:
+            \[
+            C = [0, 0, 0, 0, 0, 0]
+            \]
+            \item Count the occurrences of each number in \( A \), updating \( C \):
+            \[
+            C = [2, 0, 2, 3, 0, 1]
+            \]
+            This tells us:
+            \begin{itemize}
+                \item \( 0 \) appears 2 times.
+                \item \( 1 \) appears 0 times.
+                \item \( 2 \) appears 2 times.
+                \item \( 3 \) appears 3 times.
+                \item \( 5 \) appears 1 time.
+            \end{itemize}
         \end{itemize}
-    \end{definition}
-
-
-
+        
+        \item \textbf{Modify \( C \) to Store the Cumulative Count}:
+        \begin{itemize}
+            \item Modify the array \( C \) such that each index contains the sum of the counts for all values less than or equal to that index.
+            \item The cumulative count helps to determine the final positions of each element in the sorted array.
+            \item After modification, \( C \) becomes:
+            \[
+            C = [2, 2, 4, 7, 7, 8]
+            \]
+            This means:
+            \begin{itemize}
+                \item Values \( \leq 0 \) will be placed before index 2.
+                \item Values \( \leq 2 \) will be placed before index 4.
+                \item Values \( \leq 3 \) will be placed before index 7.
+                \item Values \( \leq 5 \) will be placed before index 8.
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Place the Elements in the Sorted Array \( B \)}:
+        \begin{itemize}
+            \item Iterate through the elements in \( A \), using the cumulative counts in \( C \) to place each element in the correct position in \( B \).
+            \item Decrement the corresponding count in \( C \) for each placement to ensure the stability of sorting.
+            \item The sorted array \( B \) is:
+            \[
+            B = [0, 0, 2, 2, 3, 3, 3, 5]
+            \]
+        \end{itemize}
+    \end{enumerate}
+    \customFigure[0.5]{00_Images/Counting_Sort.png}{Example of counting sort}
+\end{example}
 
 \subsection{Radix sort}
 \begin{definition}
@@ -35,17 +94,118 @@
     \end{lstlisting}
 \end{definition}
 
-\subsubsection{Runtime}
+\begin{example}
+    The numbers in the image are sorted digit by digit, starting with the least significant digit. 
+
+    \begin{enumerate}
+        \item \textbf{Sort by the Least Significant Digit (LSD)}:
+        \begin{itemize}
+            \item Start by examining the rightmost digit (the units place) of each number.
+            \item In the image, the numbers:
+            \[
+            [512, 413, 242, 375, 695, 112]
+            \]
+            are sorted by their least significant digits:
+            \begin{align*}
+            512 & \rightarrow 2, \\
+            413 & \rightarrow 3, \\
+            242 & \rightarrow 2, \\
+            375 & \rightarrow 5, \\
+            695 & \rightarrow 5, \\
+            112 & \rightarrow 2.
+            \end{align*}
+            Sorting by the rightmost digits results in:
+            \[
+            [512, 242, 112, 413, 375, 695]
+            \]
+        \end{itemize}
+        
+        \item \textbf{Sort by the Next Significant Digit (Tens place)}:
+        \begin{itemize}
+            \item After sorting by the least significant digit, now sort the numbers based on the second digit (the tens place).
+            \item The current sequence of numbers:
+            \[
+            [512, 242, 112, 413, 375, 695]
+            \]
+            is sorted by the tens digit:
+            \begin{align*}
+            512 & \rightarrow 1, \\
+            242 & \rightarrow 4, \\
+            112 & \rightarrow 1, \\
+            413 & \rightarrow 1, \\
+            375 & \rightarrow 7, \\
+            695 & \rightarrow 9.
+            \end{align*}
+            Sorting by the tens place results in:
+            \[
+            [112, 512, 413, 242, 375, 695]
+            \]
+        \end{itemize}
+        
+        \item \textbf{Sort by the Most Significant Digit (Hundreds place)}:
+        \begin{itemize}
+            \item Finally, sort by the hundreds digit. The current sequence:
+            \[
+            [112, 512, 413, 242, 375, 695]
+            \]
+            is sorted by the hundreds digit:
+            \begin{align*}
+            112 & \rightarrow 1, \\
+            512 & \rightarrow 5, \\
+            413 & \rightarrow 4, \\
+            242 & \rightarrow 2, \\
+            375 & \rightarrow 3, \\
+            695 & \rightarrow 6.
+            \end{align*}
+            Sorting by the hundreds place results in the final sorted sequence:
+            \[
+            [112, 242, 375, 413, 512, 695]
+            \]
+        \end{itemize}
+        
+    \end{enumerate}
+
+    \customFigure[0.5]{00_Images/Radix_Sort.png}{Radix sort example}
+\end{example}
+
+\subsubsection{Runtime complexity analysis of Radix sort}
 \begin{definition}
     \begin{itemize}
-        \item n: \# numbers 
-        \item r: range of numbers 
-        \item d: \# digits
-        \item One pass: $=O(n+r)$
-        \item All passes: $dO(n+r) = O(dn + dr)$
-        \item If $r=d=O(1)$, then $O(n)$ true.
-        \item $1000\#$'s 64 bits. 
-        \item Quicksort: $O(nlog(n)) = \frac{O(1000log(1000))}{1000}$
-        \item $log(1000) \approx 10$ passes./number
+        \item \textbf{Variables:}
+        \begin{itemize}
+            \item n: \# numbers 
+            \item r: range of numbers 
+            \item d: \# digits
+        \end{itemize}
+
+        \item \textbf{One pass complexity:} $=O(n+r)$ (i.e. the time complexity of counting sort)
+        \item \textbf{All passes complexity:} $dO(n+r) = O(dn + dr)$ (i.e. sorting all digits, so it's the time complexity of counting sort times the number of digits)
+        \item \textbf{r=d complexity:} If $r=d=O(1)$, then $O(n)$ true.
     \end{itemize}
+\end{definition}
+
+\subsubsection{Example of QS vs. RS}
+\begin{example}
+    Sorting $1000\#$'s, each represented using 64 bits. Each digit is 16 bits wide. 
+    \begin{itemize}
+        \item \textbf{Quicksort:} $O(n \log(n)) = \frac{O(1000 \log(1000))}{1000}$ (i.e. divided by 1000 to show the average time compared to Radix sort)
+        \begin{itemize}
+            \item $\log(1000) \approx 10$ passes./number
+        \end{itemize} 
+        \item \textbf{Radix sort:} $4 \text{ passes/number}$ (i.e. one for each digit)
+    \end{itemize}
+    \customFigure[0.5]{00_Images/Bits.png}{Number of passes for 1000\#'s 64 bits.}
+\end{example}
+
+\subsection{Find kth largest element in sorted sequence}
+\begin{definition}
+    \begin{enumerate}
+        \item How many comparisons to find max element? $(n-1)$ 
+        \begin{itemize}
+            \item \textbf{Note:} Don't need to check the $nth$ element because it is the biggest.
+            \item \textbf{Max:} $n-1$
+            \item \textbf{Min:} $n/2 - 1$
+        \end{itemize}
+        
+    \end{enumerate}
 \end{definition}

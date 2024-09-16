@@ -1,7 +1,7 @@
 Asymptotic efficiency focuses on understanding how the running time of an algorithm grows with the input size, particularly for large inputs.
 \subsection{Big-O (Upper Bound)}
     \begin{definition} 
-        $ O(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c \text{ and } n_0 \text{ s.t. } 0 \leq f(n) \leq c g(n) \; \forall \; n \geq n_0 \right\} $
+        $ f(n) = O(g(n)) \text{ iff } \exists \text{ positive constants } c \text{ and } n_0 \text{ s.t. } 0 \leq f(n) \leq c g(n) \; \forall \; n \geq n_0 $
         \begin{itemize}
             \item \textbf{Asymptotic upper bound:} Grows \textbf{no faster} than a certain rate, based on the highest-order term.
         \end{itemize}
@@ -127,9 +127,64 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
         \]
     \end{example}
 
+    \begin{example}
+        \textbf{Statement:} Prove that $2^{n+1} = O(2^n)$.
+        
+        \textbf{Step 1:} Begin by noting that $2^{n+1}$ can be rewritten as:
+        \[
+        2^{n+1} = 2 \cdot 2^n
+        \]
+        We want to show that $2^{n+1} \leq C \cdot 2^n$ for some constant $C$ and for all $n \geq n_0$.
+        
+        \textbf{Step 2:} To satisfy the definition of Big-O, we need:
+        \[
+        0 \leq 2 \cdot 2^n \leq C \cdot 2^n \quad \forall n \geq 0
+        \]
+        This inequality holds if $C \geq 2$, as the factor of 2 on the left-hand side is less than or equal to $C$.
+        
+        \textbf{Step 3:} Let us choose $C = 3$ and $n_0 = 1$. Now check the inequality for all $n \geq n_0$:
+        \[
+        0 \leq 2 \cdot 2^n \leq C \cdot 2^n \quad \forall n \geq n_0
+        \]
+        This is true because $2 \cdot 2^n \leq 3 \cdot 2^n$ holds for all $n \geq 1$.
+        
+        \textbf{Conclusion:} Therefore, we have shown that:
+        \[
+        2^{n+1} = O(2^n)
+        \]
+    \end{example}
+        
+
+    \begin{example}
+        \textbf{Statement:} Prove that $2^{n+1} = \Omega(2^n)$.
+        
+        \textbf{Step 1:} Recall the definition of $\Omega$: we need to show that $2^{n+1} \geq C \cdot 2^n$ for some constant $C > 0$ and for all $n \geq n_0$.
+        
+        \textbf{Step 2:} Again, we can rewrite $2^{n+1}$ as:
+        \[
+        2^{n+1} = 2 \cdot 2^n
+        \]
+        We want to show:
+        \[
+        0 \leq C \cdot 2^n \leq 2 \cdot 2^n \quad \forall n \geq 0
+        \]
+        This inequality holds if $C \leq 2$.
+        
+        \textbf{Step 3:} Let us choose $C = 1$ and $n_0 = 1$. Now verify the inequality:
+        \[
+        0 \leq C \cdot 2^n \leq 2 \cdot 2^n \quad \forall n \geq 1
+        \]
+        This is true because $1 \cdot 2^n \leq 2 \cdot 2^n$ holds for all $n \geq 1$.
+        
+        \textbf{Conclusion:} Therefore, we have shown that:
+        \[
+        2^{n+1} = \Omega(2^n)
+        \]
+    \end{example}
+
 \subsection{Big-Omega (Lower Bound)}
     \begin{definition}
-        $ \Omega(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c \text{ and } n_0 \text{ such that } 0 \leq c g(n) \leq f(n) \; \forall \; n \geq n_0 \right\} $
+        $ f(n) = \Omega(g(n)) \text{ iff } \exists \text{ positive constants } c \text{ and } n_0 \text{ such that } 0 \leq c g(n) \leq f(n) \; \forall \; n \geq n_0 $
         \begin{itemize}
             \item \textbf{Asymptotic lower bound:} Grows \textbf{at least as fast} as a certain rate, based on the highest-order term.
         \end{itemize}
@@ -181,7 +236,7 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
 
 \subsection{Big-Theta (Tight Bound)}
     \begin{definition}
-        $ \Theta(g(n)) = \left\{ f(n) \text{: } \exists \text{ positive constants } c_1, \; c_2, \; n_0 \text{ s.t. } 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n) \; \forall \; n \geq n_0 \right\} $
+        $ f(n) = \Theta(g(n)) \text{ iff } \exists \text{ positive constants } c_1, \; c_2, \; n_0 \text{ s.t. } 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n) \; \forall \; n \geq n_0 $
         \begin{itemize}
             \item \textbf{Asymptotically tight bounds:} Grows \textbf{precisely} at a certain rate, based on the highest-order term.
         \end{itemize}
@@ -288,25 +343,45 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
         \]
     \end{example}
 
+    \begin{example}
+        Show that $(n + a)^b = \Theta(n^b)$
+        \begin{enumerate}
+            \item \textbf{Key Observation:}
+                \[
+                n + a \leq n + |a| \leq 2n \quad \text{if} \ n \geq |a|
+                \]
+                \[
+                n + a \geq n - |a| \geq \frac{1}{2} n \quad \text{if} \ n \geq 2|a|
+                \]
+            
+            \item $(n + a)^b = O(n^b):$
+            \[
+            0 \leq (n + a)^b \leq C \cdot n^b
+            \]
+            Let $n_0 = |a| \Rightarrow 0 \leq (n + a)^b \leq (2n)^b = 2^b n^b$.
+            Therefore, let $C \geq 2^b$ and the above holds (i.e. using the key observation):
+            \[
+            \therefore (n + a)^b = O(n^b)
+            \]
+
+            \item $(n + a)^b = \Omega(n^b):$
+            \[
+            0 \leq C \cdot n^b \leq (n + a)^b
+            \]
+            Let $n_0 = 2|a| \Rightarrow (n + a)^b \geq \left(\frac{1}{2} n \right)^b = \left(\frac{1}{2} \right)^b n^b$.
+            Therefore, let $0 < C \leq \left(\frac{1}{2}\right)^b$ and the above holds:
+            \[
+            \therefore (n + a)^b = \Omega(n^b)
+            \]
+
+            \item Conclusion:
+            \[
+            \therefore (n + a)^b = O(n^b) \quad \text{and} \quad (n + a)^b = \Omega(n^b) \Rightarrow (n + a)^b = \Theta(n^b)
+            \]
+            \end{enumerate}
+    \end{example}
+
 \customFigure[1]{00_Images/BigO_Omega_Theta_Notation.png}{Graphical examples of the Big-O, Big-Omega, and Big-Theta.}
-
-\begin{example}
-    Find the Big-O, Big-Omega, and Big-Theta of the following function: $7n^3 + 100n^2 - 20n + 6$. 
-
-    \begin{enumerate}
-        \item \textbf{Highest-order term:} $7n^3$
-        \item \textbf{Remove constants:} $n^3$
-        \item \textbf{Big-O notation:} $\text{O}(n^3)$
-        \begin{itemize}
-            \item In general, $\text{O}(n^c)$ for any constant $c\geq3$ because the function grows no faster than this.
-        \end{itemize}
-        \item \textbf{Big-Omega notation:} $\Omega (n^3)$
-        \begin{itemize}
-            \item In general, $\Omega (n^c)$ for any constant $c\leq3$ because the function grows at least as fast than this.
-        \end{itemize}
-        \item \textbf{Big-Theta:} Since O and $\Omega$ are the same, therefore, $\Theta (n^3)$ (by theorem)
-    \end{enumerate}
-\end{example}
 
 \begin{intuition}
     In all asymptotic notations, you are trying to describe a function after $n_0$ (i.e. ignore all flunctuation before).
@@ -317,21 +392,20 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
         $f(n) = \Theta(g(n))$ iff $f(n) = O(g(n))$ and $f(n)=\Omega(g(n))$.
     \end{theorem}
 
+\subsection{Small-O (Strictly Slower)}
+\begin{definition}
+    $f(n) = o(g(n)) \text{ iff } \forall c > 0, \exists n_0 > 0 \text{ s.t. } 0 \leq f(n) < c g(n) \text{ for all } n \geq n_0.$
+\end{definition}
+
+\subsection{Small-Omega (Strictly Faster)}
+\begin{definition}
+    $f(n) = \omega(g(n)) \text{ iff } \forall c > 0, \exists n_0 > 0 \text{ s.t. } 0 \leq c g(n) < f(n) \text{ for all } n \geq n_0.$
+\end{definition}
+
 \subsection{Asymptotic notation and running times}
     \begin{warning}
         Make sure that the asymptotic notation you use is as precise as possible without overstating which running time (i.e. worst-case, best-case, or any average/expected-case) it applies to.
     \end{warning}
-
-    \begin{example}
-        What asymptotic notation should you use for insertion sort's worst-case, best-case, and general running time? 
-        \vspace{1em}
-
-        \begin{itemize}
-            \item \textbf{Worst-case:} $O(n^2)\text{, } \Omega(n^2)\text{, and } \Theta(n^2)$ can be used, but $\Theta(n^2)$ is the most precise. 
-            \item \textbf{Best-case:} $O(n)\text{, } \Omega(n)\text{, and } \Theta(n)$ can be used, but $\Theta(n)$ is the most precise. 
-            \item \textbf{Average-case:} $O(n^2)$ because in all cases, its running time grows no faster than $n^2$. Or $\Omega(n)$ because in all cases, its running time is at least as fast as $n$.
-        \end{itemize}
-    \end{example}
 
 \subsection{Abuses of asymptotic notation}
     \begin{intuition}
@@ -376,13 +450,13 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
 
         \textbf{Different functions:}
         \begin{itemize}
-            \item \( n^a \in O(n^b) \), iff \( a \leq b \).
-            \item \( \log_a(n) \in O(\log_b(n)) \), $\forall$ \( a, b \).
-            \item \( c^n \in O(d^n) \), iff \( c \leq d \).
-            \item If \( f(n) \in O(f'(n)) \) and \( g(n) \in O(g'(n)) \), then:
+            \item \( n^a = O(n^b) \), iff \( a \leq b \).
+            \item \( \log_a(n) = O(\log_b(n)) \), $\forall$ \( a, b \).
+            \item \( c^n = O(d^n) \), iff \( c \leq d \).
+            \item If \( f(n) = O(f'(n)) \) and \( g(n) = O(g'(n)) \), then:
             \begin{enumerate}
-                \item \( f(n) \cdot g(n) \in O(f'(n) \cdot g'(n)) \).
-                \item \( f(n) + g(n) \in O(\max\{f'(n), g'(n)\}) \).
+                \item \( f(n) \cdot g(n) = O(f'(n) \cdot g'(n)) \).
+                \item \( f(n) + g(n) = O(\max\{f'(n), g'(n)\}) \).
                 \begin{itemize}
                     \item ' is not a derivative, just another function. 
                 \end{itemize}
@@ -393,63 +467,64 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
 
     \begin{intuition}
         \begin{itemize}
-            \item $f(n) = O(g(n)) \text{ is like } a \leq b$
-            \item $f(n) = \Omega(g(n)) \text{ is like } a \geq b$
-            \item $f(n) = \Theta(g(n)) \text{ is like } a = b$
-        \end{itemize}
+            \item \( 1 \ll \log^*(n) \ll \log^i n \ll (\lg n)^a \ll n^b \ll c^n \quad \forall i, a, b, c \)
+            
+            \item \( f(n) \ll g(n) \Rightarrow h(n)f(n) \ll h(n)g(n) \)
+            
+            \item \( f(n) \ll g(n) \Rightarrow f(n)^{h(n)} \ll g(n)^{h(n)} \)
+            
+            \item \( f(n) \ll g(n) \) and \( \lim_{n \to \infty} h(n) > 1 \Rightarrow h(n)^{f(n)} \ll h(n)^{g(n)} \)
+            
+            \item Assume \( f \) and \( h \) are eventually positive, i.e. \( \lim_{n \to \infty} f(n) > 0 \) and \( \lim_{n \to \infty} h(n) > 0 \). 
+            \begin{itemize}
+                \item Note: \( f(n) \ll g(n) \Rightarrow \lim_{n \to \infty} g(n) = \infty \)
+            \end{itemize}
+            
+            \item \( f(n) \ll g(n) \) means \( f(n) = o(g(n)) \)
+            
+            \item Notice the direction of the replication.
+        \end{itemize}    
     \end{intuition}
 
-\subsection{Deterministic vs. Randomized}
-\begin{definition}
-    \begin{itemize}
-        \item \textbf{Deterministic algorithms}: These algorithms produce the same output for a given input every time they are run, as their execution follows a predictable sequence of steps.
-        \item \textbf{Randomized algorithms}: These algorithms incorporate random choices in their logic, which may lead to different outputs or different execution paths for the same input across multiple runs.
-        \begin{itemize}
-            \item Monte Carlo algorithms
-            \item Las Vegas algorithms
-        \end{itemize}
-    \end{itemize}
-\end{definition}
-
-\subsection{Types of analysis}
-\begin{definition}
-    \begin{itemize}
-        \item \textbf{Best-case}: The algorithm runs in the shortest time due to optimal input.
-        \item \textbf{Worst-case}: The algorithm takes the longest time due to the most challenging input.
-        \item \textbf{Average-case}: The running time averaged over all inputs, assuming equal likelihood.
-        \item \textbf{Expected-case}: The running time based on a probability distribution of inputs.
-        \item \textbf{Amortized}: The average time per operation over a sequence of operations.
-    \end{itemize}
-\end{definition}
-
-\subsection{Polynomially-bounded}
-    \begin{definition}
-        $f(n)$ is polynomially-bounded if $f(n)=O\left(n^k\right)$ for some real value of $k$.
-    \end{definition}
-
-    \begin{theorem}
-        $f(n)=O\left(n^k\right)$ iff $lg(f(n))=O(lg(n))$
-    \end{theorem}
+    \begin{derivation}
+        In tutorial 2.
+    \end{derivation}
+    
+        \subsubsection{Common justification steps}
+        \begin{intuition}
+            \begin{itemize}
+                \item Exponential functions grow faster than polynomial functions, which grow faster than polylogarithmic functions.
+                \item The base of a logarithm doesn’t matter asymptotically, but the base of an exponential and the degree of a polynomial do matter.
+            \end{itemize}
+        \end{intuition}
 
 \subsection{Limit method}
     \begin{definition}
         Find the asymptotic relationship between two functions for which you might not have any intuition about. 
         \begin{equation}
-            \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0 \implies f(n) = \mathcal{O}(g(n))
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0 \Rightarrow f(n) = o(g(n))
         \end{equation}
         
         \begin{equation}
-            \lim_{n \to \infty} \frac{f(n)}{g(n)} = c, \; 0 < c < \infty \implies f(n) = \Theta(g(n))
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty \Rightarrow f(n) = \omega(g(n))
         \end{equation}
         
         \begin{equation}
-            \lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty \implies f(n) = \Omega(g(n))
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty \text{ i.e. is anything finite } \Leftrightarrow f(n) = O(g(n))
         \end{equation}
+        
+        \begin{equation}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} > 0 \text{ i.e. non-zero } \Leftrightarrow f(n) = \Omega(g(n))
+        \end{equation}
+        
+        \begin{equation}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = C \text{ s.t. } 0 < C < \infty \Leftrightarrow f(n) = \Theta(g(n))
+        \end{equation}        
     \end{definition}
 
     \subsubsection{L'Hôpital's rule}
     \begin{definition}
-        If $\lim_{x \to c} f(x) = \lim_{x \to c} g(x) = 0$ or $\pm \infty$, then:
+        $\text{if } \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{0}{0} \text{ or } \frac{\infty}{\infty}$ then,
         \begin{equation}
             \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}
         \end{equation}
@@ -460,9 +535,101 @@ Asymptotic efficiency focuses on understanding how the running time of an algori
         $f(n)$ and $g(n)$ need to be different functions. 
     \end{warning}
 
-    \subsubsection{Logs of limits and limits of logs}
-        \begin{definition}
-            \begin{equation}
-                \lg \left( \lim_{x \to c} g(x) \right) = \lim_{x \to c} \lg(g(x))
-            \end{equation}
-        \end{definition}
+\subsection{Polynomially-bounded}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Polylogarithmically bounded:} \( f(n) = O((\lg n)^k) \quad \exists k > 0 \)
+        
+        \item \textbf{Polynomially bounded:} \( f(n) = O(n^k) \quad \exists k > 0 \)
+        
+        \item \textbf{Exponentially bounded:} \( f(n) = O(k^n) \quad \exists k > 0 \)
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Notation:} \( (\lg n)^2 = (\lg n) \cdot (\lg n) \) (polylogarithmic) and \( \lg^2 n = \lg(\lg n) \) (iterated log). 
+    \end{itemize}
+\end{intuition}
+
+\begin{theorem}
+    $f(n) = O(n^k) \Leftrightarrow \lg(f(n)) = O(\lg n)$
+\end{theorem}
+
+\begin{theorem}
+    All logarithmically bounded functions are polynomially bounded, i.e. \((\lg n)^a = O(n^b) \quad \forall a, b > 0\)
+\end{theorem}
+
+\begin{theorem}
+    All polynomially bounded functions are exponentially bounded, i.e. \( f(n) = O(n^a) \Rightarrow f(n) = O(b^n) \quad \forall a > 0 \text{ and } \forall b > 1\)
+\end{theorem}
+
+\begin{derivation}
+    In tutorial 2.
+\end{derivation}
+
+\subsection{Logarithm method}
+    \begin{definition}
+        \textbf{Limit of Logs:} $\lim_{x \to a} (\log_b f(x)) = \log_b \left( \lim_{x \to a} f(x) \right)$
+
+        $\text{Suppose we want to compute } \lim_{n \to \infty} \frac{f(n)}{g(n)} = L$
+
+        \[
+        \therefore \lg \left( \lim_{n \to \infty} \frac{f(n)}{g(n)} \right) = \lg L
+        \]
+
+        \[
+        \therefore \lim_{n \to \infty} \left( \lg \frac{f(n)}{g(n)} \right) = \lg L
+        \]
+
+        \[
+        \therefore \lim_{n \to \infty} \frac{f(n)}{g(n)} = L = 2^{\lim_{n \to \infty} \lg \left( \frac{f(n)}{g(n)} \right)}
+        \]
+    \end{definition}
+
+    \begin{example}
+        \begin{enumerate}
+
+            \item \textbf{Apply logarithm to the limit.}
+            Start by taking the logarithm of the limit:
+            \[
+            \lg \left( \lim_{n \to \infty} \frac{2^{n+1}}{4^n} \right)
+            \]
+        
+            \item \textbf{Move the logarithm inside the limit.}
+            Since the logarithm function is continuous, we can move it inside the limit:
+            \[
+            \lim_{n \to \infty} \left( \lg \frac{2^{n+1}}{4^n} \right)
+            \]
+        
+            \item \textbf{Simplify the logarithmic expression.}
+            Use the properties of logarithms to break down the expression:
+            \[
+            \lim_{n \to \infty} \left( (n+1) \lg 2 - n \lg 4 \right)
+            \]
+            Since \( \lg 4 = 2 \lg 2 \), we can rewrite the expression as:
+            \[
+            \lim_{n \to \infty} \left( (n+1) \lg 2 - n \cdot 2 \lg 2 \right)
+            \]
+        
+            \item \textbf{Combine the terms.}
+            Simplify the terms:
+            \[
+            \lim_{n \to \infty} \left( (n+1) \lg 2 - 2n \lg 2 \right) = \lim_{n \to \infty} \left( \lg 2 - n \lg 2 \right)
+            \]
+            This simplifies to:
+            \[
+            \lim_{n \to \infty} (1 - n) \lg 2 = \lim_{n \to \infty} 1 - n = -\infty
+            \]
+        
+            \item \textbf{Conclusion for the ratio.}
+            Therefore, the original limit of the ratio is:
+            \[
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = 2^{-\infty} = 0
+            \]
+            \begin{itemize}
+                \item Raise to the power of 2 since the log is base 2.
+            \end{itemize}
+            
+        \end{enumerate}
+    \end{example}

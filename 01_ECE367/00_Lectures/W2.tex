@@ -13,6 +13,7 @@
             \end{itemize}
         \end{definition}
         
+    \subsubsection{Projection onto a 1D subspace}
         \begin{example}
             Projection onto a 1-dimensional subspace.
 
@@ -47,65 +48,128 @@
             \mathbf{x}^* = \frac{\mathbf{x}^\top \mathbf{v}}{\|\mathbf{v}\|_2^2} \mathbf{v} = \left\langle \mathbf{x}, \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rangle \frac{\mathbf{v}}{\|\mathbf{v}\|_2}
             \]
             \begin{itemize}
-                \item \textbf{Note:} \( \left\lVert \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rVert_2 = 1 \), so we can think of \( \left\{ \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\} \) as an orthonormal basis for \( S \).
+                \item \textbf{Orthonormal Basis for S:} \( \left\{ \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\} \) since \( \left\lVert \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rVert_2 = 1 \)
+                \item \textbf{Projection Coefficient:} $\left\langle \mathbf{x}, \frac{\mathbf{v}}{\|\mathbf{v}\|_2} \right\rangle$
                 \item \textbf{Note:} $x^*$ is the point we are looking for in the projection problem.
             \end{itemize}
             \customFigure[0.5]{00_Images/Example_Projection.png}{Visual representation of the projection problem.}
         \end{example}
 
+    \subsubsection{Projection onto an n dimensional space}
         \begin{example}
         This can be generalized to higher dimensions. Let \( S \) be a subspace of \( \mathcal{V} \), and let \( \{ \mathbf{v}_1, \dots, \mathbf{v}_d \} \) be an orthonormal basis of \( S \).
+        \begin{enumerate}
+            \item \textbf{Problem setup}
+            Let 
+            \[
+            \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i
+            \]
+            \textbf{Goal:} Find \( \alpha_1, \dots, \alpha_d \) so as to minimize the norm \( \|\mathbf{x} - \mathbf{x}^*\|_2 \).
 
-        Let 
-        \[
-        \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i
-        \]
-        \textbf{Goal:} Find \( \alpha_1, \dots, \alpha_d \) so as to minimize the norm \( \|\mathbf{x} - \mathbf{x}^*\|_2 \).
+            \item \textbf{Derivation:}
+            By geometry, we require that 
+            \[
+            \langle \mathbf{e}, \mathbf{v}_j \rangle = 0 \quad \forall \, j = 1, \dots, d
+            \]
+            which implies:
+            \[
+            \langle \mathbf{x} - \mathbf{x}^*, \mathbf{v}_j \rangle = 0 \quad \forall \, j
+            \]
+            \[
+            \Rightarrow \langle \mathbf{x} - \sum_{i=1}^{d} \alpha_i \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \quad \forall \, j
+            \]
+            Using linearity of the inner product:
+            \[
+            \Rightarrow \langle \mathbf{x}, \mathbf{v}_j \rangle = \sum_{i=1}^{d} \alpha_i \langle \mathbf{v}_i, \mathbf{v}_j \rangle
+            \]
+            Since \( \langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \) if \( i \neq j \) and \( 1 \) if \( i = j \), this simplifies to:
+            \[
+            \alpha_j = \langle \mathbf{x}, \mathbf{v}_j \rangle \quad \text{b/c only the i=j term survives}
+            \]
+            Thus,
+            \[
+            \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i = \sum_{i=1}^{d} \langle \mathbf{x}, \mathbf{v}_i \rangle \mathbf{v}_i
+            \]
 
-        By geometry, we require that 
-        \[
-        \langle \mathbf{e}, \mathbf{v}_j \rangle = 0 \quad \forall \, j = 1, \dots, d
-        \]
-        which implies:
-        \[
-        \langle \mathbf{x} - \mathbf{x}^*, \mathbf{v}_j \rangle = 0 \quad \forall \, j
-        \]
-        \[
-        \Rightarrow \langle \mathbf{x} - \sum_{i=1}^{d} \alpha_i \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \quad \forall \, j
-        \]
-        Using linearity of the inner product:
-        \[
-        \Rightarrow \langle \mathbf{x}, \mathbf{v}_j \rangle = \sum_{i=1}^{d} \alpha_i \langle \mathbf{v}_i, \mathbf{v}_j \rangle
-        \]
-        Since \( \langle \mathbf{v}_i, \mathbf{v}_j \rangle = 0 \) if \( i \neq j \) and \( 1 \) if \( i = j \), this simplifies to:
-        \[
-        \alpha_j = \langle \mathbf{x}, \mathbf{v}_j \rangle \quad \text{b/c only the i=j term survives}
-        \]
-        Thus,
-        \[
-        \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i = \sum_{i=1}^{d} \langle \mathbf{x}, \mathbf{v}_i \rangle \mathbf{v}_i
-        \]
-        \[
-        = \sum_{i=1}^{d} (\mathbf{x}^\top \mathbf{v}_i) \mathbf{v}_i
-        \]
-        where \( \mathbf{v}_i \in \mathbb{R}^n \).
+            \item \textbf{Solution:}
+            \[
+            = \sum_{i=1}^{d} (\mathbf{x}^\top \mathbf{v}_i) \mathbf{v}_i
+            \]
+            \begin{itemize}
+                \item \( \mathbf{v}_i \in \mathbb{R}^n \).
+                \item \textbf{Projection Coefficients:} $\mathbf{x}^\top \mathbf{v}_i$
+            \end{itemize}
 
-        \[
-        \mathbf{e} = \mathbf{x} - \mathbf{x}^* \in S^\perp, \quad \mathbf{x}^* \in S
-        \]
-        So, 
-        \[
-        \mathbf{x} = \mathbf{x}^* + \mathbf{e}, \quad \text{where} \quad \mathbf{x}^* \in S, \quad \mathbf{e} \in S^\perp
-        \]
+            \item \textbf{Example of Orthogonal Decomposition:}
+            \[
+            \mathbf{e} = \mathbf{x} - \mathbf{x}^* \in S^\perp, \quad \mathbf{x}^* \in S
+            \]
+            So, 
+            \[
+            \mathbf{x} = \mathbf{x}^* + \mathbf{e}, \quad \text{where} \quad \mathbf{x}^* \in S, \quad \mathbf{e} \in S^\perp
+            \]
+        \end{enumerate}
 
-        This is an example of orthogonal decomposition.
         \customFigure[0.5]{00_Images/General.png}{Generalization of projection.}
         \end{example}
 
+    \subsubsection{Application of projections: Fourier series}
         \begin{example}
-            Fourier series in L3.
+            \textbf{Fourier series:}
+            \begin{enumerate}
+                \item Suppose we have a periodic function $x(t)$ with period $T_0$.
+
+                \begin{center}
+                \customFigure[0.5]{00_images/function_graph.png}{Periodic triangle function.}
+                \end{center}
+
+                \item \textbf{Inner product for time domain (complex version):} $a_k = \langle x(t), y(t) \rangle = \frac{1}{T} \int_{T} x(t) \overline{y(t)} \, dt$
+                \begin{itemize}
+                    \item \textbf{Note:} Real version is without the conjugate.
+                \end{itemize}
+                \item \textbf{Projection (i.e. one component of the sum):} $\text{Proj}_{\underline{v}_i} (\underline{x}) = \langle \underline{x}, \underline{v}_i \rangle \underline{v}_i$
+                
+                \item \textbf{Goal:} Express $x(t)$ (i.e. any periodic function) as a sum of complex exponentials:
+                
+                \[
+                x^{*}(t) = \sum_{k=-\infty}^{\infty} a_k e^{jk\omega_0 t}
+                \]
+                
+                \begin{itemize}
+                    \item \textbf{Projection:} $\text{Proj}_{e^{j k \omega_0 t}} \left( x(t) \right) = \left\langle x(t), \exp\left( j k \omega_0 t \right) \right\rangle e^{j k \omega_0 t} = a_k e^{j k \omega_0 t}$ for a certain value of $k$.
+                    \item \textbf{Projection coefficient:} $a_k = \left\langle x(t), e^{j k \omega_0 t} \right\rangle = \frac{1}{T_0} \int_{0}^{T} x(t) e^{-jk \omega_0 t} dt$
+                    \item \textbf{Fundamental frequency:} $\omega_0 = \frac{2\pi}{T_0}$.
+                \end{itemize}
+        
+                \item \textbf{Prove orthonormal basis for the complex exponentials:} To prove it's a orthnormal basis, must prove it has unit norm 1 and each pair of vectors are orthogonal (i.e. inner product is 0).
+                \begin{enumerate}
+                    \item \textbf{Magnitude of exp:} $\abs{e^{j\theta}}=1$. Therefore, it has unit norm.
+                    \item \textbf{Orthogonality:}
+                        \[
+                        \left\langle e^{j i \omega_0 t}, e^{j l \omega_0 t} \right\rangle = 
+                        \begin{cases}
+                        1, & i = l \\
+                        0, & i \neq l
+                        \end{cases}
+                        \]
+                        Therefore, for each pair of basis vectors, they are orthogonal.
+                    \begin{itemize}
+                        \item \textbf{Conjugate of exp:} $(e^{j\theta}) = e^{-j \theta}$
+                    \end{itemize}
+                \end{enumerate}
+                \item \textbf{Conclusion:} Fourier series is a projection of a function onto the set of othonormal basis functions $\text{exp}(jk\omega_0 t)$, where $k$ is an integer.
+                \begin{itemize}
+                    \item \textbf{Optimal:} This projection is optimal as it minimizes the approximation error \( \| x(t) - x^*(t) \| \), i.e.
+                    
+                    \[
+                    \frac{1}{T} \int_0^T \left( x(t) - x^*(t) \right)^2 dt
+                    \]
+                    As the number of terms in the summation increases to infinity, the error goes to 0. 
+                \end{itemize}
+            \end{enumerate}
         \end{example}
 
 \subsection{Gram-Schmidt and QR decomposition}
+        
 \subsection{Hyperplanes and half-spaces}
 \subsection{Non-euclidean projection}

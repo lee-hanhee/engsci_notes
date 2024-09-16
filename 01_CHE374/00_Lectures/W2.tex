@@ -26,24 +26,20 @@
     \end{itemize}
     \customFigure[0.5]{00_Images/Cash_Flow.png}{Cash flow diagrams.}
 \end{definition}
-    
-    \subsubsection{The end of one period is the beginning of the next}
-    \begin{definition}
-        $N$ periods from now is end of period $N$ and start of period $N+1$.
-    \end{definition}
 
     \subsubsection{Conventions and Assumptions}
-    \begin{definition}
+    \begin{warning}
         \begin{itemize}
+            \item \textbf{The end of one period is the beginning of the next:} $N$ periods from now is end of period $N$ and start of period $N+1$.
             \item \textbf{First costs:} Typically accounted for at \emph{time 0}.
             \item \textbf{Cash-flows:} 
             \begin{itemize}
                 \item Assumed to occur at the \emph{end of the period}.
                 \item Occuring during the period are \emph{summed} and accounted for at the \emph{end of the period}.
             \end{itemize}
-            \item \textbf{Interest:} Compounded once per period (unless specified)
+            \item \textbf{Interest:} Compounded once per period (unless specified), so the implication is that you need $r_{x/x}$ to do calculations.
         \end{itemize}
-    \end{definition}
+    \end{warning}
 
 \subsection{Types of cash flows}
 \begin{definition}
@@ -74,6 +70,7 @@
 \end{definition}
 
 \subsection{Equivalence}
+
 \begin{definition}
     \begin{itemize}
         \item \textbf{Mathematical Equivalence:} A consequence of the mathematical relationship between time and money.
@@ -81,26 +78,31 @@
         \item \textbf{Decisional Equivalence} - Due to indifference on the part of the decision maker among available choices.
     \end{itemize}    
 \end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item You are given a cash flow, but not always do you want to find it in terms of P and F since there are other types of cash flow that you can have. As a result, we can use equivalence factors to find different types of cash flows given another. 
+        \item Another common question is finding the present value based on future cash flows to see the worth of the company.
+    \end{itemize}    
+\end{intuition}
     
     \subsubsection{Mathematical equivalence}
     \begin{definition}
+
         \textbf{Equivalence in terms of future:}
         \begin{itemize}
             \item Two cash-flows, \( P_t \) at time \( t \) and \( F_{t+N} \) at time \( t+N \), are mathematically equivalent w.r.t. interest rate \( i \), if:
             \begin{equation}
-            F_{t+N} = P_t(1 + i)^N \tag{1}
+            F_{t+N} = P_t(1 + i)^N 
             \end{equation}
         
             \item If \( F_{t+N+M} \) (where \( M \) is a second number of periods) is equivalent to \( P_t \), then:
             \begin{equation}
-            F_{t+N+M} = P_t(1 + i)^{N+M} \tag{2}
-            \end{equation}
-            \begin{equation}
-            F_{t+N+M} = F_{t+N}(1 + i)^M \tag{3}
+            F_{t+N+M} = P_t(1 + i)^{N+M} = F_{t+N}(1 + i)^M 
             \end{equation}
         \end{itemize} 
         
-        \textbf{Equivalence in terms of present}
+        \textbf{Equivalence in terms of present:}
         \begin{equation}
         P_t = \frac{F_{t+N}}{(1 + i)^N}
         \end{equation}
@@ -109,7 +111,7 @@
         P_t = \frac{F_{t+N+M}}{(1 + i)^{N+M}}
         \end{equation}
 
-        \customFigure[0.75]{00_Images/Math_Eq.png}{Mathematical equivalence.}  
+        \customFigure[0.75]{00_Images/Math_Eq.png}{Mathematical equivalence, where each of these cashflows are equivalent.}  
     \end{definition}
 
     \subsubsection{Market equivalence}
@@ -122,26 +124,32 @@
         
     \end{definition}
 
-    \subsubsection{Decisional equivalence}
     \begin{definition}
+        \textbf{T-bill:} A treasury bill is a short-term government dept obligation backed by the government with a maturity of one year or less, sold in denominations of $\$1000$.
         \begin{itemize}
-            \item For a decision maker, two cash-flows, \( P_t \) at time \( t \) and \( F_{t+N} \) at time \( t+N \), are equivalent if they are indifferent between the two.
-            \item Here, the interest rate is not a prior information.
-            \item \textbf{Implied} interest rate relating to \( P_t \) and \( F_{t+N} \) can be calculated from the decision that the cash-flows are equivalent.
+            \item i.e. Government will pay you $\$1000$ by giving the government money presently.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Decisional equivalence}
+    \begin{definition} 
+        For a decision maker, two cash-flows, \( P_t \) at time \( t \) and \( F_{t+N} \) at time \( t+N \), are equivalent if the decision maker is indifferent between the two. 
+        \begin{itemize}
+            \item \textbf{Note:} The interest rate is not a prior information, but implied based on \( P_t \) and \( F_{t+N} \) from the decision that the cash-flows are equivalent.
         \end{itemize}
     \end{definition}
 
 \subsection{Calculate the present value of (regular) cash-flows}
-    \subsubsection{A factor approach}
-    \begin{definition}
+    \subsubsection{Factor approach}
+    \begin{warning}
         We assume equivalence:
         \begin{enumerate}
-            \item Interest is compounded once per period.
+            \item Interest is compounded once per period (i.e. implication on needing $r_{x/x}$ where $x$ is the compounding period)
             \item Cash-flow occurs at the end of the period.
             \item Time 0 is period 0 or the start of period 1.
             \item All periods are the same length.
         \end{enumerate}
-    \end{definition}
+    \end{warning}
 
     \subsubsection{Equivalence Factors}
     \begin{definition}
@@ -157,18 +165,7 @@
             \begin{itemize}
                 \item X and Y are chosen from the cash-flow symbols \( P \), \( F \), \( A \), \( G \), and Geom.
             \end{itemize}
-            \item If you have Y multiplied by a factor, you get the equivalent value of X. 
-            \begin{itemize}
-                \item e.g. \( P = F(P/F, i, N) \).
-            \end{itemize}
-            \item Convert from a present value \( P \) to a future cash-flow \( F \) in year \( N \), then:
-            \[
-            F = P(F/P, i, N)
-            \]
-            \item For the geometric gradient:
-            \[
-            P = G(P/G, i, g, N) \quad \text{or} \quad P = G(P/\text{Geom}, i, g, N)
-            \]
+            \item If you have Y multiplied by a factor, you get the equivalent value of X: \( X = Y(X/Y, ?, \ldots,?) \).
         \end{itemize}
     \end{definition}
 
@@ -208,22 +205,57 @@
         \end{equation}            
     \end{definition}
 
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Note:} This equation will always hold to either bring a cash-flow forward (i.e. to the future) by multiplying or bring cash-flow backward (i.e. to the past) by dividing.
+        \end{itemize}
+    \end{intuition}
+
     \subsubsection{Present value of a perpetuity (no factor):}
     \begin{definition}
         \begin{equation}
-            P = \frac{A}{i}, \quad A = Pi
+            P = \frac{A}{i}
         \end{equation}
         \begin{itemize}
             \item \textbf{Note:} Present value of this perpetuity is finite.
         \end{itemize}
     \end{definition}
 
-    \subsubsection{Series present worth factor:}
+    \begin{derivation}
+        Invest $\$100$ and expect to be paid $5\%$ interest per year (money that is paid out to you in cash forever (i.e. perpetuity))
+        \customFigure[0.75]{00_Images/PV_Perpetuity.png}{The present value of a perpetuity}
+        So the amount of perpetuity per period is $A=Pi$ (i.e. \$5), so the present value of the perpetuity is $P=\frac{A}{i}$
+        \begin{itemize}
+            \item \textbf{Key:} $A$ is not annuity, it is the perpetuity amount.
+        \end{itemize}
+    \end{derivation}
+
+    \subsubsection{Series present worth factor (i.e. PV of an annuity):}
     \begin{definition}
         \begin{equation}
             \left(P/A, \, i, \, N\right) = \left[\frac{1}{i} - \frac{1}{i(1+i)^N}\right] = \left[\frac{(1+i)^N - 1}{i(1+i)^N}\right]
         \end{equation}
     \end{definition}
+
+    \begin{derivation}
+        What if the lottery only pays $\$A$ per year for $N$ years.
+        \begin{itemize}
+            \item So by construction, we are finding the PV of an annuity based on the perpetuity. 
+            \item For $P_2$, we find $F_N^{(2)}$ first to then use the $P/F$ factor to discount back into the present value at period $1$/
+        \end{itemize}
+        \customFigure[0.75]{00_Images/Deriving_PV_Annuity.png}{PV of an annuity.}
+        \vspace{1em}
+
+        \textbf{Explanation for $F_N$:}
+
+        \begin{itemize}
+            \item The perpetuity's payments start at \( N+1 \), but its present value is calculated from the perspective of time \( N \). 
+                
+            \item The notation \( F_{N+1} \) would indicate the value of the perpetuity at time \( N+1 \), but we are concerned with its value at time \( N \), which is why the discounting factor \( (1+i)^N \) is applied.
+                
+            \item \( F_N^{(2)} \) is the present value of a perpetuity starting at \( N+1 \), discounted back to period \( N \). Since no payment occurs on period $N$, it is equivalent to $F_{N+1}^{(2)}$
+        \end{itemize}
+    \end{derivation}
 
     \subsubsection{Present value of an arithmetic gradient:}
     \begin{definition}
@@ -236,7 +268,6 @@
             \begin{equation*}
                 \left(P/G, \, i, \, N\right) = \frac{1}{i^2} \left(1 - \frac{1 + iN}{(1+i)^N}\right)
             \end{equation*}
-            \item Assumes no cash-flow at time $0$.
             \item 4 possibilities besides $G=0$
             \begin{enumerate}
                 \item \( A > 0 \) and \( G > 0 \) - means positive and increasing.
@@ -246,6 +277,27 @@
             \end{enumerate}
         \end{itemize}
     \end{definition}
+
+    \begin{warning}
+        \begin{itemize}
+            \item Assumes no cash-flow at time $0$.
+            \item If cash flow starts at period $1$, then grow from there. Take the first cash flow as annuity, then use the cash flows from period $2$ onwards with $G$.
+        \end{itemize}
+    \end{warning}
+    
+    \begin{derivation}
+        \customFigure[0.75]{00_Images/PV_AG.png}{Derivation of PV of an arithmetic gradient.}
+        \begin{itemize}
+            \item \textbf{Note:} Added and subtracted $1/(1+i)^n$ to introduce PV of annuity factor.
+            \item \textbf{Highlight:} The highlights show how they connect to the equation deduced by both $1$ and $2$. 
+            \item \textbf{P/G:} By definition is the factor that we derived.
+            \item \textbf{Equation 1:} 
+            \begin{itemize}
+                \item We divide by $\frac{1}{(1+i)^a} \; \forall a=1,\ldots,n-1$ because we are discounting back to the present value (i.e. period 0)
+                \item We multiply by the $P/A$ factor because it's annuity with an amount $G$.
+            \end{itemize}
+        \end{itemize}
+    \end{derivation}
 
     \subsubsection{Present value of a geometric series:}
     \begin{definition}
@@ -264,72 +316,33 @@
         \end{itemize}
     \end{definition}
 
-    \subsection{How to perform cash-flow analysis}
-    \begin{process}
-        \begin{enumerate}
-            \item Draw a cash-flow diagrams (optional)
-            \item Identify variables with corresponding values.
-            \item Find the interest rates that are appropriate for the factors.
-        \end{enumerate}
-    \end{process}
-
-    \begin{intuition}
+    \begin{derivation}
+        There is a cash-flow at the end of period $1$, otherwise what would increase by some $\%$?
+        \customFigure[0.75]{00_Images/PV_GS.png}{Derivation of the PV of geometrics series}
         \begin{itemize}
-            \item If you are looking for X given Y, but you have Z given X and Y given Z, then multiply as $(X/Y)=(Z/X)(Y/Z)$
-            \item Use invertibility when you can.
-            \item To discount a value back to the present value, multiply by $(P/F,i,N)$ where N is the amount of time you want to discount back.
+            \item \textbf{Equation 1:} Summing up the cash-flows and discounting them using $P/F$
+            \item \textbf{Equation 3:} Making a new interest rate that will expose the $P/A$ factor
         \end{itemize}
-    \end{intuition}
+    \end{derivation}
 
-    \subsubsection{Examples}
-    \begin{example}
-        Claudia wants to deposit an amount P now such that she can withdraw an equal amount of $\$2,000$ each year for the first 5 years and then $\$3,000$ for the following 3 years. Calculate P if the interest earned is 8\% per year. 
-        \begin{enumerate}
-            \item \textbf{Phase 1:} Calculate the present value of the first set of withdrawals ($2,000 \, \text{for 5 years}$). 
-            The present value of an annuity is given by the formula:
-            \[
-            P_1 = 2000 \times (P/A, 8\%, 5)
-            \]
-            Where $(P/A, 8\%, 5)$ is the annuity factor for 5 periods at 8% interest.
-        
-            \item \textbf{Phase 2:} Calculate the present value of the future withdrawals ($3,000$ for 3 years), but first, we need to compute the future value at the end of year 5.
-            The future value of these withdrawals at the end of year 5 is:
-            \[
-            F_5 = 3000 \times (P/A, 8\%, 3)
-            \]
-            
-            \item Now, discount \( F_5 \) back to the present (time 0) using the present value of a single sum formula:
-            \[
-            P_2 = F_5 \times (P/F, 8\%, 5)
-            \]
-            Where $(P/F, 8\%, 5)$ is the present value factor for 5 periods at 8%.
-        
-            \item \textbf{Total Present Value:} The total present value \( P \) is the sum of the present values from phase 1 and phase 2:
-            \[
-            P = P_1 + P_2
-            \]
-        \end{enumerate}
+\subsection{How to perform cash-flow analysis}
+\begin{process}
+    \begin{enumerate}
+        \item Draw a cash-flow diagrams (optional)
+        \item Identify variables with corresponding values.
+        \item Find the interest rates that are appropriate with the cash-flow diagrams (e.g. if years then must have $r_{y/y}$)
+        \item If finding PV, then make sure to discount values using $P/F$ back to the PV time.
+    \end{enumerate}
+\end{process}
 
-        We calculate $F_5$ (the future value at the end of year 5) and then discount it to find $P_2$ for the following reasons:
+\begin{warning}
+    Any interest rate will work but the period needs to be in terms of the compounding period (i.e. $r_{x/x}$) for the equivalence factors. Or sometimes the question will ask for the values in a certain period (e.g. months)
+\end{warning}
 
-        \begin{itemize}
-            \item \textbf{Why Calculate $F_5$?} 
-            
-            The \$3,000 withdrawals start in year 6. To account for these future payments, we first determine their value at the end of year 5, denoted as $F_5$, since these withdrawals begin after year 5.
-            
-            \item \textbf{Why Discount $F_5$ to Find $P_2$?} 
-            
-            Once $F_5$ is known, we discount it to the present (year 0) to find $P_2$, which represents the portion of the deposit needed today to fund the future withdrawals.
-            
-            \item \textbf{Summary:}
-            
-            \begin{enumerate}
-                \item Calculate $F_5$: The future value of the \$3,000 withdrawals at the end of year 5.
-                \item Discount $F_5$: Convert it to $P_2$ using present value factors.
-            \end{enumerate}
-
-            \item \textbf{Why Not Use a Single Formula for \$3,000 Withdrawals?}
-    
-            Since the \$3,000 withdrawals start after year 5, their value at year 0 differs from the value of the earlier \$2,000 withdrawals. Directly using a single annuity formula for the \$3,000 withdrawals would neglect the fact that these payments occur later. 
-        \end{itemize}
-    \end{example}
+\begin{intuition}
+    \begin{itemize}
+        \item If you are looking for X given Y, but you have Z given Y and X given Z, then multiply as $(X/Y)=(Z/Y)(X/Z)$
+        \item Use invertibility when you can.
+        \item To discount a value back to the present value, multiply by $(P/F,i,N)$ where N is the amount of time you want to discount back.
+    \end{itemize}
+\end{intuition}

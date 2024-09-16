@@ -3,6 +3,13 @@
     Money that is earned by investors (creditors/lenders) for allowing others (borrowers) to use their money.
 \end{definition}
 
+\begin{intuition}
+    \begin{itemize}
+        \item Interest is needed to be a reward for either putting money somewhere to earn more money or being given money and that having an interest rate. 
+        \item If there was no interest rate, then the future value would be equal to the present value. So we need interest rates. This is the basis for the whole course.
+    \end{itemize}
+\end{intuition}
+
 \subsection{Interest rate}
 \begin{definition}
     The rate at which interest is earned (determined by risks):
@@ -123,92 +130,6 @@
         \item The only difference between the rates is just language. We are converting into different rates based on compounding and the period (but they are all the same).
     \end{itemize}
 \end{intuition}
-
-\begin{example}
-    What is the final value of \$100 at an interest rate of 10\% per year, compounded semi-annually?
-
-    \begin{enumerate}
-        \item \textbf{Break down the interest rate}: 
-        Since the interest is compounded semi-annually, the 10\% annual interest rate is divided into two periods, each with a 5\% interest rate per period. 
-        
-        \item \textbf{Calculate the future value after the first 6 months:} 
-        \[
-        \text{Value after 6 months} = 100 \times (1 + 0.05) = 100 \times 1.05 = 105.
-        \]
-        
-        \item \textbf{Calculate the future value after 1 year:} 
-        The interest is compounded again after another 6 months. The new value is obtained by applying another 5\% interest on \$105:
-        \[
-        \text{Value after 1 year} = 105 \times (1 + 0.05) = 105 \times 1.05 = 110.25.
-        \]
-        
-        \item \textbf{Final result:} 
-        The final amount is:
-        \[
-        \boxed{110.25}
-        \]
-    \end{enumerate}
-
-    What is the effective annual interest rate, given a nominal rate of 10\% per year, compounded semi-annually?
-
-    \begin{enumerate}        
-        \item \textbf{Determine the effective annual interest rate}: 
-        The effective annual rate, \( r_{\text{eff}} \), is the rate that gives the same final value if compounded annually. We solve for \( r_{\text{eff}} \) using:
-        \[
-        100 \times (1 + r_{\text{eff}}) = 100(1+5\%)^2 = 110.25.
-        \]
-        Solving for \( r_{\text{eff}} \):
-        \[
-        1 + r_{\text{eff}} = 1.1025 \quad \Rightarrow \quad r_{\text{eff}} = 0.1025 = 10.25\%.
-        \]
-        
-        \item \textbf{Final result}: 
-        Therefore, the effective annual interest rate is:
-        \[
-        \boxed{10.25\%}
-        \]
-    \end{enumerate}
-
-    What is the continuously compounded interest rate, given a final value of \$110.25 after 1 year on an initial investment of \$100?
-
-    \begin{enumerate}
-        \item \textbf{Apply the continuously compounding formula}: 
-        For continuous compounding, the formula to find the future value is:
-        \[
-        F = P e^{r_{\text{cc}} \cdot t},
-        \]
-        where:
-        \begin{itemize}
-            \item \(F\) is the final amount (\$110.25),
-            \item \(P\) is the initial principal (\$100),
-            \item \(r_{\text{cc}}\) is the continuously compounded interest rate, and
-            \item \(t\) is the time in years (1 year in this case).
-        \end{itemize}
-        Substituting the known values into the formula:
-        \[
-        100 e^{r_{\text{cc}} \cdot 1} = 110.25.
-        \]
-
-        \item \textbf{Solve for \(r_{\text{cc}}\)}: 
-        Dividing both sides by 100, we get:
-        \[
-        e^{r_{\text{cc}}} = 1.1025.
-        \]
-        Taking the natural logarithm of both sides to isolate \(r_{\text{cc}}\):
-        \[
-        r_{\text{cc}} = \ln(1.1025) \approx 0.09758 = 9.758\%.
-        \]
-
-        \item \textbf{Final result}: 
-        Therefore, the continuously compounded interest rate is:
-        \[
-        \boxed{9.758\%/\text{year}}
-        \]
-        \begin{itemize}
-            \item $t$: Important for continuous compounding.
-        \end{itemize}
-    \end{enumerate}
-\end{example}
 
 \subsection{How to solve for equivalent interest rates?}
 \begin{process}

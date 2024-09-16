@@ -1,0 +1,137 @@
+\subsection{Affine transformations of the Independent Variable}
+    In general, $y(t) = x(at+b)$ for any $a,b \in \mathbb{R}$ (and usually $a \neq 0$)
+    \subsubsection{Time dilation}
+    \begin{definition}
+        $x(t) \rightarrow x\left(\frac{t}{a}\right)$ then 
+        \begin{enumerate}
+            \item \textbf{Speed up:} If $a > 1$ (i.e. compressed)
+            \item \textbf{Slow down:} If $0<a<1$ (i.e. stretched)
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/TD_Speed.png}{Time dilation, which sped up compared to x}
+        \customFigure[0.75]{00_Images/TD_Slow.png}{Time dilation, which slowed down compared to x}
+    \end{example}
+
+    \subsubsection{Time reversal}
+    \begin{definition}
+        $x(t)\rightarrow x(-t) = \tilde{x}(t)$ (i.e. reflect across y-axis)
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/TR.png}{Time reversal, which reverses time compared to x}
+    \end{example}
+
+    \subsubsection{Time delay}
+    \begin{definition}
+        $x(t) \rightarrow x(t - a)$ for $a>0$ (i.e. right shift)
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/TD.png}{Time delay, which delays time compared to x}
+    \end{example}
+
+    \subsubsection{Time advance}
+    \begin{definition}
+        $x(t) \rightarrow x(t + a)$ for $a>0$ (i.e. left shift)
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/TA.png}{Time advance, which advances time compared to x}
+    \end{example}
+
+    \subsubsection{Combined transformations}
+    \begin{example}
+        \begin{enumerate}
+            \item Time delay and shift
+            \customFigure[0.75]{00_Images/TDS.png}{Time is stretched and delayed in time compared to x}
+            \item Time reversal, dilation, and shift
+            \customFigure[0.75]{00_Images/TRDS.png}{Time is reversal, dilated, and shifted compared to x}
+        \end{enumerate}
+    \end{example}
+
+\subsection{Transformations of Discrete Time}
+    In general, $y[n] = x[an+b]$ for any $a,b \in \mathbb{Z}$ (and usually $a \neq 0$)
+    
+    \begin{example}
+        \customFigure[0.75]{00_Images/DT1.png}{Transformation of DT signal.}
+        \customFigure[0.75]{00_Images/DT2.png}{Transformation of DT signal.}
+    \end{example}
+
+    \begin{warning}
+        The same transformations in CT hold for DT, but we need to be careful. 
+        \begin{itemize}
+            \item When $|a|>1$, only one in every $|a|$ samples from $x$ is retained.
+            \begin{itemize}
+                \item For \(y[n] = x[an]\), the points of \(y\) at any \(n\) correspond to \(x\) evaluated at intervals of \(a\). If \(a = 3\), then:
+
+                \[
+                y[0] = x[0], \quad y[1] = x[3], \quad y[2] = x[6], \quad \dots
+                \]
+                
+                This demonstrates how only every third sample is retained, compressing the original signal.
+            \end{itemize}
+            
+            \item Defining $y[n] = x[n/2]$ does not make sense, since $x[-1/2], x[1/2],x[3/2],\ldots$ are undefined.
+        \end{itemize}    
+    \end{warning}
+
+\subsection{Periodic Signals}
+    \subsubsection{CT: T-periodic}
+    \begin{definition}
+        A CT signal \(x\) is $T$-periodic for some positive real number \(T\) if
+        \begin{equation}
+            x(t + T) = x(t) \quad \text{for all} \quad t \in \mathbb{R}.
+        \end{equation}
+
+        \begin{itemize}
+            \item If $x$ is $T$-periodic, then \(x(t + kT) = x(t)\) for all \(k \in \mathbb{Z}\) and all \(t \in \mathbb{R}\). (i.e. if x is $T$-periodic, then x is also $kT$-periodic)
+            \item Let \(y(t) = x(t + T)\), then \(x\) is \(T\)-periodic if $y \overset{a.e.}{=} x$.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{CT: Fundamental period}
+    \begin{definition}
+        The \textbf{fundamental period} (if it exists) of a CT periodic signal \(x\) is the smallest positive real number \(T_0\) such that \(x\) is \(T_0\)-periodic.
+        \begin{itemize}
+            \item \textbf{Fundamental frequency:} $T_0 = \frac{1}{f_0}$
+        \end{itemize}
+    \end{definition}
+
+    \begin{warning}
+        A constant signal \(x(t) = C\) is \(T\)-periodic for all \(T \in (0, \infty)\). Such a signal has no fundamental period since the set \((0, \infty)\) does not have a smallest element.
+    \end{warning}
+
+    \subsubsection{DT: N-Periodic}
+    \begin{definition}
+        A DT signal \(x\) is \(N\)-periodic for some positive integer \(N\) if
+        \begin{equation}
+            x[n + N] = x[n] \quad \text{for all} \quad n \in \mathbb{Z}    
+        \end{equation}
+            
+        \begin{itemize}
+            \item If \(x\) is \(N\)-periodic, then \(x[n + kN] = x[n]\) for all \(k, n \in \mathbb{Z}\) (i.e. If \(x\) is \(N\)-periodic, then \(x\) is also \(kN\)-periodic).
+        \end{itemize}
+    \end{definition}
+    
+    \begin{warning}
+        A 1-periodic signal must be constant.
+    \end{warning}
+
+    \subsubsection{DT: Fundamental Period}
+    \begin{definition}
+        The \textbf{fundamental period} of a DT periodic signal \(x\) is the smallest positive integer \(N_0\) such that \(x\) is \(N_0\)-periodic.
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/FP_DT}{Fundamental period of a DT signal}
+    \end{example}
+
+    \begin{warning}
+        The fundamental period cannot include the same sample twice (i.e. don't pick the range inclusive of two peaks). However, this is fine in CT signals.
+    \end{warning}
+
+\subsection{Even and Odd Signals}
+    
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  10 SEP 2024 15:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  15 SEP 2024 18:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,112 +1140,120 @@ Non-PDF special ignored!
 \openout7 = `CHE374_Cheatsheet.lot'.
 
  (./00_Lectures/W1.tex [3]
-<00_Images/Simple_Interest_v2.png, id=608, 1023.825pt x 334.24875pt>
+<00_Images/Simple_Interest_v2.png, id=631, 1023.825pt x 334.24875pt>
 File: 00_Images/Simple_Interest_v2.png Graphic file (type png)
 <use 00_Images/Simple_Interest_v2.png>
-Package pdftex.def Info: 00_Images/Simple_Interest_v2.png  used on input line 32.
+Package pdftex.def Info: 00_Images/Simple_Interest_v2.png  used on input line 39.
 (pdftex.def)             Requested size: 263.78506pt x 86.11719pt.
-<00_Images/Derivation_Simple_Int.png, id=610, 843.15pt x 228.855pt>
+<00_Images/Derivation_Simple_Int.png, id=633, 843.15pt x 228.855pt>
 File: 00_Images/Derivation_Simple_Int.png Graphic file (type png)
 <use 00_Images/Derivation_Simple_Int.png>
-Package pdftex.def Info: 00_Images/Derivation_Simple_Int.png  used on input line 34.
+Package pdftex.def Info: 00_Images/Derivation_Simple_Int.png  used on input line 41.
 (pdftex.def)             Requested size: 263.78506pt x 71.59732pt.
-<00_Images/Compound_Interest.png, id=611, 1042.89626pt x 337.26pt>
+<00_Images/Compound_Interest.png, id=634, 1042.89626pt x 337.26pt>
 File: 00_Images/Compound_Interest.png Graphic file (type png)
 <use 00_Images/Compound_Interest.png>
-Package pdftex.def Info: 00_Images/Compound_Interest.png  used on input line 50.
+Package pdftex.def Info: 00_Images/Compound_Interest.png  used on input line 57.
 (pdftex.def)             Requested size: 263.78506pt x 85.30286pt.
-<00_Images/Derivation_Compound_Int.png, id=612, 888.31876pt x 273.02pt>
+ [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc} <./00_Images/Simple_Interest_v2.png> <./00_Images/Derivation_Simple_Int.png>]
+<00_Images/Derivation_Compound_Int.png, id=648, 888.31876pt x 273.02pt>
 File: 00_Images/Derivation_Compound_Int.png Graphic file (type png)
 <use 00_Images/Derivation_Compound_Int.png>
-Package pdftex.def Info: 00_Images/Derivation_Compound_Int.png  used on input line 52.
+Package pdftex.def Info: 00_Images/Derivation_Compound_Int.png  used on input line 59.
 (pdftex.def)             Requested size: 263.78506pt x 81.06927pt.
- [4{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./00_Images/Simple_Interest_v2.png> <./00_Images/Derivation_Simple_Int.png> <./00_Images/Compound_Interest.png>]
-<00_Images/Effective_Interest_Rate.png, id=627, 655.44875pt x 307.1475pt>
+<00_Images/Effective_Interest_Rate.png, id=649, 655.44875pt x 307.1475pt>
 File: 00_Images/Effective_Interest_Rate.png Graphic file (type png)
 <use 00_Images/Effective_Interest_Rate.png>
-Package pdftex.def Info: 00_Images/Effective_Interest_Rate.png  used on input line 82.
+Package pdftex.def Info: 00_Images/Effective_Interest_Rate.png  used on input line 89.
 (pdftex.def)             Requested size: 263.78506pt x 123.61137pt.
- [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./00_Images/Derivation_Compound_Int.png> <./00_Images/Effective_Interest_Rate.png>]
-<00_Images/Compound_Interest_Subperiods.png, id=639, 1077.02374pt x 345.29pt>
+ [5 <./00_Images/Compound_Interest.png> <./00_Images/Derivation_Compound_Int.png> <./00_Images/Effective_Interest_Rate.png>]
+<00_Images/Compound_Interest_Subperiods.png, id=659, 1077.02374pt x 345.29pt>
 File: 00_Images/Compound_Interest_Subperiods.png Graphic file (type png)
 <use 00_Images/Compound_Interest_Subperiods.png>
-Package pdftex.def Info: 00_Images/Compound_Interest_Subperiods.png  used on input line 116.
+Package pdftex.def Info: 00_Images/Compound_Interest_Subperiods.png  used on input line 123.
 (pdftex.def)             Requested size: 263.78506pt x 84.5678pt.
- [6 <./00_Images/Compound_Interest_Subperiods.png>] [7]) (./00_Lectures/W2.tex
-<00_Images/Cash_Flow.png, id=672, 548.0475pt x 175.65625pt>
+ [6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc} <./00_Images/Compound_Interest_Subperiods.png>]) (./00_Lectures/W2.tex
+<00_Images/Cash_Flow.png, id=675, 548.0475pt x 175.65625pt>
 File: 00_Images/Cash_Flow.png Graphic file (type png)
 <use 00_Images/Cash_Flow.png>
 Package pdftex.def Info: 00_Images/Cash_Flow.png  used on input line 27.
 (pdftex.def)             Requested size: 249.55872pt x 79.98804pt.
- [8 <./00_Images/Cash_Flow.png>]
-<00_Images/Single_Payment.png, id=679, 809.0225pt x 315.1775pt>
+ [7]
+<00_Images/Single_Payment.png, id=682, 809.0225pt x 315.1775pt>
 File: 00_Images/Single_Payment.png Graphic file (type png)
 <use 00_Images/Single_Payment.png>
-Package pdftex.def Info: 00_Images/Single_Payment.png  used on input line 52.
+Package pdftex.def Info: 00_Images/Single_Payment.png  used on input line 48.
 (pdftex.def)             Requested size: 249.55872pt x 97.22308pt.
-<00_Images/Perpetuity.png, id=680, 858.20625pt x 259.97125pt>
+<00_Images/Perpetuity.png, id=683, 858.20625pt x 259.97125pt>
 File: 00_Images/Perpetuity.png Graphic file (type png)
 <use 00_Images/Perpetuity.png>
-Package pdftex.def Info: 00_Images/Perpetuity.png  used on input line 54.
+Package pdftex.def Info: 00_Images/Perpetuity.png  used on input line 50.
 (pdftex.def)             Requested size: 249.55872pt x 75.596pt.
-<00_Images/Annuity.png, id=681, 833.1125pt x 396.48125pt>
+<00_Images/Annuity.png, id=684, 833.1125pt x 396.48125pt>
 File: 00_Images/Annuity.png Graphic file (type png)
 <use 00_Images/Annuity.png>
-Package pdftex.def Info: 00_Images/Annuity.png  used on input line 56.
+Package pdftex.def Info: 00_Images/Annuity.png  used on input line 52.
 (pdftex.def)             Requested size: 249.55872pt x 118.7638pt.
-<00_Images/Arithmetic_Gradient.png, id=682, 700.6175pt x 390.45876pt>
+<00_Images/Arithmetic_Gradient.png, id=685, 700.6175pt x 390.45876pt>
 File: 00_Images/Arithmetic_Gradient.png Graphic file (type png)
 <use 00_Images/Arithmetic_Gradient.png>
-Package pdftex.def Info: 00_Images/Arithmetic_Gradient.png  used on input line 64.
+Package pdftex.def Info: 00_Images/Arithmetic_Gradient.png  used on input line 60.
 (pdftex.def)             Requested size: 249.55872pt x 139.08151pt.
-<00_Images/Geometric_Gradient.png, id=683, 696.6025pt x 391.4625pt>
+<00_Images/Geometric_Gradient.png, id=686, 696.6025pt x 391.4625pt>
 File: 00_Images/Geometric_Gradient.png Graphic file (type png)
 <use 00_Images/Geometric_Gradient.png>
-Package pdftex.def Info: 00_Images/Geometric_Gradient.png  used on input line 72.
+Package pdftex.def Info: 00_Images/Geometric_Gradient.png  used on input line 68.
 (pdftex.def)             Requested size: 249.55872pt x 140.23946pt.
- [9 <./00_Images/Single_Payment.png> <./00_Images/Perpetuity.png> <./00_Images/Annuity.png>]
-<00_Images/Math_Eq.png, id=691, 1099.10625pt x 318.18875pt>
+ [8 <./00_Images/Cash_Flow.png> <./00_Images/Single_Payment.png> <./00_Images/Perpetuity.png>] [9 <./00_Images/Annuity.png> <./00_Images/Arithmetic_Gradient.png> <./00_Images/Geometric_Gradient.png>]
+<00_Images/Math_Eq.png, id=703, 1099.10625pt x 318.18875pt>
 File: 00_Images/Math_Eq.png Graphic file (type png)
 <use 00_Images/Math_Eq.png>
-Package pdftex.def Info: 00_Images/Math_Eq.png  used on input line 112.
+Package pdftex.def Info: 00_Images/Math_Eq.png  used on input line 114.
 (pdftex.def)             Requested size: 374.33807pt x 108.36723pt.
- [10
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.113     \end{definition}
-                          
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.113     \end{definition}
-                           <./00_Images/Arithmetic_Gradient.png> <./00_Images/Geometric_Gradient.png>] [11
-pdfTeX warning (ext4): destination with the same identifier (name{equation.3.10}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.173     \end{definition}
-                           <./00_Images/Math_Eq.png>] [12] [13]) (./00_Lectures/W3.tex [14]) (./00_Lectures/W4.tex [15] [16]) (./00_Lectures/W5.tex [17]) (./00_Lectures/W6.tex [18]) (./00_Lectures/W7.tex [19] [20] [21]) (./00_Lectures/W8.tex [22] [23] [24]) (./00_Lectures/W9.tex [25] [26] [27]) (./00_Lectures/W10.tex [28] [29] [30] [31]) (./00_Lectures/W11.tex) [32] (./CHE374_Cheatsheet.aux)
+ [10 <./00_Images/Math_Eq.png>] [11]
+<00_Images/PV_Perpetuity.png, id=723, 911.405pt x 239.89626pt>
+File: 00_Images/PV_Perpetuity.png Graphic file (type png)
+<use 00_Images/PV_Perpetuity.png>
+Package pdftex.def Info: 00_Images/PV_Perpetuity.png  used on input line 226.
+(pdftex.def)             Requested size: 374.33807pt x 98.5338pt.
+<00_Images/Deriving_PV_Annuity.png, id=724, 895.345pt x 746.79pt>
+File: 00_Images/Deriving_PV_Annuity.png Graphic file (type png)
+<use 00_Images/Deriving_PV_Annuity.png>
+Package pdftex.def Info: 00_Images/Deriving_PV_Annuity.png  used on input line 246.
+(pdftex.def)             Requested size: 374.33807pt x 312.23666pt.
+ [12 <./00_Images/PV_Perpetuity.png>] [13 <./00_Images/Deriving_PV_Annuity.png>]
+<00_Images/PV_AG.png, id=744, 581.17125pt x 821.0675pt>
+File: 00_Images/PV_AG.png Graphic file (type png)
+<use 00_Images/PV_AG.png>
+Package pdftex.def Info: 00_Images/PV_AG.png  used on input line 289.
+(pdftex.def)             Requested size: 374.33807pt x 528.8641pt.
+ [14 <./00_Images/PV_AG.png>]
+<00_Images/PV_GS.png, id=750, 404.51125pt x 592.2125pt>
+File: 00_Images/PV_GS.png Graphic file (type png)
+<use 00_Images/PV_GS.png>
+Package pdftex.def Info: 00_Images/PV_GS.png  used on input line 321.
+(pdftex.def)             Requested size: 374.33807pt x 548.05003pt.
+ [15] [16 <./00_Images/PV_GS.png>]) (./00_Lectures/W3.tex [17] [18]) (./00_Lectures/W4.tex [19] [20]) (./00_Lectures/W5.tex [21]) (./00_Lectures/W6.tex [22]) (./00_Lectures/W7.tex [23] [24]) (./00_Lectures/W8.tex [25] [26] [27]) (./00_Lectures/W9.tex [28] [29] [30]) (./00_Lectures/W10.tex [31] [32] [33] [34]) (./00_Lectures/W11.tex) [35] (./CHE374_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `CHE374_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: ECD3FACC1130F5531D850F91CA1291EC;20614.
+(rerunfilecheck)             Checksum: 8500BB07123E83D68EB5F07615A688F7;21157.
  ) 
 Here is how much of TeX's memory you used:
- 50019 strings out of 474116
- 1182239 string characters out of 5743682
+ 50077 strings out of 474116
+ 1183647 string characters out of 5743682
  1955187 words of memory out of 5000000
- 71145 multiletter control sequences out of 15000+600000
- 625858 words of font info for 98 fonts, out of 8000000 for 9000
+ 71194 multiletter control sequences out of 15000+600000
+ 619879 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 99i,13n,107p,812b,1320s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on CHE374_Cheatsheet.pdf (32 pages, 4160216 bytes).
+ 99i,13n,107p,812b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on CHE374_Cheatsheet.pdf (35 pages, 4573642 bytes).
 PDF statistics:
- 1138 PDF objects out of 1200 (max. 8388607)
- 1032 compressed objects within 11 object streams
- 365 named destinations out of 1000 (max. 500000)
- 958 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1176 PDF objects out of 1200 (max. 8388607)
+ 1062 compressed objects within 11 object streams
+ 376 named destinations out of 1000 (max. 500000)
+ 1002 words of extra memory for PDF output out of 10000 (max. 10000000)
 

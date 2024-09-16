@@ -1,16 +1,30 @@
-\subsection{Mortgage Terms}
+\subsection{Mortgages}
 \begin{terminology}
     \begin{enumerate}
-        \item \textbf{Principle:} The amount of money you borrow to pay for a real property.
-        \item \textbf{Down Payment:} The fraction of the cost of the real property that you pay upfront yourself. (Usually 20\%)
+        \item \textbf{Mortgage loan:} A loan secured by \textbf{real property} (i.e. borrow money and use real property as a collateral)
+        \item \textbf{Principle:} Fraction of the real property's cost that you borrow to pay. (Usually 80\%)
+        \item \textbf{Down Payment:} Fraction of the real property's cost that you pay upfront yourself. (Usually 20\%)
+        \item \textbf{Total cost:} Sum of the principle and down payment (i.e. property's cost)
         \item \textbf{Loan-to-Value Ratio (LTV):} Ratio of mortgage loan to value of the property.
-        \item \textbf{Mortgage Rate:} The interest rate charged on the mortgage. Compounding period usually matches frequency of payments.
-        \item \textbf{Amortization Period:} Time horizon for mortgage payment. 
-        \item \textbf{Term:} Duration of time where the mortgage rate is fixed. When term ends, re-evaluate how much you still owe, then use new interest rate to calculate monthly payment based on time left in amortization period. 
+        \item \textbf{Mortgage Rate:} The interest rate charged on the mortgage loan. Compounding period usually matches frequency of payments.
+        \item \textbf{Amortization Period:} Time horizon for mortgage payment (i.e. repayment)
+        \begin{itemize}
+            \item \textbf{Note:} You should be regularly paying back your mortgage (e.g. monthly).
+            \item \textbf{Note:} The amount of each regularly payment is calculated based on mortgage rate and amortization period.
+        \end{itemize} 
+        \item \textbf{Term:} Duration of time where the mortgage rate is fixed.
+        \begin{itemize}
+            \item \textbf{Key:} When term ends, re-evaluate how much you still owe, then use new interest rate to calculate monthly payment based on time left in amortization period. 
+            \item \textbf{Note:} Fixed for a shorter period of time compared to amortization period.
+        \end{itemize}
     \end{enumerate}
 \end{terminology}
 
-\subsection{Net amount owed at end of term:}
+\begin{warning}
+    The payments are calculated based on the amortization period, NOT the term.
+\end{warning}
+
+\subsubsection{Net amount owed at end of term:}
 \begin{definition}
     \begin{equation}
         \begin{aligned}
@@ -27,7 +41,16 @@
     \end{itemize}
 \end{definition}
 
-\subsection{Net monthly payment:}
+\begin{intuition}
+    The next set of mortgage payments are determined by:
+    \begin{itemize}
+        \item The amount still owed.
+        \item New mortgage rate.
+        \item Remaining amortization period.
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Net monthly payment:}
 \begin{definition}
     \begin{equation}
         A = P \left(A/P, \, \frac{i}{N}, \, t \times N\right) = A \left[\frac{i (1+i)^{t \times N}}{(1+i)^{t \times N} - 1}\right]
@@ -41,34 +64,98 @@
     \end{itemize}
 \end{definition}
 
-\subsection{Bond Terms}
+\subsubsection{How to determine monthly payments?}
+\begin{process}
+    \begin{enumerate}
+        \item Identify the principle, mortgage rate, and amortization period.
+        \item Change the mortgage rate to be in terms of the periods you want (e.g. want months then $r_{m/m}$)
+        \item Change amortization period to the appropriate periods (e.g. years to months).
+        \item Use net monthly payment to calculate.
+        \item If need to calculate another term's monthly payment, then first calculate the net amount owed at end of period (i.e. principal at year ? - payments at year ?)
+        \item Then repeat steps 1-4.
+    \end{enumerate}
+\end{process}
+
+\subsection{Bonds}
 \begin{terminology}
     \begin{itemize}
-        \item \textbf{Bond:} A type of loan where the creditor pays a stated amount at specified intervals for a defined period (\textit{Coupon Payments}), plus a final amount at a specified date (\textit{Face Value}).
+        \item \textbf{Bond:} A type of loan where the creditor pays
+        \begin{enumerate}
+            \item \textbf{Coupon Payments:} A stated amount at specified intervals for a defined period.
+            \item \textbf{Face value:} A final amount at a specified date (i.e. maturity date)
+        \end{enumerate}
         \item \textbf{Coupon Rate:} The rate used to calculate coupon payments.
-        \item \textbf{Coupon Payments:} Regular payments made over the course of a bond’s lifetime. Amount is determined by coupon rate and frequency of payment (per the same time unit as the coupon rate).
+        \item \textbf{Coupon Payments:} Regular payments made over the course of a bond’s lifetime. 
         \begin{equation}
             \text{Coupon Amount} = (\text{Coupon Rate}) \times \frac{\text{Face Value}}{\text{Payment Frequency}}
         \end{equation}
-        
-        \item \textbf{Yield:} Hypothetical interest rate of a bond given a purchase price. Solved using interpolation.
-        
-        \item \textbf{Bond Price:}
-        \begin{equation}
-            \begin{aligned}
-                P &= A \left(P/A, \, \frac{i}{m}, \, N\right) + F \left(P/F, \, \frac{i}{m}, \, N\right) \\
-                &= A \left[\frac{(1 + \frac{i}{m})^{N} - 1}{\frac{i}{m} (1 + \frac{i}{m})^{N}}\right] + F \left[\frac{1}{(1 + \frac{i}{m})^{N}}\right]
-            \end{aligned}
-        \end{equation}
-        
+        \begin{itemize}
+            \item \textbf{Note:} Amount is determined by coupon rate and frequency of payment (per the same time unit as the coupon rate).
+        \end{itemize}
     \end{itemize}
-    
-    % Definitions for the variables used in bond price calculations
-    
+\end{terminology}
+
+\subsubsection{Yield}
+\begin{definition}
+    Hypothetical interest rate of a bond given a purchase price. Solved using interpolation.
+        \begin{itemize}
+            \item \textbf{Bond yield inversely proportional to bond price:} The higher the yield, the less you value the future payments the bond promises, and the price you are willing to pay is lower.
+            \item \textbf{What is yield determined by?} (1) Market expectations of risk (i.e. less stable, means higher bond yields), (2) Longer time to maturity, higher bond yields.
+        \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Intuition:} The yield reflects the total return that the investor expects, including both the fixed coupon payments and face value, which should be higher for risker investments (i.e. they will buy a bond for lower price) 
+        \item \textbf{Risk proportional to reward:} A creditor (i.e. investor) must be compensated for the risk of default by demanding a lower price for the bondy when there is a higher preceived risk. 
+    \end{itemize}
+\end{intuition}
+
+\begin{warning}
+    Yield reflects the time value of money for bond payments.
+\end{warning}
+
+\subsubsection{Bond price}
+\begin{definition}
+    \begin{equation}
+        \begin{aligned}
+            P &= A \left(P/A, \, \frac{i}{m}, \, N\right) + F \left(P/F, \, \frac{i}{m}, \, N\right) \\
+            &= A \left[\frac{(1 + \frac{i}{m})^{N} - 1}{\frac{i}{m} (1 + \frac{i}{m})^{N}}\right] + F \left[\frac{1}{(1 + \frac{i}{m})^{N}}\right]
+        \end{aligned}
+    \end{equation}
+
     \begin{itemize}
         \item $i$: Yield
         \item $m$: Frequency of coupon payments per time unit (e.g. year)
         \item $N$: Number of periods to maturity ($m \times \text{time unit}$)
         \item $A$: Value of coupon payment
     \end{itemize}
-\end{terminology}
+\end{definition}
+
+\begin{intuition}
+    Bond prices are calculated by discounting payments using the bond yield.
+\end{intuition}
+
+\subsubsection{How to calculate bond price?}
+\begin{process}
+    \begin{enumerate}
+        \item Draw the cash-flow diagram (same everytime)
+        \item Identify appropriate variables, making sure that $N$ and $i/m$ are in the same time unit.
+        \item Use bond price formula (know why it works intuitively)
+    \end{enumerate}
+\end{process}
+
+\subsubsection{How to calculate bond yield?}
+\begin{process}
+    \begin{enumerate}
+        \item Draw the cash-flow diagram (same everytime)
+        \item Identify appropriate variables, making sure that $N$ and $i/m$ are in the same time unit.
+        \item Use bond price formula to plug in all known values. 
+        \item Make guesses for the yield, until you get a lower and upper bound for $P$ 
+        \item Interpolate: $\frac{Y_{\text{avg}} - Y_1}{X_{\text{avg}} - X_1} = \frac{Y_2 - Y_1}{X_2 - X_1}$
+        \begin{itemize}
+            \item Y: yield
+            \item X: P: Bond price
+        \end{itemize}
+    \end{enumerate}
+\end{process}

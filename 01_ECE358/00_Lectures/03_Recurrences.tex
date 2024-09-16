@@ -11,28 +11,13 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
     \begin{itemize}
         \item \textbf{Inequality:} You will use $\Omega$ (i.e. lower bound) or $O$ (i.e. upper bound).
     \end{itemize}
-    \vspace{1em}
-
-    A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \textbf{threshold} constant $n_0 >0$, the following two properties hold:
-    \begin{enumerate}
-        \item $\forall$ $n<n_0$, $T(n) = \Theta(1)$ (i.e. $\exists \; c_1, \; c_2 \in \mathbb{R}$ s.t. $0<c_1\leq T(n) \leq c_2 \text{ for } n<n_0$)
-        \item $\forall$ $n \geq n_0$, every path of recursion terminates in a defined base case within a finite number of recursive invocations (prevents infinite recursive loop or failure to compute a solution).
-    \end{enumerate}
 \end{definition}
 
-\begin{intuition}
-    Whenever a recurrence is stated without an explicit base case, we assume that the recurrence is algorithmic.
-    \begin{itemize}
-        \item \textbf{Implication:} This means we can pick any sufficiently large threshold constant $n_0$.
-    \end{itemize}
-\end{intuition}
-
-
-\subsection{Mergesort}
+\subsection{Mergesort (Motivation)}
     \begin{definition}
         The Merge Sort algorithm is defined as:
         \begin{equation}
-            \text{mergesort}(A, p, r) \rightarrow O(n \log n)
+            \text{mergesort}(A, p, r) \rightarrow \Theta (n \log n)
         \end{equation}
         where \( A \) is the array to be sorted, \( p \) is the starting index, and \( r \) is the ending index.   
        
@@ -41,6 +26,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
                 if p >= r:                  # zero or one element?
                     return
                 
+                # If p < r
                 q = (p + r) // 2            # midpoint of A[p : r] 
                 merge_sort(A, p, q)         # recursively sort A[p : q] --> T(n/2)
                 merge_sort(A, q + 1, r)     # recursively sort A[q + 1 : r] --> T(n/2)
@@ -50,7 +36,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
         \vspace{1em}
         The time complexity of mergesort is
         \begin{equation}
-            T(n) = 2T\left(\frac{n}{2}\right) + O(n)
+            T(n) = 2T\left(\frac{n}{2}\right) + \Theta(n)
         \end{equation} 
         \begin{itemize}
             \item $2T(n/2)$ is the recursive time complexity of handling a subproblem half the size. 
@@ -58,7 +44,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
         \end{itemize}
     \end{definition}
 
-    \customFigure[0.5]{00_Images/Merge_Sort.png}{Merge sort visualization.}
+    \customFigure[0.5]{00_Images/Merge_Sort.png}{Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}
 
 \subsection{Master theorem (Ch. 4.5 pg. 101-6)}
     \begin{theorem}
@@ -77,6 +63,14 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
             \item If \( f(n) = \Omega\left(n^{\log_b (a) + \epsilon}\right) \) for \( \epsilon > 0 \) and \( af\left(\frac{n}{b}\right) \leq cf(n) \) for \( 0 < c < 1 \), then \( T(n) = \Theta(f(n)) \).
         \end{enumerate}
     \end{theorem}
+
+    \begin{intuition}
+        \begin{enumerate}
+            \item \textbf{Case 1:} If $f(n)$ is upper bounded, then the subproblems dominate.
+            \item \textbf{Case 2:} If $f(n)$ is tightly bounded, then the reccurrence grows slower.  
+            \item \textbf{Case 3:} If $f(n)$ is lower bounded, then $f(n)$ dominates.
+        \end{enumerate}
+    \end{intuition}
 
     \begin{process}
         \begin{enumerate}
@@ -98,7 +92,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
             \begin{itemize}
                 \item The recurrence relation for the merge sort algorithm is given by:
                 \[
-                T(n) = 2T\left(\frac{n}{2}\right) + O(n)
+                T(n) = 2T\left(\frac{n}{2}\right) + \Theta(n)
                 \]
                 \item This represents dividing the problem into two subproblems of half the size and then merging the results in linear time.
             \end{itemize}
@@ -113,7 +107,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
                 \begin{itemize}
                     \item \( a = 2 \): The number of subproblems.
                     \item \( b = 2 \): The factor by which the problem size is divided.
-                    \item \( f(n) = O(n) \): The cost of dividing and merging the results.
+                    \item \( f(n) = \Theta(n) \): The cost of dividing and merging the results.
                 \end{itemize}
             \end{itemize}
         
@@ -128,8 +122,8 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
         
             \item \textbf{Compare \( f(n) \) with \( n^{\log_b a} \):}
             \begin{itemize}
-                \item \( f(n) = O(n) \) and \( n^{\log_b a} = n \).
-                \item Since \( f(n) = O(n) \) and \( f(n) = \Theta(n^{\log_b a}) = \Theta(n) \), this fits Case 2 of the Master Theorem.
+                \item \( f(n) = \Theta(n) \) and \( n^{\log_b a} = n \).
+                \item Since \( f(n) = \Theta(n) \) and \( f(n) = \Theta(n^{\log_b a}) = \Theta(n) \), this fits Case 2 of the Master Theorem.
             \end{itemize}
         
             \item \textbf{Apply the Master Theorem - Case 2:}
@@ -260,7 +254,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
 \subsection{Substitution (Ch. 4.3 pg. 90-4)}
     \begin{process}
         \begin{enumerate}
-            \item Guess the form of the solution for $T(n)=?$
+            \item Guess the form of the solution for $T(n)=?$ (This will be given on a test)
             \item Use induction to show that the solution works.
             \begin{enumerate}
                 \item Basis: Find the base case using values of n that correspond (i.e. make sense) with the guessed solution.
@@ -273,13 +267,6 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
     
     \begin{intuition}
         \begin{itemize}
-            \item \textbf{Bounds:} Rather than trying to prove $\Theta$-bound directly, first prove an $O$-bound, and then prove an $\Omega$-bound, then use Theorem 3.1.
-            \item \textbf{Making a good guess:}
-            \begin{itemize}
-                \item See if the recurrence is similar to one you've seen before, then guessing a similar solution.
-                \item Determine loose upper and lower bounds on the recurrence and then reduce your range of uncertainty.
-            \end{itemize}
-            \item \textbf{Trick:} Subtract a lower-order term when the math fails to work out in the induction proof.
             \item \textbf{Avoid:} 
             \begin{itemize}
                 \item Don't use asymptotic notation in the inductive hypothesis for the sub-method.
@@ -302,19 +289,26 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
         
             \item \textbf{Basis:}
             \begin{itemize}
+                \item For $n=1$, $T(1) \leq c \log 1 = 0$, therefore cannot use $n=1$ as the base case since a list of one element is already sorted (i.e. illogical).
                 \item Check the base cases:
                 \[
                 T(2) = 4, \quad T(3) = 5
                 \]
-                \item Both satisfy \( T(n) = cn \log n \), verifying the base cases.
+                \begin{itemize}
+                    \item \textbf{Key:} Need double base case because recurrence splits in half. 
+                    \item \textbf{Plugging into T:} $T(2) \leq c 2 \log 2 = 2c$ and $T(3) \leq c 3 \log 3 = c(3.0477)$, therefore, must pick $c \geq 3$.
+                \end{itemize}
             \end{itemize}
             
             \item \textbf{Inductive Hypothesis:}
             \begin{itemize}
-                \item Assume \( T(k) \leq ck \log k \) for all \( k < n \).
+                \item Assume \( T(k) \leq O(k \log k) \) for all \( k < n \).
+                \begin{itemize}
+                    \item \textbf{Key:} Strictly less than $n$ to prove $T(n)$ as the step.
+                \end{itemize}
                 \item Specifically, assume:
                 \[
-                T\left(\frac{n}{2}\right) \leq c \cdot \frac{n}{2} \log\left(\frac{n}{2}\right)
+                T\left( \left\lfloor \frac{n}{2} \right\rfloor \right) \leq c \left\lfloor \frac{n}{2} \right\rfloor \log\left( \left\lfloor \frac{n}{2} \right\rfloor \right) 
                 \]
             \end{itemize}
         
@@ -322,47 +316,55 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
             \begin{itemize}
                 \item Show it holds for \( T(n) \):
                 \[
-                T(n) = 2T\left(\frac{n}{2}\right) + n
+                T(n) = 2T\left(\left\lfloor \frac{n}{2} \right\rfloor\right) + n
                 \]
                 \item Substitute the inductive hypothesis:
                 \[
-                T(n) \leq 2 \left(c \cdot \frac{n}{2} \log\left(\frac{n}{2}\right)\right) + n
+                T(n) \leq 2 \left(c \cdot \left\lfloor \frac{n}{2} \right\rfloor \log\left(\left\lfloor \frac{n}{2} \right\rfloor \right)\right) + n
                 \]
+
                 \item Simplify:
                 \[
-                = cn \log\left(\frac{n}{2}\right) + n
+                T(n)= cn \log\left(\frac{n}{2}\right) + n
                 \]
                 \item Use the logarithm property \( \log(ab) = \log a + \log b \):
                 \[
-                = cn(\log n - \log 2) + n
+                T(n)= cn(\log n - \log 2) + n
                 \]
                 \[
-                = cn \log n - cn \log 2 + n
+                T(n)= cn \log n - cn \log 2 + n
                 \]
-                \item Factor \( n \):
+                \item $\log 2 = 1$ since base 2:
                 \[
-                = n(c \log n - c \log 2 + 1)
+                T(n) = cn \log n + (1-c)n
                 \]
-            \end{itemize}
-        
-            \item \textbf{Find the Constant \( c \):}
-            \begin{itemize}
-                \item To keep \( T(n) \leq cn \log n \), ensure:
+                \item For sufficiently large $c$, then the 2nd term disappears because $(1-c)<0$
                 \[
-                c \log n - c \log 2 + 1 \leq c \log n
-                \]
-                \item Simplifying, we need:
-                \[
-                -c \log 2 + 1 \leq 0
-                \]
-                \item This implies:
-                \[
-                c \geq \frac{1}{\log 2}
-                \]
-                \item Choose \( c \geq 2 \) (since \( \log 2 \approx 0.693 \)), which satisfies the inequality $2 \geq 1.44$.
+                T(n) \leq cn \log n
+                \]       
             \end{itemize}
         \end{enumerate}
     \end{example}
+
+    \begin{warning}
+        Erroneous Induction
+            Guess that \( T(n) = O(n) \)
+            
+            \textbf{Hypothesis:} Assume \( T\left( \frac{n}{2} \right) \leq 2C \frac{n}{2} \)
+            
+            \textbf{Step:}
+            \[
+            T(n) \leq 2C \left( \frac{n}{2} \right) + n
+            \]
+            \[
+            \leq Cn + n
+            \]
+            \[
+            = (C + 1)n = C'n
+            \]
+            
+            \textbf{Problem:} \( C \) and \( C' \) are different constants, making this induction false by construction.
+    \end{warning}
 
 \subsection{Recursion tree method (Ch. 4.4 pg. 95-101)}
     \begin{definition}
@@ -371,9 +373,16 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
 
     \begin{process}
         \begin{enumerate}
-            \item Sum the costs within each level of the tree to obtain the per-level costs.
-            \item Sum all the per-level costs to determine the total cost of all levels of the recursion. 
-            \item (1) Generate a good-guess, then verify using sub-method. (2) Use as a direct solution.
+            \item Draw a recursion tree using $T(n)$ and split it off into the other $T$'s.
+            \item Sum the work within each level of the tree to obtain the per-level work.
+            \item Determine the height, which is $r^h n = 1$ 
+            \begin{itemize}
+                \item 1: When the recursion problem size is 1. 
+                \item $r$: Largest value child from the root. 
+                \item $n$: Initial problem size
+                \item \textbf{Key:} The root's children bigger value determines the height of the tree as it will reach $O(1)$ (i.e. base-case) the slowest compared to the other branch, making it the longest path in the recursion tree. 
+            \end{itemize}
+            \item Determine the total work: $h \cdot \text{Work done at every level}$ 
         \end{enumerate}
     \end{process}
 
@@ -398,7 +407,7 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
                 \[
                 T\left(\frac{n}{4}\right) \quad \text{and} \quad T\left(\frac{2n}{3}\right)
                 \]
-                \item This branching continues recursively until the problem size becomes small (base case).
+                \item This branching continues recursively until the problem size becomes $O(1)$ (base case).
             \end{itemize}
             \customFigure[0.75]{00_Images/Recursion_Tree.png}{Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}
             

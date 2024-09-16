@@ -7,6 +7,9 @@
             \item \textbf{Training Set}: $\mathcal{D} = \{(\underline{x}_1, y_1), \dots, (\underline{x}_N, y_N)\}$
             \begin{itemize}
                 \item $\underline{x}_n \in \{1\} \times \mathcal{X}$, $\underline{x}_n = (x_{n0} = 1, x_{n1}, x_{n2}, \dots, x_{nd})$
+                \begin{itemize}
+                    \item \textbf{Augmenting:} Adding 1 to the initial coordiante.
+                \end{itemize}
                 \item $y_n \in \{-1, +1\} = \mathcal{Y}$
             \end{itemize}
             \item \textbf{Hypothesis Set}: $h_{\underline{w}} \in \mathcal{H}$, where $h_{\underline{w}}(\underline{x}) = \text{sign}(\underline{w}^T \underline{x})$ (i.e. perceptron) 
@@ -76,7 +79,7 @@
             \end{itemize}
             \item Therefore, $ y_n \underline{w}_{new}^T \underline{x}_n > y_n \underline{w}^T \underline{x}_n$ because $y_n^2 \lVert \underline{x}_n \rVert^2$ adds a positive quantity increasing the value. 
             \begin{itemize}
-                \item \textbf{Key:} The model is moving closer to correctly classifying the misclassified point, improving the overall accuracy.
+                \item \textbf{Key:} The model is moving closer to correctly classifying the misclassified point, improving the overall accuracy because $y_n \underline{w}_{new}^T \underline{x}_n > y_n \underline{w}^T \underline{x}_n$, which means that its getting closer to where $y_n \underline{w}_{new}^T \underline{x}_n > 0$ (i.e. a correct classification as shown in the table above)
             \end{itemize}
         \end{enumerate}
     \end{intuition}

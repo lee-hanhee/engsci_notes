@@ -11,6 +11,36 @@
         \end{lstlisting}
     \end{definition}
 
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Quicksort is a divide-and-conquer algorithm:}
+            \begin{itemize}
+                \item The main idea is to partition the list around a \textbf{pivot element}.
+                \item After partitioning, the pivot element is placed in its correct position.
+            \end{itemize}
+            
+            \item \textbf{Steps of Quicksort:}
+            \begin{itemize}
+                \item \textbf{Choose a pivot element:} This can be the first element, the last element, or any random element in the array.
+                \item \textbf{Partitioning:} 
+                \begin{itemize}
+                    \item Elements smaller than the pivot are moved to the left.
+                    \item Elements larger than the pivot are moved to the right.
+                \end{itemize}
+                \item \textbf{Recursively apply Quicksort:}
+                \begin{itemize}
+                    \item Apply Quicksort to the subarray to the left of the pivot.
+                    \item Apply Quicksort to the subarray to the right of the pivot.
+                \end{itemize}
+            \end{itemize}
+            
+            \item \textbf{Base case:}
+            \begin{itemize}
+                \item When the subarray has one or zero elements, it is already sorted, and no further partitioning is needed.
+            \end{itemize}
+        \end{itemize}        
+    \end{intuition}
+
     \subsubsection{Partition}
     \begin{definition}
         \begin{lstlisting}[language=Python, caption={Partition Function Pseudocode}]
@@ -24,6 +54,8 @@
                 swap(in(left), in(ls))
                 return ls
         \end{lstlisting}
+
+        \customFigure[0.5]{00_Images/QS_LS.png}{Partition}
     \end{definition}
 
     \begin{intuition}
@@ -32,7 +64,7 @@
 
 \subsection{QS basic analysis}
     \subsubsection{QS best case}
-    \begin{definition}
+    \begin{derivation}
         The array is always split exactly in half, leading to a balanced partition. The recurrence relation for quicksort in this scenario is:
 
         \begin{equation*}
@@ -53,10 +85,10 @@
         \begin{equation*}
         T(n) = \Theta(n \log n)
         \end{equation*}
-    \end{definition}
+    \end{derivation}
 
     \subsubsection{QS worst case}
-        \begin{definition}
+        \begin{derivation}
             The array is already sorted (or reverse sorted) and we choose the first or last element as the pivot, the recurrence relation for quicksort is:
 
             \[
@@ -85,10 +117,10 @@
                     &= \Theta\left(\frac{n(n+1)}{2}\right) \\
                     &= \Theta(n^2)
             \end{align*}
-        \end{definition}
+        \end{derivation}
 
     \subsubsection{QS average case}
-    \begin{definition}
+    \begin{derivation}
         In the average case, the recurrence relation for quicksort can be expressed as:
 
         \[
@@ -105,7 +137,7 @@
         T(n) = h \cdot \Theta(n)
         \]
 
-        \noindent Now, let's calculate the height \( h \) of the tree:
+        \noindent Now, let's calculate the height \( h \) of the tree using the largest element (i.e. right sub-tree):
 
         \[
         \left(\frac{9}{10}\right)^h n = 1
@@ -123,10 +155,10 @@
             &= \Theta(n \log n)
         \end{align*}
 
-    \end{definition}
+    \end{derivation}
 
 \subsection{Worst-case (formal)}
-    \begin{definition}
+    \begin{derivation}
         The worst-case recurrence relation for quicksort can be expressed as:
 
         \[
@@ -152,13 +184,56 @@
         \end{enumerate}
         \begin{align*}
             T(n) &\leq \max_{1 \leq q \leq n-1} \left\{ cq^2 + c(n-q)^2 \right\} + \Theta(n) \quad \text{(Achieves max at } q = 1 \text{ or } q = n-1 \text{)} \\
-                 &= c \max_{1 \leq q \leq n-1} \left\{ q^2 + (n-q)^2 \right\} + \Theta(n) \quad \text{(As second derivative is positive, plug } q = 1 \text{)} \\
-                 &\leq cn^2 - 2c(n-1) + \Theta(n) \quad \text{(We can pick a large } c \text{ to dominate the constant } \Theta(n)) \\
+                 &= c \max_{1 \leq q \leq n-1} \left\{ q^2 + (n-q)^2 \right\} + \Theta(n) \quad \text{(As second derivative is positive (i.e. monotonic), plug } q = 1 \text{)} \\
+                 &\leq cn^2 - 2c(n-1) + \Theta(n) \quad \text{(We can pick a large } c \text{ so that } 2c(n-1) \text{ dominates } \Theta(n)) \\
                  &\leq cn^2
         \end{align*}
 
         \noindent Therefore, using the substitution method, we can show that \( T(n) \leq cn^2 \), confirming that the worst-case time complexity of the quicksort algorithm is \( O(n^2) \).
-    \end{definition}
+    \end{derivation}
+
+\subsection{Average-case (formal)}
+    \begin{derivation}
+        \[
+        T(n) = \frac{1}{n} \left( T(1) + T(n-1) + \sum_{z=1}^{n-1} T(z) + T(n-z) \right) + \Theta(n)
+        \]
+
+        \begin{itemize}
+            \item \textbf{Pivot Small:} $\frac{1}{n} (T(1) + T(n-1)) \leq (\Theta(n^2) + \Theta(1)) \cdot \frac{1}{n} \leq \Theta(n)$
+            
+            \item \textbf{There are this many elements smaller than the pivot:} $\sum_{z=1}^{n-1} T(z) + T(n-z)$
+            
+            \item \textbf{Got rid of \( T(1) + T(n-1) \).}
+        \end{itemize}
+        \vspace{1em}
+
+        Therefore,
+        \[
+        T(n) \leq \frac{1}{n} \left[ \sum_{q=1}^{n-1} T(q) + T(n-q) \right] + \Theta(n) = \frac{2}{n} \sum_{k=1}^{n-1} T(k) + \Theta(n)
+        \]
+        \vspace{1em}
+
+        \textbf{Use substitution to prove \( T(n) = a \log(n) + b \) for proper \( a \), \( b \).}
+        \begin{enumerate}
+            \item Prove the lemma $\sum_{k=1}^{n-1} k \log(k) \leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2$
+            \begin{align*}
+                \sum_{k=1}^{n-1} k \log(k) &\leq \sum_{k=1}^{\left\lfloor \frac{n}{2} \right\rfloor-1} k \log(k) + \sum_{k=\left\lceil \frac{n}{2} \right\rceil}^{n-1} k \log(k) \\
+                &\leq \log \left(\frac{n}{2}\right) \cdot \sum_{k=1}^{\left\lfloor \frac{n}{2} \right\rfloor-1} k + \log(n) \sum_{k=\frac{n}{2}}^{n-1} k \\
+                &= \log(n) \sum_{k=1}^{n/2} k - 2 \sum_{k=1}^{n/2} k + \log(n) \sum_{k=n/2}^{n-1} k \\
+                &= \log(n) \sum_{k=1}^{n-1} k - 2 \sum_{k=1}^{\left\lceil \frac{n}{2} \right\rceil-1} k \\
+                &\leq \frac{1}{2}n(n-1) \log(n) - \frac{1}{2} \left(\frac{n}{2} - 1\right) \cdot \frac{n}{2} \\
+                &\leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2
+            \end{align*}
+
+            \item Prove using substitution
+            \begin{align*}
+                T(n) &\leq \frac{2}{n} \sum_{k=1}^{n-1} a k \log(k) + b + \Theta(n) \\
+                &\leq a \log(n) - \frac{a}{4n} + 2b + \Theta(n) \\
+                &= a n \log(n) + b + \left[\Theta(n) + b - \frac{a}{n} \right] \quad \text{ for large a}
+                &\leq an \log(n) + b
+            \end{align*}
+        \end{enumerate}
+    \end{derivation}
 
 \subsection{Randomized QS} 
     \subsubsection{Motivation for randomized QS}
@@ -199,5 +274,22 @@
                 swap(in(left), in(i))
                 return Partition(in, left, right)
         \end{lstlisting}
+        \begin{itemize}
+            \item \textbf{Note:} This partition will be used to find the pivot instead in QS.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Random partition QS}
+    \begin{definition}
+        \begin{lstlisting}[language=Python, caption={QuickSort with Random Partition}]
+            def QS(C):
+                pivot = RAND_partition(C)
+                
+                if pivot > left:
+                    QS(C[left : pivot])
+                    
+                if pivot < left:
+                    QS(C[pivot : right])
+            \end{lstlisting}            
     \end{definition}
 
