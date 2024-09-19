@@ -1,42 +1,59 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{6}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{7}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{7}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{7}{figure.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{8}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{8}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{8}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{9}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{10}{figure.7}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{9}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{10}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{11}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{11}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{11}{figure.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{12}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{12}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{12}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{12}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{14}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Zero}}{16}{figure.14}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{13}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{13}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{15}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Zero}}{17}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Rectangular}}{17}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Impulse}}{17}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Cosine}}{17}{figure.17}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Impulse}}{18}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Cosine}}{18}{figure.17}%
 \contentsline {figure}{\numberline {18}{\ignorespaces Cosine}}{18}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Impulse function with zero energy. (Top): Showing the extreme case. Bottom: Showing the delta case as it goes to 0.}}{18}{figure.19}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Impulse function with zero energy. (Top): Showing the extreme case. Bottom: Showing the delta case as it goes to 0.}}{19}{figure.19}%
 \contentsline {figure}{\numberline {20}{\ignorespaces Finite number of locations will have zero energy.}}{19}{figure.20}%
 \contentsline {figure}{\numberline {21}{\ignorespaces Countable number of locations will have zero energy.}}{19}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Time dilation, which sped up compared to x}}{20}{figure.22}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Time dilation, which sped up compared to x}}{21}{figure.22}%
 \contentsline {figure}{\numberline {23}{\ignorespaces Time dilation, which slowed down compared to x}}{21}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Time reversal, which reverses time compared to x}}{21}{figure.24}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Time reversal, which reverses time compared to x}}{22}{figure.24}%
 \contentsline {figure}{\numberline {25}{\ignorespaces Time delay, which delays time compared to x}}{22}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Time advance, which advances time compared to x}}{22}{figure.26}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Time advance, which advances time compared to x}}{23}{figure.26}%
 \contentsline {figure}{\numberline {27}{\ignorespaces Time is stretched and delayed in time compared to x}}{23}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Time is reversal, dilated, and shifted compared to x}}{23}{figure.28}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Time is reversal, dilated, and shifted compared to x}}{24}{figure.28}%
 \contentsline {figure}{\numberline {29}{\ignorespaces Transformation of DT signal.}}{24}{figure.29}%
 \contentsline {figure}{\numberline {30}{\ignorespaces Transformation of DT signal.}}{24}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Fundamental period of a DT signal}}{25}{figure.31}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Fundamental period of a DT signal}}{26}{figure.31}%
 \contentsline {figure}{\numberline {32}{\ignorespaces Even and odd examples.}}{26}{figure.32}%
 \contentsline {figure}{\numberline {33}{\ignorespaces Even and odd decomposition example.}}{27}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces The three different general behaviours when the complex part is 0.}}{27}{figure.34}%
+\contentsline {figure}{\numberline {34}{\ignorespaces The three different general behaviours when the complex part is 0.}}{28}{figure.34}%
 \contentsline {figure}{\numberline {35}{\ignorespaces CCW and CW being illustrated depending on the value of the angular frequency.}}{28}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Rotating unit-magnitude phasor for both general cases of omega.}}{28}{figure.36}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Rotating unit-magnitude phasor for both general cases of omega.}}{29}{figure.36}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Real and imaginary components for both cases of omega.}}{29}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces The general case for the CT complex exponential signal}}{29}{figure.38}%
+\contentsline {figure}{\numberline {38}{\ignorespaces The general case for the CT complex exponential signal}}{30}{figure.38}%
 \contentsline {figure}{\numberline {39}{\ignorespaces Real and imaginary parts of the general case for two cases of omega and alpha.}}{30}{figure.39}%
 \contentsline {figure}{\numberline {40}{\ignorespaces Real and imaginary components of a DT signal.}}{31}{figure.40}%
 \contentsline {figure}{\numberline {41}{\ignorespaces Example of a DT signal with its highest frequency.}}{32}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces DT unit impulse.}}{34}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces DT unit step.}}{34}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Running sum with (a) $n<0$ and (b) $n>0$.}}{35}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Running sum with (a) $n<0$ and (b) $n>0$.}}{35}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces CT Unit step}}{36}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Approximation.}}{36}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Examples of DT systems.}}{37}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Examples of CT systems.}}{38}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces Adder and multiplier}}{39}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces M input system.}}{39}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Copy or solder dot.}}{39}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces M-input and L-output system.}}{40}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Series system.}}{40}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Parallel system.}}{40}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Series and parallel system.}}{40}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Feedback system.}}{41}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Feedback system.}}{41}{figure.58}%

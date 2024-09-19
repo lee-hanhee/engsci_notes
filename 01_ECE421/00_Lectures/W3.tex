@@ -35,30 +35,74 @@
     \begin{example}
         \begin{enumerate}
             \item Deterministic hypothesis
-            \customFigure[0.75]{00_Images/DH.png}{Given an input, the decision boundary classifies as either $+1$ or $-1$.}
+            \customFigure[0.75]{00_Images/DH_FIN.png}{Given an input, the decision boundary classifies as either $+1$ or $-1$.}
 
             \item What if we want randomness in our prediction?
             \customFigure[0.75]{00_Images/PR.png}{Probability based on distance to the decision boundary.}
         \end{enumerate}    
     \end{example}
 
-\begin{process}
-    \begin{enumerate}
-        \item Predict with randomness $\hat{P}_{\underline{w}} (y = +1| \underline{x})$.
-        \item What hypothesis set $\mathcal{H}$ should we use?
-        \item Let's use hyperplane $\underline{w}^T \underline{x} = 0$, and make predictions based on the distance between the point and the hyperplane.
-        \item What is the distance? Assuming $\|\underline{w}\| = 1$, $d = \underline{w}^T \underline{x}$.
-        \item How do you want to model your predicted likelihood based on $d$?
+    \subsubsection{Deriving the appropriate hypothesis set}
+    \begin{derivation}
+        \textbf{Problem setup:}
         \begin{enumerate}
-            \item $\underline{w}^T \underline{x} \rightarrow +\infty$, $\hat{P}_w(1|x) \rightarrow 1$.
-            \item $\underline{w}^T \underline{x} \rightarrow 0$, $\hat{P}_w(1|x) \rightarrow 1/2$.
-            \item $\underline{w}^T \underline{x} \rightarrow -\infty$, $\hat{P}_w(1|x) \rightarrow 0$.
-            \item Symmetry.
+            \item Predict the probability of label: $\hat{P}_{\underline{w}} (y = +1| \underline{x})$.
+            \begin{itemize}
+                \item i.e. What is probability that the label is $+1$ given $\underline{x}$?
+            \end{itemize}
+            \item What hypothesis set $\mathcal{H}$ should we use? It should depend on 
+            \begin{itemize}
+                \item Which side of the hyperplane the datapoint is on (i.e. positive or negative)
+                \item How far away the datapoint is from the hyperplane (i.e. farther away, more certain).
+            \end{itemize}
+        \end{enumerate}    
+
+        \customFigure[0.25]{00_Images/DI.png}{Two points on either side of the decision boundary and intuition on d.}
+    \end{derivation}
+
+    \begin{derivation}
+        \begin{enumerate}
+            \item Use hyperplane $\{\underline{x}: \; \underline{w}^T \underline{x} = 0\}$ (i.e. decision boundary), and make predictions based on the distance between the point and the hyperplane.
+            \item What is the distance? Assuming $\|\underline{w}\| = 1$
+            \begin{equation}
+                d = \underline{w}^T \underline{x}
+            \end{equation}
+
+            \textbf{Intuition:} 
+            \begin{itemize}
+                \item w/o loss of generality, $\|\underline{w}\| = 1$ is the same hyperplane. 
+                \item Therefore, to find the distance b/w $\underline{x}_n$ and hyperplane, project $\underline{x}_n$ onto the hyperplane. 
+                \item Then you can find the error vector in terms of $d \underline{w}$ since $\underline{w}$ is orthogonal to the hyperplane: $\underline{x}_n -\underline{x}_n^{'} = d\underline{w}$
+                \item Isolating for $\underline{x}_n^{'}$: $\underline{x}_n^{'} = \underline{x}_n - d\underline{w}$. 
+                \item Since $\underline{x}_n^{'}$ is on the hyperplane, there $w^T \underline{x}_n^{'} = 0$ (i.e. $\underline{w}^T \underline{x}_n - d \underline{w}^T \underline{w} = 0 \implies \underline{w}^T \underline{x}_n = d \|\underline{w}\|_2^2 = d$)
+            \end{itemize}
+            \customFigure[0.5]{00_Images/D.png}{Derivation of d visually.}
+            \item How do you want to model your predicted likelihood based on $d$? (i.e. probability of prediction)
+            \begin{enumerate}
+                \item $d=\underline{w}^T \underline{x} \rightarrow +\infty$, $\hat{P}_{\underline{w}}(+1|\underline{x}) \rightarrow 1$.
+                \item $d=\underline{w}^T \underline{x} \rightarrow 0$, $\hat{P}_{\underline{w}}(+1|\underline{x}) \rightarrow 1/2$.
+                \item $d=\underline{w}^T \underline{x} \rightarrow -\infty$, $\hat{P}_{\underline{w}}(+1|\underline{x}) \rightarrow 0$.
+                \item Symmetry: If $d$ and $-d$, then $\hat{P}_{\underline{w}}(+1|\underline{x}_n) = \hat{P}_{\underline{w}}(-1|\underline{x}_k) = 1 - \hat{P}_{\underline{w}}(+1|\underline{x}_k)$ if $\underline{w}^T \underline{x}_n = - \underline{w}^T \underline{x}_k$
+            \end{enumerate}
         \end{enumerate}
-        \item Logistic function is a suitable choice $\theta(s) = \frac{1}{1 + e^{-s}}$.
-        \item $\mathcal{H}$ is $\hat{P}_w(1|x) = \frac{1}{1 + e^{-\underline{w}^T \underline{x}}}$.
-    \end{enumerate}    
-\end{process}
+    
+    \end{derivation}
+
+    \begin{derivation}
+        \begin{enumerate}
+            \item Logistic function is a suitable choice 
+            \begin{equation}
+                \theta(s) = \frac{1}{1+e^-s} 
+            \end{equation}
+            \customFigure[0.5]{00_Images/LF.png}{Logistic function}
+
+            \item $\mathcal{H}$ is 
+            \begin{equation}
+                \hat{P}_{\underline{w}}(1 | \underline{x}) = \frac{1}{1 + e^{-\underline{w}^T \underline{x}}}
+            \end{equation}
+        \end{enumerate}
+    \end{derivation}
+
 
     \subsubsection{Illustrating logistic regression as a neuron}
     \begin{definition}
@@ -67,34 +111,223 @@
             \item \textbf{Unknown Target Function}: $y = f(\underline{x})$
             \item \textbf{Hypothesis Set}: $\hat{y} = \theta\left( \underline{w}^T \underline{x} \right) = \frac{1}{1 + e^{-\underline{w}^T \underline{x}}}$
             \item $\hat{P}_w(y = +1| \underline{x}) = \theta(s) = \frac{1}{1 + e^{-s}}$
-            \item $\theta(s)$ is called the "logistic function."
-            \begin{itemize}
-                \item Logistic function is an example of "Sigmoid functions."
-                \item "Sigmoid" functions is the class of functions that are "S"-shaped.
-            \end{itemize}
+            \item $\theta(s)$: logistic function (i.e. part of sigmoid functions which are s-shaped).
         \end{itemize}
         \customFigure[0.75]{00_Images/Logistic_Regression.png}{Logistic regression.}
     \end{definition}
 
-    \subsubsection{Remarks}
+    \subsubsection{Logistic function}
+    \begin{intuition}
+        \begin{enumerate}
+            \item This is a soft threshold, in contrast to the hard threshold used by linear classification.
+            
+            \item 
+            \[
+            \hat{P}_{\underline{w}}(-1 | \underline{x}) = 1 - \hat{P}_{\underline{w}}(+1 | \underline{x}) = 1 - \frac{1}{1 + e^{-\underline{w}^T \underline{x}}} = \frac{1}{1 + e^{\underline{w}^T \underline{x}}} = \theta(-\underline{w}^T \underline{x})
+            \]            
+        \end{enumerate}        
+    \end{intuition}
 
-    \subsubsection{Notation}
+    \subsubsection{Prediction (Reformulating the hypothesis set)}
+    \begin{definition}
+        Predict the probability of being in class y as:
+
+        \begin{equation}
+            \hat{P}_{\underline{w}}(y | \underline{x}) = \theta(y \underline{w}^T \underline{x}) = \frac{1}{1 + e^{-y \underline{w}^T \underline{x}}}, \quad \text{where} \ y \in \{+1, -1\}        
+        \end{equation}
+    
+        \begin{itemize}
+            \item It unifies the probability for both classes into a single logistic function that dependes on the sign of y. 
+            \begin{itemize}
+                \item $\hat{P}_{\underline{w}}(1 | \underline{x}) = \theta(\underline{w}^T \underline{x}) \quad \text{(estimate of} \ \mathbb{P}[y = +1 | \underline{x}] \text{)}$
+                \item $\hat{P}_{\underline{w}}(-1 | \underline{x}) = \theta(-\underline{w}^T \underline{x})$
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
 
     \subsubsection{What is the Error Criterion?}
     \begin{definition}
+        For the $nth$ example in the training data, use the log-loss function
+        \begin{equation}
+            e_n(\underline{w}) = -\log \hat{P}_{\underline{w}}(y_n | \underline{x}_n) = \log \left(1 + e^{-y_n \underline{w}^T \underline{x}_n}\right)
+        \end{equation}
+        \begin{itemize}
+            \item Natural log. 
+            \item If \( \underline{w}^T \underline{x}_n \gg 0 \) and \( y_n = 1 \), then \( \text{loss} \rightarrow 0 \).
+            \item If \( \underline{w}^T \underline{x}_n \ll 0 \) and \( y_n = -1 \), then \( \text{loss} \rightarrow 0 \).
+            \customFigure[0.5]{00_Images/LLE.png}{Log-loss error visualization}  
+        \end{itemize}
+        \vspace{1em}
+
+        For the mean sample error, find $\underline{w} \in \mathbb{R}^{d+1}$ to minimize
         \begin{equation}
             E_{in}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} e_n(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \log \left( 1 + e^{-y_n \underline{w}^T \underline{x}_n} \right)
         \end{equation}
     \end{definition}
 
+\subsection{Why is log-loss a reasonable choice?}
+
+    \subsubsection{Numerical examples interpretation (i.e. distinguish between better hyperplanes)}
     \begin{example}
+        \begin{enumerate}
+            \item Suppose $\hat{P}_{\underline{w}}(+1 | \underline{x}_n) = 0.2 \quad (\hat{P}_{\underline{w}}(-1 | \underline{x}_n) = 0.8)$
+            
+            \item If \( y_n = +1 \), 
+            \[
+            e_n(\underline{w}) = -\log \hat{P}_{\underline{w}}(y_n | \underline{x}_n) = -\log(0.2) \approx 1.61
+            \]
+        
+            \item If \( y_n = -1 \), 
+            \[
+            e_n(\underline{w}) = -\log \hat{P}_{\underline{w}}(y_n | \underline{x}_n) = -\log(0.8) \approx 0.22
+            \]
+        \end{enumerate}
         
     \end{example}
 
-    \subsubsection{Benefits over linear classification}
+    \begin{example}
+        \textbf{Distinguish between hyperplanes (i.e. which one is better)}
+
+        \customFigure[0.75]{00_Images/BOLC.png}{From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}
+        \begin{itemize}
+            \item $\underline{w}_1$: Has $1$ in second coordinate because it is the vector $(x_1,x_2)=(1,0)$ since the first coordinate is augmented (i.e. the vector pointing up) 
+            \item $\underline{w}_2$: Has $1$ in third coordinate because it is the vector $(x_1,x_2)=(0,1)$ since the first coordinate is augmented (i.e. the vector pointing right) 
+        \end{itemize}
+        \begin{enumerate}
+            \item \textbf{Linear classification, which line is better?:} $e_n(\underline{w}) = \mathbb{1}(y_n \neq \text{sign}(\underline{w}^T \underline{x}_n))$
+            
+            They are the same:
+            \[
+            E_{\text{in}}(\underline{w}_1) = E_{\text{in}}(\underline{w}_2) = 0
+            \]
+
+            \item \textbf{Logistic regression, which line is better?:} $E_{\text{in}}(\underline{w}_i) = \frac{1}{2} \left[ \log(1 + e^{-y_1 \underline{w}_i^T \underline{x}_1}) + \log(1 + e^{-y_2 \underline{w}_i^T \underline{x}_2}) \right]$ 
+                \[
+                E_{\text{in}}(\underline{w}_1) = \frac{1}{2} \left[ \log(1 + e^{(-1)(0.001)}) + \log(1 + e^{(+1)(-0.001)}) \right] \approx 0.693
+                \]
+                
+                \[
+                E_{\text{in}}(\underline{w}_2) = \frac{1}{2} \left[ \log(1 + e^{(-1)(1.0)}) + \log(1 + e^{(+1)(-10)}) \right] \approx 5 \times 10^{-5}
+                \]
+                Therefore, we see that line 2 is better. 
+        \end{enumerate}
+        \vspace{1em}
+
+        \textbf{What about} \(\underline{w}_3 = (0, 0, 100)\)?
+
+        \begin{itemize}
+            \item This is the same line as \(L_2\).
+            \item \(E_{\text{in}}(\underline{w}_3)\) is much lower, but \(\underline{w}_3\) and \(\underline{w}_2\) are the same lines.
+            \item Therefore, we can fix the norm of \(\|\underline{w}\|^2\) to be 1. But this constraint makes the optimization more difficult:
+            \[
+            \min_{\underline{w}} E_{\text{in}}(\underline{w}) \quad \text{s.t.} \quad \|\underline{w}\| = 1
+            \]
+            \item Typically, we regularize logistic regression:
+            \[
+            \min_{\underline{w}} E_{\text{in}}(\underline{w}) + \lambda \|\underline{w}\|^2
+            \]
+        \end{itemize}
+
+    \end{example}
 
     \subsubsection{Maximum likelihood interpretation}
+    \begin{definition}
+        When we minimize log-loss, we maximize the likelihood.
+    \end{definition}
+
+    \begin{derivation}
+        Let \(\mathcal{D} = \{(x_1, y_1), \dots, (x_N, y_N)\}\) be the observed datapoints.
+        \vspace{1em}
+
+        Consider
+        \[
+        \mathbb{P}(y_1, y_2, \dots, y_N | x_1, x_2, \dots, x_N) = \mathbb{P}\left[ \text{1\textsuperscript{st} label is } y_1, \text{ 2\textsuperscript{nd} label is } y_2, \dots \ \middle| \ \text{1\textsuperscript{st} example} = x_1, \text{ 2\textsuperscript{nd} example} = x_2, \dots \right]
+        \]
+        \begin{itemize}
+            \item i.e. Likelihood of observing this particular set of labels  $y_1, \dots, y_N \text{ given datapoints } \underline{x}_1, \dots, \underline{x}_N$
+            \item Assuming we have I.I.D. (independent and identically distributed) examples:
+            \[
+            \mathbb{P}(y_1, y_2, \dots, y_N | \underline{x}_1, \underline{x}_2, \dots, \underline{x}_N) = \prod_{n=1}^{N} \mathbb{P}(y_n | \underline{x}_n)
+            \]
+            \item We want to approximate the unknown target probability distribution (i.e. $\hat{P}_{\underline{w}} \in \mathcal{H}$):
+            \[
+            \mathbb{P}(y_1, y_2, \dots, y_N | x_1, x_2, \dots, x_N) \approx \prod_{n=1}^{N} \hat{P}_{\underline{w}}(y_n | x_n)
+            \]
+            \item This is the likelihood function, and we want to find \( \underline{w} \) that maximizes the likelihood:
+            \[
+            \max_{\underline{w}} \prod_{n=1}^{N} \hat{P}_{\underline{w}}(y_n | x_n)
+            \]
+            \item This is equivalent to maximizing the log-likelihood:
+            \[
+            \max_{\underline{w}} \log \prod_{n=1}^{N} \hat{P}_{\underline{w}}(y_n | x_n) = \max_{\underline{w}} \frac{1}{N} \sum_{n=1}^{N} \log \hat{P}_{\underline{w}}(y_n | x_n)
+            \]
+            \item The maximizing of the log-likelihood function is equivalent to minimizing the mean sample error of the log-loss function:
+            \[
+            \max_{\underline{w}} \frac{1}{N} \sum_{n=1}^{N} \log \hat{P}_{\underline{w}}(y_n | x_n) \equiv \min_{\underline{w}} \frac{1}{N} \sum_{n=1}^{N} - \log \hat{P}_{\underline{w}}(y_n | x_n) \equiv \min_{\underline{w}} E_{\text{in}}(\underline{w})
+            \]
+        \end{itemize}
+    \end{derivation}
 
     \subsubsection{Cross-entropy interpretation}
+    \begin{definition}
+        When we minimize log-loss, we minimize the cross-entropy.
+    \end{definition}
+
+    \begin{definition}
+        Suppose \( P \) and \( Q \) are two distributions over the same sample space \( S \).
+        \begin{itemize}
+            \item \textbf{Sample space \( S \):} The set of all values a random variable can take.
+        \end{itemize}
+        \vspace{1em}
+
+        The cross-entropy between \( P \) and \( Q \) is given by:
+        \[
+        CE(P, Q) = -\sum_{K \in S} P(K) \log Q(K)
+        \]
+        \begin{itemize}
+            \item i.e. Measures the difference between $P$ and $Q$.
+        \end{itemize}
+    \end{definition}
+
+    \begin{derivation}
+        \begin{itemize}
+            \item For the \(n\)-th example, consider the true distribution (distribution of the true labels):
+            \begin{align*}
+                P_n &= \left( \mathbb{P}[y_n = +1], \mathbb{P}[y_n = -1] \right) \\
+                    &= \begin{cases}
+                        (1, 0), & \text{if } y_n = +1 \\
+                        (0, 1), & \text{if } y_n = -1
+                    \end{cases} \\
+                    &= \left( \mathbb{1}(y_n = +1), \mathbb{1}(y_n = -1) \right)
+            \end{align*}
+
+            \item For the \(n\)-th example, consider the estimated distribution:
+            \[
+            Q_n = \left( \hat{P}_{\underline{w}}(+1 | x_n), \hat{P}_{\underline{w}}(-1 | x_n) \right)
+            \]
+            \begin{itemize}
+                \item i.e. Estimated distribution of \(y_n\) given example \(x_n\)
+            \end{itemize}
+            
+        
+            \item The closer \( Q_n \)'s are to \( P_n \)'s, the better it is. 
+            \item What does "closeness" mean? 
+            \begin{align*}
+            CE(P_n, Q_n) &= -\left( \mathbb{1}(y_n = +1) \log \hat{P}_{\underline{w}}(+1 | x_n) + \mathbb{1}(y_n = -1) \log \hat{P}_{\underline{w}}(-1 | x_n) \right)\\ 
+            &= -\log \hat{P}_{\underline{w}}(y_n | x_n) = e_n(\underline{w})
+            \end{align*}
+            \begin{itemize}
+                \item The last line can be written in terms of $y_n$.
+            \end{itemize}
+        
+            \item Therefore, minimizing \(E_{\text{in}}(\underline{w})\) is equivalent to minimizing the average "distance" between \( P_n \)'s and \( Q_n \)'s (i.e. cross-entropy):
+            \[
+            \min_{\underline{w}} E_{\text{in}}(\underline{w}) \iff \min_{\underline{w}} \frac{1}{N} \sum_{n=1}^{N} CE(P_n, Q_n)
+            \]
+        \end{itemize}
+        
+
+        
+    \end{derivation}
 
     

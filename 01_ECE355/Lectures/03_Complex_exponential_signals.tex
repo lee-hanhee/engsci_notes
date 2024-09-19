@@ -71,7 +71,13 @@
 
 \subsection{The general case}
 \begin{definition}
-    If \(s = \alpha + j\omega = \alpha + j 2\pi f\), with \(\alpha \neq 0\) and \(\omega \neq 0\), we obtain \(e^{(\alpha + j\omega)t}\), a \textbf{rotating phasor} in the complex plane with a \textbf{time-varying magnitude}.
+    If \(s = \alpha + j\omega = \alpha + j 2\pi f\), with \(\alpha \neq 0\) and \(\omega \neq 0\), then 
+    \begin{equation}
+        e^{(\alpha + j\omega)t}
+    \end{equation}
+    \begin{itemize}
+        \item a \textbf{rotating phasor} in the complex plane with a \textbf{time-varying magnitude}.
+    \end{itemize} 
     \customFigure[0.75]{00_Images/GC.png}{The general case for the CT complex exponential signal}
 \end{definition}
 
@@ -238,6 +244,29 @@
             \item \textbf{Note:} This was shown in oscillatory vs. periodic.
         \end{itemize}
     \end{theorem}
+
+    \begin{warning}
+        $f$ cannot be irrational.
+    \end{warning}
+
+    \begin{derivation}
+        \begin{enumerate}
+            \item Let \( x[n] = e^{j 2 \pi f n} \).
+            \item For \( x \) to be periodic, we need a positive integer \( N_0 \) such that 
+            \[
+            e^{j 2 \pi f (n + N_0)} = e^{j 2 \pi f n} \quad \text{for all} \ n \in \mathbb{Z},
+            \]
+            which implies 
+            \[
+            e^{j 2 \pi f N_0} = 1.
+            \]
+            \item By our earlier theorem, \( e^{j 2 \pi f N_0} = 1 \) if and only if \( f N_0 = m \) for some \( m \in \mathbb{Z} \). This situation occurs if and only if 
+            \[
+            f = \frac{m}{N_0}, \quad \text{i.e.,} \ f \in \mathbb{Q},
+            \]
+            where \( \mathbb{Q} \) is the set of rational numbers.
+        \end{enumerate}        
+    \end{derivation}
 
     \subsubsection{Computing the fundamental period}
     \begin{definition}

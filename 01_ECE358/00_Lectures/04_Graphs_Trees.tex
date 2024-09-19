@@ -11,9 +11,9 @@
             \item \textbf{Adjacent vertices:} $N(v) = \{u : (v, u) \in E\}$
             \item \textbf{Incident edges:} $I(v) = \{(u, v) : (u, v) \in E\}$
             \item \textbf{Degree of a vertex:} Number of neighbors that a vertex has.
-            \item \textbf{Aside:} Vertices are labeled, and no pair of adjacent vertices are the same.
         \end{itemize}            
     \end{definition}
+
     \subsubsection{Directed and Undirected, Weighted Graphs}
         \begin{definition}
             \begin{itemize}
@@ -30,113 +30,26 @@
                     \item \textbf{Self-loop:} Forbidden.
                     \item \textbf{Degree of V:} Number of edges incident on it.
                 \end{itemize}
-                \item \textbf{Weighted graph:} A graph where each edge is associated with a value (weight).
+                \item \textbf{Weighted graph:} A graph where each edge is associated with a value (e.g. distance, profit, penalty).
             \end{itemize}
         \end{definition}
 
         \customFigure[0.75]{00_Images/Directed_Undirected.png}{(a) Directed graph, (b) Undirected graph.}
 
-    \subsubsection{Graph representation}
-    \begin{definition}
-        
-        \textbf{Adjacency matrix (AM):} An $n\times n$ matrix where $M[i][j]=1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise.
-        \begin{itemize}
-            \item \textbf{Time:} $O(1)$
-            \item \textbf{Space:} $O(V^2)$
-            \item Good for dense $G$ (i.e. $E>>V^2$)
-        \end{itemize}
-        \vspace{1em}
-
-        \textbf{Adjacency list (AL):} For $n=\abs{V}$ vertices, $n$ linked lists. The $ith$ linked list, $L[i]$ is a list of all the vertices that are adjacent to vertex $i$.
-        \begin{itemize}
-            \item \textbf{Time:} $O(V)$
-            \item \textbf{Space:} $O(V+E)$ 
-            \item Good for sparse $G$ (i.e. $E<<V^2$).
-        \end{itemize}
-        \vspace{1em}
-
-        \textbf{Is there an edge between $v_i$ and $v_j$?}
-        \begin{itemize}
-            \item \textbf{AM:} $O(1)$
-            \item \textbf{AL:} $O(d)$ 
-            \begin{itemize}
-                \item $d$: Maximum degree in the graph.
-            \end{itemize}
-        \end{itemize}
-        \vspace{1em}
-
-        \textbf{Find all vertices adjacent to $v_i$:}
-        \begin{itemize}
-            \item \textbf{AM:} $O(V)$ 
-            \item \textbf{AL:} $O(d)$ 
-        \end{itemize}
-    \end{definition}
-    \customFigure[1]{00_Images/DG_AM_AL.png}{(i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}
-
-    \subsubsection{Types of walks, trails, and paths}
+    \subsubsection{Paths and cycles}
     \begin{terminology}
         \begin{itemize}
-            \item \textbf{Walk:} A sequence of vertices in which each vertex is adjacent to the next. Both vertices and edges can be repeated.
-            \begin{itemize}
-                \item e.g. 1-2-3-5-2-1-5-3
-            \end{itemize}
-            
-            \item \textbf{Trail:} A walk with no repeated edges.
-            \begin{itemize}
-                \item e.g. 1-2-3-5-2-6
-            \end{itemize}
-            
-            \item \textbf{Path:} A trail with no repeated vertices, except the start and end vertices in the case of a cycle.
-            \begin{itemize}
-                \item e.g. 1-2-3-5-4
-            \end{itemize}
+            \item \textbf{Path:} Going from one vertex to another. 
             
             \item \textbf{Simple Path:} A path with no repetition of vertices.
-            \begin{itemize}
-                \item e.g. 1-2-3-5
-            \end{itemize}
             
-            \item \textbf{Circuit:} A trail that begins and ends at the same vertex.
-            \begin{itemize}
-                \item e.g. 5-2-1-5-3-4-5
-            \end{itemize}
-            
-            \item \textbf{Cycle:} A path that begins and ends at the same vertex, with no other repeated vertices.
-            \begin{itemize}
-                \item e.g. 5-3-4-5
-            \end{itemize}
-            
+            \item \textbf{Cycle:} A path that begins and ends at the same vertex, which can pass through the same vertex multiple times.
+
+            \item \textbf{Simple Cycle:} A path that begins and ends at the same vertex, with no other repeated vertices.
         \end{itemize}
     \end{terminology}
 
-    \subsubsection{Morphisms}
-    \begin{definition}
-        \begin{itemize}
-            \item A \textbf{homomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a mapping
-            \[
-            f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \Rightarrow (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
-            \]
-            \item An \textbf{isomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a bijection
-            \[
-            f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \iff (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
-            \]
-            We say that $G_1$ is isomorphic to $G_2$ or $G_1 \cong G_2$.
-        \end{itemize}
-        
-        \textbf{Explanation in English:}
-        \begin{itemize}
-            \item \textbf{Homomorphism:}
-            \begin{itemize}
-                \item A function that maps vertices of one graph to another while preserving edges.
-            \end{itemize}
-
-            \item \textbf{Isomorphism:}
-            \begin{itemize}
-                \item A bijective function that maps one graph onto another, preserving edges both ways. The two graphs are identical in structure.
-            \end{itemize}
-        \end{itemize}
-    \end{definition}
-    \subsubsection{Terminology}
+    \subsubsection{AG, DAG}
     \begin{terminology}
         \begin{itemize}
             \item \textbf{Acyclic Graph:} A graph with no cycles is an acyclic graph.
@@ -152,18 +65,37 @@
 
             \item \textbf{Bipartite Gs:} $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \emptyset$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
             \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
-
-            \item \textbf{Complete G (clique):} $\exists$ edge between $\forall \; 2$ vertices. 
         \end{itemize}
     \end{terminology}
 
-    \subsubsection{Clique}
+    \subsubsection{Clique (complete G)}
     \begin{definition}
-        Every two vertices have an edge. 
+        $\exists$ edge between $\forall \; 2$ vertices. 
         \begin{equation*}
             \# edges = \frac{V(V-1)}{2}
         \end{equation*}
     \end{definition}
+
+    \subsubsection{Graph representation}
+    \begin{definition}
+        
+        \textbf{Adjacency matrix (AM):} An $n\times n$ matrix where $M[i][j]=1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise (undirected) or $M[i][j]=1$ if there is an edge from $v_i$ to $v_j$, and $0$ otherwise (directed).
+        \begin{itemize}
+            \item \textbf{Time to search for E:} $O(1)$
+            \item \textbf{Memory space:} $O(V^2)$
+            \item Good for dense $G$ (i.e. $E>>V^2$)
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Adjacency list (AL):} For $n=\abs{V}$ vertices, $n$ linked lists. The $ith$ linked list, $L[i]$ is a list of all the vertices that are adjacent to vertex $i$.
+        \begin{itemize}
+            \item \textbf{Time to search for E:} $O(V)$
+            \item \textbf{Memory space:} $O(V+E)$ 
+            \item Good for sparse $G$ (i.e. $E<<V^2$).
+        \end{itemize}
+        \vspace{1em}
+    \end{definition}
+    \customFigure[1]{00_Images/DG_AM_AL.png}{(i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}
 
     \subsubsection{Graph examples}
     \begin{example}
@@ -207,16 +139,16 @@
         \end{itemize}
     \end{example}
 
-\subsection{Free trees}
+\subsection{Trees}
     \begin{definition}
-        A free tree is a connected, acyclic, undirected graph. 
+        A tree is a connected, acyclic, undirected graph. 
     \end{definition}
 
     \subsubsection{Properties}
     \begin{definition}
         Let $G=(V,E)$ be an undirected graph. The following statements are equivalent:
         \begin{enumerate}
-            \item $G$ is a free tree. 
+            \item $G$ is a tree. 
             \item Any two vertices in $G$ are connected by a unique simple path. 
             \item $G$ is connected, but if any edge is removed from $E$, the resulting graph is disconnected. 
             \item $G$ is connected, and $\abs{E} = \abs{V} - 1$.
@@ -224,38 +156,9 @@
             \item $G$ is acyclic, but if any edge is added to $E$, the resulting graph contains a cycle.
         \end{enumerate}
         \begin{itemize}
-            \item \textbf{Note:} There's a proof to show each of these statements are equivalent.
+            \item \textbf{Note:} There's a proof to show each of these statements are equivalent by proving 1 -> 2 -> ... -> 6 -> 1
         \end{itemize}
     \end{definition}
-
-    \subsubsection{Spanning tree}
-    \begin{definition}
-        $G'$ is a spanning tree of $G$, if it is a tree and $V'=V$.
-    \end{definition}
-
-\subsection{Forest}
-    \begin{definition}
-        An undirected graph is acyclic but possibly disconnected.
-    \end{definition}
-
-    \customFigure[1]{00_Images/Tree_Forest_Difference.png}{(a) A free tree, (b) A forest, (c) a graph that contains a cycle and is therefore neither a tree nor a forest.}
-
-\subsection{Rooted and ordered trees}
-    \subsubsection{Rooted trees}
-    \begin{definition}
-        A \textbf{rooted tree} is a free tree in which one of the vertices is distinguished from the others.
-        \begin{itemize}
-            \item \textbf{Root:} Distinguished vertex of the tree.
-            \item \textbf{Node:} Vertex of a rooted tree.
-        \end{itemize}
-    \end{definition}
-    
-    \subsubsection{Ordered trees}
-    \begin{definition}
-        An \textbf{ordered tree} is a rooted tree in which the children of each node are ordered.
-    \end{definition}
-
-    \customFigure[1]{00_Images/Rooted_Ordered_Trees.png}{Rooted and ordered trees. If the tree is ordered, the relative left-to-right order of the children of a node matters, but if rooted, then they are the same tree.}
 
     \subsubsection{Terminology}
     \begin{terminology}

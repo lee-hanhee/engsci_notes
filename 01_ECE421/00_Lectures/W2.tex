@@ -238,16 +238,17 @@
     \begin{intuition}
         \begin{enumerate}
 
-            \item For all datapoints, $y_n = \hat{y}_n = w^T x_n$: \\
+            \item For all datapoints, $y_n = \hat{y}_n = \underline{w}^T \underline{x}_n$: 
+            
             \[
             \begin{cases}
-            y_1 = w^T x_1 \\
-            y_2 = w^T x_2 \\
+            y_1 = \underline{w}^T \underline{x}_1 \\
+            y_2 = \underline{w}^T \underline{x}_2 \\
             \vdots \\
-            y_N = w^T x_N
+            y_N = \underline{w}^T \underline{x}_N
             \end{cases}
             \]
-            This is a system of linear equations that we have to solve to get the "perfect" \( w \).
+            This is a system of linear equations that we have to solve to get the "perfect" \( \underline{w} \).
         
             \begin{itemize}
                 \item \textbf{Number of linear equations:} $N$ 

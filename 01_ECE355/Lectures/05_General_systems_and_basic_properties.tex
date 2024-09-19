@@ -1,0 +1,59 @@
+\subsection{DT: System}
+\begin{definition}
+    A DT system is a function \( S: \mathbb{C}^{\mathbb{Z}} \to \mathbb{C}^{\mathbb{Z}} \) (or \( \mathbb{R}^{\mathbb{Z}} \to \mathbb{R}^{\mathbb{Z}} \)) taking an input signal \( x \) to an output signal \( y = S(x) \).
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/DT_S.png}{Examples of DT systems.}
+\end{example}
+
+\subsection{CT: System}
+\begin{definition}
+    A CT system is a function \( S: \mathbb{C}^{\mathbb{R}} \to \mathbb{C}^{\mathbb{R}} \) (or \( \mathbb{R}^{\mathbb{R}} \to \mathbb{R}^{\mathbb{R}} \)) taking an input signal \( x \) to an output signal \( y = S(x) \).
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/CT_S.png}{Examples of CT systems.}
+\end{example}
+
+\subsubsection{Systems can have more than one input}
+\begin{example}
+    \customFigure[0.75]{00_Images/AM.png}{Adder and multiplier}
+    \begin{itemize}
+        \item $\times$: Cartesian product.
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/MI.png}{M input system.}
+
+    \customFigure[0.5]{00_Images/CSD.png}{Copy or solder dot.}
+\end{example}
+
+\subsection{Multiple input multiple output (MIMO) systems}
+\begin{definition}
+    \customFigure[0.5]{00_Images/MIMO.png}{M-input and L-output system.}
+    \begin{equation*}
+        S: \mathbb{C}^{\mathbb{Z}} \times \mathbb{C}^{\mathbb{Z}} \times \cdots \times \mathbb{C}^{\mathbb{Z}} \quad (\text{m times}) \quad \to \quad \mathbb{C}^{\mathbb{Z}} \times \mathbb{C}^{\mathbb{Z}} \times \cdots \times \mathbb{C}^{\mathbb{Z}} \quad (\text{L times})
+    \end{equation*}
+\end{definition}
+
+\subsection{Interacting subsystems}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Series or cascade:} Input $x$ and output $y$, then $y = S_2(S_1(x)) = (S_2 \circ S_1)(x)$
+        \begin{itemize}
+            \item $S_2 \circ S_1 \neq S_1 \circ S_2$
+        \end{itemize}
+        \customFigure[0.5]{00_Images/Series.png}{Series system.}
+        \item \textbf{Parallel:} Input $x$ and output $y$, then $y=S_1 (x) + S_2 (x)$
+        \begin{itemize}
+            \item 4 subsystems: $\cdot, S_1, S_2, +$
+        \end{itemize}
+        \customFigure[0.5]{00_Images/Parallel.png}{Parallel system.}
+        \item \textbf{Series and parallel:}
+        \customFigure[0.5]{00_Images/Series_Parallel.png}{Series and parallel system.}
+        \item \textbf{Feedback connection:}
+        \customFigure[0.5]{00_Images/Feedback.png}{Feedback system.}
+        \customFigure[0.5]{00_Images/FBS.png}{Feedback system.}
+    \end{itemize}
+\end{definition}
+

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  15 SEP 2024 18:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  18 SEP 2024 20:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1233,7 +1233,7 @@ File: 00_Images/PV_GS.png Graphic file (type png)
 <use 00_Images/PV_GS.png>
 Package pdftex.def Info: 00_Images/PV_GS.png  used on input line 321.
 (pdftex.def)             Requested size: 374.33807pt x 548.05003pt.
- [15] [16 <./00_Images/PV_GS.png>]) (./00_Lectures/W3.tex [17] [18]) (./00_Lectures/W4.tex [19] [20]) (./00_Lectures/W5.tex [21]) (./00_Lectures/W6.tex [22]) (./00_Lectures/W7.tex [23] [24]) (./00_Lectures/W8.tex [25] [26] [27]) (./00_Lectures/W9.tex [28] [29] [30]) (./00_Lectures/W10.tex [31] [32] [33] [34]) (./00_Lectures/W11.tex) [35] (./CHE374_Cheatsheet.aux)
+ [15] [16 <./00_Images/PV_GS.png>]) (./00_Lectures/W3.tex [17] [18]) (./00_Lectures/W4.tex [19] [20]) (./00_Lectures/W5.tex [21]) (./00_Lectures/W6.tex [22]) (./00_Lectures/W7.tex [23] [24] [25]) (./00_Lectures/W8.tex [26] [27] [28]) (./00_Lectures/W9.tex [29] [30] [31]) (./00_Lectures/W10.tex [32] [33] [34] [35]) (./00_Lectures/W11.tex) [36] (./CHE374_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1242,18 +1242,18 @@ Package rerunfilecheck Info: File `CHE374_Cheatsheet.out' has not changed.
 (rerunfilecheck)             Checksum: 8500BB07123E83D68EB5F07615A688F7;21157.
  ) 
 Here is how much of TeX's memory you used:
- 50077 strings out of 474116
- 1183647 string characters out of 5743682
+ 50082 strings out of 474116
+ 1183722 string characters out of 5743682
  1955187 words of memory out of 5000000
- 71194 multiletter control sequences out of 15000+600000
+ 71198 multiletter control sequences out of 15000+600000
  619879 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,13n,107p,812b,1314s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on CHE374_Cheatsheet.pdf (35 pages, 4573642 bytes).
+Output written on CHE374_Cheatsheet.pdf (36 pages, 4574572 bytes).
 PDF statistics:
- 1176 PDF objects out of 1200 (max. 8388607)
- 1062 compressed objects within 11 object streams
- 376 named destinations out of 1000 (max. 500000)
+ 1180 PDF objects out of 1200 (max. 8388607)
+ 1065 compressed objects within 11 object streams
+ 377 named destinations out of 1000 (max. 500000)
  1002 words of extra memory for PDF output out of 10000 (max. 10000000)
 

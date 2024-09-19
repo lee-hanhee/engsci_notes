@@ -3,17 +3,15 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}}{27}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}}{31}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces (a) Directed graph, (b) Undirected graph.}}{33}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{33}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Bipartite graph.}}{35}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces (a) A free tree, (b) A forest, (c) a graph that contains a cycle and is therefore neither a tree nor a forest.}}{36}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Rooted and ordered trees. If the tree is ordered, the relative left-to-right order of the children of a node matters, but if rooted, then they are the same tree.}}{37}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{46}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{47}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{48}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Build heap.}}{49}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Partition}}{51}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Quicksort example.}}{51}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{53}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Example of counting sort}}{57}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Radix sort example}}{58}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{59}{figure.18}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Bipartite graph.}}{33}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{34}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{44}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Bubble down.}}{45}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Build heap.}}{46}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{47}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Partition}}{49}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Quicksort example.}}{50}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{51}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Example of counting sort}}{55}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Radix sort example}}{57}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{57}{figure.16}%

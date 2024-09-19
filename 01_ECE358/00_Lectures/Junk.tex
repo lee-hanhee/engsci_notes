@@ -150,3 +150,113 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
                 \item Determine loose upper and lower bounds on the recurrence and then reduce your range of uncertainty.
             \end{itemize}
             \item \textbf{Trick:} Subtract a lower-order term when the math fails to work out in the induction proof.
+            
+%% GRAPHS and TREES
+\subsubsection{Types of walks, trails, and paths}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Walk:} A sequence of vertices in which each vertex is adjacent to the next. Both vertices and edges can be repeated.
+        \begin{itemize}
+            \item e.g. 1-2-3-5-2-1-5-3
+        \end{itemize}
+        
+        \item \textbf{Trail:} A walk with no repeated edges.
+        \begin{itemize}
+            \item e.g. 1-2-3-5-2-6
+        \end{itemize}
+        
+        \item \textbf{Path:} A trail with no repeated vertices, except the start and end vertices in the case of a cycle.
+        \begin{itemize}
+            \item e.g. 1-2-3-5-4
+        \end{itemize}
+        
+        \item \textbf{Simple Path:} A path with no repetition of vertices.
+        \begin{itemize}
+            \item e.g. 1-2-3-5
+        \end{itemize}
+        
+        \item \textbf{Circuit:} A trail that begins and ends at the same vertex.
+        \begin{itemize}
+            \item e.g. 5-2-1-5-3-4-5
+        \end{itemize}
+        
+        \item \textbf{Cycle:} A path that begins and ends at the same vertex, with no other repeated vertices.
+        \begin{itemize}
+            \item e.g. 5-3-4-5
+        \end{itemize}
+        
+    \end{itemize}
+\end{terminology}
+
+\textbf{Is there an edge between $v_i$ and $v_j$?}
+\begin{itemize}
+    \item \textbf{AM:} $O(1)$
+    \item \textbf{AL:} $O(d)$ 
+    \begin{itemize}
+        \item $d$: Maximum degree in the graph.
+    \end{itemize}
+\end{itemize}
+\vspace{1em}
+
+\textbf{Find all vertices adjacent to $v_i$:}
+\begin{itemize}
+    \item \textbf{AM:} $O(V)$ 
+    \item \textbf{AL:} $O(d)$ 
+\end{itemize}
+
+\subsubsection{Morphisms}
+\begin{definition}
+    \begin{itemize}
+        \item A \textbf{homomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a mapping
+        \[
+        f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \Rightarrow (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
+        \]
+        \item An \textbf{isomorphism} between two graphs $G_1 = (V_1, E_1)$ and $G_2 = (V_2, E_2)$ is a bijection
+        \[
+        f: V_1 \to V_2 \quad \text{s.t.} \quad (u, v) \in E_1 \iff (f(u), f(v)) \in E_2 \quad \text{for all} \quad u, v \in V_1.
+        \]
+        We say that $G_1$ is isomorphic to $G_2$ or $G_1 \cong G_2$.
+    \end{itemize}
+    
+    \textbf{Explanation in English:}
+    \begin{itemize}
+        \item \textbf{Homomorphism:}
+        \begin{itemize}
+            \item A function that maps vertices of one graph to another while preserving edges.
+        \end{itemize}
+
+        \item \textbf{Isomorphism:}
+        \begin{itemize}
+            \item A bijective function that maps one graph onto another, preserving edges both ways. The two graphs are identical in structure.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Spanning tree}
+\begin{definition}
+    $G'$ is a spanning tree of $G$, if it is a tree and $V'=V$.
+\end{definition}
+
+\subsection{Forest}
+\begin{definition}
+    An undirected graph is acyclic but possibly disconnected.
+\end{definition}
+
+\customFigure[1]{00_Images/Tree_Forest_Difference.png}{(a) A free tree, (b) A forest, (c) a graph that contains a cycle and is therefore neither a tree nor a forest.}
+
+\subsection{Rooted and ordered trees}
+    \subsubsection{Rooted trees}
+    \begin{definition}
+        A \textbf{rooted tree} is a free tree in which one of the vertices is distinguished from the others.
+        \begin{itemize}
+            \item \textbf{Root:} Distinguished vertex of the tree.
+            \item \textbf{Node:} Vertex of a rooted tree.
+        \end{itemize}
+    \end{definition}
+    
+    \subsubsection{Ordered trees}
+    \begin{definition}
+        An \textbf{ordered tree} is a rooted tree in which the children of each node are ordered.
+    \end{definition}
+
+    \customFigure[1]{00_Images/Rooted_Ordered_Trees.png}{Rooted and ordered trees. If the tree is ordered, the relative left-to-right order of the children of a node matters, but if rooted, then they are the same tree.}

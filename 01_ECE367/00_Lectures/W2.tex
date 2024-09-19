@@ -1,7 +1,92 @@
 \subsection{Projection onto subspaces}
+    \begin{definition}
+        \begin{equation}
+            x^* = \text{Proj}_S(x) = \arg\min_{y \in S} \|x - y\|_2
+        \end{equation}
+
+
+        $\text{If} \ \{v^{(1)}, \dots, v^{(d)}\} \ \text{is an orthonormal basis of} \ S$ then 
+        \begin{equation}
+            x^* = \sum_{i=1}^{d} \langle x, v^{(i)} \rangle v^{(i)}
+        \end{equation}
+        \begin{itemize}
+            \item The error vector should be orthogonal to each vector in the subspace.
+        \end{itemize}
+
+        \customFigure[0.5]{00_Images/EP.png}{Error vector being perp. to S.}
+    \end{definition}
+
+    \begin{example}
+        For $v = \begin{bmatrix}
+        v_1 \\
+        v_2 \\
+        v_3
+        \end{bmatrix}$
+        \vspace{1em}
+
+        The ith component can be extracted by doing the inner product with the ith standard basis:
+        \[
+        \begin{bmatrix}
+        v_1 & v_2 & v_3
+        \end{bmatrix}
+        \begin{bmatrix}
+        1 \\
+        0 \\
+        0
+        \end{bmatrix}
+        = v_1
+        \]
+
+        \[
+        \begin{bmatrix}
+        v_1 & v_2 & v_3
+        \end{bmatrix}
+        \begin{bmatrix}
+        0 \\
+        1 \\
+        0
+        \end{bmatrix}
+        = v_2
+        \]
+
+        \[
+        \begin{bmatrix}
+        v_1 & v_2 & v_3
+        \end{bmatrix}
+        \begin{bmatrix}
+        0 \\
+        0 \\
+        1
+        \end{bmatrix}
+        = v_3
+        \]
+        \vspace{1em}
+
+        Therefore, analogous to x*, we can write them as the sum of the inner product times the standard basis.
+        \[
+        v = v_1
+        \begin{bmatrix}
+        1 \\
+        0 \\
+        0
+        \end{bmatrix}
+        + v_2
+        \begin{bmatrix}
+        0 \\
+        1 \\
+        0
+        \end{bmatrix}
+        + v_3
+        \begin{bmatrix}
+        0 \\
+        0 \\
+        1
+        \end{bmatrix}
+        \]
+    \end{example}
     
     \subsubsection{Basic problem}
-        \begin{definition}
+        \begin{intuition}
             Given $x\in \mathcal{V}$ and a subspace $S$. Find the closest point (in norm) in $S$ to $x$: 
             \begin{equation}
                 \text{Proj}_S(x) = \arg\min_{y \in S} \| y - x \|
@@ -11,7 +96,7 @@
                 \item \textbf{Subspace:} $S$ doesn't have to be a subspace. 
                 \item $\arg\min$: Vector $y$ that minimizes $\lVert x - y\rVert$
             \end{itemize}
-        \end{definition}
+        \end{intuition}
         
     \subsubsection{Projection onto a 1D subspace}
         \begin{example}
@@ -21,7 +106,7 @@
             \[
             \text{Proj}_S(\mathbf{x}) = \mathbf{x}^*
             \]
-            Under the Euclidean norm, we have nice geometry: we should have
+            Under the Euclidean norm (i.e. l2 norm), we have nice geometry: we should have
             \[
             \langle \mathbf{x} - \mathbf{x}^*, \mathbf{v} \rangle = 0
             \]
@@ -170,6 +255,108 @@
         \end{example}
 
 \subsection{Gram-Schmidt and QR decomposition}
+    \subsubsection{What if the set of basis vectors is not orthonormal?}
+    \begin{intuition}
+        Let $\{u^{(1)}, \dots, u^{(d)}\} \text{ be a set of basis vectors for a subspace } S (\text{ not necessarily orthonormal})$
+        \vspace{1em}
+
+        $\text{We can still use the orthogonality principle, i.e.,}$
+        \[
+        e = x - x^* \perp S
+        \]
+        \vspace{1em}
+
+        Therefore, 
+        \[
+        \langle x - x^*, u^{(j)} \rangle = 0 \quad \forall j = 1, \dots, d 
+        \]
+        
+        $\text{Also, } x^* \in S \text{ so } x^* \text{can be written as a linear combination of basis vectors, so } x^* = \sum_{i=1}^{d} \alpha_i u^{(i)}$
+        \vspace{1em}
+        
+        $\text{Need to find} \ \alpha_1, \dots, \alpha_d$ s.t.
+
+        \[
+        \langle x - \sum_{i=1}^{d} \alpha_i u^{(i)}, u^{(j)} \rangle = 0 \quad \forall j = 1, \dots, d
+        \]
+        \[
+        \Rightarrow \langle x, u^{(j)} \rangle = \sum_{i=1}^{d} \alpha_i \langle u^{(i)}, u^{(j)} \rangle \quad \forall j = 1, \dots, d
+        \]
+
+        \[
+        \begin{bmatrix}
+        \langle u^{(1)}, u^{(1)} \rangle & \langle u^{(2)}, u^{(1)} \rangle & \dots & \langle u^{(d)}, u^{(1)} \rangle \\
+        \langle u^{(1)}, u^{(2)} \rangle & \langle u^{(2)}, u^{(2)} \rangle & \dots & \langle u^{(d)}, u^{(2)} \rangle \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \langle u^{(1)}, u^{(d)} \rangle & \langle u^{(2)}, u^{(d)} \rangle & \dots & \langle u^{(d)}, u^{(d)} \rangle
+        \end{bmatrix}
+        \begin{bmatrix}
+        \alpha_1 \\
+        \alpha_2 \\
+        \vdots \\
+        \alpha_d
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        \langle x, u^{(1)} \rangle \\
+        \langle x, u^{(2)} \rangle \\
+        \vdots \\
+        \langle x, u^{(d)} \rangle
+        \end{bmatrix}
+        \]
+
+        $\text{Solve for} \ \alpha_1, \dots, \alpha_d$, $\text{Then, we get} \ x^* = \sum_{i=1}^{d} \alpha_i u^{(i)}$
+        \customFigure[0.25]{00_Images/NO.png}{Not orthogonal, but similar to projection with orthonormal basis.}
+        \begin{itemize}
+            \item \textbf{Note:} $\text{If } \{u^{(1)}, \dots, u^{(d)}\} \text{ is an orthonormal basis, then the matrix is the identity matrix, and we get } \alpha_j = \langle x, u^{(j)} \rangle \text{ as before.}$
+        \end{itemize}
+    \end{intuition}
+
+    \begin{example}
+        \textbf{Function approximation.}
+        Let $B$ be the set of basis functions that is not orthonormal:
+        \[
+        \mathcal{B} = \{1, t, \dots, t^d\}
+        \]
+
+        $\text{Let} \ x(t) \ \text{be a function over} \ [0, 1].$
+        \begin{itemize}
+            \item \textbf{1st Goal} Approximate $x(t) \text{ by } x^*(t) = \sum_{n=0}^{d} \alpha_n t^n$
+            \item $\text{To find } \alpha_0, \alpha_1, \dots, \alpha_d$, need to solve the $Ax=b$.
+            \item \textbf{2nd Goal:} Minimize the approximation error $\|x(t) - x^*(t)\|_2 = \left( \int_0^1 (x(t) - x^*(t))^2 dt \right)^{1/2}$
+        \end{itemize}
+
+        \textbf{Recall: Taylor series expansion}
+        \[
+        x(t) \approx x(0) + x'(0) t + \frac{x''(0)}{2} t^2 + \dots
+        \]
+
+        \begin{itemize}
+            \item Taylor series expansion is completely different from the projection method, and the reason is that Taylor series expansion is a local approximation.
+        \end{itemize}
+
+    \end{example}
+
+    \subsubsection{Gram-Schmidt Procedure}
+    \textbf{Motivation:} This is to get an orthonormal basis, so we can use the easier projection method.
+    \begin{intuition}
+        Another way to find the projection of \(x\) onto $S = \text{span} \{u^{(1)}, \dots, u^{(d)}\}$ is to first find an orthonormal basis of \(S\), and then the projection problem becomes easier.
+        \customFigure[0.5]{00_Images/GS_2D.png}{Gram-Schmidt Process for 2D.}
+        \begin{enumerate}
+            \item Normalize $u^{(1)}$ 
+            \item Find the error vector by projecting $u^{(2)}$ onto the subspace $v^{(1)}$.
+            \item Normalize the error vector.
+            \item Now you have two vectors that form an orthonormal basis in 2D.
+        \end{enumerate}
+    \end{intuition}
+
+    \subsubsection{QR decomposition}
+
+    \subsubsection{Eigen-composition}
+
+    \subsubsection{Singular value decomposition}
+
+    
         
 \subsection{Hyperplanes and half-spaces}
 \subsection{Non-euclidean projection}

@@ -49,3 +49,29 @@
     \subsection{Distortion in the k-means algorithm}
 
     \subsection{Principle component analysis}
+
+
+
+    \begin{example}
+        \begin{enumerate}
+            \item Suppose logistic regression outputted a \(\underline{w}\) such that 
+            \[
+            \hat{P}_{\underline{w}}(+1 | \underline{x}_n) \approx 0.999 \Rightarrow \hat{P}_{\underline{w}}(-1 | \underline{x}_n) \approx 0.001
+            \]
+
+            The "machine" is very confident that \(\hat{y}_n = +1\) (i.e. in the correct prediction).
+        
+            \item If \( y_n = +1 \) (i.e. the true label was \(+1\)):
+            \[
+            e_n(\underline{w}) = -\log \hat{P}_{\underline{w}}(y_n | \underline{x}_n) = -\log(0.999) \approx 10^{-4}
+            \]
+            
+            \item What if \( y_n = -1 \)? What do you expect to see for \( e_n(\underline{w}) \)?
+            The "machine" is confident in the incorrect prediction
+
+            \item Therefore,
+            \[
+            e_n(\underline{w}) = -\log \hat{P}_{\underline{w}}(y_n | \underline{x}_n) = -\log(0.001) \approx 3
+            \]
+        \end{enumerate}        
+    \end{example}

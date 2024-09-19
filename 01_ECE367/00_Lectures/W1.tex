@@ -425,7 +425,7 @@
         \begin{itemize}
             \item \textbf{Key:} $\langle \mathbf{x}, \mathbf{x} \rangle = \sum_{i=1}^{n} x_i^2 = \mathbf{x}^\top \mathbf{x} = \lVert \mathbf{x} \rVert_2^2$ 
         \end{itemize}
-        \item In \( \mathbb{C}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} \overline{x_i} y_i = \mathbf{x}^H \mathbf{y} = \overline{\mathbf{y}^H \mathbf{x}}$
+        \item In \( \mathbb{C}^n \): $\langle \mathbf{x}, \mathbf{y} \rangle = \sum_{i=1}^{n} \overline{x_i} y_i = \mathbf{y}^H \mathbf{x} = \overline{\mathbf{x}^H \mathbf{y}}$
         \begin{itemize}
             \item $
                 \mathbf{x} = \begin{bmatrix}
@@ -502,11 +502,15 @@ In $\mathbb{R}^n$, the notion of inner product has a geometric interpretation, a
     \begin{itemize}
         \item \textbf{Key:} If given an inner product, take the square root of the inner product to get the norm.
         \begin{itemize}
-            \item e.g. $\lVert \mathbf{x} \rVert_2 = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$
+            \item e.g. $\lVert \mathbf{x} \rVert_2 = \sqrt{\langle \mathbf{x}, \mathbf{x} \rangle}$, which holds for $\mathbb{R}^n$ and $\mathbb{C}^n$
         \end{itemize}
         \customFigure[0.5]{00_Images/Ordering.png}{Ordering of the vector spaces.}
     \end{itemize}
 \end{definition}
+
+\begin{warning}
+    A norm doesn't induce an inner product (e.g. $l_1$ or $l_{\infty}$)
+\end{warning}
 
 \subsection{Orthogonal decomposition}
 \subsubsection{Mutually orthogonal}

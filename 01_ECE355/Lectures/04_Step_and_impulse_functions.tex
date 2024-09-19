@@ -1,0 +1,128 @@
+\subsection{DT: Unit Impulse}
+\begin{definition}
+    \begin{equation}
+        \delta[n] = 
+        \begin{cases}
+        1 & \text{if } n = 0 \\
+        0 & \text{otherwise}
+        \end{cases}
+    \end{equation}
+
+    \customFigure[0.5]{00_Images/DT_UI.png}{DT unit impulse.}
+\end{definition}
+
+    \subsubsection{Sampling}
+    \begin{definition}
+        \begin{enumerate}
+            \item \textbf{No shift:}
+            \begin{equation}
+                x[n] \delta[n] = x[0] \delta[n]
+            \end{equation}
+            
+            \item \textbf{Shift:}
+            \begin{equation}
+                x[n] \delta[n-k] = x[k] \delta[n-k]
+            \end{equation}
+        \end{enumerate}
+    \end{definition}
+
+\subsection{DT: Unit Step}
+\begin{definition}
+    \begin{equation}
+        u[n] =
+        \begin{cases} 
+        1 & \text{if } n \geq 0 \\
+        0 & \text{otherwise}
+        \end{cases}
+    \end{equation}     
+    
+    \customFigure[0.5]{00_Images/DT_US.png}{DT unit step.}
+\end{definition}
+
+    \subsubsection{First-order difference (Impulse as a function of steps)}
+    \begin{definition}
+        \begin{equation}
+            u[n] - u[n-1] = \delta [n]
+        \end{equation}
+        \begin{itemize}
+            \item Analogous to derivatives.
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Running sum (Step as a function of impulses)}
+    \begin{definition}
+        \begin{equation}
+            u[n] = \sum_{m=-\infty}^{n} \delta[m] 
+        \end{equation}
+
+        \customFigure[0.5]{00_Images/RS.png}{Running sum with (a) $n<0$ and (b) $n>0$.}
+
+        \noindent \textbf{Change of variables to} \(m = n - k \):
+        \begin{equation}
+            u[n] = \sum_{k=\infty}^{0} \delta[n-k] = \sum_{k=0}^{\infty} \delta[n-k]
+        \end{equation}
+
+        \begin{itemize}
+            \item i.e. Unit step is a linear combination of the unit impulse functions.
+            \item \textbf{Bottom:} $k=-\infty$ because $k = n - m = n - (-\infty) = \infty$
+            \item \textbf{Top:} $n \rightarrow 0$ because $n = m + k = -\infty + \infty = 0$
+        \end{itemize}
+
+        \customFigure[0.5]{00_Images/RS_CV.png}{Running sum with (a) $n<0$ and (b) $n>0$.}
+    \end{definition}
+
+\subsection{CT: Unit Step}
+\begin{definition}
+    \begin{equation}
+        u(t) =
+        \begin{cases}
+        1, & \text{if } t \geq 0 \\
+        0, & \text{if } t < 0
+        \end{cases}
+    \end{equation}
+
+    \customFigure[0.5]{00_Images/US_CT.png}{CT Unit step}
+\end{definition}
+
+\subsection{CT: Unit Impulse}
+\begin{definition}
+    \begin{equation}
+        u(t) = \int_{-\infty}^{t} \delta(\tau) \, d\tau
+    \end{equation}
+    \begin{itemize}
+        \item Why do we want this property?
+    \end{itemize}
+\end{definition}
+
+    \subsubsection{Approximatation}
+    \begin{derivation}
+        \begin{equation}
+            \delta_{\Delta}(t) = \frac{d}{dt} u_{\Delta}(t) \rightarrow \delta(t) = \lim_{\Delta \to 0} \delta_{\Delta}(t)
+        \end{equation}
+
+        \customFigure[0.5]{00_Images/D.png}{Approximation.}
+    \end{derivation}
+
+    \subsubsection{Sampling}
+    \begin{definition}
+        Let $x(t)$ be a signal and consider the product $x(t) \cdot \delta_{\Delta} (t)$
+
+        \begin{enumerate}
+            \item \textbf{No shift:}
+            \begin{equation}
+                \lim_{\Delta \to 0} x(t) \delta_{\Delta}(t) = x(0) \delta(t)
+            \end{equation}
+
+            \item \textbf{Shift:}
+            \begin{equation}
+                x(t) \delta(t - t_0) = x(t_0) \delta(t - t_0)                
+            \end{equation}
+
+            \begin{itemize}
+                \item \textbf{Special case:} $\text{If } x(t_0) = 0, \text{ then } 0 \delta(t - t_0) = \text{zero}(t)$ 
+                \begin{itemize}
+                    \item \textbf{Note:} $\text{zero}(t)$ not $0$ because a vector scaled by a vector should be a vector (i.e. signal).
+                \end{itemize}
+            \end{itemize} 
+        \end{enumerate}
+    \end{definition}
