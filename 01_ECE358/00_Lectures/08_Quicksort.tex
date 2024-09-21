@@ -1,13 +1,13 @@
 \subsection{Intro}
     \subsubsection{QS algorithm}
     \begin{definition}
-        \begin{lstlisting}[language=Python, caption={Quicksort Algorithm Pseudocode}]
-            Quicksort (list in, int left, int right)
-                pivot = Partition(in, left, right)
-                if (pivot > left)
-                    Quicksort(in, left, pivot)
-                if (pivot < right)
-                    Quicksort(in, pivot + 1, right)
+        \begin{lstlisting}[language=Python, caption={Quicksort Algorithm Pseudocode with Comments}]
+            Quicksort (list in, int left, int right):
+                pivot = Partition(in, left, right)   # Partition the list and return the pivot 
+                if (pivot > left):                  # If elements on the LS of pivot
+                    Quicksort(in, left, pivot)      # Apply QS on the left partition
+                if (pivot < right):                 # If elements on the RS of pivot
+                    Quicksort(in, pivot + 1, right) # Apply QS on the right partition
         \end{lstlisting}
     \end{definition}
 
@@ -43,17 +43,18 @@
 
     \subsubsection{Partition}
     \begin{definition}
-        \begin{lstlisting}[language=Python, caption={Partition Function Pseudocode}]
-            int Partition (in, left, right)
-                ls = left
-                pivot = in(left)
-                for i = left + 1 to right
-                    if (in(i) <= pivot)
-                        ls = ls + 1
-                        swap(in(i), in(ls))
-                swap(in(left), in(ls))
-                return ls
+        \begin{lstlisting}[language=Python, caption={Partition Function Pseudocode with Comments}]
+            int Partition (in, left, right):
+                ls = left                        # Left pointer (starting index)
+                pivot = in(left)                 # Choose the leftmost element as the pivot
+                for i = left + 1 to right:       # Iterate over the rest of the elements
+                    if (in(i) <= pivot):         
+                        ls = ls + 1              # Increment ls to track smaller elements
+                        swap(in(i), in(ls))      # Swap current element with the element at ls
+                swap(in(left), in(ls))           # Place pivot element in correct position
+                return ls                        # Return the index of the pivot
         \end{lstlisting}
+
 
         \customFigure[0.5]{00_Images/QS_LS.png}{Partition}
     \end{definition}
@@ -63,13 +64,17 @@
     \end{intuition}
 
 \subsection{QS basic analysis}
-    \subsubsection{QS best case}
+    \subsubsection{Best case}
     \begin{derivation}
-        The array is always split exactly in half, leading to a balanced partition. The recurrence relation for quicksort in this scenario is:
+        The array is always split exactly in half (i.e. picking the median as the pivot), leading to a balanced partition. The recurrence relation for quicksort in this scenario is:
 
         \begin{equation*}
             T(n) = 2T\left(\frac{n}{2}\right) + \Theta(n)
         \end{equation*}
+        \begin{itemize}
+            \item $T\left(\frac{n}{2}\right)$: Time to sort $n/2$ elements.
+            \item $\Theta(n)$: Time for partition
+        \end{itemize}
 
         \begin{center}
             \begin{tikzpicture}[level distance=1.5cm, sibling distance=3cm, every node/.style={circle, draw, minimum size=1cm, font=\small}]
@@ -87,7 +92,7 @@
         \end{equation*}
     \end{derivation}
 
-    \subsubsection{QS worst case}
+    \subsubsection{Worst case (informal)}
         \begin{derivation}
             The array is already sorted (or reverse sorted) and we choose the first or last element as the pivot, the recurrence relation for quicksort is:
 
@@ -117,15 +122,27 @@
                     &= \Theta\left(\frac{n(n+1)}{2}\right) \\
                     &= \Theta(n^2)
             \end{align*}
+            \begin{itemize}
+                \item $\Theta(n)$: Time to partition $n$ elements.
+                \item $\Theta(n-1)$: Time to partition $n-1$ elements.
+                \item $\Theta(n-2)$: Time to partition $n-2$ elements.
+                \item $T(n-1)$: Time to sort $n-1$ elements.
+            \end{itemize}
         \end{derivation}
 
-    \subsubsection{QS average case}
+    \subsubsection{Expected case}
     \begin{derivation}
         In the average case, the recurrence relation for quicksort can be expressed as:
 
         \[
         T(n) = T\left(\frac{n}{10}\right) + T\left(\frac{9n}{10}\right) + \Theta(n)
         \]
+        \begin{itemize}
+            \item \textbf{Key:} Both sides are proportional to $n$.
+            \item $T\left(\frac{n}{10}\right)$: Time to sort $n/10$ elements.
+            \item $T\left(\frac{9n}{10}\right)$: Time to sort $9n/10$ elements.
+            \item $\Theta(n)$: Time to partition $n$ elements.
+        \end{itemize}
 
         \noindent We can visualize this with a recursion tree:
 
@@ -156,6 +173,28 @@
         \end{align*}
 
     \end{derivation}
+
+    \begin{intuition}
+        Another way to do the expected case is 
+        \begin{center}
+            \begin{tikzpicture}[level distance=1.5cm, sibling distance=3cm, every node/.style={circle, draw, minimum size=1cm, font=\small}]
+                % Root level
+                \node {n}
+                    % First level of partitioning
+                    child {node {$\frac{n}{10^6}$}}
+                    child {node {$\frac{999999n}{10^6}$}};
+            \end{tikzpicture}
+        \end{center}
+        
+        \noindent In this example, the array of size \( n \) is split into highly unbalanced sub-arrays:
+        \begin{itemize}
+            \item One sub-array is \( \frac{n}{10^6} \), very small compared to \( n \).
+            \item The other sub-array is \( \frac{999999n}{10^6} \), almost the entire size of \( n \).
+        \end{itemize}
+        \vspace{1em}
+
+        \textbf{Key:} Both cases represent different ways of dividing the input array in the Quicksort algorithm. Even though the specific subarray sizes differ in each approach, the fundamental property of the algorithm — that it breaks the problem down recursively and performs $\Theta(n)$ work at each level.
+    \end{intuition}
 
 \subsection{Worst-case (formal)}
     \begin{derivation}
@@ -237,34 +276,13 @@
 
 \subsection{Randomized QS} 
     \subsubsection{Motivation for randomized QS}
-    \begin{example}
-        \begin{center}
-            \begin{tikzpicture}[level distance=1.5cm, sibling distance=3cm, every node/.style={circle, draw, minimum size=1cm, font=\small}]
-                % Root level
-                \node {n}
-                    % First level of partitioning
-                    child {node {$\frac{n}{10^6}$}}
-                    child {node {$\frac{999999n}{10^6}$}};
-            \end{tikzpicture}
-        \end{center}
-        
-        \noindent In this example, the array of size \( n \) is split into highly unbalanced sub-arrays:
-        \begin{itemize}
-            \item One sub-array is \( \frac{n}{10^6} \), very small compared to \( n \).
-            \item The other sub-array is \( \frac{999999n}{10^6} \), almost the entire size of \( n \).
-        \end{itemize}
-        \vspace{1em}
-
-        \noindent This unbalanced split may lead to increased recursion depth and higher running times, potentially reaching the worst-case \( O(n^2) \) complexity.
-        \vspace{1em}
-
-        \textbf{Motivation for Randomized QS:}
+    \begin{intuition}
         \begin{itemize}
             \item Avoiding worst-case scenarios
             \item Ensuring balanced splits
             \item Works against sorted and reverse sorted arrays.
         \end{itemize}
-    \end{example}
+    \end{intuition}
 
     \subsubsection{Random partition}
     \begin{definition}
@@ -275,7 +293,7 @@
                 return Partition(in, left, right)
         \end{lstlisting}
         \begin{itemize}
-            \item \textbf{Note:} This partition will be used to find the pivot instead in QS.
+            \item \textbf{Note:} This partition will be used to find the pivot instead in QS as it will swap random elements.
         \end{itemize}
     \end{definition}
 

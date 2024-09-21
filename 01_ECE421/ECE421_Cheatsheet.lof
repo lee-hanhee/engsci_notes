@@ -1,13 +1,13 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{4}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{4}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{5}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{5}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{6}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{6}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{7}{figure.6}%
+\contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{8}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{8}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Nearest neighbour comparison.}}{8}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Over and under fitting of k-nearest neighbours.}}{9}{figure.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Over and under fitting of k-nearest neighbours.}}{10}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Linear classification example.}}{12}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{13}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{14}{figure.12}%
@@ -20,18 +20,19 @@
 \contentsline {figure}{\numberline {19}{\ignorespaces Example of a sine for regularization.}}{22}{figure.19}%
 \contentsline {figure}{\numberline {20}{\ignorespaces Circular boundary.}}{23}{figure.20}%
 \contentsline {figure}{\numberline {21}{\ignorespaces There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}}{24}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Linear classification represented as a neuron.}}{25}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Linear regression represented as a neuron.}}{26}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Given an input, the decision boundary classifies as either $+1$ or $-1$.}}{26}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Probability based on distance to the decision boundary.}}{26}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Two points on either side of the decision boundary and intuition on d.}}{27}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Derivation of d visually.}}{27}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Logistic function}}{28}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Logistic regression.}}{28}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Log-loss error visualization}}{29}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}}{30}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Gradient example.}}{32}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Gradient and optimality.}}{33}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Convex function, but not strictly convex.}}{33}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Convex vs. Non-convex functions}}{34}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{34}{figure.36}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Visualization.}}{30}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Linear classification represented as a neuron.}}{31}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Linear regression represented as a neuron.}}{31}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Given an input, the decision boundary classifies as either $+1$ or $-1$.}}{31}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Probability based on distance to the decision boundary.}}{32}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Two points on either side of the decision boundary and intuition on d.}}{32}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Derivation of d visually.}}{33}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Logistic function}}{33}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Logistic regression.}}{34}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Log-loss error visualization}}{34}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}}{35}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Gradient example.}}{38}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Gradient and optimality.}}{38}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{39}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{39}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{40}{figure.37}%

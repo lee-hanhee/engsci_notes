@@ -1,0 +1,374 @@
+\subsection{Q1}
+\subsubsection{Gradient shortcuts}
+\begin{definition}
+    1st degree functions (i.e. linear):
+    \begin{equation}
+        \nabla_{\underline{x}} (\underline{a}^\top \underline{x}) = \underline{a}
+    \end{equation}
+    \begin{equation}
+        \nabla_{\underline{x}} (\underline{x}^\top \underline{a}) = \underline{a} 
+    \end{equation}
+    
+    2nd degree functions (i.e. quadratic)
+    \begin{equation}
+        \nabla_{\underline{x}} (\underline{x}^\top A \underline{x}) = 2A\underline{x}
+    \end{equation}
+    \begin{itemize}
+        \item $\underline{a} \text{ and } \underline{x} \text{: vectors with } k \text{ entries}$
+        \item $A \text{: is a symmetric square matrix}.$
+    \end{itemize}
+    \vspace{1em}
+
+    If $A$ is not symmetric, then 
+    \begin{equation}
+        \nabla_{\underline{x}} (\underline{x}^\top A \underline{x}) = (A^T + A)\underline{x}
+    \end{equation}
+\end{definition}
+
+\begin{intuition}
+    Use these gradient shortcuts to be able to calculate derivatives in matrix form without using summations and matrix multiplication. 
+\end{intuition}
+
+\begin{warning}
+    Always check dimensionality to see if your answers make sense.
+\end{warning}
+
+\subsubsection{lp-Norms}
+\begin{definition}
+    The \(\ell_p\)-norm of a vector \(\mathbf{x} = [x_1, x_2, \dots, x_n] \in \mathbb{R}^n\) is defined as:
+
+    \begin{equation}
+        \|\mathbf{x}\|_p = \left( \sum_{i=1}^{n} |x_i|^p \right)^{\frac{1}{p}}
+    \end{equation}
+
+    \begin{itemize}
+        \item \(p \geq 1\) is a real number.
+    \end{itemize}
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item \textbf{\(\ell_1\)-norm (Manhattan norm)}:
+        \begin{equation}
+            \|\mathbf{x}\|_1 = \sum_{i=1}^{n} |x_i|
+        \end{equation}
+        \item \textbf{\(\ell_2\)-norm (Euclidean norm)}:
+        \begin{equation}
+            \|\mathbf{x}\|_2 = \left( \sum_{i=1}^{n} |x_i|^2 \right)^{\frac{1}{2}}
+        \end{equation}
+        \item \textbf{\(\ell_\infty\)-norm (Maximum or Chebyshev norm)}:
+        \begin{equation}
+            \|\mathbf{x}\|_\infty = \max_{1 \leq i \leq n} |x_i|
+        \end{equation}
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Matrix multiplication}
+\begin{definition}
+    Let $\underline{w} = (w_0, w_1, \dots, w_d)$ and $\underline{x}_i = (x_{i0}, x_{i1}, \dots, x_{id})$ for $i \in \{1, 2, \dots, N\}$, where,
+
+    \[
+    X = 
+    \begin{bmatrix}
+    x_{10} & x_{11} & \dots & x_{1d} \\
+    x_{20} & x_{21} & \dots & x_{2d} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    x_{N0} & x_{N1} & \dots & x_{Nd} \\
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+    \mathbf{x}_1^\top \\
+    \mathbf{x}_2^\top \\
+    \vdots \\
+    \mathbf{x}_N^\top \\
+    \end{bmatrix},
+    \]
+
+    \[
+    \hat{\underline{y}} = 
+    \begin{bmatrix}
+    \hat{y}_1 \\
+    \hat{y}_2 \\
+    \vdots \\
+    \hat{y}_N \\
+    \end{bmatrix}
+    = 
+    \begin{bmatrix}
+    \underline{w}^\top \underline{x}_1 \\
+    \underline{w}^\top \underline{x}_2 \\
+    \vdots \\
+    \underline{w}^\top \underline{x}_N \\
+    \end{bmatrix}.
+    \]
+
+    Then $\hat{\underline{y}} = X\underline{w}$.
+\end{definition}
+
+\subsubsection{Taylor series}
+\begin{intuition}
+    Taylor expansion helps approximate functions locally to minimize this function (i.e. move in the direction of the negative gradient). The constraint indicates controlling the step size to converge without overshooting.
+\end{intuition}
+
+\begin{example}
+    \begin{enumerate}
+        \item We need to minimize \( \hat{E}_1(\Delta u, \Delta v) \) subject to the constraint \( \|\left(\Delta u, \Delta v\right)\|_2 = 0.5 \). The column vector \( \begin{bmatrix} \Delta u^* \\ \Delta v^* \end{bmatrix} \) that minimizes \( \hat{E}_1 \) is in the direction of \( -\nabla E(u, v) \), i.e., the negative gradient.
+        
+        \item From the expression for \( \hat{E}_1(\Delta u, \Delta v) = -2 \Delta u - 3 \Delta v + 3 \), the gradient is:
+        \[
+        \nabla \hat{E}_1(\Delta u, \Delta v) = \begin{bmatrix} -2 \\ -3 \end{bmatrix}
+        \]
+        So the negative gradient is:
+        \[
+        -\nabla \hat{E}_1 = \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+        \]
+    
+        \item The constraint \( \|\left(\Delta u, \Delta v\right)\|_2 = 0.5 \) implies that:
+        \[
+        \|\left(\Delta u, \Delta v\right)\|_2 = \sqrt{(\Delta u)^2 + (\Delta v)^2} = 0.5
+        \]
+        Thus, \( \Delta u^* \) and \( \Delta v^* \) must be proportional to the direction of \( \begin{bmatrix} 2 \\ 3 \end{bmatrix} \), so:
+        \[
+        \left(\Delta u^*, \Delta v^*\right) = t \begin{bmatrix} 2 \\ 3 \end{bmatrix}
+        \]
+        for some \( t \in \mathbb{R} \).
+    
+        \item Applying the constraint:
+        \[
+        \| \begin{bmatrix} 2t \\ 3t \end{bmatrix} \|_2 = \sqrt{(2t)^2 + (3t)^2} = 0.5
+        \]
+        \[
+        13t^2 = \frac{1}{4}
+        \]
+        \[
+        t^2 = \frac{1}{52}, \quad t = \pm \frac{1}{2\sqrt{13}}
+        \]
+        We choose \( t = \frac{1}{2\sqrt{13}} \) because the negative value would point in the opposite direction.
+    
+        \item Therefore, the values of \( \Delta u^* \) and \( \Delta v^* \) that minimize \( \hat{E}_1 \) are:
+        \[
+        \left( \Delta u^*, \Delta v^* \right) = \frac{1}{2\sqrt{13}} \begin{bmatrix} 2 \\ 3 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{13}} \\ \frac{3}{2\sqrt{13}} \end{bmatrix}
+        \]
+    
+        \item Finally, substituting these values into \( \hat{E}_1(\Delta u^*, \Delta v^*) \):
+        \[
+        \hat{E}_1(\Delta u^*, \Delta v^*) = -2 \left( \frac{1}{\sqrt{13}} \right) - 3 \left( \frac{3}{2\sqrt{13}} \right) + 3
+        \]
+        \[
+        = \frac{-2 - 4.5}{\sqrt{13}} + 3 = \frac{-6.5}{\sqrt{13}} + 3 \approx 1.2
+        \]
+    \end{enumerate}    
+\end{example}
+
+\subsection{Q3}
+\subsubsection{Matrix properties}
+\begin{definition}
+    \begin{equation}
+        (AB)^T = B^T A^T 
+    \end{equation}
+    \begin{equation}
+        \underline{y}^T \underline{y} = \| \underline{y} \|_2^2
+    \end{equation}
+    \begin{equation}
+        \underline{y}^T \underline{x} = \underline{x}^T \underline{y}
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Note:} $X \underline{y}$ turns into a vector so property 3 can still apply.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Q3B}
+\begin{definition}
+    Chain rule: 
+
+    \begin{equation}
+        f(g(\underline{w})) = (f'(g(\underline{w}))) \cdot \nabla_{\underline{w}} g(\underline{w})
+    \end{equation}
+\end{definition}
+\begin{example}
+    We want to compute the gradient of \( E_{\text{in}}(\underline{w}) \) with respect to \( \underline{w} \), where:
+
+    \[
+    E_{\text{in}}(\underline{w}) = \frac{1}{2N} \left( \underline{w}^\top X^\top X \underline{w} - 2 \underline{w}^\top X^\top \underline{y} + \| \underline{y} \|_2^2 \right).
+    \]
+
+    The gradient steps are as follows:
+
+    \begin{enumerate}
+        \item The gradient of the first term \( \underline{w}^\top X^\top X \underline{w} \) is:
+        \[
+        \nabla_{\underline{w}} \left( \underline{w}^\top X^\top X \underline{w} \right) = 2 X^\top X \underline{w}.
+        \]
+        This follows from the general rule \( \nabla_{\underline{w}} ( \underline{w}^\top A \underline{w} ) = 2A \underline{w} \) when \( A \) is symmetric (i.e. \( A = X^\top X \) and \( A^\top = (X^\top X)^\top = X^\top X = A \)).
+
+        \item The gradient of the second term \( -2 \underline{w}^\top X^\top \underline{y} \) is:
+        \[
+        \nabla_{\underline{w}} \left( -2 \underline{w}^\top X^\top \underline{y} \right) = -2 X^\top \underline{y}.
+        \]
+        This follows from the linear term gradient rule \( \nabla_{\underline{w}} (a^\top \underline{w}) = a \).
+
+        \item The gradient of the third term \( \| \underline{y} \|_2^2 \) is:
+        \[
+        \nabla_{\underline{w}} \left( \| \underline{y} \|_2^2 \right) = \underline{0}.
+        \]
+        Since this term does not depend on \( \underline{w} \), its gradient is zero \textbf{vector!!}
+    \end{enumerate}
+
+    Therefore, the full gradient of \( E_{\text{in}}(\underline{w}) \) is:
+
+    \[
+    \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{2N} \left( 2 X^\top X \underline{w} - 2 X^\top \underline{y} \right) = \frac{1}{N} \left( X^\top X \underline{w} - X^\top \underline{y} \right).
+    \]
+\end{example}
+
+\begin{example}
+    We want to compute the gradient of \( E_{\text{in}}(\underline{w}) \), where:
+
+    \[
+    E_{\text{in}}(\underline{w}) = \frac{1}{2N} \sum_{n=1}^{N} \left( \underline{w}^\top \underline{x}_n - y_n \right)^2.
+    \]
+
+    The gradient steps are as follows:
+
+    \begin{enumerate}
+        \item First, take the gradient of \( E_{\text{in}}(\underline{w}) \) with respect to \( \underline{w} \):
+        \[
+        \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{2N} \sum_{n=1}^{N} \nabla_{\underline{w}} \left( \underline{w}^\top \underline{x}_n - y_n \right)^2.
+        \]
+
+        \item Using the chain rule for the term \( \left( \underline{w}^\top \underline{x}_n - y_n \right)^2 \):
+        \[
+        \frac{\partial}{\partial w_i} \left( \left( \underline{w}^\top \underline{x}_n - y_n \right)^2 \right) = 2 \left( \underline{w}^\top \underline{x}_n - y_n \right) \frac{\partial}{\partial w_i} \left( \underline{w}^\top \underline{x}_n - y_n \right).
+        \]
+
+        \item Since \( \frac{\partial}{\partial w_i} \left( \underline{w}^\top \underline{x}_n \right) = x_{ni} \), we can now represent the gradient as a vector:
+        \[
+        \nabla_{\underline{w}} \left( \underline{w}^\top \underline{x}_n - y_n \right) = \underline{x}_n.
+        \]
+
+        \item Therefore, the gradient becomes:
+        \[
+        \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \left( \underline{w}^\top \underline{x}_n - y_n \right) \underline{x}_n.
+        \]
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    We will show that the two gradient expressions:
+
+    \[
+    \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \left( \underline{w}^\top \underline{x}_n - y_n \right) \underline{x}_n
+    \]
+    and
+    \[
+    \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{N} \left( X^\top X \underline{w} - X^\top \underline{y} \right)
+    \]
+
+    are equivalent.
+
+    We start by expanding the summation-based form:
+
+    \begin{align*}
+        \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) &= \frac{1}{N} \sum_{n=1}^{N} \left( \underline{w}^\top \underline{x}_n - y_n \right) \underline{x}_n \\
+        &= \frac{1}{N} \sum_{n=1}^{N} \left( \sum_{i=1}^{d} w_i x_{ni} - y_n \right) \begin{bmatrix} x_{n1} \\ x_{n2} \\ \vdots \\ x_{nd} \end{bmatrix}.
+    \end{align*}
+
+    Next, we observe that:
+
+    \[
+    \underline{w}^\top \underline{x}_n = \sum_{i=1}^{d} w_i x_{ni},
+    \]
+
+    which is a scalar value. We rewrite the gradient as:
+
+    \[
+    \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \left( \sum_{i=1}^{d} w_i x_{ni} \right) \underline{x}_n - \frac{1}{N} \sum_{n=1}^{N} y_n \underline{x}_n.
+    \]
+
+    We now convert this summation into matrix form. Let \( X \in \mathbb{R}^{N \times d} \) be the matrix of input vectors where each row \( \underline{x}_n \) is a vector of input features. The vector of predictions is \( X \underline{w} \) and the vector of target values is \( \underline{y} \in \mathbb{R}^N \).
+
+    We can now express the summation as:
+
+    \begin{align*}
+        \frac{1}{N} \sum_{n=1}^{N} \underline{w}^\top \underline{x}_n \underline{x}_n &= \frac{1}{N} X^\top X \underline{w}, \\
+        \frac{1}{N} \sum_{n=1}^{N} y_n \underline{x}_n &= \frac{1}{N} X^\top \underline{y}.
+    \end{align*}
+
+    Thus, combining both terms, we have:
+
+    \[
+    \nabla_{\underline{w}} E_{\text{in}}(\underline{w}) = \frac{1}{N} \left( X^\top X \underline{w} - X^\top \underline{y} \right).
+    \]
+
+    This confirms that the two expressions for the gradient are equivalent.
+\end{example}
+
+\subsubsection{Q3C}
+\begin{example}
+    The least-squares solution is given by:
+
+    \[
+    w^* = (X^\top X)^{-1} X^\top y,
+    \]
+    which satisfies the condition:
+
+    \[
+    X w^* = X (X^\top X)^{-1} X^\top y = y_{LS},
+    \]
+    where \( y_{LS} \) is the projection of \( y \) onto the column space of \( X \), also called the fitted values.
+
+    We now decompose the squared error \( \|Xw - y\|_2^2 \) as:
+
+    \[
+    \|Xw - y\|_2^2 = \|Xw - y_{LS} + y_{LS} - y\|_2^2.
+    \]
+
+    Expanding this expression:
+
+    \[
+    \|Xw - y\|_2^2 = \|Xw - y_{LS}\|_2^2 + \|y_{LS} - y\|_2^2 + 2(Xw - y_{LS})^\top (y_{LS} - y).
+    \]
+
+    The term we are interested in is:
+
+    \[
+    2(Xw - y_{LS})^\top (y_{LS} - y).
+    \]
+
+    Notice that:
+    \begin{itemize}
+        \item \( Xw - y_{LS} \) is the difference between \( Xw \) and the least-squares solution, which lies in the column space of \( X \).
+        \item \( y_{LS} - y \) represents the residuals, and the residual vector is orthogonal to the column space of \( X \).
+    \end{itemize}
+
+    Since \( Xw - y_{LS} \) is in the column space of \( X \) and the residuals \( y_{LS} - y \) are orthogonal to this space, we have:
+
+    \[
+    (Xw - y_{LS})^\top (y_{LS} - y) = 0.
+    \]
+
+    Therefore, the last term vanishes, completing the decomposition.
+    \[
+    E_{\text{in}}(w) = \frac{1}{2N} \left( \| Xw - y_{LS} \|_2^2 + \| y - y_{LS} \|_2^2 \right),
+    \]
+
+\end{example}
+
+\subsubsection{Q3D}
+\begin{intuition}
+    These two following vectors are orthogonal because:
+    \[
+    (X\underline{w} - \underline{y}_{LS})^\top (\underline{y} - \underline{y}_{LS}) = 0
+    \]
+    \begin{itemize}
+        \item $X\underline{w} - \underline{y}_{LS}$ lies in the span of $X$, which is a line segment in the plane. 
+        \item $X\underline{w}$: All linear combinations of the columns of $X$ with a specific $\underline{w}$, which holds for all $\underline{w}$
+        \item $\underline{y} - \underline{y}_{LS}$: error vector that is orthogonal to $X$. 
+    \end{itemize}
+    \vspace{1em}
+
+    When you project $y$ onto $X$ to get $y_{LS}$, then the vector $\underline{y} - \underline{y}_{LS}$ is orthogonal to $X$. 
+    \vspace{1em}
+
+    $\underline{y} - \underline{y}_{LS}$ is orthogonal to $X$ iff $\underline{y} - \underline{y}_{LS}$ is orthogonal to any line segment in $X$, which is $X\underline{w} - \underline{y}_{LS}$
+
+    \customFigure[0.75]{00_Images/Q3C.png}{Visualization.}
+\end{intuition}

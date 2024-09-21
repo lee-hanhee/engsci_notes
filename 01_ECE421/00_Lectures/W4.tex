@@ -39,7 +39,11 @@
         A function $f$ on $\mathbb{R}^m$ is \textbf{convex} if any line segment connecting two points of the graph of $f$ lies above or on the graph. 
 
             \begin{itemize}
-                \item \textbf{Mathematically:} For any \( 0 \leq \alpha \leq 1 \) and any \( x_1 \) and \( x_2 \), $f(\alpha x_1 + (1-\alpha) x_2) \leq \alpha f(x_1) + (1-\alpha) f(x_2)$
+                \item \textbf{Mathematically:} For any \( 0 \leq \alpha \leq 1 \) and any \( x_1 \) and \( x_2 \), $f(\alpha x_1 + (1-\alpha) x_2) \leq \alpha f(x_1) + (1-\alpha) f(x_2)$ 
+                \begin{itemize}
+                    \item \textbf{Equality:} If $\alpha = 0$, then $f(x_2) = f(x_2)$ and if $\alpha = 1$, then $f(x_1) = f(x_1)$
+                    \item \textbf{Inequality:} For any values in between (i.e. strictly convex)
+                \end{itemize}
                 \item \textbf{Remark:} For convex functions, local minima are all global minima.
             \end{itemize}
     \end{definition}
@@ -49,7 +53,7 @@
     \end{definition}
 
     \begin{definition}
-        If $f(\alpha x_1 + (1-\alpha)x_2) < \alpha f(x_1) + (1-\alpha)f(x_2)$ for any \( 0 < \alpha < 1 \) and any \( x_1, x_2 \), then \( f \) is \textbf{strictly convex}.
+        If $f(\alpha x_1 + (1-\alpha)x_2) < \alpha f(x_1) + (1-\alpha)f(x_2)$ for any \( 0 < \alpha < 1 \) and any \( x_1, x_2 \), then \( f \) is \textbf{strictly convex} 
         \begin{itemize}
             \item \textbf{Remark:} For strictly convex functions, there is only one global optimum.
         \end{itemize}

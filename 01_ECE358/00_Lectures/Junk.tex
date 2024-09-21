@@ -152,6 +152,17 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
             \item \textbf{Trick:} Subtract a lower-order term when the math fails to work out in the induction proof.
             
 %% GRAPHS and TREES
+\item \textbf{Degree of a vertex:} Number of neighbors that a vertex has.
+\item 
+\item \textbf{Subgraph:} $G' = (V', E')$ is a subgraph of a graph $G$ iff:
+\begin{itemize}
+    \item $V' \subseteq V$
+    \item $E' \subseteq E$
+    \item If $e = (v, u) \in E'$, then $v \in V'$ and $u \in V'$
+\end{itemize}
+\item \textbf{Adjacent vertices:} $N(v) = \{u : (v, u) \in E\}$
+\item \textbf{Incident edges:} $I(v) = \{(u, v) : (u, v) \in E\}$
+
 \subsubsection{Types of walks, trails, and paths}
 \begin{terminology}
     \begin{itemize}
@@ -244,6 +255,25 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
 
 \customFigure[1]{00_Images/Tree_Forest_Difference.png}{(a) A free tree, (b) A forest, (c) a graph that contains a cycle and is therefore neither a tree nor a forest.}
 
+\subsubsection{Binary trees}
+\begin{definition}
+    A \textbf{binary tree} $T$ is a structure defined on a finite set of nodes that either
+    \begin{itemize}
+        \item contains no nodes, or 
+        \item is composed of three disjoint sets of nodes: a \textbf{root} node, a \textbf{left subtree}, and a \textbf{right subtree}.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Terminology}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Empty Tree:} A binary tree with no nodes.
+        \item \textbf{Left and Right Child:} The roots of the non-empty left and right subtrees of the root.
+        \item \textbf{Full Binary Tree:} Every node is either a leaf or has exactly two children.
+        \item \textbf{Position Matters:} The distinction between left and right children is crucial in a binary tree, unlike in general ordered trees.
+    \end{itemize}
+\end{terminology}
+
 \subsection{Rooted and ordered trees}
     \subsubsection{Rooted trees}
     \begin{definition}
@@ -260,3 +290,8 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
     \end{definition}
 
     \customFigure[1]{00_Images/Rooted_Ordered_Trees.png}{Rooted and ordered trees. If the tree is ordered, the relative left-to-right order of the children of a node matters, but if rooted, then they are the same tree.}
+
+    \subsubsection{Positional trees}
+    \begin{definition}
+        The children of a node are labeled with distinct positive integers.
+    \end{definition}

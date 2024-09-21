@@ -1,21 +1,10 @@
 \subsection{Graphs}
     \begin{definition}
-        \begin{itemize}
-            \item \textbf{Graph:} $G = (V, E)$, where $V = \{\text{vertices}\}$ and $E = \{\text{edges}\}$.
-            \item \textbf{Subgraph:} $G' = (V', E')$ is a subgraph of a graph $G$ iff:
-            \begin{itemize}
-                \item $V' \subseteq V$
-                \item $E' \subseteq E$
-                \item If $e = (v, u) \in E'$, then $v \in V'$ and $u \in V'$
-            \end{itemize}
-            \item \textbf{Adjacent vertices:} $N(v) = \{u : (v, u) \in E\}$
-            \item \textbf{Incident edges:} $I(v) = \{(u, v) : (u, v) \in E\}$
-            \item \textbf{Degree of a vertex:} Number of neighbors that a vertex has.
-        \end{itemize}            
+        $G = (V, E)$, where $V = \{\text{vertices}\}$ and $E = \{\text{edges}\}$.
     \end{definition}
 
     \subsubsection{Directed and Undirected, Weighted Graphs}
-        \begin{definition}
+        \begin{terminology}
             \begin{itemize}
                 \item \textbf{Directed graph (digraph):} Each edge has a direction from one vertex to another. 
                 \begin{itemize}
@@ -31,8 +20,11 @@
                     \item \textbf{Degree of V:} Number of edges incident on it.
                 \end{itemize}
                 \item \textbf{Weighted graph:} A graph where each edge is associated with a value (e.g. distance, profit, penalty).
+                \item \textbf{Simple graph:} Graph with no self-loops, or multi-edges.
+                \item \textbf{Induced graph:} Subset of $G$ and the associated edges.
+                \item \textbf{Spanning subgraph:} Let $G' = (V',E')$ be a subgraph of $G=(V,E)$, $G'$ is a spanning subgraph if $V'=V$.
             \end{itemize}
-        \end{definition}
+        \end{terminology}
 
         \customFigure[0.75]{00_Images/Directed_Undirected.png}{(a) Directed graph, (b) Undirected graph.}
 
@@ -53,27 +45,39 @@
     \begin{terminology}
         \begin{itemize}
             \item \textbf{Acyclic Graph:} A graph with no cycles is an acyclic graph.
-            \item \textbf{Directed Acyclic Graph:} A DAG is a directed acyclic graph.
-
-            \item \textbf{Connected:} Two vertices are connected if there is a path between them.
-            \item \textbf{Connected graph:} $\exists$ path between $\forall \; 2$ vertices. 
-            
-            \item \textbf{Simple graph:} Graph with no self-loops, or multi-edges.
-            \item \textbf{Spanning subgraph:} Let $G' = (V',E')$ be a subgraph of $G=(V,E)$, $G'$ is a spanning subgraph if $V'=V$.
-
-            \item \textbf{Degrees of all V}: $\sum_{v\in V} degree(v) = 2\abs{E}$
-
-            \item \textbf{Bipartite Gs:} $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \emptyset$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
-            \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
+            \item \textbf{Directed Acyclic Graph:} A DAG is a directed acyclic graph. 
         \end{itemize}
     \end{terminology}
+
+    \subsubsection{Connected, disconnected graph}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Connected:} Two vertices are connected if there is a path between them.
+            \item \textbf{Connected graph:} $\exists$ path between $\forall \; 2$ vertices.
+            \item \textbf{Disconnected graph:} $\exists$ at least one pair of vertices such that no path exists between them.
+        \end{itemize}
+    \end{terminology}
+
+    \subsubsection{Bipartite Gs}
+    \begin{definition}
+        $V$ can be partitioned into $2$ sets $V_1$ and $V_2$ s.t. $V_1 \cap V_2 = \emptyset$ and $V_1 \cup V_2 = V$ and adjacencies only between elements of $V_1$ and $V_2$.
+        \customFigure[0.25]{00_Images/Bipartite.png}{Bipartite graph.}
+    \end{definition}
 
     \subsubsection{Clique (complete G)}
     \begin{definition}
         $\exists$ edge between $\forall \; 2$ vertices. 
-        \begin{equation*}
-            \# edges = \frac{V(V-1)}{2}
-        \end{equation*}
+        \begin{equation}
+            \# edges = \frac{V(V-1)}{2} = \binom{V}{2}
+        \end{equation}
+        \customFigure[0.75]{00_Images/Clique.png}{Clique for 3 and 4.}
+    \end{definition}
+
+    \subsubsection{Degrees of all V}
+    \begin{definition}
+        \begin{equation}
+            \sum_{v\in V} degree(v) = 2\abs{E}
+        \end{equation}
     \end{definition}
 
     \subsubsection{Graph representation}
@@ -81,16 +85,17 @@
         
         \textbf{Adjacency matrix (AM):} An $n\times n$ matrix where $M[i][j]=1$ if there is an edge between $v_i$ and $v_j$, and $0$ otherwise (undirected) or $M[i][j]=1$ if there is an edge from $v_i$ to $v_j$, and $0$ otherwise (directed).
         \begin{itemize}
-            \item \textbf{Time to search for E:} $O(1)$
-            \item \textbf{Memory space:} $O(V^2)$
+            \item \textbf{Time to search for E:} $O(1)$ (i.e. since in matrix format)
+            \item \textbf{Memory space:} $O(V^2)$ (i.e. matrix has $x^2$ entries)
             \item Good for dense $G$ (i.e. $E>>V^2$)
+            \item For a directed graph, when you take the transpose of $G$, you get the complement of the original graph.
         \end{itemize}
         \vspace{1em}
 
         \textbf{Adjacency list (AL):} For $n=\abs{V}$ vertices, $n$ linked lists. The $ith$ linked list, $L[i]$ is a list of all the vertices that are adjacent to vertex $i$.
         \begin{itemize}
-            \item \textbf{Time to search for E:} $O(V)$
-            \item \textbf{Memory space:} $O(V+E)$ 
+            \item \textbf{Time to search for E:} $O(V)$ (i.e. may be on the last vertex)
+            \item \textbf{Memory space:} $O(V+E)$ (i.e. store all the vertices and edges once)
             \item Good for sparse $G$ (i.e. $E<<V^2$).
         \end{itemize}
         \vspace{1em}
@@ -142,6 +147,7 @@
 \subsection{Trees}
     \begin{definition}
         A tree is a connected, acyclic, undirected graph. 
+        \customFigure[0.5]{00_Images/T.png}{Choosing a node as the root, then making it a tree.}
     \end{definition}
 
     \subsubsection{Properties}
@@ -156,7 +162,7 @@
             \item $G$ is acyclic, but if any edge is added to $E$, the resulting graph contains a cycle.
         \end{enumerate}
         \begin{itemize}
-            \item \textbf{Note:} There's a proof to show each of these statements are equivalent by proving 1 -> 2 -> ... -> 6 -> 1
+            \item \textbf{Note:} Prove 1 -> 2 -> ... -> 6 -> 1
         \end{itemize}
     \end{definition}
 
@@ -175,46 +181,27 @@
             
             \item \textbf{Degree:} The degree of a node \( x \) is the number of children it has.
             
-            \item \textbf{Depth:} The depth of a node \( x \) is the length of the path from the root to \( x \).
-            
             \item \textbf{Level:} A level of a tree consists of all nodes at the same depth.
+            
+        \end{itemize}
+    \end{terminology}
+
+    \subsubsection{Height, depth}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Depth:} The depth of a node \( x \) is the number of edges from the root to \( x \).
             
             \item \textbf{Height:} The height of a node is the number of edges in the longest path from that node to a leaf.
             \begin{itemize}
                 \item \textbf{Height of tree:} From root to any leaf.
             \end{itemize}
-            
         \end{itemize}
-    \end{terminology}
 
-\subsection{Binary and positional trees}
-    \subsubsection{Binary trees}
-    \begin{definition}
-        A \textbf{binary tree} $T$ is a structure defined on a finite set of nodes that either
-        \begin{itemize}
-            \item contains no nodes, or 
-            \item is composed of three disjoint sets of nodes: a \textbf{root} node, a \textbf{left subtree}, and a \textbf{right subtree}.
-        \end{itemize}
-    \end{definition}
-
-    \subsubsection{Terminology}
-    \begin{terminology}
-        \begin{itemize}
-            \item \textbf{Empty Tree:} A binary tree with no nodes.
-            \item \textbf{Left and Right Child:} The roots of the non-empty left and right subtrees of the root.
-            \item \textbf{Full Binary Tree:} Every node is either a leaf or has exactly two children.
-            \item \textbf{Position Matters:} The distinction between left and right children is crucial in a binary tree, unlike in general ordered trees.
-        \end{itemize}
-    \end{terminology}
-
-    \subsubsection{Positional trees}
-    \begin{definition}
-        The children of a node are labeled with distinct positive integers.
     \end{definition}
 
     \subsubsection{K-ary trees}
     \begin{definition}
-            A positional tree in which each $\text{node} \leq k$ children. A binary tree has \( k = 2 \).
+            Each $\text{node} \leq k$ children. A binary tree has \( k = 2 \).
             \vspace{1em}
 
             A \textbf{complete k-ary tree} is a k-ary tree in which all leaves have the same depth, and every internal node has exactly \( k \) children. 

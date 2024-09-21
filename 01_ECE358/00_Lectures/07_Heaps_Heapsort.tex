@@ -42,8 +42,8 @@
         \begin{lstlisting}
         bubble_down (i):
             repeat
-                compare A[i] with A[2i] and A[2i + 1]
-                exit if A[i] is larger or A[i] is a leaf
+                compare A[i] with A[2i] and A[2i + 1] # Compare with its children.
+                exit if A[i] is larger or A[i] is a leaf # Max heap property satisfied.
                 swap A[i] <=> swap(A[2i], A[2i + 1]) # Swap with larger element between children.
         \end{lstlisting}
         \begin{itemize}
@@ -59,8 +59,8 @@
             Build_heap (A):
                 for i = floor(length / 2) down to 1 # Since floor(length/2) + 1 are all
                                                     # leaf nodes, so no point in bubble_down.
-                                                    # floor(length/2) is the last int. node.
-                    bubble_down(A, i)
+                                                    # floor(length/2) is the last internal node.
+                    bubble_down(A, i) # bubble down to appropriate spot.
         \end{lstlisting}
         \begin{itemize}
             \item \textbf{Time Complexity:} $O(n)$ (By proof below)
@@ -74,10 +74,10 @@
     \begin{definition}
         \begin{lstlisting}
         Extract_Max (A): 
-            max = A[1]
-            A[1] = A[length] # put last element at the top
-            length = length - 1 # decrease the size of the array
-            bubble_down(A[1]) # bubble down the last element to the proper location
+            max = A[1] # Extract the root.
+            A[1] = A[length] # Put last element at the top
+            length = length - 1 # Decrease the size of the array
+            bubble_down(A[1]) # Bubble down the last element to the proper location
         \end{lstlisting}
         \begin{itemize}
             \item \textbf{Time Complexity:} $O(lg n)$ (since bubble down is $O(lg n)$)
@@ -103,9 +103,9 @@
     \begin{definition}
         \begin{lstlisting}
             Insert:
-                A[length + 1] = new_key
-                length = length + 1
-                bubble_up(A, length)
+                A[length + 1] = new_key # Add to end of array 
+                length = length + 1 # Increase the length
+                bubble_up(A, length) # Bubble up to appropriate spot
         \end{lstlisting}
         \begin{itemize}
             \item \textbf{Time Complexity:} $O(lg n)$
@@ -118,7 +118,7 @@
         bubble_up (A, i):
             repeat
                 swap (A[i] <=> A[floor(i/2)]) # comparing yourself with parent
-                if A[i] is larger
+                if A[i] is larger, exit
         \end{lstlisting}
         \begin{itemize}
             \item \textbf{Time Complexity:} $O(lg n)$

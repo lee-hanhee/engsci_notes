@@ -99,7 +99,7 @@
         \end{intuition}
         
     \subsubsection{Projection onto a 1D subspace}
-        \begin{example}
+        \begin{derivation}
             Projection onto a 1-dimensional subspace.
 
             Let \( S = \text{span}(\mathbf{v}) \), and we denote the projection of \( \mathbf{x} \) onto \( S \) as:
@@ -138,14 +138,13 @@
                 \item \textbf{Note:} $x^*$ is the point we are looking for in the projection problem.
             \end{itemize}
             \customFigure[0.5]{00_Images/Example_Projection.png}{Visual representation of the projection problem.}
-        \end{example}
+        \end{derivation}
 
     \subsubsection{Projection onto an n dimensional space}
-        \begin{example}
-        This can be generalized to higher dimensions. Let \( S \) be a subspace of \( \mathcal{V} \), and let \( \{ \mathbf{v}_1, \dots, \mathbf{v}_d \} \) be an orthonormal basis of \( S \).
+        \begin{derivation}
+            Let \( S \) be a subspace of \( \mathcal{V} \), and let \( \{ \mathbf{v}_1, \dots, \mathbf{v}_d \} \) be an orthonormal basis of \( S \).
         \begin{enumerate}
             \item \textbf{Problem setup}
-            Let 
             \[
             \mathbf{x}^* = \sum_{i=1}^{d} \alpha_i \mathbf{v}_i
             \]
@@ -196,7 +195,8 @@
         \end{enumerate}
 
         \customFigure[0.5]{00_Images/General.png}{Generalization of projection.}
-        \end{example}
+
+        \end{derivation}
 
     \subsubsection{Application of projections: Fourier series}
         \begin{example}
@@ -256,7 +256,7 @@
 
 \subsection{Gram-Schmidt and QR decomposition}
     \subsubsection{What if the set of basis vectors is not orthonormal?}
-    \begin{intuition}
+    \begin{derivation}
         Let $\{u^{(1)}, \dots, u^{(d)}\} \text{ be a set of basis vectors for a subspace } S (\text{ not necessarily orthonormal})$
         \vspace{1em}
 
@@ -310,7 +310,7 @@
         \begin{itemize}
             \item \textbf{Note:} $\text{If } \{u^{(1)}, \dots, u^{(d)}\} \text{ is an orthonormal basis, then the matrix is the identity matrix, and we get } \alpha_j = \langle x, u^{(j)} \rangle \text{ as before.}$
         \end{itemize}
-    \end{intuition}
+    \end{derivation}
 
     \begin{example}
         \textbf{Function approximation.}
@@ -341,7 +341,7 @@
     \textbf{Motivation:} This is to get an orthonormal basis, so we can use the easier projection method.
     \begin{intuition}
         Another way to find the projection of \(x\) onto $S = \text{span} \{u^{(1)}, \dots, u^{(d)}\}$ is to first find an orthonormal basis of \(S\), and then the projection problem becomes easier.
-        \customFigure[0.5]{00_Images/GS_2D.png}{Gram-Schmidt Process for 2D.}
+        \customFigure[0.75]{00_Images/GS_2D.png}{Gram-Schmidt Process for 2D.}
         \begin{enumerate}
             \item Normalize $u^{(1)}$ 
             \item Find the error vector by projecting $u^{(2)}$ onto the subspace $v^{(1)}$.
@@ -350,8 +350,390 @@
         \end{enumerate}
     \end{intuition}
 
-    \subsubsection{QR decomposition}
+    \begin{definition}
+        Turns any set of basis vectors of a subspace into an \textbf{orthonormal} set of basis vectors.
+    \end{definition}
 
+    \begin{process}
+        \begin{enumerate}
+            \item Normalize \( u^{(1)} \) to get \( v^{(1)} \):
+            \[
+            v^{(1)} = \frac{u^{(1)}}{\|u^{(1)}\|_2}
+            \]
+        
+            \item 
+            \begin{enumerate}
+                \item Project \( u^{(2)} \) onto \( S = \text{span}\{v^{(1)}\} \) to get:
+                \[
+                w^{(2)} = \langle u^{(2)}, v^{(1)} \rangle v^{(1)}
+                \]
+        
+                \item Set:
+                \[
+                v^{(2)} = \frac{u^{(2)} - w^{(2)}}{\|u^{(2)} - w^{(2)}\|_2}
+                \]
+            \end{enumerate}
+        
+            \item Continue similarly:
+            \begin{enumerate}
+                \item Project \( u^{(3)} \) onto \( S = \text{span}\{v^{(1)}, v^{(2)}\} \) to get:
+                \[
+                w^{(3)} = \langle u^{(3)}, v^{(1)} \rangle v^{(1)} + \langle u^{(3)}, v^{(2)} \rangle v^{(2)}
+                \]
+        
+                \item Set:
+                \[
+                v^{(3)} = \frac{u^{(3)} - w^{(3)}}{\|u^{(3)} - w^{(3)}\|_2}
+                \]
+            \end{enumerate}
+            
+            \item Continue this process for higher dimensions. Therefore, \( \{v^{(1)}, \dots, v^{(d)}\} \) is an orthonormal basis for \( \text{span}\{u^{(1)}, \dots, u^{(d)}\} \).
+        
+        \end{enumerate}
+    \end{process}
+
+    \subsubsection{QR decomposition}
+    Another way to see Gram-Schmidt procedure is through matrix multiplication.
+    \begin{definition}
+        $\text{Stack all } u^{(i)} \text{ vectors as columns of a matrix}$
+
+        \begin{align*}
+            \begin{bmatrix}
+            u^{(1)} & \cdots & u^{(d)}
+            \end{bmatrix}
+            &= QR \\
+            \begin{bmatrix}
+            u^{(1)} & \cdots & u^{(d)}
+            \end{bmatrix}
+            &=
+            \begin{bmatrix}
+            v^{(1)} & \cdots & v^{(d)}
+            \end{bmatrix}
+            \begin{bmatrix}
+            r_{11} & r_{12} & \cdots & r_{1d} \\
+            0      & r_{22} & \cdots & r_{2d} \\
+            \vdots &        & \ddots & \vdots \\
+            0      & \cdots & 0      & r_{dd}
+            \end{bmatrix} \\
+            &=
+            \begin{bmatrix}
+            r_{11}v^{(1)} & r_{12}v^{(1)} + r_{22}v^{(2)} & \cdots
+            \end{bmatrix}
+        \end{align*}        
+
+        \begin{itemize}
+            \item \( Q \): Orthonomral matrix (i.e., its columns are orthogonal to each other and have unit norm) 
+            \item \( R \): Upper triangular.
+        \end{itemize}        
+    \end{definition}
+
+    \begin{example}
+        \[
+        \{1, t, t^2, \cdots, t^d\}
+        \]
+        is \textit{not an orthonormal basis}, which as an example is defined from $[0,1]$
+        \vspace{1em}
+
+        The \( L^2 \)-norm for this example is given by
+        \[
+        \|f\|_{2} = \left( \int_0^1 f^2(t) \, dt \right)^{\frac{1}{2}}.
+        \]
+        \vspace{1em}
+
+        The inner product between two functions \( f(t) \) and \( g(t) \) is defined as:
+        \[
+        \langle f, g \rangle = \int_0^1 f(t) g(t) \, dt.
+        \]
+
+        \begin{enumerate}                
+            \item Start with \( u^{(1)} = 1 \), which is equivalent to \( v^{(1)} \) because it's unit norm.
+        
+            \item For \( u^{(2)} \), calculate the projection:
+            \[
+            \omega^{(2)} = \text{Proj}_{\text{span}\{v^{(1)}\}} u^{(2)} = \langle u^{(2)}, v^{(1)} \rangle = \int_0^1 t \cdot 1 \, dt = \frac{1}{2}..
+            \]
+            
+        
+            So, the projection of \( u^{(2)} \) onto \( u^{(1)} \) is:
+            \[
+            \frac{1}{2} v^{(1)}.
+            \]
+            
+            \item Now subtract the projection from \( u^{(2)} \) and normalize:
+            \[
+            v^{(2)} = \frac{u^{(2)} - \omega^{(2)}}{\|u^{(2)} - \omega^{(2)}\|_{2}} = \frac{t - \frac{1}{2}}{\left( \int_0^1 \left(t - \frac{1}{2}\right)^2 dt \right)^{\frac{1}{2}}}.
+            \]
+            
+        \end{enumerate}
+    \end{example}
+
+\subsection{Projection of a subspace defined by its orthogonal vectors}
+    \subsubsection{Subspace defined by its orthogonal vectors}
+    \begin{intuition}
+        \begin{enumerate}
+
+            \item So far, we have defined a subspace by its basis vectors:
+            \[
+            S = \text{span}\{v^{(1)}, \dots, v^{(d)}\}.
+            \]
+            
+            \item But, in many cases, we can define \( S \) in terms of the set of vectors that are orthogonal to it. 
+        \end{enumerate}
+    \end{intuition}
+    
+    \begin{definition}
+        If $S = \left\{ x \mid \left( a^{(i)} \right)^T x = 0, \, i = 1, \dots, m \right\}$, then the vectors \( a^{(1)}, \dots, a^{(m)} \) are orthogonal to all vectors in \( S \) (i.e. the inner products are $0$ for all vectors $x$ with $a^{(i)}$). Therefore,
+        \begin{equation}
+            S^\perp = \text{span} \{ a^{(1)}, \dots, a^{(m)} \}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Projection}
+    \begin{derivation}
+        \begin{enumerate}
+            \item Projecting a vector $x$ onto a subspace $S$ spanned by the vectors $\{a^{(1)}, \dots, a^{(m)}\}$. 
+            The projection $x^*$ is given by:
+            \[
+            x^* = \text{Proj}_S(x) = \arg \min_{y \in S} \| x - y \|_2
+            \]
+            \customFigure[0.5]{00_Images/OS.png}{Projection onto a subspace defined by its orthogonal vectors}
+
+            \item Using the orthogonality principle, the error $e = x - x^*$ must be orthogonal to the subspace $S$, i.e.,
+            \[
+            e \perp S
+            \]
+            This implies that:
+            \[
+            e \in \text{span}\{a^{(1)}, \dots, a^{(m)}\}
+            \]
+            
+            \item The error can be written as a linear combination of the basis vectors:
+            \[
+            e = x - x^* = \sum_{i=1}^{m} \beta_i a^{(i)}
+            \]
+            We need to find the coefficients $\beta_1, \dots, \beta_m$.
+            
+            \item Since $x^* \in S$, we have the condition:
+            \[
+            \langle x^*, a^{(j)} \rangle = 0 \quad \forall j = 1, \dots, m
+            \]
+            which leads to the following equation:
+            \[
+            (a^{(j)})^T x^* = 0 \quad \forall j = 1, \dots, m
+            \]
+            
+            \item Substituting $x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)}$ into the above equation, we get:
+            \[
+            (a^{(j)})^T \left( x - \sum_{i=1}^{m} \beta_i a^{(i)} \right) = 0 \quad \forall j
+            \]
+            
+            \item Expanding the terms using linearity in the first argument for inner products:
+            \[
+            (a^{(j)})^T x = \sum_{i=1}^{m} \beta_i (a^{(j)})^T a^{(i)}
+            \]
+            This system of equations can be written in matrix form as:
+            \[
+            \begin{bmatrix}
+            (a^{(1)})^T a^{(1)} & \cdots & (a^{(1)})^T a^{(m)} \\
+            \vdots & \ddots & \vdots \\
+            (a^{(m)})^T a^{(1)} & \cdots & (a^{(m)})^T a^{(m)}
+            \end{bmatrix}
+            \begin{bmatrix}
+            \beta_1 \\
+            \vdots \\
+            \beta_m
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+            (a^{(1)})^T x \\
+            \vdots \\
+            (a^{(m)})^T x
+            \end{bmatrix}
+            \]
+            We can solve this system of linear equations to obtain the values of $\beta_1, \dots, \beta_m$.
+            
+            \item Once we have the values of $\beta_i$, we can compute the projection as:
+            \[
+            x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)}
+            \]
+            
+            \item \textbf{Note:} If the set $\{a^{(i)}\}$ is orthonormal, the matrix on the left-hand side becomes the identity matrix $I$, and the coefficients simplify to:
+            \[
+            \beta_j = (a^{(j)})^T x = \langle x, a^{(j)} \rangle
+            \]
+        \end{enumerate}
+    \end{derivation}
+
+    \subsection{Projection onto Affine Spaces}
+    
+        \subsubsection{Affine spaces}
+        \begin{definition}
+            An affine space (or affine set) is a translation (or shift) of a subspace $S$.
+        \end{definition}
+
+        \begin{example}
+            Consider a vector $x^{(0)}$ (not necessarily in $S$). The affine space $\mathcal{A}$ is defined as:
+            \[
+            \mathcal{A} = \{ u + x^{(0)} \mid u \in S \}
+            \]
+            where $x^{(0)}$ is the shifting vector and $S$ is the original subspace. This represents a shifted version of the subspace $S$.
+
+            \customFigure[0.5]{00_Images/AS.png}{Affine space of a 2D space.}
+        \end{example}
+
+        \subsubsection{Projection of Affine space defined in terms of basis vectors of corresponding subspace}
+        \begin{derivation}
+            \begin{enumerate}
+                \item The affine space is described by:
+                \[
+                \mathcal{A} = \left\{ x \mid x = \sum_{i=1}^{d} \alpha_i v^{(i)} + c \right\}
+                \]
+                \begin{itemize}
+                    \item $\{v^{(1)}, \dots, v^{(d)}\}$: Basis vectors of the subspace $S$
+                    \item $c$: Vector (i.e. shift).
+                \end{itemize}
+            
+                \item Using the orthogonality principle, we must have:
+                \[
+                \langle x - x^*, v^{(j)} \rangle = 0 \quad \forall j = 1, \dots, d
+                \]
+                where $x^* \in \mathcal{A}$. Therefore:
+                \[
+                x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
+                \]
+            
+                \item This leads to the condition:
+                \[
+                \left\langle x - \sum_{i=1}^{d} \alpha_i v^{(i)} - c, v^{(j)} \right\rangle = 0 \quad \forall j = 1, \dots, d
+                \]
+            
+                \item Simplifying this expression using the linearity in first argument for inner product, we obtain:
+                \[
+                \langle x - c, v^{(j)} \rangle = \sum_{i=1}^{d} \alpha_i \langle v^{(i)}, v^{(j)} \rangle \quad \forall j = 1, \dots, d
+                \]
+            
+                \item To solve for $\alpha_1, \dots, \alpha_d$, we set up the following system of linear equations in matrix form:
+                \[
+                \begin{bmatrix}
+                \langle v^{(1)}, v^{(1)} \rangle & \cdots & \langle v^{(1)}, v^{(d)} \rangle \\
+                \vdots & \ddots & \vdots \\
+                \langle v^{(d)}, v^{(1)} \rangle & \cdots & \langle v^{(d)}, v^{(d)} \rangle
+                \end{bmatrix}
+                \begin{bmatrix}
+                \alpha_1 \\
+                \vdots \\
+                \alpha_d
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \langle x - c, v^{(1)} \rangle \\
+                \vdots \\
+                \langle x - c, v^{(d)} \rangle
+                \end{bmatrix}
+                \]
+            
+                \item Solving this system gives us the values for $\alpha_1, \dots, \alpha_d$. Finally, the projection $x^*$ onto the affine space $\mathcal{A}$ is:
+                \[
+                x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
+                \]
+            \end{enumerate}
+        \end{derivation}
+
+        \subsubsection{Projection of Affine space defined in terms of orthogonal vectors to corresponding subspace}
+        \begin{derivation}
+            \begin{enumerate}
+                \item The affine set $\mathcal{A}$ is defined as:
+                \[
+                \mathcal{A} = \left\{ x \mid \langle x, a^{(i)} \rangle = d_i, \; i = 1, \dots, m \right\}
+                \]
+                \begin{itemize}
+                    \item $d_i$: Scalars
+                    \item $\{a^{(1)}, \dots, a^{(m)}\}$: A set of vectors spanning the affine space. (Check why this is equivalent to the previous definition of an affine set.)
+                \end{itemize}
+                
+                \item Since $x-x^*$ lies in the span of $\{a^{(1)}, \dots, a^{(m)}\}$:
+                \[
+                x - x^* = \sum_{i=1}^{m} \beta_i a^{(i)}
+                \]
+                where $\beta_1, \dots, \beta_m$ are the coefficients to be determined.
+                
+                \item Since $x^* \in \mathcal{A}$, we also have:
+                \[
+                \langle x^*, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+                \]
+                This implies the orthogonality condition for the projection:
+                \[
+                \langle x - \sum_{i=1}^{m} \beta_i a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+                \]
+            
+                \item Expanding the above expression using the linearity in first argument for inner product, we get:
+                \[
+                \langle x, a^{(j)} \rangle - \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+                \]
+                
+                \item This leads to the system of linear equations:
+                \[
+                \langle x, a^{(j)} \rangle - d_j = \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle \quad \forall j
+                \]
+                
+                \item We now solve this system of linear equations for the coefficients $\beta_1, \dots, \beta_m$. The system can be written in matrix form as:
+                \[
+                \begin{bmatrix}
+                \langle a^{(1)}, a^{(1)} \rangle & \cdots & \langle a^{(1)}, a^{(m)} \rangle \\
+                \vdots & \ddots & \vdots \\
+                \langle a^{(m)}, a^{(1)} \rangle & \cdots & \langle a^{(m)}, a^{(m)} \rangle
+                \end{bmatrix}
+                \begin{bmatrix}
+                \beta_1 \\
+                \vdots \\
+                \beta_m
+                \end{bmatrix}
+                =
+                \begin{bmatrix}
+                \langle x, a^{(1)} \rangle - d_1 \\
+                \vdots \\
+                \langle x, a^{(m)} \rangle - d_m
+                \end{bmatrix}
+                \]
+                
+                \item Solving this system gives the values for $\beta_1, \dots, \beta_m$. Once the $\beta_i$ values are known, the projection $x^*$ is given by:
+                
+                \[
+                x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} 
+                \]
+                \begin{itemize}
+                    \item WHAT WOULD BE THE FINAL PROJECTION
+                \end{itemize}
+            \end{enumerate}            
+        \end{derivation}
+
+        \begin{example}
+            \begin{enumerate}
+                \item Consider the case where \( m = 1 \). The affine set \( \mathcal{A} \) is defined as:
+                \[
+                \mathcal{A} = \{ x \mid a^T x = d \}
+                \]
+                where \( a \) is a vector and \( d \) is a scalar.
+            
+                \item To project \( x \) onto the affine subspace, we start by using the orthogonality condition:
+                \[
+                \langle x, a \rangle - d = \beta \langle a, a \rangle
+                \]
+                This ensures that the difference between \( x \) and its projection \( x^* \) lies in the direction of \( a \).
+            
+                \item Solving for \( \beta \), we get:
+                \[
+                \beta = \frac{\langle x, a \rangle - d}{\langle a, a \rangle} = \frac{a^T x - d}{\| a \|_2^2}
+                \]
+                This provides the scalar \( \beta \), which tells us how much of the vector \( a \) needs to be subtracted from \( x \).
+            
+                \item The projection \( x^* \) onto the affine subspace is then:
+                \[
+                x^* = x - \beta a = x - \left( \frac{a^T x - d}{\| a \|_2^2} \right) a
+                \]
+                This gives the final expression for the projection of \( x \) onto the affine set \( \mathcal{A} \).
+            \end{enumerate}            
+        \end{example}
     \subsubsection{Eigen-composition}
 
     \subsubsection{Singular value decomposition}
