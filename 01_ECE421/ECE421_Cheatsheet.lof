@@ -36,3 +36,5 @@
 \contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{39}{figure.35}%
 \contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{39}{figure.36}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{40}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Direction of gradient for x1 and x2 for the 2D case.}}{41}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}}{41}{figure.39}%

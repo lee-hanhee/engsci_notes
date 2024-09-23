@@ -1,11 +1,19 @@
 \subsection{Terms}
 \begin{terminology}
     \begin{itemize}
-        \item \textbf{Valuation:} Analytical process of determining future cash flows.
-        
+        \item \textbf{Valuation:} Analytical process of determining current (or projected) worth of an asset, which has two components:
+        \begin{itemize}
+            \item Projected cash-flows
+            \item Interest rate - determined by risk (uncertainty).
+        \end{itemize}
+
+        \item \textbf{Stock market:} The aggregation of buyers and sellers of stocks (i.e. shares), which represent ownership claims on businesses (i.e. public companies)
+
         \item \textbf{Financial Risk:} Uncertainty in a future payoff.
+        \item \textbf{Pricing risk:} Determining an appropriate interest rate for a given uncertainty of a future cash flow. 
+
         
-        \item \textbf{Variance of Returns:} The variance in the rate of return from a vector of return rates of a given stock, company, portfolio, etc.
+        \item \textbf{Variance of Returns:} The ith variance in the rate of return from a vector of return rates of a given ith stock, company, portfolio, etc.
         \[
         \sigma_i^2 = \text{Var}(\vec{R}_i), \quad \vec{R}_i = \begin{bmatrix}
         r_{t_1} \\
@@ -15,23 +23,13 @@
         \end{bmatrix}
         \]
         
-        \item \textbf{Volatility ($\sigma_i$):} The standard deviation of the variance of return; is a form of risk (and therefore uncertainty).
+        \item \textbf{Volatility ($\sigma_i$):} The standard deviation of the variance of return, which is a form of risk (i.e. uncertainty). Greater the volatility, greater the risk.
         
-        \item \textbf{Market Portfolio (MP):} Portfolio representing the whole market, often estimated through a stock index.
-        
-        \item \textbf{Systematic Risk:} Risk associated with the market as a whole, e.g. effect of economy on sales and stock value.
-        
-        \item \textbf{Idiosyncratic Risk:} Risk independent of the economy and specific to a company.
-        
-        \item \textbf{Arbitrage:} Taking advantage of a price difference between two or more markets to achieve a risk-free gain.
-        
-        \item \textbf{Forward Contract (Forwards):} An obligation to buy or sell a certain asset:
+        \item \textbf{Modern Portfolio Theory:}
         \begin{itemize}
-            \item At a specified price
-            \item At a specified time
+            \item Framework to assemble a portfolio of assets such that the expected return ($E[R]$) is maximized for a given level of risk.
+            \item We want to maximize our return while minimizing volatility.
         \end{itemize}
-        
-        \item \textbf{Futures Contracts:} Similar to forwards except settled daily (not just at maturity), so they can be bought and sold, and are also traded on exchanges.
     \end{itemize}            
 \end{terminology}
 
@@ -63,6 +61,27 @@
         \item $\sigma_{MP}$: Volatility of MP
     \end{itemize}
 \end{definition}
+
+\subsection{Terms}
+\begin{terminology}
+    \begin{itemize}
+        \item \textbf{Market Portfolio (MP):} Portfolio representing the whole market, often estimated through a stock index.
+        
+        \item \textbf{Systematic Risk:} Risk associated with the market as a whole, e.g. effect of economy on sales and stock value.
+        
+        \item \textbf{Idiosyncratic Risk:} Risk independent of the economy and specific to a company.
+        
+        \item \textbf{Arbitrage:} Taking advantage of a price difference between two or more markets to achieve a risk-free gain.
+        
+        \item \textbf{Forward Contract (Forwards):} An obligation to buy or sell a certain asset:
+        \begin{itemize}
+            \item At a specified price
+            \item At a specified time
+        \end{itemize}
+        
+        \item \textbf{Futures Contracts:} Similar to forwards except settled daily (not just at maturity), so they can be bought and sold, and are also traded on exchanges.
+    \end{itemize}
+\end{terminology}
 
 \subsection{Replication (FIX)}
 \begin{definition}

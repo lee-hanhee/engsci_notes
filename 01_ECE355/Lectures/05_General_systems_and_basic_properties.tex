@@ -57,3 +57,90 @@
     \end{itemize}
 \end{definition}
 
+\subsection{Properties of single-input single-output systems}
+    For all the following properties, there are four definitions depending on the type of signal, but will only present one definition.
+    \begin{intuition}
+        \begin{itemize}
+            \item time $t$: Present time
+            \item $<t$: Past time 
+            \item $>t$: Future time 
+        \end{itemize}
+    \end{intuition}
+
+    \subsubsection{Memoryless}
+    \begin{definition}
+        A system \( S: \mathbb{C}^{\mathbb{R}} \to \mathbb{C}^{\mathbb{R}} \) is \textbf{memoryless} if
+        \begin{equation}
+            y(t) = (S(x))(t) = g(x(t))
+        \end{equation}
+        for some function \( g: \mathbb{C} \to \mathbb{C} \).
+        \begin{itemize}
+            \item i.e. Transformation at any time only depend on the value at that time.
+            \item \textbf{Note:} A system that is not memoryless is said to have memory (past) or anticipation (future)
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/MEMORYLESS.png}{Memoryless examples since it only depends on the value at that time.}
+
+        \customFigure[0.5]{00_Images/MEMORY.png}{Memory examples since it depends on the past}
+        \customFigure[0.75]{00_Images/TDL.png}{Tapped delay line memory example}
+        \customFigure[0.5]{00_Images/ANTICIPATION.png}{Anticipation since it depends on a future value}
+    \end{example}
+
+    \subsubsection{Invertible}
+    \begin{definition}
+        A system \( S \) is \textbf{invertible} if \( S \) is injective, i.e.,
+        \[
+        x_1 \neq x_2 \rightarrow S(x_1) \neq S(x_2)
+        \]
+        or
+        \[
+        S(x_1) = S(x_2) \rightarrow x_1 = x_2 \quad \text{(contrapositive)}.
+        \]
+
+        \begin{itemize}
+            \item \textbf{Note:} If \( S \) is invertible, then \( \exists \) an inverse system \( W \) (i.e. left inverse) such that
+            \[
+            W \circ S = \text{id} \quad \text{(identity system)}
+            \]
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/INVERTIBLE.png}{Invertibility}
+    \end{example}
+
+    \subsubsection{Causal}
+    \begin{definition}
+        A system \( S: \mathbb{C}^{\mathbb{R}} \to \mathbb{C}^{\mathbb{R}} \) is \textbf{causal} if
+        \[
+        x_1(t) = x_2(t) \quad \forall t \leq t_0 \quad \text{implies} \quad (S(x_1))(t) = (S(x_2))(t) \quad \forall t \leq t_0.
+        \]
+
+        \begin{itemize}
+            \item i.e. the output at time \( t \) depends only on the input at time \( t \) or prior to \( t_0 \).
+            \begin{itemize}
+                \item  If its output at any given time depends only on present and past inputs, not on future inputs. In other words, the system cannot "see into the future" and can only respond to what has already happened.
+            \end{itemize}
+        \end{itemize}
+        \customFigure[0.75]{00_Images/CAUSAL.png}{Causal system.}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/C.png}{The first system is causal because the output depends on the current and past inputs, while the second system is non-causal since the output depends on a future input, which is not available at that time}
+    \end{example}
+
+    \subsubsection{Stable}
+    \begin{definition}
+        A system \( S: \mathbb{C}^{\mathbb{R}} \to \mathbb{C}^{\mathbb{R}} \) is \textbf{stable} if bounded inputs never lead to unbounded outputs.\\
+        
+        \begin{itemize}
+            \item i.e. $|x(t)| \leq B \; \forall t$ implies $\exists C(B) \text{ s.t. } |(S(x))(t)| \leq C(B) \text{ for all } t.$
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/STABLE.png}{Stable examples of an amplifier that is kept consistent between kB and -kB.}
+        \customFigure[0.5]{00_Images/NS.png}{Not stable example of a feedback loop that keeps increasing the intensity for k>1.}
+    \end{example}

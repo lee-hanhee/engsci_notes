@@ -1,4 +1,4 @@
-\textbf{Motivation:} We need a learning algorithm to find the $\underline{w}$ that minimizes $E_{in} (\underline{w})$
+\textbf{Motivation:} We need a learning algorithm to find the $\underline{w}$ that minimizes $E_{in} (\underline{w})$ since we don't have a closed form solution
 
 \subsection{Problem setup for gradient descent}
 \begin{intuition}
@@ -64,7 +64,7 @@
         \customFigure[0.75]{00_Images/CNC.png}{Convex vs. Non-convex functions}
     \end{example}
 
-\subsection{Simple algoirthm to find min f(x) for 1D}
+\subsection{Simple algorithm to find min f(x) for 1D}
 \begin{intuition}
     Assuming $f(x)$ is convex for a 1D space with \( f'(x) = \frac{df}{dx}(x) \), then 
     \begin{enumerate}
@@ -92,14 +92,15 @@
     \begin{enumerate}
         \item Initialize $x = x_0$.
         \item If $f'(x) \approx 0$, then stop (i.e. found the global minimum).
-        \item If $f'(x) > 0$, then $x = x - \epsilon$ (i.e. moving closer to the minimum).
-        \item If $f'(x) < 0$, then $x = x + \epsilon$ (i.e. moving closer to the minimum).
+        \item If $f'(x) > 0$, then $x = x - \epsilon$ (i.e. moving closer to the minimum since it will be on the RS of the minimum so subtract a constant).
+        \item If $f'(x) < 0$, then $x = x + \epsilon$ (i.e. moving closer to the minimum since it will be on the LS of the minimum so add a constant).
         \item Go to step 2.
     \end{enumerate}
     \vspace{1em}
 
     \begin{itemize}
         \item $\epsilon$: Step size.
+        \item \textbf{Intuition:} We are going in the opposite direction of the gradient (i.e. slope) to determine the step direction. This will generalize the n dimensions.
     \end{itemize}
 \end{definition}
 
@@ -132,7 +133,7 @@
     \end{itemize}
 \end{example}
 
-\subsection{N-dimensional space}
+\subsection{Simple algorithm to find min f(x) for ND space}
 \begin{intuition}
     Given the current location \( x \), what should be the next step?
     \[
@@ -142,6 +143,7 @@
         \item \( \varepsilon \): step size
         \item \( u \): direction of update, \( \|u\| = 1 \).
     \end{itemize}
+    \customFigure[0.5]{00_Images/DOG.png}{Direction of gradient for x1 and x2 for the 2D case.}
 \end{intuition}
 
     \subsubsection{2D space}
@@ -149,8 +151,10 @@
         \begin{enumerate}
             \item Where should we go from \( x_0 \)? Choose the direction s.t. it gives you the smallest \( f(\underline{x}') \) (in a small step \( \varepsilon \)).
             \[
-            \min f(\underline{x}') = f(\underline{x} + \varepsilon \| \underline{u} \|)
+            \min f(\underline{x}') = f(\underline{x} + \varepsilon  \underline{u} )
             \]
+
+            \customFigure[0.5]{00_Images/GD.png}{When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}
         
             \item By Taylor series:
             \[
@@ -182,48 +186,69 @@
 
     \end{intuition}
 
-    \subsubsection{Gradient descent algorithm}
-    \begin{definition}
+\subsection{Gradient descent algorithm}
+\begin{definition}
+    \begin{enumerate}
+        \item Initialize $\underline{x}_0$ (typically at random).
+        \item For $t = 0, 1, 2, \dots$:
         \begin{enumerate}
-            \item Initialize $\underline{x}_0$ (typically at random).
-            \item For $t = 0, 1, 2, \dots$:
-            \begin{enumerate}
-                \item Compute $\underline{g}_t = \nabla f(\underline{x}_t)$.
-                \item Select direction $\underline{v}_t = -\underline{g}_t$.
-                \item Update $\underline{x}_{t+1} = \underline{x}_t + \epsilon_t \underline{v}_t$.
-                \item Stop if stopping criteria are reached.
-            \end{enumerate}
-            \item End for
+            \item Compute $\underline{g}_t = \nabla f(\underline{x}_t)$. (i.e. gradient)
+            \item Select direction $\underline{v}_t = -\underline{g}_t$. (i.e. negative direction of gradient)
+            \item Update $\underline{x}_{t+1} = \underline{x}_t + \epsilon_t \underline{v}_t$. (i.e. update rule)
+            \item Stop if stopping criteria are reached.
         \end{enumerate}
-        \vspace{1em}
+        \item End for
+    \end{enumerate}
+    \vspace{1em}
 
+    \begin{itemize}
+        \item Condition for stopping: \( \nabla f(\underline{x}_t) \approx 0 \) is reasonable. (i.e. when we almost hit the minimum)
+
+        \item \( \varepsilon_t \): Learning rate
+
+        \item If we have a constant learning rate for Gradient Descent alg. (i.e., \( \varepsilon_t = \alpha \ \forall t \)), then
+        \[
+        \varepsilon_t \underline{v}_t = -\alpha \underline{g}_t = -\alpha \nabla f(\underline{x}) = -\alpha \|\nabla f(\underline{x})\| \frac{\nabla f(\underline{x})}{\|\nabla f(\underline{x})\|}
+        \]
         \begin{itemize}
-            \item Condition for stopping: \( \nabla f(\underline{x}_t) \approx 0 \) is reasonable.
-
-            \item \( \varepsilon_t \): Learning rate
-
-            \item If we have a constant learning rate for Gradient Descent alg. (i.e., \( \varepsilon_t = \alpha \ \forall t \)), then
-            \[
-            \varepsilon_t \underline{v}_t = -\alpha \underline{g}_t = -\alpha \nabla f(\underline{x}) = -\alpha \|\nabla f(\underline{x})\| \frac{\nabla f(\underline{x})}{\|\nabla f(\underline{x})\|}
-            \]
-            \begin{itemize}
-                \item \textbf{Note:} Actual step size $\alpha \nabla f(\underline{x})$ diminishes as \( \underline{x}_t \rightarrow \underline{x}^* \)
-            \end{itemize}
+            \item \textbf{Note:} Actual step size $\alpha \|\nabla f(\underline{x})\|$ diminishes as \( \underline{x}_t \rightarrow \underline{x}^* \) (i.e. because we are getting closer to the gradient being to 0, so this product will get smaller as well)
         \end{itemize}
-    \end{definition}
+    \end{itemize}
+\end{definition}
 
-    \subsubsection{Gradient descent performance}
-    \begin{theorem}
+\subsection{Gradient descent performance}
+\begin{theorem}
 
-        \textbf{Assumptions:} (Choose any $\gamma > 0$). If
-        \begin{enumerate}
-            \item $f$ is sufficiently smooth (if not, can't run gradient descent)
-            \item $f$ is convex (if not, may get stuck in saddle point)
-            \item $f$ has at least one global optimum (if not, may not terminate, e.g., $y=x$)
-            \item $\eta$ is sufficiently small (if not, may diverge)
-        \end{enumerate}
+    \textbf{Assumptions:} (Choose any $\gamma > 0$). If
+    \begin{enumerate}
+        \item $f$ is sufficiently smooth (if not, can't run gradient descent)
+        \item $f$ is convex (if not, may get stuck in saddle point)
+        \item $f$ has at least one global optimum (if not, may not terminate, e.g., $y=x$)
+        \item $\epsilon$ is sufficiently small (if not, may diverge because it will bounce around the global minimum)
+    \end{enumerate}
 
-        \textbf{Conclusion:} If run long enough, gradient descent will return a value within $\gamma$ of a global optimum.
+    \textbf{Conclusion:} If run long enough, gradient descent will return a value within $\gamma$ of a global optimum. (i.e. if we have these 4 conditions met, we can always find a global optimum or a close enough solution)
 
-    \end{theorem}
+\end{theorem}
 
+\subsection{Using Gradient Descent for Logistic Regression}
+
+\subsection{Stochastic Gradient Descent (SGD)}
+
+    \subsubsection{gt of SGD is an unbiased estimate of gradient of error}
+
+    \subsubsection{Full GD complexity vs. SGD complexity}
+
+    \subsubsection{Mini-batch GD is full-batch GD combined with SGD}
+
+\subsection{PLA is an Extremer Version of Logistic Regression with SGD}
+
+\subsection{Multiclass Logistic Regression}
+
+\subsection{SGD update}
+
+\subsection{Computing gradient of error}
+
+\subsection{Softmax Logistic Regression for Binary Classification}
+
+\subsection{Can we use GD/SGD for Linear Regression? Yes, you can}

@@ -18,6 +18,8 @@
             \begin{equation}
                 x[n] \delta[n] = x[0] \delta[n]
             \end{equation}
+
+            \customFigure[0.5]{00_Images/DTS.png}{Discrete time sampling}
             
             \item \textbf{Shift:}
             \begin{equation}
@@ -71,6 +73,43 @@
         \customFigure[0.5]{00_Images/RS_CV.png}{Running sum with (a) $n<0$ and (b) $n>0$.}
     \end{definition}
 
+    \begin{process}
+        To do the summation change of variables
+        \begin{enumerate}
+            \item \textbf{Start with the original sum or integral:}
+            \[
+            S = \sum_{k=a}^{b} f(k)
+            \]
+        
+            \item \textbf{Introduce a new variable:}
+            Let the new variable \(\ell\) be defined in terms of the old variable \(k\):
+            \[
+            \ell = g(k)
+            \]
+            where \(g(k)\) is a function of \(k\).
+        
+            \item \textbf{Substitute the new variable into the sum:}
+            The original function \(f(k)\) must be expressed in terms of \(\ell\), so the substitution yields:
+            \[
+            f(k) = h(\ell)
+            \]
+            where \(k\) is replaced by its expression in terms of \(\ell\).
+        
+            \item \textbf{Adjust the limits of summation:}
+            Update the summation limits by solving the boundary values for \(k\) in terms of \(\ell\):
+            \[
+            \text{When } k = a, \quad \ell = g(a), \quad \text{and when } k = b, \quad \ell = g(b)
+            \]
+            The summation now runs from \(\ell = g(a)\) to \(\ell = g(b)\).
+        
+            \item \textbf{Rewrite the summation in terms of the new variable:}
+            Finally, the summation (or integral) is rewritten using the new variable:
+            \[
+            S = \sum_{\ell=g(a)}^{g(b)} h(\ell)
+            \]
+        \end{enumerate}
+    \end{process}
+
 \subsection{CT: Unit Step}
 \begin{definition}
     \begin{equation}
@@ -90,8 +129,11 @@
         u(t) = \int_{-\infty}^{t} \delta(\tau) \, d\tau
     \end{equation}
     \begin{itemize}
-        \item Why do we want this property?
+        \item Tempting to write $\delta(t) = \frac{d}{dt} u(t)$ but it isn't differentiable at $t=0$.
+        \item \textbf{Note:} The impulse function represents a spike which has a total area of $1$.
     \end{itemize}
+
+    \customFigure[0.5]{00_Images/DELTA.png}{The area is 1.}
 \end{definition}
 
     \subsubsection{Approximatation}
@@ -100,8 +142,34 @@
             \delta_{\Delta}(t) = \frac{d}{dt} u_{\Delta}(t) \rightarrow \delta(t) = \lim_{\Delta \to 0} \delta_{\Delta}(t)
         \end{equation}
 
-        \customFigure[0.5]{00_Images/D.png}{Approximation.}
+        \customFigure[0.5]{00_Images/D.png}{Approximation where the RS figure has an area of 1.}
     \end{derivation}
+
+    \begin{intuition}
+        The Dirac delta function, denoted \(\delta(\tau)\), has the following key property:
+    
+        \[
+        \int_{-\infty}^{\infty} \delta(\tau) d\tau = 1
+        \]
+    
+        It is defined to be zero everywhere except at \(\tau = 0\), where it spikes to infinity in such a way that the total area under the curve is 1.
+        \vspace{1em}
+        
+        Now, consider the integral of the Dirac delta function from \(-\infty\) to \(t\):
+    
+        \[
+        u(t) = \int_{-\infty}^{t} \delta(\tau) d\tau
+        \]
+    
+        This integral defines the Heaviside step function \(u(t)\), which is 0 for \(t < 0\) and 1 for \(t \geq 0\). The delta function \(\delta(\tau)\) can be seen as the derivative of the Heaviside step function:
+    
+        \[
+        \frac{d}{dt} u(t) = \delta(t)
+        \]
+    
+        Thus, integrating the Dirac delta function over time accumulates the effect of an impulse, resulting in a step increase from 0 to 1 at \(t = 0\).
+    
+    \end{intuition}
 
     \subsubsection{Sampling}
     \begin{definition}
