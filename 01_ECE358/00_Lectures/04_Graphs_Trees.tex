@@ -166,6 +166,71 @@
         \end{itemize}
     \end{definition}
 
+    \begin{derivation}
+        \begin{enumerate}
+            \item 1 $\implies$ 2:
+            \textbf{Proof:} Assume that \( G \) is a free tree, i.e., it is connected and acyclic. Let \( u \) and \( v \) be any two vertices in \( G \).
+            \begin{enumerate}
+                \item Since \( G \) is connected, there exists at least one simple path between \( u \) and \( v \).
+                \item Suppose, for contradiction, that there are two distinct simple paths between \( u \) and \( v \).
+                \item These two paths must diverge at some vertex \( w \) and reconverge at another vertex, forming a cycle, which contradicts the assumption that \( G \) is acyclic.
+                \item Therefore, there is exactly one simple path between any two vertices in \( G \).
+            \end{enumerate}
+            
+            \item 2 $\implies$ 3:
+            \textbf{Proof:} Assume that any two vertices in \( G \) are connected by a unique simple path. Then \( G \) is connected.
+            \begin{enumerate}
+                \item Let \( e = (u, v) \in E \) be any edge in \( G \). Since there is a unique simple path between \( u \) and \( v \), this path must include \( e \).
+                \item Suppose we remove edge \( e \).
+                \item Since \( e \) was the only path between \( u \) and \( v \), removing it disconnects \( G \), as there would be no remaining path between \( u \) and \( v \).
+            \end{enumerate}
+            Thus, removing any edge from \( G \) disconnects the graph.
+        
+            \item 3 $\implies$ 4:
+            \textbf{Proof:} Assume that \( G \) is connected, and removing any edge disconnects \( G \) (i.e., \( G \) is minimally connected).
+            
+            We will prove by induction on the number of vertices \( |V| \) that \( |E| = |V| - 1 \).
+            \begin{enumerate}
+                \item \textbf{Base case:} For \( |V| = 1 \), the graph has no edges, so \( |E| = 0 = |V| - 1 \).
+                \item \textbf{Inductive step:} Assume the statement holds for all graphs with fewer than \( n \) vertices. Let \( G \) have \( n \) vertices.
+                \begin{enumerate}
+                    \item Removing a leaf vertex \( v \) and its incident edge from \( G \) results in a graph \( G' \) with \( n - 1 \) vertices.
+                    \item By the induction hypothesis, \( G' \) has \( |E'| = (n - 1) - 1 \) edges.
+                    \item Hence, \( G \) has \( |E| = |E'| + 1 = (n - 2) + 1 = n - 1 \) edges.
+                \end{enumerate}
+            \end{enumerate}
+            Therefore, \( |E| = |V| - 1 \).
+        
+            \item 4 $\implies$ 5: 
+            \textbf{Proof:} Assume that \( G \) is connected and \( |E| = |V| - 1 \).
+            \begin{enumerate}
+                \item Suppose, for contradiction, that \( G \) contains a cycle.
+                \item Removing any edge from this cycle would not disconnect the graph, since a cycle has more than one path between its vertices.
+                \item This contradicts the assumption that \( G \) is minimally connected, so \( G \) cannot contain a cycle.
+            \end{enumerate}
+            Therefore, \( G \) is acyclic.
+        
+            \item 5 $\implies$ 6:
+            \textbf{Proof:} Assume that \( G \) is acyclic and \( |E| = |V| - 1 \).
+            \begin{enumerate}
+                \item Since \( G \) is acyclic, it contains no cycles.
+                \item Suppose we add any edge \( e = (u, v) \) to \( G \). Since \( G \) already has \( |E| = |V| - 1 \), adding any edge will create a cycle by closing a path between \( u \) and \( v \) that already exists.
+                \item Therefore, adding any edge creates a cycle in \( G \).
+            \end{enumerate}
+            
+            \item 6 $\implies$ 1:
+            \textbf{Proof:} Assume that \( G \) is acyclic, and adding any edge creates a cycle.
+            \begin{enumerate}
+                \item We need to show that \( G \) is connected.
+                \item Suppose, for contradiction, that \( G \) is disconnected. Let \( C_1 \) and \( C_2 \) be two disconnected components of \( G \).
+                \item Select vertices \( u \in C_1 \) and \( v \in C_2 \). Adding the edge \( (u, v) \) would connect the components, but it would not create a cycle, as no path exists between \( u \) and \( v \) in the original graph.
+                \item This contradicts the assumption that adding any edge creates a cycle.
+                \item Therefore, \( G \) must be connected.
+            \end{enumerate}
+            Since \( G \) is both connected and acyclic, \( G \) is a free tree.
+        \end{enumerate}
+    \end{derivation}
+
     \subsubsection{Terminology}
     \begin{terminology}
         \begin{itemize}            

@@ -10,4 +10,6 @@
 \contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{17}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{18}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{20}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space.}}{22}{figure.12}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{22}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{22}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{23}{figure.14}%

@@ -12,7 +12,7 @@
             \]
             where $x^{(0)}$ is the shifting vector and $S$ is the original subspace. This represents a shifted version of the subspace $S$.
 
-            \customFigure[0.5]{00_Images/AS.png}{Affine space of a 2D space.}
+            \customFigure[0.5]{00_Images/AS.png}{Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}
         \end{example}
 
         \subsubsection{Projection of Affine space defined in terms of basis vectors of corresponding subspace}
@@ -26,6 +26,7 @@
                     \item $\{v^{(1)}, \dots, v^{(d)}\}$: Basis vectors of the subspace $S$
                     \item $c$: Vector (i.e. shift).
                 \end{itemize}
+                \customFigure[0.5]{00_Images/PR.png}{Projection problem visualization, where we are projecting the vector onto the Affine space.}
             
                 \item Using the orthogonality principle, we must have:
                 \[
@@ -65,11 +66,15 @@
                 \langle x - c, v^{(d)} \rangle
                 \end{bmatrix}
                 \]
+                \begin{itemize}
+                    \item \textbf{Note:} We are projecting onto $x-c$, which we can see on the RS, which is the subspace.
+                \end{itemize}
             
                 \item Solving this system gives us the values for $\alpha_1, \dots, \alpha_d$. Finally, the projection $x^*$ onto the affine space $\mathcal{A}$ is:
                 \[
                 x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
                 \]
+                \textbf{Note:} We are projecting onto $x-c$ (i.e. subspace), then adding the shift into the end to be back on the Affine set.
             \end{enumerate}
         \end{derivation}
 
@@ -84,6 +89,8 @@
                     \item $d_i$: Scalars
                     \item $\{a^{(1)}, \dots, a^{(m)}\}$: A set of vectors spanning the affine space. (Check why this is equivalent to the previous definition of an affine set.)
                 \end{itemize}
+
+                \customFigure[0.5]{00_Images/PR1.png}{Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}
                 
                 \item Since $x-x^*$ lies in the span of $\{a^{(1)}, \dots, a^{(m)}\}$:
                 \[
@@ -133,11 +140,8 @@
                 \item Solving this system gives the values for $\beta_1, \dots, \beta_m$. Once the $\beta_i$ values are known, the projection $x^*$ is given by:
                 
                 \[
-                x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} + c
+                x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} 
                 \]
-                \begin{itemize}
-                    \item WHAT WOULD BE THE FINAL PROJECTION
-                \end{itemize}
             \end{enumerate}            
         \end{derivation}
 
@@ -168,6 +172,84 @@
                 This gives the final expression for the projection of \( x \) onto the affine set \( \mathcal{A} \).
             \end{enumerate}            
         \end{example}
+
+        \subsubsection{Show that the two affine sets are equal}
+        \begin{derivation}
+            We define set \( A \) as follows:
+
+            \[
+            A = \left\{ x \in \mathbb{R}^n \ \middle|\ x = \sum_{i=1}^d \alpha_i v^{(i)} + c \right\}
+            \]
+            where \( v^{(i)} \) are the basis vectors, \( \alpha_i \) are scalar coefficients, and \( c \) is a fixed vector (the translation vector of the affine set).
+
+            Now, we define set \( B \) as:
+
+            \[
+            B = \left\{ x \in \mathbb{R}^n \ \middle|\ a^{(i)T} x = d_i, \, i = 1, 2, \dots, m \right\}
+            \]
+            where \( a^{(i)} \) are orthogonal vectors, and \( d_i \) are scalars defining the affine constraints.
+
+            \textbf{Step 1: Show \( A \subseteq B \).}
+
+            Assume \( x \in A \), then we can write:
+            \[
+            x = \sum_{i=1}^d \alpha_i v^{(i)} + c
+            \]
+            Substitute this into the condition for set \( B \):
+            \[
+            a^{(i)T} x = a^{(i)T} \left( \sum_{j=1}^d \alpha_j v^{(j)} + c \right)
+            \]
+            Expanding the expression:
+            \[
+            a^{(i)T} x = \sum_{j=1}^d \alpha_j a^{(i)T} v^{(j)} + a^{(i)T} c
+            \]
+            Since the vectors \( a^{(i)} \) are orthogonal to the vectors \( v^{(j)} \), we have:
+            \[
+            a^{(i)T} v^{(j)} = 0 \quad \text{for all} \ i, j
+            \]
+            Therefore, the equation simplifies to:
+            \[
+            a^{(i)T} x = a^{(i)T} c
+            \]
+            We define \( d_i = a^{(i)T} c \). Hence,
+            \[
+            a^{(i)T} x = d_i \quad \text{for all} \ i
+            \]
+            Thus, \( x \in B \).
+
+            \textbf{Step 2: Show \( B \subseteq A \).}
+
+            Assume \( x \in B \), then we know:
+            \[
+            a^{(i)T} x = d_i \quad \text{for all} \ i = 1, 2, \dots, m
+            \]
+            This implies that the vector \( x \) satisfies all the affine constraints defined by the vectors \( a^{(i)} \) and scalars \( d_i \). Now, consider the vector \( c \) such that:
+            \[
+            a^{(i)T} c = d_i
+            \]
+            Subtracting this from the affine constraint for \( x \), we get:
+            \[
+            a^{(i)T} (x - c) = 0 \quad \text{for all} \ i
+            \]
+            This shows that \( x - c \) lies in the null space of the vectors \( a^{(i)} \). Therefore, \( x - c \) must lie in the span of the vectors \( v^{(i)} \), meaning:
+            \[
+            x - c = \sum_{i=1}^d \alpha_i v^{(i)}
+            \]
+            for some scalars \( \alpha_1, \alpha_2, \dots, \alpha_d \). Thus,
+            \[
+            x = \sum_{i=1}^d \alpha_i v^{(i)} + c
+            \]
+            Therefore, \( x \in A \).
+
+            \textbf{Conclusion:}
+
+            Since we have shown that \( A \subseteq B \) and \( B \subseteq A \), we conclude that:
+            \[
+            A = B
+            \]
+            This proves that the definition of the affine set in terms of orthogonal vectors and the definition in terms of basis vectors are equivalent.
+        \end{derivation}
+        
 \subsection{Functions}
 \subsection{Gradients}
 \subsection{Hessians}

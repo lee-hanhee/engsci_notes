@@ -194,3 +194,30 @@
             \end{itemize} 
         \end{enumerate}
     \end{definition}
+
+    \subsection{Intuition from tutorial}
+    \subsubsection{Two operators}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{CT:}
+            \begin{itemize}
+                \item \textit{Derivative:} $y(t) = \frac{dx(t)}{dt}$
+                \item \textit{Running Integral:} $y(t) = \int_{-\infty}^{t} x(\tau) d\tau$
+            \end{itemize}
+            
+            \item \textbf{DT:}
+            \begin{itemize}
+                \item \textit{Difference:} $y[n] = x[n] - x[n-1]$
+                \item \textit{Running Sum:} $y[n] = \sum_{m=-\infty}^{n} x[m]$
+            \end{itemize}
+        \end{itemize}
+    \end{definition}
+
+    \begin{intuition}
+        \textbf{CT:}
+        \customFigure[0.5]{00_Images/PRO.png}{The relationship between the ramp, impulse and step functions}
+
+        \textbf{DT:}
+        \customFigure[0.5]{00_Images/PRO1.png}{The relationship between the ramp, impulse and step functions}
+    \end{intuition}
+

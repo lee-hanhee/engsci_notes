@@ -392,6 +392,13 @@
         \end{enumerate}
     \end{process}
 
+    \begin{intuition}
+        \begin{itemize}
+            \item Create the Gram matrix by making an orthonormal basis.
+            \item Then this terms the matrix into the identity.
+        \end{itemize}
+    \end{intuition}
+
     \subsubsection{QR decomposition}
     Another way to see Gram-Schmidt procedure is through matrix multiplication.
     \begin{definition}
@@ -426,6 +433,22 @@
             \item \( R \): Upper triangular.
         \end{itemize}        
     \end{definition}
+    
+    \begin{intuition}
+        For $Ax=b$, therefore, 
+        \begin{equation*}
+            QRx=b
+        \end{equation*}
+        \begin{itemize}
+            \item Since $Q$ has columns of orthonormal basis, then it has an inverse, which is $Q^{-1} = Q^T$. 
+        \end{itemize}
+        \vspace{1em}
+
+        Then, 
+        \begin{equation*}
+            Rx=Q^T b
+        \end{equation*}
+    \end{intuition}
 
     \begin{example}
         \[
@@ -482,10 +505,10 @@
     \end{intuition}
     
     \begin{definition}
-        If $S = \left\{ x \mid \left( a^{(i)} \right)^T x = 0, \, i = 1, \dots, m \right\}$, then the vectors \( a^{(1)}, \dots, a^{(m)} \) are orthogonal to all vectors in \( S \) (i.e. the inner products are $0$ for all vectors $x$ with $a^{(i)}$). Therefore,
-        \begin{equation}
-            S^\perp = \text{span} \{ a^{(1)}, \dots, a^{(m)} \}
-        \end{equation}
+        \begin{equation*}
+            S = \left\{ x \mid \left( a^{(i)} \right)^T x = 0, \, i = 1, \dots, m \right\}
+        \end{equation*}
+        then the vectors \( a^{(1)}, \dots, a^{(m)} \) are orthogonal to all vectors in \( S \) (i.e. the inner products are $0$ for all vectors $x$ with $a^{(i)}$). Therefore, $S^\perp = \text{span} \{ a^{(1)}, \dots, a^{(m)} \}$.
     \end{definition}
 
     \subsubsection{Projection}

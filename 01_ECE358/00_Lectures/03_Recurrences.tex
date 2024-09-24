@@ -46,6 +46,168 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
 
     \customFigure[0.5]{00_Images/Merge_Sort.png}{Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}
 
+\subsection{General examples}
+These questions were salvulated as a quantity defined recursively in terms of a smaller value of itself.
+\begin{example}
+    We are tasked with solving the recurrence relation \( T(n) = T(n-1) + n \), with the base case \( T(1) = 1 \).
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Start by expanding the recurrence:
+        \[
+        T(n) = T(n-1) + n
+        \]
+        Applying the recurrence again to \( T(n-1) \), we get:
+        \[
+        T(n) = [T(n-2) + (n-1)] + n = T(n-2) + (n-1) + n
+        \]
+        
+        \item Continue expanding the recurrence iteratively:
+        \[
+        T(n) = [T(n-3) + (n-2)] + (n-1) + n = T(n-3) + (n-2) + (n-1) + n
+        \]
+        This process continues until we reach the base case \( T(1) = 1 \), which gives:
+        \[
+        T(n) = T(1) + 2 + 3 + \dots + n
+        \]
+        
+        \item Now, express the expanded sum explicitly:
+        \[
+        T(n) = 1 + \sum_{i=2}^{n} i
+        \]
+        This sum can be simplified as:
+        \[
+        T(n) = \sum_{i=1}^{n} i
+        \]
+        
+        \item Use the formula for the sum of the first \( n \) integers:
+        \[
+        \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+        \]
+        Thus, the closed form of the recurrence is:
+        \[
+        T(n) = \frac{n(n+1)}{2}
+        \]
+        
+        \item Simplify this expression to:
+        \[
+        T(n) = \frac{1}{2}n^2 + \frac{1}{2}n
+        \]
+        Therefore, \( T(n) \) grows quadratically, and we conclude:
+        \[
+        T(n) = \Theta(n^2)
+        \]
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    We are tasked with solving the recurrence \( T(n) = T\left(\frac{n}{2}\right) + n \), with the base case \( T(1) = 1 \).
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Start by expanding the recurrence relation iteratively:
+        \[
+        T(n) = T\left(\frac{n}{2}\right) + n
+        \]
+        Applying the recurrence to \( T\left(\frac{n}{2}\right) \):
+        \[
+        T(n) = \left[T\left(\frac{n}{4}\right) + \frac{n}{2}\right] + n
+        \]
+        Continue expanding:
+        \[
+        T(n) = \left[T\left(\frac{n}{8}\right) + \frac{n}{4}\right] + \frac{n}{2} + n = \dots = T(1) + 1 + 2 + 4 + \dots + n
+        \]
+
+        \item The recurrence expands into a sum of powers of \( 2 \). In general, after \( \log_2 n \) expansions, the recurrence becomes:
+        \[
+        T(n) = T(1) + \sum_{i=0}^{\log_2 n - 1} \frac{n}{2^i}
+        \]
+        
+        \item Simplify the sum:
+        \[
+        T(n) = 1 + n \sum_{i=0}^{\log_2 n - 1} \frac{1}{2^i}
+        \]
+        This is a geometric series with ratio \( \frac{1}{2} \), and the sum is given by:
+        \[
+        \sum_{i=0}^{\log_2 n - 1} \frac{1}{2^i} = \frac{1 - \left(\frac{1}{2}\right)^{\log_2 n}}{1 - \frac{1}{2}} = 2 \left(1 - \frac{1}{n}\right)
+        \]
+        
+        \item Substituting this result back into the expression for \( T(n) \):
+        \[
+        T(n) = 1 + n \left(2 \left(1 - \frac{1}{n}\right)\right) = 1 + n(2 - 2/n) = 2n - 1
+        \]
+        
+        \item Thus, the final expression is:
+        \[
+        T(n) = 2n - 1
+        \]
+        Therefore, the time complexity is:
+        \[
+        T(n) = \Theta(n)
+        \]
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    We are tasked with solving the recurrence \( T(n) = 3T\left(\frac{n}{2}\right) + n \), with the base case \( T(1) = 1 \).
+
+    \begin{enumerate}[label=\arabic*)]
+        \item Start by expanding the recurrence iteratively:
+        \[
+        T(n) = 3T\left(\frac{n}{2}\right) + n
+        \]
+        Apply the recurrence again to \( T\left(\frac{n}{2}\right) \):
+        \[
+        T(n) = 3 \left[ 3T\left(\frac{n}{4}\right) + \frac{n}{2} \right] + n = 3^2 T\left(\frac{n}{4}\right) + 3 \cdot \frac{n}{2} + n
+        \]
+        Continue expanding iteratively:
+        \[
+        T(n) = 3^k T\left(\frac{n}{2^k}\right) + 3^{k-1} \cdot \frac{n}{2^{k-1}} + \dots + 3 \cdot \frac{n}{2} + n
+        \]
+        
+        \item The expansion continues until \( \frac{n}{2^k} = 1 \), which implies \( k = \log_2 n \). At this point, \( T(1) = 1 \). Thus, the recurrence becomes:
+        \[
+        T(n) = 3^{\log_2 n} T(1) + \sum_{i=0}^{\log_2 n - 1} 3^i \cdot \frac{n}{2^i}
+        \]
+        Simplifying \( T(1) = 1 \), we get:
+        \[
+        T(n) = 3^{\log_2 n} + \sum_{i=0}^{\log_2 n - 1} 3^i \cdot \frac{n}{2^i}
+        \]
+
+        \item Next, simplify \( 3^{\log_2 n} \):
+        \[
+        3^{\log_2 n} = n^{\log_2 3}
+        \]
+        Now we evaluate the summation:
+        \[
+        \sum_{i=0}^{\log_2 n - 1} 3^i \cdot \frac{n}{2^i} = n \sum_{i=0}^{\log_2 n - 1} \left(\frac{3}{2}\right)^i
+        \]
+        This is a geometric series with ratio \( \frac{3}{2} \). The sum of the first \( \log_2 n \) terms is given by:
+        \[
+        \sum_{i=0}^{\log_2 n - 1} \left(\frac{3}{2}\right)^i = \frac{1 - \left(\frac{3}{2}\right)^{\log_2 n}}{1 - \frac{3}{2}} = 2 \left( 1 - \frac{1}{n^{\log_2 3}} \right)
+        \]
+        
+        \item Substituting this into the recurrence gives:
+        \[
+        T(n) = n^{\log_2 3} + n \cdot 2 \left(1 - \frac{1}{n^{\log_2 3}}\right)
+        \]
+        Simplify the expression:
+        \[
+        T(n) = n^{\log_2 3} + 2n - 2
+        \]
+
+        \item Therefore, the final expression for \( T(n) \) is:
+        \[
+        T(n) = n^{\log_2 3} + 2n - 2
+        \]
+        Since \( n^{\log_2 3} \) dominates the expression as \( n \) grows large, we conclude that the time complexity is:
+        \[
+        T(n) = \Theta(n^{\log_2 3})
+        \]
+    \end{enumerate}
+    \begin{itemize}
+        \item The sum ends at $\log_2 n - 1$ because $\log_2 n$ indicates the number of levels, which can be found by drawing the recursion tree, but $-1$ removes the base case from the summation. 
+    \end{itemize}
+\end{example}
+
 \subsection{Master theorem (Ch. 4.5 pg. 101-6)}
     \begin{theorem}
         Let \( a \geq 1 \), \( b > 1 \), and \( f(n) \) be a function, so that the recurrence is 
@@ -343,6 +505,133 @@ Divide-and-conquer method is useful to solve recurrences, which has three steps:
                 T(n) \leq cn \log n
                 \]       
             \end{itemize}
+        \end{enumerate}
+    \end{example}
+
+    \begin{example}
+        \[ T(n) = 2T\left( \frac{n}{2} \right) + n \quad \text{with} \quad T(1) = 1 \]
+
+        \textbf{1. Proving \( T(n) = O(n \log n) \)}
+
+        \begin{enumerate}[label=\arabic*)]
+            \item \textbf{Guess:} \( T(n) = O(n \log n) \).
+            \item \textbf{Hypothesis:} Assume \( T(k) \leq C \cdot k \log k \quad \forall k < n \), particularly for \( k = \frac{n}{2} \).
+            \item \textbf{Inductive Step:} Now apply the recurrence to \( T(n) \):
+            \[
+            T(n) = 2T\left(\frac{n}{2}\right) + n
+            \]
+            Using the inductive hypothesis for \( T\left(\frac{n}{2}\right) \), we get:
+            \[
+            T(n) \leq 2 \left( C \cdot \frac{n}{2} \log \frac{n}{2} \right) + n
+            \]
+            Simplify the logarithmic term:
+            \[
+            T(n) = 2 \left( C \cdot \frac{n}{2} (\log n - 1) \right) + n
+            \]
+            \[
+            T(n) = C \cdot n (\log n - 1) + n = C \cdot n \log n - C \cdot n + n
+            \]
+            \[
+            T(n) = C \cdot n \log n + (1 - C) \cdot n
+            \]
+            \item For large \( n \), we can choose \( C \geq 1 \), so:
+            \[
+            T(n) \leq C \cdot n \log n \quad \forall n \geq 1
+            \]
+            Thus, \( T(n) = O(n \log n) \).
+        \end{enumerate}
+
+        \textbf{2. Proving \( T(n) = \Omega(n \log n) \)}
+
+        \begin{enumerate}[label=\arabic*)]
+            \item \textbf{Guess:} \( T(n) = \Omega(n \log n) \).
+            \item \textbf{Hypothesis:} Assume \( T(k) \geq C \cdot k \log k \quad \forall k < n \), particularly for \( k = \frac{n}{2} \).
+            \item \textbf{Inductive Step:} Now apply the recurrence to \( T(n) \):
+            \[
+            T(n) = 2T\left(\frac{n}{2}\right) + n
+            \]
+            Using the inductive hypothesis for \( T\left(\frac{n}{2}\right) \), we get:
+            \[
+            T(n) \geq 2 \left( C \cdot \frac{n}{2} \log \frac{n}{2} \right) + n
+            \]
+            Simplify the logarithmic term:
+            \[
+            T(n) = 2 \left( C \cdot \frac{n}{2} (\log n - 1) \right) + n
+            \]
+            \[
+            T(n) = C \cdot n (\log n - 1) + n = C \cdot n \log n - C \cdot n + n
+            \]
+            \[
+            T(n) = C \cdot n \log n + (1 - C) \cdot n
+            \]
+            \item For large \( n \), we can choose \( 0 < C \leq 1 \), so:
+            \[
+            T(n) \geq C \cdot n \log n \quad \forall n \geq 1
+            \]
+            Thus, \( T(n) = \Omega(n \log n) \).
+        \end{enumerate}
+
+        \textbf{Conclusion:}
+        Since \( T(n) = O(n \log n) \) and \( T(n) = \Omega(n \log n) \), we conclude that:
+        \[
+        T(n) = \Theta(n \log n)
+        \]
+    \end{example}
+
+    \begin{example}
+        \[ T(n) = T\left( \frac{n}{2} \right) + T\left( \frac{n}{3} \right) + n \quad \text{with} \quad T(1) = 1 \]
+
+        \textbf{1. Proving \( T(n) = O(n \log n) \)}
+
+        \begin{enumerate}[label=\arabic*)]
+            \item \textbf{Guess:} \( T(n) = O(n \log n) \).
+            
+            \item \textbf{Hypothesis:} Assume \( T(k) \leq C \cdot k \log k \quad \forall k < n \), particularly for \( k = \frac{n}{2} \) and \( k = \frac{n}{3} \).
+            
+            \item \textbf{Inductive Step:} Now apply the recurrence to \( T(n) \):
+            \[
+            T(n) = T\left( \frac{n}{2} \right) + T\left( \frac{n}{3} \right) + n
+            \]
+            Using the inductive hypothesis for \( T\left( \frac{n}{2} \right) \) and \( T\left( \frac{n}{3} \right) \), we get:
+            \[
+            T(n) \leq C \cdot \frac{n}{2} \log \frac{n}{2} + C \cdot \frac{n}{3} \log \frac{n}{3} + n
+            \]
+            
+            Simplify the logarithmic terms:
+            \[
+            T(n) = C \cdot \frac{n}{2} (\log n - 1) + C \cdot \frac{n}{3} (\log n - \log 3) + n
+            \]
+            
+            Combine terms:
+            \[
+            T(n) = C \cdot n \left( \frac{1}{2} \log n - \frac{1}{2} + \frac{1}{3} \log n - \frac{1}{3} \log 3 \right) + n
+            \]
+            \[
+            T(n) = C \cdot n \left( \frac{5}{6} \log n - \left( \frac{1}{2} + \frac{1}{3} \log 3 \right) \right) + n
+            \]
+            
+            Factor out \( C \cdot n \):
+            \[
+            T(n) = C \cdot n \left( \frac{5}{6} \log n \right) - C \cdot n \left( \frac{1}{2} + \frac{1}{3} \log 3 \right) + n
+            \]
+            
+            \item Now simplify further:
+            \[
+            T(n) = \frac{5}{6} C \cdot n \log n - C \cdot n \left( \frac{1}{2} + \frac{1}{3} \log 3 \right) + n
+            \]
+            
+            Finally, we have:
+            \[
+            T(n) \leq \frac{5}{6} C \cdot n \log n + n
+            \]
+            
+            To ensure this holds, choose \( C \geq 1 \), so:
+            \[
+            T(n) \leq C \cdot n \log n \quad \forall n \geq 1
+            \]
+            
+            Thus, \( T(n) = O(n \log n) \).
+
         \end{enumerate}
     \end{example}
 

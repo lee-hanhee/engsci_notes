@@ -1,4 +1,4 @@
-\textbf{Motivation:} We need a learning algorithm to find the $\underline{w}$ that minimizes $E_{in} (\underline{w})$ since we don't have a closed form solution
+\textbf{Motivation:} We need a learning algorithm to find the $\underline{w}$ that minimizes $E_{in} (\underline{w})$ since we don't have a closed form solution (e.g. least squares wls)
 
 \subsection{Problem setup for gradient descent}
 \begin{intuition}
@@ -63,6 +63,55 @@
     \begin{example}
         \customFigure[0.75]{00_Images/CNC.png}{Convex vs. Non-convex functions}
     \end{example}
+
+    \subsubsection{Chain rule}
+    \begin{definition}
+        Let \( f: \mathbb{R}^n \to \mathbb{R} \) and \( h: \mathbb{R} \to \mathbb{R} \). Then
+        \[
+        \nabla_{\underline{x}} h(f(\underline{x})) = h'(f(\underline{x})) \nabla_{\underline{x}} f(\underline{x})
+        \]
+    \end{definition}
+
+    \begin{example}
+        \begin{align*}
+            \nabla_{\underline{x}} \left( 1 + \log(\underline{a}^T \underline{x}) \right)^2 &= 2 \left( 1 + \log(\underline{a}^T \underline{x}) \right) \nabla_{\underline{x}} \left( 1 + \log(\underline{a}^T \underline{x}) \right) \\
+            &= 2 \left( 1 + \log(\underline{a}^T \underline{x}) \right) \nabla_{\underline{x}} \log(\underline{a}^T \underline{x}) \\
+            &= 2 \left( 1 + \log(\underline{a}^T \underline{x}) \right) \frac{1}{\underline{a}^T \underline{x}} \nabla_{\underline{x}}  (\underline{a}^T \underline{x}) \\
+            &= \frac{2 \left( 1 + \log(\underline{a}^T \underline{x}) \right)}{\underline{a}^T \underline{x}} \underline{a} 
+        \end{align*}
+    \end{example}
+
+    \begin{derivation}
+        Let \( f: \mathbb{R}^n \to \mathbb{R} \) and \( h: \mathbb{R} \to \mathbb{R} \). We wish to find the gradient of the composite function \( h(f(\underline{x})) \), where \( \underline{x} = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n \).
+
+        \begin{enumerate}
+            \item Consider the scalar function \( h(f(\underline{x})) \), where \( f(\underline{x}) \) is a differentiable function of \( n \) variables and \( h \) is a differentiable scalar function.
+            
+            \item By definition, the gradient of \( h(f(\underline{x})) \) with respect to \( \underline{x} \) is given by:
+            \[
+            \nabla_{\underline{x}} h(f(\underline{x})) = \left( \frac{\partial}{\partial x_1} h(f(\underline{x})), \frac{\partial}{\partial x_2} h(f(\underline{x})), \dots, \frac{\partial}{\partial x_n} h(f(\underline{x})) \right).
+            \]
+            
+            \item For each \( i \)-th component of the gradient, we apply the standard single-variable chain rule:
+            \[
+            \frac{\partial}{\partial x_i} h(f(\underline{x})) = h'(f(\underline{x})) \frac{\partial}{\partial x_i} f(\underline{x}),
+            \]
+            where \( h'(f(\underline{x})) \) is the derivative of \( h \) with respect to its argument, and \( \frac{\partial}{\partial x_i} f(\underline{x}) \) is the partial derivative of \( f(\underline{x}) \) with respect to \( x_i \).
+
+            \item Therefore, the gradient of \( h(f(\underline{x})) \) becomes:
+            \[
+            \nabla_{\underline{x}} h(f(\underline{x})) = h'(f(\underline{x})) \nabla_{\underline{x}} f(\underline{x}),
+            \]
+            where \( \nabla_{\underline{x}} f(\underline{x}) = \left( \frac{\partial}{\partial x_1} f(\underline{x}), \frac{\partial}{\partial x_2} f(\underline{x}), \dots, \frac{\partial}{\partial x_n} f(\underline{x}) \right) \) is the gradient of \( f(\underline{x}) \).
+
+            \item Thus, we have shown that the gradient of \( h(f(\underline{x})) \) with respect to \( \underline{x} \) is the product of \( h'(f(\underline{x})) \), the derivative of the outer function, and \( \nabla_{\underline{x}} f(\underline{x}) \), the gradient of the inner function.
+        \end{enumerate}
+
+        \textbf{Conclusion:} The chain rule for the gradient of the composite function \( h(f(\underline{x})) \) is:
+        \[
+        \nabla_{\underline{x}} h(f(\underline{x})) = h'(f(\underline{x})) \nabla_{\underline{x}} f(\underline{x}).
+        \]
+    \end{derivation}
 
 \subsection{Simple algorithm to find min f(x) for 1D}
 \begin{intuition}
@@ -232,23 +281,350 @@
 \end{theorem}
 
 \subsection{Using Gradient Descent for Logistic Regression}
+\begin{definition}
+    Gradient Descent would update \( \underline{w}_t \) by
+    \begin{enumerate}
+        \item Gradient: $\underline{g}_t = \nabla E_{\text{in}}(\underline{w}_t) = \frac{1}{N} \sum_{n=1}^{N} \nabla e_n(\underline{w}_t)$
+        \begin{itemize}
+            \item  \( \frac{1}{N} \sum_{n=1}^{N} \nabla e_n(\underline{w}_t) \): Average per sample error gradient.
+        \end{itemize}
+        \item Opposite direction of gradient: $\underline{v}_t = - \underline{g}_t$
+        \item Update rule: $\underline{w}_{t+1} = \underline{w}_t + \epsilon_t \underline{v}_t = \underline{w}_{t+1} \implies \underline{w}_t - \varepsilon_t \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t)$
+        \begin{itemize}
+            \item  $\nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) = \frac{1}{N} \sum_{n=1}^{N} \nabla_{\underline{w}_t} e_n(\underline{w}_t)$: Average gradient of the points.
+        \end{itemize}
+    \end{enumerate}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Good News:}
+            \begin{itemize}[left=0pt]
+                \item Convex function: $\frac{1}{N} \sum_{n=1}^{N} \log\left(1 + e^{-y_n \underline{w}_t^T \underline{x}_n}\right)$
+                \item Therefore, Gradient Descent (GD) converges to the globally minimum point.
+            \end{itemize}
+        
+        \item \textbf{Bad News:}
+        \begin{itemize}[left=0pt]
+            \item To run one iteration of Gradient Descent, we need to find \( \nabla e_n(\underline{w}_t) \) for all \( n \in \{1, 2, \dots, N\} \) points.
+            \item This is costly, especially when \( N \) is large (big data), therefore, let's look at SGD.
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\begin{derivation}
+    \textbf{Logistic Regression In-Sample Error:}
+    \[
+    E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} e_n(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} \log\left(1 + e^{-y_n \underline{w}^T \underline{x}_n}\right)
+    \]
+
+    \begin{align*}
+        \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) &= \frac{1}{N} \sum_{n=1}^{N} \nabla_{\underline{w}_t} e_n(\underline{w}_t) \\
+        &= \frac{1}{N} \sum_{n=1}^{N} \nabla_{\underline{w}_t} \log\left(1 + e^{-y_n \underline{w}_t^T \underline{x}_n}\right) \\
+        &= \frac{1}{N} \sum_{n=1}^{N} \frac{1}{1 + e^{-y_n \underline{w}_t^T \underline{x}_n}} \nabla_{\underline{w}_t} \left( 1 + e^{-y_n \underline{w}_t^T \underline{x}_n} \right) \\ 
+        &= \frac{1}{N} \sum_{n=1}^{N} \frac{1}{1 + e^{-y_n \underline{w}_t^T \underline{x}_n}} e^{-y_n \underline{w}_t^T \underline{x}_n} (-y_n \underline{x}_n) \\
+        &= \frac{1}{N} \sum_{n=1}^{N} \frac{-y_n \underline{x}_n}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}} 
+    \end{align*}
+    \begin{itemize}
+        \item \textbf{Note:} The last line is achieved by dividing $e^{-y_n \underline{w}_t^T \underline{x}_n}$ in the numerator and denominator. 
+    \end{itemize}
+
+\end{derivation}
 
 \subsection{Stochastic Gradient Descent (SGD)}
+\begin{definition}
+    In each iteration:
+    \begin{enumerate}[left=0pt]
+        \item Choose uniformly at random a datapoint \( (\underline{x}_n, y_n) \).
+        \item \( \underline{g}_t = \nabla_{\underline{w}_t} e_n(\underline{w}_t) \) \quad \text{(use the gradient of the \(n\)-th sample to update \( \underline{x}_t \))}.
+        \item \( \underline{v}_t = -\underline{g}_t \).
+        \item \( \underline{x}_{t+1} = \underline{x}_t + \varepsilon_t \underline{v}_t \).
+    \end{enumerate}
+\end{definition}
+
+\begin{intuition}
+    \textbf{But does it work?}
+    \begin{itemize}[left=0pt]
+        \item It has been proven that for convex functions and under mild conditions, SGD will find the solution.
+        \item Don't worry about the proof. Don't worry about the conditions.
+    \end{itemize}
+\end{intuition}
 
     \subsubsection{gt of SGD is an unbiased estimate of gradient of error}
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Let's study the expected update direction derived by SGD in each step:}
+
+            \begin{align*}
+                \mathbb{E}[\underline{g}_t] &= \mathbb{P}[n=1] \nabla_{\underline{w}_t} e_1(\underline{w}_t) + \dots + \mathbb{P}[n=N] \nabla_{\underline{w}_t} e_N(\underline{w}_t) \\
+                &= \frac{1}{N} \sum_{n=1}^{N} \nabla_{\underline{w}_t} e_n(\underline{w}_t) = \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) \quad \text{\textit{(True gradient)}}
+            \end{align*}
+    
+            \item \textbf{By SGD, \( \underline{g}_t \) is an "unbiased estimator" of the true gradient \( \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) \):}
+            \begin{itemize}[left=0pt]
+                \item It is a noisy version of \( \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) \), but it is unbiased because:
+                \[
+                \mathbb{E}[\underline{g}_t] = \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t)
+                \]
+            \end{itemize}
+        \end{itemize}
+    \end{intuition}
 
     \subsubsection{Full GD complexity vs. SGD complexity}
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Full GD ("batch GD"):} Per iteration complexity is \( O(Nd) \).
+            \begin{itemize}[left=0pt]
+                \item When \( N \) is large, it is costly, where $d$ is the number of features.
+            \end{itemize}
+    
+            \item \textbf{SGD:} Per iteration complexity is \( O(d) \).
+            \begin{itemize}[left=0pt]
+                \item \textbf{Key:} Complexity of \( N \) iterations of SGD \( = \) complexity of 1 iteration of GD.
+                \begin{itemize}
+                    \item But with SGD, in each iteration, we update based on some noisy estimate of the gradient.
+                    \item Numerically, SGD outperforms full GD. This is because usually there are high redundancies in a large dataset.
+                    \begin{itemize}
+                        \item So, you don't have to use all points to find the right direction.
+                    \end{itemize}
+                \end{itemize} 
+            \end{itemize}
+        \end{itemize}
+    \end{intuition}
 
     \subsubsection{Mini-batch GD is full-batch GD combined with SGD}
+    \begin{definition}
+        \textbf{Mini-batch GD:} In each iteration:
+        \begin{enumerate}[left=0pt]
+            \item Choose \( M \) sample \( r_1, r_2, \dots, r_M \in \{1, \dots, N\} \) uniformly at random.
+            \item \( \underline{g}_t = \frac{1}{M} \sum_{i=1}^{M} \nabla_{\underline{w}_t} e_{r_i}(\underline{w}_t) \).
+            \item \( \underline{V}_t = -\underline{g}_t \).
+            \item \( \underline{w}_{t+1} = \underline{w}_t + \varepsilon_t \underline{V}_t \).
+        \end{enumerate}
+    \end{definition}
+
+    \begin{intuition}
+        \textbf{Benefits:}
+        \begin{itemize}[left=0pt]
+            \item \( \underline{g}_t \) is a more reliable estimator of the true gradient.
+            \item Per iteration complexity: \( O(Md) \).
+            \item In practice, we use multi-core CPUs/GPUs. So, we can find the gradient for \( M \) datapoints in parallel and get a better estimator of the update direction.
+        \end{itemize}
+    \end{intuition}
 
 \subsection{PLA is an Extremer Version of Logistic Regression with SGD}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Logistic regression with SGD updates:}
+        \[
+        \nabla_{\underline{w}_t} E_{\text{in}}(\underline{w}_t) = \frac{-y_n \underline{x}_n}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}}
+        \]
+        and
+        \[
+        \underline{w}_{t+1} = \underline{w}_t + \varepsilon_t \frac{y_n \underline{x}_n}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}}.
+        \]
+    
+        \item \textbf{When we randomly pick some \( \underline{x}_n \) which is misclassified:}
+        \begin{itemize}[left=0pt]
+            \item \( y_n \underline{w}_t^T \underline{x}_n < 0 \quad \Rightarrow \quad 0 < e^{y_n \underline{w}_t^T \underline{x}_n} < 1 \).
+            \item The SGD update would be:
+            \[
+            \underline{w}_{t+1} = \underline{w}_t + \frac{\varepsilon_t}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}} (y_n \underline{x}_n)
+            \]
+            \item In extreme case, \( e^{y_n \underline{w}_t^T \underline{x}_n} \approx 0 \), and the update rule would be:
+            \[
+            \underline{w}_{t+1} \approx \underline{w}_t + \varepsilon_t (y_n \underline{x}_n) \quad \textit{(same as PLA if \( \varepsilon_t = 1 \))}.
+            \]
+        \end{itemize}
+    
+
+        \item \textbf{When we randomly pick some \( \underline{x}_n \) which is correctly classified:}
+        \begin{itemize}[left=0pt]
+            \item \( y_n \underline{w}_t^T \underline{x}_n > 0 \quad \Rightarrow \quad 1 < e^{y_n \underline{w}_t^T \underline{x}_n} \).
+            \item The SGD update would be:
+            \[
+            \underline{w}_{t+1} = \underline{w}_t + \frac{\varepsilon_t}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}} (y_n \underline{x}_n)
+            \]
+            \item In extreme case, \( \frac{1}{1 + e^{y_n \underline{w}_t^T \underline{x}_n}} \approx 0 \), and the update rule would be:
+            \[
+            \underline{w}_{t+1} \approx \underline{w}_t \quad \textit{(same as PLA as it does not update \( \underline{w} \) for correctly classified points)}.
+            \]
+        \end{itemize}
+    \end{itemize}
+\end{definition}
 
 \subsection{Multiclass Logistic Regression}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Hypothesis Set:} Let \( \Omega = \{ \underline{w}_{(1)}, \underline{w}_{(2)}, \dots, \underline{w}_{(c)} \} \) be the weight vectors for \( c \) classes.
+        
+
+        \item \textbf{Hypothesize that:}
+        \begin{align*}
+            \mathbb{P}[y_n &= i | \underline{x}_n] = \frac{e^{\underline{w}_{(i)}^T \underline{x}_n}}{\sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n}}, \quad \text{for} \ i \in \{1, \dots, c\} \\    
+            &= \hat{P}_{\Omega}(i | \underline{x}_n) \quad \textit{(Softmax function)} 
+        \end{align*}
+        
+
+        \item \textbf{Error Criterion:}
+        \[
+        e_n(\Omega) = -\log \hat{P}_{\Omega}(y_n | \underline{x}_n) = -\underline{w}_{(y_n)}^T \underline{x}_n + \log \sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n}
+        \]
+        
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/EX.png}{Example of how the 3rd weight line is the farthest away for so it has the largest probability}
+\end{example}
 
 \subsection{SGD update}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{SGD update rule:} To minimize \( E_{\text{in}}(\Omega) \), we need to use GD. Hence, we must find the gradient.
+        \[
+            \nabla_{\Omega} e_n(\Omega) =
+            \begin{bmatrix}
+                \frac{\partial e_n}{\partial \underline{w}_{(1)}}(\Omega) \\
+                \frac{\partial e_n}{\partial \underline{w}_{(1)}}(\Omega) \\
+                \vdots \\
+                \frac{\partial e_n}{\partial \underline{w}_{(c)}}(\Omega) \\
+                \vdots \\
+                \frac{\partial e_n}{\partial \underline{w}_{(c)}}(\Omega)
+            \end{bmatrix}
+            =
+            \begin{bmatrix}
+                \nabla_{\underline{w}_{(1)}} e_n(\Omega) \\
+                \vdots \\
+                \nabla_{\underline{w}_{(c)}} e_n(\Omega)
+            \end{bmatrix}
+        \]
+        Therefore, the update rule is
+        \[
+        \Omega_{t+1} = \Omega_t - \varepsilon_t \nabla_{\Omega_t} e_n(\Omega)
+        \quad \Rightarrow \quad
+        \begin{bmatrix}
+            \underline{w}_{t+1}(1) \\
+            \vdots \\
+            \underline{w}_{t+1}(c)
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            \underline{w}_t(1) \\
+            \vdots \\
+            \underline{w}_t(c)
+        \end{bmatrix}
+        - \varepsilon_t
+        \begin{bmatrix}
+            \nabla_{\underline{w}_t(1)} e_n(\Omega) \\
+            \vdots \\
+            \nabla_{\underline{w}_t(c)} e_n(\Omega)
+        \end{bmatrix}
+        \]
+        
+        \item \textbf{SGD update:}
+        
+        In each iteration \( t \):
+        \begin{itemize}[left=0pt]
+            \item Set \( \Omega_t = \{\underline{w}_t(1), \dots, \underline{w}_t(c)\} \).
+            \item Sample a datapoint \( n \sim \text{Uniform}(\{1, \dots, N\}) \).
+            \item For \( i = 1, 2, \dots, c \):
+            \begin{enumerate}
+                \item $\underline{g}_t(i) = \nabla_{\underline{w}_t(i)} e_n(\Omega)$
+                \item $\underline{v}_t(i) = -\underline{g}_t(i)$
+                \item $\underline{w}_{t+1}(i) = \underline{w}_t(i) + \varepsilon_t \underline{v}_t(i)$
+            \end{enumerate}
+        \end{itemize}
+    \end{itemize}
+\end{definition}
 
 \subsection{Computing gradient of error}
+\begin{definition}
+    \textbf{Computing \( \nabla_{\underline{w}_{(i)}} e_n(\Omega_t) \):}
+
+    \begin{align*}
+        e_n(\Omega_t) &= -\log \hat{\mathbb{P}}_{\Omega_t}(y_n | \underline{x}_n) \\
+        &= -\log \frac{e^{\underline{w}_{(y_n)}^T \underline{x}_n}}{\sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n}} \\
+        &= -\underline{w}_{(y_n)}^T \underline{x}_n + \log \left( \sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n} \right) 
+    \end{align*}
+    \vspace{1em}
+
+    \textbf{For \( i = y_n \):}
+    \[
+    \nabla_{\underline{w}_{t(i)}} e_n(\Omega_t) = \nabla_{\underline{w}_{t(y_n)}} \left( -\underline{w}_{(y_n)}^T \underline{x}_n + \log \left( \sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n} \right) \right)
+    \]
+    \[
+    = -\underline{x}_n + \frac{e^{\underline{w}_{(y_n)}^T \underline{x}_n}}{\sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n}} \underline{x}_n
+    \]
+    \vspace{1em}
+
+    \textbf{For \( i \neq y_n \):}
+    \[
+    \nabla_{\underline{w}_{t(i)}} e_n(\Omega_t) = \nabla_{\underline{w}_{t(i)}} \left( -\underline{w}_{(y_n)}^T \underline{x}_n + \log \left( \sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n} \right) \right)
+    \]
+    \[
+    = \frac{e^{\underline{w}_{(i)}^T \underline{x}_n}}{\sum_{j=1}^{c} e^{\underline{w}_{(j)}^T \underline{x}_n}} \underline{x}_n
+    \]
+\end{definition}
 
 \subsection{Softmax Logistic Regression for Binary Classification}
+\begin{intuition}
+    \textbf{What is the relation between Softmax logistic regression for \( c = 2 \) and binary logistic regression?}
+
+    \[
+    \hat{P}_{\Omega}(1 | \underline{x}_n) = \frac{e^{\underline{w}_{(1)}^T \underline{x}_n}}{e^{\underline{w}_{(1)}^T \underline{x}_n} + e^{\underline{w}_{(2)}^T \underline{x}_n}} = \frac{e^{(\underline{w}_{(1)} - \underline{w}_{(2)})^T \underline{x}_n}}{1 + e^{(\underline{w}_{(1)} - \underline{w}_{(2)})^T \underline{x}_n}}
+    \]
+    \begin{itemize}
+        \item The last line is acheived by dividing by $e^{\underline{w}_{(2)}^T \underline{x}_n}$
+    \end{itemize}
+
+    \[
+    \hat{P}_{\Omega}(2 | \underline{x}_n) = \frac{e^{\underline{w}_{(2)}^T \underline{x}_n}}{e^{\underline{w}_{(1)}^T \underline{x}_n} + e^{\underline{w}_{(2)}^T \underline{x}_n}} = 1 - \hat{P}_{\Omega}(1 | \underline{x}_n)
+    \]
+
+    It is logistic regression with \( \underline{w} = \underline{w}_{(1)} - \underline{w}_{(2)} \).
+\end{intuition}
 
 \subsection{Can we use GD/SGD for Linear Regression? Yes, you can}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{In-sample error:} $E_{\text{in}}(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} e_n(\underline{w}) = \frac{1}{N} \sum_{n=1}^{N} (\underline{w}^T \underline{x}_n - y_n)^2$
+    
+        \item \textbf{\( \underline{w}_{ls} \), the optimal solution:}
+        \begin{itemize}
+            \item $ \underline{w}_{ls} = (X^T X)^{-1} X^T y $
+            \item \textbf{Complexity:} \( O(Nd^2 + d^3) \)
+        \end{itemize}
+    
+        \item \textbf{\( E_{\text{in}}(\underline{w}) \) is convex. So, with GD/SGD, as \( t \to \infty \), \( \underline{w}_t \) converges to the optimal solution, i.e., \( \underline{w}_{\text{LS}} \).}
+    
+        \[
+        \nabla_{\underline{w}} e_n(\underline{w}) = 2 (\underline{w}^T \underline{x}_n - y_n) \underline{x}_n
+        \]
+    
+        \item \textbf{Time complexity of SGD, Full-GD, Mini-batch GD:}
+        \begin{itemize}
+            \item SGD: \( O(d) \)
+            \item Full GD: \( O(Nd) \)
+            \item Mini GD: \( O(Md) \)
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \textbf{Benefits of GD over Least-Squares Method:}
+    \begin{enumerate}
+        \item \textbf{Better Complexity.}
+        
+        \item \textbf{Most often, we are not interested in finding the exact optimal solution.}
+        \begin{itemize}
+            \item We only care about test error, not \( E_{\text{in}} \) (train error).
+            \item If we have noisy data, the optimal solution leads to overfitting.
+            \begin{itemize}
+                \item In practice, we run GD for a few iterations.
+                \item Then, we do validation and stop when the validation error starts deteriorating.
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+    \customFigure[0.5]{00_Images/B.png}{Error vs. iteration.}
+\end{intuition}
