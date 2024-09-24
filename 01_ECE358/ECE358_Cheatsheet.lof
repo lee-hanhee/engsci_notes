@@ -1,19 +1,20 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Graphical examples of the Big-O, Big-Omega, and Big-Theta.}}{10}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}}{27}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}}{35}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces (a) Directed graph, (b) Undirected graph.}}{36}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Bipartite graph.}}{37}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Clique for 3 and 4.}}{38}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{38}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Choosing a node as the root, then making it a tree.}}{39}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{49}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{50}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Build heap.}}{51}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{52}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Partition}}{54}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Quicksort example.}}{55}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{56}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Example of counting sort}}{61}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Radix sort example}}{62}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{63}{figure.18}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}}{28}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}}{36}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces (a) Directed graph, (b) Undirected graph.}}{38}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Bipartite graph.}}{39}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Clique for 3 and 4.}}{39}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{40}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Choosing a node as the root, then making it a tree.}}{41}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{51}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{52}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Build heap.}}{53}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{54}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Partition}}{56}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Quicksort example.}}{57}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{59}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Insertion sort.}}{63}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Example of counting sort}}{65}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Radix sort example}}{66}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{67}{figure.19}%

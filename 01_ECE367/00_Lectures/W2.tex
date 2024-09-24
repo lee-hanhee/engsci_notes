@@ -586,5 +586,309 @@
             \]
         \end{enumerate}
     \end{derivation}
+
+\subsection{Projection onto affine sets}
+\subsubsection{Affine spaces}
+\begin{definition}
+    An affine space (or affine set) is a translation (or shift) of a subspace $S$.
+\end{definition}
+
+\begin{example}
+    Consider a vector $x^{(0)}$ (not necessarily in $S$). The affine space $\mathcal{A}$ is defined as:
+    \[
+    \mathcal{A} = \{ u + x^{(0)} \mid u \in S \}
+    \]
+    where $x^{(0)}$ is the shifting vector and $S$ is the original subspace. This represents a shifted version of the subspace $S$.
+
+    \customFigure[0.5]{00_Images/AS.png}{Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}
+\end{example}
+
+\subsubsection{Projection of Affine space defined in terms of basis vectors of corresponding subspace}
+\begin{derivation}
+    \begin{enumerate}
+        \item The affine space is described by:
+        \[
+        \mathcal{A} = \left\{ x \mid x = \sum_{i=1}^{d} \alpha_i v^{(i)} + c \right\}
+        \]
+        \begin{itemize}
+            \item $\{v^{(1)}, \dots, v^{(d)}\}$: Basis vectors of the subspace $S$
+            \item $c$: Vector (i.e. shift).
+        \end{itemize}
+        \customFigure[0.5]{00_Images/PR.png}{Projection problem visualization, where we are projecting the vector onto the Affine space.}
+    
+        \item Using the orthogonality principle, we must have:
+        \[
+        \langle x - x^*, v^{(j)} \rangle = 0 \quad \forall j = 1, \dots, d
+        \]
+        where $x^* \in \mathcal{A}$. Therefore:
+        \[
+        x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
+        \]
+    
+        \item This leads to the condition:
+        \[
+        \left\langle x - \sum_{i=1}^{d} \alpha_i v^{(i)} - c, v^{(j)} \right\rangle = 0 \quad \forall j = 1, \dots, d
+        \]
+    
+        \item Simplifying this expression using the linearity in first argument for inner product, we obtain:
+        \[
+        \langle x - c, v^{(j)} \rangle = \sum_{i=1}^{d} \alpha_i \langle v^{(i)}, v^{(j)} \rangle \quad \forall j = 1, \dots, d
+        \]
+    
+        \item To solve for $\alpha_1, \dots, \alpha_d$, we set up the following system of linear equations in matrix form:
+        \[
+        \begin{bmatrix}
+        \langle v^{(1)}, v^{(1)} \rangle & \cdots & \langle v^{(1)}, v^{(d)} \rangle \\
+        \vdots & \ddots & \vdots \\
+        \langle v^{(d)}, v^{(1)} \rangle & \cdots & \langle v^{(d)}, v^{(d)} \rangle
+        \end{bmatrix}
+        \begin{bmatrix}
+        \alpha_1 \\
+        \vdots \\
+        \alpha_d
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        \langle x - c, v^{(1)} \rangle \\
+        \vdots \\
+        \langle x - c, v^{(d)} \rangle
+        \end{bmatrix}
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} We are projecting onto $x-c$, which we can see on the RS, which is the subspace.
+        \end{itemize}
+    
+        \item Solving this system gives us the values for $\alpha_1, \dots, \alpha_d$. Finally, the projection $x^*$ onto the affine space $\mathcal{A}$ is:
+        \[
+        x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
+        \]
+        \textbf{Note:} We are projecting onto $x-c$ (i.e. subspace), then adding the shift into the end to be back on the Affine set.
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Projection of Affine space defined in terms of orthogonal vectors to corresponding subspace}
+\begin{derivation}
+    \begin{enumerate}
+        \item The affine set $\mathcal{A}$ is defined as:
+        \[
+        \mathcal{A} = \left\{ x \mid \langle x, a^{(i)} \rangle = d_i, \; i = 1, \dots, m \right\}
+        \]
+        \begin{itemize}
+            \item $d_i$: Scalars
+            \item $\{a^{(1)}, \dots, a^{(m)}\}$: A set of vectors spanning the affine space. (Check why this is equivalent to the previous definition of an affine set.)
+        \end{itemize}
+
+        \customFigure[0.5]{00_Images/PR1.png}{Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}
+        
+        \item Since $x-x^*$ lies in the span of $\{a^{(1)}, \dots, a^{(m)}\}$:
+        \[
+        x - x^* = \sum_{i=1}^{m} \beta_i a^{(i)}
+        \]
+        where $\beta_1, \dots, \beta_m$ are the coefficients to be determined.
+        
+        \item Since $x^* \in \mathcal{A}$, we also have:
+        \[
+        \langle x^*, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+        \]
+        This implies the orthogonality condition for the projection:
+        \[
+        \langle x - \sum_{i=1}^{m} \beta_i a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+        \]
+    
+        \item Expanding the above expression using the linearity in first argument for inner product, we get:
+        \[
+        \langle x, a^{(j)} \rangle - \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
+        \]
+        
+        \item This leads to the system of linear equations:
+        \[
+        \langle x, a^{(j)} \rangle - d_j = \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle \quad \forall j
+        \]
+        
+        \item We now solve this system of linear equations for the coefficients $\beta_1, \dots, \beta_m$. The system can be written in matrix form as:
+        \[
+        \begin{bmatrix}
+        \langle a^{(1)}, a^{(1)} \rangle & \cdots & \langle a^{(1)}, a^{(m)} \rangle \\
+        \vdots & \ddots & \vdots \\
+        \langle a^{(m)}, a^{(1)} \rangle & \cdots & \langle a^{(m)}, a^{(m)} \rangle
+        \end{bmatrix}
+        \begin{bmatrix}
+        \beta_1 \\
+        \vdots \\
+        \beta_m
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        \langle x, a^{(1)} \rangle - d_1 \\
+        \vdots \\
+        \langle x, a^{(m)} \rangle - d_m
+        \end{bmatrix}
+        \]
+        
+        \item Solving this system gives the values for $\beta_1, \dots, \beta_m$. Once the $\beta_i$ values are known, the projection $x^*$ is given by:
+        
+        \[
+        x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} 
+        \]
+    \end{enumerate}            
+\end{derivation}
+
+\begin{example}
+    \begin{enumerate}
+        \item Consider the case where \( m = 1 \). The affine set \( \mathcal{A} \) is defined as:
+        \[
+        \mathcal{A} = \{ x \mid a^T x = d \}
+        \]
+        where \( a \) is a vector and \( d \) is a scalar.
+    
+        \item To project \( x \) onto the affine subspace, we start by using the orthogonality condition:
+        \[
+        \langle x, a \rangle - d = \beta \langle a, a \rangle
+        \]
+        This ensures that the difference between \( x \) and its projection \( x^* \) lies in the direction of \( a \).
+    
+        \item Solving for \( \beta \), we get:
+        \[
+        \beta = \frac{\langle x, a \rangle - d}{\langle a, a \rangle} = \frac{a^T x - d}{\| a \|_2^2}
+        \]
+        This provides the scalar \( \beta \), which tells us how much of the vector \( a \) needs to be subtracted from \( x \).
+    
+        \item The projection \( x^* \) onto the affine subspace is then:
+        \[
+        x^* = x - \beta a = x - \left( \frac{a^T x - d}{\| a \|_2^2} \right) a
+        \]
+        This gives the final expression for the projection of \( x \) onto the affine set \( \mathcal{A} \).
+    \end{enumerate}            
+\end{example}
+
+\subsubsection{Show that the two affine sets are equal}
+\begin{derivation}
+    We define set \( A \) as follows:
+
+    \[
+    A = \left\{ x \in \mathbb{R}^n \ \middle|\ x = \sum_{i=1}^d \alpha_i v^{(i)} + c \right\}
+    \]
+    where \( v^{(i)} \) are the basis vectors, \( \alpha_i \) are scalar coefficients, and \( c \) is a fixed vector (the translation vector of the affine set).
+
+    Now, we define set \( B \) as:
+
+    \[
+    B = \left\{ x \in \mathbb{R}^n \ \middle|\ a^{(i)T} x = d_i, \, i = 1, 2, \dots, m \right\}
+    \]
+    where \( a^{(i)} \) are orthogonal vectors, and \( d_i \) are scalars defining the affine constraints.
+
+    \textbf{Step 1: Show \( A \subseteq B \).}
+
+    Assume \( x \in A \), then we can write:
+    \[
+    x = \sum_{i=1}^d \alpha_i v^{(i)} + c
+    \]
+    Substitute this into the condition for set \( B \):
+    \[
+    a^{(i)T} x = a^{(i)T} \left( \sum_{j=1}^d \alpha_j v^{(j)} + c \right)
+    \]
+    Expanding the expression:
+    \[
+    a^{(i)T} x = \sum_{j=1}^d \alpha_j a^{(i)T} v^{(j)} + a^{(i)T} c
+    \]
+    Since the vectors \( a^{(i)} \) are orthogonal to the vectors \( v^{(j)} \), we have:
+    \[
+    a^{(i)T} v^{(j)} = 0 \quad \text{for all} \ i, j
+    \]
+    Therefore, the equation simplifies to:
+    \[
+    a^{(i)T} x = a^{(i)T} c
+    \]
+    We define \( d_i = a^{(i)T} c \). Hence,
+    \[
+    a^{(i)T} x = d_i \quad \text{for all} \ i
+    \]
+    Thus, \( x \in B \).
+
+    \textbf{Step 2: Show \( B \subseteq A \).}
+
+    Assume \( x \in B \), then we know:
+    \[
+    a^{(i)T} x = d_i \quad \text{for all} \ i = 1, 2, \dots, m
+    \]
+    This implies that the vector \( x \) satisfies all the affine constraints defined by the vectors \( a^{(i)} \) and scalars \( d_i \). Now, consider the vector \( c \) such that:
+    \[
+    a^{(i)T} c = d_i
+    \]
+    Subtracting this from the affine constraint for \( x \), we get:
+    \[
+    a^{(i)T} (x - c) = 0 \quad \text{for all} \ i
+    \]
+    This shows that \( x - c \) lies in the null space of the vectors \( a^{(i)} \). Therefore, \( x - c \) must lie in the span of the vectors \( v^{(i)} \), meaning:
+    \[
+    x - c = \sum_{i=1}^d \alpha_i v^{(i)}
+    \]
+    for some scalars \( \alpha_1, \alpha_2, \dots, \alpha_d \). Thus,
+    \[
+    x = \sum_{i=1}^d \alpha_i v^{(i)} + c
+    \]
+    Therefore, \( x \in A \).
+
+    \textbf{Conclusion:}
+
+    Since we have shown that \( A \subseteq B \) and \( B \subseteq A \), we conclude that:
+    \[
+    A = B
+    \]
+    This proves that the definition of the affine set in terms of orthogonal vectors and the definition in terms of basis vectors are equivalent.
+\end{derivation}
+
+\subsection{Summary}
+\begin{definition}
+
+    \textbf{Subspace:}
+    \[
+    S = \left\{ \mathbf{x} \ \middle| \ \mathbf{x} = \sum_{i=1}^{d} \alpha_i \mathbf{v}^{(i)} \right\}
+    \]
+    \[
+    S = \left\{ \mathbf{x} \ \middle| \ (\mathbf{a}^{(i)})^\top \mathbf{x} = 0 , \ i=1, \dots, m \right\}
+    \]
+
+    \textbf{Affine Space:}
+    \[
+    A = \left\{ \mathbf{x} \ \middle| \ \mathbf{x} = \sum_{i=1}^{d} \alpha_i \mathbf{v}^{(i)} + \mathbf{c} \right\}
+    \]
+    \[
+    A = \left\{ \mathbf{x} \ \middle| \ (\mathbf{a}^{(i)})^\top \mathbf{x} = d_i , \ i=1, \dots, m \right\}
+    \]
+\end{definition}
         
 \subsection{Hyperplanes and half-spaces}
+\begin{definition}
+
+    \begin{itemize}
+        \item \textbf{Hyperplane:} an affine space for the special case \( m = 1 \).
+            \begin{equation}
+                \mathcal{H} = \left\{ \mathbf{x} \ \middle| \ \mathbf{a}^\top \mathbf{x} = b \right\}
+            \end{equation}
+    
+        \item \textbf{Half-space:}
+            \begin{equation}
+                \mathcal{H}_{+} = \left\{ \mathbf{x} \ \middle| \ \mathbf{a}^\top \mathbf{x} \geq b \right\}
+            \end{equation}
+            \begin{equation}
+                \mathcal{H}_{-} = \left\{ \mathbf{x} \ \middle| \ \mathbf{a}^\top \mathbf{x} \leq b \right\}
+            \end{equation}
+            \begin{itemize}
+                \item $\mathbf{x} \in \mathcal{H}_{+} \implies \text{angle between } \mathbf{a} \text{ and } \mathbf{x} \text{ is acute.}$
+                \item $\mathbf{x} \in \mathcal{H}_{-} \implies \text{angle between } \mathbf{a} \text{ and } \mathbf{x} \text{ is obtuse.}$
+            \end{itemize}
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/HPHS.png}{2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}
+\end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item In 2D: A hyperplane is a straight line dividing the plane into two regions.
+        \item In 2D: A half-space is the region on one side of a line, which describes all points on one side of the line.
+        \item In 3D: A hyperplane is a flat plane dividing the space into two regions.
+        \item In 3D: A half-space is the region on one side of a plane, which includes all points on one side of the plane.
+    \end{itemize}
+\end{intuition}
+

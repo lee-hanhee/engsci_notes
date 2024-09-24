@@ -1,255 +1,324 @@
 \subsection{Non-Euclidean projection}
-\subsection{Projection onto affine sets}
-        \subsubsection{Affine spaces}
-        \begin{definition}
-            An affine space (or affine set) is a translation (or shift) of a subspace $S$.
-        \end{definition}
+\begin{intuition}
+    \customFigure[0.5]{00_Images/L2.png}{l2 norm}
+    \begin{itemize}
+        \item \textbf{Key:} $\mathbf{x}^* = \arg \min_{\mathbf{y} \in \mathcal{S}} \| \mathbf{x} - \mathbf{y} \|_2$ has the orthogonality principle holds (i.e. $x - x^{*} \perp S$)
+    \end{itemize}
+    \vspace{1em}
 
-        \begin{example}
-            Consider a vector $x^{(0)}$ (not necessarily in $S$). The affine space $\mathcal{A}$ is defined as:
-            \[
-            \mathcal{A} = \{ u + x^{(0)} \mid u \in S \}
-            \]
-            where $x^{(0)}$ is the shifting vector and $S$ is the original subspace. This represents a shifted version of the subspace $S$.
+    The projection problem is well-defined in the case of $l1$-norm or $l_{\infty}$-norm, but these norms have \textbf{no associated notion of angle and orthogonality}. The following plots show that the vector $x$ is not orthogonal to $x^{*}$.
+    \begin{itemize}
+        \item \textbf{Note:} To get these projections, this must be done through linear programming. 
+    \end{itemize}
+    \customFigure[0.5]{00_Images/L1.png}{l1 norm}
 
-            \customFigure[0.5]{00_Images/AS.png}{Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}
-        \end{example}
-
-        \subsubsection{Projection of Affine space defined in terms of basis vectors of corresponding subspace}
-        \begin{derivation}
-            \begin{enumerate}
-                \item The affine space is described by:
-                \[
-                \mathcal{A} = \left\{ x \mid x = \sum_{i=1}^{d} \alpha_i v^{(i)} + c \right\}
-                \]
-                \begin{itemize}
-                    \item $\{v^{(1)}, \dots, v^{(d)}\}$: Basis vectors of the subspace $S$
-                    \item $c$: Vector (i.e. shift).
-                \end{itemize}
-                \customFigure[0.5]{00_Images/PR.png}{Projection problem visualization, where we are projecting the vector onto the Affine space.}
-            
-                \item Using the orthogonality principle, we must have:
-                \[
-                \langle x - x^*, v^{(j)} \rangle = 0 \quad \forall j = 1, \dots, d
-                \]
-                where $x^* \in \mathcal{A}$. Therefore:
-                \[
-                x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
-                \]
-            
-                \item This leads to the condition:
-                \[
-                \left\langle x - \sum_{i=1}^{d} \alpha_i v^{(i)} - c, v^{(j)} \right\rangle = 0 \quad \forall j = 1, \dots, d
-                \]
-            
-                \item Simplifying this expression using the linearity in first argument for inner product, we obtain:
-                \[
-                \langle x - c, v^{(j)} \rangle = \sum_{i=1}^{d} \alpha_i \langle v^{(i)}, v^{(j)} \rangle \quad \forall j = 1, \dots, d
-                \]
-            
-                \item To solve for $\alpha_1, \dots, \alpha_d$, we set up the following system of linear equations in matrix form:
-                \[
-                \begin{bmatrix}
-                \langle v^{(1)}, v^{(1)} \rangle & \cdots & \langle v^{(1)}, v^{(d)} \rangle \\
-                \vdots & \ddots & \vdots \\
-                \langle v^{(d)}, v^{(1)} \rangle & \cdots & \langle v^{(d)}, v^{(d)} \rangle
-                \end{bmatrix}
-                \begin{bmatrix}
-                \alpha_1 \\
-                \vdots \\
-                \alpha_d
-                \end{bmatrix}
-                =
-                \begin{bmatrix}
-                \langle x - c, v^{(1)} \rangle \\
-                \vdots \\
-                \langle x - c, v^{(d)} \rangle
-                \end{bmatrix}
-                \]
-                \begin{itemize}
-                    \item \textbf{Note:} We are projecting onto $x-c$, which we can see on the RS, which is the subspace.
-                \end{itemize}
-            
-                \item Solving this system gives us the values for $\alpha_1, \dots, \alpha_d$. Finally, the projection $x^*$ onto the affine space $\mathcal{A}$ is:
-                \[
-                x^* = \sum_{i=1}^{d} \alpha_i v^{(i)} + c
-                \]
-                \textbf{Note:} We are projecting onto $x-c$ (i.e. subspace), then adding the shift into the end to be back on the Affine set.
-            \end{enumerate}
-        \end{derivation}
-
-        \subsubsection{Projection of Affine space defined in terms of orthogonal vectors to corresponding subspace}
-        \begin{derivation}
-            \begin{enumerate}
-                \item The affine set $\mathcal{A}$ is defined as:
-                \[
-                \mathcal{A} = \left\{ x \mid \langle x, a^{(i)} \rangle = d_i, \; i = 1, \dots, m \right\}
-                \]
-                \begin{itemize}
-                    \item $d_i$: Scalars
-                    \item $\{a^{(1)}, \dots, a^{(m)}\}$: A set of vectors spanning the affine space. (Check why this is equivalent to the previous definition of an affine set.)
-                \end{itemize}
-
-                \customFigure[0.5]{00_Images/PR1.png}{Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}
-                
-                \item Since $x-x^*$ lies in the span of $\{a^{(1)}, \dots, a^{(m)}\}$:
-                \[
-                x - x^* = \sum_{i=1}^{m} \beta_i a^{(i)}
-                \]
-                where $\beta_1, \dots, \beta_m$ are the coefficients to be determined.
-                
-                \item Since $x^* \in \mathcal{A}$, we also have:
-                \[
-                \langle x^*, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
-                \]
-                This implies the orthogonality condition for the projection:
-                \[
-                \langle x - \sum_{i=1}^{m} \beta_i a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
-                \]
-            
-                \item Expanding the above expression using the linearity in first argument for inner product, we get:
-                \[
-                \langle x, a^{(j)} \rangle - \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle = d_j \quad \forall j = 1, \dots, m
-                \]
-                
-                \item This leads to the system of linear equations:
-                \[
-                \langle x, a^{(j)} \rangle - d_j = \sum_{i=1}^{m} \beta_i \langle a^{(i)}, a^{(j)} \rangle \quad \forall j
-                \]
-                
-                \item We now solve this system of linear equations for the coefficients $\beta_1, \dots, \beta_m$. The system can be written in matrix form as:
-                \[
-                \begin{bmatrix}
-                \langle a^{(1)}, a^{(1)} \rangle & \cdots & \langle a^{(1)}, a^{(m)} \rangle \\
-                \vdots & \ddots & \vdots \\
-                \langle a^{(m)}, a^{(1)} \rangle & \cdots & \langle a^{(m)}, a^{(m)} \rangle
-                \end{bmatrix}
-                \begin{bmatrix}
-                \beta_1 \\
-                \vdots \\
-                \beta_m
-                \end{bmatrix}
-                =
-                \begin{bmatrix}
-                \langle x, a^{(1)} \rangle - d_1 \\
-                \vdots \\
-                \langle x, a^{(m)} \rangle - d_m
-                \end{bmatrix}
-                \]
-                
-                \item Solving this system gives the values for $\beta_1, \dots, \beta_m$. Once the $\beta_i$ values are known, the projection $x^*$ is given by:
-                
-                \[
-                x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} 
-                \]
-            \end{enumerate}            
-        \end{derivation}
-
-        \begin{example}
-            \begin{enumerate}
-                \item Consider the case where \( m = 1 \). The affine set \( \mathcal{A} \) is defined as:
-                \[
-                \mathcal{A} = \{ x \mid a^T x = d \}
-                \]
-                where \( a \) is a vector and \( d \) is a scalar.
-            
-                \item To project \( x \) onto the affine subspace, we start by using the orthogonality condition:
-                \[
-                \langle x, a \rangle - d = \beta \langle a, a \rangle
-                \]
-                This ensures that the difference between \( x \) and its projection \( x^* \) lies in the direction of \( a \).
-            
-                \item Solving for \( \beta \), we get:
-                \[
-                \beta = \frac{\langle x, a \rangle - d}{\langle a, a \rangle} = \frac{a^T x - d}{\| a \|_2^2}
-                \]
-                This provides the scalar \( \beta \), which tells us how much of the vector \( a \) needs to be subtracted from \( x \).
-            
-                \item The projection \( x^* \) onto the affine subspace is then:
-                \[
-                x^* = x - \beta a = x - \left( \frac{a^T x - d}{\| a \|_2^2} \right) a
-                \]
-                This gives the final expression for the projection of \( x \) onto the affine set \( \mathcal{A} \).
-            \end{enumerate}            
-        \end{example}
-
-        \subsubsection{Show that the two affine sets are equal}
-        \begin{derivation}
-            We define set \( A \) as follows:
-
-            \[
-            A = \left\{ x \in \mathbb{R}^n \ \middle|\ x = \sum_{i=1}^d \alpha_i v^{(i)} + c \right\}
-            \]
-            where \( v^{(i)} \) are the basis vectors, \( \alpha_i \) are scalar coefficients, and \( c \) is a fixed vector (the translation vector of the affine set).
-
-            Now, we define set \( B \) as:
-
-            \[
-            B = \left\{ x \in \mathbb{R}^n \ \middle|\ a^{(i)T} x = d_i, \, i = 1, 2, \dots, m \right\}
-            \]
-            where \( a^{(i)} \) are orthogonal vectors, and \( d_i \) are scalars defining the affine constraints.
-
-            \textbf{Step 1: Show \( A \subseteq B \).}
-
-            Assume \( x \in A \), then we can write:
-            \[
-            x = \sum_{i=1}^d \alpha_i v^{(i)} + c
-            \]
-            Substitute this into the condition for set \( B \):
-            \[
-            a^{(i)T} x = a^{(i)T} \left( \sum_{j=1}^d \alpha_j v^{(j)} + c \right)
-            \]
-            Expanding the expression:
-            \[
-            a^{(i)T} x = \sum_{j=1}^d \alpha_j a^{(i)T} v^{(j)} + a^{(i)T} c
-            \]
-            Since the vectors \( a^{(i)} \) are orthogonal to the vectors \( v^{(j)} \), we have:
-            \[
-            a^{(i)T} v^{(j)} = 0 \quad \text{for all} \ i, j
-            \]
-            Therefore, the equation simplifies to:
-            \[
-            a^{(i)T} x = a^{(i)T} c
-            \]
-            We define \( d_i = a^{(i)T} c \). Hence,
-            \[
-            a^{(i)T} x = d_i \quad \text{for all} \ i
-            \]
-            Thus, \( x \in B \).
-
-            \textbf{Step 2: Show \( B \subseteq A \).}
-
-            Assume \( x \in B \), then we know:
-            \[
-            a^{(i)T} x = d_i \quad \text{for all} \ i = 1, 2, \dots, m
-            \]
-            This implies that the vector \( x \) satisfies all the affine constraints defined by the vectors \( a^{(i)} \) and scalars \( d_i \). Now, consider the vector \( c \) such that:
-            \[
-            a^{(i)T} c = d_i
-            \]
-            Subtracting this from the affine constraint for \( x \), we get:
-            \[
-            a^{(i)T} (x - c) = 0 \quad \text{for all} \ i
-            \]
-            This shows that \( x - c \) lies in the null space of the vectors \( a^{(i)} \). Therefore, \( x - c \) must lie in the span of the vectors \( v^{(i)} \), meaning:
-            \[
-            x - c = \sum_{i=1}^d \alpha_i v^{(i)}
-            \]
-            for some scalars \( \alpha_1, \alpha_2, \dots, \alpha_d \). Thus,
-            \[
-            x = \sum_{i=1}^d \alpha_i v^{(i)} + c
-            \]
-            Therefore, \( x \in A \).
-
-            \textbf{Conclusion:}
-
-            Since we have shown that \( A \subseteq B \) and \( B \subseteq A \), we conclude that:
-            \[
-            A = B
-            \]
-            This proves that the definition of the affine set in terms of orthogonal vectors and the definition in terms of basis vectors are equivalent.
-        \end{derivation}
+    \customFigure[0.5]{00_Images/LINFTY.png}{l-infinity norm}
+\end{intuition}
         
 \subsection{Functions}
-\subsection{Gradients}
-\subsection{Hessians}
+\begin{definition}
+    A function is a mapping from a set (domain) to another set (range).
+\end{definition}
+
+\begin{example}
+    Projection function
+    \[
+    x^* = \arg\min_{y \in \mathcal{H}} \| x - y \| = \text{Proj}_{\mathcal{H}}(x)
+    \]
+
+    If $\mathcal{H}$ is linear (or convex), then $x^*$ is unique.
+
+    \customFigure[0.5]{00_Images/convex_projection.png}{Function: Convex projection because we are projecting one input and getting one output}
+
+    If $\mathcal{H}$ is non-convex, the projection might not be unique and the function is not well-defined (i.e. not a function).
+
+    \customFigure[0.5]{00_Images/non_convex_projection.png}{Not a function: Non Convex projection because we are projecting one input and getting two outputs}
+\end{example}
+
+\subsubsection{Terminology of functions}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Map}: $f: \mathbb{R}^n \to \mathbb{R}^m$
+        \item \textbf{Operator}: $f: \mathbb{R}^n \to \mathbb{R}^n$
+        \item \textbf{Functional}: $f: \mathbb{R}^n \to \mathbb{R}$
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Common Sets}
+\begin{definition}
+    Given a functional $f: \mathbb{R}^n \to \mathbb{R}$:
+    \begin{itemize}
+        \item \textbf{Graph}: $\{ (x, f(x)) \in \mathbb{R}^{n+1} | x \in \mathbb{R}^n \} \subseteq \mathbb{R}^{n+1}$ 
+        \item \textbf{Epigraph}: $\{ (x, t) \in \mathbb{R}^{n+1} | x \in \mathbb{R}^n, f(x) \leq t \} \subseteq \mathbb{R}^{n+1} $
+        \item \textbf{Level set}: $L_t = \{ x \in \mathbb{R}^n | f(x) = t \} \subseteq \mathbb{R}^n$
+        \begin{itemize}
+            \item Parametrized by $t$ (i.e. scalar).
+        \end{itemize}
+        \item \textbf{Sublevel set}: $\{ x \in \mathbb{R}^n | f(x) \leq t \} \subseteq \mathbb{R}^n$
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/EX.png}{Example of the different common sets.}
+    \begin{itemize}
+        \item The graph is the cup. 
+        \item The epigraph is the cup and every inside the cup (i.e. volume)
+        \item The level set is the cross section which is projected onto the x1 and x2 axis. (i.e. where $f(x)=t$) 
+        \item The sublevel set is the level set and everything inside of it. 
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/EX1.png}{Example of the different common sets for the l1 norm.}
+\end{example}
+
+    \subsubsection{Linear functions}
+    \begin{definition}
+        A function $f: \mathbb{R}^n \to \mathbb{R}^m$ is linear if:
+        \begin{itemize}
+            \item \textbf{Homogeneity}: $f(\alpha x) = \alpha f(x)$ \quad $\forall x \in \mathbb{R}^n, \alpha \in \mathbb{R}$.
+            \item \textbf{Additivity}: $f(x^{(1)} + x^{(2)}) = f(x^{(1)}) + f(x^{(2)})$ \quad $\forall x^{(1)}, x^{(2)} \in \mathbb{R}^n$.
+        \end{itemize}
+        \vspace{1em}
+
+        Together, these two properties imply that
+        \[
+        f\left( \sum_{i=1}^{d} \alpha_i x^{(i)} \right) = \sum_{i=1}^{d} \alpha_i f(x^{(i)})
+        \]
+        \begin{itemize}
+            \item \textbf{Subspace}: A function $f: \mathbb{R}^n \to \mathbb{R}^m$ is linear if and only if there exists a matrix $A \in \mathbb{R}^{m \times n}$ such that $f(x) = Ax$.
+            \item \textbf{Affine translation:} A function $f: \mathbb{R}^n \to \mathbb{R}^m$ is \textbf{affine} if and only if there exist a matrix $A \in \mathbb{R}^{m \times n}$ and a vector $b \in \mathbb{R}^m$ such that: $f(x) = Ax + b$
+            \item \textbf{Special Case} For $m = 1$, 
+            \[
+            f(x) = a^\top x + b \quad \rightarrow \text{affine function}
+            \]
+            \[
+            f(x) = a^\top x \quad \rightarrow \text{linear function}
+            \]
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/EX2.png}{Example 2 of using the linear function, where the sublevel sets are the half-spaces.}
+    \end{example}
+
+    \begin{definition}
+        \begin{itemize}
+            \item If $f: \mathbb{R}^n \to \mathbb{R}$ is \textbf{linear}, then the graph of $f$ is a subspace.
+            \item If $f: \mathbb{R}^n \to \mathbb{R}$ is \textbf{affine}, then the graph of $f$ is a hyperplane.
+            \item If $f: \mathbb{R}^n \to \mathbb{R}$ is linear or affine, then the sublevel sets are half-spaces.
+        \end{itemize}
+    \end{definition}
+
+\subsection{Function approximations}
+    
+    \subsubsection{Gradients}
+    \begin{definition}
+        The gradient $\nabla f$ of a function $f: \mathbb{R}^n \to \mathbb{R}$ is defined as
+        \begin{equation}
+            \nabla f = 
+            \begin{bmatrix}
+                \frac{\partial f}{\partial x_1} \\
+                \vdots \\
+                \frac{\partial f}{\partial x_n}
+            \end{bmatrix}
+            \quad \in \mathbb{R}^n
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{First-Order Approximation}
+    \begin{definition}
+        For $f: \mathbb{R}^n \to \mathbb{R}$, the first-order approximation around $\bar{x}$ is:
+        \begin{equation}
+            f(x) \approx f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x})
+        \end{equation}
+
+        \begin{itemize}
+            \item \textbf{Recall}: The first-order approximation of $f: \mathbb{R} \to \mathbb{R}$ using the Taylor series at the point $\bar{x}$ is
+            \[
+            f(x) \approx f(\bar{x}) + \frac{\partial f}{\partial x} \bigg|_{x = \bar{x}} \cdot (x - \bar{x})
+            \]
+            \item \textbf{Notation:} $\nabla f(\bar{x}) = \nabla f(x) \bigg|_{x = \bar{x}}$
+        \end{itemize}
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/EX3.png}{Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}
+    \end{example}
+
+    \subsubsection{Gradient properties}
+    \begin{intuition}
+        \begin{itemize}
+            \item The gradient points in the direction where the function is increasing.
+            \item \textbf{Why is the gradient orthogonal to the level sets?}
+            \begin{itemize}
+                \item \textbf{Explanation:} Level sets are defined as: $\{ x \ | \ f(x) = t \} $
+        
+                But by first order approximation:
+                \[
+                f(x) \approx f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x})
+                \]
+        
+                So we want to find which direction of the gradient makes $f(x)$ constant (i.e. be on the level set), so we want to go in the direction such that $f(x) = f(\bar{x})$, therefore,
+                \[
+                \nabla f(\bar{x})^\top (x - \bar{x}) = 0
+                \]
+                Since we want the first order approximation to be $f(x) = f(\bar{x})$. This means that the gradient is orthogonal to $x-x^{*}$, which is on the level set. This means that the gradient is orthogonal to the level sets.
+            \end{itemize}
+            \item \textbf{What about the norm of $\nabla f(x)$?} The norm of $\nabla f(x)$ gives an indication of the steepness of the graph.
+
+                \begin{itemize}
+                    \item \textbf{Explanation?}
+                    \begin{align*}
+                        f(x) - f(\bar{x}) &\approx (\nabla f(\bar{x}))^\top (x - \bar{x})\\
+                        &= \| \nabla f(\bar{x}) \|_2 \| x - \bar{x} \|_2 \left\langle \frac{\nabla f(\bar{x})}{\| \nabla f(\bar{x}) \|_2}, \frac{x - \bar{x}}{\| x - \bar{x} \|_2} \right\rangle\\
+                        &= \| \nabla f(\bar{x}) \|_2 \| x - \bar{x} \|_2 \cos \theta
+                    \end{align*}
+                    \begin{itemize}
+                        \item $\theta$ is the angle between $\nabla f(x)$ and $(x - \bar{x})$.
+                        \item \textbf{Key:} The larger $\|\nabla f(\bar{x})\|_2$, the larger the change in $f(x)$ (i.e. $f(x)-f(\bar{x})$)
+                        \item \textbf{Minimizing/Maximizing:} 
+                        \begin{itemize}
+                            \item $\cos(\theta)=-1$, which means that this is minimizing $f(x)-f(\bar{x})$ (i.e. going in the opposite direction of the gradient) because the change (i.e. $f(x)-f(\bar{x})$) is negative.
+                            \item $\cos(\theta)=1$, which means that this is maximizing $f(x)-f(\bar{x})$ (i.e. going in the direction of the gradient) because the change (i.e. $f(x)-f(\bar{x})$) is positive.
+                            \item $\cos(\theta) = 0$, which means orthogonal (perpendicular) to the gradient, meaning there is no change in the function value in this direction. The function remains constant in this direction (i.e. level set).
+                        \end{itemize}
+                    \end{itemize}
+                \end{itemize}
+        \end{itemize}
+    \end{intuition}
+    
+    \subsubsection{Tangent plane}
+    \begin{definition}
+        In general, the tangent plane is defined by:
+        \begin{equation}
+            \left\{ 
+            \begin{bmatrix} 
+            x \\ t 
+            \end{bmatrix} 
+            \in \mathbb{R}^{n+1} \ \middle| \ 
+            t = f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x}) 
+            \right\}
+        \end{equation}
+        
+        \begin{itemize}
+            \item The tangent plane at $\bar{x}$ is defined by the first-order approximation.
+        \end{itemize}
+
+        This can also be written as:
+        \begin{equation}
+            \left\{ 
+            \begin{bmatrix} 
+            x \\ t 
+            \end{bmatrix} 
+            \in \mathbb{R}^{n+1} \ \middle| \ 
+            \begin{bmatrix} 
+            \nabla f(\bar{x})^\top & -1 
+            \end{bmatrix} 
+            \begin{bmatrix} 
+            x \\ t 
+            \end{bmatrix} 
+            = -f(\bar{x}) + \nabla f(\bar{x})^\top \bar{x}
+            \right\}
+        \end{equation}
+    
+        In compact form:
+        \begin{equation}
+            a^\top 
+            \begin{bmatrix} 
+            x \\ t 
+            \end{bmatrix} = b
+        \end{equation}
+        \begin{itemize}
+            \item $a^T = \begin{bmatrix} \nabla f(\bar{x})^\top & -1 \end{bmatrix} $
+            \item $b=-f(\bar{x}) + \nabla f(\bar{x})^\top \bar{x}$
+        \end{itemize}
+        \customFigure[0.5]{00_Images/TP.png}{Tangent plane.}
+    \end{definition}
+
+    \begin{example}
+        Given $f(x_1, x_2) = 2x_1^2 + x_2^2$, the gradient of $f(x)$ is:
+        \[
+        \nabla f(x) = \begin{pmatrix} 4x_1 \\ 2x_2 \end{pmatrix}
+        \]
+        For the point $\bar{x} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}$, we have:
+        \[
+        \nabla f(\bar{x}) = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
+        \]
+        Thus, the first-order approximation is:
+        \[
+        f(x) \approx f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x}) = 0
+        \]
+
+        \customFigure[0.5]{00_Images/EX4.png}{The tangent plane is defined as the xy-plane since the first order approximation is zero.}
+
+        Now, for the point $\bar{x} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$, we have:
+        \[
+        \nabla f(\bar{x}) = \begin{pmatrix} 4 \\ 0 \end{pmatrix}, \quad f(\bar{x}) = 2
+        \]
+        The first-order approximation is:
+        \[
+        f(x) \approx f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x}) 
+        = 2 + \begin{pmatrix} 4 \\ 0 \end{pmatrix}^\top \begin{pmatrix} x_1 - 1 \\ x_2 \end{pmatrix}
+        \]
+        \[
+        = 2 + 4(x_1 - 1) = 2 + 4x_1 - 4
+        \]
+        \[
+        = 4x_1 - 2
+        \]
+
+        Thus, the tangent plane is defined by:
+        \[
+        \{(x_1, x_2, t) \ | \ t = 4x_1 - 2\}
+        \]
+
+        Using the general form, it can be expressed as
+        In the previous example, the tangent plane was defined by:
+        \[
+        \left\{
+        \begin{bmatrix} x_1 \\ x_2 \\ t \end{bmatrix} 
+        \ \middle| \ 
+        \begin{bmatrix} 4 & 0 & -1 \end{bmatrix}
+        \begin{bmatrix} x_1 \\ x_2 \\ t \end{bmatrix} 
+        = 2
+        \right\}
+        \]
+
+        \customFigure[0.5]{00_Images/EX5.png}{The tangent plane is defined as this plane.}
+    \end{example}
+
+    \subsubsection{Second order approximations}
+    \begin{definition}
+        Given a function $f: \mathbb{R}^n \to \mathbb{R}$, the second-order approximation of $f(x)$ around $\bar{x}$ is:
+        \begin{equation}
+            f(x) \approx f(\bar{x}) + \nabla f(\bar{x})^\top (x - \bar{x}) + \frac{1}{2} (x - \bar{x})^\top \nabla^2 f(\bar{x}) (x - \bar{x})
+        \end{equation}
+        \begin{itemize}
+            \item \textbf{Recall}: The Taylor series expansion of $f: \mathbb{R} \to \mathbb{R}$ is:
+            \[
+            f(x) \approx f(\bar{x}) + \frac{\partial f}{\partial x} \bigg|_{x = \bar{x}} (x - \bar{x}) + \frac{1}{2} \frac{\partial^2 f}{\partial x^2} \bigg|_{x = \bar{x}} (x - \bar{x})^2
+            \]
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Hessians}
+    \begin{definition}
+        \textbf{Hessian matrix} $\nabla^2 f(x)$ is given by:
+            \begin{equation}
+                \nabla^2 f(x) = 
+                \begin{bmatrix}
+                    \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+                    \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+                    \vdots & \vdots & \ddots & \vdots \\
+                    \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+                \end{bmatrix}
+            \end{equation}
+            \begin{itemize}
+                \item This is an $n \times n$ matrix.
+                \item \textbf{Note}: The Hessian matrix is symmetric when $f$ has continuous partial derivatives, because in that case:
+                \[
+                \frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i}
+                \]    
+            \end{itemize}
+    \end{definition}

@@ -1,0 +1,20 @@
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{4}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{8}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{11}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{12}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{12}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Visual representation of the projection problem.}}{14}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Generalization of projection.}}{15}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Periodic triangle function.}}{15}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{17}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{17}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{20}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{21}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{22}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{23}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{26}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{27}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{27}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{28}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{28}{figure.19}%

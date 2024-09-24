@@ -1,0 +1,72 @@
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{7}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{8}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{8}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{9}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{9}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{10}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{11}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{12}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{12}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{13}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{13}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{13}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{16}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Zero}}{18}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Rectangular}}{18}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Impulse}}{18}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Cosine}}{19}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Cosine}}{19}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Impulse function with zero energy. (Top): Showing the extreme case. Bottom: Showing the delta case as it goes to 0.}}{20}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Finite number of locations will have zero energy.}}{20}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Countable number of locations will have zero energy.}}{20}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Time dilation, which sped up compared to x}}{22}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Time dilation, which slowed down compared to x}}{22}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Time reversal, which reverses time compared to x}}{23}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Time delay, which delays time compared to x}}{23}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Time advance, which advances time compared to x}}{24}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Time is stretched and delayed in time compared to x}}{24}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Time is reversal, dilated, and shifted compared to x}}{25}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Transformation of DT signal.}}{25}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Transformation of DT signal.}}{25}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Fundamental period of a DT signal}}{27}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Even and odd examples.}}{27}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Even and odd decomposition example.}}{28}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces The three different general behaviours when the complex part is 0.}}{29}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces CCW and CW being illustrated depending on the value of the angular frequency.}}{29}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Rotating unit-magnitude phasor for both general cases of omega.}}{30}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Real and imaginary components for both cases of omega.}}{30}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces The general case for the CT complex exponential signal}}{31}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Real and imaginary parts of the general case for two cases of omega and alpha.}}{31}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Real and imaginary components of a DT signal.}}{32}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Example of a DT signal with its highest frequency.}}{33}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces DT unit impulse.}}{35}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Discrete time sampling}}{35}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces DT unit step.}}{35}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Running sum with (a) $n<0$ and (b) $n>0$.}}{37}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Running sum with (a) $n<0$ and (b) $n>0$.}}{37}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces CT Unit step}}{38}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces The area is 1.}}{39}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Approximation where the RS figure has an area of 1.}}{39}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces The relationship between the ramp, impulse and step functions}}{40}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces The relationship between the ramp, impulse and step functions}}{41}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Examples of DT systems.}}{42}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Examples of CT systems.}}{43}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Adder and multiplier}}{44}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces M input system.}}{44}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Copy or solder dot.}}{44}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces M-input and L-output system.}}{45}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Series system.}}{45}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Parallel system.}}{45}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Series and parallel system.}}{45}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Feedback system.}}{46}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Feedback system.}}{46}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Memoryless examples since it only depends on the value at that time.}}{47}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Memory examples since it depends on the past}}{47}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Tapped delay line memory example}}{47}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Anticipation since it depends on a future value}}{48}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Invertibility}}{48}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Causal system.}}{49}{figure.68}%
+\contentsline {figure}{\numberline {69}{\ignorespaces The first system is causal because the output depends on the current and past inputs, while the second system is non-causal since the output depends on a future input, which is not available at that time}}{49}{figure.69}%
+\contentsline {figure}{\numberline {70}{\ignorespaces Stable examples of an amplifier that is kept consistent between kB and -kB.}}{50}{figure.70}%
+\contentsline {figure}{\numberline {71}{\ignorespaces Not stable example of a feedback loop that keeps increasing the intensity for k>1.}}{50}{figure.71}%

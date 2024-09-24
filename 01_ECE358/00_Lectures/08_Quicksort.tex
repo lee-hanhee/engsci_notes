@@ -214,15 +214,22 @@
                     child {node {$T(n-q)$}};
             \end{tikzpicture}
         \end{center}
+        
+        \begin{itemize}
+            \item $T(n)$: Represents the time to quicksort $n$ elements.
+            \item $\max_{1 \leq q \leq n-1}$: Accounts for the worst-case partitioning, where $q$ is the size of one partition and $n-q$ is the size of the other.
+            \item $T(q) + T(n - q)$: Represents the time to recursively quicksort the two subarrays of sizes $q$ and $n-q$.
+            \item $\Theta(n)$: Represents the linear time required to partition the array around the pivot element.
+        \end{itemize}
+        \vspace{1em}
 
-        % STOPPED HERE.
         \noindent We use substitution to show that \( T(n) \leq cn^2 \) for some constant \( c \).
         \begin{enumerate}
             \item Guess \( T(n) \leq cn^2 \).
             \item 
         \end{enumerate}
         \begin{align*}
-            T(n) &\leq \max_{1 \leq q \leq n-1} \left\{ cq^2 + c(n-q)^2 \right\} + \Theta(n) \quad \text{(Achieves max at } q = 1 \text{ or } q = n-1 \text{)} \\
+            T(n) &\leq \max_{1 \leq q \leq n-1} \left\{ cq^2 + c(n-q)^2 \right\} + \Theta(n) \quad \text{(Achieves max at } q = 1 \text{ or } q = n-1 \text{ because it's upward quadratic)} \\
                  &= c \max_{1 \leq q \leq n-1} \left\{ q^2 + (n-q)^2 \right\} + \Theta(n) \quad \text{(As second derivative is positive (i.e. monotonic), plug } q = 1 \text{)} \\
                  &\leq cn^2 - 2c(n-1) + \Theta(n) \quad \text{(We can pick a large } c \text{ so that } 2c(n-1) \text{ dominates } \Theta(n)) \\
                  &\leq cn^2
@@ -231,50 +238,7 @@
         \noindent Therefore, using the substitution method, we can show that \( T(n) \leq cn^2 \), confirming that the worst-case time complexity of the quicksort algorithm is \( O(n^2) \).
     \end{derivation}
 
-\subsection{Average-case (formal)}
-    \begin{derivation}
-        \[
-        T(n) = \frac{1}{n} \left( T(1) + T(n-1) + \sum_{z=1}^{n-1} T(z) + T(n-z) \right) + \Theta(n)
-        \]
-
-        \begin{itemize}
-            \item \textbf{Pivot Small:} $\frac{1}{n} (T(1) + T(n-1)) \leq (\Theta(n^2) + \Theta(1)) \cdot \frac{1}{n} \leq \Theta(n)$
-            
-            \item \textbf{There are this many elements smaller than the pivot:} $\sum_{z=1}^{n-1} T(z) + T(n-z)$
-            
-            \item \textbf{Got rid of \( T(1) + T(n-1) \).}
-        \end{itemize}
-        \vspace{1em}
-
-        Therefore,
-        \[
-        T(n) \leq \frac{1}{n} \left[ \sum_{q=1}^{n-1} T(q) + T(n-q) \right] + \Theta(n) = \frac{2}{n} \sum_{k=1}^{n-1} T(k) + \Theta(n)
-        \]
-        \vspace{1em}
-
-        \textbf{Use substitution to prove \( T(n) = a \log(n) + b \) for proper \( a \), \( b \).}
-        \begin{enumerate}
-            \item Prove the lemma $\sum_{k=1}^{n-1} k \log(k) \leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2$
-            \begin{align*}
-                \sum_{k=1}^{n-1} k \log(k) &\leq \sum_{k=1}^{\left\lfloor \frac{n}{2} \right\rfloor-1} k \log(k) + \sum_{k=\left\lceil \frac{n}{2} \right\rceil}^{n-1} k \log(k) \\
-                &\leq \log \left(\frac{n}{2}\right) \cdot \sum_{k=1}^{\left\lfloor \frac{n}{2} \right\rfloor-1} k + \log(n) \sum_{k=\frac{n}{2}}^{n-1} k \\
-                &= \log(n) \sum_{k=1}^{n/2} k - 2 \sum_{k=1}^{n/2} k + \log(n) \sum_{k=n/2}^{n-1} k \\
-                &= \log(n) \sum_{k=1}^{n-1} k - 2 \sum_{k=1}^{\left\lceil \frac{n}{2} \right\rceil-1} k \\
-                &\leq \frac{1}{2}n(n-1) \log(n) - \frac{1}{2} \left(\frac{n}{2} - 1\right) \cdot \frac{n}{2} \\
-                &\leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2
-            \end{align*}
-
-            \item Prove using substitution
-            \begin{align*}
-                T(n) &\leq \frac{2}{n} \sum_{k=1}^{n-1} a k \log(k) + b + \Theta(n) \\
-                &\leq a \log(n) - \frac{a}{4n} + 2b + \Theta(n) \\
-                &= a n \log(n) + b + \left[\Theta(n) + b - \frac{a}{n} \right] \quad \text{ for large a}
-                &\leq an \log(n) + b
-            \end{align*}
-        \end{enumerate}
-    \end{derivation}
-
-\subsection{Randomized QS} 
+\subsection{Expected randomized case (formal)}
     \subsubsection{Motivation for randomized QS}
     \begin{intuition}
         \begin{itemize}
@@ -310,4 +274,63 @@
                     QS(C[pivot : right])
             \end{lstlisting}            
     \end{definition}
+
+    \begin{derivation}
+        \[
+        T(n) = \frac{1}{n} \left( T(1) + T(n-1) + \sum_{z=1}^{n-1} T(z) + T(n-z) \right) + \Theta(n)
+        \]
+        \begin{itemize}
+            \item $\frac{1}{n}$: Averages over all possible pivots (i.e. makes it so it's the probability of choosing any element as the pivot)
+            \item $T(1) + T(n - 1)$: Represents the time to sort when the pivot results in extreme partitioning, leaving subarrays of size 1 and $n-1$.
+            \item $\sum_{z=1}^{n-1} \left(T(z) + T(n - z)\right)$: Represents the sum of the time to sort subarrays formed by all possible partitions where the pivot splits the array into subarrays of size $z$ and $n-z$.
+            \item $\Theta(n)$: Represents the linear time required to partition the array around the randomly chosen pivot.
+        \end{itemize}
+        \vspace{1em}
+
+        To make modifications to the above statement:
+
+        \begin{itemize}
+            \item \textbf{Pivot Small:} $\frac{1}{n} (T(1) + T(n-1)) \leq (\Theta(n^2) + \Theta(1)) \cdot \frac{1}{n} \leq \Theta(n)$
+            \begin{itemize}
+                \item \textbf{Got rid of \( T(1) + T(n-1) \).}
+            \end{itemize}
+            
+            \item \textbf{There are this many elements smaller than the pivot:} $\sum_{z=1}^{n-1} T(z) + T(n-z)$
+            
+            \item \textbf{Merging:} $\sum_{q=1}^{n-1} \left( T(q) + T(n - q) \right)$ can be simplified to $2 \sum_{k=1}^{n-1} T(k)$ because each subproblem $T(q)$ and $T(n - q)$ is counted twice, effectively merging the two subproblems and leading to a factor of 2.
+        \end{itemize}
+        \vspace{1em}
+
+        Therefore,
+        \[
+        T(n) \leq \frac{1}{n} \left[ \sum_{q=1}^{n-1} T(q) + T(n-q) \right] + \Theta(n) = \frac{2}{n} \sum_{k=1}^{n-1} T(k) + \Theta(n)
+        \]
+        \vspace{1em}
+
+        \textbf{Use substitution to prove \( T(n) = a \log(n) + b \) for proper \( a \), \( b \).}
+        \begin{enumerate}
+            \item Prove the lemma $\sum_{k=1}^{n-1} k \log(k) \leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2$
+            \begin{align*}
+                \sum_{k=1}^{n-1} k \log(k) &\leq \sum_{k=1}^{\left\lceil \frac{n}{2} \right\rceil-1} k \log(k) + \sum_{k=\left\lceil \frac{n}{2} \right\rceil}^{n-1} k \log(k) \quad \text{break the summation in half} \\
+                &\leq \log \left(\frac{n}{2}\right) \cdot \sum_{k=1}^{\left\lceil \frac{n}{2} \right\rceil-1} k + \log(n) \sum_{k=\left\lceil \frac{n}{2} \right\rceil}^{n-1} k \\
+                &= (\log n - \log 2) \cdot \sum_{k=1}^{\left\lceil \frac{n}{2} \right\rceil-1} k + \log(n) \sum_{k=\left\lceil \frac{n}{2} \right\rceil}^{n-1} k \\
+                &= \log(n) \sum_{k=1}^{n/2} k - \sum_{k=1}^{n/2} k + \log(n) \sum_{k=n/2}^{n-1} k \\
+                &= \log(n) \sum_{k=1}^{n-1} k - \sum_{k=1}^{\frac{n}{2}-1} k \\
+                &\leq \frac{1}{2}n(n-1) \log(n) - \frac{1}{2} \left(\frac{n}{2} - 1\right) \cdot \frac{n}{2} \\
+                &\leq \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2
+            \end{align*}
+
+            \item Prove using substitution:
+            \begin{align*}
+                T(n) &\leq \frac{2}{n} \sum_{k=1}^{n-1} a k \log(k) + b + \Theta(n) \\
+                    &\leq \frac{2}{n} \left( \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2 \right) a + b + \Theta(n) \quad \text{(by applying the lemma)} \\
+                    &= \frac{a}{n} \left( \frac{1}{2} n^2 \log(n) - \frac{1}{8} n^2 \right) + b + \Theta(n) \\
+                    &= a n \log(n) - \frac{a}{4} n + b + \Theta(n) \\
+                    &= a n \log(n) + \left( b - \frac{a}{4} n + \Theta(n) \right) \\
+                    &\leq a n \log(n) + b \quad \text{(for large \(n\), where lower order terms are negligible)}.
+            \end{align*}
+
+        \end{enumerate}
+    \end{derivation}
+
 

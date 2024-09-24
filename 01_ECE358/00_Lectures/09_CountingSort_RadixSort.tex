@@ -4,6 +4,37 @@
         No \textbf{comparison-based} sorting algorithm on \textbf{unrestricted} range (i.e. any numbers) can do better than $\Omega(n\log(n))$.    
     \end{definition}
 
+    \subsubsection{Decision tree}
+    \begin{definition}
+        Any sorting algorithm can be written as a decision tree. (Goes both ways)
+    \end{definition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/Insertion_Sort.png}{Insertion sort.}
+    \end{example}
+
+    \begin{theorem}
+        Any decision tree for an n-element sorting algorithm has $h=\Omega (n\log n)$
+    \end{theorem}
+
+    \begin{derivation}
+        \[
+        \log(n!) \approx n \log n - n
+        \]
+        Using Stirling's approximation:
+        \[
+        n! \approx \sqrt{2\pi n} \left( \frac{n}{e} \right)^n
+        \]
+        Taking the logarithm of both sides:
+        \[
+        \log(n!) = n \log n - n + O(\log n)
+        \]
+        Therefore, \(\log(n!)\) is asymptotically bounded by:
+        \[
+        \log(n!) = \Theta(n \log n)
+        \]
+    \end{derivation}
+
 \subsection{Counting sort}
 \begin{definition}
     \begin{lstlisting}[language=Python, caption={Counting Sort Pseudocode}]
@@ -18,10 +49,13 @@
     \end{lstlisting}
     \begin{itemize}
         \item $A$: array to be sorted. 
-        \item Assume numbers in range $[0...k]$.
+        \item \textbf{Sorting range:} Assume numbers in range $[0...k]$.
         \item \textbf{Stable sorting:} Not in-place but stable sorting. 
+        \begin{itemize}
+            \item \textbf{Stable:} Stable sorting in counting sort ensures that elements with equal values retain their relative order from the original input when sorted.
+        \end{itemize}
         \item \textbf{Time complexity:} Time $O(n+k)$ if $O(k) = O(n)$ implies $O(n)$
-        \item \textbf{Additional arrays:} $C [0\ldots k]$ and $B [1 \ldots n]$.
+        \item \textbf{Auxilliary arrays:} $C [0\ldots k]$ and $B [1 \ldots n]$.
     \end{itemize}
 \end{definition}
 
@@ -35,7 +69,7 @@
         The elements of \( A \) are integers within a known range (e.g., \( 0 \) to \( 5 \)).
 
         
-        \item \textbf{Count the Occurrences (Frequency Array)}:
+        \item \textbf{Count the Occurrences (Frequency Array) (i.e. 1st loop)}:
         \begin{itemize}
             \item Create an auxiliary array \( C \), where each index represents a possible value in \( A \), and the value at each index in \( C \) represents the number of times that value appears in \( A \).
             \item Initialize \( C \) with zeros:
@@ -56,7 +90,7 @@
             \end{itemize}
         \end{itemize}
         
-        \item \textbf{Modify \( C \) to Store the Cumulative Count}:
+        \item \textbf{Modify \( C \) to Store the Cumulative Count (i.e. 2nd loop)}:
         \begin{itemize}
             \item Modify the array \( C \) such that each index contains the sum of the counts for all values less than or equal to that index.
             \item The cumulative count helps to determine the final positions of each element in the sorted array.
@@ -73,7 +107,7 @@
             \end{itemize}
         \end{itemize}
         
-        \item \textbf{Place the Elements in the Sorted Array \( B \)}:
+        \item \textbf{Place the Elements in the Sorted Array \( B \) (i.e. 3rd loop)}:
         \begin{itemize}
             \item Iterate through the elements in \( A \), using the cumulative counts in \( C \) to place each element in the correct position in \( B \).
             \item Decrement the corresponding count in \( C \) for each placement to ensure the stability of sorting.
@@ -81,6 +115,10 @@
             \[
             B = [0, 0, 2, 2, 3, 3, 3, 5]
             \]
+            \item \textbf{Example of the third loop:} $B(C(A(8)))=B(C(3))=B(7)=A(8)$, so we place the 8th element in A (e.g. 8) into B(7) (i.e. 7th index)
+            \vspace{1em}
+
+            $B(C(A(7)))=B(C(0))=B(2)=A(7)$, so we place the 7th element in A (e.g. 0) into B(2) (i.e. 2nd index), 
         \end{itemize}
     \end{enumerate}
     \customFigure[0.5]{00_Images/Counting_Sort.png}{Example of counting sort}
@@ -90,7 +128,7 @@
 \begin{definition}
     \begin{lstlisting}[language=Python, caption={Radix Sort Pseudocode}]
         for i = Least significant bit (LSB) -> Most significant bit (MSB)
-            counting_sort(digit)
+            counting_sort(digit) # or any stable sorting algorithm on digit i
     \end{lstlisting}
 \end{definition}
 
@@ -138,7 +176,7 @@
             \end{align*}
             Sorting by the tens place results in:
             \[
-            [112, 512, 413, 242, 375, 695]
+            [512, 112, 413, 242, 375, 695]
             \]
         \end{itemize}
         
@@ -146,12 +184,12 @@
         \begin{itemize}
             \item Finally, sort by the hundreds digit. The current sequence:
             \[
-            [112, 512, 413, 242, 375, 695]
+            [512, 112, 413, 242, 375, 695]
             \]
             is sorted by the hundreds digit:
             \begin{align*}
-            112 & \rightarrow 1, \\
             512 & \rightarrow 5, \\
+            112 & \rightarrow 1, \\
             413 & \rightarrow 4, \\
             242 & \rightarrow 2, \\
             375 & \rightarrow 3, \\
@@ -180,7 +218,7 @@
 
         \item \textbf{One pass complexity:} $=O(n+r)$ (i.e. the time complexity of counting sort)
         \item \textbf{All passes complexity:} $dO(n+r) = O(dn + dr)$ (i.e. sorting all digits, so it's the time complexity of counting sort times the number of digits)
-        \item \textbf{r=d complexity:} If $r=d=O(1)$, then $O(n)$ true.
+        \item \textbf{r=d complexity:} If $r=d=O(1)$, then $O(n)$ true for all passes.
     \end{itemize}
 \end{definition}
 
@@ -197,15 +235,63 @@
     \customFigure[0.5]{00_Images/Bits.png}{Number of passes for 1000\#'s 64 bits.}
 \end{example}
 
-\subsection{Find kth largest element in sorted sequence}
-\begin{definition}
-    \begin{enumerate}
-        \item How many comparisons to find max element? $(n-1)$ 
-        \begin{itemize}
-            \item \textbf{Note:} Don't need to check the $nth$ element because it is the biggest.
-            \item \textbf{Max:} $n-1$
-            \item \textbf{Min:} $n/2 - 1$
-        \end{itemize}
-        
-    \end{enumerate}
-\end{definition}
+\subsection{Searching}
+    \subsubsection{What is the kth largest element in unsorted sequence}
+    \begin{definition}
+        \begin{enumerate}
+            \item How many comparisons to find max element? $(n-1)$ 
+            \begin{itemize}
+                \item \textbf{Max Comparisons:} $n-1$: It's the winner (i.e. root) of the tournament tree
+                \begin{itemize}
+                    \item \textbf{Note:} Don't need to check the $nth$ element because it is the biggest.
+                \end{itemize}
+                \item \textbf{Min Comparisons:} $n/2 - 1$: Take the losers (i.e. leaves) of the tournament to find the minimum (assume that we found the maximum already)
+                \item \textbf{2nd Max Comparisons:} $\log n - 1$ additional comparisons after finding the maximum by comparing the max elements battles with other elements (i.e. 2nd biggest loses to max so follow max route).
+                \item \textbf{Kth Max comparisons:} Total comparisons is the $O((n-1) + k\log n)=O(n+k\log(n))$
+            \end{itemize}
+
+        \end{enumerate}
+    \end{definition}
+
+    \begin{example}
+        You don't have to sort the array for finding a certain element. For finding a specific element, it is $O(n)$ expected time. Quickselect is a variant of Quicksort used to find the
+        k-th smallest or largest element without fully sorting the array.            
+        \begin{enumerate}
+            \item \textbf{Initial Array:} The original unsorted array is:
+            \[
+            [8, 1, 5, 9, 2, 10, 4, 17, 20]
+            \]
+            We are tasked with finding the 7th smallest element when the array is sorted.
+            
+            \item \textbf{Choosing a Pivot:} In the Quickselect algorithm, the first pivot element chosen is `8`.
+            
+            \item \textbf{Partitioning Around Pivot:} The array is partitioned into two parts:
+            \begin{itemize}
+                \item Elements smaller than or equal to `8` are moved to the left.
+                \item Elements greater than `8` are moved to the right.
+            \end{itemize}
+            After partitioning, the array becomes:
+            \[
+            [1, 5, 2, 4, 8, 9, 10, 17, 20]
+            \]
+            The pivot `8` is in its correct sorted position (5th position in the array).
+            
+            \item \textbf{Comparing Pivot Position with Target:} Since we are looking for the 7th smallest element, and `8` is in the 5th position, the desired element must be in the subarray to the right of `8`:
+            \[
+            [9, 10, 17, 20]
+            \]
+            Now we search for the 2nd smallest element in this subarray because it corresponds to the 7th smallest element in the overall array.
+            
+            \item \textbf{Recursive Partitioning:} Another pivot is chosen from the remaining subarray, let’s assume it’s `9`. After partitioning:
+            \[
+            [9, 10, 17, 20]
+            \]
+            The pivot `9` is in the 1st position of this subarray (6th position in the overall array).
+            
+            \item \textbf{Final Step:} Now, we are looking for the 1st smallest element in the subarray:
+            \[
+            [10, 17, 20]
+            \]
+            After partitioning, the smallest element is `10`, which is the 7th smallest element in the entire array.
+        \end{enumerate}        
+    \end{example}

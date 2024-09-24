@@ -1,4 +1,109 @@
 \subsection{Matrices}
+\begin{definition}
+    Matrices are two-dimensional arrays of numbers. A general matrix \( A \) is denoted as:
+    \begin{equation}
+        A = \begin{bmatrix}
+            a_{11} & \cdots & a_{1n} \\
+            \vdots & \ddots & \vdots \\
+            a_{m1} & \cdots & a_{mn}
+            \end{bmatrix} 
+            = \begin{bmatrix}
+                a^{(1)} & \cdots & a^{(n)}
+                \end{bmatrix}
+            \in \mathbb{R}^{m \times n} \quad \text{(or $\mathbb{C}^{m \times n}$ for complex numbers)}
+    \end{equation}
+\end{definition}
+
+    \subsubsection{Matrix Transpose}
+    \begin{definition}
+        Given a matrix \( A \) with columns \( a^{(i)} \), its transpose \( A^\top \) is:
+        \begin{equation}
+            A^\top = \begin{bmatrix}
+                (a^{(1)})^\top \\
+                \vdots \\
+                (a^{(n)})^\top
+                \end{bmatrix}
+        \end{equation}
+    \end{definition}
+
+    \subsubsection{Matrix Multiplication}
+    \begin{definition}
+        The multiplication of \( A^\top \) and a matrix \( B \) is given by:
+        \begin{equation}
+            A^\top B = \begin{bmatrix}
+                (a^{(1)})^\top \\
+                \vdots \\
+                (a^{(n)})^\top
+                \end{bmatrix}
+                \begin{bmatrix}
+                b^{(1)} & \cdots & b^{(r)}
+                \end{bmatrix}
+                = \begin{bmatrix}
+                (a^{(1)})^\top b^{(1)} & \cdots & (a^{(1)})^\top b^{(r)} \\
+                \vdots & \ddots & \vdots \\
+                (a^{(n)})^\top b^{(1)} & \cdots & (a^{(n)})^\top b^{(r)}
+                \end{bmatrix}
+        \end{equation}
+
+        For regular matrix multiplication \( AB \), we have:
+        \begin{equation}
+            AB = \begin{bmatrix}
+                a^{(1)} & \cdots & a^{(n)}
+                \end{bmatrix}
+                \begin{bmatrix}
+                (b^{(1)})^\top \\
+                \vdots \\
+                (b^{(n)})^\top
+                \end{bmatrix}
+                = \sum_{i=1}^{n} a^{(i)} (b^{(i)})^\top
+        \end{equation}
+        (Note: Try to think why this is the same as before.)
+    \end{definition}
+
+    \subsubsection{Block Matrix Product}
+    \begin{definition}
+        For a block matrix product:
+        \begin{equation}
+            \begin{bmatrix}
+                A & B
+                \end{bmatrix}
+                \begin{bmatrix}
+                X \\ Y
+                \end{bmatrix}
+                = AX + BY
+        \end{equation}
+        (Analogous to vectors: \( [a \ b] \begin{bmatrix} x \\ y \end{bmatrix} = a x + b y \))
+    \end{definition}
+
+    \subsubsection{Types of Matrices}
+    \begin{definition}
+        \begin{itemize}
+            \item \textbf{Square matrix}: \(m = n\)
+            \item \textbf{Diagonal matrix}: \(a_{ij} = 0 \quad \forall i \neq j\)
+            \item \textbf{Identity matrix}
+            \item \textbf{Triangular matrix}
+            \item \textbf{Orthogonal matrix}: \((A^\top A = A A^\top = I)\) (i.e. inverse of A is $A^T$)
+            \item \textbf{Symmetric matrix}: \(A = A^\top\)
+        \end{itemize}
+    \end{definition}
+
+    \subsubsection{Matrices as Linear Maps}
+    \begin{definition}
+        Matrices are used as linear maps, where:
+        \[
+        y = A x
+        \]
+        \[
+        \begin{bmatrix} y \end{bmatrix} \in \mathbb{R}^m \quad = \quad \begin{bmatrix} A \end{bmatrix} \in \mathbb{R}^{m \times n} \quad \begin{bmatrix} x \end{bmatrix} \in \mathbb{R}^n
+        \]
+        This represents a \textbf{linear function}.
+        \vspace{1em}
+
+        For an \textbf{affine function}, the equation becomes:
+        \[
+        y = A x + b
+        \]
+    \end{definition}
 \subsection{Range}
 \subsection{Null Space}
 \subsection{Eigenvalues and eigenvectors}
