@@ -1,4 +1,15 @@
-\subsection{Terms}
+\subsection{Learning objectives}
+\begin{definition}
+    \begin{enumerate}
+        \item Understand the concept of risk and reward
+        \item Understand the conceptual aspects of the Capital Asset Pricing Model (CAPM)
+        \item Utilize the CAPM to price assets
+        \item Understand arbitrage concepts
+        \item Utilize arbitrage arguments to price assets    
+    \end{enumerate}
+\end{definition}
+
+\subsection{Terms for risk and reward}
 \begin{terminology}
     \begin{itemize}
         \item \textbf{Valuation:} Analytical process of determining current (or projected) worth of an asset, which has two components:
@@ -22,28 +33,101 @@
         r_{t_m}
         \end{bmatrix}
         \]
+        \begin{itemize}
+            \item $P_{t_j} = P_{t_{j-1}} e^{r_{t_j} \Delta t}$: Money at time $j$
+            \item $r_{j_j} = \frac{1}{\Delta t} \ln \frac{P_{t_j}}{P_{t_{j-1}}}$: Log returns at time $j$.
+        \end{itemize}
         
         \item \textbf{Volatility ($\sigma_i$):} The standard deviation of the variance of return, which is a form of risk (i.e. uncertainty). Greater the volatility, greater the risk.
-        
-        \item \textbf{Modern Portfolio Theory:}
-        \begin{itemize}
-            \item Framework to assemble a portfolio of assets such that the expected return ($E[R]$) is maximized for a given level of risk.
-            \item We want to maximize our return while minimizing volatility.
-        \end{itemize}
     \end{itemize}            
 \end{terminology}
+
+\subsection{Modern Portfolio Theory}
+Primer for the CAPM model:
+\begin{intuition}
+    \begin{itemize}
+        \item Framework to assemble a portfolio of assets such that the expected return ($\mathbb{E}[R]$) is maximized for a given level of risk.
+        \item We want to maximize our return while minimizing volatility.
+        \item Assume we can proportionally invest our wealth by an amount $x_i$ in the ith asset. 
+        \[
+        \vec{X} = 
+        \begin{bmatrix}
+        x_1 \\
+        x_2 \\
+        \vdots \\
+        x_n
+        \end{bmatrix},
+        \quad
+        \Sigma = 
+        \begin{bmatrix}
+        \sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+        \sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn}
+        \end{bmatrix}
+        \]
+
+        \begin{itemize}
+            \item \(\sigma_{ii} = Var(\vec{R}_i)\), \(\sigma_{ij} = \sigma_{ji} = Cov(\vec{R}_i, \vec{R}_j)\)
+            \item $X$: Proportions invested in each stock $i$.
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+    \subsubsection{Portfolio Return and Volatility}
+    \begin{intuition}
+        \textbf{Portfolio expected return}
+        \[
+        \mathbb{E} \left[ R_p \right] = x_1 \mathbb{E} \left[ R_1 \right] + x_2 \mathbb{E} \left[ R_2 \right] + \cdots + x_n \mathbb{E} \left[ R_n \right]
+        \]
+        \vspace{1em}
+
+        \textbf{Portfolio volatility}
+        \[
+        \sigma_p = \sqrt{\vec{X}^T \Sigma \vec{X}}
+        \]
+        \vspace{1em}
+
+        \textbf{Optimize:} Maximize \(\mathbb{E} \left[ R_p \right] \text{ for a given } \sigma_p \)
+        \begin{itemize}
+            \item $\mathbb{E} \left[ R_p \right]$: Expected return of the portfolio. 
+            \item $\sigma_p$: Portfolio volatility
+            \item \textbf{Note:} This leads to CAPM.
+        \end{itemize}
+    \end{intuition}
+
+    \subsubsection{Expected return vs. voltality}
+    \begin{intuition}
+        \customFigure[0.5]{00_Images/ERV.png}{Expected return vs. Voltality}
+        \begin{itemize}
+            \item \textbf{Efficiency frontier:} Set of portfolios that offer the highest expected return for a given level of risk (standard deviation of returns), illustrating the optimal trade-off between risk and return in portfolio selection.
+            \item \textbf{Capital market line:} Tangent to the efficiency frontier and intercepts the risk-free rate.  The CML depicts the risk-return combinations available by mixing the risk-free asset and the market portfolio, showing the optimal portfolios that combine these assets.
+            \item \textbf{Market portfolio:} Point on the efficient frontier where the CML is tangent, representing the optimal portfolio of risky assets.
+            \item \textbf{Risk-free rate:} Return on an investment with no risk (i.e. no voltality)
+        \end{itemize}
+    \end{intuition}
+
+    \begin{example}
+        If you invested in the MP and risk-free rate expected returns at 50\% each, then you can expect a return that follows CPL in the middle between RF and MP.
+    \end{example}
+
+    \begin{example}
+        Leveraging:
+
+        \customFigure[0.5]{00_Images/L.png}{Leveraging}
+    \end{example}
 
 \subsection{Capital Asset Pricing Model (CAPM)}
 \begin{definition}
     \begin{equation}
-        E[R_c] = r_f + \beta_c \left(E[R_{mp}] - r_f\right)
+        \mathbb{E}[R_c] = r_f + \beta_c \left(\mathbb{E}[R_{mp}] - r_f\right)
     \end{equation}
         
     \begin{itemize}
-        \item $E[R_c]$: Expected rate of return for a company
+        \item $\mathbb{E}[R_c]$: Expected rate of return for a company
         \item $r_f$: Risk-free rate
         \item $\beta_c$: Measure of risk for the company, systematic risk, related to market risk
-        \item $E[R_{mp}]$: Expected rate of return of the market portfolio, represents the whole market
+        \item $\mathbb{E}[R_{mp}]$: Expected rate of return of the market portfolio, represents the whole market
     \end{itemize}
 
     \vspace{1em}
@@ -60,19 +144,91 @@
         \item $\sigma_i$: Volatility of $i^{th}$ company
         \item $\sigma_{MP}$: Volatility of MP
     \end{itemize}
+
+    \customFigure[0.75]{00_Images/CAPM.png}{CAPM Visualization}
 \end{definition}
 
-\subsection{Terms}
+    \subsubsection{Intuition for Beta}
+    \begin{intuition}
+        \begin{itemize}
+            \item As the correlation $\rho_{i, MP}$ increases, $\beta_i$ increases.
+            \item If $\rho_{i, MP}=0$, then there is 0 correlation, no systematic risk, so only the risk free rate. 
+            \item ith asset voltality increases relative to market voltality. Increasing voltality increases uncertainty so it increase beta. 
+        \end{itemize}
+    \end{intuition}
+
+    \subsubsection{CAPM Assumptions}
+    \begin{intuition}
+        \begin{itemize}
+            \item Correlations between assets are fixed and constant forever
+            \item All investors aim to maximize economic utility (in other words, to make as much money as possible, regardless of any other considerations)
+            \item All investors are rational and risk-averse
+            \item All investors have access to the same information at the same time
+            \item Investors have an accurate conception of possible returns, i.e., the probability beliefs of investors match the true distribution of returns
+            \item There are no taxes or transaction costs
+            \item All investors are price takers, i.e., their actions do not influence prices
+            \item Any investor can lend and borrow an unlimited amount at the risk-free rate of interest
+            \item All securities can be divided into parcels of any size
+        \end{itemize}
+    \end{intuition}
+
+    \subsubsection{Terms for CAPM}
+    \begin{terminology}
+        \begin{itemize}
+            \item \textbf{Market Portfolio (MP):} Portfolio representing the whole market, often estimated through a stock index.
+        
+            \item \textbf{Systematic Risk:} Risk associated with the market as a whole, e.g. effect of economy on sales and stock value.
+            
+            \item \textbf{Idiosyncratic Risk:} Risk independent of the economy and specific to a company.
+            \begin{itemize}
+                \item \textbf{Note:} It is possible to portfolio away idiosyncratic risk by investing in many stocks (i.e. diversifying). Therefore, investors should only be rewarded for market risk as there is no "value" for idiosyncratic risk.
+            \end{itemize}
+        \end{itemize}
+    \end{terminology}
+
+    \begin{example}
+        Difference between systematic risk and idiosyncratic risk 
+
+        \begin{itemize}
+            \item \textbf{Company return:} \( R_{C,t} = \alpha_C + \beta_C R_{MP,t} + \epsilon_{C,t} \)
+            \item \textbf{Volatility in} \( R_{MP,t} \) \textbf{is systematic – "market" risk}
+            \item \textbf{Volatility in} \( \epsilon_{C,t} \) \textbf{is idiosyncratic – "firm" specific risk}
+        \end{itemize}
+    \end{example}
+
+\subsection{Arbitrage concepts}
 \begin{terminology}
     \begin{itemize}
-        \item \textbf{Market Portfolio (MP):} Portfolio representing the whole market, often estimated through a stock index.
-        
-        \item \textbf{Systematic Risk:} Risk associated with the market as a whole, e.g. effect of economy on sales and stock value.
-        
-        \item \textbf{Idiosyncratic Risk:} Risk independent of the economy and specific to a company.
-        
-        \item \textbf{Arbitrage:} Taking advantage of a price difference between two or more markets to achieve a risk-free gain.
-        
+        \item \textbf{Financial markets:}
+        \begin{itemize}
+            \item Arbitrage is the practice of taking advantage of a price difference between two or more markets.
+        \end{itemize}
+    
+        \item \textbf{Academic use}
+        \begin{itemize}
+            \item Arbitrage occurs when there is an opportunity to achieve a risk-free gain at a rate greater than the risk-free rate.
+            \item Fundamental to finance theory is the no-arbitrage assumption.
+            \begin{itemize}
+                \item "No free lunch."
+            \end{itemize}
+        \end{itemize}
+    
+        \item \textbf{Statistical arbitrage}
+        \begin{itemize}
+            \item Occurs when a gain is achieved at a higher rate than one should for a given level of risk.
+        \end{itemize}
+    
+        \item \textbf{The no-arbitrage concept is fundamental to valuation.}
+    \end{itemize}
+\end{terminology}
+
+\subsection{Forward vs. Future contracts}
+\begin{warning}
+    Treat them the same in this course.
+\end{warning}
+
+\begin{terminology}
+    \begin{itemize}
         \item \textbf{Forward Contract (Forwards):} An obligation to buy or sell a certain asset:
         \begin{itemize}
             \item At a specified price
@@ -180,3 +336,4 @@
         r_{t_1,t_2} = \frac{r_{0,t_2} \cdot t_2 - r_{0,t_1} \cdot t_1}{t_2 - t_1}
     \end{equation}            
 \end{definition}
+

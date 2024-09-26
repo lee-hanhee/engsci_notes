@@ -647,6 +647,9 @@ INPUT ./00_Images/HPHS.png
 INPUT ./00_Images/HPHS.png
 INPUT ./00_Images/HPHS.png
 INPUT ./00_Images/HPHS.png
+INPUT ./00_Lectures/PS1.tex
+INPUT ./00_Lectures/PS1.tex
+INPUT 00_Lectures/PS1.tex
 INPUT ./00_Lectures/W3.tex
 INPUT ./00_Lectures/W3.tex
 INPUT 00_Lectures/W3.tex
@@ -717,6 +720,9 @@ INPUT ./00_Images/EX5.png
 INPUT ./00_Lectures/W4.tex
 INPUT ./00_Lectures/W4.tex
 INPUT 00_Lectures/W4.tex
+INPUT ./00_Lectures/PS2.tex
+INPUT ./00_Lectures/PS2.tex
+INPUT 00_Lectures/PS2.tex
 INPUT ./00_Lectures/W5.tex
 INPUT ./00_Lectures/W5.tex
 INPUT 00_Lectures/W5.tex

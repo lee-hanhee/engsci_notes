@@ -1,0 +1,88 @@
+\subsection{Calculating inverse of a matrix}
+\begin{process}
+    Given an \( n \times n \) matrix \( A \), the inverse matrix \( A^{-1} \) can be found through the following steps:
+
+    \begin{enumerate}
+        \item \textbf{Check if the matrix is invertible}:
+        \begin{itemize}
+            \item To be invertible, the matrix must have a non-zero determinant: \( \det(A) \neq 0 \).
+            \item If \( \det(A) = 0 \), the matrix is singular and does not have an inverse.
+        \end{itemize}
+
+        \item \textbf{Find the determinant of the matrix}:
+        \begin{itemize}
+            \item The determinant of an \( n \times n \) matrix \( A \) is a scalar value that can be computed using cofactor expansion (also known as Laplace's expansion) along any row or column of the matrix.
+            \item \textbf{e.g.} For the first row, the determinant of a matrix \( A = [a_{ij}] \) is given by:
+            \[
+            \det(A) = \sum_{j=1}^{n} (-1)^{1+j} a_{1j} \det(A_{1j})
+            \]
+            \item Here, \( A_{1j} \) is the \((n-1) \times (n-1)\) matrix obtained by removing the first row and \( j \)-th column of \( A \).
+        \end{itemize}
+        
+        \item \textbf{Find the cofactors of the matrix}:
+        \begin{itemize}
+            \item The cofactor of an element \( a_{ij} \) in the matrix \( A \) is denoted by \( C_{ij} \).
+            \item The cofactor is given by:
+            \[
+            C_{ij} = (-1)^{i+j} \det(A_{ij})
+            \]
+            \item Here, \( A_{ij} \) is the \((n-1) \times (n-1)\) matrix obtained by deleting the \( i \)-th row and the \( j \)-th column from \( A \).
+            \item You will compute the cofactor for each element in the matrix \( A \), creating a cofactor matrix.
+        \end{itemize}
+        
+        \item \textbf{Form the cofactor matrix (matrix of cofactors)}:
+        \begin{itemize}
+            \item Construct the cofactor matrix by placing each cofactor \( C_{ij} \) at the corresponding position in a new matrix:
+            \[
+            \text{Cofactor Matrix} = \begin{pmatrix}
+            C_{11} & C_{12} & \cdots & C_{1n} \\
+            C_{21} & C_{22} & \cdots & C_{2n} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            C_{n1} & C_{n2} & \cdots & C_{nn}
+            \end{pmatrix}
+            \]
+        \end{itemize}
+        
+        \item \textbf{Form the adjugate (or adjoint) matrix}:
+        \begin{itemize}
+            \item The adjugate matrix, denoted as \( \text{adj}(A) \), is the transpose of the cofactor matrix.
+            \item In other words, swap the rows and columns of the cofactor matrix:
+            \[
+            \text{adj}(A) = \begin{pmatrix}
+            C_{11} & C_{21} & \cdots & C_{n1} \\
+            C_{12} & C_{22} & \cdots & C_{n2} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            C_{1n} & C_{2n} & \cdots & C_{nn}
+            \end{pmatrix}
+            \]
+        \end{itemize}
+        
+        \item \textbf{Calculate the inverse matrix}:
+        \begin{itemize}
+            \item The inverse of the matrix \( A \) is given by the formula:
+            \[
+            A^{-1} = \frac{1}{\det(A)} \text{adj}(A)
+            \]
+            \item Here, \( \det(A) \) is the determinant of the matrix \( A \), and \( \text{adj}(A) \) is the adjugate matrix.
+            \item Multiply each element of the adjugate matrix by \( \frac{1}{\det(A)} \).
+        \end{itemize}
+        
+        \item \textbf{Verify the inverse (optional)}:
+        \begin{itemize}
+            \item Multiply the matrix \( A \) by its inverse \( A^{-1} \). You should get the identity matrix \( I_n \), where:
+            \[
+            A \times A^{-1} = A^{-1} \times A = I_n
+            \]
+            \item The identity matrix \( I_n \) has 1's along the diagonal and 0's elsewhere:
+            \[
+            I_n = \begin{pmatrix}
+            1 & 0 & \cdots & 0 \\
+            0 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 1
+            \end{pmatrix}
+            \]
+        \end{itemize}
+        
+    \end{enumerate}
+\end{process}

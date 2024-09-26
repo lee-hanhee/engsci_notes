@@ -398,8 +398,8 @@
         \begin{enumerate}[left=0pt]
             \item Choose \( M \) sample \( r_1, r_2, \dots, r_M \in \{1, \dots, N\} \) uniformly at random.
             \item \( \underline{g}_t = \frac{1}{M} \sum_{i=1}^{M} \nabla_{\underline{w}_t} e_{r_i}(\underline{w}_t) \).
-            \item \( \underline{V}_t = -\underline{g}_t \).
-            \item \( \underline{w}_{t+1} = \underline{w}_t + \varepsilon_t \underline{V}_t \).
+            \item \( \underline{v}_t = -\underline{g}_t \).
+            \item \( \underline{w}_{t+1} = \underline{w}_t + \varepsilon_t \underline{v}_t \).
         \end{enumerate}
     \end{definition}
 
@@ -628,3 +628,104 @@
     \end{enumerate}
     \customFigure[0.5]{00_Images/B.png}{Error vs. iteration.}
 \end{intuition}
+
+\subsection{Non-convex functions}
+\begin{intuition}
+    \begin{itemize}
+        \item Often have multiple extrema.
+        \item Also may have saddle points.
+    \end{itemize}
+    \customFigure[0.5]{00_Images/NC.png}{Non-convex functions}
+\end{intuition}
+
+    \subsubsection{Saddle points}
+    \begin{definition}
+        A saddle point is minimum in some direction, and maximum in another direction. 
+    \end{definition}
+
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Gradient Descent (GD)} would have very slow progress near saddle points.
+            \begin{itemize}
+                \item The preset number of iterations will run out.
+            \end{itemize}
+            
+            \item In high-dimensional space, it's highly likely to have saddle points.
+            
+            \item Most often, we are dealing with high-dimensional spaces.
+            \begin{itemize}
+                \item How to use GD in these high-dimensional spaces? SGD with momentum
+            \end{itemize}
+        \end{itemize}
+    \end{intuition}
+
+\subsection{SGD with Momentum (heavy ball momentum)}
+    
+    \begin{intuition} \textbf{Motivation:}
+        \textbf{Basic SGD:} 
+        \begin{enumerate}
+            \item $\underline{g}_t = \nabla e_n(\underline{w}_t)$
+            \item $\underline{v}_t = -\underline{g}_t$
+            \item $\underline{w}_{t+1} = \underline{w}_t + \epsilon_t \underline{v}_t$
+        \end{enumerate}
+
+        \textbf{New idea:} Add a \textit{momentum} (a push) so that SGD would not stop if \( \nabla \ell_n(w_t) \approx 0 \).
+
+        When you let this heavy ball go, would it stop at the flat region? No, because of inertia / momentum.
+
+    \end{intuition}
+
+    \begin{definition}
+        \begin{enumerate}
+            \item $\underline{g}_t = \nabla e_n(\underline{w}_t)$
+            \item $\underline{v}_t = -\epsilon_t \underline{g}_t + \mu \underline{v}_{t-1}$
+            \begin{itemize}
+                \item $0 < \mu < 1 \quad \text{e.g.,} \, \mu = 0.9$ (i.e. accumulation of your previous movements)
+            \end{itemize}
+            \item $\underline{w}_{t+1} = \underline{w}_t + \underline{v}_t$
+        \end{enumerate}
+    \end{definition}
+
+    \subsubsection{How does momentum help?}
+    \begin{intuition}
+        \begin{enumerate}
+            \item Momentum helps SGD escape flat regions, saddle points, and shallow local optimum. 
+            \item Momentum can lead to faster convergence, even for convex functions.
+
+            \textbf{Consider the stretched ellipsoid} \(f(x_1, x_2) = 0.1x_1^2 + 2x_2^2.\)
+            
+            \begin{itemize}
+                \item Its minimum is at (0,0).
+                \item This function is very flat in the direction of \(x_1\).
+                \item The gradient in the \(x_2\) direction is much higher than in \(x_1\).
+                \item With a small learning rate, SGD won’t diverge in the \(x_2\) direction but is very slow in the \(x_1\) direction.
+                \item With a large learning rate, SGD progresses more rapidly in \(x_1\), but diverges in \(x_2\).
+            \end{itemize}
+        \end{enumerate}
+    \end{intuition}
+
+\subsubsection{Nestrov Momentum}
+\begin{intuition}
+    \textbf{Motivation:} 
+
+    \begin{itemize}
+        \item Heavy-ball momentum method works well in practice.
+        \item But we don’t have any theoretical proof for it.
+        \item Nesterov, in 1983, modified the momentum and could prove nice theoretical guarantees.
+    \end{itemize}
+\end{intuition}
+\begin{definition}
+    You update your location with your velocity first, and then take the gradient.
+    \begin{enumerate}
+        \item $\underline{v}_t = -\epsilon_t \nabla e_n\left(\underline{w}_t + \mu \underline{v}_{t-1}\right) + \mu \underline{v}_{t-1}$
+        \item $\underline{w}_{t+1} = \underline{w}_t + \underline{v}_t$
+    \end{enumerate}
+    
+    \begin{itemize}
+        \item Probably better convergence for convex functions:
+        \begin{itemize}
+            \item Full GD: \( |f(\underline{w}_t) - f(\underline{w}^*)| = O\left(\frac{1}{t}\right) \)
+            \item With Nesterov: \( |f(\underline{w}_t) - f(\underline{w}^*)| = O\left(\frac{1}{t^2}\right) \)
+        \end{itemize}
+    \end{itemize}    
+\end{definition}

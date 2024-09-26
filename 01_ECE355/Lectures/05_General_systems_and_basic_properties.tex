@@ -144,3 +144,80 @@
         \customFigure[0.5]{00_Images/STABLE.png}{Stable examples of an amplifier that is kept consistent between kB and -kB.}
         \customFigure[0.5]{00_Images/NS.png}{Not stable example of a feedback loop that keeps increasing the intensity for k>1.}
     \end{example}
+
+    \subsubsection{Time invariant}
+    \begin{definition}
+        A system \( S: \mathbb{R} \to \mathbb{R} \) is time-invariant (shift-invariant) if
+
+        \[
+        x(t) \xrightarrow{S} y(t) \quad \text{implies} \quad x(t - t_0) \xrightarrow{S} y(t - t_0) \quad \forall t_0 \in \mathbb{R}.
+        \]
+    \end{definition}
+    \begin{intuition}
+        A time-invariant system exhibits the property that its behavior does not change with time shifts. 
+    \end{intuition}
+
+    \begin{example}
+        \customFigure[0.5]{00_Images/Ti.png}{Time invariant example}
+
+        \customFigure[0.5]{00_Images/TV.png}{Time-varying example}
+    \end{example}
+
+    \subsubsection{Linear}
+    \begin{definition}
+        A system \( S: \mathbb{R} \to \mathbb{R} \) is \underline{linear} if \( \forall \ x_1, x_2 \in \mathbb{R}, \ \text{scalar} \ a \in \mathbb{R} \),
+
+        \[
+        S(a x_1 + a x_2) = a S(x_1) + S(x_2).
+        \]
+    \end{definition}
+
+    \begin{intuition}
+        \textbf{Observations:}
+        \begin{enumerate}
+            \item  A linear system \( S \) obeys the superposition property \( \forall \ x_1, x_2 \):
+
+            \[
+            S(x_1 + x_2) = S(x_1) + S(x_2)
+            \]
+    
+            \begin{itemize}
+                \item A special case where \( a = 1 \) in the definition of linearity.
+            \end{itemize}
+
+            \item \( S(\text{zero}) = \text{zero} \).
+    
+            \item A linear system \( S \) obeys the scaling property \( \forall \ \text{signals} \ x, \ \text{all scalars} \ a \):
+    
+            \[
+            S(a x) = a S(x)
+            \]
+    
+            \begin{itemize}
+                \item Just set \( x_2 = 0 \), then we get observation 2.
+            \end{itemize}
+    
+            \item A linear system \( S \) preserves linear combinations: \( \forall \ \text{signals} \ x_1, x_2 \ \text{and all scalars} \ a_1, a_2 \):
+    
+            \[
+            S(a_1 x_1 + a_2 x_2) = S(a_1 x_1) + S(a_2 x_2) \quad \text{(by superposition)}
+            \]
+            \[
+            = a_1 S(x_1) + a_2 S(x_2) \quad \text{(by linearity)}.
+            \]
+    
+            More generally,
+    
+            \[
+            S\left( \sum_k a_k x_k \right) = \sum_k a_k S(x_k).
+            \]
+        \end{enumerate}
+    \end{intuition}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/L.png}{Linear system examples}
+
+        \customFigure[0.75]{00_Images/NL1.png}{Non-linear example of a rectifier.}
+    \end{example}
+
+    
