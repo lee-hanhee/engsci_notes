@@ -7,36 +7,36 @@
 \contentsline {subsection}{\numberline {2.2}Ordered n-tuples}{6}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}How are two tuples equal?}{6}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Cartesian product}{6}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Functions}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Functions}{7}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}Range/Image}{7}{subsubsection.2.3.1}%
 \contentsline {subsubsection}{\numberline {2.3.2}Inverse Image}{7}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Injective}{7}{subsubsection.2.3.3}%
+\contentsline {subsubsection}{\numberline {2.3.3}Injective}{8}{subsubsection.2.3.3}%
 \contentsline {subsubsection}{\numberline {2.3.4}Surjective}{8}{subsubsection.2.3.4}%
-\contentsline {subsubsection}{\numberline {2.3.5}Bijective}{8}{subsubsection.2.3.5}%
-\contentsline {subsubsection}{\numberline {2.3.6}Composition of g with f}{8}{subsubsection.2.3.6}%
+\contentsline {subsubsection}{\numberline {2.3.5}Bijective}{9}{subsubsection.2.3.5}%
+\contentsline {subsubsection}{\numberline {2.3.6}Composition of g with f}{9}{subsubsection.2.3.6}%
 \contentsline {subsubsection}{\numberline {2.3.7}Identity map}{9}{subsubsection.2.3.7}%
 \contentsline {subsubsection}{\numberline {2.3.8}Bijective property}{9}{subsubsection.2.3.8}%
-\contentsline {subsubsection}{\numberline {2.3.9}Set of all functions with domain and codomain}{9}{subsubsection.2.3.9}%
+\contentsline {subsubsection}{\numberline {2.3.9}Set of all functions with domain and codomain}{10}{subsubsection.2.3.9}%
 \contentsline {subsection}{\numberline {2.4}Complex math}{10}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Complex number basics}{10}{subsubsection.2.4.1}%
 \contentsline {subsubsection}{\numberline {2.4.2}Complex exponential function}{10}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Complex plane with radius r}{10}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.3}Complex plane with radius r}{11}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Complex conjugate}{11}{subsubsection.2.4.4}%
 \contentsline {subsubsection}{\numberline {2.4.5}Converting between polar and rectangular form}{11}{subsubsection.2.4.5}%
 \contentsline {subsection}{\numberline {2.5}Propositional logic}{11}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}Proposition}{11}{subsubsection.2.5.1}%
 \contentsline {subsubsection}{\numberline {2.5.2}Compound proposition}{11}{subsubsection.2.5.2}%
-\contentsline {subsubsection}{\numberline {2.5.3}Logical negation (logical not)}{11}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.3}Logical negation (logical not)}{12}{subsubsection.2.5.3}%
 \contentsline {subsubsection}{\numberline {2.5.4}Logical conjunction (logical AND)}{12}{subsubsection.2.5.4}%
 \contentsline {subsubsection}{\numberline {2.5.5}Logical disjunction (logical OR)}{12}{subsubsection.2.5.5}%
-\contentsline {subsubsection}{\numberline {2.5.6}De Morgan's Laws}{12}{subsubsection.2.5.6}%
-\contentsline {subsubsection}{\numberline {2.5.7}Logical implication}{12}{subsubsection.2.5.7}%
+\contentsline {subsubsection}{\numberline {2.5.6}De Morgan's Laws}{13}{subsubsection.2.5.6}%
+\contentsline {subsubsection}{\numberline {2.5.7}Logical implication}{13}{subsubsection.2.5.7}%
 \contentsline {subsubsection}{\numberline {2.5.8}Converse, inverse, contrapositive}{13}{subsubsection.2.5.8}%
-\contentsline {subsubsection}{\numberline {2.5.9}Biconditional}{13}{subsubsection.2.5.9}%
+\contentsline {subsubsection}{\numberline {2.5.9}Biconditional}{14}{subsubsection.2.5.9}%
 \contentsline {subsubsection}{\numberline {2.5.10}Rules of inference}{14}{subsubsection.2.5.10}%
 \contentsline {subsection}{\numberline {2.6}Predicate logic}{14}{subsection.2.6}%
 \contentsline {subsubsection}{\numberline {2.6.1}Quantifiers}{14}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}De Morgan's Law}{14}{subsubsection.2.6.2}%
+\contentsline {subsubsection}{\numberline {2.6.2}De Morgan's Law}{15}{subsubsection.2.6.2}%
 \contentsline {subsection}{\numberline {2.7}Geometric series}{15}{subsection.2.7}%
 \contentsline {subsection}{\numberline {2.8}Trig identities}{15}{subsection.2.8}%
 \contentsline {section}{\numberline {3}Continuous and discrete-time signals (Ch. 1.1)}{16}{section.3}%
@@ -109,21 +109,23 @@
 \contentsline {subsubsection}{\numberline {7.5.6}Linear}{50}{subsubsection.7.5.6}%
 \contentsline {section}{\numberline {8}Impulse response (Ch. 2.1)}{53}{section.8}%
 \contentsline {subsection}{\numberline {8.1}LTI Systems}{53}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}DT}{53}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Impulse response}{53}{subsubsection.8.1.2}%
-\contentsline {section}{\numberline {9}Convolution in discrete time (Ch. 2.1)}{54}{section.9}%
-\contentsline {section}{\numberline {10}Convolution in continuous time (Ch. 2.2)}{55}{section.10}%
-\contentsline {section}{\numberline {11}Properties of LTI systems (Ch. 2.3)}{56}{section.11}%
-\contentsline {section}{\numberline {12}Periodic signals and Fourier series}{57}{section.12}%
-\contentsline {section}{\numberline {13}Properties of Fourier series}{58}{section.13}%
-\contentsline {section}{\numberline {14}Response of LTI systems to periodic signals}{59}{section.14}%
-\contentsline {section}{\numberline {15}Aperiodic signals and Fourier transform}{60}{section.15}%
-\contentsline {section}{\numberline {16}Fourier transform properties; time-frequency duality}{61}{section.16}%
-\contentsline {section}{\numberline {17}Bandlimited signals}{62}{section.17}%
-\contentsline {section}{\numberline {18}The sampling theorem (Ch. 7.1)}{63}{section.18}%
-\contentsline {section}{\numberline {19}Reconstruction (Ch. 7.2)}{64}{section.19}%
-\contentsline {section}{\numberline {20}Amplitude modulation systems}{65}{section.20}%
-\contentsline {section}{\numberline {21}Envelope detection, coherent detection}{66}{section.21}%
-\contentsline {section}{\numberline {22}Single-sideband modulation}{67}{section.22}%
-\contentsline {section}{\numberline {23}Angle modulation}{68}{section.23}%
-\contentsline {section}{\numberline {24}Concepts of digital communication}{69}{section.24}%
+\contentsline {subsection}{\numberline {8.2}General DT Signal}{53}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Impulse response}{53}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}General input-output relationship of impulse response}{54}{subsubsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.4}Convolution}{55}{subsection.8.4}%
+\contentsline {section}{\numberline {9}Convolution in discrete time (Ch. 2.1)}{58}{section.9}%
+\contentsline {section}{\numberline {10}Convolution in continuous time (Ch. 2.2)}{59}{section.10}%
+\contentsline {section}{\numberline {11}Properties of LTI systems (Ch. 2.3)}{60}{section.11}%
+\contentsline {section}{\numberline {12}Periodic signals and Fourier series}{61}{section.12}%
+\contentsline {section}{\numberline {13}Properties of Fourier series}{62}{section.13}%
+\contentsline {section}{\numberline {14}Response of LTI systems to periodic signals}{63}{section.14}%
+\contentsline {section}{\numberline {15}Aperiodic signals and Fourier transform}{64}{section.15}%
+\contentsline {section}{\numberline {16}Fourier transform properties; time-frequency duality}{65}{section.16}%
+\contentsline {section}{\numberline {17}Bandlimited signals}{66}{section.17}%
+\contentsline {section}{\numberline {18}The sampling theorem (Ch. 7.1)}{67}{section.18}%
+\contentsline {section}{\numberline {19}Reconstruction (Ch. 7.2)}{68}{section.19}%
+\contentsline {section}{\numberline {20}Amplitude modulation systems}{69}{section.20}%
+\contentsline {section}{\numberline {21}Envelope detection, coherent detection}{70}{section.21}%
+\contentsline {section}{\numberline {22}Single-sideband modulation}{71}{section.22}%
+\contentsline {section}{\numberline {23}Angle modulation}{72}{section.23}%
+\contentsline {section}{\numberline {24}Concepts of digital communication}{73}{section.24}%

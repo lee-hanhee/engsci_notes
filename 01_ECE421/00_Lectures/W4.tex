@@ -641,6 +641,7 @@
     \subsubsection{Saddle points}
     \begin{definition}
         A saddle point is minimum in some direction, and maximum in another direction. 
+        \customFigure[0.75]{00_Images/SP.png}{Saddle point}
     \end{definition}
 
     \begin{intuition}
@@ -669,10 +670,11 @@
             \item $\underline{w}_{t+1} = \underline{w}_t + \epsilon_t \underline{v}_t$
         \end{enumerate}
 
-        \textbf{New idea:} Add a \textit{momentum} (a push) so that SGD would not stop if \( \nabla \ell_n(w_t) \approx 0 \).
+        \textbf{New idea:} Add a \textit{momentum} (a push) so that SGD would not stop if \( \nabla e_n(w_t) \approx 0 \).
 
         When you let this heavy ball go, would it stop at the flat region? No, because of inertia / momentum.
 
+        \customFigure[0.5]{00_Images/BALL.png}{Ball rolling down}
     \end{intuition}
 
     \begin{definition}
@@ -686,14 +688,33 @@
         \end{enumerate}
     \end{definition}
 
+    \begin{example}
+        An example of how it accumulates the previous movements:
+        \[
+        \underline{v}_{t-1} = -\epsilon_{t-1} \underline{g}_{t-1} + \mu \underline{v}_{t-2}
+        \]
+
+        \[
+        \underline{v}_{t-1} = -\epsilon_{t-1} \underline{g}_{t-1} + \mu \left( -\epsilon_{t-2} \underline{g}_{t-2} + \mu \underline{v}_{t-3} \right)
+        \]
+    \end{example}
+
+    \begin{example}
+        \customFigure[0.75]{00_Images/SGDM.png}{SGD with momentum where the red and blue lines are used to calculate the green lines which is the actual direction towards the minimum.}
+    \end{example}
+
     \subsubsection{How does momentum help?}
     \begin{intuition}
         \begin{enumerate}
             \item Momentum helps SGD escape flat regions, saddle points, and shallow local optimum. 
-            \item Momentum can lead to faster convergence, even for convex functions.
+                \customFigure[0.5]{00_Images/1P.png}{Example of momentum escaping points}
+                \begin{itemize}
+                    \item Even though the gradient is $0$, the term $v_t$ is non-zero, making it move out of this gradient 0 zone. 
+                \end{itemize}
+                \customFigure[0.75]{00_Images/EX1.png}{Example of SGD vs. SGD + Momentum}
+            \item Momentum can lead to faster convergence, even for convex functions. Consider the stretched ellipsoid: \(f(x_1, x_2) = 0.1x_1^2 + 2x_2^2.\)
+            \customFigure[0.5]{00_Images/EP.png}{Example of the ellipsoid}
 
-            \textbf{Consider the stretched ellipsoid} \(f(x_1, x_2) = 0.1x_1^2 + 2x_2^2.\)
-            
             \begin{itemize}
                 \item Its minimum is at (0,0).
                 \item This function is very flat in the direction of \(x_1\).
@@ -701,6 +722,7 @@
                 \item With a small learning rate, SGD won’t diverge in the \(x_2\) direction but is very slow in the \(x_1\) direction.
                 \item With a large learning rate, SGD progresses more rapidly in \(x_1\), but diverges in \(x_2\).
             \end{itemize}
+            \customFigure[0.75]{00_Images/EP1.png}{Showing how a slow learning rate, causes it to move slow in the x1 direction, but a large learning rate causes it to diverge in the x2 direction.}
         \end{enumerate}
     \end{intuition}
 

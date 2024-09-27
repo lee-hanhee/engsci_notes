@@ -1,26 +1,47 @@
-\subsection{Intro to heapsort}
-    \subsubsection{In-place Sorting}
-    \begin{definition}
-        Given an array \( A \) to sort the numbers, sorts within the array and uses a constant number of variables to do bookkeeping (i.e. only need the memory of the array)
+\subsection{Sorting algorithm properties}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Stable:} Relative order of ties is maintained.
         \begin{itemize}
+            \item e.g. $[2_a,3,2_b,1]\rightarrow [1,2_a,2_b,3]$
+        \end{itemize}
+        \item \textbf{Inplace sorting:} Given an array \( A \) to sort the numbers, sorts within the array and uses a constant number of variables to do bookkeeping (i.e. only need the memory of the array)
+        \begin{itemize}
+            \item e.g. merge sort is $O(n)$ space but it is still in place.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{Intro to heapsort}
+    \subsubsection{Key takeaways}
+    \begin{intuition}
+        \begin{itemize}
+            \item \textbf{Height:} $2^h \leq n \leq 2^{h+1} - 1 \iff h = \left\lfloor \log n \right\rfloor $
+            \begin{itemize}
+                \item $h$: Height
+                \item $n$: Number of elements.
+            \end{itemize}
+            \item \textbf{Max:} The maximum (in the case of a max-heap) value in a heap will always occur at the root.
             \item \textbf{Time Complexity}: \( O(n \log n) \).
+            \item \textbf{Space complexity:} $O(1)$ (space complexity doesn't include the input).
+            \item \textbf{Sorting algorithm properties:} Heap-sort is an in place algorithm, but is NOT stable.
             \item \textbf{Explanation:} Describe in terms of a tree, but only for visualization. Do not code a tree for heapsort.
             \item \textbf{Pseudo-code:} Uses the array representation.
         \end{itemize}
-    \end{definition}
-
-    \customFigure[0.75]{00_Images/Heaps.png}{(Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}
+    \end{intuition}
 
     \subsubsection{Indexing}
     \begin{definition}
         Given a node at index $i$ in the array:
 
         \begin{enumerate}
-            \item \textbf{Parent:} $\left \lfloor \frac{i}{2} \right \rfloor$
-            \item \textbf{Left child:} $2i$
-            \item \textbf{Right child:} $2i+1$
+            \item \textbf{Parent:} $\text{parent(i)} = \left \lfloor \frac{i}{2} \right \rfloor$
+            \item \textbf{Left child:} $\text{leftchild(i)} = 2i$
+            \item \textbf{Right child:} $\text{rightchild(i)} = 2i+1$
         \end{enumerate}
     \end{definition}
+
+    \customFigure[0.75]{00_Images/Heaps.png}{(Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}
 
     \subsubsection{Heap-tree: (2 properties)}\
     \begin{definition}

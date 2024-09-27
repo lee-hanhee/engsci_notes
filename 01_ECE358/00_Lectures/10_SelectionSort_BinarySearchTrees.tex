@@ -1,3 +1,208 @@
 \subsection{Selection sort}
 
 \subsection{Binary search trees}
+\begin{definition}
+    A binary tree with the \textbf{BST property}: 
+    \begin{itemize}
+        \item For each node in the tree, all values in the left subtree are smaller than the node's value, and all values in the right subtree are larger than the node's value.
+        \item i.e. $\text{Keys let subtree} \leq \text{Parent key} \leq \text{Keys right subtree}$.
+    \end{itemize}
+    \customFigure[0.5]{00_Images/BST.png}{BST property}
+    \begin{itemize}
+        \item \textbf{Example}: 10 as the root node with child nodes 5 and 20.
+        \customFigure[0.5]{00_Images/EX.png}{Example of the BST property.}
+    \end{itemize}
+\end{definition}
+
+\subsection{Operations on a BST}
+
+\subsubsection{Search}
+\begin{definition}
+    Probe the root and recursively go left or right according to the value to search.
+
+    \begin{lstlisting}[language=Python, caption={Search Operation}]
+        search(x):
+            start from root
+            repeat 
+                recursively go left or right according to the value to search
+            end
+    \end{lstlisting}
+    \begin{itemize}
+        \item \( O(h) \), where \( h \) is the height of the tree.
+        \item \textbf{Find max:} Go all right $O(h)$
+        \item \textbf{Find min:} Go all left $O(h)$
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Insert}
+
+\begin{definition}
+    Search for it and insert it as a leaf. 
+
+    \begin{lstlisting}[language=Python, caption={Insert Operation}]
+        insert(x):
+            search(x)
+            insert it as a leaf when hit a leaf
+    \end{lstlisting}
+
+    \begin{itemize}
+        \item \( O(h) \), where \( h \) is the height of the tree.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Build}
+\begin{definition}
+    \begin{lstlisting}[language=Python, caption={Build Operation}]
+    build(A[1...n])
+        for i = 1 to n:
+            insert(A[i]) into the tree
+    \end{lstlisting}
+
+    \begin{itemize}
+        \item $O(n \cdot h) = O(n^2) \text{ for unbalanced trees}.$
+        \item \textbf{Note:} The structure of a binary search tree is not unique.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/SBST_USBST.png}{Building BST based on the ordering of the array, which results in two different binary trees. The left BST is $O(\log n)$ and the right BST is $O(n)$.}
+\end{example}
+
+\subsubsection{Sort}
+\begin{definition}
+    \textbf{Traversal (in-order)}:
+
+    \begin{lstlisting}[language=Python, caption={In-order Traversal}]
+    inorder(root):
+        visit L (left subtree)
+        print node value
+        visit R (right subtree)
+    \end{lstlisting}
+    \begin{itemize}
+        \item $O(n)$: Visit each node exactly once, with 3 "touches" per node. Since we have to go descend into the left subtree, process the node, and descend on the right subtree.
+        \begin{itemize}
+            \item In-order traversal visits each node exactly once.
+            \item The process involves three operations per node: visit left child, process node, visit right child.
+            \item Each operation is done in constant time, O(1), for each node.
+            \item Total time complexity is proportional to the number of nodes, O(n), where n is the number of nodes in the tree.
+        \end{itemize}
+        \item \textbf{Pre-order}
+        \begin{itemize}
+            \item Print 
+            \item Visit left 
+            \item Visit right
+        \end{itemize}
+        \item \textbf{Postorder}
+        \begin{itemize}
+            \item Visit left 
+            \item Visit right
+            \item Print 
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    The binary search tree (BST) is structured as follows:
+
+    \[
+    \begin{array}{cccccccccc}
+        & & & & 20 & & & & \\
+        & & & 10 & & & 30 & & \\
+        & & 5 & & 15 & & 25 & & 40 \\
+        1 & & & & & & 23 & & & 42 \\
+    \end{array}
+    \]
+
+    \begin{itemize}
+        \item \textbf{Inorder Traversal}
+        In an \textbf{inorder traversal}, we visit the left subtree, followed by the root, and then the right subtree. This traversal of a binary search tree produces the elements in sorted order.
+        
+        \[
+        \text{Inorder: } 1, 5, 10, 15, 20, 23, 25, 30, 40, 42
+        \]
+        \begin{itemize}
+            \item The inorder traversal is particularly useful for binary search trees as it gives the elements in sorted order. In this traversal:
+            \item We start by visiting the leftmost node (smallest value), moving up to its parent, and continuing through the tree in increasing order.
+            \item For the given tree, the left subtree of 20 is explored first (rooted at 10), followed by visiting node 20, and then moving to the right subtree (rooted at 30).
+        \end{itemize}
+        
+        \item \textbf{Preorder Traversal}
+        In a \textbf{preorder traversal}, we visit the root first, followed by the left subtree, and then the right subtree.
+        
+        \[
+        \text{Preorder: } 20, 10, 5, 1, 15, 30, 25, 23, 40, 42
+        \]
+        \begin{itemize}
+            \item The preorder traversal is used when we want to process the root before examining its subtrees. It's helpful for tasks like creating a copy of the tree structure.
+            \item In this traversal, we start at the root (20), then explore the entire left subtree (rooted at 10) before moving to the right subtree (rooted at 30).
+        \end{itemize}
+        
+        \item \textbf{Postorder Traversal}
+        In a \textbf{postorder traversal}, we visit the left subtree, followed by the right subtree, and then the root.
+        
+        \[
+        \text{Postorder: } 1, 5, 15, 10, 23, 25, 42, 40, 30, 20
+        \]
+        \begin{itemize}
+            \item The postorder traversal is beneficial when we need to process subtrees before their respective roots. It is commonly used for tasks such as deleting a tree or evaluating expression trees.
+            \item For the given tree, we first explore the entire left subtree of 20, then the right subtree, and finally process the root (20). 
+        \end{itemize}
+    \end{itemize}
+
+\end{example}
+
+\subsubsection{Delete}
+\begin{definition}
+    \begin{lstlisting}[language=Python, caption={Delete Operation in BST}]
+    deleteBST(x):
+        search(x) # (i.e. search for the key)
+        if x is a leaf:
+            # Just delete x
+            delete(x)
+        
+        elif x has one child:
+            # Delete x and replace it with its child (i.e. upgrade child)
+            replace(x, x.child)
+        
+        elif x has two children:
+            # Replace x with its in-order predecessor or successor
+            replace(x, in_order_predecessor_or_successor(x))
+    \end{lstlisting}
+    \begin{itemize}
+        \item The predecessor of a node is the largest node in its left subtree, and the successor is the smallest node in its right subtree. It doesn't matter which you choose.
+        \item $O(h)$
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/D.png}{Delete BST}
+\end{definition}
+
+\begin{warning}
+    $O(\log(n)) \leq O(\text{height}) \leq O(n)$ depending on if its balanced or unbalanced. 
+\end{warning}
+
+\subsubsection{Threaded trees}
+\begin{definition}
+    A \textbf{threaded binary tree} is a variation of a binary tree in which some or all of the \textbf{null} pointers are replaced by pointers to the \textbf{in-order predecessor} or \textbf{successor}. 
+
+    \begin{itemize}
+        \item \textbf{Threads:} These additional pointers allow for more efficient in-order traversal without recursion or a stack.
+        \item Use a \textbf{dirty bit} to indicate whether a pointer is a regular pointer or a thread.
+        \item The threads are updated when running the traversal in order.
+        \item This structure allows for $O(1)$ time to find the in-order predecessor or successor of any node.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/TT1.png}{Threaded trees.}
+\end{example}
+
+\subsubsection{Structurally balanced BSTs:}
+\begin{definition}
+    $O(\log n)$
+    \begin{itemize}
+        \item e.g. AVL trees, 2-3 trees, B|B+ trees, RB trees.
+        \item \textbf{Note:} Splay trees are balanced in amortized sense (not structurally).
+    \end{itemize}
+\end{definition}
+
+

@@ -295,3 +295,19 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
     \begin{definition}
         The children of a node are labeled with distinct positive integers.
     \end{definition}
+
+
+%% BST
+
+\subsubsection{Successor}
+\begin{definition}
+    \begin{lstlisting}[language=Python, caption={Successor}]
+        Successor(x)
+            (a) Left-most node of its right subtree.
+            (b) Run "in-order" on the fly.
+    \end{lstlisting}
+
+    \begin{itemize}
+        \item $O(n) \rightarrow O(1) \text{ for balanced trees}.$
+    \end{itemize}
+\end{definition}

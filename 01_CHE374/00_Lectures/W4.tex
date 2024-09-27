@@ -92,7 +92,7 @@ Primer for the CAPM model:
         \begin{itemize}
             \item $\mathbb{E} \left[ R_p \right]$: Expected return of the portfolio. 
             \item $\sigma_p$: Portfolio volatility
-            \item \textbf{Note:} This leads to CAPM.
+            \item \textbf{Note:} This leads to efficiency frontier as we are trying to maximum the expected return based on the voltality of these stocks. 
         \end{itemize}
     \end{intuition}
 
@@ -222,7 +222,16 @@ Primer for the CAPM model:
     \end{itemize}
 \end{terminology}
 
+\begin{example}
+    \customFigure[0.75]{00_Images/RIZZ.jpeg}{Arbitrage opportunity}
+    \begin{itemize}
+        \item Since can buy bushels for a net zero cost in the beginning at time zero, we can see how we get a profit of $\$1$ payoff, so as x goes to infinity, we can get infinite profit, which means that increased demand will increase price.
+        \item Assuming the forward contract price doesn't change, then the no arbitrage price will be $10.91$
+    \end{itemize}
+\end{example}
+
 \subsection{Forward vs. Future contracts}
+These contracts are used to hedge against risks or to speculate. Both contracts rely on locking in a specific price for a certain asset.
 \begin{warning}
     Treat them the same in this course.
 \end{warning}
@@ -231,15 +240,50 @@ Primer for the CAPM model:
     \begin{itemize}
         \item \textbf{Forward Contract (Forwards):} An obligation to buy or sell a certain asset:
         \begin{itemize}
-            \item At a specified price
-            \item At a specified time
+            \item \textbf{Forward price:} At a specified price 
+            \item \textbf{Contract maturity or expiration date:} At a specified time
+            \item \textbf{Note:} Not traded on exchanges.
         \end{itemize}
         
-        \item \textbf{Futures Contracts:} Similar to forwards except settled daily (not just at maturity), so they can be bought and sold, and are also traded on exchanges.
+        \item \textbf{Futures Contracts:} Similar to forwards except settled daily (not just at maturity), so they can be bought and sold at any time, and are also traded on exchanges.
     \end{itemize}
 \end{terminology}
 
-\subsection{Replication (FIX)}
+\begin{intuition}
+    \customFigure[0.75]{00_Images/DIFF.png}{Difference between forward and future contracts.}
+\end{intuition}
+
+\begin{warning}
+    For this course, use the concept associated with forward contracts.
+\end{warning}
+
+\subsection{Forward Rate}
+\begin{definition}
+    Given rates for investments between $t=0$ to $t=t_1$, and $t=0$ to $t=t_2$:
+    \[
+    r_{0,t_1}, \quad r_{0,t_2}
+    \]
+
+    \noindent The interest forward rate $t_1$ years from $t=0$ for a duration of $(t_2 - t_1)$ years is:
+    
+    \begin{equation}
+        r_{t_1,t_2} = \frac{r_{0,t_2} \cdot t_2 - r_{0,t_1} \cdot t_1}{t_2 - t_1}
+    \end{equation}            
+\end{definition}
+
+\begin{derivation}
+    \customFigure[0.75]{00_Images/IRF.png}{Interest rate forward derivation.}
+\end{derivation}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/FEE.png}{Foreign exchange example, where we calculate the foreign exchange rate right now, and a year from now, to see what would be more beneficial.}
+\end{example}
+
+\subsection{Replication}
+\begin{intuition}
+    If we can replicate a portfolio that has the same risk profile of the asset that we are trying to value, then to avoid arbitrage. The value of the portfolio was equal the value of the asset.    
+\end{intuition}
+
 \begin{definition}
     \begin{itemize}
         \item Given present market price $P_{MP}$ will take on certain values if it goes up or down: $P_{MP+}$; $P_{MP-}$
@@ -310,30 +354,58 @@ Primer for the CAPM model:
     \end{itemize}
     
     \[
-    E[R_{MP}] = \frac{P_{MP+} X + P_{MP-} (X-1)}{P_{MP}}
+    E[R_{MP}] = \frac{P_{MP+} X + P_{MP-} (X-1)}{P_{MP}} - 1 
     \]
     
     \[
-    E[R_I] = \frac{P_{I+} X + P_{I-} (X-1)}{P_I}
+    E[R_I] = \frac{P_{I+} X + P_{I-} (X-1)}{P_I} - 1
     \]
     
     \[
-    \therefore \quad \beta = \frac{E[R_I] - r_f}{E[R_{MP}] - r_f}
+    \therefore \quad \beta = \frac{E[R_I] - r_f}{E[R_{MP}] - r_f} \text{ from the CAPM}
     \]
 
 \end{definition}
 
-\subsection{Forward Rate}
-\begin{definition}
-    Given rates for investments between $t=0$ and $t=t_1$, or $t=t_2$:
-    \[
-    r_{0,t_1}, \quad r_{0,t_2}
-    \]
+\begin{process}
+    \begin{enumerate}
+        \item Draw the up and down diagrams for the market portfolio, risk free rate, and project.
+        \item If there is probability associated with the up and down diagrams, then calculate the expected payoffs. 
+        \item Identify the values for each up and down, where the project current value is usually the unknown. The goal is to replicate the portfolio so we know how to price the project. 
+        \item Determine the up and down equations by buying $a$ units of market portfolio and $b$ units of risk-free portfolio with $\$1$ by convention.
+        \item Find $a$ and $b$ by solving the system. 
+        \begin{itemize}
+            \item a and b do not have to be integers and can be negative (i.e. borrowing in the associated asset)
+        \end{itemize}
+        \item Determine the current project price by buying $a$ units of market portfolio and $b$ units of risk-free portfolio without the up and down. 
+        \item To determine $\beta$
+        \begin{itemize}
+            \item Find the $E[R_{MP}]$ using the above equation, where $X$ denotes the percentage of going up or down in the market.
+            \item Find $E[R_I]$ of the project using the above equation
+        \end{itemize}
+    \end{enumerate}
+\end{process}
 
-    \noindent The interest forward rate $t_1$ years from $t=0$ for a duration of $(t_2 - t_1)$ years is:
-    
-    \begin{equation}
-        r_{t_1,t_2} = \frac{r_{0,t_2} \cdot t_2 - r_{0,t_1} \cdot t_1}{t_2 - t_1}
-    \end{equation}            
-\end{definition}
+\begin{example}
+    We are trying to replicate a portfolio s.t. the replicated portfolio has the same risk or payoff as the project. 
+
+    \customFigure[0.75]{00_Images/R.png}{Replication example of finding the appropriate project asset value}
+    \customFigure[0.75]{00_Images/R1.png}{Finding beta}
+    \customFigure[0.75]{00_Images/R4.png}{(Q1) Calculating using the risk free rate and to avoid arbitage, you need to discount by the risk free rate. (Q2) Calculate the expected payoff, then since there isn't a probable state of being up market or down market, use the risk-free rate (since the $\beta$ is 0) to discount the price.}
+    \begin{itemize}
+        \item \textbf{Note:} If we do not price it at $\$70.48$, then there is an arbitrage opportunity exists. However, the arbitrage would be quickly reverted due to equilibrium in the supply and demand.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/R5.png}{The same thing but we have to calculate the expected payoffs.}
+    \begin{itemize}
+        \item Since we need an initial investment of 20k, then we should buy the project for 28.37k or less.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    Risk-neural probability is out of scope.
+    \customFigure[0.75]{00_Images/R6.png}{Bond example}
+\end{example}
 

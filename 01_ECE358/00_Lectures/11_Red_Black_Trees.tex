@@ -1,4 +1,83 @@
 \subsection{Properties}
+\begin{definition}
+    Structurally balanced, i.e., \( h = O(\log n) \). RBT is a BST with the following properties:
+    \begin{itemize}
+        \item Every node is either red or black.
+        \item The root is always black.
+        \item A red node has black children.
+        \item Every path from root to leaf has the same number of black nodes.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Black height}
+\begin{definition}
+    The black height \( bh(x) \) is the number of black nodes on any path to a leaf, excluding \( x \).
+    \customFigure[0.5]{00_Images/RBT.png}{Red black trees.}
+\end{definition}
+
+\begin{theorem}
+    A Red-Black Tree with \( n \) internal nodes has 
+    \begin{equation}
+        h \leq 2 \log(n+1) = O(\log n)
+    \end{equation}
+\end{theorem}
+
+\begin{theorem}
+    \textbf{Lemma:} A subtree in a Red-Black Tree rooted at \( x \) has at least 
+    \begin{equation}
+        2^{bh(x)} - 1
+    \end{equation}
+    internal nodes.
+\end{theorem}
+
+\begin{derivation}
+    Use induction on \( h \) to prove the theorem
+
+    \begin{enumerate}
+        \item  \textbf{Basis:} \( h = 0 \). Only one node, which is black, and \( bh(\text{node}) = 0 \), so we have 0 internal nodes:
+        \[
+        2^0 - 1 = 0 
+        \]
+    
+        \item \textbf{Hypothesis:} Assume the lemma holds for all heights \( \leq h-1 \).
+        
+        \item \textbf{Step:} Suppose \( x \) is a red node. Then 
+            \[
+            bh(x) = bh(x.\text{child}) - 1
+            \]
+            If \( x \) is black, then
+            \[
+            bh(x) = bh(x.\text{child})
+            \]
+            Thus, \( x \) has internal nodes from both children.
+            \vspace{1em}
+            
+            At least how many internal nodes does \( x \) have?
+        
+            \[
+            \begin{aligned}
+                & (2^{bh(x)-1} - 1) \quad \text{from the left subtree}, \\
+                & (2^{bh(x)-1} - 1) \quad \text{from the right subtree}, \\
+                & + 2 \quad \text{for the root and two children}.
+            \end{aligned}
+            \]
+        
+            Thus,
+            \[
+            2(2^{bh(x)-1}) - 1 = 2^{bh(x)} - 1 \quad \checkmark
+            \]
+        
+        \item \textbf{Return to the theorem:}
+            \[
+            n \geq 2^{bh(\text{root})} - 1 \quad \text{(by the lemma)}.
+            \]
+        
+            Thus,
+            \[
+            h \leq 2 \log(n+1) = O(\log n)
+            \]
+    \end{enumerate}
+\end{derivation}
 
 \subsection{Balance proof}
 

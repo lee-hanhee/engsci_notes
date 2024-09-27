@@ -18,3 +18,10 @@
 \contentsline {figure}{\numberline {17}{\ignorespaces Example of counting sort}}{65}{figure.17}%
 \contentsline {figure}{\numberline {18}{\ignorespaces Radix sort example}}{66}{figure.18}%
 \contentsline {figure}{\numberline {19}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{67}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Tournament tree.}}{68}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces BST property}}{70}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Example of the BST property.}}{70}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Building BST based on the ordering of the array, which results in two different binary trees. The left BST is $O(\log n)$ and the right BST is $O(n)$.}}{71}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Delete BST}}{73}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Threaded trees.}}{74}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Red black trees.}}{75}{figure.26}%

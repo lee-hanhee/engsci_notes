@@ -235,26 +235,29 @@
     \customFigure[0.5]{00_Images/Bits.png}{Number of passes for 1000\#'s 64 bits.}
 \end{example}
 
-\subsection{Searching}
+\subsection{Tournament tree selection}
     \subsubsection{What is the kth largest element in unsorted sequence}
     \begin{definition}
-        \begin{enumerate}
-            \item How many comparisons to find max element? $(n-1)$ 
+        How many comparisons to find max element? $(n-1)$ 
+        \begin{itemize}
+            \item \textbf{Max Comparisons:} $n-1$: It's the winner (i.e. root) of the tournament tree. Don't need to check the $nth$ element because it is the biggest.
             \begin{itemize}
-                \item \textbf{Max Comparisons:} $n-1$: It's the winner (i.e. root) of the tournament tree
-                \begin{itemize}
-                    \item \textbf{Note:} Don't need to check the $nth$ element because it is the biggest.
-                \end{itemize}
-                \item \textbf{Min Comparisons:} $n/2 - 1$: Take the losers (i.e. leaves) of the tournament to find the minimum (assume that we found the maximum already)
-                \item \textbf{2nd Max Comparisons:} $\log n - 1$ additional comparisons after finding the maximum by comparing the max elements battles with other elements (i.e. 2nd biggest loses to max so follow max route).
-                \item \textbf{Kth Max comparisons:} Total comparisons is the $O((n-1) + k\log n)=O(n+k\log(n))$
+                \item \textbf{Note:} Don't need to check the $nth$ element because it is the biggest.
             \end{itemize}
-
-        \end{enumerate}
+            \item \textbf{Min Comparisons:} $n/2 - 1$: Take the losers (i.e. leaves) of the tournament to find the minimum (assume that we found the maximum already). Since $n/2$ only contains the leaves and we know that the last loser will be the minimum, therefore, $n/2 - 1$ comparisons.
+            \item \textbf{2nd Max Comparisons:} $\log n - 1$ additional comparisons after finding the maximum by comparing the max elements battles with other elements (i.e. 2nd biggest loses to max so follow max route). Since the height of the tree is $\log(n)$ and we know the max already, therefore, $\log(n) - 1$
+            \item \textbf{Kth Max comparisons:} Total comparisons is the $O((n-1) + k\log n)=O(n+k\log(n))$
+            \begin{itemize}
+                \item $O(n-1)$: Cost of building the tournament tree by comapring all elements. 
+                \item $O(k\log(n))$: Additional comparisons required to identify subsequent maximums. At each level, there are $\log(n)$ comparisons.
+            \end{itemize}
+        \end{itemize}
+        \customFigure[0.5]{00_Images/TT.png}{Tournament tree.}
     \end{definition}
 
+    \subsubsection{Selecting the kth element in O(n) expected time}
     \begin{example}
-        You don't have to sort the array for finding a certain element. For finding a specific element, it is $O(n)$ expected time. Quickselect is a variant of Quicksort used to find the
+        How to find the $kth$ element without sorting the array for finding a certain element. For finding a specific element, it is $O(n)$ expected time. Quickselect is a variant of Quicksort used to find the
         k-th smallest or largest element without fully sorting the array.            
         \begin{enumerate}
             \item \textbf{Initial Array:} The original unsorted array is:
@@ -295,3 +298,48 @@
             After partitioning, the smallest element is `10`, which is the 7th smallest element in the entire array.
         \end{enumerate}        
     \end{example}
+
+    \subsubsection{Randomized Select (SEE IF HE COVERS THIS IN CLASS)}
+    \begin{definition}
+        \begin{lstlisting}[language=Python, caption={Randomized Select Algorithm}]
+            Randomized_select(A, p, r, i^th):
+                if p == r then
+                    return A[p]
+                
+                q = rand_part(A, p, r)
+                k = q - p + 1
+                
+                if i <= k then
+                    rand_select(A, p, q, i)
+                else
+                    rand_select(A, q + 1, r, i - k)
+            \end{lstlisting}
+
+        \begin{itemize}
+            \item \textbf{Purpose}: The algorithm aims to find the i-th smallest element in an array.
+            
+            \item \textbf{Steps}:
+            \begin{itemize}
+                \item \textbf{Base Case}: If the array has only one element (i.e., \( p = r \)), return that element as it is the i-th smallest.
+                \item \textbf{Partitioning}: Select a random pivot and partition the array around this pivot (similar to QuickSort). Now, the pivot's position in the sorted array is known.
+                \item \textbf{Position Comparison}:
+                \begin{itemize}
+                    \item If the pivot's position is the i-th smallest, return it.
+                    \item If \( i \leq k \) (where \( k \) is the position of the pivot), search the left subarray.
+                    \item Otherwise, search the right subarray, adjusting \( i \) to account for the elements eliminated.
+                \end{itemize}
+            \end{itemize}
+        \end{itemize}
+        \vspace{1em}
+
+        \begin{equation*}
+        T(n) = \frac{1}{n} \left( T(\max(1, n-1)) + \sum_{k=1}^{n-1} T(\max(k, n-k)) \right) + \Theta(n) = O(n)
+        \end{equation*}
+
+        \begin{itemize}
+            \item \( \frac{1}{n} \): Reflects the randomness of pivot selection over \( n \) possible pivots.
+            \item \( T(\max(1, n-1)) \): The best case where the pivot splits the array as unevenly as possible.
+            \item \( \sum_{k=1}^{n-1} T(\max(k, n-k)) \): Covers all possible partition sizes and recursive subproblem sizes.
+            \item \( \Theta(n) \): Accounts for the partitioning step, which is linear.
+        \end{itemize}
+    \end{definition}

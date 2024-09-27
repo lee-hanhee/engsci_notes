@@ -1,16 +1,16 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{7}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{8}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{8}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{8}{figure.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{9}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{9}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{9}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{10}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{11}{figure.7}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{11}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{12}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{12}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{12}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{13}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{13}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{13}{figure.12}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{14}{figure.12}%
 \contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{16}{figure.13}%
 \contentsline {figure}{\numberline {14}{\ignorespaces Zero}}{18}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Rectangular}}{18}{figure.15}%
@@ -74,3 +74,14 @@
 \contentsline {figure}{\numberline {73}{\ignorespaces Time-varying example}}{50}{figure.73}%
 \contentsline {figure}{\numberline {74}{\ignorespaces Linear system examples}}{51}{figure.74}%
 \contentsline {figure}{\numberline {75}{\ignorespaces Non-linear example of a rectifier.}}{52}{figure.75}%
+\contentsline {figure}{\numberline {76}{\ignorespaces Special case 1}}{53}{figure.76}%
+\contentsline {figure}{\numberline {77}{\ignorespaces Special case 2}}{53}{figure.77}%
+\contentsline {figure}{\numberline {78}{\ignorespaces Special case 3}}{53}{figure.78}%
+\contentsline {figure}{\numberline {79}{\ignorespaces Special case 4}}{54}{figure.79}%
+\contentsline {figure}{\numberline {80}{\ignorespaces Special case 5}}{54}{figure.80}%
+\contentsline {figure}{\numberline {81}{\ignorespaces General case}}{54}{figure.81}%
+\contentsline {figure}{\numberline {82}{\ignorespaces Example of impulse response systems}}{55}{figure.82}%
+\contentsline {figure}{\numberline {83}{\ignorespaces Convolution.}}{55}{figure.83}%
+\contentsline {figure}{\numberline {84}{\ignorespaces Polynomial multiplication.}}{56}{figure.84}%
+\contentsline {figure}{\numberline {85}{\ignorespaces Polynomial multiplication example.}}{56}{figure.85}%
+\contentsline {figure}{\numberline {86}{\ignorespaces Multiplying numbers example.}}{57}{figure.86}%

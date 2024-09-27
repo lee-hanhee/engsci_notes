@@ -4,20 +4,20 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{4}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{6}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{7}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Classification problem setup}{7}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Classification problem setup}{8}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{8}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{9}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Error process for classification}{9}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Types of error}{10}{subsubsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.5}Hyperparameters}{10}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{10}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{10}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{11}{subsection.1.7}%
 \contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{11}{subsubsection.1.7.1}%
 \contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{11}{subsubsection.1.7.2}%
 \contentsline {subsection}{\numberline {1.8}Linear classification}{11}{subsection.1.8}%
 \contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{11}{subsubsection.1.8.1}%
 \contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{11}{subsubsection.1.8.2}%
-\contentsline {subsubsection}{\numberline {1.8.3}Training}{11}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.3}Training}{12}{subsubsection.1.8.3}%
 \contentsline {subsubsection}{\numberline {1.8.4}Prediction}{12}{subsubsection.1.8.4}%
 \contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{12}{subsubsection.1.8.5}%
 \contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{13}{subsection.1.9}%
@@ -103,12 +103,12 @@
 \contentsline {subsection}{\numberline {5.15}Non-convex functions}{51}{subsection.5.15}%
 \contentsline {subsubsection}{\numberline {5.15.1}Saddle points}{52}{subsubsection.5.15.1}%
 \contentsline {subsection}{\numberline {5.16}SGD with Momentum (heavy ball momentum)}{52}{subsection.5.16}%
-\contentsline {subsubsection}{\numberline {5.16.1}How does momentum help?}{52}{subsubsection.5.16.1}%
-\contentsline {subsubsection}{\numberline {5.16.2}Nestrov Momentum}{53}{subsubsection.5.16.2}%
-\contentsline {section}{\numberline {6}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{54}{section.6}%
-\contentsline {section}{\numberline {7}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{55}{section.7}%
-\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{56}{section.8}%
-\contentsline {section}{\numberline {9}EM (LFD: 6.4)}{57}{section.9}%
-\contentsline {section}{\numberline {10}Markov Decision Process (AIMA: 16)}{58}{section.10}%
-\contentsline {section}{\numberline {11}Reinforcement Learning (AIMA: 23.1-23.4)}{59}{section.11}%
-\contentsline {section}{\numberline {12}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{60}{section.12}%
+\contentsline {subsubsection}{\numberline {5.16.1}How does momentum help?}{54}{subsubsection.5.16.1}%
+\contentsline {subsubsection}{\numberline {5.16.2}Nestrov Momentum}{55}{subsubsection.5.16.2}%
+\contentsline {section}{\numberline {6}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{56}{section.6}%
+\contentsline {section}{\numberline {7}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{57}{section.7}%
+\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{58}{section.8}%
+\contentsline {section}{\numberline {9}EM (LFD: 6.4)}{59}{section.9}%
+\contentsline {section}{\numberline {10}Markov Decision Process (AIMA: 16)}{60}{section.10}%
+\contentsline {section}{\numberline {11}Reinforcement Learning (AIMA: 23.1-23.4)}{61}{section.11}%
+\contentsline {section}{\numberline {12}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{62}{section.12}%

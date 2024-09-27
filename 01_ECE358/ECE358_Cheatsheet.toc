@@ -1,5 +1,5 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Course Tips}{4}{section.1}%
+\contentsline {section}{\numberline {1}Course Tips}{5}{section.1}%
 \contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Pseudocode}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Exam}{5}{subsection.2.2}%
@@ -92,21 +92,22 @@
 \contentsline {subsection}{\numberline {9.12}Expectation}{50}{subsection.9.12}%
 \contentsline {subsection}{\numberline {9.13}Properties of expectation}{50}{subsection.9.13}%
 \contentsline {section}{\numberline {10}Heaps, Heapsort (Ch. 6, L9)}{51}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Intro to heapsort}{51}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}In-place Sorting}{51}{subsubsection.10.1.1}%
-\contentsline {subsubsection}{\numberline {10.1.2}Indexing}{51}{subsubsection.10.1.2}%
-\contentsline {subsubsection}{\numberline {10.1.3}Heap-tree: (2 properties)}{51}{subsubsection.10.1.3}%
-\contentsline {subsubsection}{\numberline {10.1.4}Height}{51}{subsubsection.10.1.4}%
-\contentsline {subsection}{\numberline {10.2}Heap operations}{51}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Bubble down}{51}{subsubsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.2}Build heap}{52}{subsubsection.10.2.2}%
-\contentsline {subsubsection}{\numberline {10.2.3}Extract max}{53}{subsubsection.10.2.3}%
-\contentsline {subsubsection}{\numberline {10.2.4}Heapsort}{54}{subsubsection.10.2.4}%
-\contentsline {subsubsection}{\numberline {10.2.5}Insert}{54}{subsubsection.10.2.5}%
-\contentsline {subsubsection}{\numberline {10.2.6}Bubble up}{55}{subsubsection.10.2.6}%
-\contentsline {subsection}{\numberline {10.3}Build heap runtime and priority queue}{55}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Tight bound for build heap}{55}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}Priority queue}{55}{subsubsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.1}Sorting algorithm properties}{51}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Intro to heapsort}{51}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Key takeaways}{51}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Indexing}{51}{subsubsection.10.2.2}%
+\contentsline {subsubsection}{\numberline {10.2.3}Heap-tree: (2 properties)}{51}{subsubsection.10.2.3}%
+\contentsline {subsubsection}{\numberline {10.2.4}Height}{52}{subsubsection.10.2.4}%
+\contentsline {subsection}{\numberline {10.3}Heap operations}{52}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Bubble down}{52}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}Build heap}{52}{subsubsection.10.3.2}%
+\contentsline {subsubsection}{\numberline {10.3.3}Extract max}{53}{subsubsection.10.3.3}%
+\contentsline {subsubsection}{\numberline {10.3.4}Heapsort}{54}{subsubsection.10.3.4}%
+\contentsline {subsubsection}{\numberline {10.3.5}Insert}{54}{subsubsection.10.3.5}%
+\contentsline {subsubsection}{\numberline {10.3.6}Bubble up}{55}{subsubsection.10.3.6}%
+\contentsline {subsection}{\numberline {10.4}Build heap runtime and priority queue}{55}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Tight bound for build heap}{55}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Priority queue}{55}{subsubsection.10.4.2}%
 \contentsline {section}{\numberline {11}Quicksort (Ch. 7, L10)}{56}{section.11}%
 \contentsline {subsection}{\numberline {11.1}Intro}{56}{subsection.11.1}%
 \contentsline {subsubsection}{\numberline {11.1.1}QS algorithm}{56}{subsubsection.11.1.1}%
@@ -128,32 +129,43 @@
 \contentsline {subsection}{\numberline {12.3}Radix sort}{65}{subsection.12.3}%
 \contentsline {subsubsection}{\numberline {12.3.1}Runtime complexity analysis of Radix sort}{66}{subsubsection.12.3.1}%
 \contentsline {subsubsection}{\numberline {12.3.2}Example of QS vs. RS}{67}{subsubsection.12.3.2}%
-\contentsline {subsection}{\numberline {12.4}Searching}{67}{subsection.12.4}%
+\contentsline {subsection}{\numberline {12.4}Tournament tree selection}{67}{subsection.12.4}%
 \contentsline {subsubsection}{\numberline {12.4.1}What is the kth largest element in unsorted sequence}{67}{subsubsection.12.4.1}%
-\contentsline {section}{\numberline {13}Selection sort, Binary search trees (Ch. 12)}{69}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Selection sort}{69}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Binary search trees}{69}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Red black trees (Ch. 13)}{70}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Properties}{70}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Balance proof}{70}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Operations}{70}{subsection.14.3}%
-\contentsline {section}{\numberline {15}Hash tables, Hashing (Ch. 11)}{71}{section.15}%
-\contentsline {subsection}{\numberline {15.1}Motivation}{71}{subsection.15.1}%
-\contentsline {subsection}{\numberline {15.2}Resolution by chaining}{71}{subsection.15.2}%
-\contentsline {subsection}{\numberline {15.3}Resolution by open addressing}{71}{subsection.15.3}%
-\contentsline {section}{\numberline {16}Dynamic programming (Ch. 14)}{72}{section.16}%
-\contentsline {subsection}{\numberline {16.1}DP matrix multiplication}{72}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}DP longest common subsequence}{72}{subsection.16.2}%
-\contentsline {section}{\numberline {17}Greedy algorithms (Ch. 15)}{73}{section.17}%
-\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{74}{section.18}%
-\contentsline {section}{\numberline {19}Splay trees}{75}{section.19}%
-\contentsline {section}{\numberline {20}Graph algorithms (Ch. 20)}{76}{section.20}%
-\contentsline {subsection}{\numberline {20.1}Intro}{76}{subsection.20.1}%
-\contentsline {subsection}{\numberline {20.2}Breadth-first search}{76}{subsection.20.2}%
-\contentsline {subsection}{\numberline {20.3}Depth-first search}{76}{subsection.20.3}%
-\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{77}{section.21}%
-\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{78}{section.22}%
-\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{79}{section.23}%
-\contentsline {section}{\numberline {24}History of computation}{80}{section.24}%
-\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{81}{section.25}%
-\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{82}{section.26}%
+\contentsline {subsubsection}{\numberline {12.4.2}Selecting the kth element in O(n) expected time}{68}{subsubsection.12.4.2}%
+\contentsline {subsubsection}{\numberline {12.4.3}Randomized Select (SEE IF HE COVERS THIS IN CLASS)}{69}{subsubsection.12.4.3}%
+\contentsline {section}{\numberline {13}Selection sort, Binary search trees (Ch. 12)}{70}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Selection sort}{70}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Binary search trees}{70}{subsection.13.2}%
+\contentsline {subsection}{\numberline {13.3}Operations on a BST}{70}{subsection.13.3}%
+\contentsline {subsubsection}{\numberline {13.3.1}Search}{70}{subsubsection.13.3.1}%
+\contentsline {subsubsection}{\numberline {13.3.2}Insert}{71}{subsubsection.13.3.2}%
+\contentsline {subsubsection}{\numberline {13.3.3}Build}{71}{subsubsection.13.3.3}%
+\contentsline {subsubsection}{\numberline {13.3.4}Sort}{71}{subsubsection.13.3.4}%
+\contentsline {subsubsection}{\numberline {13.3.5}Delete}{72}{subsubsection.13.3.5}%
+\contentsline {subsubsection}{\numberline {13.3.6}Threaded trees}{73}{subsubsection.13.3.6}%
+\contentsline {subsubsection}{\numberline {13.3.7}Structurally balanced BSTs:}{74}{subsubsection.13.3.7}%
+\contentsline {section}{\numberline {14}Red black trees (Ch. 13)}{75}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Properties}{75}{subsection.14.1}%
+\contentsline {subsubsection}{\numberline {14.1.1}Black height}{75}{subsubsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.2}Balance proof}{76}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Operations}{76}{subsection.14.3}%
+\contentsline {section}{\numberline {15}Hash tables, Hashing (Ch. 11)}{77}{section.15}%
+\contentsline {subsection}{\numberline {15.1}Motivation}{77}{subsection.15.1}%
+\contentsline {subsection}{\numberline {15.2}Resolution by chaining}{77}{subsection.15.2}%
+\contentsline {subsection}{\numberline {15.3}Resolution by open addressing}{77}{subsection.15.3}%
+\contentsline {section}{\numberline {16}Dynamic programming (Ch. 14)}{78}{section.16}%
+\contentsline {subsection}{\numberline {16.1}DP matrix multiplication}{78}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}DP longest common subsequence}{78}{subsection.16.2}%
+\contentsline {section}{\numberline {17}Greedy algorithms (Ch. 15)}{79}{section.17}%
+\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{80}{section.18}%
+\contentsline {section}{\numberline {19}Splay trees}{81}{section.19}%
+\contentsline {section}{\numberline {20}Graph algorithms (Ch. 20)}{82}{section.20}%
+\contentsline {subsection}{\numberline {20.1}Intro}{82}{subsection.20.1}%
+\contentsline {subsection}{\numberline {20.2}Breadth-first search}{82}{subsection.20.2}%
+\contentsline {subsection}{\numberline {20.3}Depth-first search}{82}{subsection.20.3}%
+\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{83}{section.21}%
+\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{84}{section.22}%
+\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{85}{section.23}%
+\contentsline {section}{\numberline {24}History of computation}{86}{section.24}%
+\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{87}{section.25}%
+\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{88}{section.26}%
