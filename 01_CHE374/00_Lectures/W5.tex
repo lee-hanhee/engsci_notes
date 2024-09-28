@@ -1,38 +1,109 @@
-\subsection{Terminology}
-\begin{terminology}
+\subsection{Learning objectives}
+\begin{definition}
     \begin{itemize}
-        \item \textbf{Independent:} Expected costs and benefits of each project do not depend on whether or not the other one is chosen.
-        
+        \item Understand the relationship between projects: independent, mutually exclusive and related but not mutually exclusive
+        \item Construct mutually exclusive alternatives from combination of related projects
+        \item Calculate the present worth and annual worth of a project given discrete cash flows
+        \begin{itemize}
+            \item Describe the discount rate used for cash flows (MARR)
+            \item Calculate PW and AW
+            \item Evaluate independent projects using PW or AW.
+            \item Evaluate mutually exclusive projects using 
+            \begin{itemize}
+                \item PW with repeated lives
+                \item PW with study period
+                \item AW
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{Background}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Projects:} Exchange of resources for expected benefits in the future. 
+        \item \textbf{Objective:} Evaluate and compare projects when there are multiple solutions or opportunities presented. 
+    \end{itemize}
+\end{intuition}
+
+\subsection{Project relationships}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Independent:} Expected costs and benefits of each project \textbf{do not depend} on whether or not the other one is chosen.
         \item \textbf{Mutually Exclusive:} When one project is chosen, all the others are excluded.
-        
-        \item \textbf{Related but not Mutually Exclusive:}
+        \item \textbf{Related but not mutually exclusive:}
+        \begin{itemize}
+            \item \textbf{Related:} Selecting one may affect selection of another option.
+            \item \textbf{Not mutually exclusive:} You can select more than one (budbget permitting).
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    How to decide on projects if they are\dots
+    \begin{itemize}
+        \item Independent: Consider each option separately.
+        \item Mutually exclusive: Find the best option.
+        \item Related but not mutually exclusive: Form mutually exclusive alternatives.
+    \end{itemize}
+\end{intuition}
+
+\subsection{What do project cash flows look like?}
+\begin{intuition}
+    \customFigure[0.5]{00_Images/PCF.png}{Project cash flows.}    
+\end{intuition}
+
+\subsection{MARR, PW, AW}
+\begin{terminology}
+    Minimum acceptable rate of return/hurdle rate
+        \begin{itemize}
+            \item Based on risk and/or expected rate of return from best alternative.
+            \item The "do nothing" option, i.e. the rate of return if you were to not invest in a project.
             \begin{itemize}
-                \item Not mutually exclusive: You can select more than one (budget permitting).
-                \item Related: Selecting one may affect the selection of another option.
+                \item Assume that money can ALWAYS be invested at MARR.
             \end{itemize}
-        
-        \item \textbf{MARR:} Minimum acceptable rate of return/hurdle rate
-            \begin{itemize}
-                \item The "do nothing" option, i.e. the rate of return if you were to not invest in a project.
-                \item Type of discount rate.
-            \end{itemize}
-        
-        \item \textbf{Present Worth (PW):} Present value of benefits minus costs, discounted at MARR.
-            \begin{itemize}
-                \item The amount by which a project is beating the best alternative expressed in today's value.
-                \item $PW > 0$: Acceptable
-                \item $PW < 0$: Unacceptable
-            \end{itemize}
-        
-        \item \textbf{Annual Worth (AW):} The equivalent annuity of PW, with MARR as discount rate.
-            \begin{itemize}
-                \item $AW > 0$: Acceptable
-                \item $AW < 0$: Unacceptable
-            \end{itemize}
-    \end{itemize}            
+            \item Type of discount rate.
+            \item Projects that earn less than MARR are not acceptable (i.e. doing nothing is better)
+        \end{itemize}          
 \end{terminology}
 
+\subsection{Project comparison methods}
+\begin{definition}
+
+    \textbf{Present Worth (PW):} Present value of benefits minus costs, discounted at MARR.
+    \begin{itemize}
+        \item $PW:$ The amount by which a project is beating the best alternative expressed in today's value.
+        \item For independent projects:
+            \begin{itemize}
+                \item $PW > 0$: Acceptable
+                \item $PW < 0$: Unacceptable.
+            \end{itemize}
+        \begin{itemize}
+            \item \textbf{Note:} Just because it is unacceptable doesn't mean its not profitable. It means that doing nothing is better.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Annual Worth (AW):} The equivalent annuity of PW, with MARR as discount rate.
+    \begin{itemize}
+        \item For independent projects:
+        \begin{itemize}
+            \item $PW > 0$: Acceptable
+            \item $PW < 0$: Unacceptable.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/PCM1.png}{Project comparison methods for PW}
+\end{example}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/PCM2.png}{Project comparisons for AW.}
+\end{example}
+
 \subsection{Evaluating mutually exclusive projects}
+Can only choose 1 option, so must choose the best.
 \begin{process}
     \begin{enumerate}
         \item Define the time horizon.
@@ -48,32 +119,57 @@
     \end{enumerate}
 \end{process}
 
-\subsection{Comparing different lives}
-\begin{example}
-    \subsubsection{Repeated lives - PW}
-        \begin{itemize}
-            \item Assume project repeats itself, and use least common multiple as time horizon. 
-            \begin{itemize}
-                \item Repeats with same cash flow.
-            \end{itemize}
-            \item Compare PW at end of time horizon
-        \end{itemize}
+\begin{warning}
+    Do nothing is always an alternative when no better choice is available (i.e. $PW=0$) (i.e. when all options have $PW<0$).
+\end{warning}
 
-    \subsubsection{Repeated lives - AW}
+\begin{example}
+    \customFigure[0.5]{00_Images/EX.png}{Example of mutually exclusive projects with same lives.}
+\end{example}
+
+\subsection{Comparing different lives}
+
+\subsubsection{Repeated lives - PW}
+\begin{definition}
+    \begin{itemize}
+        \item Assume project repeats itself, and use least common multiple as time horizon. 
         \begin{itemize}
-            \item Compare equivalent annuity of PW for individual lives.
-            \begin{itemize}
-                \item AW is equivalent annuity, so magnitude of annuity stays the same when the project is repeated.
-            \end{itemize}
+            \item Repeats with same cash flow.
         \end{itemize}
-        
-    \subsubsection{Study period}
+        \item Compare PW at end of time horizon
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/RL.png}{Repeated lives PW}
+\end{example}
+
+\subsubsection{Repeated lives - AW}
+\begin{definition}
+    \begin{itemize}
+        \item Compare equivalent annuity of PW for individual lives.
         \begin{itemize}
-            \item Specify a time period for comparison. 
-            \item For projects that last longer than study period, assume can terminate them early and adjust salvage value if necessary.
-            \begin{itemize}
-                \item Calculate PW for new period of affected projects. 
-            \end{itemize}
-            \item Uses fixed time horizon. 
+            \item AW is equivalent annuity, so magnitude of annuity stays the same when the project is repeated (i.e. same annuity regardless how many times it is repeated).
         \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/RLAW.png}{Repeated lives AW}
+\end{example}
+    
+\subsubsection{Study period}
+\begin{definition}
+    \begin{itemize}
+        \item Specify a time period for comparison. 
+        \item For projects that last longer than study period, assume can terminate them early and adjust salvage value if necessary.
+        \begin{itemize}
+            \item Calculate PW for new period of affected projects. 
+        \end{itemize}
+        \item Uses fixed time horizon. 
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/SP.png}{Study period}
 \end{example}

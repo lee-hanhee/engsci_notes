@@ -11,18 +11,19 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{18}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{21}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{22}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{23}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{24}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{27}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{29}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{29}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{30}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{30}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{31}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{32}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{32}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{33}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{34}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Tangent plane.}}{35}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{36}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as this plane.}}{37}{figure.27}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{24}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{25}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{28}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{31}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{31}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{32}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{32}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{33}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{34}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{34}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Example of a 2D function.}}{35}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{35}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{37}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Tangent plane.}}{38}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{39}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces The tangent plane is defined as this plane.}}{40}{figure.28}%

@@ -38,9 +38,9 @@
 \subsubsection{Terminology of functions}
 \begin{definition}
     \begin{itemize}
-        \item \textbf{Map}: $f: \mathbb{R}^n \to \mathbb{R}^m$
-        \item \textbf{Operator}: $f: \mathbb{R}^n \to \mathbb{R}^n$
-        \item \textbf{Functional}: $f: \mathbb{R}^n \to \mathbb{R}$
+        \item \textbf{Map}: $f: \mathbb{R}^n \to \mathbb{R}^m$, e.g. $f(x)=Ax$
+        \item \textbf{Operator}: $f: \mathbb{R}^n \to \mathbb{R}^n$, e.g. $f(x) = e^x$
+        \item \textbf{Functional}: $f: \mathbb{R}^n \to \mathbb{R}$, e.g. $f(x)=||x||_p$
     \end{itemize}
 \end{definition}
 
@@ -49,7 +49,7 @@
     Given a functional $f: \mathbb{R}^n \to \mathbb{R}$:
     \begin{itemize}
         \item \textbf{Graph}: $\{ (x, f(x)) \in \mathbb{R}^{n+1} | x \in \mathbb{R}^n \} \subseteq \mathbb{R}^{n+1}$ 
-        \item \textbf{Epigraph}: $\{ (x, t) \in \mathbb{R}^{n+1} | x \in \mathbb{R}^n, f(x) \leq t \} \subseteq \mathbb{R}^{n+1} $
+        \item \textbf{Epigraph (on or above)}: $\{ (x, t) \in \mathbb{R}^{n+1} | x \in \mathbb{R}^n, f(x) \leq t \} \subseteq \mathbb{R}^{n+1} $
         \item \textbf{Level set}: $L_t = \{ x \in \mathbb{R}^n | f(x) = t \} \subseteq \mathbb{R}^n$
         \begin{itemize}
             \item Parametrized by $t$ (i.e. scalar).
@@ -70,6 +70,10 @@
 
 \begin{example}
     \customFigure[0.75]{00_Images/EX1.png}{Example of the different common sets for the l1 norm.}
+\end{example}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/G.png}{Example of a 2D function.}
 \end{example}
 
     \subsubsection{Linear functions}
@@ -111,6 +115,7 @@
     \end{definition}
 
 \subsection{Function approximations}
+\textbf{Motivation:} 1st and 2nd order functions are useful to prove convex and non-convex functions. 
     
     \subsubsection{Gradients}
     \begin{definition}
@@ -322,3 +327,8 @@
                 \]    
             \end{itemize}
     \end{definition}
+
+    \subsubsection{Approximating}
+    \begin{intuition}
+        If the function you are approximating is 1st order, then 1st and 2nd order approximations will do fit it perfectly. If the function is 2nd order, then only 2nd order will approximate it perfectly. You can prove this by definition of Taylor series to show its equal to the function. 
+    \end{intuition}

@@ -399,6 +399,15 @@
         \end{itemize}
     \end{intuition}
 
+    \begin{warning}
+        Not every set of vectors in $\mathbb{R}^n$ turns into the standard basis. It depends on how you apply the Gram-Schmidt. 
+        \begin{itemize}
+            \item For example if you have the vectors $(1,0)$ and $(1,1)$. 
+            \item If you apply Gram-Schmidt starting with $(1,0)$, then you will get the standard basis. 
+            \item But if you apply Gram-Schmidt starting with $(1,1)$, then you will get $(1/\sqrt{2},1/\sqrt{2}),(1/\sqrt{2},1/\sqrt{2})$.
+        \end{itemize}
+    \end{warning}
+
     \subsubsection{QR decomposition}
     Another way to see Gram-Schmidt procedure is through matrix multiplication.
     \begin{definition}
@@ -730,6 +739,9 @@
         \[
         x^* = x - \sum_{i=1}^{m} \beta_i a^{(i)} 
         \]
+        \begin{itemize}
+            \item \textbf{Intuition:} This is subtracting the orthogonal components of $x$ (i.e. removing the error vector) to get $x$ in the subspace.
+        \end{itemize}
     \end{enumerate}            
 \end{derivation}
 
@@ -857,6 +869,15 @@
     A = \left\{ \mathbf{x} \ \middle| \ (\mathbf{a}^{(i)})^\top \mathbf{x} = d_i , \ i=1, \dots, m \right\}
     \]
 \end{definition}
+
+\begin{process}
+    You have three types of Gram Matrix that you can have, which can all be used to solve the projection problems.
+    \begin{itemize}
+        \item If you have a set of vectors that are linearly independent, then Gram matrix (i.e. the matrix in every projection problem) is invertible.
+        \item If Gram matrix is orthogonal, then Gram Matrix is diagonal matrix (i.e. identity scaled by some factor)
+        \item If Gram matrix is orthonormal, you have an identity matrix.
+    \end{itemize}
+\end{process}
         
 \subsection{Hyperplanes and half-spaces}
 \begin{definition}

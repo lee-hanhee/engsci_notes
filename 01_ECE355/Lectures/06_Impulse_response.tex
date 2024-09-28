@@ -58,53 +58,9 @@
 \end{warning}
 
 \begin{intuition}
-    In summary, substituting \( x[n] = \delta[n] \) is valid because the impulse response \( h[n] \) of an LTI system is defined as the system's output when the input is \( \delta[n] \). This step allows us to solve for the specific output sequence that defines the system's fundamental behavior.
+    Q6: In summary, substituting \( x[n] = \delta[n] \) is valid because the impulse response \( h[n] \) of an LTI system is defined as the system's output when the input is \( \delta[n] \). This step allows us to solve for the specific output sequence that defines the system's fundamental behavior.
 \end{intuition}
 
-\subsection{Convolution}
-\begin{definition}
-    Let \( x \in \mathbb{C}^{\mathbb{Z}} \), \( h \in \mathbb{C}^{\mathbb{Z}} \) be DT signals. Define a new signal \( y \in \mathbb{C}^{\mathbb{Z}} \), called the convolution of \( x \) and \( h \), and denoted as
-
-    \begin{equation}
-        y = x * h, \, \text{via} \quad y[n] = (x * h)[n] = \sum_{k \in \mathbb{Z}} x[k]h[n-k]
-    \end{equation}
-
-    (\( x \) convolved with \( h \)).
-
-    \customFigure[0.5]{00_Images/CLTI.png}{Convolution.}
-\end{definition}
-
-\begin{example}
-    \customFigure[0.5]{00_Images/PM.png}{Polynomial multiplication.}
-    \begin{itemize}
-        \item Along the diagonals, they are of the same degree. 
-        \item For each row, one of the terms is held constant. 
-    \end{itemize}
-    \vspace{1em}
-
-    How can this be used?
-
-    \customFigure[0.5]{00_Images/PMEX.png}{Polynomial multiplication example.}
-
-    \begin{itemize}
-        \item From degree 1 to degree 2, we take the coefficients from the polynomial multiplication and line that up as denoted. 
-        \item Take the outer product (i.e. matrix multiplication) to find the numbers in the middle. 
-        \item Take the diagonals and number the diagonals based on the degree.
-        \item Sum the diagonals and multiply the appropriate degree term.
-    \end{itemize}
-\end{example}
-
-\begin{example}
-    \customFigure[0.5]{00_Images/EX1.png}{Multiplying numbers example.}
-    \begin{itemize}
-        \item Take the LSD and multiply it with each digit on the top, and place them side by side in the first row. 
-        \item Take the 2nd LSD and put a 0 as the first digit as a placeholder, then multiply it with each digit on the top, and place them side by side in the second row. 
-        \item Continue until all bottom digits have been taken account for. 
-        \item Sum the columns 
-        \item Shift the MSDs over until you are left with one digit in each column (exception is the last column)
-        \item Then you found the final answer. 
-    \end{itemize}
-\end{example}
 
 
 

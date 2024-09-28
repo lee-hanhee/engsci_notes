@@ -109,22 +109,24 @@
 \contentsline {subsubsection}{\numberline {10.4.1}Tight bound for build heap}{55}{subsubsection.10.4.1}%
 \contentsline {subsubsection}{\numberline {10.4.2}Priority queue}{55}{subsubsection.10.4.2}%
 \contentsline {section}{\numberline {11}Quicksort (Ch. 7, L10)}{56}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Intro}{56}{subsection.11.1}%
-\contentsline {subsubsection}{\numberline {11.1.1}QS algorithm}{56}{subsubsection.11.1.1}%
-\contentsline {subsubsection}{\numberline {11.1.2}Partition}{56}{subsubsection.11.1.2}%
-\contentsline {subsection}{\numberline {11.2}QS basic analysis}{57}{subsection.11.2}%
-\contentsline {subsubsection}{\numberline {11.2.1}Best case}{57}{subsubsection.11.2.1}%
-\contentsline {subsubsection}{\numberline {11.2.2}Worst case (informal)}{58}{subsubsection.11.2.2}%
-\contentsline {subsubsection}{\numberline {11.2.3}Expected case}{58}{subsubsection.11.2.3}%
-\contentsline {subsection}{\numberline {11.3}Worst-case (formal)}{60}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Expected randomized case (formal)}{60}{subsection.11.4}%
-\contentsline {subsubsection}{\numberline {11.4.1}Motivation for randomized QS}{60}{subsubsection.11.4.1}%
-\contentsline {subsubsection}{\numberline {11.4.2}Random partition}{60}{subsubsection.11.4.2}%
-\contentsline {subsubsection}{\numberline {11.4.3}Random partition QS}{61}{subsubsection.11.4.3}%
+\contentsline {subsection}{\numberline {11.1}Key takeaways}{56}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Intro}{56}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}QS algorithm}{56}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}Partition}{57}{subsubsection.11.2.2}%
+\contentsline {subsection}{\numberline {11.3}QS basic analysis}{58}{subsection.11.3}%
+\contentsline {subsubsection}{\numberline {11.3.1}Best case}{58}{subsubsection.11.3.1}%
+\contentsline {subsubsection}{\numberline {11.3.2}Worst case (informal)}{58}{subsubsection.11.3.2}%
+\contentsline {subsubsection}{\numberline {11.3.3}Expected case}{59}{subsubsection.11.3.3}%
+\contentsline {subsection}{\numberline {11.4}Worst-case (formal)}{60}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Expected randomized case (formal)}{60}{subsection.11.5}%
+\contentsline {subsubsection}{\numberline {11.5.1}Motivation for randomized QS}{60}{subsubsection.11.5.1}%
+\contentsline {subsubsection}{\numberline {11.5.2}Random partition}{61}{subsubsection.11.5.2}%
+\contentsline {subsubsection}{\numberline {11.5.3}Random partition QS}{61}{subsubsection.11.5.3}%
 \contentsline {section}{\numberline {12}Counting sort, Radix sort (Ch. 8)}{63}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Lower bound on sorting and counting sort}{63}{subsection.12.1}%
-\contentsline {subsubsection}{\numberline {12.1.1}Lower bound on comparison-based sorting}{63}{subsubsection.12.1.1}%
-\contentsline {subsubsection}{\numberline {12.1.2}Decision tree}{63}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.1}Comparison based sorting}{63}{subsubsection.12.1.1}%
+\contentsline {subsubsection}{\numberline {12.1.2}Lower bound on comparison-based sorting}{63}{subsubsection.12.1.2}%
+\contentsline {subsubsection}{\numberline {12.1.3}Decision tree}{63}{subsubsection.12.1.3}%
 \contentsline {subsection}{\numberline {12.2}Counting sort}{63}{subsection.12.2}%
 \contentsline {subsection}{\numberline {12.3}Radix sort}{65}{subsection.12.3}%
 \contentsline {subsubsection}{\numberline {12.3.1}Runtime complexity analysis of Radix sort}{66}{subsubsection.12.3.1}%

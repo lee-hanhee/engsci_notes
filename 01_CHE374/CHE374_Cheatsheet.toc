@@ -3,12 +3,12 @@
 \contentsline {subsection}{\numberline {1.1}Learning objectives}{4}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Tips}{4}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Interest}{4}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Interest rate}{4}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Interest rate}{5}{subsection.1.4}%
 \contentsline {subsection}{\numberline {1.5}Simple interest}{5}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Compound interest}{5}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Subperiod interest rate}{6}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Effective interest rate}{6}{subsection.1.8}%
-\contentsline {subsection}{\numberline {1.9}Continuous compound interest}{6}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.9}Continuous compound interest}{7}{subsection.1.9}%
 \contentsline {subsection}{\numberline {1.10}Compound interest with subperiods}{7}{subsection.1.10}%
 \contentsline {subsection}{\numberline {1.11}L1 Takeaways}{7}{subsection.1.11}%
 \contentsline {subsection}{\numberline {1.12}How to solve for equivalent interest rates?}{7}{subsection.1.12}%
@@ -62,65 +62,70 @@
 \contentsline {subsection}{\numberline {4.7}Forward Rate}{28}{subsection.4.7}%
 \contentsline {subsection}{\numberline {4.8}Replication}{29}{subsection.4.8}%
 \contentsline {section}{\numberline {5}Comparison methods - PW, AW, FW (PS5)}{32}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Terminology}{32}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Evaluating mutually exclusive projects}{32}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Comparing different lives}{32}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Repeated lives - PW}{32}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Repeated lives - AW}{32}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Study period}{32}{subsubsection.5.3.3}%
-\contentsline {section}{\numberline {6}Comparison methods - IRR (PS6)}{33}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Comparison methods terminology}{33}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}IRR calculation}{33}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Payback period calculation}{33}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {6.3.1}Non-Discounted}{33}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {6.3.2}Discounted}{33}{subsubsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.4}Incremental IRR}{34}{subsection.6.4}%
-\contentsline {section}{\numberline {7}Depreciation, Financial accounting (PS7)}{35}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Depreciation terms and variables}{35}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Reasons for depreciation}{35}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Straight line method}{35}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Declining balance method}{36}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Sum of years' digits (SOYD)}{36}{subsection.7.5}%
-\contentsline {subsection}{\numberline {7.6}Unit of production method}{36}{subsection.7.6}%
-\contentsline {subsection}{\numberline {7.7}CCA depreciation}{36}{subsection.7.7}%
-\contentsline {subsection}{\numberline {7.8}Re-evaluated service life}{37}{subsection.7.8}%
-\contentsline {section}{\numberline {8}Financial accounting (PS8)}{38}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Liquidity ratios}{38}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Efficiency ratios}{38}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Leverage ratios}{39}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Profitability ratios}{39}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Performance ratios}{40}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Taxation (PS9)}{41}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Taxable income (FIX)}{41}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Flat corporate tax}{41}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Types of revenue}{41}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Types of expenses}{41}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Discounting after-tax cash flow requires lower rate of return}{41}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Capital cost allowance (CCA)}{41}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Undepreciated capital cost (UCC)}{42}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}CCA pooling}{42}{subsection.9.8}%
-\contentsline {subsection}{\numberline {9.9}CCA half-year rule}{42}{subsection.9.9}%
-\contentsline {subsection}{\numberline {9.10}Tax savings from depreciation}{42}{subsection.9.10}%
-\contentsline {subsection}{\numberline {9.11}CCA rules on disposition (selling asset)}{42}{subsection.9.11}%
-\contentsline {subsection}{\numberline {9.12}Calculating PW with taxes: explicit method}{42}{subsection.9.12}%
-\contentsline {subsection}{\numberline {9.13}Calculating PW with taxes: tax benefit factor}{43}{subsection.9.13}%
-\contentsline {subsubsection}{\numberline {9.13.1}Tax benefit factor:}{43}{subsubsection.9.13.1}%
-\contentsline {subsubsection}{\numberline {9.13.2}Effective first cost:}{43}{subsubsection.9.13.2}%
-\contentsline {subsubsection}{\numberline {9.13.3}Effective salvage value:}{43}{subsubsection.9.13.3}%
-\contentsline {section}{\numberline {10}Inflation (PS10)}{45}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Inflation terms}{45}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Calculating CPI \& inflation}{45}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}CPI index}{45}{subsubsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.2}Inflation rate from CPI index}{45}{subsubsection.10.2.2}%
-\contentsline {subsubsection}{\numberline {10.2.3}Average inflation from CPI}{45}{subsubsection.10.2.3}%
-\contentsline {subsection}{\numberline {10.3}Real value}{46}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Real rate}{46}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}Real value from purchasing power}{46}{subsubsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.4}Economic valuation with inflation}{46}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Actual vs. real values}{46}{subsubsection.10.4.1}%
-\contentsline {subsubsection}{\numberline {10.4.2}Cash flow with inflation}{46}{subsubsection.10.4.2}%
-\contentsline {subsubsection}{\numberline {10.4.3}Loan with inflation}{46}{subsubsection.10.4.3}%
-\contentsline {subsubsection}{\numberline {10.4.4}Bond with inflation}{47}{subsubsection.10.4.4}%
-\contentsline {subsection}{\numberline {10.5}Inflation with tax benefits}{47}{subsection.10.5}%
-\contentsline {subsubsection}{\numberline {10.5.1}Tax benefit factors with inflation}{47}{subsubsection.10.5.1}%
-\contentsline {section}{\numberline {11}Replacement (PS11)}{49}{section.11}%
+\contentsline {subsection}{\numberline {5.1}Learning objectives}{32}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Background}{32}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Project relationships}{32}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}What do project cash flows look like?}{32}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}MARR, PW, AW}{33}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Project comparison methods}{33}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Evaluating mutually exclusive projects}{34}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Comparing different lives}{35}{subsection.5.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}Repeated lives - PW}{35}{subsubsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.2}Repeated lives - AW}{35}{subsubsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.3}Study period}{36}{subsubsection.5.8.3}%
+\contentsline {section}{\numberline {6}Comparison methods - IRR (PS6)}{37}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Comparison methods terminology}{37}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}IRR calculation}{37}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Payback period calculation}{37}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Non-Discounted}{37}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Discounted}{37}{subsubsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.4}Incremental IRR}{38}{subsection.6.4}%
+\contentsline {section}{\numberline {7}Depreciation, Financial accounting (PS7)}{39}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Depreciation terms and variables}{39}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Reasons for depreciation}{39}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Straight line method}{39}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Declining balance method}{40}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Sum of years' digits (SOYD)}{40}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Unit of production method}{40}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}CCA depreciation}{40}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}Re-evaluated service life}{41}{subsection.7.8}%
+\contentsline {section}{\numberline {8}Financial accounting (PS8)}{42}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Liquidity ratios}{42}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Efficiency ratios}{42}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Leverage ratios}{43}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Profitability ratios}{43}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Performance ratios}{44}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Taxation (PS9)}{45}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Taxable income (FIX)}{45}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Flat corporate tax}{45}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Types of revenue}{45}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Types of expenses}{45}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Discounting after-tax cash flow requires lower rate of return}{45}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Capital cost allowance (CCA)}{45}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Undepreciated capital cost (UCC)}{46}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}CCA pooling}{46}{subsection.9.8}%
+\contentsline {subsection}{\numberline {9.9}CCA half-year rule}{46}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}Tax savings from depreciation}{46}{subsection.9.10}%
+\contentsline {subsection}{\numberline {9.11}CCA rules on disposition (selling asset)}{46}{subsection.9.11}%
+\contentsline {subsection}{\numberline {9.12}Calculating PW with taxes: explicit method}{46}{subsection.9.12}%
+\contentsline {subsection}{\numberline {9.13}Calculating PW with taxes: tax benefit factor}{47}{subsection.9.13}%
+\contentsline {subsubsection}{\numberline {9.13.1}Tax benefit factor:}{47}{subsubsection.9.13.1}%
+\contentsline {subsubsection}{\numberline {9.13.2}Effective first cost:}{47}{subsubsection.9.13.2}%
+\contentsline {subsubsection}{\numberline {9.13.3}Effective salvage value:}{47}{subsubsection.9.13.3}%
+\contentsline {section}{\numberline {10}Inflation (PS10)}{49}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Inflation terms}{49}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Calculating CPI \& inflation}{49}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}CPI index}{49}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}Inflation rate from CPI index}{49}{subsubsection.10.2.2}%
+\contentsline {subsubsection}{\numberline {10.2.3}Average inflation from CPI}{49}{subsubsection.10.2.3}%
+\contentsline {subsection}{\numberline {10.3}Real value}{50}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Real rate}{50}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}Real value from purchasing power}{50}{subsubsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.4}Economic valuation with inflation}{50}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Actual vs. real values}{50}{subsubsection.10.4.1}%
+\contentsline {subsubsection}{\numberline {10.4.2}Cash flow with inflation}{50}{subsubsection.10.4.2}%
+\contentsline {subsubsection}{\numberline {10.4.3}Loan with inflation}{50}{subsubsection.10.4.3}%
+\contentsline {subsubsection}{\numberline {10.4.4}Bond with inflation}{51}{subsubsection.10.4.4}%
+\contentsline {subsection}{\numberline {10.5}Inflation with tax benefits}{51}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Tax benefit factors with inflation}{51}{subsubsection.10.5.1}%
+\contentsline {section}{\numberline {11}Replacement (PS11)}{53}{section.11}%

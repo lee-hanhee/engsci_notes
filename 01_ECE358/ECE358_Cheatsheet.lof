@@ -11,8 +11,8 @@
 \contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{52}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Build heap.}}{53}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{54}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Partition}}{56}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Quicksort example.}}{57}{figure.14}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Quicksort example.}}{57}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Partition}}{57}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{59}{figure.15}%
 \contentsline {figure}{\numberline {16}{\ignorespaces Insertion sort.}}{63}{figure.16}%
 \contentsline {figure}{\numberline {17}{\ignorespaces Example of counting sort}}{65}{figure.17}%

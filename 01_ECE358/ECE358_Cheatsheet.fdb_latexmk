@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1727445125.72148 "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" "ECE358_Cheatsheet.pdf" "ECE358_Cheatsheet" 1727445141.4868 0
+["pdflatex"] 1727452261.87107 "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" "ECE358_Cheatsheet.pdf" "ECE358_Cheatsheet" 1727452278.47929 0
   "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" 1727216975.02595 3402 5a02cbd1d325e66ccd4bcf025c598bca ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -392,8 +392,8 @@
   "00_Lectures/05_Permutations_Combinations.tex" 1726025737.53798 19771 73cdb5ee51eeb175aa439bf45e9da22a ""
   "00_Lectures/06_Probability.tex" 1725550092.3275 4414 fd862b57c4ca9e40e51798c45efc92c6 ""
   "00_Lectures/07_Heaps_Heapsort.tex" 1727445125.18803 8117 65224baf1a2086ee253ce649137a1fc4 ""
-  "00_Lectures/08_Quicksort.tex" 1727220221.41916 16246 9efea8b6d1c2b4c91a24dbb817c4d1f1 ""
-  "00_Lectures/09_CountingSort_RadixSort.tex" 1727365317.11994 15776 6a356993ec56cb8b754dacccbe80d175 ""
+  "00_Lectures/08_Quicksort.tex" 1727452027.33886 17618 2f59199fc2be02c33e911203f6311b0e ""
+  "00_Lectures/09_CountingSort_RadixSort.tex" 1727452246.89982 16060 62b48bbed8ff295301a68b14ef8e3648 ""
   "00_Lectures/10_SelectionSort_BinarySearchTrees.tex" 1727396474.01135 8328 5aabff5295ce9e2baefb640745198a62 ""
   "00_Lectures/11_Red_Black_Trees.tex" 1727367745.90675 2563 a9173b23ec8fda3bda57e91dcbff0058 ""
   "00_Lectures/12_HashTables_Hashing.tex" 1724719656.19621 104 9ef64f04a12c97bfcd4bdfff1530dc18 ""
@@ -408,12 +408,12 @@
   "00_Lectures/21_History_of_Computation.tex" 1725382053.0726 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/22_P_NP_NPC_Introduction.tex" 1724968376.41596 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/23_NPC.tex" 1724968385.54073 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "ECE358_Cheatsheet.aux" 1727445140.89088 28685 da18ae8f65445dcd6052159a3dea6ded "pdflatex"
-  "ECE358_Cheatsheet.lof" 1727445140.89944 3060 2097dcaffd50c5b9f43d83817260b60f "pdflatex"
-  "ECE358_Cheatsheet.lot" 1727445140.89959 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE358_Cheatsheet.out" 1727445140.89838 28899 d8714c7c811be39684e0d4115a89efca "pdflatex"
+  "ECE358_Cheatsheet.aux" 1727452277.82374 28952 069a41da143f810cafe359e24887aa6f "pdflatex"
+  "ECE358_Cheatsheet.lof" 1727452277.835 3060 3ce08e77af94e3f16ece450a511d64e5 "pdflatex"
+  "ECE358_Cheatsheet.lot" 1727452277.83515 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE358_Cheatsheet.out" 1727452277.83322 29225 4ed9213c4da17d6b99d17c9efb11a081 "pdflatex"
   "ECE358_Cheatsheet.tex" 1727216975.02595 3402 5a02cbd1d325e66ccd4bcf025c598bca ""
-  "ECE358_Cheatsheet.toc" 1727445140.89916 15434 9b0e355af23c33691aee16baaf1930d7 "pdflatex"
+  "ECE358_Cheatsheet.toc" 1727452277.83462 15619 e62963f05155b7250eac4ce065db5f15 "pdflatex"
   "style.sty" 1724812699.32969 6633 5e0ee2680da9a14fc70df42d1fa95767 ""
   (generated)
   "ECE358_Cheatsheet.aux"

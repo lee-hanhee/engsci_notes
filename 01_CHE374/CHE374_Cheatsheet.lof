@@ -1,7 +1,7 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Simple interest table.}}{5}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Derivation of simple interest.}}{5}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Compound interest table.}}{5}{figure.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Compound interest table.}}{6}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Derivation of compound interest.}}{6}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces (Top) Subperiod interest rate. (Bot.) Equivalent interest rate if compounded only once per year. This is used to solve for the actual effective interest rate.}}{6}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Compound interest in which there is interest that can occur within the nominal interest rate over m times.}}{7}{figure.6}%
@@ -28,3 +28,10 @@
 \contentsline {figure}{\numberline {27}{\ignorespaces (Q1) Calculating using the risk free rate and to avoid arbitage, you need to discount by the risk free rate. (Q2) Calculate the expected payoff, then since there isn't a probable state of being up market or down market, use the risk-free rate (since the $\beta $ is 0) to discount the price.}}{30}{figure.27}%
 \contentsline {figure}{\numberline {28}{\ignorespaces The same thing but we have to calculate the expected payoffs.}}{31}{figure.28}%
 \contentsline {figure}{\numberline {29}{\ignorespaces Bond example}}{31}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Project cash flows.}}{32}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Project comparison methods for PW}}{33}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Project comparisons for AW.}}{34}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Example of mutually exclusive projects with same lives.}}{34}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Repeated lives PW}}{35}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Repeated lives AW}}{36}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Study period}}{36}{figure.36}%

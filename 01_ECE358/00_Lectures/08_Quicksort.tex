@@ -1,3 +1,17 @@
+\subsection{Key takeaways}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Worst case running time:} $\Theta(n^2)$ (occurs when the list is already sorted)
+        \item \textbf{Best case running time:} $\Theta(n \log n)$
+        \item \textbf{Averaged/Expected case running time:} $\Theta(n \log n)$
+        \item Quicksort tends to have the smallest constant in front of its running time
+        \item Quicksort is \textbf{NOT stable} (although there are modified versions that are)
+        \item Quicksort is \textbf{in-place} (although this is disputed because it uses recursion, so it stores stuff on the stack, and depends on your exact definition of in-place)
+        \item The idea of a randomized algorithm, why randomization helps, and how to analyze a random algorithm
+        \item Space complexity is also disputed due to the recursion in Quicksort. It could be $\Theta(1)$ or $O(\log n)$ or $O(n)$ depending on the implementation
+    \end{itemize}    
+\end{intuition}
+
 \subsection{Intro}
     \subsubsection{QS algorithm}
     \begin{definition}
@@ -41,6 +55,10 @@
         \end{itemize}        
     \end{intuition}
 
+    \begin{intuition}
+        \customFigure[1]{00_Images/Quicksort_Example1.png}{Quicksort example.}          
+    \end{intuition}
+
     \subsubsection{Partition}
     \begin{definition}
         \begin{lstlisting}[language=Python, caption={Partition Function Pseudocode with Comments}]
@@ -60,7 +78,10 @@
     \end{definition}
 
     \begin{intuition}
-        \customFigure[1]{00_Images/Quicksort_Example1.png}{Quicksort example.}          
+        \begin{itemize}
+            \item The array is separated into 4 parts: $[\text{pivot} \; | \; \leq \text{pivot} \; | \; > \text{pivot} \; | \; \text{unanchored}]$
+            \item At each iteration, examine an element in the unanchored part, compare to the pivot, and put it in the appropriate section.
+        \end{itemize}
     \end{intuition}
 
 \subsection{QS basic analysis}

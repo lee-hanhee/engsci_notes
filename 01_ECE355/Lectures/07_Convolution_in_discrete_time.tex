@@ -1,0 +1,229 @@
+\begin{definition}
+    Let \( x \in \mathbb{C}^{\mathbb{Z}} \), \( h \in \mathbb{C}^{\mathbb{Z}} \) be DT signals. Define a new signal \( y \in \mathbb{C}^{\mathbb{Z}} \), called the convolution of \( x \) and \( h \) (if it exists), and denoted as
+
+    \begin{equation}
+        y = x * h, \, \text{via} \quad y[n] \equiv (x * h)[n] \equiv \sum_{k \in \mathbb{Z}} x[k]h[n-k]
+    \end{equation}
+
+    (\( x \) convolved with \( h \)).
+
+    \customFigure[0.5]{00_Images/CLTI.png}{Convolution.}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/PM.png}{Polynomial multiplication.}
+    \begin{itemize}
+        \item Along the diagonals, they are of the same degree. 
+        \item For each row, one of the terms is held constant. 
+    \end{itemize}
+    \vspace{1em}
+
+    How can this be used?
+
+    \customFigure[0.5]{00_Images/PMEX.png}{Polynomial multiplication example.}
+
+    \begin{itemize}
+        \item From degree 1 to degree 2, we take the coefficients from the polynomial multiplication and line that up as denoted. 
+        \item Take the outer product (i.e. matrix multiplication) to find the numbers in the middle. 
+        \item Take the diagonals and number the diagonals based on the degree.
+        \item Sum the diagonals and multiply the appropriate degree term.
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/EX1.png}{Multiplying numbers example.}
+    \begin{itemize}
+        \item Take the LSD and multiply it with each digit on the top, and place them side by side in the first row. 
+        \item Take the 2nd LSD and put a 0 as the first digit as a placeholder, then multiply it with each digit on the top, and place them side by side in the second row. 
+        \item Continue until all bottom digits have been taken account for. 
+        \item Sum the columns 
+        \item Shift the MSDs over until you are left with one digit in each column (exception is the last column)
+        \item Then you found the final answer. 
+    \end{itemize}
+\end{example}
+
+\subsection{Alternative expressions}
+
+\subsubsection{Impulse expression}
+\begin{definition}
+    \begin{equation}
+        (x \ast h)[n] = \sum_{k \in \mathbb{Z}} \sum_{l \in \mathbb{Z}} x[k] h[l] \delta[n - k - l]
+    \end{equation}
+\end{definition}
+
+\begin{derivation}
+    \[
+    \sum_{k \in \mathbb{Z}} x[k] \sum_{l \in \mathbb{Z}} h[l] \delta[n - k - l]
+    \]
+    \begin{itemize}
+        \item Since $\delta=1$ only when $n-k-l=0$, therefore, when $l=n-k$, so using this fact, then:
+    \end{itemize}
+    \[
+    = \sum_{k \in \mathbb{Z}} x[k] h[n-k]
+    \]
+\end{derivation}
+
+\begin{intuition}
+    (similar to polynomial math): For simplicity, write $x_k$ for $x[k]$, $h_l$ for $h[l]$
+
+    \textbf{k+l-plane: i.e.}
+    \[
+    \begin{array}{ccccccc}
+    x_{-2} h_1 & x_{-1} h_1 & x_0 h_1 & x_1 h_1 & x_2 h_1 & x_3 h_1 & \cdots \\
+    x_{-2} h_0 & x_{-1} h_0 & x_0 h_0 & x_1 h_0 & x_2 h_0 & x_3 h_0 & \cdots \\
+    x_{-2} h_{-1} & x_{-1} h_{-1} & x_0 h_{-1} & x_1 h_{-1} & x_2 h_{-1} & x_3 h_{-1} & \cdots \\
+    \end{array}
+    \]
+    \begin{itemize}
+        \item $n=k+l=0$: Along the diagonal for $-1,1$, $0,0$, and $1,-1$. Similar results can be achieved for all the other diagonals. 
+        \item Taking the sum along the diagonals get one component of $y[n]$
+        \item Take the outer product.
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Graphical expression}
+\begin{definition}
+    \customFigure[0.75]{00_Images/GE.png}{Graphical expression}
+    \begin{itemize}
+        \item $t=0$: Output at $h[0]$
+        \item We are sliding this filter across and summing up the linear combinations of $x,h$, which is weighed by $h$.
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \textbf{Diagram Explanation:} The process of convolution involves taking a filter \(h[n]\), reversing it, and sliding it across the signal \(x[k]\) to compute the output at each position \(n\). 
+    
+    \textbf{Visual Representation in the Diagram:} 
+    \begin{itemize}
+        \item As the filter slides, the overlapping values are summed along each diagonal, corresponding to different shifts of \(h[n-k]\).
+        \item The small window highlights the part of \(x[k]\) being multiplied by the reversed and shifted filter \(h[n-k]\), and the resulting product is summed to give the final convolution output for each \(n\).
+    \end{itemize}
+    \vspace{1em}
+    
+    \textbf{Key Steps:}
+    \begin{enumerate}
+        \item Reverse the filter \(h[n]\) to obtain \(h[n-k]\).
+        \item Slide the reversed filter along the \(k\)-axis.
+        \item Multiply the overlapping elements of \(x[k]\) and \(h[n-k]\).
+        \item Sum the products to compute the output at each \(n\).
+    \end{enumerate}
+\end{intuition}
+
+\subsection{Properties of convolution}
+\subsubsection{Commutativity}
+\begin{definition}
+    For all signals \(x[n]\) and \(h[n]\), the convolution is commutative, i.e.,
+    
+    \begin{equation}
+    x * h = h * x
+    \end{equation}
+    \end{definition}
+    
+\begin{derivation}
+    \[
+    (x * h)[n] = \sum_{k \in \mathbb{Z}} \sum_{\lambda \in \mathbb{Z}} x[k] h[\lambda] \delta[n - k - \lambda]
+    \]
+    \[
+    = \sum_{\lambda} h[\lambda] \left(\sum_{k} x[k] \delta[n - k - \lambda]\right)
+    \]
+    \[
+    = \sum_{\lambda} h[\lambda] x[n - \lambda] = (h * x)[n]
+    \]
+\end{derivation}
+    
+\begin{intuition}
+Linear Time-Invariant (LTI) systems exhibit commutative properties as shown by the interchangeable order of the systems in series.
+
+\[
+\text{Input } \to X \to Y \to \text{Output} = \text{Input } \to Y \to X \to \text{Output}
+\]
+\end{intuition}
+    
+\subsubsection{Associativity}
+\begin{definition}
+Convolution is associative, meaning $\forall x_1,x_2,x_3 \in \mathbb{C}^{\mathbb{Z}}$
+
+\begin{equation}
+(x_1 * x_2) * x_3 = x_1 * (x_2 * x_3)
+\end{equation}
+
+This holds because the order of operations does not matter.
+\end{definition}
+
+\subsubsection{Distributivity Over Addition}
+\begin{definition}
+Convolution is distributive over addition, i.e., for all \(x_1, x_2, h\),
+
+\begin{equation}
+(x_1 + x_2) * h = (x_1 * h) + (x_2 * h)
+\end{equation}
+\end{definition}
+
+\begin{derivation}
+    $\sum_k (x_1[k] + x_2[k]) h[n-k] = \sum_k x_1[k] h[n-k] + \sum_k x_2[k] h[n-k]$
+\end{derivation}
+    
+\subsubsection{Time-Shifting Property}
+\begin{definition}
+If \(x[n] * h[n] = y[n]\), then for any integer shifts \(n_0, n_1\), the following holds:
+
+\begin{enumerate}
+    \item \(x[n - n_0] * h[n] = y[n - n_0]\)
+    \item \(x[n] * h[n - n_1] = y[n - n_1]\)
+    \item \(x[n - n_0] * h[n - n_1] = y[n - n_0 - n_1]\)
+\end{enumerate}
+\end{definition}
+
+\begin{warning}
+    \[
+x[n - n_0] * h[n - n_0] = y[n - n_0 - n_0] = y[n - 2n_0]
+\]
+\end{warning}
+    
+\subsubsection{Scaling property}
+\begin{definition}
+For any scalar \(A\), convolution respects scaling:
+
+\begin{equation}
+A x[n] * h[n] = A y[n]
+\end{equation}
+\end{definition}
+    
+\subsubsection{Convolutional Identity}
+\begin{definition}
+The identity element for convolution is the delta function \(\delta[n]\), such that for all \(x[n]\):
+
+\begin{equation}
+x[n] * \delta[n] = \delta[n] * x[n] = x[n]
+\end{equation}
+    
+\end{definition}
+
+\begin{derivation}
+    \begin{equation}
+        \sum_k x[k] \delta[n - k] = x[n]
+    \end{equation}
+    
+    \begin{itemize}
+        \item \(\delta[n] * \delta[n] = \delta[n]\)
+        \item \(\delta[n - n_0] * \delta[n] = \delta[n - n_0]\)
+        \item \(\delta[n - n_0] * \delta[n - n_1] = \delta[n - n_0 - n_1]\)
+    \end{itemize}
+\end{derivation}
+
+\begin{example}
+\textbf{Convolution of Two Sequences}
+\[
+(a_0 \delta[n] + a_1 \delta[n-1] + a_2 \delta[n-2]) * (b_0 \delta[n] + b_1 \delta[n-1] + b_2 \delta[n-2])
+\]
+
+\[
+= a_0 b_0 \delta[n] * \delta[n] + a_0 b_1 \delta[n] * \delta[n-1] + a_0 b_2 \delta[n] * \delta[n-2] 
+\]
+\[
++ a_1 b_0 \delta[n-1] * \delta[n] + a_1 b_1 \delta[n-1] * \delta[n-1] + a_1 b_2 \delta[n-1] * \delta[n-2]
+\]
+\[
++ a_2 b_0 \delta[n-2] * \delta[n] + a_2 b_1 \delta[n-2] * \delta[n-1] + a_2 b_2 \delta[n-2] * \delta[n-2] + \dots
+\]
+\end{example}
