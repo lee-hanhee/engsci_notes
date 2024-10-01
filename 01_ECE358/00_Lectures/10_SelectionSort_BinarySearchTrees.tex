@@ -68,6 +68,10 @@
     \customFigure[0.5]{00_Images/SBST_USBST.png}{Building BST based on the ordering of the array, which results in two different binary trees. The left BST is $O(\log n)$ and the right BST is $O(n)$.}
 \end{example}
 
+\begin{warning}
+    $O(\log(n)) \leq O(\text{height}) \leq O(n)$ depending on if its balanced or unbalanced (i.e. $O(\log (n))$) is balanced and $O(n)$ is unbalanced.
+\end{warning}
+
 \subsubsection{Sort}
 \begin{definition}
     \textbf{Traversal (in-order)}:
@@ -175,10 +179,6 @@
 
     \customFigure[0.5]{00_Images/D.png}{Delete BST}
 \end{definition}
-
-\begin{warning}
-    $O(\log(n)) \leq O(\text{height}) \leq O(n)$ depending on if its balanced or unbalanced. 
-\end{warning}
 
 \subsubsection{Threaded trees}
 \begin{definition}

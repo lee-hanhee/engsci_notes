@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  27 SEP 2024 11:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  1 OCT 2024 19:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -604,7 +604,15 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count329
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen279
+\pgfarrowlength=\dimen280
+\pgfarrowwidth=\dimen281
+\pgfarrowlinewidth=\dimen282
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.code.tex
 File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.geometric.code.tex
 File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -622,8 +630,8 @@ File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code.tex
 File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex
-(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
+))
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.callouts.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshapes.multipart.code.tex
 File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.code.tex
 File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
@@ -651,14 +659,14 @@ File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
 File: tikzlibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
 File: pgflibraryarrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\arrowsize=\dimen279
+\arrowsize=\dimen283
 )) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks48
 \t@pgfplots@tokb=\toks49
 \t@pgfplots@tokc=\toks50
-\pgfplots@tmpa=\dimen280
+\pgfplots@tmpa=\dimen284
 \c@pgfplots@coordindex=\count330
 \c@pgfplots@scanlineindex=\count331
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
@@ -674,24 +682,24 @@ Package pgfplots: loading complementary utilities for your pgf version...
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
 \c@pgfplotslibrarysurf@no=\count334
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen281
-\pgfdecoratedremainingdistance=\dimen282
-\pgfdecoratedinputsegmentcompleteddistance=\dimen283
-\pgfdecoratedinputsegmentremainingdistance=\dimen284
-\pgf@decorate@distancetomove=\dimen285
+\pgfdecoratedcompleteddistance=\dimen285
+\pgfdecoratedremainingdistance=\dimen286
+\pgfdecoratedinputsegmentcompleteddistance=\dimen287
+\pgfdecoratedinputsegmentremainingdistance=\dimen288
+\pgf@decorate@distancetomove=\dimen289
 \pgf@decorate@repeatstate=\count335
-\pgfdecorationsegmentamplitude=\dimen286
-\pgfdecorationsegmentlength=\dimen287
+\pgfdecorationsegmentamplitude=\dimen290
+\pgfdecorationsegmentlength=\dimen291
 )
 \tikz@lib@dec@box=\box98
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
 \pgfplots@numplots=\count336
-\pgfplots@xmin@reg=\dimen288
-\pgfplots@xmax@reg=\dimen289
-\pgfplots@ymin@reg=\dimen290
-\pgfplots@ymax@reg=\dimen291
-\pgfplots@zmin@reg=\dimen292
-\pgfplots@zmax@reg=\dimen293
+\pgfplots@xmin@reg=\dimen292
+\pgfplots@xmax@reg=\dimen293
+\pgfplots@ymin@reg=\dimen294
+\pgfplots@ymax@reg=\dimen295
+\pgfplots@zmin@reg=\dimen296
+\pgfplots@zmax@reg=\dimen297
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
@@ -716,7 +724,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \c@tcblayer=\count338
 \c@tcolorbox@number=\count339
 \l__tcobox_tmpa_box=\box103
-\l__tcobox_tmpa_dim=\dimen294
+\l__tcobox_tmpa_dim=\dimen298
 \tcb@temp=\box104
 \tcb@temp=\box105
 \tcb@temp=\box106
@@ -753,9 +761,9 @@ Library (tcolorbox): 'tcbhooks.code.tex' version '6.2.0'
 Library (tcolorbox): 'tcbtheorems.code.tex' version '6.2.0'
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/tcolorbox/tcbfitting.code.tex
 Library (tcolorbox): 'tcbfitting.code.tex' version '6.2.0'
-\tcbfitdim=\dimen295
-\tcb@lowerfitdim=\dimen296
-\tcb@upperfitdim=\dimen297
+\tcbfitdim=\dimen299
+\tcb@lowerfitdim=\dimen300
+\tcb@upperfitdim=\dimen301
 \tcb@cur@hbadness=\count344
 ))
 \c@tcb@cnt@example=\count345
@@ -768,8 +776,8 @@ Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
 Package: calc 2023/07/08 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count347
 \calc@Bcount=\count348
-\calc@Adimen=\dimen298
-\calc@Bdimen=\dimen299
+\calc@Adimen=\dimen302
+\calc@Bdimen=\dimen303
 \calc@Askip=\skip69
 \calc@Bskip=\skip70
 LaTeX Info: Redefining \setlength on input line 80.
@@ -784,12 +792,12 @@ Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
 Package: pdfpages 2024/01/21 v0.5y Insert pages of external PDF documents (AM)
  (/usr/local/texlive/2024/texmf-dist/tex/latex/eso-pic/eso-pic.sty
 Package: eso-pic 2023/05/03 v3.0c eso-pic (RN)
-\ESO@tempdima=\dimen300
-\ESO@tempdimb=\dimen301
+\ESO@tempdima=\dimen304
+\ESO@tempdimb=\dimen305
 )
-\AM@pagewidth=\dimen302
-\AM@pageheight=\dimen303
-\AM@fboxrule=\dimen304
+\AM@pagewidth=\dimen306
+\AM@pageheight=\dimen307
+\AM@fboxrule=\dimen308
  (/usr/local/texlive/2024/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2024/01/21 v0.5y Pdfpages driver for pdfTeX (AM)
 )
@@ -833,16 +841,16 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \psLoopIndex=\count363
 
 `PSTricks' v3.19c  <2024/02/02> (tvz,hv)
-\pst@dima=\dimen305
-\pst@dimb=\dimen306
-\pst@dimc=\dimen307
-\pst@dimd=\dimen308
-\pst@dimg=\dimen309
-\pst@dimh=\dimen310
-\pst@dimm=\dimen311
-\pst@dimn=\dimen312
-\pst@dimo=\dimen313
-\pst@dimp=\dimen314
+\pst@dima=\dimen309
+\pst@dimb=\dimen310
+\pst@dimc=\dimen311
+\pst@dimd=\dimen312
+\pst@dimg=\dimen313
+\pst@dimh=\dimen314
+\pst@dimm=\dimen315
+\pst@dimn=\dimen316
+\pst@dimo=\dimen317
+\pst@dimp=\dimen318
 \pst@hbox=\box114
 \pst@ibox=\box115
 \pst@boxg=\box116
@@ -860,29 +868,29 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 \pst@toks=\toks62
 --- We are running latex or xelatex ---
 (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks.con) (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks-color.tex)
-\psunit=\dimen315
-\psxunit=\dimen316
-\psyunit=\dimen317
+\psunit=\dimen319
+\psxunit=\dimen320
+\psyunit=\dimen321
 \pst@C@@rType=\count375
-\pslinewidth=\dimen318
-\psk@startLW=\dimen319
-\psk@endLW=\dimen320
+\pslinewidth=\dimen322
+\psk@startLW=\dimen323
+\psk@endLW=\dimen324
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks-arrows.tex
-\pshooklength=\dimen321
-\pshookwidth=\dimen322
+\pshooklength=\dimen325
+\pshookwidth=\dimen326
 )
 \pst@customdefs=\toks63
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks-dots.tex)
-\pslinearc=\dimen323
-\pst@symbolStep=\dimen324
-\pst@symbolWidth=\dimen325
-\pst@symbolLinewidth=\dimen326
+\pslinearc=\dimen327
+\pst@symbolStep=\dimen328
+\pst@symbolWidth=\dimen329
+\pst@symbolLinewidth=\dimen330
 \everypsbox=\toks64
-\psframesep=\dimen327
-\pslabelsep=\dimen328
-\sh@wgridXunit=\dimen329
-\sh@wgridYunit=\dimen330
-\pst@shift=\dimen331
+\psframesep=\dimen331
+\pslabelsep=\dimen332
+\sh@wgridXunit=\dimen333
+\sh@wgridYunit=\dimen334
+\pst@shift=\dimen335
 \ps@imagectr=\count376
  (/usr/local/texlive/2024/texmf-dist/tex/generic/pstricks/pstricks.con))
 File: pstricks.tex 2024/02/02 v3.19c `PSTricks' (tvz,hv)
@@ -913,37 +921,37 @@ Package: pst-plot 2021/09/23 package wrapper for pst-plot.tex (hv)
 \num@pts=\count385
 \pst@argcnt=\count386
 ) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-arrow/pst-arrow.tex `pst-arrow' v0.05, 2021/11/16 (dr,hv)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-3d/pst-3d.tex `PST-3d' v1.11, 2010/02/14 (tvz)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pst-math/pst-math.tex `pst-math' v0.67 , (CJ,hv)) `pstricks-add' v3.94, 2023/04/17 (dr,hv)
-\psparallelogramsep=\dimen332
+\psparallelogramsep=\dimen336
 \pst@cntC=\count387
 \pst@stepcount=\count388
-\chart@ColorIndex=\dimen333
-\chart@ColorStep=\dimen334
-\pst@chartHeight=\dimen335
-\pst@chartStackDepth=\dimen336
-\pst@chartStackWidth=\dimen337
+\chart@ColorIndex=\dimen337
+\chart@ColorStep=\dimen338
+\pst@chartHeight=\dimen339
+\pst@chartStackDepth=\dimen340
+\pst@chartStackWidth=\dimen341
 \chart@Toggle=\count389
 \psVectorCtr=\count390
 )  v1.94, 2022/11/21 (tvz,hv)
-\pstRadUnit=\dimen338
-\pstRadUnitInv=\dimen339
+\pstRadUnit=\dimen342
+\pstRadUnitInv=\dimen343
 \pst@linecnt=\count391
 \RCD@file=\read5
-\psxlabelsep=\dimen340
-\psylabelsep=\dimen341
-\psk@subticksize=\dimen342
-\pst@xticksizeA=\dimen343
-\pst@xticksizeB=\dimen344
-\pst@xticksizeC=\dimen345
-\pst@yticksizeA=\dimen346
-\pst@yticksizeB=\dimen347
-\pst@yticksizeC=\dimen348
+\psxlabelsep=\dimen344
+\psylabelsep=\dimen345
+\psk@subticksize=\dimen346
+\pst@xticksizeA=\dimen347
+\pst@xticksizeB=\dimen348
+\pst@xticksizeC=\dimen349
+\pst@yticksizeA=\dimen350
+\pst@yticksizeB=\dimen351
+\pst@yticksizeC=\dimen352
 \@digitcounter=\count392
-\psk@llx=\dimen349
-\psk@lly=\dimen350
-\psk@urx=\dimen351
-\psk@ury=\dimen352
-\pst@xunit=\dimen353
-\pst@yunit=\dimen354
+\psk@llx=\dimen353
+\psk@lly=\dimen354
+\psk@urx=\dimen355
+\psk@ury=\dimen356
+\pst@xunit=\dimen357
+\pst@yunit=\dimen358
 )
 File: pst-plot.tex 2022/11/21 1.94 `pst-plot' (tvz,hv)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
@@ -951,14 +959,14 @@ File: pst-plot.tex 2022/11/21 1.94 `pst-plot' (tvz,hv)
 \lst@gtempboxa=\box117
 \lst@token=\toks66
 \lst@length=\count394
-\lst@currlwidth=\dimen355
+\lst@currlwidth=\dimen359
 \lst@column=\count395
 \lst@pos=\count396
-\lst@lostspace=\dimen356
-\lst@width=\dimen357
+\lst@lostspace=\dimen360
+\lst@width=\dimen361
 \lst@newlines=\count397
 \lst@lineno=\count398
-\lst@maxwidth=\dimen358
+\lst@maxwidth=\dimen362
  (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
 File: lstpatch.sty 2024/02/21 1.10 (Carsten Heinz)
 ) (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
@@ -1048,13 +1056,13 @@ Package translations Info: loading dictionary `translations-basic-dictionary' fo
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count401
-\scratchdimen=\dimen359
+\scratchdimen=\dimen363
 \scratchbox=\box119
 \nofMPsegments=\count402
 \nofMParguments=\count403
 \everyMPshowfont=\toks67
 \MPscratchCnt=\count404
-\MPscratchDim=\dimen360
+\MPscratchDim=\dimen364
 \MPnumerator=\count405
 \makeMPintoPDFobject=\count406
 \everyMPtoPDFconversion=\toks68
@@ -1156,13 +1164,13 @@ Non-PDF special ignored!
 \tf@lot=\write7
 \openout7 = `ECE358_Cheatsheet.lot'.
 
- (./00_Lectures/00_0_Preliminaries.tex) [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./00_Lectures/00_Asymptotics.tex [6] [7] [8{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [9]
-<00_Images/BigO_Omega_Theta_Notation.png, id=1019, 896.34875pt x 311.1625pt>
+ (./00_Lectures/00_0_Preliminaries.tex [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]) [6] (./00_Lectures/00_Asymptotics.tex [7] [8] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [10]
+<00_Images/BigO_Omega_Theta_Notation.png, id=1103, 896.34875pt x 311.1625pt>
 File: 00_Images/BigO_Omega_Theta_Notation.png Graphic file (type png)
 <use 00_Images/BigO_Omega_Theta_Notation.png>
 Package pdftex.def Info: 00_Images/BigO_Omega_Theta_Notation.png  used on input line 384.
 (pdftex.def)             Requested size: 527.57014pt x 183.14748pt.
- [10 <./00_Images/BigO_Omega_Theta_Notation.png>] [11] [12]) [13] (./00_Lectures/01_Logarithms_Summations.tex [14] [15] [16] [17]) [18] (./00_Lectures/02_Induction_Contradiction.tex [19] [20] [21] [22] [23] [24] [25]) [26] (./00_Lectures/03_Recurrences.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+ [11 <./00_Images/BigO_Omega_Theta_Notation.png>] [12] [13]) [14] (./00_Lectures/01_Logarithms_Summations.tex [15] [16] [17] [18]) [19] (./00_Lectures/02_Induction_Contradiction.tex [20] [21] [22] [23] [24] [25] [26]) [27] (./00_Lectures/03_Recurrences.tex (/usr/local/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/02/21 1.10 listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 24.
@@ -1170,184 +1178,195 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 24
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<00_Images/Merge_Sort.png, id=1256, 301.125pt x 443.6575pt>
+<00_Images/Merge_Sort.png, id=1341, 301.125pt x 443.6575pt>
 File: 00_Images/Merge_Sort.png Graphic file (type png)
 <use 00_Images/Merge_Sort.png>
 Package pdftex.def Info: 00_Images/Merge_Sort.png  used on input line 47.
 (pdftex.def)             Requested size: 263.78506pt x 388.68pt.
- [27] [28 <./00_Images/Merge_Sort.png>] [29] [30] [31] [32] [33] [34] [35]
-<00_Images/Recursion_Tree.png, id=1390, 901.3675pt x 190.7125pt>
+ [28] [29 <./00_Images/Merge_Sort.png>] [30] [31] [32] [33] [34] [35] [36]
+<00_Images/Recursion_Tree.png, id=1475, 901.3675pt x 190.7125pt>
 File: 00_Images/Recursion_Tree.png Graphic file (type png)
 <use 00_Images/Recursion_Tree.png>
 Package pdftex.def Info: 00_Images/Recursion_Tree.png  used on input line 701.
 (pdftex.def)             Requested size: 374.33807pt x 79.20241pt.
- [36 <./00_Images/Recursion_Tree.png>]) [37] (./00_Lectures/04_Graphs_Trees.tex
-<00_Images/Directed_Undirected.png, id=1412, 252.945pt x 107.40125pt>
+ [37 <./00_Images/Recursion_Tree.png>]) [38] (./00_Lectures/04_Graphs_Trees.tex
+<00_Images/Directed_Undirected.png, id=1496, 252.945pt x 107.40125pt>
 File: 00_Images/Directed_Undirected.png Graphic file (type png)
 <use 00_Images/Directed_Undirected.png>
 Package pdftex.def Info: 00_Images/Directed_Undirected.png  used on input line 29.
 (pdftex.def)             Requested size: 395.6776pt x 168.00903pt.
- [38 <./00_Images/Directed_Undirected.png>]
-<00_Images/Bipartite.png, id=1418, 175.65625pt x 150.5625pt>
+ [39 <./00_Images/Directed_Undirected.png>]
+<00_Images/Bipartite.png, id=1502, 175.65625pt x 150.5625pt>
 File: 00_Images/Bipartite.png Graphic file (type png)
 <use 00_Images/Bipartite.png>
 Package pdftex.def Info: 00_Images/Bipartite.png  used on input line 64.
 (pdftex.def)             Requested size: 124.77936pt x 106.95753pt.
-<00_Images/Clique.png, id=1419, 350.30875pt x 121.45375pt>
+<00_Images/Clique.png, id=1503, 350.30875pt x 121.45375pt>
 File: 00_Images/Clique.png Graphic file (type png)
 <use 00_Images/Clique.png>
 Package pdftex.def Info: 00_Images/Clique.png  used on input line 73.
 (pdftex.def)             Requested size: 374.33807pt x 129.79297pt.
- [39 <./00_Images/Bipartite.png> <./00_Images/Clique.png>]
-<00_Images/DG_AM_AL.png, id=1427, 666.49pt x 182.6825pt>
+ [40 <./00_Images/Bipartite.png> <./00_Images/Clique.png>]
+<00_Images/DG_AM_AL.png, id=1511, 666.49pt x 182.6825pt>
 File: 00_Images/DG_AM_AL.png Graphic file (type png)
 <use 00_Images/DG_AM_AL.png>
 Package pdftex.def Info: 00_Images/DG_AM_AL.png  used on input line 103.
 (pdftex.def)             Requested size: 527.57014pt x 144.61584pt.
- [40 <./00_Images/DG_AM_AL.png>]
-<00_Images/T.png, id=1438, 265.99374pt x 69.25874pt>
+ [41 <./00_Images/DG_AM_AL.png>]
+<00_Images/T.png, id=1522, 265.99374pt x 69.25874pt>
 File: 00_Images/T.png Graphic file (type png)
 <use 00_Images/T.png>
 Package pdftex.def Info: 00_Images/T.png  used on input line 150.
 (pdftex.def)             Requested size: 249.55872pt x 64.98062pt.
- [41 <./00_Images/T.png>]) [42] (./00_Lectures/05_Permutations_Combinations.tex [43]
+ [42 <./00_Images/T.png>]) [43] (./00_Lectures/05_Permutations_Combinations.tex [44]
 Overfull \hbox (3.92474pt too wide) detected at line 131
 [] \OT1/lmr/m/n/10 ([]) + [] ([]) + [] ([]) + 100[] ([])
  []
 
-[44] [45] [46] [47]) [48] (./00_Lectures/06_Probability.tex [49]) [50] (./00_Lectures/07_Heaps_Heapsort.tex
-<00_Images/Heaps.png, id=1585, 579.16376pt x 202.7575pt>
+[45] [46] [47] [48]) [49] (./00_Lectures/06_Probability.tex [50]) [51] (./00_Lectures/07_Heaps_Heapsort.tex
+<00_Images/Heaps.png, id=1669, 579.16376pt x 202.7575pt>
 File: 00_Images/Heaps.png Graphic file (type png)
 <use 00_Images/Heaps.png>
 Package pdftex.def Info: 00_Images/Heaps.png  used on input line 44.
 (pdftex.def)             Requested size: 395.6776pt x 138.51988pt.
- [51 <./00_Images/Heaps.png>]
-<00_Images/Bubble_Down.png, id=1594, 431.6125pt x 304.13625pt>
+ [52 <./00_Images/Heaps.png>]
+<00_Images/Bubble_Down.png, id=1678, 431.6125pt x 304.13625pt>
 File: 00_Images/Bubble_Down.png Graphic file (type png)
 <use 00_Images/Bubble_Down.png>
 Package pdftex.def Info: 00_Images/Bubble_Down.png  used on input line 74.
 (pdftex.def)             Requested size: 374.33807pt x 263.78426pt.
-<00_Images/Build_Heap.png, id=1595, 438.63875pt x 635.37375pt>
+<00_Images/Build_Heap.png, id=1679, 438.63875pt x 635.37375pt>
 File: 00_Images/Build_Heap.png Graphic file (type png)
 <use 00_Images/Build_Heap.png>
 Package pdftex.def Info: 00_Images/Build_Heap.png  used on input line 90.
 (pdftex.def)             Requested size: 374.33807pt x 542.24191pt.
- [52 <./00_Images/Bubble_Down.png>] [53 <./00_Images/Build_Heap.png>]
-<00_Images/Heap_Sort.png, id=1627, 450.68375pt x 405.515pt>
+ [53 <./00_Images/Bubble_Down.png>] [54 <./00_Images/Build_Heap.png>]
+<00_Images/Heap_Sort.png, id=1711, 450.68375pt x 405.515pt>
 File: 00_Images/Heap_Sort.png Graphic file (type png)
 <use 00_Images/Heap_Sort.png>
 Package pdftex.def Info: 00_Images/Heap_Sort.png  used on input line 120.
 (pdftex.def)             Requested size: 374.33807pt x 336.83723pt.
- [54 <./00_Images/Heap_Sort.png>]) [55] (./00_Lectures/08_Quicksort.tex
+ [55 <./00_Images/Heap_Sort.png>]) [56] (./00_Lectures/08_Quicksort.tex
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 41.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<00_Images/Quicksort_Example1.png, id=1656, 729.72626pt x 445.665pt>
+<00_Images/Quicksort_Example1.png, id=1741, 729.72626pt x 445.665pt>
 File: 00_Images/Quicksort_Example1.png Graphic file (type png)
 <use 00_Images/Quicksort_Example1.png>
 Package pdftex.def Info: 00_Images/Quicksort_Example1.png  used on input line 59.
 (pdftex.def)             Requested size: 499.11745pt x 304.82306pt.
- [56{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<00_Images/QS_LS.png, id=1670, 358.33875pt x 98.3675pt>
+ [57{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
+<00_Images/QS_LS.png, id=1755, 358.33875pt x 98.3675pt>
 File: 00_Images/QS_LS.png Graphic file (type png)
 <use 00_Images/QS_LS.png>
 Package pdftex.def Info: 00_Images/QS_LS.png  used on input line 77.
 (pdftex.def)             Requested size: 249.55872pt x 68.50703pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 106.
- [57 <./00_Images/Quicksort_Example1.png> <./00_Images/QS_LS.png>]
-<00_Images/Quicksort_Average.png, id=1689, 335.2525pt x 178.6675pt>
+ [58 <./00_Images/Quicksort_Example1.png> <./00_Images/QS_LS.png>]
+<00_Images/Quicksort_Average.png, id=1773, 335.2525pt x 178.6675pt>
 File: 00_Images/Quicksort_Average.png Graphic file (type png)
 <use 00_Images/Quicksort_Average.png>
 Package pdftex.def Info: 00_Images/Quicksort_Average.png  used on input line 170.
 (pdftex.def)             Requested size: 249.55872pt x 132.99702pt.
- [58] [59 <./00_Images/Quicksort_Average.png>] [60] [61]) [62] (./00_Lectures/09_CountingSort_RadixSort.tex
-<00_Images/Insertion_Sort.png, id=1737, 840.13875pt x 348.30125pt>
+ [59] [60 <./00_Images/Quicksort_Average.png>] [61] [62]) [63] (./00_Lectures/09_CountingSort_RadixSort.tex
+<00_Images/Insertion_Sort.png, id=1822, 840.13875pt x 348.30125pt>
 File: 00_Images/Insertion_Sort.png Graphic file (type png)
 <use 00_Images/Insertion_Sort.png>
 Package pdftex.def Info: 00_Images/Insertion_Sort.png  used on input line 19.
 (pdftex.def)             Requested size: 249.55872pt x 103.46013pt.
- [63 <./00_Images/Insertion_Sort.png>]
-<00_Images/Counting_Sort.png, id=1751, 750.805pt x 487.8225pt>
+ [64 <./00_Images/Insertion_Sort.png>]
+<00_Images/Counting_Sort.png, id=1836, 750.805pt x 487.8225pt>
 File: 00_Images/Counting_Sort.png Graphic file (type png)
 <use 00_Images/Counting_Sort.png>
 Package pdftex.def Info: 00_Images/Counting_Sort.png  used on input line 130.
 (pdftex.def)             Requested size: 249.55872pt x 162.14311pt.
- [64]
-<00_Images/Radix_Sort.png, id=1764, 731.73375pt x 254.9525pt>
+ [65]
+<00_Images/Radix_Sort.png, id=1849, 731.73375pt x 254.9525pt>
 File: 00_Images/Radix_Sort.png Graphic file (type png)
 <use 00_Images/Radix_Sort.png>
 Package pdftex.def Info: 00_Images/Radix_Sort.png  used on input line 212.
 (pdftex.def)             Requested size: 249.55872pt x 86.95111pt.
- [65 <./00_Images/Counting_Sort.png>]
-<00_Images/Bits.png, id=1777, 383.4325pt x 132.495pt>
+ [66 <./00_Images/Counting_Sort.png>]
+<00_Images/Bits.png, id=1862, 383.4325pt x 132.495pt>
 File: 00_Images/Bits.png Graphic file (type png)
 <use 00_Images/Bits.png>
 Package pdftex.def Info: 00_Images/Bits.png  used on input line 241.
 (pdftex.def)             Requested size: 249.55872pt x 86.23595pt.
- [66 <./00_Images/Radix_Sort.png>]
-<00_Images/TT.png, id=1785, 284.06125pt x 470.75874pt>
+ [67 <./00_Images/Radix_Sort.png>]
+<00_Images/TT.png, id=1870, 284.06125pt x 470.75874pt>
 File: 00_Images/TT.png Graphic file (type png)
 <use 00_Images/TT.png>
 Package pdftex.def Info: 00_Images/TT.png  used on input line 261.
 (pdftex.def)             Requested size: 249.55872pt x 413.59377pt.
- [67 <./00_Images/Bits.png>] [68 <./00_Images/TT.png>]) [69] (./00_Lectures/10_SelectionSort_BinarySearchTrees.tex
-<00_Images/BST.png, id=1822, 208.78pt x 86.3225pt>
+ [68 <./00_Images/Bits.png>] [69 <./00_Images/TT.png>]) [70] (./00_Lectures/10_SelectionSort_BinarySearchTrees.tex
+<00_Images/BST.png, id=1893, 208.78pt x 86.3225pt>
 File: 00_Images/BST.png Graphic file (type png)
 <use 00_Images/BST.png>
 Package pdftex.def Info: 00_Images/BST.png  used on input line 10.
 (pdftex.def)             Requested size: 249.55872pt x 103.18866pt.
-<00_Images/EX.png, id=1823, 201.75375pt x 85.31876pt>
+<00_Images/EX.png, id=1894, 201.75375pt x 85.31876pt>
 File: 00_Images/EX.png Graphic file (type png)
 <use 00_Images/EX.png>
 Package pdftex.def Info: 00_Images/EX.png  used on input line 13.
 (pdftex.def)             Requested size: 249.55872pt x 105.53636pt.
- [70 <./00_Images/BST.png> <./00_Images/EX.png>]
-<00_Images/SBST_USBST.png, id=1837, 913.4125pt x 384.43625pt>
+ [71 <./00_Images/BST.png> <./00_Images/EX.png>]
+<00_Images/SBST_USBST.png, id=1908, 913.4125pt x 384.43625pt>
 File: 00_Images/SBST_USBST.png Graphic file (type png)
 <use 00_Images/SBST_USBST.png>
 Package pdftex.def Info: 00_Images/SBST_USBST.png  used on input line 68.
 (pdftex.def)             Requested size: 249.55872pt x 105.03104pt.
- [71 <./00_Images/SBST_USBST.png>]
-<00_Images/D.png, id=1860, 434.62375pt x 481.8pt>
+ [72 <./00_Images/SBST_USBST.png>]
+<00_Images/D.png, id=1932, 434.62375pt x 481.8pt>
 File: 00_Images/D.png Graphic file (type png)
 <use 00_Images/D.png>
-Package pdftex.def Info: 00_Images/D.png  used on input line 176.
+Package pdftex.def Info: 00_Images/D.png  used on input line 180.
 (pdftex.def)             Requested size: 249.55872pt x 276.65056pt.
- [72]
-<00_Images/TT1.png, id=1882, 452.69125pt x 269.005pt>
+ [73]
+<00_Images/TT1.png, id=1949, 452.69125pt x 269.005pt>
 File: 00_Images/TT1.png Graphic file (type png)
 <use 00_Images/TT1.png>
 Package pdftex.def Info: 00_Images/TT1.png  used on input line 196.
 (pdftex.def)             Requested size: 249.55872pt x 148.29388pt.
- [73 <./00_Images/D.png>]) [74 <./00_Images/TT1.png>] (./00_Lectures/11_Red_Black_Trees.tex
-<00_Images/RBT.png, id=1895, 249.93375pt x 106.3975pt>
+ [74 <./00_Images/D.png>]) [75 <./00_Images/TT1.png>] (./00_Lectures/11_Red_Black_Trees.tex
+<00_Images/RBT.png, id=1966, 249.93375pt x 106.3975pt>
 File: 00_Images/RBT.png Graphic file (type png)
 <use 00_Images/RBT.png>
-Package pdftex.def Info: 00_Images/RBT.png  used on input line 15.
+Package pdftex.def Info: 00_Images/RBT.png  used on input line 18.
 (pdftex.def)             Requested size: 249.55872pt x 106.24136pt.
- [75 <./00_Images/RBT.png>]) [76] (./00_Lectures/12_HashTables_Hashing.tex) [77] (./00_Lectures/13_Dynamic_Programming.tex) [78] (./00_Lectures/14_Greedy_Algorithms.tex) [79] (./00_Lectures/15_Amortized_Analysis.tex) [80] (./00_Lectures/16_Splay_Trees.tex) [81] (./00_Lectures/17_Graph_Algorithms.tex) [82] (./00_Lectures/18_Minimum_Spanning_Trees.tex) [83] (./00_Lectures/19_Shortest_Paths.tex) [84] (./00_Lectures/20_Maximum_Flow.tex) [85] (./00_Lectures/21_History_of_Computation.tex) [86] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [87] (./00_Lectures/23_NPC.tex) [88] (./ECE358_Cheatsheet.aux)
- ***********
-LaTeX2e <2023-11-01> patch level 1
-L3 programming layer <2024-02-20>
- ***********
-Package rerunfilecheck Info: File `ECE358_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: 4ED9213C4DA17D6B99D17C9EFB11A081;29225.
- ) 
-Here is how much of TeX's memory you used:
- 52616 strings out of 474116
- 1216214 string characters out of 5743682
- 2233187 words of memory out of 5000000
- 73176 multiletter control sequences out of 15000+600000
- 631808 words of font info for 109 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 99i,14n,107p,812b,1675s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ECE358_Cheatsheet.pdf (88 pages, 11190914 bytes).
-PDF statistics:
- 2259 PDF objects out of 2487 (max. 8388607)
- 2045 compressed objects within 21 object streams
- 865 named destinations out of 1000 (max. 500000)
- 1519 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+<00_Images/IS.png, id=1967, 326.21875pt x 75.28125pt>
+File: 00_Images/IS.png Graphic file (type png)
+<use 00_Images/IS.png>
+Package pdftex.def Info: 00_Images/IS.png  used on input line 71.
+(pdftex.def)             Requested size: 249.55872pt x 57.59225pt.
+ [76 <./00_Images/RBT.png>] [77 <./00_Images/IS.png>]
+<00_Images/C1.png, id=1985, 812.03375pt x 132.495pt>
+File: 00_Images/C1.png Graphic file (type png)
+<use 00_Images/C1.png>
+Package pdftex.def Info: 00_Images/C1.png  used on input line 217.
+(pdftex.def)             Requested size: 374.33807pt x 61.07782pt.
+<00_Images/C2.png, id=1986, 750.805pt x 127.47626pt>
+File: 00_Images/C2.png Graphic file (type png)
+<use 00_Images/C2.png>
+Package pdftex.def Info: 00_Images/C2.png  used on input line 220.
+(pdftex.def)             Requested size: 374.33807pt x 63.559pt.
+<00_Images/C3.png, id=1987, 870.25125pt x 430.60875pt>
+File: 00_Images/C3.png Graphic file (type png)
+<use 00_Images/C3.png>
+Package pdftex.def Info: 00_Images/C3.png  used on input line 223.
+(pdftex.def)             Requested size: 374.33807pt x 185.23042pt.
+ [78]) [79 <./00_Images/C1.png> <./00_Images/C2.png> <./00_Images/C3.png>] (./00_Lectures/12_HashTables_Hashing.tex
+<00_Images/HTM.png, id=2000, 549.05125pt x 116.435pt>
+File: 00_Images/HTM.png Graphic file (type png)
+<use 00_Images/HTM.png>
+Package pdftex.def Info: 00_Images/HTM.png  used on input line 23.
+(pdftex.def)             Requested size: 374.33807pt x 79.38617pt.
+<00_Images/C.png, id=2001, 306.14375pt x 112.42pt>
+File: 00_Images/C.png Graphic file (type png)
+<use 00_Images/C.png>
+Package pdftex.def Info: 00_Images/C.png  used on input line 54.
+(pdftex.def)             Requested size: 374.33807pt x 137.46954pt.
+ [80 <./00_Images/HTM.png>] [81 <./00_Images/C.png>] [82]
+<00_Images/Cl.png, id=2020, 390.45876pt x 211.79124pt>
+File: 00_Images/Cl.png Graphic fi
