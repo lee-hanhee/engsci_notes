@@ -77,38 +77,45 @@
 \contentsline {subsubsection}{\numberline {4.3.1}Numerical examples interpretation (i.e. distinguish between better hyperplanes)}{37}{subsubsection.4.3.1}%
 \contentsline {subsubsection}{\numberline {4.3.2}Maximum likelihood interpretation}{38}{subsubsection.4.3.2}%
 \contentsline {subsubsection}{\numberline {4.3.3}Cross-entropy interpretation}{39}{subsubsection.4.3.3}%
-\contentsline {section}{\numberline {5}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{40}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Problem setup for gradient descent}{40}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Optimization primer}{40}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Gradient:}{40}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Gradient and optimality:}{41}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Convex functions:}{41}{subsubsection.5.2.3}%
-\contentsline {subsubsection}{\numberline {5.2.4}Chain rule}{42}{subsubsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.3}Simple algorithm to find min f(x) for 1D}{43}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Simple algorithm to find min f(x) for ND space}{44}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}2D space}{44}{subsubsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.5}Gradient descent algorithm}{45}{subsection.5.5}%
-\contentsline {subsection}{\numberline {5.6}Gradient descent performance}{46}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Using Gradient Descent for Logistic Regression}{46}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}Stochastic Gradient Descent (SGD)}{47}{subsection.5.8}%
-\contentsline {subsubsection}{\numberline {5.8.1}gt of SGD is an unbiased estimate of gradient of error}{47}{subsubsection.5.8.1}%
-\contentsline {subsubsection}{\numberline {5.8.2}Full GD complexity vs. SGD complexity}{47}{subsubsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.3}Mini-batch GD is full-batch GD combined with SGD}{48}{subsubsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.9}PLA is an Extremer Version of Logistic Regression with SGD}{48}{subsection.5.9}%
-\contentsline {subsection}{\numberline {5.10}Multiclass Logistic Regression}{49}{subsection.5.10}%
-\contentsline {subsection}{\numberline {5.11}SGD update}{49}{subsection.5.11}%
-\contentsline {subsection}{\numberline {5.12}Computing gradient of error}{50}{subsection.5.12}%
-\contentsline {subsection}{\numberline {5.13}Softmax Logistic Regression for Binary Classification}{50}{subsection.5.13}%
-\contentsline {subsection}{\numberline {5.14}Can we use GD/SGD for Linear Regression? Yes, you can}{51}{subsection.5.14}%
-\contentsline {subsection}{\numberline {5.15}Non-convex functions}{51}{subsection.5.15}%
-\contentsline {subsubsection}{\numberline {5.15.1}Saddle points}{52}{subsubsection.5.15.1}%
-\contentsline {subsection}{\numberline {5.16}SGD with Momentum (heavy ball momentum)}{52}{subsection.5.16}%
-\contentsline {subsubsection}{\numberline {5.16.1}How does momentum help?}{54}{subsubsection.5.16.1}%
-\contentsline {subsubsection}{\numberline {5.16.2}Nestrov Momentum}{55}{subsubsection.5.16.2}%
-\contentsline {section}{\numberline {6}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{56}{section.6}%
-\contentsline {section}{\numberline {7}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{57}{section.7}%
-\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{58}{section.8}%
-\contentsline {section}{\numberline {9}EM (LFD: 6.4)}{59}{section.9}%
-\contentsline {section}{\numberline {10}Markov Decision Process (AIMA: 16)}{60}{section.10}%
-\contentsline {section}{\numberline {11}Reinforcement Learning (AIMA: 23.1-23.4)}{61}{section.11}%
-\contentsline {section}{\numberline {12}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{62}{section.12}%
+\contentsline {section}{\numberline {5}Worksheet 2}{40}{section.5}%
+\contentsline {section}{\numberline {6}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{41}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Problem setup for gradient descent}{41}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Optimization primer}{41}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Gradient:}{41}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Gradient and optimality:}{42}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Convex functions:}{42}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Chain rule}{43}{subsubsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.3}Simple algorithm to find min f(x) for 1D}{44}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Simple algorithm to find min f(x) for ND space}{45}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}2D space}{45}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Gradient descent algorithm}{46}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Gradient descent performance}{47}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Using Gradient Descent for Logistic Regression}{47}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Stochastic Gradient Descent (SGD)}{48}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}gt of SGD is an unbiased estimate of gradient of error}{48}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Full GD complexity vs. SGD complexity}{48}{subsubsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}Mini-batch GD is full-batch GD combined with SGD}{49}{subsubsection.6.8.3}%
+\contentsline {subsection}{\numberline {6.9}PLA is an Extremer Version of Logistic Regression with SGD}{49}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Multiclass Logistic Regression}{50}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11}SGD update}{50}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.12}Computing gradient of error}{51}{subsection.6.12}%
+\contentsline {subsection}{\numberline {6.13}Softmax Logistic Regression for Binary Classification}{51}{subsection.6.13}%
+\contentsline {subsection}{\numberline {6.14}Can we use GD/SGD for Linear Regression? Yes, you can}{52}{subsection.6.14}%
+\contentsline {subsection}{\numberline {6.15}Non-convex functions}{52}{subsection.6.15}%
+\contentsline {subsubsection}{\numberline {6.15.1}Saddle points}{53}{subsubsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.16}SGD with Momentum (heavy ball momentum)}{53}{subsection.6.16}%
+\contentsline {subsubsection}{\numberline {6.16.1}How does momentum help?}{55}{subsubsection.6.16.1}%
+\contentsline {subsubsection}{\numberline {6.16.2}Nestrov Momentum}{56}{subsubsection.6.16.2}%
+\contentsline {section}{\numberline {7}Worksheet 3}{57}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Steps to Calculate the Characteristic Polynomial of a Matrix}{57}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Steps to Calculate the Eigenvectors of a Matrix}{57}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Gaussian Elimination with Matrix Visualization}{57}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Eigenvalue Decomposition of a Matrix}{58}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Singular Value Decomposition (SVD)}{59}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{61}{section.8}%
+\contentsline {section}{\numberline {9}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{62}{section.9}%
+\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{63}{section.10}%
+\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{64}{section.11}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{65}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{66}{section.13}%
+\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{67}{section.14}%

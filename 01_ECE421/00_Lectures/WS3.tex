@@ -1,0 +1,337 @@
+\subsection{Steps to Calculate the Characteristic Polynomial of a Matrix}
+\begin{process}
+    Given a square matrix \( A \), the characteristic polynomial can be calculated by following these steps:
+
+\begin{enumerate}
+    \item \textbf{Start with the matrix \( A \):}
+    \[
+    A = \begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{bmatrix}
+    \]
+
+    \item \textbf{Form the matrix \( A - \lambda I \), where \( I \) is the identity matrix and \( \lambda \) is a scalar:}
+    \[
+    A - \lambda I = \begin{bmatrix}
+    a_{11} - \lambda & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} - \lambda & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn} - \lambda
+    \end{bmatrix}
+    \]
+
+    \item \textbf{Calculate the determinant of \( A - \lambda I \):}
+    \[
+    \text{det}(A - \lambda I)
+    \]
+    This determinant is a polynomial in \( \lambda \) and is known as the characteristic polynomial of the matrix \( A \).
+
+    \item \textbf{Simplify the determinant to obtain the characteristic polynomial.}
+    The characteristic polynomial will be of the form:
+    \[
+    p(\lambda) = \text{det}(A - \lambda I)
+    \]
+    It is typically a polynomial of degree \( n \) for an \( n \times n \) matrix.
+
+\end{enumerate}
+\end{process}
+
+\subsection{Steps to Calculate the Eigenvectors of a Matrix}
+\begin{process}
+    Given a square matrix \( A \), you can calculate its eigenvectors by following these steps:
+
+    \begin{enumerate}
+        \item \textbf{Find the eigenvalues of the matrix \( A \):}
+        \begin{enumerate}
+            \item Compute the characteristic polynomial \( p(\lambda) = \det(A - \lambda I) \), where \( I \) is the identity matrix and \( \lambda \) is a scalar.
+            \item Solve the equation \( p(\lambda) = 0 \) to find the eigenvalues \( \lambda_1, \lambda_2, \dots, \lambda_n \).
+        \end{enumerate}
+    
+        \item \textbf{For each eigenvalue \( \lambda \), solve the equation \( (A - \lambda I) \mathbf{v} = 0 \) to find the eigenvectors \( \mathbf{v} \):}
+        \begin{enumerate}
+            \item Substitute each eigenvalue \( \lambda \) into the equation \( (A - \lambda I) \mathbf{v} = 0 \), where \( \mathbf{v} \) is the eigenvector and \( 0 \) is the zero vector.
+            \item Rewrite this equation as a system of linear equations.
+        \end{enumerate}
+    
+        \item \textbf{Solve the system of linear equations to find the eigenvectors:}
+        \begin{enumerate}
+            \item Set up the augmented matrix for the system \( (A - \lambda I) \mathbf{v} = 0 \).
+            \item Use Gaussian elimination or row reduction to find the non-trivial solutions of the system.
+            \item The non-zero solutions to this system are the eigenvectors corresponding to eigenvalue \( \lambda \).
+        \end{enumerate}
+        
+        \item \textbf{Normalize the eigenvectors (optional):}
+        \begin{enumerate}
+            \item Eigenvectors can be scaled by any non-zero constant. It is common to normalize them by dividing each eigenvector by its magnitude to obtain unit eigenvectors.
+        \end{enumerate}
+    
+    \end{enumerate}
+\end{process}
+
+\subsection{Gaussian Elimination with Matrix Visualization}
+\begin{process}
+    To solve a system of linear equations using Gaussian elimination, we can follow these steps with matrix visualizations to support the understanding:
+
+    \begin{enumerate}
+        \item \textbf{Write the augmented matrix:}
+        \[
+        \begin{bmatrix}
+        a_{11} & a_{12} & \cdots & a_{1n} & | & b_1 \\
+        a_{21} & a_{22} & \cdots & a_{2n} & | & b_2 \\
+        \vdots & \vdots & \ddots & \vdots & | & \vdots \\
+        a_{m1} & a_{m2} & \cdots & a_{mn} & | & b_m
+        \end{bmatrix}
+        \]
+        This matrix represents the system of equations \( A\mathbf{x} = \mathbf{b} \), where \( A \) is the matrix of coefficients, \( \mathbf{x} \) is the vector of variables, and \( \mathbf{b} \) is the constant vector.
+    
+        \item \textbf{Perform forward elimination to get the matrix in row echelon form:}
+        \begin{enumerate}
+            \item \textbf{Pivoting:} Ensure that the pivot element (leading entry in each row) is non-zero. If necessary, swap rows to place a non-zero entry in the pivot position. For example:
+            \[
+            \text{Before row swap:} \quad \begin{bmatrix}
+            0 & 2 & -1 & | & 5 \\
+            1 & 3 & 2 & | & 9 \\
+            \end{bmatrix}
+            \quad \Rightarrow \quad \text{After row swap:} \quad \begin{bmatrix}
+            1 & 3 & 2 & | & 9 \\
+            0 & 2 & -1 & | & 5 \\
+            \end{bmatrix}
+            \]
+            
+            \item \textbf{Elimination:} Use the pivot to eliminate the entries below the pivot in the same column by subtracting appropriate multiples of the pivot row from the rows below:
+            \[
+            \text{Example:} \quad \begin{bmatrix}
+            1 & 2 & -1 & | & 8 \\
+            3 & 6 & 2 & | & 18 \\
+            \end{bmatrix}
+            \quad \Rightarrow \quad \begin{bmatrix}
+            1 & 2 & -1 & | & 8 \\
+            0 & 0 & 5 & | & -6 \\
+            \end{bmatrix}
+            \]
+            In this case, the second row is replaced by \( \text{Row 2} - 3 \times \text{Row 1} \).
+        \end{enumerate}
+    
+        \item \textbf{Continue forward elimination for all rows:} After performing elimination for each column, the resulting matrix should be in upper triangular form (row echelon form):
+        \[
+        \text{Row echelon form:} \quad \begin{bmatrix}
+        1 & a_{12}' & a_{13}' & | & b_1' \\
+        0 & 1 & a_{23}' & | & b_2' \\
+        0 & 0 & a_{33}' & | & b_3'
+        \end{bmatrix}
+        \]
+    
+        \item \textbf{Perform backward substitution to solve the system:}
+        \begin{enumerate}
+            \item Start with the last row and solve for the corresponding variable. For example, if the last row is:
+            \[
+            0 \cdot x_1 + 0 \cdot x_2 + a_{33}' x_3 = b_3'
+            \]
+            solve for \( x_3 = \frac{b_3'}{a_{33}'} \).
+            
+            \item Substitute \( x_3 \) into the second row to solve for \( x_2 \), and continue until all variables are found.
+            \[
+            \text{Second row:} \quad 0 \cdot x_1 + 1 \cdot x_2 + a_{23}' x_3 = b_2'
+            \]
+        \end{enumerate}
+    
+        \item \textbf{Check for special cases:}
+        \begin{enumerate}
+            \item \textbf{No solution:} If a row in the matrix looks like:
+            \[
+            \begin{bmatrix}
+            0 & 0 & 0 & | & c
+            \end{bmatrix}
+            \quad \text{where} \quad c \neq 0,
+            \]
+            then the system has no solutions (inconsistent system).
+            
+            \item \textbf{Infinite solutions:} If a row in the matrix contains all zeros:
+            \[
+            \begin{bmatrix}
+            0 & 0 & 0 & | & 0
+            \end{bmatrix}
+            \]
+            then the system may have infinitely many solutions, and you need to parametrize the free variables.
+        \end{enumerate}
+    \end{enumerate}
+    
+    
+\end{process}
+
+\subsection{Eigenvalue Decomposition of a Matrix}
+\begin{process}
+
+    Eigenvalue decomposition is a factorization of a matrix \( A \in \mathbb{R}^{n \times n} \) into the form:
+    \[
+    A = Q \Lambda Q^{-1}
+    \]
+    where:
+    \begin{itemize}
+        \item \( Q \) is a square matrix whose columns are the eigenvectors of \( A \),
+        \item \( \Lambda \) is a diagonal matrix whose diagonal entries are the eigenvalues of \( A \),
+        \item \( Q^{-1} \) is the inverse of the matrix \( Q \).
+    \end{itemize}
+    
+    For the matrix:
+    \[
+    A = \begin{bmatrix}
+    4 & 0 & -2 \\
+    1 & 3 & -2 \\
+    1 & 2 & -1
+    \end{bmatrix}
+    \]
+    we will compute the characteristic polynomial, find its eigenvalues and eigenvectors, and then perform the eigendecomposition.
+    
+    \begin{enumerate}
+        \item \textbf{Compute the characteristic polynomial:}
+        
+        The characteristic polynomial of a matrix \( A \) is given by:
+        \[
+        p(\lambda) = \det(A - \lambda I)
+        \]
+        where \( I \) is the identity matrix, and \( \lambda \) is a scalar representing the eigenvalues. For matrix \( A \):
+        \[
+        A - \lambda I = \begin{bmatrix}
+        4 - \lambda & 0 & -2 \\
+        1 & 3 - \lambda & -2 \\
+        1 & 2 & -1 - \lambda
+        \end{bmatrix}
+        \]
+        The determinant of this matrix gives the characteristic polynomial:
+        \[
+        p(\lambda) = -\lambda^3 + 7\lambda^2 - 17\lambda + 14
+        \]
+    
+        \item \textbf{Find the eigenvalues:}
+        
+        To find the eigenvalues, solve the characteristic equation:
+        \[
+        p(\lambda) = 0 \quad \Rightarrow \quad -\lambda^3 + 7\lambda^2 - 17\lambda + 14 = 0
+        \]
+        The solutions to this equation are the eigenvalues of \( A \).
+    
+        \item \textbf{Find the eigenvectors:}
+        
+        For each eigenvalue \( \lambda_i \), solve the equation:
+        \[
+        (A - \lambda_i I) \mathbf{v}_i = 0
+        \]
+        where \( \mathbf{v}_i \) is the eigenvector corresponding to \( \lambda_i \). This results in a system of linear equations, which can be solved using Gaussian elimination.
+    
+        \item \textbf{Eigenvalue decomposition:}
+        
+        Once the eigenvalues and eigenvectors have been found:
+        \begin{itemize}
+            \item Form the matrix \( Q \) using the eigenvectors of \( A \) as columns.
+            \item Form the diagonal matrix \( \Lambda \) using the eigenvalues of \( A \) along the diagonal.
+            \item Verify that \( A = Q \Lambda Q^{-1} \), confirming the eigendecomposition.
+        \end{itemize}
+    
+    \end{enumerate}
+\end{process}
+
+\subsection{Singular Value Decomposition (SVD)}
+\begin{process}
+    Singular Value Decomposition (SVD) is a matrix factorization technique that generalizes the concepts from the eigendecomposition to general matrices. For a matrix \( A \in \mathbb{R}^{m \times n} \), the SVD is given by:
+    \[
+    A = U \Sigma V^\top
+    \]
+    where:
+    \begin{itemize}
+        \item \( U \in \mathbb{R}^{m \times m} \) is an orthogonal matrix containing the left singular vectors of \( A \),
+        \item \( \Sigma \in \mathbb{R}^{m \times n} \) is a diagonal matrix containing the singular values \( \sigma_1, \sigma_2, \dots, \sigma_r \) of \( A \),
+        \item \( V \in \mathbb{R}^{n \times n} \) is an orthogonal matrix containing the right singular vectors of \( A \),
+        \item \( V^\top \) is the transpose of matrix \( V \).
+    \end{itemize}
+
+    For the matrix:
+    \[
+    A = \begin{bmatrix}
+    3 & 2 & 2 \\
+    2 & 3 & -2
+    \end{bmatrix}
+    \]
+    we will follow these steps to compute the singular value decomposition of \( A \).
+
+    \begin{enumerate}
+        \item \textbf{Compute \( A^\top A \), yielding a square symmetric matrix:}
+        
+        The matrix \( A^\top A \) is obtained by multiplying the transpose of \( A \) with \( A \) itself. For the given matrix \( A \):
+        \[
+        A^\top A = \begin{bmatrix}
+        3 & 2 & 2 \\
+        2 & 3 & -2
+        \end{bmatrix}^\top
+        \begin{bmatrix}
+        3 & 2 & 2 \\
+        2 & 3 & -2
+        \end{bmatrix}
+        \]
+
+        \item \textbf{Find the eigenvalues for \( A^\top A \):}
+        
+        The eigenvalues \( \lambda_1, \lambda_2, \dots, \lambda_n \) of the matrix \( A^\top A \) are the squares of the singular values of \( A \), i.e. \( \lambda_i = \sigma_i^2 \), where \( \sigma_i \) are the singular values of \( A \).
+
+        \item \textbf{Find the eigenvectors for \( A^\top A \):}
+        
+        The eigenvectors \( v_1, v_2, \dots, v_n \) of \( A^\top A \) are the right singular vectors of \( A \), and they form the columns of the matrix \( V \).
+
+        \item \textbf{Normalize the eigenvectors of \( A^\top A \) to get \( V \):}
+        
+        Normalize the eigenvectors \( v_1, v_2, \dots, v_n \) to form an orthonormal set of vectors. These normalized eigenvectors form the matrix \( V \), which contains the right singular vectors of \( A \).
+
+        \item \textbf{Find \( U \) using the normalized eigenvectors of \( V \):}
+        
+        Once the matrix \( V \) is determined, the left singular vectors \( u_1, u_2, \dots, u_m \) (which form the columns of the matrix \( U \)) can be computed using the formula:
+        \[
+        u_i = \frac{1}{\sigma_i} A v_i
+        \]
+        where \( \sigma_i \) is the singular value corresponding to the right singular vector \( v_i \).
+
+        Finally, the matrix \( \Sigma \) is constructed as a diagonal matrix with the singular values \( \sigma_1, \sigma_2, \dots, \sigma_r \) on the diagonal, where \( r \) is the rank of \( A \).
+        
+    \end{enumerate}
+
+    Thus, the singular value decomposition of \( A \) is:
+    \[
+    A = U \Sigma V^\top
+    \]
+    where \( U \) contains the left singular vectors, \( \Sigma \) contains the singular values, and \( V \) contains the right singular vectors.
+\end{process}
+
+\begin{warning}
+    In Singular Value Decomposition (SVD), the ordering of singular values and their corresponding singular vectors follows a specific pattern. The singular values in the diagonal matrix \( \Sigma \) are arranged in descending order, with the largest singular value appearing first. The ordering rules are as follows:
+
+    \begin{enumerate}
+        \item \textbf{Singular Values (in \( \Sigma \)):}
+        \begin{itemize}
+            \item The diagonal elements of the matrix \( \Sigma \), which represent the singular values \( \sigma_1, \sigma_2, \dots, \sigma_r \), must be ordered such that:
+            \[
+            \sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r \geq 0
+            \]
+            \item These singular values are non-negative and decrease as you move down the diagonal of \( \Sigma \).
+        \end{itemize}
+
+        \item \textbf{Left Singular Vectors (in \( U \)):}
+        \begin{itemize}
+            \item The columns of \( U \), denoted as \( u_1, u_2, \dots, u_m \), are the left singular vectors of \( A \).
+            \item Each singular vector \( u_i \) corresponds to the singular value \( \sigma_i \) in the \( i \)-th column of \( U \).
+        \end{itemize}
+
+        \item \textbf{Right Singular Vectors (in \( V \)):}
+        \begin{itemize}
+            \item The columns of \( V \), denoted as \( v_1, v_2, \dots, v_n \), are the right singular vectors of \( A \).
+            \item Each singular vector \( v_i \) corresponds to the singular value \( \sigma_i \) in the \( i \)-th column of \( V \).
+        \end{itemize}
+
+        \item \textbf{Key Points on the Ordering:}
+        \begin{itemize}
+            \item \textbf{Largest Singular Value First:} The singular values \( \sigma_1, \sigma_2, \dots, \sigma_r \) are sorted in descending order in \( \Sigma \), with \( \sigma_1 \) being the largest and \( \sigma_r \) the smallest.
+            \item \textbf{Consistency Across Matrices:} The left singular vector \( u_i \) (from \( U \)) and the right singular vector \( v_i \) (from \( V \)) correspond to the same singular value \( \sigma_i \) in \( \Sigma \).
+        \end{itemize}
+    \end{enumerate}
+\end{warning}

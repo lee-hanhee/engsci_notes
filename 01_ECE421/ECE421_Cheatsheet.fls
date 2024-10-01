@@ -747,6 +747,9 @@ INPUT ./00_Images/BOLC.png
 INPUT ./00_Images/BOLC.png
 INPUT ./00_Images/BOLC.png
 INPUT ./00_Images/BOLC.png
+INPUT ./00_Lectures/WS2.tex
+INPUT ./00_Lectures/WS2.tex
+INPUT 00_Lectures/WS2.tex
 INPUT ./00_Lectures/W4.tex
 INPUT ./00_Lectures/W4.tex
 INPUT 00_Lectures/W4.tex
@@ -839,6 +842,9 @@ INPUT ./00_Images/EP1.png
 INPUT ./00_Images/EP1.png
 INPUT ./00_Images/EP1.png
 INPUT ./00_Images/EP1.png
+INPUT ./00_Lectures/WS3.tex
+INPUT ./00_Lectures/WS3.tex
+INPUT 00_Lectures/WS3.tex
 INPUT ./00_Lectures/W5.tex
 INPUT ./00_Lectures/W5.tex
 INPUT 00_Lectures/W5.tex

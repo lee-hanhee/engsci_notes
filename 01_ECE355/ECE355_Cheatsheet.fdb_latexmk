@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1727484213.76055 "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" "ECE355_Cheatsheet.pdf" "ECE355_Cheatsheet" 1727484227.56536 0
-  "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" 1727226727.90715 2905 116875701224001d3616414092c1c87b ""
+["pdflatex"] 1727541935.48609 "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" "ECE355_Cheatsheet.pdf" "ECE355_Cheatsheet" 1727541952.25779 0
+  "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" 1727541934.6135 2905 116875701224001d3616414092c1c87b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -419,12 +419,12 @@
   "00_Images/Truth_Table.png" 1725883338.80752 8653 648fe843c2c9829aa1282e7094f8e1ca ""
   "00_Images/US_CT.png" 1726685912.36477 21794 9f93b3c26e5ce897daa582b6c949571a ""
   "00_Images/Zero.png" 1726012571.72557 50723 46042b5a70b96a9fa8286589b2dc5cf9 ""
-  "ECE355_Cheatsheet.aux" 1727484227.01742 32266 5a8746bb7e74c3cd445a580eb368b1d1 "pdflatex"
-  "ECE355_Cheatsheet.lof" 1727484227.0283 9717 bfb2be95ba62ba2bee47b821974aa64d "pdflatex"
-  "ECE355_Cheatsheet.lot" 1727484227.02858 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE355_Cheatsheet.out" 1727484227.02702 25370 1f564f422ce6ac54d8eb41ddaaf1147d "pdflatex"
-  "ECE355_Cheatsheet.tex" 1727226727.90715 2905 116875701224001d3616414092c1c87b ""
-  "ECE355_Cheatsheet.toc" 1727484227.02804 13061 77b33a59e6eb3994d8aa0bf248e671d6 "pdflatex"
+  "ECE355_Cheatsheet.aux" 1727541951.69844 32266 5a8746bb7e74c3cd445a580eb368b1d1 "pdflatex"
+  "ECE355_Cheatsheet.lof" 1727541951.7082 9717 bfb2be95ba62ba2bee47b821974aa64d "pdflatex"
+  "ECE355_Cheatsheet.lot" 1727541951.70839 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE355_Cheatsheet.out" 1727541951.70722 25370 1f564f422ce6ac54d8eb41ddaaf1147d "pdflatex"
+  "ECE355_Cheatsheet.tex" 1727541934.6135 2905 116875701224001d3616414092c1c87b ""
+  "ECE355_Cheatsheet.toc" 1727541951.70801 13061 77b33a59e6eb3994d8aa0bf248e671d6 "pdflatex"
   "Lectures/00_Math.tex" 1726539828.50423 25145 3bc7486c87e2adc0f4601cc41c929c36 ""
   "Lectures/01_Continuous_and_discrete_time_signals.tex" 1726404755.29735 11194 57f5b8de4f11a1397ccfda2b6073906a ""
   "Lectures/02_Time_dilation_shifting.tex" 1726540098.71609 7428 75543e500bae0f49fd5af89729b2cce3 ""

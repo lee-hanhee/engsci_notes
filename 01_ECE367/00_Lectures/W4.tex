@@ -36,12 +36,12 @@
                 (a^{(n)})^\top
                 \end{bmatrix}
                 \begin{bmatrix}
-                b^{(1)} & \cdots & b^{(r)}
+                b^{(1)} & \cdots & b^{(n)}
                 \end{bmatrix}
                 = \begin{bmatrix}
-                (a^{(1)})^\top b^{(1)} & \cdots & (a^{(1)})^\top b^{(r)} \\
+                (a^{(1)})^\top b^{(1)} & \cdots & (a^{(1)})^\top b^{(n)} \\
                 \vdots & \ddots & \vdots \\
-                (a^{(n)})^\top b^{(1)} & \cdots & (a^{(n)})^\top b^{(r)}
+                (a^{(n)})^\top b^{(1)} & \cdots & (a^{(n)})^\top b^{(n)}
                 \end{bmatrix}
         \end{equation}
 
@@ -104,7 +104,212 @@
         y = A x + b
         \]
     \end{definition}
-\subsection{Range}
+
+\subsection{Range Space}
+    \begin{definition}
+        \begin{align}
+            \mathcal{R}(A) &= \{Ax \mid x \in \mathbb{R}^n\} \subseteq \mathbb{R}^m \\
+            &= \left\{ \sum_{i=1}^{n} x_i a^{(i)} \mid x \in \mathbb{R}^n \right\} \\ 
+            &= \text{span} \{a^{(1)}, a^{(2)}, \dots, a^{(n)}\}
+        \end{align}
+        \begin{itemize}
+            \item $\mathcal{R}(A) \text{ is a subspace (closed under addition and scalar multiplication).}$
+        \end{itemize}
+
+        \customFigure[0.25]{00_Images/RS.png}{Range space.}
+    \end{definition}
+
 \subsection{Null Space}
+    \begin{definition} 
+    Set of all vectors that map to zero.
+
+    \begin{equation}
+        \mathcal{N}(A) = \{x \in \mathbb{R}^n \mid Ax = 0\} \subseteq \mathbb{R}^n
+    \end{equation}
+
+    \begin{itemize}
+        \item $\mathcal{N}(A) \text{ is also a subspace (closed under addition and scalar multiplication).}$
+    \end{itemize}
+    \end{definition}
+
+\subsection{Fundamental theorem of algebra}
+\begin{definition}
+    $\text{For any matrix } A \in \mathbb{R}^{m \times n}$, the subspaces are orthogonal to each other (i.e. orthogonal complement)
+    \begin{equation}
+        \mathcal{R}(A) \perp \mathcal{N}(A^T)
+    \end{equation}
+
+    \begin{equation}
+    \mathcal{R}(A^T) \perp \mathcal{N}(A)
+    \end{equation}
+
+    Furthermore, the direct sum of the two subspaces (i.e. if you take one vector from one subspace, and another vector from the other subspace, the sum of these vectors would be in $\mathbb{R}^n$ or $\mathbb{R}^m$)
+
+    \begin{equation}
+    \mathcal{R}(A) \oplus \mathcal{N}(A^T) = \mathbb{R}^m
+    \end{equation}
+    \begin{itemize}
+        \item $\dim(\mathcal{R}(A)) + \dim(\mathcal{N}(A^T)) = m$
+        \begin{itemize}
+            \item Rank of $A$: $\dim(\mathcal{R}(A))$
+        \end{itemize}
+    \end{itemize}
+
+    \begin{equation}
+    \mathcal{R}(A^T) \oplus \mathcal{N}(A) = \mathbb{R}^n
+    \end{equation}
+    \begin{itemize}
+        \item $\dim(\mathcal{R}(A^T)) + \dim(\mathcal{N}(A)) = n$
+        \begin{itemize}
+            \item Rank of $A$: $\dim(\mathcal{R}(A^T))$
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Why Does This Hold?} Recall the definition of orthogonal complement:
+
+    \begin{itemize}
+        \item $\forall x \in S, \, y \in S^\perp$, we have that $\langle x, y \rangle = 0$
+        \item $x \in V$ can be decomposed as $x = x^* + v$, where $x^* \in S$ and $v \in S^\perp$
+    \end{itemize}
+
+    Therefore, 
+    \begin{equation*}
+        \dim V = \dim S + \dim S^\perp
+    \end{equation*}
+    \customFigure[0.5]{00_Images/OC.png}{Orthogonal complement.}
+    \vspace{1em}
+
+    Now using this definition of orthogonal complement, let's apply it to the range space and null space of A:
+    Consider 
+    \begin{equation*}
+        \mathcal{R}(A) = \left\{ y \mid y = \sum_{i=1}^{n} \alpha_i a^{(i)} \right\}
+    \end{equation*}
+
+    \begin{equation*}
+        \mathcal{N}(A^\top) = \left\{ x \mid \left(a^{(i)}\right)^\top x = 0, \ i = 1, \ldots, n \right\}
+    \end{equation*}
+
+    \[
+    A^\top = \begin{bmatrix}
+    (a^{(1)})^\top \\
+    \vdots \\
+    (a^{(n)})^\top
+    \end{bmatrix}
+    \]
+
+    Consider $y \in \mathcal{R}(A)$ so $y = \sum_{i=1}^{n} \alpha_i a^{(i)}$, and $x \in \mathcal{N}(A^\top)$,
+
+    \[
+    \langle y, x \rangle = \left\langle \sum_{i=1}^{n} \alpha_i a^{(i)}, x \right\rangle = \sum_{i=1}^{n} \alpha_i \langle a^{(i)}, x \rangle
+    \]
+
+    Since $x \in \mathcal{N}(A^\top)$, this implies that $\langle a^{(i)}, x \rangle = 0$, so:
+
+    \[
+    \langle y, x \rangle = 0
+    \]
+
+    Thus, any $y \in \mathcal{R}(A)$ is orthogonal to any $x \in \mathcal{N}(A^\top)$.
+    \vspace{1em}
+
+    Therefore, $\mathcal{R}(A) \oplus \mathcal{N}(A^\top) = \mathbb{R}^m$, and $\dim(\mathcal{R}(A)) + \dim(\mathcal{N}(A^\top)) = m$.
+
+\end{derivation}
+
+\begin{example}
+    \customFigure[0.5]{00_Images/FTA.png}{Example of fundamental theorem of linear algebra.}
+    \begin{itemize}
+        \item Given the range of A, we can find the null space of A by finding what is orthogonal to it. 
+    \end{itemize}
+\end{example}
+
+\subsection{Determinant}
+\begin{definition}
+    \begin{equation}
+    A = \begin{pmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{pmatrix}
+    \end{equation}
+
+    \begin{equation}
+    \det(A) = a_{11}a_{22} - a_{12}a_{21}
+    \end{equation}
+
+    The volume of the region transformed by matrix $A$ is given by:
+    \begin{equation}
+    \det(A)
+    \end{equation}
+\end{definition}
+
+\begin{intuition}
+    Graphically, the determinant represents the volume of the parallelogram spanned by the column vectors of $A$. 
+    \begin{itemize}
+        \item Starting from a unit square, the matrix $A$ transforms this square into a parallelogram. 
+        \item The area of the transformed parallelogram, denoted as $P$, equals the determinant:
+    \end{itemize}
+
+    \[
+    \text{vol}(P) = \det(A)
+    \]
+
+    \textbf{Why? It is easy to see this for a diagonal matrix, where:}
+
+    \[
+    A = \begin{bmatrix} a_{11} & 0 \\ 0 & a_{22} \end{bmatrix}
+    \]
+
+    The matrix $A$ scales the unit square by $a_{11}$ along one axis and by $a_{22}$ along the other axis. This results in a rectangle with area:
+
+    \[
+    \text{vol}(P) = a_{11}a_{22} = \det(A)
+    \]
+
+    For instance, applying $A$ to the basis vectors:
+
+    \[
+    A \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} a_{11} \\ 0 \end{bmatrix}, \quad A \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ a_{22} \end{bmatrix}
+    \]
+
+    \customFigure[0.5]{00_Images/US.png}{Diagonal}
+
+    \textbf{What if the matrix is not diagonal? Consider an upper triangular matrix:}
+
+    \[
+    A = \begin{bmatrix} a_{11} & a_{12} \\ 0 & a_{22} \end{bmatrix}
+    \]
+
+    The matrix $A$ still transforms the unit square, but now the parallelogram $P$ is slanted due to the non-zero $a_{12}$. The area of the parallelogram is still given by the determinant:
+
+    \[
+    \text{vol}(P) = a_{11} a_{22} = \det(A)
+    \]
+
+    Again, applying $A$ to the basis vectors:
+
+    \[
+    A \begin{bmatrix} 1 \\ 0 \end{bmatrix} = \begin{bmatrix} a_{11} \\ 0 \end{bmatrix}, \quad A \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} a_{12} \\ a_{22} \end{bmatrix}
+    \]
+
+    \customFigure[0.5]{00_Images/UT.png}{Upper triangular}
+    \textbf{For a general matrix $A$, we can use the $QR$ factorization, where:}
+
+    \[
+    A = QR
+    \]
+
+    $R$ is an upper triangular matrix and $Q$ is an orthogonal matrix (i.e., $Q^\top Q = I$). 
+    \begin{itemize}
+        \item The orthogonal matrix $Q$ represents a rotation, which preserves volume (the area remains unchanged). 
+        \item Therefore, the volume is determined by the determinant of $R$.
+    \end{itemize}
+
+    \[
+    \text{vol}(P) = \det(R) = r_{11} r_{22} = \det(A)
+    \]
+
+    \customFigure[0.5]{00_Images/QR.png}{General matrix}
+\end{intuition}
+
+
 \subsection{Eigenvalues and eigenvectors}
 \subsection{Matrices diagonalization}

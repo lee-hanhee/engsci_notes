@@ -31,20 +31,20 @@
 \contentsline {figure}{\numberline {30}{\ignorespaces Logistic regression.}}{36}{figure.30}%
 \contentsline {figure}{\numberline {31}{\ignorespaces Log-loss error visualization}}{37}{figure.31}%
 \contentsline {figure}{\numberline {32}{\ignorespaces From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}}{37}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Gradient example.}}{40}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Gradient and optimality.}}{41}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{41}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{42}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{43}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Direction of gradient for x1 and x2 for the 2D case.}}{44}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}}{45}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Example of how the 3rd weight line is the farthest away for so it has the largest probability}}{49}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Error vs. iteration.}}{51}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Non-convex functions}}{52}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Saddle point}}{52}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Ball rolling down}}{53}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces SGD with momentum where the red and blue lines are used to calculate the green lines which is the actual direction towards the minimum.}}{53}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Example of momentum escaping points}}{54}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Example of SGD vs. SGD + Momentum}}{54}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Example of the ellipsoid}}{54}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Showing how a slow learning rate, causes it to move slow in the x1 direction, but a large learning rate causes it to diverge in the x2 direction.}}{55}{figure.49}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Gradient example.}}{41}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Gradient and optimality.}}{42}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{42}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{43}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{44}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Direction of gradient for x1 and x2 for the 2D case.}}{45}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}}{46}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Example of how the 3rd weight line is the farthest away for so it has the largest probability}}{50}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Error vs. iteration.}}{52}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Non-convex functions}}{53}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Saddle point}}{53}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Ball rolling down}}{54}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces SGD with momentum where the red and blue lines are used to calculate the green lines which is the actual direction towards the minimum.}}{54}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Example of momentum escaping points}}{55}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Example of SGD vs. SGD + Momentum}}{55}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Example of the ellipsoid}}{55}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Showing how a slow learning rate, causes it to move slow in the x1 direction, but a large learning rate causes it to diverge in the x2 direction.}}{56}{figure.49}%
