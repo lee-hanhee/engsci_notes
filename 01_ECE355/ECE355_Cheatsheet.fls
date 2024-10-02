@@ -557,12 +557,12 @@ INPUT ./ECE355_Cheatsheet.lot
 INPUT ./ECE355_Cheatsheet.lot
 INPUT ECE355_Cheatsheet.lot
 OUTPUT ECE355_Cheatsheet.lot
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT ./Lectures/00_Math.tex
 INPUT ./Lectures/00_Math.tex
 INPUT Lectures/00_Math.tex
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
@@ -1027,6 +1027,11 @@ INPUT Lectures/08_Convolution_in_continuous_time.tex
 INPUT ./Lectures/09_Properties_of_LTI_systems.tex
 INPUT ./Lectures/09_Properties_of_LTI_systems.tex
 INPUT Lectures/09_Properties_of_LTI_systems.tex
+INPUT ./00_Images/CS.png
+INPUT ./00_Images/CS.png
+INPUT ./00_Images/CS.png
+INPUT ./00_Images/CS.png
+INPUT ./00_Images/CS.png
 INPUT ECE355_Cheatsheet.aux
 INPUT ./ECE355_Cheatsheet.out
 INPUT ./ECE355_Cheatsheet.out

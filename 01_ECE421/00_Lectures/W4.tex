@@ -238,12 +238,12 @@
 \subsection{Gradient descent algorithm}
 \begin{definition}
     \begin{enumerate}
-        \item Initialize $\underline{x}_0$ (typically at random).
+        \item Initialize $\underline{w}_0$ (typically at random).
         \item For $t = 0, 1, 2, \dots$:
         \begin{enumerate}
-            \item Compute $\underline{g}_t = \nabla f(\underline{x}_t)$. (i.e. gradient)
+            \item Compute $\underline{g}_t = \nabla f(\underline{w}_t)$. (i.e. gradient)
             \item Select direction $\underline{v}_t = -\underline{g}_t$. (i.e. negative direction of gradient)
-            \item Update $\underline{x}_{t+1} = \underline{x}_t + \epsilon_t \underline{v}_t$. (i.e. update rule)
+            \item Update $\underline{w}_{t+1} = \underline{w}_t + \epsilon_t \underline{v}_t$. (i.e. update rule)
             \item Stop if stopping criteria are reached.
         \end{enumerate}
         \item End for
@@ -251,16 +251,16 @@
     \vspace{1em}
 
     \begin{itemize}
-        \item Condition for stopping: \( \nabla f(\underline{x}_t) \approx 0 \) is reasonable. (i.e. when we almost hit the minimum)
+        \item Condition for stopping: \( \nabla f(\underline{w}_t) \approx 0 \) is reasonable. (i.e. when we almost hit the minimum)
 
         \item \( \varepsilon_t \): Learning rate
 
         \item If we have a constant learning rate for Gradient Descent alg. (i.e., \( \varepsilon_t = \alpha \ \forall t \)), then
         \[
-        \varepsilon_t \underline{v}_t = -\alpha \underline{g}_t = -\alpha \nabla f(\underline{x}) = -\alpha \|\nabla f(\underline{x})\| \frac{\nabla f(\underline{x})}{\|\nabla f(\underline{x})\|}
+        \varepsilon_t \underline{v}_t = -\alpha \underline{g}_t = -\alpha \nabla f(\underline{w}) = -\alpha \|\nabla f(\underline{w})\| \frac{\nabla f(\underline{w})}{\|\nabla f(\underline{w})\|}
         \]
         \begin{itemize}
-            \item \textbf{Note:} Actual step size $\alpha \|\nabla f(\underline{x})\|$ diminishes as \( \underline{x}_t \rightarrow \underline{x}^* \) (i.e. because we are getting closer to the gradient being to 0, so this product will get smaller as well)
+            \item \textbf{Note:} Actual step size $\alpha \|\nabla f(\underline{w})\|$ diminishes as \( \underline{w}_t \rightarrow \underline{w}^* \) (i.e. because we are getting closer to the gradient being to 0, so this product will get smaller as well)
         \end{itemize}
     \end{itemize}
 \end{definition}
@@ -338,7 +338,7 @@
         \item Choose uniformly at random a datapoint \( (\underline{x}_n, y_n) \).
         \item \( \underline{g}_t = \nabla_{\underline{w}_t} e_n(\underline{w}_t) \) \quad \text{(use the gradient of the \(n\)-th sample to update \( \underline{x}_t \))}.
         \item \( \underline{v}_t = -\underline{g}_t \).
-        \item \( \underline{x}_{t+1} = \underline{x}_t + \varepsilon_t \underline{v}_t \).
+        \item \( \underline{w}_{t+1} = \underline{w}_t + \varepsilon_t \underline{v}_t \).
     \end{enumerate}
 \end{definition}
 

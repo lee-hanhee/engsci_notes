@@ -310,6 +310,360 @@
     \customFigure[0.5]{00_Images/QR.png}{General matrix}
 \end{intuition}
 
+\subsection{Matrix inner product and norm}
+\begin{definition}
+    Set of matrices $A \in \mathbb{R}^{m \times n}$ is a vector space. We can define an inner product over this space:
+    \begin{equation}
+        \langle A, B \rangle = \text{tr}(B^T A) = \text{tr}(A^T B)
+    \end{equation}
+    \begin{itemize}
+        \item $\text{tr}:$ Trace is the sum of diagonal elements of a square matrix.
+    \end{itemize}
+\end{definition}
 
-\subsection{Eigenvalues and eigenvectors}
-\subsection{Matrices diagonalization}
+\subsubsection{Frobenius Norm}
+\begin{definition}
+    For $A, B \in \mathbb{R}^{m \times n}$, then 
+    \begin{equation}
+        \| A \|_F = \sqrt{\langle A, A \rangle} = \sqrt{\text{tr}(A^T A)} = \sqrt{\sum_{i,j} a_{ij}^2}
+    \end{equation}
+\end{definition}
+
+\begin{intuition}
+    Let
+    \[
+    A = \begin{bmatrix} 
+    a^{(1)} & \cdots & a^{(n)} 
+    \end{bmatrix}
+    \]
+    then
+    \[
+    A^T A = \begin{bmatrix} 
+    (a^{(1)})^T \\ \vdots \\ (a^{(n)})^T 
+    \end{bmatrix} 
+    \begin{bmatrix} 
+    a^{(1)} & \cdots & a^{(n)} 
+    \end{bmatrix}
+    = 
+    \begin{bmatrix} 
+    (a^{(1)})^T a^{(1)} & \cdots & (a^{(1)})^T a^{(n)} \\
+    \vdots & \ddots & \vdots \\
+    (a^{(n)})^T a^{(1)} & \cdots & (a^{(n)})^T a^{(n)} 
+    \end{bmatrix}
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} The matrix multiplication shows us why the trace can be written as $\sum_{i,j} a_{ij}^2$. 
+        \begin{itemize}
+            \item e.g. $a^{(1)})^T a^{(1)} = a_{11}^2 + a_{21}^2 + \ldots + a_{n1}^2$
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+
+    If we think of the matrix as a long column vector of the column vectors of $A$, then 
+    \[
+    \begin{bmatrix}
+    a^{(1)} \\
+    \vdots \\
+    a^{(n)}
+    \end{bmatrix}
+    \]
+    so we can think of the Frobenius norm as the $l_2$ norm exactly since it's $\sqrt{\sum_{i,j} a_{ij}^2}$, which is identical to the expression for l2-norm.
+\end{intuition}
+
+\subsubsection{Operator norm (Motivation for eigenvalues and eigenvectors):}
+\begin{intuition}
+    \textbf{Let} $A \in \mathbb{R}^{m \times n}$ \textbf{be a linear map from} $\mathbb{R}^n$ \textbf{to} $\mathbb{R}^m$.
+    \begin{itemize}
+        \item Think of the matrix as a mapping from $\mathbb{R}^n$ to $\mathbb{R}^m$.
+    \end{itemize}
+
+    \[
+    v \quad \longrightarrow \quad Av \quad \text{(ellipse)}
+    \]
+
+    \customFigure[0.75]{00_Images/OMN.png}{Matrix norm tht maximizes $Av$ given $v$ with unit norm.}
+
+    \textbf{Question:} Which direction of $v$ on the unit circle results in $Av$ with the largest magnitude? \textbf{Operator norm}, which can defined for all p valiues.
+
+    \[
+    \|A\|_2 = \max_{\|v\|_2 = 1} \|Av\|_2 
+    \]
+
+    \[
+    \|A\|_1 = \max_{\|v\|_1 = 1} \|Av\|_1
+    \]
+
+    \[
+    \|A\|_\infty = \max_{\|v\|_\infty = 1} \|Av\|_\infty
+    \]
+
+    \textbf{"Interesting" directions (i.e. directions of interest):}
+    \begin{enumerate}
+        \item  \textbf{Max/Min amplification direction:}
+        \[
+        \max_{\|v\|_2 = 1} \|Av\|_2 = \|A\|_2, \quad \min_{\|v\|_2 = 1} \|Av\|_2
+        \]
+        \begin{itemize}
+            \item Later, we will see that this is related to the \textbf{singular values} of the matrix.
+        \end{itemize}
+    
+        \item \textbf{Invariant direction:} (square matrix $A \in \mathbb{R}^{n \times n}$)
+    
+        \[
+        A v = \lambda v
+        \]
+        \begin{itemize}
+            \item $v$ is the eigenvector and $\lambda$ is the eigenvalue.
+            \item \textbf{Note:} In 2D, there are 2 eigenvectors (i.e. parallel with same and opposite direction)
+        \end{itemize}
+    \end{enumerate}
+\end{intuition}
+
+\subsection{Eigenvalues and Eigenvectors}
+\begin{definition}
+    For $A \in \mathbb{R}^{n \times n}$, a non-zero vector $v$ is an eigenvector of $A$ with associated eigenvalue $\lambda$ if 
+    \[
+    A v = \lambda v
+    \]
+    \begin{itemize}
+        \item \textbf{Consequence:} $(A - \lambda I) v = 0$, therefore, $v \in \mathcal{N}(A - \lambda I)$, where $\mathcal{N}(A - \lambda I)$ is the null space of $(A - \lambda I)$.    
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Characteristic polynomial}
+\begin{definition} The above leads to a polynomial equation in $\lambda$ of degree $n$. The roots are the eigenvalues of $A$. 
+    \[
+    \det(A - \lambda I) = 0
+    \]
+    \begin{itemize}
+        \item \textbf{Roots can be real or complex.} If complex, they occur in conjugate pairs.
+        \item \textbf{Note:} The determinant is equal to 0 because $Av=\lambda v$ (i.e. linearly dependent), and LD vectors have determinant of $0$ by definition.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Geometric and algebraic multiplicity}
+\begin{definition}
+
+    \textbf{Algebraic multiplicity:} $\text{AM}(\lambda)$ is the number of times a given eigenvalue appears as a root of the characteristic equation $\det(A - \lambda I) = 0$.
+    \begin{itemize}
+        \item For example, $(\lambda - 1)^2$ has root 1 with multiplicity 2.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Geometric multiplicity:} $\text{GM}(\lambda) = \dim \mathcal{N}(A - \lambda I)$
+\end{definition}
+
+\begin{theorem}
+    In general, for any matrix $A \in \mathbb{R}^{n \times n}$ (i.e. MUST BE SQUARE),
+    \[
+    GM(\lambda) \leq AM(\lambda).
+    \]
+\end{theorem}
+
+\subsubsection{Defective and non-defective}
+\begin{definition}
+
+    \textbf{Defective Matrix:} If $GM(\lambda) < AM(\lambda)$ for some $\lambda$
+    \vspace{1em}
+
+    \textbf{Non-defective Matrix:} If $GM(\lambda) = AM(\lambda)$, then the matrix is \textbf{diagonalizable} (i.e. non-defective).
+    \begin{itemize}
+        \item \textbf{"Most" matrices are non-defective.} In other words, the set of non-defective matrices is dense (a random matrix is almost surely non-defective).
+    \end{itemize}
+
+\end{definition}
+
+\subsubsection{Eigenvectors corresponding to different eigenvalues are l.i.}
+\begin{theorem}
+    \textbf{Lemma:} If $u^{(1)}, \ldots, u^{(k)}$ are eigenvectors then,
+
+    \begin{equation}
+        u^{(i)} \notin \phi_j = \mathcal{N}(A-\lambda I) \text{ for } i \neq j
+    \end{equation} 
+
+    \begin{itemize}
+        \item i.e. An eigen vector of $i$ of one null space cannot be in another eigenvector's null space. 
+    \end{itemize}
+\end{theorem}
+
+\begin{derivation}
+    \textit{Why?} Prove by contradiction, assume $u^{(i)}$ is in the null space of $\phi_j$.
+    \begin{itemize}
+        \item If $A u^{(i)} = \lambda_i u^{(i)}$ and $u^{(i)} \in \mathcal{N}_j$, then $A u^{(i)} = \lambda_j u^{(i)}$. 
+        \item Therefore, $(\lambda_i - \lambda_j) u^{(i)} = 0$, which is impossible since $\lambda_i \neq \lambda_j$ and $u^{(i)}$ is a non-zero vector by definition of eigenvectors. 
+    \end{itemize}   
+\end{derivation}
+
+\begin{theorem}
+    Eigenvectors corresponding to different eigenvalues are linearly independent.
+\end{theorem}
+
+\begin{derivation}
+    Let $\lambda_1, \ldots, \lambda_k$ be distinct eigenvalues, $u^{(1)}, \ldots, u^{(k)}$ be the corresponding eigenvectors, and $\phi_i = \mathcal{N}(A - \lambda_i I)$, the null space corresponding to eigenvalue $\lambda_i$.
+    \vspace{1em}
+
+    Proof by contradiction, assume that $u^{(1)}, \ldots, u^{(k)}$ are linearly dependent, i.e.,
+    \[
+    u^{(1)} = \sum_{i=2}^{k} \alpha_i u^{(i)}.
+    \]
+    \begin{itemize}
+        \item i.e. The first eigenvector can be written as a linear combination of the other eigenvectors. 
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Part 1:}
+    \[
+    A u^{(1)} = \sum_{i=2}^{k} \alpha_i A u^{(i)} = \sum_{i=2}^{k} \alpha_i \lambda_i u^{(i)}.
+    \]
+    \begin{itemize}
+        \item 2nd part: By definition of $u^{(1)}$
+        \item 3rd part: Since $u^{(i)}$ is an eigenvector with corresponding $\lambda_i$
+    \end{itemize}
+
+    \textbf{Part 2:}
+    \[
+    \lambda_1 u^{(1)} = \sum_{i=2}^{k} \alpha_i \lambda_1 u^{(i)}.
+    \]
+    \begin{itemize}
+        \item \textbf{Key:} $\lambda_1$ is inside the summation, while for part 1, it was $\lambda_i$
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Combining both part 1 and part 2:}
+    But $A u^{(1)} = \lambda_1 u^{(1)}$, so
+    \[
+    A u^{(1)} - \lambda_1 u^{(1)} =\sum_{i=2}^{k} \alpha_i (\lambda_1 - \lambda_i) u^{(i)} = 0,
+    \]
+    which implies that $\{u^{(2)}, \ldots, u^{(k)}\}$ is linearly dependent because $\lambda_1 - \lambda_i \neq 0$ since they are distinct, so the only $\alpha$'s to make the linear combination of FINISH LATER
+    \vspace{1em}
+
+    Continue with the same argument to show that $\{u^{(3)}, \ldots, u^{(k)}\}$ is linearly dependent, and so on. 
+    \vspace{1em}
+
+    Eventually, $\{u^{(k-1)}, u^{(k)}\}$ are linearly dependent, so:
+    \[
+    u^{(k)} = \alpha u^{(k-1)}.
+    \]
+    But this is impossible by the previous lemma since an eigenvector of one null space cannot be in another eigenvector's null space (i.e. cannot write on as a l.c. of the other). Therefore, $\{u^{(1)}, \ldots, u^{(k)}\}$ is linearly independent.    
+\end{derivation}
+
+\subsection{Matrix Diagonalization}
+\begin{intuition}
+    The previous theorem leads us to the diagonalization of a non-defective square matrix $A \in \mathbb{R}^{n \times n}$. 
+    \vspace{1em}
+
+    The idea is to look at the null space $\mathcal{N}(A - \lambda_i I)$. 
+    \begin{itemize}
+        \item When $\lambda_1, \ldots, \lambda_n$ are distinct, then $u^{(1)}, \ldots, u^{(n)}$ are linearly independent, so the set $\{u^{(1)}, \ldots, u^{(n)}\}$ forms a basis for $\mathbb{R}^n$.
+        \item If some $\lambda_i$ is a repeated eigenvalue. For example, if $AM(\lambda_i) = 2$, then $GM(\lambda_i) = 2$ because it's non-defective matrix so $\dim \mathcal{N}(A - \lambda_i I) = 2$. 
+        \begin{itemize}
+            \item This means we can find $\{u^{(i,1)}, u^{(i,2)}\}$ that span this null space.
+            \item So, if we assemble all these $u^{(i,j)}$'s, then we get a basis for $\mathbb{R}^n$.
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\begin{theorem}
+    Let $\lambda_i$ for $i = 1, \dots, k$, be distinct eigenvalues of a non-defective matrix $A \in \mathbb{R}^{n \times n}$. Let $\mu_i$ be the multiplicity of $\lambda_i$ (i.e., $AM(\lambda_i) = GM(\lambda_i) = \mu_i$).
+    \vspace{1em}
+
+    Let
+    \[
+    U^{(i)} = \begin{bmatrix} 
+    u^{(i,1)} & \dots & u^{(i,\mu_i)}
+    \end{bmatrix}
+    \]
+    be a matrix of eigenvectors that form a basis for $\mathcal{N}(A - \lambda_i I)$.
+    \vspace{1em}
+
+    Then 
+    \[
+    U = \begin{bmatrix} 
+    U^{(1)} & \dots & U^{(k)}
+    \end{bmatrix}
+    \]
+    is a complete set of basis vectors for $\mathbb{R}^n$.
+    \vspace{1em}
+
+    Then the \textbf{Eigendecomposition} is
+    \[
+    A = U \Lambda U^{-1}
+    \]
+    where 
+    \[
+    \Lambda = \begin{bmatrix}
+    \lambda_1 & 0 & 0 & 0 & \dots & 0 \\
+    0 & \lambda_1 & 0 & 0 & \dots & 0 \\
+    0 & 0 & \lambda_2 & 0 & \dots & 0 \\
+    0 & 0 & 0 & \lambda_2 & \dots & 0 \\
+    \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & 0 & 0 & \dots & \lambda_n
+    \end{bmatrix}
+    \]
+    is a diagonal matrix with the eigenvalues of $A$ on the diagonal.
+    \begin{itemize}
+        \item Where $\lambda_1$ appears $\mu_1$ times on the diagonal (indicating multiplicity), followed by $\lambda_2$ appears $\mu_2$ and so on. 
+    \end{itemize}
+\end{theorem}
+
+\begin{derivation}
+    $A u^{(i,j)} = \lambda_i u^{(i,j)}$, where $u^{(i,j)}$ is an eigenvector with eigenvalue $\lambda_i$, then this implies that
+
+    \[
+    A \begin{bmatrix}
+    u^{(1,1)} & \dots & u^{(1,\mu_1)} & u^{(2,1)} & \dots & u^{(2,\mu_2)} & \dots & u^{(n,\mu_n)}
+    \end{bmatrix}
+    = U
+    \begin{bmatrix}
+        \lambda_1 & 0 & 0 & 0 & \dots & 0 \\
+        0 & \lambda_1 & 0 & 0 & \dots & 0 \\
+        0 & 0 & \lambda_2 & 0 & \dots & 0 \\
+        0 & 0 & 0 & \lambda_2 & \dots & 0 \\
+        \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & 0 & 0 & \dots & \lambda_n
+        \end{bmatrix}
+    \]
+    \begin{itemize}
+        \item i.e. Generalizing to all the eigenvectors with their corresponding eigenvalues. 
+    \end{itemize}
+    \vspace{1em}
+
+    Thus, we have:
+    \[
+    A U = U \Lambda
+    \]
+    which implies:
+    \[
+    A = U \Lambda U^{-1}
+    \]
+    where \( U \) is invertible because its columns (the eigenvectors) are linearly independent, and \( U \) is a square matrix.
+\end{derivation}
+
+\subsubsection{What does this diagonalization mean?}
+\begin{intuition}
+    We start with the eigendecomposition of a matrix \( A \):
+    \[
+    A = U \Lambda U^{-1}
+    \]
+    \begin{itemize}
+        \item $U = \begin{bmatrix} u^{(1)} & \dots & u^{(n)} \end{bmatrix}.$
+    \end{itemize}
+    \vspace{1em}
+
+    Let \( x \in \mathbb{R}^n \) be any vector. Then:
+    \[
+    A x = U \Lambda U^{-1} x.
+    \]
+    Let \( \tilde{x} = U^{-1} x \), so that:
+    \[
+    A x = U \Lambda \tilde{x} \quad \text{and} \quad x = U \tilde{x} = \begin{bmatrix} u^{(1)} & \dots & u^{(n)} \end{bmatrix} \begin{bmatrix} \tilde{x}_1 \\ \vdots \\ \tilde{x}_n \end{bmatrix} = \sum_{i=1}^{n} \tilde{x}_i u^{(i)}.
+    \]
+    \begin{itemize}
+        \item The coordinates of \( \tilde{x} \) are the components (i.e. coefficients) of \( x \) in the new basis \( \{u^{(1)}, \dots, u^{(n)}\} \).
+        \item \( \Lambda \tilde{x} \) means that we are scaling \( \tilde{x}_i \) by the corresponding eigenvalue \( \lambda_i \).
+        \item \( U \Lambda \tilde{x} \) means that we are changing the coordinates back to the original basis.
+    \end{itemize}
+    \vspace{1em}
+
+    This applies to any non-defective (or diagonalizable) matrix \( A \in \mathbb{R}^{n \times n} \).
+\end{intuition}

@@ -551,6 +551,9 @@ INPUT ./ECE367_Cheatsheet.lof
 INPUT ./ECE367_Cheatsheet.lof
 INPUT ECE367_Cheatsheet.lof
 OUTPUT ECE367_Cheatsheet.lof
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT ./ECE367_Cheatsheet.lot
 INPUT ./ECE367_Cheatsheet.lot
 INPUT ECE367_Cheatsheet.lot
@@ -559,9 +562,6 @@ INPUT ./00_Lectures/W1.tex
 INPUT ./00_Lectures/W1.tex
 INPUT 00_Lectures/W1.tex
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
@@ -755,6 +755,11 @@ INPUT ./00_Images/QR.png
 INPUT ./00_Images/QR.png
 INPUT ./00_Images/QR.png
 INPUT ./00_Images/QR.png
+INPUT ./00_Images/OMN.png
+INPUT ./00_Images/OMN.png
+INPUT ./00_Images/OMN.png
+INPUT ./00_Images/OMN.png
+INPUT ./00_Images/OMN.png
 INPUT ./00_Lectures/PS2.tex
 INPUT ./00_Lectures/PS2.tex
 INPUT 00_Lectures/PS2.tex

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  1 OCT 2024 19:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  2 OCT 2024 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1369,4 +1369,31 @@ Package pdftex.def Info: 00_Images/C.png  used on input line 54.
 (pdftex.def)             Requested size: 374.33807pt x 137.46954pt.
  [80 <./00_Images/HTM.png>] [81 <./00_Images/C.png>] [82]
 <00_Images/Cl.png, id=2020, 390.45876pt x 211.79124pt>
-File: 00_Images/Cl.png Graphic fi
+File: 00_Images/Cl.png Graphic file (type png)
+<use 00_Images/Cl.png>
+Package pdftex.def Info: 00_Images/Cl.png  used on input line 208.
+(pdftex.def)             Requested size: 249.55872pt x 135.36496pt.
+ [83 <./00_Images/Cl.png>] [84]) [85] (./00_Lectures/13_Dynamic_Programming.tex) [86] (./00_Lectures/14_Greedy_Algorithms.tex) [87] (./00_Lectures/15_Amortized_Analysis.tex) [88] (./00_Lectures/16_Splay_Trees.tex) [89] (./00_Lectures/17_Graph_Algorithms.tex) [90] (./00_Lectures/18_Minimum_Spanning_Trees.tex) [91] (./00_Lectures/19_Shortest_Paths.tex) [92] (./00_Lectures/20_Maximum_Flow.tex) [93] (./00_Lectures/21_History_of_Computation.tex) [94] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [95] (./00_Lectures/23_NPC.tex) [96] (./ECE358_Cheatsheet.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+Package rerunfilecheck Info: File `ECE358_Cheatsheet.out' has not changed.
+(rerunfilecheck)             Checksum: 2C8B218768194A0ECDC6EEAC8CAA9513;31469.
+ ) 
+Here is how much of TeX's memory you used:
+ 53544 strings out of 474116
+ 1240741 string characters out of 5743682
+ 2233187 words of memory out of 5000000
+ 74072 multiletter control sequences out of 15000+600000
+ 631808 words of font info for 109 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 99i,14n,107p,812b,2249s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on ECE358_Cheatsheet.pdf (96 pages, 13707593 bytes).
+PDF statistics:
+ 2388 PDF objects out of 2487 (max. 8388607)
+ 2151 compressed objects within 22 object streams
+ 890 named destinations out of 1000 (max. 500000)
+ 1658 words of extra memory for PDF output out of 10000 (max. 10000000)
+
