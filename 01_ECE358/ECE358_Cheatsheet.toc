@@ -1,7 +1,7 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Course Tips}{5}{section.1}%
-\contentsline {section}{\numberline {2}Preliminaries}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Pseudocode}{5}{subsection.2.1}%
+\contentsline {section}{\numberline {1}Course Tips}{6}{section.1}%
+\contentsline {section}{\numberline {2}Preliminaries}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Pseudocode}{6}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Exam}{6}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Asymptotics (Ch. 3.1-2 pg. 50-63, L2)}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Big-O (Upper Bound)}{7}{subsection.3.1}%
@@ -169,18 +169,46 @@
 \contentsline {subsubsection}{\numberline {15.5.1}Probing Methods}{83}{subsubsection.15.5.1}%
 \contentsline {subsection}{\numberline {15.6}Load Factor in Open Addressing and Chaining}{85}{subsection.15.6}%
 \contentsline {section}{\numberline {16}Dynamic programming (Ch. 14)}{86}{section.16}%
-\contentsline {subsection}{\numberline {16.1}DP matrix multiplication}{86}{subsection.16.1}%
-\contentsline {subsection}{\numberline {16.2}DP longest common subsequence}{86}{subsection.16.2}%
-\contentsline {section}{\numberline {17}Greedy algorithms (Ch. 15)}{87}{section.17}%
-\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{88}{section.18}%
-\contentsline {section}{\numberline {19}Splay trees}{89}{section.19}%
-\contentsline {section}{\numberline {20}Graph algorithms (Ch. 20)}{90}{section.20}%
-\contentsline {subsection}{\numberline {20.1}Intro}{90}{subsection.20.1}%
-\contentsline {subsection}{\numberline {20.2}Breadth-first search}{90}{subsection.20.2}%
-\contentsline {subsection}{\numberline {20.3}Depth-first search}{90}{subsection.20.3}%
-\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{91}{section.21}%
-\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{92}{section.22}%
-\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{93}{section.23}%
-\contentsline {section}{\numberline {24}History of computation}{94}{section.24}%
-\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{95}{section.25}%
-\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{96}{section.26}%
+\contentsline {subsection}{\numberline {16.1}Intro to dynamic programming}{86}{subsection.16.1}%
+\contentsline {subsection}{\numberline {16.2}DP matrix multiplication}{86}{subsection.16.2}%
+\contentsline {subsubsection}{\numberline {16.2.1}Optimal Matrix Parenthesization Problem Setup}{86}{subsubsection.16.2.1}%
+\contentsline {subsubsection}{\numberline {16.2.2}Total number of parenthesization}{87}{subsubsection.16.2.2}%
+\contentsline {subsubsection}{\numberline {16.2.3}Recursive Formula for Cost}{87}{subsubsection.16.2.3}%
+\contentsline {subsubsection}{\numberline {16.2.4}Why is the first principle (i.e. optimal substructure) not sufficient?}{87}{subsubsection.16.2.4}%
+\contentsline {subsubsection}{\numberline {16.2.5}Matrix Chain Multiplication Example}{88}{subsubsection.16.2.5}%
+\contentsline {subsubsection}{\numberline {16.2.6}Time Complexity}{88}{subsubsection.16.2.6}%
+\contentsline {subsection}{\numberline {16.3}DP longest common subsequence (LCS)}{89}{subsection.16.3}%
+\contentsline {subsubsection}{\numberline {16.3.1}Dynamic Programming Approach}{89}{subsubsection.16.3.1}%
+\contentsline {subsubsection}{\numberline {16.3.2}Time Complexity}{90}{subsubsection.16.3.2}%
+\contentsline {subsubsection}{\numberline {16.3.3}Recursive Formula for Binomial Coefficient}{90}{subsubsection.16.3.3}%
+\contentsline {subsection}{\numberline {16.4}Optimal Polygon Triangulation FINISH IN LEC}{90}{subsection.16.4}%
+\contentsline {subsubsection}{\numberline {16.4.1}Objective}{90}{subsubsection.16.4.1}%
+\contentsline {subsubsection}{\numberline {16.4.2}Recursive formula}{90}{subsubsection.16.4.2}%
+\contentsline {section}{\numberline {17}Greedy algorithms (Ch. 15)}{92}{section.17}%
+\contentsline {subsection}{\numberline {17.1}Greedy Algorithms Intro and Class Scheduling}{92}{subsection.17.1}%
+\contentsline {subsubsection}{\numberline {17.1.1}Characteristics}{92}{subsubsection.17.1.1}%
+\contentsline {subsubsection}{\numberline {17.1.2}Class Scheduling Example}{92}{subsubsection.17.1.2}%
+\contentsline {subsubsection}{\numberline {17.1.3}Proof of Correctness of Class Scheduling (On exams)}{92}{subsubsection.17.1.3}%
+\contentsline {subsection}{\numberline {17.2}Knapsack Problem}{93}{subsection.17.2}%
+\contentsline {subsubsection}{\numberline {17.2.1}Problem setup}{93}{subsubsection.17.2.1}%
+\contentsline {subsubsection}{\numberline {17.2.2}Types of Knapsack Problems}{93}{subsubsection.17.2.2}%
+\contentsline {subsubsection}{\numberline {17.2.3}Fractional Knapsack}{93}{subsubsection.17.2.3}%
+\contentsline {subsubsection}{\numberline {17.2.4}0-1 Knapsack}{93}{subsubsection.17.2.4}%
+\contentsline {subsection}{\numberline {17.3}Intro to Huffman Encoding}{93}{subsection.17.3}%
+\contentsline {subsection}{\numberline {17.4}Problem Statement}{93}{subsection.17.4}%
+\contentsline {subsubsection}{\numberline {17.4.1}Steps in Huffman Coding}{93}{subsubsection.17.4.1}%
+\contentsline {subsection}{\numberline {17.5}Huffman Proofs}{94}{subsection.17.5}%
+\contentsline {subsubsection}{\numberline {17.5.1}Proof of Correctness}{94}{subsubsection.17.5.1}%
+\contentsline {subsubsection}{\numberline {17.5.2}Optimal Substructure}{94}{subsubsection.17.5.2}%
+\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{95}{section.18}%
+\contentsline {section}{\numberline {19}Splay trees}{96}{section.19}%
+\contentsline {section}{\numberline {20}Graph algorithms (Ch. 20)}{97}{section.20}%
+\contentsline {subsection}{\numberline {20.1}Intro}{97}{subsection.20.1}%
+\contentsline {subsection}{\numberline {20.2}Breadth-first search}{97}{subsection.20.2}%
+\contentsline {subsection}{\numberline {20.3}Depth-first search}{97}{subsection.20.3}%
+\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{98}{section.21}%
+\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{99}{section.22}%
+\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{100}{section.23}%
+\contentsline {section}{\numberline {24}History of computation}{101}{section.24}%
+\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{102}{section.25}%
+\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{103}{section.26}%

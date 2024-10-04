@@ -32,3 +32,10 @@
 \contentsline {figure}{\numberline {31}{\ignorespaces Difference between array and linked lists.}}{80}{figure.31}%
 \contentsline {figure}{\numberline {32}{\ignorespaces Collisions happening between D and E and also C and F}}{81}{figure.32}%
 \contentsline {figure}{\numberline {33}{\ignorespaces Clustering}}{83}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Fib numbers}}{86}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Why memoization is needed}}{87}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces You do not need the whole 2D array, you just need the upper triangle of the 2D array. Calculate this table from the bottom up.}}{88}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Computation of C}}{90}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Polygon triangulation.}}{91}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Class scheduling example.}}{92}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{92}{figure.40}%

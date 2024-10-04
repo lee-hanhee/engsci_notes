@@ -3,68 +3,81 @@
     The following systems are equivalent: 
     \customFigure[0.75]{00_Images/CS.png}{Equivelent systems in series.}
     \begin{itemize}
-        \item \textbf{Note:} Good to pick $h_1$ and $h_2$ in a certain order to make the computation easier. 
-        \item \textbf{Order of Convolution:} When two systems are in series (cascading), their individual impulse responses \( h_1[n] \) and \( h_2[n] \) can be combined into a single system with an equivalent impulse response \( h[n] = h_1[n] * h_2[n] \). This simplifies the overall system's analysis, as you only need to compute the convolution once rather than going through each system sequentially.
-        \item \textbf{Commutative Property:} Convolution is commutative, meaning \( h_1[n] * h_2[n] = h_2[n] * h_1[n] \). This allows flexibility in the order of computation and is noted in the figure where the order of \( h_1 \) and \( h_2 \) is interchangeable in terms of their effect on the overall system.
-        \item \textbf{Simplification:} Instead of applying the input \( x[n] \) through each individual system one after the other, you can first convolve the impulse responses of the systems to get a single equivalent system. This reduces the number of operations when performing convolutions with the input signal. This is particularly useful for making the computation easier, as noted in the figure.
-        \item \textbf{Associative Property:} Convolution is also associative, which means you can group different sections of the cascaded systems and still obtain the same result. In cascading multiple systems, this property helps in breaking down complex systems into manageable parts that can be combined in various ways.
-        \item \textbf{Impulse Response Combination:} Once the two systems' impulse responses are convolved to get the equivalent system, you can then convolve the input \( x[n] \) with the resulting impulse response \( h[n] \), reducing computational complexity.
+        \item \textbf{Certain order:} Good to pick $h_1$ and $h_2$ in a certain order to make the computation easier (i.e. the intermediate value may be easier such as a $\delta$).
+        \item \textbf{Simplification:} Instead of applying the input \( x[n] \) through each individual system one after the other, you can first convolve the impulse responses of the systems to get a single equivalent system. 
+        \item \textbf{Associative Property:} Convolution is also associative, which means you can group different sections of the cascaded systems and still obtain the same result. 
     \end{itemize}
 \end{definition}
 
+\subsection{Theorem of LTI System Properties}
 \begin{theorem}
-    Let $S$ be a discrete-time LTI system with impulse response $h[n]$.
-
-    1) $S$ is memoryless if and only if:
-    \[
-    h[n] = k \delta[n]
-    \]
-    \begin{itemize}
-        \item $k$ is a constant and $\delta[n]$ is the Dirac delta function. 
-        \item \textbf{Amplifier:} Only an amplifier is an example of a memoryless LTI system.
-        \item \textbf{Intuition:} $h[n]$ is a window (i.e. filter) of size 1 to only have the present value. 
-    \end{itemize}
-    
-    2) $S$ is causal if and only if:
-    \[
-    h[n] = 0 \quad \text{for} \quad n < 0
-    \]
-    \begin{itemize}
-        \item i.e. The impulse response must be right-sided 
+    Let $S$ be a DT LTI system with impulse response $h[n]$.
+    \begin{enumerate}
+        \item $S$ is memoryless if and only if:
+        \[
+        h[n] = k \delta[n]
+        \]
         \begin{itemize}
-            \item Its support includes no negative values for a causal system.
+            \item $k \in \mathbb{C}$ 
+            \item \textbf{Amplifier:} Only an amplifier is an example of a memoryless LTI system.
+            \item \textbf{Intuition:} $h[n]$ is a window (i.e. filter) of size 1 to only have the present value. 
         \end{itemize}
-        \item \textbf{Intuition:} $h[n]$ window becomes $h[n-k]$ in the convolution (i.e. flips and shifts by n), so any values in the past (i.e. $n<0$) would be in the future, making it non-causal.
-    \end{itemize}
-    
-    3) $S$ is stable if and only if:
-    \[
-    \sum_{n \in \mathbb{Z}} |h[n]| < \infty
-    \]
-    \begin{itemize}
-        \item i.e. Impulse response is absolutely summable.
-    \end{itemize}
-    
-    4) $S$ is invertible if and only if:
-    \[
-    x[n] * h[n] \neq 0 \quad \text{when} \quad x[n] \neq 0
-    \]
-    or equivalently, if there exists $h'[n]$ such that:
-    \[
-    h[n] * h'[n] = \delta[n]
-    \]
-    \begin{itemize}
-        \item \textbf{Note:} To verify if $h'[n]$ is an inverse, convolve it with $h[n]$ and check if the result is $\delta[n]$.
-    \end{itemize}
-    \vspace{1em}
-    
-    The output of an LTI system is given by the convolution:
-    \[
-    y[n] = x[n] * h[n] = \sum_{k} x[k] h[n - k]
-    \]
-    with the condition:
-    \[
-    |y[n]| = \left| \sum_{k} h[k] x[n - k] \right| \leq B \sum_{k} |h[k]| |x[n - k]|
-    \]
-    for bounded input \(x[n]\).
+        \vspace{1em}
+        
+        \item $S$ is causal if and only if:
+        \[
+        h[n] = 0 \quad \text{for} \quad n < 0
+        \]
+        \begin{itemize}
+            \item \textbf{i.e.}, the impulse response must be \textbf{right-sided}.
+            \begin{itemize}
+                \item \textbf{Implication:} Its support includes no negative values for a causal system.
+            \end{itemize}
+            \item \textbf{Intuition:} $h[n]$ window becomes $h[n-k]$ in the convolution (i.e. flips and shifts by n), so only looks in the past. 
+            \begin{itemize}
+                \item So any values in the past (i.e. $n<0$) would be in the future, making it non-causal.
+            \end{itemize}
+            \customFigure[0.75]{00_Images/ST.png}{Causal system since it cannot respond early if it's causal.}
+        \end{itemize}
+        \vspace{1em}
+        
+        \item $S$ is stable if and only if:
+        \[
+        \sum_{n \in \mathbb{Z}} |h[n]| < \infty
+        \]
+        \begin{itemize}
+            \item \textbf{i.e.} Impulse response is absolutely summable.
+        \end{itemize}
+        \vspace{1em}
+        
+        \item $S$ is invertible if and only if:
+        \[
+        x[n] * h[n] \neq \text{zero}[n] \quad \text{when} \quad x[n] \neq \text{zero}[n]
+        \]
+        or equivalently, if there exists $h'[n]$ such that:
+        \[
+        h[n] * h'[n] = \delta[n]
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} To verify if $h'[n]$ is an inverse, convolve it with $h[n]$ and check if the result is $\delta[n]$.
+        \end{itemize}
+    \end{enumerate}
 \end{theorem}
+
+\begin{derivation}
+    For stability, let's see why it must be absolutely summable:
+    \begin{enumerate}
+        \item The output of an LTI system is given by the convolution:
+        \[
+        y[n] = x[n] * h[n] = \sum_{k} x[k] h[n - k]
+        \]
+        \item Applying the definition of stability 
+        \begin{align*}
+            |y[n]| &= \left| \sum_{k} x[k] h[n - k] \right| \\
+            &= \left| \sum_{k} h[k] x[n - k] \right| \quad \text{by commutativity} \\
+            &\leq \sum_{k} |h[k]| |x[n - k]| \quad \text{by triangular inequality} \\
+            &\leq B \sum_{k} |h[k]| \quad \text{since } |x(t)| \leq B \text{ is bounded}
+        \end{align*}
+        Therefore, $h[n]$ must be absolutely summable. 
+    \end{enumerate}
+\end{derivation}

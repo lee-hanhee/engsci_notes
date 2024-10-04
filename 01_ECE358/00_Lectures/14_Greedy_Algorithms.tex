@@ -1,0 +1,116 @@
+\subsection{Greedy Algorithms Intro and Class Scheduling}
+
+\begin{intuition}
+    \begin{itemize}
+        \item "Greed works, greed is right, greed is good." 
+        \item Greedy algorithms make locally optimal choices at each stage with the goal of finding a global optimum. This approach can approximate NP-complete problems.
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Characteristics}
+\begin{intuition}
+        \begin{itemize}
+            \item Optimal substructure
+            \item Greedy principle: a greedy choice now leads to a global optimum
+        \end{itemize}
+\end{intuition}
+
+\subsubsection{Class Scheduling Example}
+\begin{example}
+    Given one room and many classes, the goal is to maximize the number of classes scheduled in one day. 
+    \begin{itemize}
+        \item Sort by finish time.
+        \item Schedule classes in order based on sorted times.
+    \end{itemize}
+    \customFigure[0.75]{00_Images/CSE.png}{Class scheduling example.}
+    The time complexity for sorting is $O(n\log(n))$.
+\end{example}
+
+\subsubsection{Proof of Correctness of Class Scheduling (On exams)}
+\begin{derivation}
+    \begin{itemize}
+        \item ATaC: Given that greedy choices $g_1, g_2, \dots, g_n$ are not optimal, but some other optimal choices $o_1, o_2, \dots, o_m$ exist $(m > n)$. 
+        \item By the way the greedy algorithm works, $f(g_i) \leq f(o_i)$ (f is the finish time) because it replaces based on the finish time. 
+        \customFigure[0.75]{00_Images/POC.png}{WHAT IS THIS EXAMPLE SHOWING.}
+        \item $o_{n+1},\dots, o_m$ cannot exist as greedy algorithm would take these into account, therefore, this implies a contradiction since the greedy algorithm would take these into account.
+    \end{itemize}
+\end{derivation}
+
+\subsection{Knapsack Problem}
+
+\subsubsection{Problem setup}
+\begin{intuition}
+A thief breaks into a store and the thief's bag can carry up to $\omega$ weight. The store has $n$ items, each with weight $w_i$ and value $v_i$ of item $i$.
+\end{intuition}
+
+\subsubsection{Types of Knapsack Problems}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Fractional:} Can take part of an item (Greedy solution).
+        \item \textbf{0-1:} Can take or not take an item (Dynamic programming).
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Fractional Knapsack}
+\begin{definition}
+For fractional knapsack:
+\begin{itemize}
+    \item Sort $\frac{v_i}{w_i}$ and keep taking items in that order.
+\end{itemize}
+\end{definition}
+
+\subsubsection{0-1 Knapsack}
+\begin{definition}
+    For 0-1 knapsack, fix some order $1, \dots, n$ of the items. The recursive formula for 0-1 knapsack is:
+    \[
+    C[i, \omega] = \begin{cases} 
+        0 & \text{if } i = 0, \omega = 0 \\
+        C[i-1, \omega] & \text{if } w_i > \omega \\
+        \max \{C[i-1, \omega - \omega_i] + v_i, \; C[i-1, \omega]\} & \text{if } \omega \geq \omega_i 
+    \end{cases}
+    \]
+    where $C[i, \omega]$ denotes the maximum value achievable with $i$ items and a leftover weight of $\omega$.
+\end{definition}
+
+\subsection{Intro to Huffman Encoding}
+
+\subsection{Problem Statement}
+\begin{intuition}
+Huffman coding minimizes the size of the encoded file by assigning fewer bits to more frequent characters.
+\end{intuition}
+
+\begin{example}
+Given characters $a, b, c, d, e, f$ with respective frequencies $f(a) = 45, f(b) = 13, f(c) = 12, f(d) = 16, f(e) = 9, f(f) = 5$, the goal is to minimize the total number of bits used for encoding. The variable size for encoding would be:
+\[
+d(c) = \sum f(c) \cdot d(c)
+\]
+\end{example}
+
+\subsubsection{Steps in Huffman Coding}
+\begin{itemize}
+    \item Write two letters with the lowest frequency in a tree-like fashion.
+    \item Replace the two letters with a new character that sums their frequencies.
+    \item Label the resulting tree.
+\end{itemize}
+
+\subsection{Huffman Proofs}
+
+\subsubsection{Proof of Correctness}
+\begin{theorem}
+Every optimal tree can have the two lowest frequency keys as siblings, differing on one bit, with the greatest depth. Assume two lowest frequency keys $x$ and $y$. Then $T$ remains optimal.
+\end{theorem}
+
+Let $B(T)$ be the sum of the frequencies and their bit-lengths:
+\[
+B(T) = \sum f(c) \cdot d(c)
+\]
+We want to show that $B(T_{\text{opt}}) \leq B(T')$, where $T_{\text{opt}}$ is the optimal tree and $T'$ is a different tree. By the greedy principle:
+\[
+B(T_{\text{opt}}) - B(T') = \sum f(c)(d_{\text{opt}}(c) - d(T')(c)) \geq 0
+\]
+Thus, $B(T_{\text{opt}}) \geq B(T')$.
+
+\subsubsection{Optimal Substructure}
+\begin{theorem}
+Let $T_{\text{opt}}$ be the optimal prefix code for character set $C$. Let $x, y$ be part of $T_{\text{opt}}$ and $z$ be a merged character. The new set $C' = C - \{x, y\} + \{z\}$ results in an optimal prefix code for the new set $C'$. The cost difference between $T_{\text{opt}}$ and the new tree is minimal, proving optimality.
+\end{theorem}

@@ -1,3 +1,319 @@
-\subsection{DP matrix multiplication}
+\subsection{Intro to dynamic programming}
+\begin{definition}
+    Dynamic programming is an epitome of the "divide and conquer" approach. It often deals with max/min problems, utilizing two key characteristics:
+    \begin{enumerate}
+        \item \textbf{Optimal substructure:} Break problem into smaller problems of same nature, find solutions to subproblems and combine results 
+        \item \textbf{Overlapping subproblems:} The same subproblems are solved multiple times, which can be avoided using \textit{memoization} to store/retrieve the intermediate results.
+    \end{enumerate}
+\end{definition}
 
-\subsection{DP longest common subsequence}
+\begin{example}
+    Motivation for memoization:
+    \begin{equation*}
+        f_0 = 0, \quad f_1 = 1, \quad f_i = f_{i-1} + f_{i-2}
+        \end{equation*}
+        
+        For example, consider calculating \(F(100)\):
+        
+        \customFigure[0.5]{00_Images/S.png}{Fib numbers}
+        
+        \begin{itemize}
+            \item \textbf{Solution:} Notice that during the calculation of \(F(99)\) and \(F(98)\), \(F(98)\) is calculated more than once. Hence, it is efficient to store the computed values in an array and access them directly instead of recalculating (i.e. memoization).
+        \end{itemize}
+\end{example}
+
+\subsection{DP matrix multiplication}
+\subsubsection{Optimal Matrix Parenthesization Problem Setup}
+\begin{definition}
+    Given matrices \(A_1, A_2, \dots, A_n\), we seek the optimal way to multiply them in that order that minimizes the number of scalar multiplications. 
+\end{definition}
+
+\begin{intuition}
+Matrix multiplication is associative, but the order in which matrices are multiplied affects the number of operations. The goal is to find the optimal parenthesization that minimizes this count.
+\end{intuition}
+
+\begin{example}
+    Consider the matrices
+    \[
+    A_1 \in \mathbb{R}^{10 \times 100}, \quad A_2 \in \mathbb{R}^{100 \times 5}, \quad A_3 \in \mathbb{R}^{5 \times 50}
+    \]
+    We need to find the minimum cost of multiplying \(A_1 A_2 A_3\).
+    \vspace{1em}
+
+    Possible parenthesizations and their associated costs:
+    \[
+    (A_1 A_2) A_3 = (10 \times 100 \times 5) + (10 \times 5 \times 50) = 7500
+    \]
+    \begin{itemize}
+        \item \textbf{First Term:} $A_1 A_2$: $10 \times 100 \times 5$
+        \item \textbf{Second Term:} $(A_1 A_2) \in \mathbb{R}^{10 \times 5}$, so $(A_1 A_2) A_3$: $10 \times 5 \times 50$.
+    \end{itemize}
+    \vspace{1em}
+
+    \[
+    A_1 (A_2 A_3) = (100 \times 5 \times 50) + (10 \times 100 \times 50) = 75000
+    \]
+    \begin{itemize}
+        \item \textbf{First Term:} $A_2 A_3$: $ 100 \times 5 \times 50$
+        \item \textbf{Second Term:} $(A_2 A_3) \in \mathbb{R}^{100 \times 500}$, so $(A_1 A_2) A_3$: $100 \times 500 \times 50$
+    \end{itemize}
+    Thus, the optimal solution is to compute \((A_1 A_2) A_3\) with a cost of 7500 scalar multiplications.
+\end{example}
+
+\subsubsection{Total number of parenthesization}
+\begin{definition}
+    The total number of possible parenthesizations for multiplying \(A_1, A_2, \dots, A_n\):
+
+    \begin{equation*}
+    \text{Total number of parenthesizations} = \sum_{k=1}^{n-1} P(k)P(n-k) = \Omega \left(\frac{4^n}{n^{3/2}}\right) 
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Note:} The solution is given since we don't know hwo to solve the reccurrence. 
+        \item \textbf{Key:} Therefore the brute force method of calculating all the parenthesizations and finding the minimum amount is non-trivial due to when $n\rightarrow \infty$.
+    \end{itemize}
+   
+\end{definition}
+
+\subsubsection{Recursive Formula for Cost}
+\begin{definition}
+    Let matrix \(A_i = P_{i-1} \times P_i\) denote the dimensions of the matrix, and let \(A_{ij} = A_i \cdots A_j\) represent the product of matrices from \(i\) to \(j\).
+    \vspace{1em}
+
+    The recursive formula for the minimal cost \(m(i,j)\) (i.e. optimal number of SM to evaluate matrices \(A_i \dots A_j\)) is given by:
+
+    \begin{equation*}
+    m(i,j) = 
+    \begin{cases}
+    0 & \text{if} \quad i = j \\
+    \min_{i \leq k < j} \left( m[i,k] + m[k+1,j] + P_{i-1} P_k P_j \right) & \text{if} \quad i < j
+    \end{cases}
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Purpose:} Find the optimal substructure (i.e. first principle of dynamic programming)
+        \item \textbf{Intuition:} Find which $k$ minimizes the SM of the matrices on the left of $k$ and the right of $k$, which is $m[i,k]$ (left) $m[k+1,j]$ (right). The final term \(P_{i-1} P_k P_j\) comes from multiplying $m[i,k]$, and $m[k+1,j]$ together. 
+        \begin{itemize}
+            \item $A_1 A_2 \cdots A_i \cdots A_k A_{k+1} \cdots A_j \cdots A_{n-1} A_n$
+            \begin{itemize}
+            \item $A_i \cdots A_k = A_{ik}$ and $A_{k+1} \cdots A_j = A_{(k+1)j}$
+            \end{itemize}
+        \end{itemize} 
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Why is the first principle (i.e. optimal substructure) not sufficient?}
+\begin{example}
+
+    \customFigure[0.75]{00_Images/EX1.png}{Why memoization is needed}
+
+    \begin{itemize}
+        \item \textbf{Note:} This recursive pattern is similar to the approach used for Fibonacci sequence calculations, highlighting overlapping subproblems. So memoization is needed.
+        \begin{itemize}
+            \item \textbf{Store:} Store the results in a 2D array since we have two different indices $i$ and $j$.
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsubsection{Matrix Chain Multiplication Example}
+\begin{example}
+    Consider the matrices with the following dimensions:
+
+    \[
+    A_1: 30 \times 35, \quad A_2: 35 \times 15, \quad A_3: 15 \times 5, \quad A_4: 5 \times 10, \quad A_5: 10 \times 20, \quad A_6: 20 \times 25
+    \]
+
+    The goal is to find the minimum cost of multiplying these matrices together and store them in a 2D result.
+    \vspace{1em}
+
+    The triangle below represents the minimum number of scalar multiplications needed for each subproblem. Each entry in the triangle corresponds to the cost of multiplying the matrices from \(A_i\) to \(A_j\). 
+
+    \customFigure[0.5]{00_Images/M.png}{You do not need the whole 2D array, you just need the upper triangle of the 2D array. Calculate this table from the bottom up.}
+    \begin{itemize}
+        \item \textbf{Key:} $\text{cell}(i,j)$ holds $m(i,j)$.
+        \item \textbf{Bottom Row:} All zeros because there is no scalar multiplication when $i=j$ (i.e. same matrix)
+        \item \textbf{1-2}: $30 \times 35 \times 15$
+        \item \textbf{1-3} $A_1 A_2 A_3$ either with $(A_1 A_2)A_3$ and $A_1 (A_2A_3)$
+        \begin{itemize}
+            \item $(A_1 A_2)A_3$: $15750 + 30 \times 15 \times 5$
+            \item $A_1 (A_2A_3)$: $2625 + 30 \times 35 \times 5$ (this one is smaller), so $m(1,3)$ is this. 
+            \begin{itemize}
+                \item \textbf{Note:} Use an arrow to denote from which bottom row is made.  
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{1-4}: We will now calculate the cost for multiplying a subset of the matrices $A_1 A_2 A_3 A_4$.
+        \begin{enumerate}
+            \item First, consider multiplying \(A_1[A_2 A_3 A_4]\):
+            \[
+            = 4375 + (30 \times 35 \times 10) = 4375 + 10500 = 14875
+            \]
+            \item Now, consider multiplying \([A_1 A_2][A_3 A_4]\):
+            \[
+            = 15750 + 750 + (30 \times 15 \times 10) = 15750 + 750 + 4500 = 21000
+            \]
+        
+            \item Finally, consider multiplying \([A_1 A_2 A_3] A_4\):
+            \[
+            = 7875 + (30 \times 5 \times 10) = 7875 + 1500 = 9375
+            \]
+        \end{enumerate}
+        \begin{itemize}
+            \item \textbf{Note:} This is made easier using memoization.
+        \end{itemize}
+        Thus, the optimal solution $m(1,4)$ for multiplying \(A_1 A_2 A_3 A_4\) is \(9375\) scalar multiplications.
+    \end{itemize}
+    \vspace{1em}
+\end{example}
+
+\subsubsection{Time Complexity}
+\begin{definition}
+    The time complexity of this algorithm is determined by the number of subproblems (or squares in the table), leading to a total complexity of:
+
+    \[
+    n \mathcal{O}(n^2) = \mathcal{O}(n^3)
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} where \(n\) is the index since the index can go up to $n$ times for $m(i,j)$ since we have to find the lowest one. 
+    \end{itemize}
+\end{definition}
+
+\subsection{DP longest common subsequence (LCS)}
+\begin{definition}
+Given two strings \(X = x_1, x_2, \dots, x_m\) and \(Y = y_1, y_2, \dots, y_n\), the longest common subsequence (LCS) of \(X\) and \(Y\) is the longest sequence that appears in both strings in the same order, though not necessarily consecutively.
+\begin{itemize}
+    \item \textbf{Notation:} Let \(X^k = x_1, x_2, \dots, x_k\) denote a substring of \(X\).
+\end{itemize}
+\end{definition}
+
+\begin{example}
+    Springtime and pioneer. pine is the LCS.
+\end{example}
+
+\begin{intuition}
+    \textbf{Naive approach:} Assuming \(n > m\), a brute force solution has a time complexity of \(\Omega(m^2 n^2)\).
+\end{intuition}
+
+\begin{theorem}
+If \(Z = z_1, z_2, \dots, z_k\) is the LCS of \(X\) and \(Y\), then:
+\begin{itemize}
+    \item[(A)] If \(x_m = y_n\), then \(x_m = y_n = z_k\) and \(z_{k-1}\) is the LCS of \(X_{m-1}\) and \(Y_{n-1}\).
+    \item[(B)] If \(x_m \neq y_n\), then \(z_k \neq x_m\), so \(Z\) is the LCS of \(X_{m-1}\) and \(Y_n\).
+    \item[(C)] If \(x_m \neq y_n\), then \(z_k \neq y_n\), so \(Z\) is the LCS of \(X_m\) and \(Y_{n-1}\).
+\end{itemize}
+\end{theorem}
+
+\begin{derivation}
+    \textbf{Proof of (A):}
+    \begin{enumerate}
+        \item ATaC that \(x_m = y_n\) and \(x_m = y_n = z_k\), but \(Z_{k-1}\) is not the LCS of \(X_{m-1}\) and \(Y_{n-1}\). 
+        \item As a result, some other string \(W\) would be the LCS, implying \(|W| \cup z_k > |Z_{k-1}| \cup z_k = Z\), which contradicts the assumption that \(Z\) is the longest common subsequence. 
+    \end{enumerate}
+    \begin{itemize}
+        \item (B) and (C) follow similarly by considering the cases where \(x_m \neq y_n\).
+    \end{itemize}
+\end{derivation}
+
+\begin{intuition}
+If the last characters of \(X\) and \(Y\) match, they are part of the LCS. Otherwise, we reduce the problem by eliminating the last character of either \(X\) or \(Y\) and finding the LCS of the reduced strings.
+\end{intuition}
+
+\subsubsection{Dynamic Programming Approach}
+\begin{definition}
+    We define \(C[i, j]\) as the length of the LCS of \(X_i\) and \(Y_j\).
+
+    \begin{equation}
+    C[i, j] = 
+    \begin{cases}
+    0 & \text{if} \quad i = 0 \quad \text{or} \quad j = 0 \\
+    C[i-1, j-1] + 1 & \text{if} \quad x_i = y_j \quad \text{(case A)} \\
+    \max(C[i-1, j], C[i, j-1]) & \text{if} \quad x_i \neq y_j \quad \text{(cases B, C)}
+    \end{cases}
+    \end{equation}
+
+\end{definition}
+
+\begin{intuition}
+    
+\end{intuition}
+
+\begin{example}
+Consider the strings \(X = \text{computer}\) and \(Y = \text{automation}\). The dynamic programming table for \(C[i,j]\) is shown below.
+
+\customFigure[0.5]{00_Images/LCS.png}{Computation of C}
+
+WHAT DOES THAT FIGURE MEAN IN THE RIGHT ON WEEBLY.
+\end{example}
+
+\subsubsection{Time Complexity}
+\begin{definition}
+    The time complexity of this approach is \(\mathcal{O}(m \times n)\)
+    \begin{itemize}
+        \item \(m\) is the length of string \(X\)
+        \item \(n\) is the length of string \(Y\). 
+        \item \textbf{Note:} The algorithm fills a table of size \(m \times n\), and for each cell, it performs a constant number of operations.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Recursive Formula for Binomial Coefficient}
+\begin{definition}
+    \begin{equation}
+        C(n,k) = \binom{n}{k}
+    \end{equation}
+        
+        The base cases are:
+        \[
+        C(n, 0) = 1, \quad C(n, n) = 1
+        \]
+        The recursive relation is:
+        \[
+        C(n, k) = C(n-1, k-1) + C(n-1, k)
+        \]
+\end{definition}
+
+\subsection{Optimal Polygon Triangulation FINISH IN LEC}
+
+\begin{definition}
+    Given a convex polygon with \(n\) vertices \(v_1, v_2, \dots, v_n\), triangulation is the division of the polygon into triangles by adding diagonals. The goal is to find the triangulation that minimizes the total weight \(\omega\).
+\end{definition}
+    
+\subsubsection{Objective}
+\begin{definition}
+    Minimize the total weight of the triangulation, where the weight \(\omega(\Delta v_i v_j v_k)\) of a triangle is the sum of the Euclidean distances between its vertices:
+    \begin{equation}
+        \omega(\Delta v_i v_j v_k) = |v_i v_j| + |v_j v_k| + |v_i v_k|
+    \end{equation}
+\end{definition}    
+
+\subsubsection{Recursive formula}
+\begin{definition}
+    The recursive formula for the optimal triangulation of vertices \(v_i \dots v_j\) is given by:
+    
+    \begin{equation}
+    t[i, j] = 
+    \begin{cases}
+    0 & \text{if} \quad i = j \\
+    \min_{i \leq k \leq j} \left( t[i, k] + t[k+1, j] + \omega(\Delta v_i v_j v_k) \right) & \text{if} \quad i < j
+    \end{cases}
+    \end{equation}
+\end{definition}
+
+\textbf{Triangulation as a tree:} The triangulation can be represented as a binary tree structure, where each node corresponds to a triangle, and the optimal triangulation is achieved by recursively minimizing the weights of the subproblems.
+    
+\[
+\begin{array}{ccccccccc}
+v_0 & v_1 & v_2 & v_3 & v_4 & v_5 & v_6 \\
+\end{array}
+\]
+\[
+\begin{array}{c}
+\underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_0 \dots v_3} \hspace{1cm} \underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_4 \dots v_6}
+\end{array}
+\]
+    
+    \textbf{Example:} The optimal triangulation of vertices \(v_1 \dots v_6\) can be represented as:
+    
+    \[
+    ((((v_0 v_1 v_2) v_3) v_4) (v_5 v_6))
+    \]
+    
+    This recursive structure can be visualized as a tree, with the leaves representing the individual triangles and the root representing the entire polygon.
+
+\customFigure[0.75]{00_Images/PT.png}{Polygon triangulation.}
