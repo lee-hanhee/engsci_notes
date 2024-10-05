@@ -1,0 +1,156 @@
+\subsection{Any signal in CT as a superposition of impulse signals}
+\begin{definition}
+    \begin{equation}
+        x(t)= \int_{-\infty}^{\infty} x(\tau) \delta (t-\tau) d\tau 
+    \end{equation}
+\end{definition}
+
+\begin{derivation}
+    \customFigure[0.75]{00_Images/D1.png}{Derivation of writing anty signals as a SP of impulses.}
+\end{derivation}
+
+\subsection{Convolution integral}
+\begin{definition}
+    Given $x\in \mathbb{C}^{\mathbb{R}}$ and $h \in \mathbb{C}^{\mathbb{R}}$, the convolution of $x$ and $h$ (if it exists) is the signal $x \ast h \in \mathbb{C}^{\mathbb{R}}$ defined via 
+    \begin{equation}
+        y(t) = (x \ast h)(t) \int_{-\infty}^{\infty} x(\tau)h(t-\tau) d\tau 
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{i.e.} Superposition of shifted impulse responses. 
+        \item \textbf{Analogous to DT:} Just switch sums to integrals. 
+        \item \textbf{Intuition:} For an LTI system, what is the output $y(t)$ given the input $x(t)$/
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \customFigure[0.75]{00_Images/D2.png}{Derivation 2.}
+\end{derivation}
+
+\subsubsection{Alternative expression}
+\begin{definition}
+    \[
+(x * h)(t) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x(\tau) h(\lambda) \delta(t - \tau - \lambda) d\lambda d\tau
+\]
+\end{definition}
+
+\begin{derivation}
+    \[
+    (x * h)(t) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x(\tau) h(\lambda) \delta(t - \tau - \lambda) d\lambda d\tau
+    \]
+    \[
+    = \int_{-\infty}^{\infty} x(\tau) \left( \int_{-\infty}^{\infty} h(\lambda) \delta(t - \tau - \lambda) d\lambda \right) d\tau
+    \]
+    \[
+    = \int_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau
+    \]
+      
+\end{derivation}
+
+\subsection{Computing convolution}
+\begin{intuition}
+    \begin{itemize}
+        \item Plot $x(\tau)$
+        \item Plot $h(\tau)$
+        \item Plot $h(t-\tau)$
+        \customFigure[0.75]{00_Images/A.png}{Shift and reversal of h of a causal system.}
+        \begin{itemize}
+            \item \textbf{Convolution as a Sliding Window:}
+            \begin{itemize}
+                \item The function \( h(t - \tau) \) acts as a sliding window over the input signal \( x(\tau) \).
+                \item The operation involves taking a weighted product over the integral:
+                \[
+                y(t) = \int_{-\infty}^{\infty} x(\tau) h(t - \tau) d\tau
+                \]
+            \end{itemize}
+        
+            \item \textbf{Phases of Interaction:}
+            \begin{itemize}
+                \item \textbf{Start interacting:} The signals \( x(\tau) \) and \( h(t - \tau) \) begin to overlap.
+                \item \textbf{Fully interacting:} The two signals are fully convolved.
+                \item \textbf{Stop interacting:} The signals start to separate, ending the convolution.
+            \end{itemize}
+        
+            \item \textbf{LTI System Interpretation:}
+            \begin{itemize}
+                \item An LTI system computes a linear combination of everything within the window, weighted by the impulse response \( h(t - \tau) \).
+                \item In \textbf{discrete-time}, this process is represented as a summation.
+                \item In \textbf{continuous-time}, it is expressed as an integral.
+            \end{itemize}
+        
+            \item \textbf{Causality in LTI Systems:}
+            \begin{itemize}
+                \item For \textbf{non-causal} systems, meaning that the output at time \( t \) can depend on future inputs.
+                \begin{itemize}
+                    \item  This is because the window function \( h(t - \tau) \) can "look forward" in time.
+                \end{itemize}
+                \item For \textbf{causal} systems, the output is at $t$ (whereever $h(\tau)$ for $\tau=0$).
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\subsection{Examples of convolution integrals in CT}
+\begin{warning}
+    \begin{itemize}
+        \item Draw graphs on the $\tau$ axis. 
+        \item Draw $x(\tau)$
+        \item Draw $h(\tau)$ first, then apply the time reversal and see what values of $t$ result in different answers for $y(t)$ (i.e. see the different intervals.)
+        \item $t$ is under our control, where we can think of $h(t-\tau)$ as a window that can shift with $t$.
+        \item We may asked to find convolutions at specific times (i.e. at time $1$).
+    \end{itemize}
+\end{warning}
+
+\begin{example}
+    \customFigure[0.70]{00_Images/E1.png}{Example 1}
+\end{example}
+
+\begin{example}
+    \customFigure[0.70]{00_Images/E3.png}{Cases 1-2}
+    \customFigure[0.70]{00_Images/E4.png}{Cases 3-4}
+    \begin{itemize}
+        \item For the graphs that overlap, the resulting product are the way because
+        \begin{itemize}
+            \item 1st: We are multiplying a rectangle with $height 1$, with a triangle, so the resulting product will just be the triangle (i.e. $1 \times \text{anything} = \text{anything}$)
+            \item 2nd: Same intuition for this part (i.e. $1 \times \text{anything} = \text{anything}$)
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsection{Properties of convolution in CT}
+\begin{definition}
+    \begin{enumerate}
+        \item \( x * h = h * x \quad \forall \, x,h \quad \text{(commutativity)} \)
+        
+        \item \( (x * h) * y = x * (h * y) \quad \forall \, x,h,y \quad \text{(associativity)} \)
+        
+        \item \( x * (h_1 + h_2) = (x * h_1) + (x * h_2) \quad \forall \, x,h_1,h_2 \quad \text{(distributive law)} \)
+        
+        \item \( x * \delta = \delta * x = x \quad \text{(existence of identity)} \)
+        
+        \item \( \forall \, t_0, t_1 \in \mathbb{R}, A \in \mathbb{C} \), if \( x(t) * h(t) = y(t) \), then:
+        \begin{enumerate}
+            \item \( (x(t - t_0) * h(t)) = y(t - t_0) \quad \text{(time invariance)} \)
+            \item \( (x(t) * h(t - t_1)) = y(t - t_1) \)
+            \item \( (x(t - t_0) * h(t - t_1)) = y(t - t_0 - t_1) \)
+            \item \( (Ax(t)) * h(t) = Ay(t) \)
+        \end{enumerate}
+        
+        \item \( \delta(t) * \delta(t) = \delta(t), \quad \delta(t - t_0) * \delta(t - t_1) = \delta(t - t_0 - t_1) \)
+    \end{enumerate}
+\end{definition}
+
+\subsection{CT Properties of LTI Systems}
+\begin{theorem}
+    Let \( S \) be an LTI system in continuous time (CT) with impulse response \( h(t) \). Then:
+    \begin{enumerate}
+        \item \( S \) is memoryless \( \iff h(t) = k \delta(t) \) for some \( k \in \mathbb{C} \)
+        \item \( S \) is causal \( \iff h(t) = 0 \, \forall t < 0 \)
+        \item \( S \) is stable \( \iff \int_{-\infty}^{\infty} |h(t)| dt < \infty \)
+        \item \( S \) is invertible \( \iff x \neq \text{zero} \rightarrow x * h \neq \text{zero} \) \( \iff \exists h' \text{ s.t. } h' * h = \delta \)
+        \begin{itemize}
+            \item Use almost everywhere (a.e.) for \( \neq \) and $=$ since it's in CT.
+        \end{itemize}
+    \end{enumerate}
+\end{theorem}
+
+

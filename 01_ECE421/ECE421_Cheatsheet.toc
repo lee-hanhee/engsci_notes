@@ -1,13 +1,13 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}Introduction to ML, Nearest neighbors, Linear classification (LFD: 1.1-1.2)}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Types of learning}{4}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{4}{subsubsection.1.1.1}%
+\contentsline {section}{\numberline {1}Introduction to ML, Nearest neighbors, Linear classification (LFD: 1.1-1.2)}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Types of learning}{5}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{5}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{6}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{7}{subsubsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.2}Classification problem setup}{8}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{8}{subsection.1.3}%
-\contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{9}{subsubsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.4}Error process for classification}{9}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{10}{subsubsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.4}Error process for classification}{10}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Types of error}{10}{subsubsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.5}Hyperparameters}{10}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{10}{subsection.1.6}%
@@ -15,14 +15,14 @@
 \contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{11}{subsubsection.1.7.1}%
 \contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{11}{subsubsection.1.7.2}%
 \contentsline {subsection}{\numberline {1.8}Linear classification}{11}{subsection.1.8}%
-\contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{11}{subsubsection.1.8.1}%
-\contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{11}{subsubsection.1.8.2}%
+\contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{12}{subsubsection.1.8.1}%
+\contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{12}{subsubsection.1.8.2}%
 \contentsline {subsubsection}{\numberline {1.8.3}Training}{12}{subsubsection.1.8.3}%
 \contentsline {subsubsection}{\numberline {1.8.4}Prediction}{12}{subsubsection.1.8.4}%
 \contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{12}{subsubsection.1.8.5}%
-\contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{13}{subsection.1.9}%
+\contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{14}{subsection.1.9}%
 \contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{14}{subsection.1.10}%
-\contentsline {subsubsection}{\numberline {1.10.1}Training}{14}{subsubsection.1.10.1}%
+\contentsline {subsubsection}{\numberline {1.10.1}Training}{15}{subsubsection.1.10.1}%
 \contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{15}{subsubsection.1.10.2}%
 \contentsline {section}{\numberline {2}Linear regression, Regularization (LFD: 3.2.1, 3.4.1, Appendix B)}{16}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Perceptron learning algorithm}{16}{subsection.2.1}%
@@ -112,7 +112,24 @@
 \contentsline {subsection}{\numberline {7.3}Gaussian Elimination with Matrix Visualization}{57}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Eigenvalue Decomposition of a Matrix}{58}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Singular Value Decomposition (SVD)}{59}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Multilayer Perceptron, Neural Networks (LFD: Sec 7.1, 7.2.1, 7.2.2)}{61}{section.8}%
+\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, K-means clustering, Density Estimation, Mixture of Gaussians, Hard-assignment learning of MoG, EM: Soft assignment (PRML: 9.1-2)}{61}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Unsupervised Learning}{61}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Clustering}{61}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}K-means Clustering}{61}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}K-means Error Function}{61}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Algorithm}{61}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Error Minimization Example}{61}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Application}{61}{subsubsection.8.3.4}%
+\contentsline {subsubsection}{\numberline {8.3.5}What's wrong with k-means}{61}{subsubsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.4}Density Estimation}{61}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Mixture of Gaussians}{61}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Example: 2D Gaussian}{61}{subsubsection.8.5.1}%
+\contentsline {subsubsection}{\numberline {8.5.2}Scalar Example}{61}{subsubsection.8.5.2}%
+\contentsline {subsubsection}{\numberline {8.5.3}Example: Mixture of 3 Gaussians}{61}{subsubsection.8.5.3}%
+\contentsline {subsubsection}{\numberline {8.5.4}Likelihood of Data}{61}{subsubsection.8.5.4}%
+\contentsline {subsubsection}{\numberline {8.5.5}Relating k-means and MoG}{61}{subsubsection.8.5.5}%
+\contentsline {subsection}{\numberline {8.6}Hard-Assignment Learning of MoG}{61}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}EM: Soft Assignment}{61}{subsection.8.7}%
 \contentsline {section}{\numberline {9}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{62}{section.9}%
 \contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{63}{section.10}%
 \contentsline {section}{\numberline {11}EM (LFD: 6.4)}{64}{section.11}%

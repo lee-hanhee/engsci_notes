@@ -1,41 +1,45 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Graphical examples of the Big-O, Big-Omega, and Big-Theta.}}{11}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}}{29}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}}{37}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces (a) Directed graph, (b) Undirected graph.}}{39}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Bipartite graph.}}{40}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Clique for 3 and 4.}}{40}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{41}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Choosing a node as the root, then making it a tree.}}{42}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{52}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{53}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Build heap.}}{54}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{55}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Quicksort example.}}{58}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Partition}}{58}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{60}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces Insertion sort.}}{64}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces Example of counting sort}}{66}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Radix sort example}}{67}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{68}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Tournament tree.}}{69}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces BST property}}{71}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Example of the BST property.}}{71}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Building BST based on the ordering of the array, which results in two different binary trees. The left BST is $O(\log n)$ and the right BST is $O(n)$.}}{72}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Delete BST}}{74}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Threaded trees.}}{75}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Red black trees.}}{76}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces The triangles denote subtrees of $h-1$, then adding one node up top with another subtree completes a tree of height $h$. If the root is red, then its children must be black, but not the other way around.}}{77}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces C1}}{79}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces C2}}{79}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces C3}}{79}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Difference between array and linked lists.}}{80}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Collisions happening between D and E and also C and F}}{81}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Clustering}}{83}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Fib numbers}}{86}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Why memoization is needed}}{87}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces You do not need the whole 2D array, you just need the upper triangle of the 2D array. Calculate this table from the bottom up.}}{88}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Computation of C}}{90}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Polygon triangulation.}}{91}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Class scheduling example.}}{92}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{92}{figure.40}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Graphical examples of the Big-O, Big-Omega, and Big-Theta.}}{6}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Merge sort visualization, where we divide until there is one element, then merge by comparing them from least to greatest.}}{24}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Recursion tree that is made by subbing in the $T(\#)$ into the recurrence relation to get the nodes below.}}{32}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces (a) Directed graph, (b) Undirected graph.}}{34}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Bipartite graph.}}{35}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Clique for 3 and 4.}}{35}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces (i) Directed graph, (ii) Adjacency matrix, (iii) Adjacency list}}{36}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Choosing a node as the root, then making it a tree.}}{37}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces (Left) Tree format heap. (Right) Array format heap with formulas for parent and children.}}{47}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Bubble down.}}{48}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Build heap.}}{49}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces (a) Max-heap data structure after Build-Heap. (b)-(j) Extract max. (k) Sorted array.}}{50}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Quicksort example.}}{53}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Partition}}{53}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Quicksort average case in which each level is derived by subbing in the $T(\#)$ back into the equation above.}}{55}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Insertion sort.}}{59}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Example of counting sort}}{61}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Radix sort example}}{62}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Number of passes for 1000\#'s 64 bits.}}{63}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Tournament tree.}}{64}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces BST property}}{66}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Example of the BST property.}}{66}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Building BST based on the ordering of the array, which results in two different binary trees. The left BST is $O(\log n)$ and the right BST is $O(n)$.}}{67}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Delete BST}}{69}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Threaded trees.}}{70}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Red black trees.}}{71}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces The triangles denote subtrees of $h-1$, then adding one node up top with another subtree completes a tree of height $h$. If the root is red, then its children must be black, but not the other way around.}}{72}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces C1}}{74}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces C2}}{74}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces C3}}{74}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Difference between array and linked lists.}}{75}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Collisions happening between D and E and also C and F}}{76}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Clustering}}{78}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Fib numbers}}{81}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Why memoization is needed}}{82}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces You do not need the whole 2D array, you just need the upper triangle of the 2D array. Calculate this table from the bottom up.}}{83}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Computation of C}}{85}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Polygon triangulation.}}{86}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Class scheduling example.}}{87}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{87}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces WHAT IS THIS SHOWING ME }}{88}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces WHAT IS THIS SHOWING ME?}}{89}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Tree}}{89}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces T optimal, T', and T''}}{89}{figure.44}%

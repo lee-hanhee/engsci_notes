@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1727479148.36444 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" "CHE374_Cheatsheet.pdf" "CHE374_Cheatsheet" 1727479170.86246 0
-  "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" 1727277091.14171 1085 78106564689a2f28e31962f062335230 ""
+["pdflatex"] 1728045720.86241 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" "CHE374_Cheatsheet.pdf" "CHE374_Cheatsheet" 1728045742.7643 0
+  "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" 1728045719.0462 1186 2044832feab3c71eec0e5f13db92b54f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -384,12 +384,12 @@
   "00_Lectures/W7.tex" 1724718645.64131 5590 e768245f93e25792f94dbe8be3bd061e ""
   "00_Lectures/W8.tex" 1724718670.6793 6737 ac0f76440dded052ad468245fa8db937 ""
   "00_Lectures/W9.tex" 1724718691.27063 9222 2ec9a51680bfcb25939bb3e78e7c8c47 ""
-  "CHE374_Cheatsheet.aux" 1727479170.36233 23490 6abc012cb8f9f3c813b5bb947a2e6feb "pdflatex"
-  "CHE374_Cheatsheet.lof" 1727479170.36994 4290 449c6f62c87f00a1967304d8bf350490 "pdflatex"
-  "CHE374_Cheatsheet.lot" 1727479170.37013 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "CHE374_Cheatsheet.out" 1727479170.36895 24200 12c9c5bc0bbcf5efe68a5606ad68bfcf "pdflatex"
-  "CHE374_Cheatsheet.tex" 1727277091.14171 1085 78106564689a2f28e31962f062335230 ""
-  "CHE374_Cheatsheet.toc" 1727479170.36973 12172 6abd228f9dfb0b53ed7e36f533e31bda "pdflatex"
+  "CHE374_Cheatsheet.aux" 1728045742.25834 23623 8b826fdf7168e94a36dc067b339e8e23 "pdflatex"
+  "CHE374_Cheatsheet.lof" 1728045742.26605 4290 0c7ca9f8da03913ce6b05dd5729bc5ed "pdflatex"
+  "CHE374_Cheatsheet.lot" 1728045742.26621 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "CHE374_Cheatsheet.out" 1728045742.26491 24288 cb25b54ea2f9125f85fb7aad302f209f "pdflatex"
+  "CHE374_Cheatsheet.tex" 1728045719.0462 1186 2044832feab3c71eec0e5f13db92b54f ""
+  "CHE374_Cheatsheet.toc" 1728045742.26585 12264 e8775e0f5e995281f4bc049c827aab25 "pdflatex"
   "style.sty" 1724879891.6198 5483 0907e2435db5b79d26e51d6651c206b5 ""
   (generated)
   "CHE374_Cheatsheet.aux"

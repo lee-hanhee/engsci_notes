@@ -550,10 +550,10 @@ OUTPUT ECE367_Cheatsheet.toc
 INPUT ./ECE367_Cheatsheet.lof
 INPUT ./ECE367_Cheatsheet.lof
 INPUT ECE367_Cheatsheet.lof
-OUTPUT ECE367_Cheatsheet.lof
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+OUTPUT ECE367_Cheatsheet.lof
 INPUT ./ECE367_Cheatsheet.lot
 INPUT ./ECE367_Cheatsheet.lot
 INPUT ECE367_Cheatsheet.lot

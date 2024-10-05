@@ -22,8 +22,11 @@
                 (a^{(1)})^\top \\
                 \vdots \\
                 (a^{(n)})^\top
-                \end{bmatrix}
+                \end{bmatrix} \in \mathbb{R}^{n \times m}
         \end{equation}
+        \begin{itemize}
+            \item \textbf{Note:} $(A^T A)^T = A^T A$
+        \end{itemize}
     \end{definition}
 
     \subsubsection{Matrix Multiplication}
@@ -42,7 +45,7 @@
                 (a^{(1)})^\top b^{(1)} & \cdots & (a^{(1)})^\top b^{(n)} \\
                 \vdots & \ddots & \vdots \\
                 (a^{(n)})^\top b^{(1)} & \cdots & (a^{(n)})^\top b^{(n)}
-                \end{bmatrix}
+                \end{bmatrix} \in \mathbb{R}^{n \times n}
         \end{equation}
 
         For regular matrix multiplication \( AB \), we have:
@@ -55,9 +58,26 @@
                 \vdots \\
                 (b^{(n)})^\top
                 \end{bmatrix}
-                = \sum_{i=1}^{n} a^{(i)} (b^{(i)})^\top
+                = \sum_{i=1}^{n} a^{(i)} (b^{(i)})^\top \in \mathbb{R}^{m \times m}
         \end{equation}
         (Note: Try to think why this is the same as before.)
+    \end{definition}
+
+    \subsubsection{Matrix vector multiplication}
+    \begin{definition}
+        \begin{equation*}
+            Ax = \begin{bmatrix}
+                a_{11} & \cdots & a_{1n} \\
+                \vdots & \ddots & \vdots \\
+                a_{m1} & \cdots & a_{mn} 
+            \end{bmatrix}
+            \begin{bmatrix}
+                    x_{1} \\
+                    \vdots \\ 
+                    x_{n}
+            \end{bmatrix}
+            = \sum_{i=1}^{n} x_i a^{(i)} \in \mathbb{R}^{m \times 1}
+        \end{equation*}
     \end{definition}
 
     \subsubsection{Block Matrix Product}
@@ -80,9 +100,10 @@
         \begin{itemize}
             \item \textbf{Square matrix}: \(m = n\)
             \item \textbf{Diagonal matrix}: \(a_{ij} = 0 \quad \forall i \neq j\)
-            \item \textbf{Identity matrix}
-            \item \textbf{Triangular matrix}
-            \item \textbf{Orthogonal matrix}: \((A^\top A = A A^\top = I)\) (i.e. inverse of A is $A^T$)
+            \item \textbf{Identity matrix}: $a_{ij} = 0 \; \forall i \neq j, \; a_{ii} = 1 \; \forall i$
+            \item \textbf{Triangular matrix}: $A=QR$ ($R$ is upper triangular)
+            \item \textbf{Orthogonal matrix}: \(A^\top A = A A^\top = cI\) 
+            \item \textbf{Orthonormal matrix}: \(A^\top A = A A^\top = I\) (i.e. inverse of A is $A^T$)
             \item \textbf{Symmetric matrix}: \(A = A^\top\)
         \end{itemize}
     \end{definition}
@@ -114,6 +135,8 @@
         \end{align}
         \begin{itemize}
             \item $\mathcal{R}(A) \text{ is a subspace (closed under addition and scalar multiplication).}$
+            \item \textbf{Note:} $A$ can consist of different column vectors that still span the space. E.g. In 2D, $(1,0)$ and $(0,1)$ can be used, but $(1,1)$ and $(1,0)$ can be used as well, which would have different $A$. 
+            \item \textbf{Note:} $R(A) = R(A^T)$ iff $A=A^T$ (i.e. symmetric).
         \end{itemize}
 
         \customFigure[0.25]{00_Images/RS.png}{Range space.}
@@ -143,16 +166,13 @@
     \mathcal{R}(A^T) \perp \mathcal{N}(A)
     \end{equation}
 
-    Furthermore, the direct sum of the two subspaces (i.e. if you take one vector from one subspace, and another vector from the other subspace, the sum of these vectors would be in $\mathbb{R}^n$ or $\mathbb{R}^m$)
+    Therefore, since $S \oplus S^\perp = V$, then the direct sum of the two subspaces (i.e. if you take one vector from one subspace, and another vector from the other subspace, the sum of these vectors would be in $\mathbb{R}^n$ or $\mathbb{R}^m$)
 
     \begin{equation}
     \mathcal{R}(A) \oplus \mathcal{N}(A^T) = \mathbb{R}^m
     \end{equation}
     \begin{itemize}
         \item $\dim(\mathcal{R}(A)) + \dim(\mathcal{N}(A^T)) = m$
-        \begin{itemize}
-            \item Rank of $A$: $\dim(\mathcal{R}(A))$
-        \end{itemize}
     \end{itemize}
 
     \begin{equation}
@@ -160,9 +180,6 @@
     \end{equation}
     \begin{itemize}
         \item $\dim(\mathcal{R}(A^T)) + \dim(\mathcal{N}(A)) = n$
-        \begin{itemize}
-            \item Rank of $A$: $\dim(\mathcal{R}(A^T))$
-        \end{itemize}
     \end{itemize}
 \end{definition}
 
@@ -224,6 +241,16 @@
         \item Given the range of A, we can find the null space of A by finding what is orthogonal to it. 
     \end{itemize}
 \end{example}
+
+\subsubsection{Rank of A}
+\begin{definition}
+    \begin{equation*}
+        \text{Rank}(A) = \dim(\mathcal{R}(A^T)) = \dim(\mathcal{R}(A)) 
+    \end{equation*}
+    \begin{itemize}
+        \item i.e. number of independent rows or independent columns. 
+    \end{itemize}
+\end{definition}
 
 \subsection{Determinant}
 \begin{definition}

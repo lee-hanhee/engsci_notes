@@ -1,0 +1,53 @@
+\subsection{Linear Algebra Primer}
+\textbf{Motivation:} Getting rid of convolution and trying to use multiplication. 
+
+\subsubsection{Eigenvalues and eigenvectors}
+\begin{definition}
+    Let \( V \) be a vector space over \( \mathbb{C} \) (or \( \mathbb{R} \)), let \( T: V \rightarrow V \) be a linear transformation. 
+    \vspace{1em}
+
+    A scalar \( \lambda \in \mathbb{C} \) (or \( \mathbb{R} \)) is called an eigenvalue of \( T \) if \( T(v) = \lambda v \) for some non-zero vector \( v \in V \) (v is then called an eigenvector associated with \( \lambda \)).
+    \begin{itemize}
+        \item \textbf{Note:} Helps understand \( T \): \( T \) acts on \( v \) by scaling them.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Suppose $V = \mathbb{R}^2$ with $T: \mathbb{R}^2 \to \mathbb{R}^2$ defined so that:
+    \[
+    \begin{pmatrix} x \\ y \end{pmatrix} \xrightarrow{T} \begin{pmatrix} 2 & -1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 2x - y \\ y \end{pmatrix}
+    \]
+    
+    For the vector $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$:
+    \[
+    T \begin{pmatrix} 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} = 1 \cdot \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+    \]
+    Thus, $\lambda_1 = 1$ is an eigenvalue of $T$, and every non-zero multiple of $\begin{pmatrix} 1 \\ 1 \end{pmatrix}$ is a corresponding eigenvector.
+    \vspace{1em}
+
+    For the vector $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$:
+    \[
+    T \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 2 \\ 0 \end{pmatrix} = 2 \cdot  \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+    \]
+    Thus, $\lambda_2 = 2$ is an eigenvalue of $T$, and every non-zero multiple of $\begin{pmatrix} 1 \\ 0 \end{pmatrix}$ is a corresponding eigenvector.
+    \vspace{1em}
+
+    Let $v_1 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}, v_2 = \begin{pmatrix} 1 \\ 0 \end{pmatrix}$. If $v = \alpha_1 v_1 + \alpha_2 v_2$, then:
+    \[
+    T(v) = T(\alpha_1 v_1 + \alpha_2 v_2) = \alpha_1 T(v_1) + \alpha_2 T(v_2)
+    \]
+    \[
+    = \alpha_1 \lambda_1 v_1 + \alpha_2 \lambda_2 v_2
+    \]
+\end{example}
+
+\begin{intuition}
+    This shows that a change of basis diagonalizes $T$, which helps simplify computations, especially for larger matrices.
+\end{intuition}
+
+\subsubsection{Key Fact!}
+\begin{definition}
+    Complex exponential signals are eigenfunctions of LTI systems.
+
+    \customFigure[0.5]{00_Images/EF.png}{Eigenfunction.}
+\end{definition}

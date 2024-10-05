@@ -86,3 +86,26 @@
         
     \end{enumerate}
 \end{process}
+
+\subsection{Finding rank and dimension/basis for range and null space of A and A transpose}
+\begin{process}
+    \begin{enumerate}
+        \item Find the REF of the matrix (i.e.  each leading entry in a row is to the right of the leading entry in the previous row, with all entries below leading entries being zeros).
+        \item $\text{rank}(A)$ is the number of pivots. 
+        \item $\dim (N(A^T)) = \text{Total num. of rows} - \text{rank}(A)$
+        \item $\dim (N(A)) = \text{Total num. of cols} - \text{rank}(A)$
+        \begin{itemize}
+            \item \textbf{Note:} This makes sense from the FTLA, since the total is basically the universal space. 
+        \end{itemize}
+        \item $R(A)$: Span of column vectors where there is a pivot (can use REF or original matrix's vectors).
+        \item $R(A^T)$: Span of row vectors where there is a pivot (can use REF or original matrix's vectors).
+        \item $N(A):$ Solve $Ax=0$ and find $x$, where there is probably a free variable. Check by subbing $x$ into $Ax=0$
+        \begin{itemize}
+            \item You can use the REF of $A$ for this. 
+        \end{itemize}
+        \item $N(A^T):$ Solve $A^T x=0$ and find $x$, where there is probably a free variable. Check by subbing $x$ into $A^Tx=0$
+        \begin{itemize}
+            \item \textbf{Key:} Have to find the REF of $A^T$, which is not equivalent to the REF of $A$.
+        \end{itemize}
+    \end{enumerate}
+\end{process}

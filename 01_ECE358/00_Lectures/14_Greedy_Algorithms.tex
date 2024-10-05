@@ -73,17 +73,26 @@ For fractional knapsack:
 \end{definition}
 
 \subsection{Intro to Huffman Encoding}
+\begin{intuition}
+    \customFigure[0.75]{00_Images/I.png}{WHAT IS THIS SHOWING ME }
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{intuition}
 
-\subsection{Problem Statement}
+\subsubsection{Problem Statement}
 \begin{intuition}
 Huffman coding minimizes the size of the encoded file by assigning fewer bits to more frequent characters.
+\begin{equation*}
+    \sum_c f(c)d(c) = \text{total number of bits needed.}
+\end{equation*}
 \end{intuition}
 
 \begin{example}
-Given characters $a, b, c, d, e, f$ with respective frequencies $f(a) = 45, f(b) = 13, f(c) = 12, f(d) = 16, f(e) = 9, f(f) = 5$, the goal is to minimize the total number of bits used for encoding. The variable size for encoding would be:
-\[
-d(c) = \sum f(c) \cdot d(c)
-\]
+    \customFigure[0.75]{00_Images/CHARS.png}{WHAT IS THIS SHOWING ME?}
+    \begin{itemize}
+        \item 
+    \end{itemize}
 \end{example}
 
 \subsubsection{Steps in Huffman Coding}
@@ -91,26 +100,67 @@ d(c) = \sum f(c) \cdot d(c)
     \item Write two letters with the lowest frequency in a tree-like fashion.
     \item Replace the two letters with a new character that sums their frequencies.
     \item Label the resulting tree.
+    \customFigure[0.75]{00_Images/LG.png}{Tree}
 \end{itemize}
-
-\subsection{Huffman Proofs}
 
 \subsubsection{Proof of Correctness}
 \begin{theorem}
-Every optimal tree can have the two lowest frequency keys as siblings, differing on one bit, with the greatest depth. Assume two lowest frequency keys $x$ and $y$. Then $T$ remains optimal.
+Every optimal tree can have the two lowest frequency keys being siblings, that differ only on one bit, with the greatest depth.
+
 \end{theorem}
 
-Let $B(T)$ be the sum of the frequencies and their bit-lengths:
-\[
-B(T) = \sum f(c) \cdot d(c)
-\]
-We want to show that $B(T_{\text{opt}}) \leq B(T')$, where $T_{\text{opt}}$ is the optimal tree and $T'$ is a different tree. By the greedy principle:
-\[
-B(T_{\text{opt}}) - B(T') = \sum f(c)(d_{\text{opt}}(c) - d(T')(c)) \geq 0
-\]
-Thus, $B(T_{\text{opt}}) \geq B(T')$.
+IS THIS A PROOF?
+\begin{derivation}
+    Assume two lowest frequency keys $x$ and $y$ and $T''$ remains optimal. 
+    \customFigure[0.75]{00_Images/E.png}{T optimal, T', and T''}
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item Let $B(T)$ be the sum of the frequencies and their bit-lengths:
+        \[
+        B(T) = \sum_c f(c) \cdot d(c)
+        \]
+        We want to show that $B(T') \leq B(T_{\text{opt}})$, where $T_{\text{opt}}$ is the optimal tree and $T'$ is a different tree (similar proof for $B(T'') \leq B(T')$)
+        \vspace{1em}
+    
+        \item By the greedy principle:
+        \[
+        B(T_{\text{opt}}) - B(T') = \sum_c f(c)(d(c_{opt}) - \sum_c f(c) d(c_{gr}) \geq 0
+        \]
+        Thus, $B(T_{\text{opt}}) \geq B(T')$.
+    \end{enumerate}
+\end{derivation}
 
 \subsubsection{Optimal Substructure}
+WHAT IS THE WORKFLOW, HOW DID WE GET HERE. IS THIS A THEOREM?
 \begin{theorem}
-Let $T_{\text{opt}}$ be the optimal prefix code for character set $C$. Let $x, y$ be part of $T_{\text{opt}}$ and $z$ be a merged character. The new set $C' = C - \{x, y\} + \{z\}$ results in an optimal prefix code for the new set $C'$. The cost difference between $T_{\text{opt}}$ and the new tree is minimal, proving optimality.
+    \begin{enumerate}
+        \item Let \( x \) $\leftarrow z \rightarrow$ \( y \) be part of \( T_{\text{opt}} \) for character set \( C \). Then
+        \[
+        T_{\text{opt}} = T_{\text{opt}} - \{x, y\} + \{z\}
+        \]
+        is optimal prefix code for new set \( C' = C - \{x, y\} + \{z\} \), where \( f(z') = f(x) + f(y) \).
+    
+        \item We have
+        \[
+        f(x) \cdot d_{T_{\text{opt}}}(x) + f(y) \cdot d_{T_{\text{opt}}}(y) = f(z) \cdot d_{T_{\text{opt}}}(z) + [f(x) + f(y)]
+        \]
+        because 
+        \[
+        d_{T_{\text{opt}}}(x) = d_{T_{\text{opt}}}(y) = d_{T_{\text{opt}}}(z) + 1.
+        \]
+    
+        \item Every time we "move" from \( T_{\text{opt}} \) to \( T'_{\text{opt}} \) by merging 2 keys, we have
+        \[
+        \mathcal{B}(T_{\text{opt}}) = \mathcal{B}(T'_{\text{opt}}) + (f(x) + f(y)).
+        \]
+    
+        \item ATaC \( T'_{\text{opt}} \) is not optimal for \( C' \), but \( T'' \) is. 
+    
+        \[
+        \mathcal{B}(T'') + (f(x) f(y)) < \mathcal{B}(T'_{\text{opt}}) + (f(x) f(y)),
+        \]
+        which is more optimal than \( T_{\text{opt}} \), a contradiction.
+    \end{enumerate}
+
 \end{theorem}

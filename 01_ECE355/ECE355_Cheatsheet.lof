@@ -2,13 +2,13 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{8}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{9}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{9}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{9}{figure.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{10}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{10}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{11}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{12}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{13}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{13}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{13}{figure.10}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{14}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{14}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{14}{figure.12}%
 \contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{17}{figure.13}%
@@ -86,5 +86,12 @@
 \contentsline {figure}{\numberline {85}{\ignorespaces Polynomial multiplication example.}}{57}{figure.85}%
 \contentsline {figure}{\numberline {86}{\ignorespaces Multiplying numbers example.}}{58}{figure.86}%
 \contentsline {figure}{\numberline {87}{\ignorespaces Graphical expression}}{59}{figure.87}%
-\contentsline {figure}{\numberline {88}{\ignorespaces Equivelent systems in series.}}{63}{figure.88}%
-\contentsline {figure}{\numberline {89}{\ignorespaces Causal system since it cannot respond early if it's causal.}}{64}{figure.89}%
+\contentsline {figure}{\numberline {88}{\ignorespaces Equivelent systems in series.}}{62}{figure.88}%
+\contentsline {figure}{\numberline {89}{\ignorespaces Causal system since it cannot respond early if it's causal.}}{63}{figure.89}%
+\contentsline {figure}{\numberline {90}{\ignorespaces Derivation of writing anty signals as a SP of impulses.}}{65}{figure.90}%
+\contentsline {figure}{\numberline {91}{\ignorespaces Derivation 2.}}{66}{figure.91}%
+\contentsline {figure}{\numberline {92}{\ignorespaces Shift and reversal of h of a causal system.}}{67}{figure.92}%
+\contentsline {figure}{\numberline {93}{\ignorespaces Example 1}}{69}{figure.93}%
+\contentsline {figure}{\numberline {94}{\ignorespaces Cases 1-2}}{70}{figure.94}%
+\contentsline {figure}{\numberline {95}{\ignorespaces Cases 3-4}}{71}{figure.95}%
+\contentsline {figure}{\numberline {96}{\ignorespaces Eigenfunction.}}{73}{figure.96}%
