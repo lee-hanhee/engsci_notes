@@ -1,4 +1,4 @@
-\subsection{Unsupervised Learning}
+\subsection{Supervised vs. Unsupervised Learning}
 \begin{intuition}
 
     \textbf{Supervised:} Input \( X \), predict output \( Y \).
@@ -19,34 +19,560 @@
     \end{itemize}
 \end{intuition}
 
-\subsection{Clustering}
-\begin{intuition}
-    INSERT FIGURE 9.1 FROM TEXTBOOK
-\end{intuition}
-
 \subsection{K-means Clustering}
-\subsubsection{K-means Error Function}
+\begin{definition}
+    The goal of the K-means algorithm is to partition a dataset $\{\mathbf{x}_1,\ldots,\mathbf{x}_N\}$ into \( K \) clusters
+    \begin{itemize}
+        \item Sum of the squares of the distances between data points and their assigned cluster centers is minimized. 
+        \item Each cluster is represented by a mean vector \( \mu_k \), which serves as the center of the cluster.
+    \end{itemize}
+\end{definition}
 
+\subsubsection{K-means Error Function}
+\begin{definition}
+    The K-means algorithm minimizes the following objective function, also called a distortion measure:
+    \begin{equation}
+        E = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \| \mathbf{x}_n - \mathbf{\mu}_k \|^2
+    \end{equation}
+    \begin{itemize}
+        \item $K$: Clusters/means
+        \item \( \mathbf{x}_n \) is the data point \( n \)
+        \item \( \mu_k \) is the mean of the cluster \( k \),
+        \item $r_{n1}\ldots r_{nk}$: One hot encoding of the cluster assignment of $\mathbf{x}_n$
+        \begin{itemize}
+            \item e.g. $r_{n1}\ldots r_{nk} = (0,0,0,1,0)$ (i.e. $\mathbf{x}_n$ is in cluster 4).
+            \item i.e.  \( r_{nk} = 1 \) if point \( \mathbf{x}_n \) is assigned to cluster \( k \), and 0 otherwise.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+    
 \subsubsection{Algorithm}
+\begin{definition}
+The K-means algorithm is an iterative clustering method that seeks to minimize the sum of squared distances between data points and their respective cluster centers. The algorithm proceeds as follows:
+
+\begin{enumerate}
+    \item Initialization: Choose an initial set of \( K \) cluster centers \( \mu_k \) for \( k = 1, 2, \dots, K \).
+    \begin{enumerate}
+        \item Randomly initialize $r_{nk}$'s. Proceed to update means $\mu$'s.
+        \item Randomly pick k $\mathbf{x}$'s, set $\mathbf{\mu}$'s to those. 
+    \end{enumerate}
+    
+    \item Iterate to convergence 
+    \begin{itemize}
+        \item Assignment Step (E-step): For each data point \( \mathbf{x}_n \), assign it to the cluster whose center is nearest, i.e., 
+        \[
+        r_{nk} = 
+        \begin{cases} 
+        1 & \text{if } k = \arg \min_j \| \mathbf{x}_n - \mathbf{\mu}_j \|^2 \\
+        0 & \text{otherwise.}
+        \end{cases}
+        \]
+        
+        \item Update Step (M-step): After assigning the data points to clusters, update each cluster center to be the mean of the data points assigned to that cluster:
+        \[
+        \mu_k = \frac{\sum_{n=1}^{N} r_{nk} \mathbf{x}_n}{\sum_{n=1}^{N} r_{nk}}.
+        \]
+        
+        \item Iterative Optimization: Repeat the Assignment and Update steps until the assignments do not change, or the change in the objective function \( J \) falls below a predetermined threshold. 
+    \end{itemize}
+\end{enumerate}
+\end{definition}
+
+\begin{derivation}
+    The objective function for the K-means algorithm is given by:
+    \[
+    E = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \| \mathbf{x}_n - \mu_k \|^2.
+    \]
+    \vspace{1em}
+
+    \textbf{E-step (Expectation Step)} In the E-step, we aim to minimize the objective function \( E \) with respect to the assignment variable \( r_{mj} \).
+    \[
+    r_{mj} = 
+    \begin{cases} 
+    1 & \text{if } j = \arg \min_l \| \mathbf{x}_n - \mathbf{\mu}_l \|^2 \\
+    0 & \text{otherwise.}
+    \end{cases}
+    \]
+    \begin{itemize}
+        \item Pulled out $m$ from $n\ldots N$
+        \item \textbf{Note:} Don't use $r_{nk}$ because $n,k$ are dummy variables for the summation (i.e. arbitrary).
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{M-step (Maximization Step)}
+    In the M-step, we minimize the objective function \( E \) with respect to the cluster centers \( \mu_k \), keeping the assignments \( r_{nk} \) fixed. To do this, we take the derivative of \( E \) with respect to \( \mu_k \) and set it to zero:
+
+    \[
+    \frac{\partial E}{\partial \mathbf{\mu}_k} = \frac{\partial}{\partial \mathbf{\mu}_k} \sum_{n=1}^{N} r_{nk} \| \mathbf{x}_n - \mathbf{\mu}_k \|^2.
+    \]
+
+    Expanding the squared distance term:
+    \[
+    \frac{\partial}{\partial \mathbf{\mu}_k} \sum_{n=1}^{N} r_{nk} \left( \| \mathbf{x}_n - \mathbf{\mu}_k \|^2 \right) = 2 \sum_{n=1}^{N} r_{nk} (\mathbf{\mu}_k - \mathbf{x}_n) = 0.
+    \]
+
+    Solving for \( \mu_k \):
+    \[
+    \mu_k = \frac{\sum_{n=1}^{N} r_{nk} \mathbf{x}_n}{\sum_{n=1}^{N} r_{nk}}.
+    \]
+    \begin{itemize}
+        \item \textbf{Error:} The indices do not match the proof given in class but this is low hanging fruit (i.e. doesn't matter).
+    \end{itemize}
+    \vspace{1em}
+
+    This iterative process continues until convergence, meaning the assignments \( r_{nk} \) no longer change between iterations.
+
+\end{derivation}
+
+\subsubsection{Illustration}
+\begin{example}
+    \customFigure[0.75]{00_Images/KM.png}{K-means Algorithm Illustration}
+    \begin{itemize}
+        \item \textbf{(a)}: 
+        \begin{itemize}
+            \item The green points represent the dataset in a two-dimensional Euclidean space.
+            \item The initial choices for the cluster centers \( \mu_1 \) and \( \mu_2 \) are shown by the red and blue crosses, respectively.
+        \end{itemize}
+        
+        \item \textbf{(b)}:
+        \begin{itemize}
+            \item The initial E-step (Expectation step) is performed, where each data point is assigned to either the red cluster or the blue cluster based on which cluster center is closer.
+            \item The magenta line represents the perpendicular bisector between the two cluster centers, indicating the boundary that separates the data points into the two clusters.
+        \end{itemize}
+        
+        \item \textbf{(c)}:
+        \begin{itemize}
+            \item After the first E-step, the data points are fully assigned to the two clusters.
+        \end{itemize}
+        
+        \item \textbf{(d)}:
+        \begin{itemize}
+            \item In the M-step (Maximization step), each cluster center is updated by computing the mean of the points assigned to that cluster.
+        \end{itemize}
+        
+        \item \textbf{(e)}:
+        \begin{itemize}
+            \item After the first M-step, the cluster centers have moved to the updated positions.
+        \end{itemize}
+        
+        \item \textbf{(f)}:
+        \begin{itemize}
+            \item A new E-step is performed, reassigning the data points to clusters based on the updated cluster centers.
+        \end{itemize}
+        
+        \item \textbf{(g)}:
+        \begin{itemize}
+            \item The data points are re-assigned to the clusters based on the new cluster centers.
+        \end{itemize}
+        
+        \item \textbf{(h)}:
+        \begin{itemize}
+            \item Another M-step is performed, updating the cluster centers again.
+        \end{itemize}
+        
+        \item \textbf{(i)}:
+        \begin{itemize}
+            \item The algorithm converges as successive E and M steps result in no further changes in the cluster assignments or the cluster centers.
+            \item The final cluster centers and assignments are shown, with the data points assigned to the two clusters.
+        \end{itemize}
+    \end{itemize}
+\end{example}
 
 \subsubsection{Error Minimization Example}
-
-\subsubsection{Application}
+\begin{example}
+    \customFigure[0.75]{00_Images/EM.png}{Error minimization}
+    \begin{itemize}
+        \item \textbf{Plot description}:
+        \begin{itemize}
+            \item This figure plots the cost function \( J \) (equation 9.1) over iterations of the K-means algorithm.
+            \item The blue points represent the cost function values after each E-step (assignment step).
+            \item The red points represent the cost function values after each M-step (update step).
+        \end{itemize}
+        
+        \item \textbf{Key takeaway}:
+        \begin{itemize}
+            \item The figure demonstrates how the cost function \( J \) decreases with each iteration and eventually stabilizes, indicating convergence of the K-means algorithm.
+        \end{itemize}
+    \end{itemize}
+\end{example}
 
 \subsubsection{What's wrong with k-means}
+\begin{intuition}
+    \begin{itemize}
+        \item K-means struggles with clusters that are not spherical and equally sized.
+        \item It fails to properly handle clusters that are elongated or complex in shape.
+        \item The use of Euclidean distance causes incorrect clustering in cases where the data is not well-suited for spherical partitions.
+    \end{itemize}    
+    \customFigure[0.5]{00_Images/WWWKM}{What's wrong with kmeans.}
+\end{intuition}
 
-\subsection{Density Estimation}
 \subsection{Mixture of Gaussians}
+\begin{definition}
+    The probability density function for a mixture of Gaussians is given by:
+
+    \[
+    p(\mathbf{x}) = \sum_{k=1}^{K} \pi_k \mathcal{N}(\mathbf{x} | \mathbf{\mu}_k, \mathbf{\Sigma}_k)
+    \]
+
+    \begin{itemize}
+        \item \( \mathbf{\mu}_k \) is the mean of the \( k \)-th Gaussian component (cluster center).
+        \item \( \mathbf{\Sigma}_k \) is the covariance matrix of the \( k \)-th Gaussian, which defines the spread and orientation of the Gaussian.
+        \item \( \pi_k \) is the mixing proportion of the \( k \)-th Gaussian, with the constraint that \( \sum_{k=1}^{K} \pi_k = 1 \).
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Normal Distribution}
+\begin{definition}
+    Each Gaussian Normal distribution is represented as:
+
+    \[
+    \mathcal{N}(\mathbf{x} | \mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2\pi)^{d/2} |\mathbf{\Sigma}|^{1/2}} \exp\left( -\frac{1}{2} (\mathbf{x} - \mathbf{\mu})^T \Sigma^{-1} (\mathbf{x} - \mathbf{\mu}) \right)
+    \]
+
+    \begin{itemize}
+        \item \( \mathbf{x} \in \mathbb{R}^d \) is a \( d \)-dimensional data point
+        \item \( \mathbf{\mu} \) is the mean
+        \item \( \mathbf{\Sigma} \) is the covariance matrix of the Gaussian component.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Visualization}
+\begin{intuition}
+    \begin{itemize}
+        \item  The diagram shows a Gaussian distribution in 2D, where \( \mu_k \) is the center (mean) of the Gaussian and \( \Sigma_k \) represents the covariance, indicating the shape and orientation of the Gaussian.
+        \customFigure[0.5]{00_Images/G1.png}{Visualization of the mean with the variances.}
+        \item The 1D example at the bottom illustrates two Gaussian components with different mixing proportions \( \pi_1 = 0.2 \) and \( \pi_2 = 0.8 \), showing how they combine to form the overall distribution.
+        \customFigure[0.5]{00_Images/MP.png}{Mixing proportions.}
+    \end{itemize}
+
+\end{intuition}
 
 \subsubsection{Example: 2D Gaussian}
+\begin{example}
+    Given the following components:
+
+    \[
+    \mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}, \quad 
+    \mu = \begin{pmatrix} \mu_1 \\ \mu_2 \end{pmatrix}, \quad
+    \Sigma = \begin{pmatrix} 
+    \sigma_{11}^2 & \sigma_{12}^2 \\ 
+    \sigma_{21}^2 & \sigma_{22}^2 
+    \end{pmatrix}
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} The matrix size depends on $\mathbf{x}$ not $k$.
+     \end{itemize}
+
+    The Gaussian distribution \( \mathcal{N}(\mathbf{x} | \mu, \Sigma) \) is defined as:
+
+    \[
+    \mathcal{N}(\mathbf{x} | \mathbf{\mu}, \mathbf{\Sigma}) = \frac{1}{(2\pi) |\mathbf{\Sigma}|^{1/2}} \exp \left( -\frac{1}{2} (\mathbf{x} - \mathbf{\mu})^T \mathbf{\Sigma}^{-1} (\mathbf{x} - \mathbf{\mu}) \right)
+    \]
+
+    \textbf{Explanation:}
+    \begin{itemize}
+        \item \( |\mathbf{\Sigma}| \): The determinant of the covariance matrix \( \mathbf{\Sigma} \).
+        \item The denominator captures the determinant. 
+        \item \( (\mathbf{x} - \mathbf{\mu})^T \): The transpose of the vector \( \mathbf{x} - \mathbf{\mu}\).
+        \item \( \mathbf{\Sigma}^{-1} \): The inverse of the covariance matrix \( \mathbf{\Sigma} \).
+        \item The exponential term captures how far the data point \( \mathbf{x} \) is from the mean \( \mathbf{\mu} \), scaled by the covariance.
+    \end{itemize}
+    \vspace{1em}
+
+    In the 1D case, the Gaussian distribution simplifies to:
+
+    \[
+    \frac{1}{\sqrt{2\pi \sigma^2}} \exp \left( -\frac{(x - \mu)^2}{2\sigma^2} \right)
+    \]
+    
+    This is a simpler form for a single-dimensional Gaussian distribution where \( \sigma^2 \) is the variance.
+\end{example}
 
 \subsubsection{Scalar Example}
+\begin{example}
+    \customFigure[0.5]{00_Images/SE.png}{Scalar example}
+    \begin{itemize}
+        \item This example demonstrates the 1D mixture of two Gaussian distributions.
+        
+        \item The probability density function \( p(x) \) for the mixture is given by:
+        \[
+        p(x) = \sum_{k=1}^{K} \pi_k \mathcal{N}(x | \mu_k, \sigma_k^2)
+        \]
+        where:
+        \begin{itemize}
+            \item \( \pi_k \) is the mixing proportion for component \( k \).
+            \item \( \mathcal{N}(x | \mu_k, \sigma_k^2) \) is the Gaussian distribution for component \( k \) with mean \( \mu_k \) and variance \( \sigma_k^2 \).
+        \end{itemize}
+        
+        \item In this specific example, there are two Gaussian components, with mixing proportions:
+        \[
+        \pi_1 = 0.8, \quad \pi_2 = 0.2
+        \]
+        
+        \item The total mixture model is represented as a weighted sum of the two Gaussians:
+        \[
+        p(x) = 0.8 \mathcal{N}(x | \mu_1, \sigma_1^2) + 0.2 \mathcal{N}(x | \mu_2, \sigma_2^2)
+        \]
+        where:
+        \begin{itemize}
+            \item \( \mu_1 \), \( \sigma_1^2 \) are the mean and variance for **Cluster 1** (the first Gaussian).
+            \item \( \mu_2 \), \( \sigma_2^2 \) are the mean and variance for **Cluster 2** (the second Gaussian).
+        \end{itemize}
+        
+        \item The plot shows two Gaussian curves, corresponding to the two clusters:
+        \begin{itemize}
+            \item **Cluster 1** has a higher peak, as its mixing proportion is larger (\( \pi_1 = 0.8 \)).
+            \item **Cluster 2** has a smaller peak due to its smaller mixing proportion (\( \pi_2 = 0.2 \)).
+        \end{itemize}
+        
+        \item The sum of these two Gaussian distributions results in the overall probability density function \( p(x) \), shown in orange.
+        
+        \item The diagram also illustrates the individual contributions of each Gaussian component to the overall distribution. The individual Gaussians are added together to form the final mixture distribution.
+        
+        \item The figure highlights the means \( \mu_1 \) and \( \mu_2 \) for both clusters, and the variances \( \sigma_1^2 \) and \( \sigma_2^2 \) determine the width of each Gaussian curve.
+        
+    \end{itemize}
+\end{example}
 
 \subsubsection{Example: Mixture of 3 Gaussians}
+\begin{example}
+    \customFigure[0.75]{00_Images/M3G.png}{Mixture of 3 Gaussians}
+    \begin{itemize}
+        \item (a):
+        \begin{itemize}
+            \item This figure shows 500 data points sampled from the joint distribution \( p(z) p(\mathbf{x} | z) \), where \( z \) represents the latent variable and corresponds to the three components of the mixture.
+            \item The points are colored red, green, and blue, each representing one of the three Gaussian components of the mixture.
+            \item This plot is referred to as a **complete dataset**, as it includes the information on both \( \mathbf{x} \) (observed data) and \( z \) (latent variable).
+        \end{itemize}
+    
+        \item (b):
+        \begin{itemize}
+            \item This figure shows the corresponding samples from the marginal distribution \( p(\mathbf{x}) \), which is obtained by ignoring the values of \( z \).
+            \item In this plot, the data points are not divided into different colors corresponding to the mixture components, and are instead shown as a single dataset.
+            \item This dataset is referred to as **incomplete** because the latent variable \( z \) has been ignored.
+        \end{itemize}
+    
+        \item (c):
+        \begin{itemize}
+            \item This figure shows the same samples as in (b), but the colors of the points represent the values of the responsibilities \( \gamma(z_{nk}) \), which are the probabilities that a given data point \( \mathbf{x}_n \) belongs to each component \( k \).
+            \item The responsibilities \( \gamma(z_{nk}) \) are used to indicate the degree of membership of each point to the different Gaussian components.
+            \item The colors (red, blue, green) indicate the proportion of each mixture component, with \( \gamma(z_{nk}) \) values determining how the color is assigned for each point.
+        \end{itemize}
+    \end{itemize}
+\end{example}
 
 \subsubsection{Likelihood of Data}
+\begin{intuition}
+    \begin{enumerate}
+        \item The probability density function for a mixture of Gaussians is given by:
+
+        \[
+        p(\mathbf{x}) = \sum_{k=1}^{K} \pi_k \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k)
+        \]
+        where:
+        \begin{itemize}
+            \item \( \pi_k \) is the mixing coefficient for the \( k \)-th component.
+            \item \( \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k) \) is the Gaussian distribution for component \( k \) with mean \( \mu_k \) and covariance \( \Sigma_k \).
+        \end{itemize}
+        \vspace{1em}
+    
+        \item \textbf{Data Likelihood}
+    
+        Given a dataset \( \mathbf{X} = \{x_1, x_2, \dots, x_N\} \), the likelihood of the data under the mixture model is:
+        \[
+        p(\mathbf{X}) = \prod_{n=1}^{N} p(x_n) = \prod_{n=1}^{N} \left( \sum_{k=1}^{K} \pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        This assumes the data points are independent and identically distributed (IID).
+        \vspace{1em}
+    
+        \item \textbf{Log-Likelihood of Data}
+    
+        The log-likelihood of the dataset \( \mathbf{X} \) is:
+        \[
+        \ln p(\mathbf{X} | \pi, \mu, \Sigma) = \sum_{n=1}^{N} \ln \left( \sum_{k=1}^{K} \pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        Taking the logarithm converts the product into a sum, simplifying the optimization of the parameters \( \pi_k \), \( \mu_k \), and \( \Sigma_k \).
+    \end{enumerate}
+\end{intuition}
 
 \subsubsection{Relating k-means and MoG}
+\begin{intuition}
+    \begin{enumerate}
+        \item For K-means, the error function is given by:
+        \[
+        E = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \| x_n - \mu_k \|^2
+        \]
+    
+        The MoG log-likelihood is given by:
+        \[
+        \ln p(\mathbf{X} | \pi, \mu, \Sigma) = \sum_{n=1}^{N} \ln \left( \sum_{k=1}^{K} \pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        \item \textbf{Simplified Log-Likelihood with One-Hot Encoding Assumption}
+    
+        Assume that for each \( x_n \), almost all probability is concentrated on one component, represented by \( r_{nk} \) (acting like one-hot encoding). Then, the log-likelihood simplifies to:
+        \[
+        \ln p(\mathbf{X}) = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \ln \left( \pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        This can be expanded as:
+        \[
+        \ln p(\mathbf{X}) = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \left( \ln \pi_k + \ln \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        For the scalar case:
+        \[
+        \ln p(\mathbf{X}) = \sum_{n=1}^{N} \sum_{k=1}^{K} r_{nk} \left[ \ln \pi_k - \frac{1}{2} \ln(2\pi \sigma_k^2) - \frac{(x_n - \mu_k)^2}{2 \sigma_k^2} \right]
+        \]
+    \end{enumerate}
+\end{intuition}
 
-\subsection{Hard-Assignment Learning of MoG}
-\subsection{EM: Soft Assignment}
+\subsubsection{Learning a MoG}
+\begin{definition}
+    \begin{enumerate}
+        \item The probability of a data point \( \mathbf{x} \) under cluster \( k \) is given by the Gaussian distribution:
+        \[
+        \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k)
+        \]
+    
+        \item \textbf{Total Probability of \( \mathbf{x} \)}
+    
+        The total probability of \( \mathbf{x} \) under a mixture of Gaussians model is the weighted sum of the probabilities across all clusters:
+        \[
+        p(\mathbf{x}) = \sum_{k=1}^{K} \pi_k \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k)
+        \]
+    
+        where:
+        \begin{itemize}
+            \item \( \pi_k \) is the mixing coefficient for the \( k \)-th component.
+            \item \( \mathcal{N}(\mathbf{x} | \mu_k, \Sigma_k) \) is the Gaussian distribution with mean \( \mu_k \) and covariance matrix \( \Sigma_k \).
+        \end{itemize}
+    
+        \item \textbf{Log-Likelihood of Data}
+    
+        The log-likelihood of the dataset \( \mathbf{X} = \{ x_1, x_2, \dots, x_N \} \) is:
+        \[
+        \ln p(\mathbf{X} | \pi, \mu, \Sigma) = \sum_{n=1}^{N} \ln \left( \sum_{k=1}^{K} \pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k) \right)
+        \]
+    
+        This expression is used to estimate the parameters \( \pi_k \), \( \mu_k \), and \( \Sigma_k \) through methods like Expectation-Maximization (EM).
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Hard-Assignment Learning of MoG}
+\begin{definition}
+    \begin{enumerate}
+        \item This algorithm is similar to K-means, but it assigns responsibilities \( r_{nk} \) using the Gaussian probability \( \mathcal{N}(x_n | \mu_k, \Sigma_k) \) instead of the squared distance in K-means.
+
+        \item \textbf{Initialization}
+        \begin{itemize}
+            \item Set \( \pi_k = \frac{1}{K} \) for all \( k \), where \( K \) is the number of clusters.
+            \item Set \( \Sigma_k = \text{COV DATA} \) (the covariance of the data).
+            \item Initialize \( \mu_k \) randomly from the data points.
+        \end{itemize}
+        
+        \item \textbf{Iteration (Until Convergence)}
+        
+        For each iteration, the following steps are performed:
+        
+        \begin{itemize}
+            \item For \( n = 1, \dots, N \), assign responsibilities \( r_{nk} \) as follows:
+            \[
+            r_{nk} = 
+            \begin{cases} 
+            1 & \text{if } k = \arg\max_j \pi_j \mathcal{N}(x_n | \mu_j, \Sigma_j) \\
+            0 & \text{otherwise.}
+            \end{cases}
+            \]
+            
+            \item For \( k = 1, \dots, K \), update the parameters:
+            \begin{itemize}
+                \item Update the mixing coefficients \( \pi_k \):
+                \[
+                \pi_k = \frac{1}{N} \sum_{n=1}^{N} r_{nk}
+                \]
+                
+                \item Update the cluster means \( \mu_k \):
+                \[
+                \mu_k = \frac{\sum_{n=1}^{N} r_{nk} x_n}{\sum_{n=1}^{N} r_{nk}}
+                \]
+                
+                \item Update the covariance matrices \( \Sigma_k \):
+                \[
+                \Sigma_k = \frac{1}{\sum_{n=1}^{N} r_{nk}} \sum_{n=1}^{N} r_{nk} (x_n - \mu_k)(x_n - \mu_k)^T
+                \]
+                This is the sample covariance, where \( (x_n - \mu_k)^T \) is the vector transpose.
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{EM: Soft Assignment}
+\begin{definition}
+    \begin{enumerate}
+        \item \textbf{Initialization}
+        \begin{itemize}
+            \item Set \( \pi_k = \frac{1}{K} \) for all \( k \), where \( K \) is the number of components (clusters).
+            \item Set \( \Sigma_k = \text{COV DATA} \) (the covariance of the data).
+            \item Initialize \( \mu_k \) randomly from the data points.
+        \end{itemize}
+    
+        \item \textbf{Iterate until convergence}
+    
+        The algorithm alternates between the E-step (Expectation) and M-step (Maximization) until convergence.
+    
+        \begin{enumerate}
+            \item \textbf{E-step (Expectation Step)} \\
+            For \( n = 1, \dots, N \) and for \( k = 1, \dots, K \), compute the responsibilities \( r_{nk} \) (soft assignments):
+            \[
+            r_{nk} = \frac{\pi_k \mathcal{N}(x_n | \mu_k, \Sigma_k)}{\sum_{j=1}^{K} \pi_j \mathcal{N}(x_n | \mu_j, \Sigma_j)}
+            \]
+            where:
+            \begin{itemize}
+                \item \( r_{nk} \) represents the responsibility that component \( k \) takes for data point \( x_n \).
+                \item The sum of all responsibilities over \( k \) for each \( n \) is equal to 1, i.e., \( \sum_{k=1}^{K} r_{nk} = 1 \).
+            \end{itemize}
+    
+            \item \textbf{M-step (Maximization Step)} \\
+            For \( k = 1, \dots, K \), update the parameters:
+            \begin{itemize}
+                \item Update the mixing coefficients \( \pi_k \):
+                \[
+                \pi_k = \frac{1}{N} \sum_{n=1}^{N} r_{nk}
+                \]
+    
+                \item Update the cluster means \( \mu_k \):
+                \[
+                \mu_k = \frac{\sum_{n=1}^{N} r_{nk} x_n}{\sum_{n=1}^{N} r_{nk}}
+                \]
+    
+                \item Update the covariance matrices \( \Sigma_k \):
+                \[
+                \Sigma_k = \frac{1}{\sum_{n=1}^{N} r_{nk}} \sum_{n=1}^{N} r_{nk} (x_n - \mu_k)(x_n - \mu_k)^T
+                \]
+                This is the sample covariance, where \( (x_n - \mu_k)^T \) is the vector transpose.
+            \end{itemize}
+        \end{enumerate}
+    
+    \end{enumerate}    
+\end{definition}
+
+\subsubsection{Transform}
+\begin{intuition}
+    The purpose of a log transform is to linearize exponential relationships, stabilize variance, and make data more normally distributed, which simplifies analysis and interpretation, especially in models like regression.
+\end{intuition}
+
+\subsubsection{Example of EM}
+\begin{example}
+    \customFigure[0.75]{00_Images/EM1.png}{Example of EM.}
+    \begin{itemize}
+        \item \textbf{(a)}: Initial positions of two Gaussian components in the EM algorithm using the Old Faithful dataset.
+        \item \textbf{(b)}: Responsibilities after initialization; the data points are colored based on their cluster responsibility.
+        \item \textbf{(c)}: After \( L = 1 \) iteration, the Gaussians start adjusting to fit the data better.
+        \item \textbf{(d)}: After \( L = 2 \) iterations, the ellipses (covariance matrices) are updated to better fit the clusters.
+        \item \textbf{(e)}: After \( L = 5 \) iterations, the Gaussian components continue refining their fit to the data.
+        \item \textbf{(f)}: After \( L = 20 \) iterations, the algorithm converges, with the clusters well-separated and represented by the Gaussian ellipses.
+    \end{itemize}
+\end{example}

@@ -3,48 +3,62 @@
 \contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{6}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{6}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{7}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{7}{figure.5}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{8}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{9}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{9}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Nearest neighbour comparison.}}{9}{figure.8}%
+\contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{10}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Nearest neighbour comparison.}}{10}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Over and under fitting of k-nearest neighbours.}}{11}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Linear classification example.}}{13}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{14}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{15}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Linearly separable vs. Not linearly seperable}}{15}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Table for classification}}{16}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces PLA not unique.}}{17}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces The best weight is the weight with the lowest error at this iteration.}}{18}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces The dimensionality is 0, where the derivative being negative indicates that the steepest increase is to the left. The derivative being positive indicates that the steepest increase is to the right.}}{20}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces Column span example.}}{23}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Example of a sine for regularization.}}{24}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Circular boundary.}}{25}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}}{25}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Visualization.}}{32}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Linear classification represented as a neuron.}}{33}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Linear regression represented as a neuron.}}{33}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Given an input, the decision boundary classifies as either $+1$ or $-1$.}}{34}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Probability based on distance to the decision boundary.}}{34}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces Two points on either side of the decision boundary and intuition on d.}}{34}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces Derivation of d visually.}}{35}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Logistic function}}{35}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Logistic regression.}}{36}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Log-loss error visualization}}{37}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}}{37}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Gradient example.}}{41}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces Gradient and optimality.}}{42}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{42}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{43}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{44}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Direction of gradient for x1 and x2 for the 2D case.}}{45}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}}{46}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Example of how the 3rd weight line is the farthest away for so it has the largest probability}}{50}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Error vs. iteration.}}{52}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Non-convex functions}}{53}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Saddle point}}{53}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Ball rolling down}}{54}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces SGD with momentum where the red and blue lines are used to calculate the green lines which is the actual direction towards the minimum.}}{54}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Example of momentum escaping points}}{55}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Example of SGD vs. SGD + Momentum}}{55}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Example of the ellipsoid}}{55}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Showing how a slow learning rate, causes it to move slow in the x1 direction, but a large learning rate causes it to diverge in the x2 direction.}}{56}{figure.49}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Linear classification example.}}{14}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{15}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{16}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Linearly separable vs. Not linearly seperable}}{16}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Table for classification}}{17}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces PLA not unique.}}{18}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces The best weight is the weight with the lowest error at this iteration.}}{19}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces The dimensionality is 0, where the derivative being negative indicates that the steepest increase is to the left. The derivative being positive indicates that the steepest increase is to the right.}}{21}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Column span example.}}{24}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Example of a sine for regularization.}}{25}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Circular boundary.}}{26}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces There are 3 points at $x=0,1,2$ (i.e. features), which are the inputs with the output $y=(6,0,0)$.}}{26}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Visualization.}}{33}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Linear classification represented as a neuron.}}{34}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Linear regression represented as a neuron.}}{34}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Given an input, the decision boundary classifies as either $+1$ or $-1$.}}{35}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Probability based on distance to the decision boundary.}}{35}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces Two points on either side of the decision boundary and intuition on d.}}{35}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces Derivation of d visually.}}{36}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Logistic function}}{36}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Logistic regression.}}{37}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Log-loss error visualization}}{38}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces From this we can see that L2 is more preferred because it gives more room between the boundary and the points.}}{38}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Gradient example.}}{42}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces Gradient and optimality.}}{43}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Convex function, but not strictly convex.}}{43}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Convex vs. Non-convex functions}}{44}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Gradient of a 1D function in red on the x-axis.}}{45}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Direction of gradient for x1 and x2 for the 2D case.}}{46}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces When we make a contour map of x1 and x2, we can see the gradient is in blue and the negative of the gradient is in red, so we are moving towards the minimum.}}{47}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Example of how the 3rd weight line is the farthest away for so it has the largest probability}}{51}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Error vs. iteration.}}{53}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Non-convex functions}}{54}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Saddle point}}{54}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Ball rolling down}}{55}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces SGD with momentum where the red and blue lines are used to calculate the green lines which is the actual direction towards the minimum.}}{55}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Example of momentum escaping points}}{56}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Example of SGD vs. SGD + Momentum}}{56}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Example of the ellipsoid}}{56}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Showing how a slow learning rate, causes it to move slow in the x1 direction, but a large learning rate causes it to diverge in the x2 direction.}}{57}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces K-means Algorithm Illustration}}{64}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Error minimization}}{65}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces What's wrong with kmeans.}}{66}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Visualization of the mean with the variances.}}{67}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Mixing proportions.}}{67}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Scalar example}}{69}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Mixture of 3 Gaussians}}{70}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Example of EM.}}{73}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Linearly inseparable.}}{75}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Decomposing the complex problem to be constructed from $f$.}}{75}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Multilayer Perceptron}}{76}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Activation functions.}}{77}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Neural network with inputs, hidden units, and outputs that introduce the notation.}}{77}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Approximating functions.}}{78}{figure.63}%

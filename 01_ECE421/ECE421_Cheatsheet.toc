@@ -2,137 +2,147 @@
 \contentsline {section}{\numberline {1}Introduction to ML, Nearest neighbors, Linear classification (LFD: 1.1-1.2)}{5}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Types of learning}{5}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{5}{subsubsection.1.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{6}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{7}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{7}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{8}{subsubsection.1.1.3}%
 \contentsline {subsection}{\numberline {1.2}Classification problem setup}{8}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{8}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{9}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{10}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Error process for classification}{10}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Types of error}{10}{subsubsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.5}Hyperparameters}{10}{subsection.1.5}%
-\contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{10}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.4.1}Types of error}{11}{subsubsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.5}Hyperparameters}{11}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{11}{subsection.1.6}%
 \contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{11}{subsection.1.7}%
-\contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{11}{subsubsection.1.7.1}%
-\contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{11}{subsubsection.1.7.2}%
-\contentsline {subsection}{\numberline {1.8}Linear classification}{11}{subsection.1.8}%
+\contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{12}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{12}{subsubsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.8}Linear classification}{12}{subsection.1.8}%
 \contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{12}{subsubsection.1.8.1}%
 \contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{12}{subsubsection.1.8.2}%
 \contentsline {subsubsection}{\numberline {1.8.3}Training}{12}{subsubsection.1.8.3}%
-\contentsline {subsubsection}{\numberline {1.8.4}Prediction}{12}{subsubsection.1.8.4}%
-\contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{12}{subsubsection.1.8.5}%
+\contentsline {subsubsection}{\numberline {1.8.4}Prediction}{13}{subsubsection.1.8.4}%
+\contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{13}{subsubsection.1.8.5}%
 \contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{14}{subsection.1.9}%
-\contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{14}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{15}{subsection.1.10}%
 \contentsline {subsubsection}{\numberline {1.10.1}Training}{15}{subsubsection.1.10.1}%
-\contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{15}{subsubsection.1.10.2}%
-\contentsline {section}{\numberline {2}Linear regression, Regularization (LFD: 3.2.1, 3.4.1, Appendix B)}{16}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Perceptron learning algorithm}{16}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}New Formulation of Binary Linear Classification}{16}{subsubsection.2.1.1}%
-\contentsline {subsubsection}{\numberline {2.1.2}Algorithm}{16}{subsubsection.2.1.2}%
-\contentsline {subsubsection}{\numberline {2.1.3}Why does PLA work? (intutive explanation)}{16}{subsubsection.2.1.3}%
-\contentsline {subsubsection}{\numberline {2.1.4}Rosenblett Theorem (analytical proof why PLA works)}{17}{subsubsection.2.1.4}%
-\contentsline {subsubsection}{\numberline {2.1.5}Remarks about PLA (uniqueness and error)}{17}{subsubsection.2.1.5}%
-\contentsline {subsubsection}{\numberline {2.1.6}What would happen if we use PLA for not linearly separable datasets?}{18}{subsubsection.2.1.6}%
-\contentsline {subsubsection}{\numberline {2.1.7}Multiary classification}{18}{subsubsection.2.1.7}%
-\contentsline {subsection}{\numberline {2.2}Pocket algorithm}{18}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Visual intuition}{18}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Algorithm}{18}{subsubsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.3}Linear regression}{18}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Matrix-vector algebraic representation}{19}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}When is the error 0? (Motivation for least squares)}{19}{subsubsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.4}Least squares}{20}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Gradient}{20}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Basic gradients}{20}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Problem setup}{21}{subsubsection.2.4.3}%
-\contentsline {subsubsection}{\numberline {2.4.4}Solution}{21}{subsubsection.2.4.4}%
-\contentsline {subsubsection}{\numberline {2.4.5}Why is it called pseudo-inverse of X?}{22}{subsubsection.2.4.5}%
-\contentsline {subsubsection}{\numberline {2.4.6}Prediction}{22}{subsubsection.2.4.6}%
-\contentsline {subsubsection}{\numberline {2.4.7}Geometric interpretation of least squares}{22}{subsubsection.2.4.7}%
-\contentsline {subsection}{\numberline {2.5}Regularized linear regression / least squares}{23}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Difference between LS and RLS}{24}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}How do we solve this problem?}{24}{subsubsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.6}Non-linear models}{24}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Circular decision boundary example}{24}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}General form}{25}{subsubsection.2.6.2}%
-\contentsline {section}{\numberline {3}Worksheet 1}{27}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Q1}{27}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Gradient shortcuts}{27}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}lp-Norms}{27}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Matrix multiplication}{27}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Taylor series}{28}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}Q3}{29}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Matrix properties}{29}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Q3B}{29}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Q3C}{31}{subsubsection.3.2.3}%
-\contentsline {subsubsection}{\numberline {3.2.4}Q3D}{31}{subsubsection.3.2.4}%
-\contentsline {section}{\numberline {4}Logistic Regression (LFD: 3.3)}{33}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Difference between linear classification and regression}{33}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Logistic regression}{34}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Motivation}{34}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}Deriving the appropriate hypothesis set}{34}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Illustrating logistic regression as a neuron}{35}{subsubsection.4.2.3}%
-\contentsline {subsubsection}{\numberline {4.2.4}Logistic function}{36}{subsubsection.4.2.4}%
-\contentsline {subsubsection}{\numberline {4.2.5}Prediction (Reformulating the hypothesis set)}{36}{subsubsection.4.2.5}%
-\contentsline {subsubsection}{\numberline {4.2.6}What is the Error Criterion?}{36}{subsubsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.3}Why is log-loss a reasonable choice?}{37}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Numerical examples interpretation (i.e. distinguish between better hyperplanes)}{37}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Maximum likelihood interpretation}{38}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Cross-entropy interpretation}{39}{subsubsection.4.3.3}%
-\contentsline {section}{\numberline {5}Worksheet 2}{40}{section.5}%
-\contentsline {section}{\numberline {6}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{41}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Problem setup for gradient descent}{41}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Optimization primer}{41}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Gradient:}{41}{subsubsection.6.2.1}%
-\contentsline {subsubsection}{\numberline {6.2.2}Gradient and optimality:}{42}{subsubsection.6.2.2}%
-\contentsline {subsubsection}{\numberline {6.2.3}Convex functions:}{42}{subsubsection.6.2.3}%
-\contentsline {subsubsection}{\numberline {6.2.4}Chain rule}{43}{subsubsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.3}Simple algorithm to find min f(x) for 1D}{44}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Simple algorithm to find min f(x) for ND space}{45}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}2D space}{45}{subsubsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.5}Gradient descent algorithm}{46}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Gradient descent performance}{47}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Using Gradient Descent for Logistic Regression}{47}{subsection.6.7}%
-\contentsline {subsection}{\numberline {6.8}Stochastic Gradient Descent (SGD)}{48}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}gt of SGD is an unbiased estimate of gradient of error}{48}{subsubsection.6.8.1}%
-\contentsline {subsubsection}{\numberline {6.8.2}Full GD complexity vs. SGD complexity}{48}{subsubsection.6.8.2}%
-\contentsline {subsubsection}{\numberline {6.8.3}Mini-batch GD is full-batch GD combined with SGD}{49}{subsubsection.6.8.3}%
-\contentsline {subsection}{\numberline {6.9}PLA is an Extremer Version of Logistic Regression with SGD}{49}{subsection.6.9}%
-\contentsline {subsection}{\numberline {6.10}Multiclass Logistic Regression}{50}{subsection.6.10}%
-\contentsline {subsection}{\numberline {6.11}SGD update}{50}{subsection.6.11}%
-\contentsline {subsection}{\numberline {6.12}Computing gradient of error}{51}{subsection.6.12}%
-\contentsline {subsection}{\numberline {6.13}Softmax Logistic Regression for Binary Classification}{51}{subsection.6.13}%
-\contentsline {subsection}{\numberline {6.14}Can we use GD/SGD for Linear Regression? Yes, you can}{52}{subsection.6.14}%
-\contentsline {subsection}{\numberline {6.15}Non-convex functions}{52}{subsection.6.15}%
-\contentsline {subsubsection}{\numberline {6.15.1}Saddle points}{53}{subsubsection.6.15.1}%
-\contentsline {subsection}{\numberline {6.16}SGD with Momentum (heavy ball momentum)}{53}{subsection.6.16}%
-\contentsline {subsubsection}{\numberline {6.16.1}How does momentum help?}{55}{subsubsection.6.16.1}%
-\contentsline {subsubsection}{\numberline {6.16.2}Nestrov Momentum}{56}{subsubsection.6.16.2}%
-\contentsline {section}{\numberline {7}Worksheet 3}{57}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Steps to Calculate the Characteristic Polynomial of a Matrix}{57}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Steps to Calculate the Eigenvectors of a Matrix}{57}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Gaussian Elimination with Matrix Visualization}{57}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Eigenvalue Decomposition of a Matrix}{58}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Singular Value Decomposition (SVD)}{59}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, K-means clustering, Density Estimation, Mixture of Gaussians, Hard-assignment learning of MoG, EM: Soft assignment (PRML: 9.1-2)}{61}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Unsupervised Learning}{61}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Clustering}{61}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}K-means Clustering}{61}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}K-means Error Function}{61}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Algorithm}{61}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Error Minimization Example}{61}{subsubsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.4}Application}{61}{subsubsection.8.3.4}%
-\contentsline {subsubsection}{\numberline {8.3.5}What's wrong with k-means}{61}{subsubsection.8.3.5}%
-\contentsline {subsection}{\numberline {8.4}Density Estimation}{61}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Mixture of Gaussians}{61}{subsection.8.5}%
-\contentsline {subsubsection}{\numberline {8.5.1}Example: 2D Gaussian}{61}{subsubsection.8.5.1}%
-\contentsline {subsubsection}{\numberline {8.5.2}Scalar Example}{61}{subsubsection.8.5.2}%
-\contentsline {subsubsection}{\numberline {8.5.3}Example: Mixture of 3 Gaussians}{61}{subsubsection.8.5.3}%
-\contentsline {subsubsection}{\numberline {8.5.4}Likelihood of Data}{61}{subsubsection.8.5.4}%
-\contentsline {subsubsection}{\numberline {8.5.5}Relating k-means and MoG}{61}{subsubsection.8.5.5}%
-\contentsline {subsection}{\numberline {8.6}Hard-Assignment Learning of MoG}{61}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}EM: Soft Assignment}{61}{subsection.8.7}%
-\contentsline {section}{\numberline {9}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{62}{section.9}%
-\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{63}{section.10}%
-\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{64}{section.11}%
-\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{65}{section.12}%
-\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{66}{section.13}%
-\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{67}{section.14}%
+\contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{16}{subsubsection.1.10.2}%
+\contentsline {section}{\numberline {2}Linear regression, Regularization (LFD: 3.2.1, 3.4.1, Appendix B)}{17}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Perceptron learning algorithm}{17}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}New Formulation of Binary Linear Classification}{17}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Algorithm}{17}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Why does PLA work? (intutive explanation)}{17}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Rosenblett Theorem (analytical proof why PLA works)}{18}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Remarks about PLA (uniqueness and error)}{18}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}What would happen if we use PLA for not linearly separable datasets?}{19}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Multiary classification}{19}{subsubsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.2}Pocket algorithm}{19}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Visual intuition}{19}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Algorithm}{19}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.3}Linear regression}{19}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Matrix-vector algebraic representation}{20}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}When is the error 0? (Motivation for least squares)}{20}{subsubsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.4}Least squares}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Gradient}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Basic gradients}{21}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Problem setup}{22}{subsubsection.2.4.3}%
+\contentsline {subsubsection}{\numberline {2.4.4}Solution}{22}{subsubsection.2.4.4}%
+\contentsline {subsubsection}{\numberline {2.4.5}Why is it called pseudo-inverse of X?}{23}{subsubsection.2.4.5}%
+\contentsline {subsubsection}{\numberline {2.4.6}Prediction}{23}{subsubsection.2.4.6}%
+\contentsline {subsubsection}{\numberline {2.4.7}Geometric interpretation of least squares}{23}{subsubsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.5}Regularized linear regression / least squares}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Difference between LS and RLS}{25}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}How do we solve this problem?}{25}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Non-linear models}{25}{subsection.2.6}%
+\contentsline {subsubsection}{\numberline {2.6.1}Circular decision boundary example}{25}{subsubsection.2.6.1}%
+\contentsline {subsubsection}{\numberline {2.6.2}General form}{26}{subsubsection.2.6.2}%
+\contentsline {section}{\numberline {3}Worksheet 1}{28}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Q1}{28}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Gradient shortcuts}{28}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}lp-Norms}{28}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Matrix multiplication}{28}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Taylor series}{29}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Q3}{30}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Matrix properties}{30}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Q3B}{30}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}Q3C}{32}{subsubsection.3.2.3}%
+\contentsline {subsubsection}{\numberline {3.2.4}Q3D}{32}{subsubsection.3.2.4}%
+\contentsline {section}{\numberline {4}Logistic Regression (LFD: 3.3)}{34}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Difference between linear classification and regression}{34}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Logistic regression}{35}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Motivation}{35}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}Deriving the appropriate hypothesis set}{35}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Illustrating logistic regression as a neuron}{36}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4}Logistic function}{37}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5}Prediction (Reformulating the hypothesis set)}{37}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6}What is the Error Criterion?}{37}{subsubsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.3}Why is log-loss a reasonable choice?}{38}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Numerical examples interpretation (i.e. distinguish between better hyperplanes)}{38}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Maximum likelihood interpretation}{39}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Cross-entropy interpretation}{40}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {5}Worksheet 2}{41}{section.5}%
+\contentsline {section}{\numberline {6}Gradient Descent (LFD: 3.3, DL: 8.3.1-8.3.3 (recommended))}{42}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Problem setup for gradient descent}{42}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Optimization primer}{42}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Gradient:}{42}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}Gradient and optimality:}{43}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}Convex functions:}{43}{subsubsection.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.2.4}Chain rule}{44}{subsubsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.3}Simple algorithm to find min f(x) for 1D}{45}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Simple algorithm to find min f(x) for ND space}{46}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}2D space}{46}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Gradient descent algorithm}{47}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Gradient descent performance}{48}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Using Gradient Descent for Logistic Regression}{48}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Stochastic Gradient Descent (SGD)}{49}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}gt of SGD is an unbiased estimate of gradient of error}{49}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Full GD complexity vs. SGD complexity}{49}{subsubsection.6.8.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}Mini-batch GD is full-batch GD combined with SGD}{50}{subsubsection.6.8.3}%
+\contentsline {subsection}{\numberline {6.9}PLA is an Extremer Version of Logistic Regression with SGD}{50}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Multiclass Logistic Regression}{51}{subsection.6.10}%
+\contentsline {subsection}{\numberline {6.11}SGD update}{51}{subsection.6.11}%
+\contentsline {subsection}{\numberline {6.12}Computing gradient of error}{52}{subsection.6.12}%
+\contentsline {subsection}{\numberline {6.13}Softmax Logistic Regression for Binary Classification}{52}{subsection.6.13}%
+\contentsline {subsection}{\numberline {6.14}Can we use GD/SGD for Linear Regression? Yes, you can}{53}{subsection.6.14}%
+\contentsline {subsection}{\numberline {6.15}Non-convex functions}{53}{subsection.6.15}%
+\contentsline {subsubsection}{\numberline {6.15.1}Saddle points}{54}{subsubsection.6.15.1}%
+\contentsline {subsection}{\numberline {6.16}SGD with Momentum (heavy ball momentum)}{54}{subsection.6.16}%
+\contentsline {subsubsection}{\numberline {6.16.1}How does momentum help?}{56}{subsubsection.6.16.1}%
+\contentsline {subsubsection}{\numberline {6.16.2}Nestrov Momentum}{57}{subsubsection.6.16.2}%
+\contentsline {section}{\numberline {7}Worksheet 3}{58}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Steps to Calculate the Characteristic Polynomial of a Matrix}{58}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Steps to Calculate the Eigenvectors of a Matrix}{58}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Gaussian Elimination with Matrix Visualization}{58}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Eigenvalue Decomposition of a Matrix}{59}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Singular Value Decomposition (SVD)}{60}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, K-means clustering, Density Estimation, Mixture of Gaussians, Hard-assignment learning of MoG, EM: Soft assignment (PRML: 9.1-2)}{62}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Supervised vs. Unsupervised Learning}{62}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}K-means Clustering}{62}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}K-means Error Function}{62}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Algorithm}{62}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Illustration}{63}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Error Minimization Example}{65}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.5}What's wrong with k-means}{65}{subsubsection.8.2.5}%
+\contentsline {subsection}{\numberline {8.3}Mixture of Gaussians}{66}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Normal Distribution}{66}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Visualization}{66}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Example: 2D Gaussian}{67}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Scalar Example}{68}{subsubsection.8.3.4}%
+\contentsline {subsubsection}{\numberline {8.3.5}Example: Mixture of 3 Gaussians}{69}{subsubsection.8.3.5}%
+\contentsline {subsubsection}{\numberline {8.3.6}Likelihood of Data}{70}{subsubsection.8.3.6}%
+\contentsline {subsubsection}{\numberline {8.3.7}Relating k-means and MoG}{71}{subsubsection.8.3.7}%
+\contentsline {subsubsection}{\numberline {8.3.8}Learning a MoG}{71}{subsubsection.8.3.8}%
+\contentsline {subsubsection}{\numberline {8.3.9}Hard-Assignment Learning of MoG}{72}{subsubsection.8.3.9}%
+\contentsline {subsubsection}{\numberline {8.3.10}EM: Soft Assignment}{72}{subsubsection.8.3.10}%
+\contentsline {subsubsection}{\numberline {8.3.11}Transform}{73}{subsubsection.8.3.11}%
+\contentsline {subsubsection}{\numberline {8.3.12}Example of EM}{73}{subsubsection.8.3.12}%
+\contentsline {section}{\numberline {9}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{75}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Motivation for neural networks}{75}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Limitation of perceptron}{75}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Decomposing a complex problem}{75}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.3}Representing as a multilayer perceptron}{75}{subsubsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.2}Differentiable activation functions}{76}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Neural network}{77}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Application: Arbitrary 1D Function Approximation}{77}{subsubsection.9.3.1}%
+\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{79}{section.10}%
+\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{80}{section.11}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{81}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{82}{section.13}%
+\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{83}{section.14}%

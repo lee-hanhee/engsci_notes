@@ -1,0 +1,119 @@
+\subsection{Motivation for neural networks}
+
+\subsubsection{Limitation of perceptron}
+\begin{intuition}
+    It cannot deal with linearly inseparable data. 
+    \customFigure[0.5]{00_Images/LI.png}{Linearly inseparable.}
+\end{intuition}
+
+\subsubsection{Decomposing a complex problem}
+\begin{intuition}
+    Take a divide and conquer approach.
+    \begin{itemize}
+        \item Divide the problem into $h_1$ and $h_2$. 
+        \item Then you can use AND, NOT, and OR to decompose the problem into a binary encoding that repesents the 4 quadrants based on the value of $h_1$ and $h_2$. 
+    \end{itemize}
+    \customFigure[0.75]{00_Images/CP.png}{Decomposing the complex problem to be constructed from $f$.}
+\end{intuition}
+
+\subsubsection{Representing as a multilayer perceptron}
+\begin{definition}
+    \customFigure[0.75]{00_Images/MLP.png}{Multilayer Perceptron}
+    \begin{itemize}
+        \item \textbf{DAG:} Directed acyclic graph with weights on the edges. 
+        \item \textbf{Note:} The MLP is built up with the components of AND and OR with $-1$ representing the not. 
+    \end{itemize}
+    \begin{itemize}
+        \item \textbf{OR Gate Implementation:}
+        \begin{itemize}
+            \item Inputs: \( x_1 \), \( x_2 \)
+            \item Weights: \( w_1 = 1 \), \( w_2 = 1 \)
+            \item Bias: \( -0.5 \)
+            \item Output: 
+            \[
+            \text{Output} = 
+            \begin{cases}
+            1 & \text{if } w_1 x_1 + w_2 x_2 + (-0.5) > 0 \\
+            0 & \text{otherwise}
+            \end{cases}
+            \]
+            \begin{itemize}
+                \item If $x_1 = 1$ and $x_2 = 1$, $\text{Output} = 2 - 0.5 = 1.5$ (True)
+                \item If $x_1 = 0$ and $x_2 = 1$, $\text{Output} = 1 - 0.5 = 0.5$ (True)
+                \item If $x_1 = 1$ and $x_2 = 0$, $\text{Output} = 1 - 0.5 = 0.5$ (True)
+                \item If $x_1 = 0$ and $x_2 = 0$, $\text{Output} = - 0.5 = -0.5$ (False)
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{AND Gate Implementation:}
+        \begin{itemize}
+            \item Inputs: \( x_1 \), \( x_2 \)
+            \item Weights: \( w_1 = 1 \), \( w_2 = 1 \)
+            \item Bias: \( -1.5 \)
+            \item Output: 
+            \[
+            \text{Output} = 
+            \begin{cases}
+            1 & \text{if } w_1 x_1 + w_2 x_2 + (-1.5) > 0 \\
+            0 & \text{otherwise}
+            \end{cases}
+            \]
+            \begin{itemize}
+                \item If $x_1 = 1$ and $x_2 = 1$, $\text{Output} = 2 - 1.5 = 0.5$ (True)
+                \item If $x_1 = 0$ and $x_2 = 1$, $\text{Output} = 1 - 1.5 = -0.5$ (False)
+                \item If $x_1 = 1$ and $x_2 = 0$, $\text{Output} = 1 - 1.5 = -0.5$ (False)
+                \item If $x_1 = 0$ and $x_2 = 0$, $\text{Output} = - 1.5 = -1.5$ (False)
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Function \( f = h_1\bar{h}_2 + \bar{h}_1 h_2 \) Implementation:}
+        \begin{itemize}
+            \item First term: \( h_1 \bar{h}_2 \) represents the AND of \( h_1 \) and \( \bar{h}_2 \)
+            \item Second term: \( \bar{h}_1 h_2 \) represents the AND of the NOT of \( h_1 \) and \( h_2 \)
+            \item Final output: 
+            \[
+            f = (h_1 \land \neg h_2) \lor (\neg h_1 \land h_2)
+            \]
+        \end{itemize}
+    \end{itemize}    
+\end{definition}
+
+\subsection{Differentiable activation functions}
+\begin{intuition}
+    \begin{itemize}
+        \item For linear/logistic regression, k-means clustering, MoG have differentiable objective functions that can be used to derive a learning algorithm. 
+        \item $sgn(\underline{w}^T \underline{x})$ is not differentiable. 
+    \end{itemize}
+\end{intuition}
+
+\begin{definition}
+    Introduce continuous activation functions that are differentiable: 
+    \begin{itemize}
+        \item $\text{Logistic:} \quad g(z) = \frac{1}{1 + e^{-z}}$
+        \item $\text{Tanh:} \quad g(z) = \frac{e^z - e^{-z}}{e^z + e^{-z}}$
+    \end{itemize}
+    \customFigure[0.5]{00_Images/AF.png}{Activation functions.}
+\end{definition}
+
+\subsection{Neural network}
+\begin{example}
+    \customFigure[0.5]{00_Images/NN.png}{Neural network with inputs, hidden units, and outputs that introduce the notation.}
+\end{example}
+
+\subsubsection{Application: Arbitrary 1D Function Approximation}
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{One hidden layer:}
+        \item \textbf{Constructing a delta function}
+        \begin{itemize}
+            \item Constructing a delta function from the logistic function using $g(a+a/2)-g(ax-a/2)$.
+            \item As $a\rightarrow \infty$, then you construct a delta function 
+        \end{itemize}
+
+        \item \textbf{Approximating any function}
+        \begin{itemize}
+            \item \textbf{Purpose:} There exists a set of parameters (i.e. hidden units) to arbitrary approximate the functions.
+        \end{itemize}
+    \end{enumerate}
+    \customFigure[0.75]{00_Images/A1DF.png}{Approximating functions.}
+\end{example}
