@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728149420.78725 "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" "ECE358_Cheatsheet.pdf" "ECE358_Cheatsheet" 1728149439.09013 2
+["pdflatex"] 1728323593.00904 "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" "ECE358_Cheatsheet.pdf" "ECE358_Cheatsheet" 1728323614.99571 2
   "/Users/hanheelee/Desktop/engsci_notes/01_ECE358/ECE358_Cheatsheet.tex" 1727996414.18546 3698 add82ec08030dfbe6b1b2ef57598b2e8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -428,12 +428,12 @@
   "00_Lectures/21_History_of_Computation.tex" 1725382053.0726 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/22_P_NP_NPC_Introduction.tex" 1724968376.41596 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/23_NPC.tex" 1724968385.54073 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "ECE358_Cheatsheet.aux" 1728149438.51594 37206 a4c78167777f351854bee0b5667317a8 "pdflatex"
-  "ECE358_Cheatsheet.lof" 1728149438.52623 5015 f120ff0ec2ac0fa0c495eb8447ff7ae1 "pdflatex"
-  "ECE358_Cheatsheet.lot" 1728149438.52642 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE358_Cheatsheet.out" 1728149438.52523 37247 40aabf36110186264e00d4845ddbe084 "pdflatex"
+  "ECE358_Cheatsheet.aux" 1728323614.38166 37206 a4c78167777f351854bee0b5667317a8 "pdflatex"
+  "ECE358_Cheatsheet.lof" 1728323614.39348 5015 f120ff0ec2ac0fa0c495eb8447ff7ae1 "pdflatex"
+  "ECE358_Cheatsheet.lot" 1728323614.39372 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE358_Cheatsheet.out" 1728323614.39142 37247 40aabf36110186264e00d4845ddbe084 "pdflatex"
   "ECE358_Cheatsheet.tex" 1727996414.18546 3698 add82ec08030dfbe6b1b2ef57598b2e8 ""
-  "ECE358_Cheatsheet.toc" 1728149438.52609 19673 00d9c54debf410451f5470898b6c5cb8 "pdflatex"
+  "ECE358_Cheatsheet.toc" 1728323614.39333 19673 00d9c54debf410451f5470898b6c5cb8 "pdflatex"
   "style.sty" 1727823852.24098 6675 2f1de183ceb9c0a73c0fbd22de3745a3 ""
   (generated)
   "ECE358_Cheatsheet.aux"

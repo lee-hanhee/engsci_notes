@@ -456,9 +456,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmr.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm
-INPUT ./ECE358_Cheatsheet.aux
-INPUT ./ECE358_Cheatsheet.aux
-INPUT ECE358_Cheatsheet.aux
 OUTPUT ECE358_Cheatsheet.aux
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
