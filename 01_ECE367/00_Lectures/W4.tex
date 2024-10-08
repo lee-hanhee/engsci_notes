@@ -474,6 +474,7 @@
     \textbf{Algebraic multiplicity:} $\text{AM}(\lambda)$ is the number of times a given eigenvalue appears as a root of the characteristic equation $\det(A - \lambda I) = 0$.
     \begin{itemize}
         \item For example, $(\lambda - 1)^2$ has root 1 with multiplicity 2.
+        \item i.e. If $p(x)=(x-\lambda)^m q(x)$, where $\lambda$ is not a root of $q(x)$, then $AM(\lambda)=m$
     \end{itemize}
     \vspace{1em}
 
@@ -525,6 +526,10 @@
     Eigenvectors corresponding to different eigenvalues are linearly independent.
 \end{theorem}
 
+\begin{warning}
+    DOES THIS CORRESPOND TO DEFECTIVE/NON-DEFECTIVE MATRICES. IF NON defective, then every eigen vector is independent right?
+\end{warning}
+
 \begin{derivation}
     Let $\lambda_1, \ldots, \lambda_k$ be distinct eigenvalues, $u^{(1)}, \ldots, u^{(k)}$ be the corresponding eigenvectors, and $\phi_i = \mathcal{N}(A - \lambda_i I)$, the null space corresponding to eigenvalue $\lambda_i$.
     \vspace{1em}
@@ -561,7 +566,10 @@
     \[
     A u^{(1)} - \lambda_1 u^{(1)} =\sum_{i=2}^{k} \alpha_i (\lambda_1 - \lambda_i) u^{(i)} = 0,
     \]
-    which implies that $\{u^{(2)}, \ldots, u^{(k)}\}$ is linearly dependent because $\lambda_1 - \lambda_i \neq 0$ since they are distinct, so the only $\alpha$'s to make the linear combination of FINISH LATER
+    which implies that $\{u^{(2)}, \ldots, u^{(k)}\}$ is linearly dependent because $\lambda_1 - \lambda_i \neq 0$ since they are distinct, so there exists constants not all 0 to make the linear combination equal to 0 
+    \begin{itemize}
+        \item i.e. not linearly independent as the only constants that would satisfy this is all constants being $0$.
+    \end{itemize}
     \vspace{1em}
 
     Continue with the same argument to show that $\{u^{(3)}, \ldots, u^{(k)}\}$ is linearly dependent, and so on. 
@@ -582,7 +590,7 @@
     The idea is to look at the null space $\mathcal{N}(A - \lambda_i I)$. 
     \begin{itemize}
         \item When $\lambda_1, \ldots, \lambda_n$ are distinct, then $u^{(1)}, \ldots, u^{(n)}$ are linearly independent, so the set $\{u^{(1)}, \ldots, u^{(n)}\}$ forms a basis for $\mathbb{R}^n$.
-        \item If some $\lambda_i$ is a repeated eigenvalue. For example, if $AM(\lambda_i) = 2$, then $GM(\lambda_i) = 2$ because it's non-defective matrix so $\dim \mathcal{N}(A - \lambda_i I) = 2$. 
+        \item If some $\lambda_i$ is a repeated eigenvalue. For example, if $AM(\lambda_i) = 2$, then $GM(\lambda_i) = 2$ because it's non-defective matrix (i.e. non-defective by definition means that $AM(\lambda)=GM(\lambda)$) so $\dim \mathcal{N}(A - \lambda_i I) = 2$. 
         \begin{itemize}
             \item This means we can find $\{u^{(i,1)}, u^{(i,2)}\}$ that span this null space.
             \item So, if we assemble all these $u^{(i,j)}$'s, then we get a basis for $\mathbb{R}^n$.
@@ -694,3 +702,215 @@
 
     This applies to any non-defective (or diagonalizable) matrix \( A \in \mathbb{R}^{n \times n} \).
 \end{intuition}
+
+\subsection{Application: Google's PageRank Algorithm}
+\subsubsection{How to measure importance of a webpage}
+\begin{intuition}
+    The following two methods are insufficient as there are loop holes.
+    \begin{itemize}
+        \item \textbf{Web Search:} Mapping keywords to URLs. 
+        \item \textbf{Hyperlinks:} Hyperlinks that link to a webpage give an indication of how "important" the webpage is. 
+    \end{itemize}
+    \vspace{1em}
+
+    Therefore, the importance of a webpage should depend on the importance of the webpages linking to it.
+\end{intuition}
+
+\subsubsection{Example: Random Walk across Webpages}
+\begin{example}
+    Bot performs a random walk across the webpages. Let $x_i^{(t)}$ be the probability that the bot is on page $i$ at time $t$. 
+    \customFigure[0.75]{00_Images/GPR.png}{P are the pages, and the numbers in red are the probabilities of going to that page with the bot}
+
+\[
+x_1^{(t+1)} = 1 \cdot x_3^{(t)} + \frac{1}{2} x_4^{(t)}
+\]
+\[
+x_2^{(t+1)} = \frac{1}{3} x_1^{(t)}
+\]
+\[
+x_3^{(t+1)} = \frac{1}{3} x_1^{(t)} + \frac{1}{2} x_2^{(t)} + \frac{1}{2} x_4^{(t)}
+\]
+\[
+x_4^{(t+1)} = \frac{1}{3} x_1^{(t)} + \frac{1}{2} x_2^{(t)}
+\]
+
+This system can be written as:
+
+\begin{equation*}
+\begin{bmatrix}
+x_1^{(t+1)} \\
+x_2^{(t+1)} \\
+x_3^{(t+1)} \\
+x_4^{(t+1)}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 0 & 1 & \frac{1}{2} \\
+\frac{1}{3} & 0 & 0 & 0 \\
+\frac{1}{3} & \frac{1}{2} & 0 & \frac{1}{2} \\
+\frac{1}{3} & \frac{1}{2} & 0 & 0 
+\end{bmatrix}
+\begin{bmatrix}
+x_1^{(t)} \\
+x_2^{(t)} \\
+x_3^{(t)} \\
+x_4^{(t)}
+\end{bmatrix}
+\end{equation*}
+\begin{itemize}
+    \item $P$ is the transition probability matrix. 
+\end{itemize}
+\vspace{1em}
+\end{example}
+
+\subsubsection{Convergence to a Steady State Distribution}
+\begin{definition}
+    The evolution of the system is given by $x^{(t+1)} = P x^{(t)}$. As $t \to \infty$, $x^{(t)} \to x^{(\infty)}$ (under certain conditions) s.t. $Px^{(\infty)}=x^{(\infty)}$.
+    \begin{itemize}
+        \item i.e. eigenvector s.t. $\lambda=1$
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Conditions for Convergence}
+\begin{definition}
+    When the Markov chain is both irreducible and aperiodic, then $x^{(t)} \to x^{(\infty)}$ as $t \to \infty$.
+    \begin{itemize}
+        \item An \textbf{aperiodic Markov chain} means the Markov chain does not exhibit periodic behavior, meaning it doesn't alternate between certain states but can visit them in an irregular pattern.
+        \item An \textbf{irreducible Markov chain} means that there is a path from every state (webpage) to every other state, ensuring eventual convergence to a steady state.
+    \end{itemize}
+\end{definition}
+
+\begin{example} Examples of divergence
+    \customFigure[0.75]{00_Images/C.png}{Non-convergent Markov chains}
+    \begin{itemize}
+        \item Reducible Markov chains have disconnected chains, meaning that it will never converge since they are separated.
+        \item Periodic Markov chains will always oscillate between webpages.
+        \item \textbf{Key:} The convergence of the PageRank vector depends on the initial condition and the structure of the Markov chain.
+    \end{itemize}
+\end{example}
+
+\subsubsection{Practical Modification}
+\begin{intuition}
+    In practice, the following adjustment ensures irreducibility and aperiodicity in web surfing:
+    \begin{itemize}
+        \item With probability 85\%, the robot follows one of the hyperlinks from the current webpage.
+        \item With probability 15\%, the robot jumps to a totally random webpage on the Internet.
+    \end{itemize}
+
+This ensures that the Markov chain is irreducible and aperiodic, i.e., $x^{(t)} \to x^{(\infty)}$.
+\end{intuition}
+
+\subsubsection{Finding the Steady State Probability Distribution}
+\begin{definition}
+    The steady state $x^{(\infty)}$ is the eigenvector of $P$ with eigenvalue 1. That is, $P x^{(\infty)} = x^{(\infty)}$. 
+\end{definition}
+
+\subsubsection{Why is 1 an eigenvalue of P?}
+\begin{derivation}
+    \begin{enumerate}
+        \item Fact: $\det(A) = \det(A^T)$.
+    
+        \item Recall that the set of eigenvalues of a matrix is given by:
+        
+        \[
+        \{ \lambda : \det(P - \lambda I) = 0 \}
+        \]
+        
+        \item Using the fact that the determinant of a matrix equals the determinant of its transpose, we have:
+        
+        \[
+        \{ \lambda : \det((P - \lambda I)^T) = 0 \}
+        \]
+        
+        \item This implies:
+        
+        \[
+        \{ \lambda : \det(P^T - \lambda I) = 0 \}
+        \]
+        
+        \item Thus, the set of eigenvalues of $P$ is the same as the set of eigenvalues of $P^T$.
+        
+        \item Consider the following equation:
+        
+        \[
+        P^T \begin{bmatrix} 1 \\ \vdots \\ 1 \end{bmatrix} = 1 \cdot \begin{bmatrix} 1 \\ \vdots \\ 1 \end{bmatrix}
+        \]
+        \begin{itemize}
+            \item Since the sum of the columns equal to $1$ for $P$, therefore, the sums of the rows equal to $1$ for $P^T$. 
+            \item Therefore, if multiply $P^T$ by the ones vector, then this will yield the sums of each row (i.e. 1)
+            \item So, 1 is an eigenvalue of $P$.
+        \end{itemize}
+    \end{enumerate}
+
+\end{derivation}
+
+\subsubsection{What about other eigenvalues?}
+\begin{definition}
+    All other eigenvalues $\lambda_i$ satisfy:    
+        \[
+        |\lambda_i| \leq 1
+        \]
+\end{definition}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item We know that $P x = \lambda x$. By applying $P$ $t$ times, we get:
+
+        \[
+        P(P(\dots(Px))) = P^t x = \lambda^t x
+        \]
+        
+        \item Thus, $P^t x = \lambda^t x$, and since every entry of $P^t x \leq 1$ because it's a probability distribution. Therefore, we should have that every entry of $P^t x$ is bounded.
+        
+        \item If $|\lambda_i| > 1$, then $\lambda_i^t$ diverges to infinity as $t \to \infty$. But, for stability:
+        \begin{itemize}
+            \item Since $P^T x = \lambda^T x$ and $P^T x \leq 1 \implies |\lambda_i| \leq 1 \quad \forall i$
+        \end{itemize}
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Convergence via Power Iteration}
+\begin{definition}
+    We can express the eigenvalue decomposition of the matrix $P$ as follows:
+
+    \begin{enumerate}
+        \item The eigenvalue decomposition of $P$ is given by:
+        \[
+        P = U \Lambda U^{-1}
+        \]
+        where $U$ is the matrix of eigenvectors, and $\Lambda$ is the diagonal matrix of eigenvalues.
+
+        \item After $t$ iterations of applying $P$, we have:
+        \[
+        P^t x = (U \Lambda U^{-1})(U \Lambda U^{-1}) \dots (U \Lambda U^{-1}) x = U \Lambda^t U^{-1} x
+        \]
+
+        \item Breaking this down, we get:
+        \[
+        P^t x = U \begin{bmatrix}
+        1 & 0 & \dots & 0 \\
+        0 & \lambda_2^t & \dots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \dots & \lambda_n^t
+        \end{bmatrix} U^{-1} x
+        \]
+
+        \item As $t \to \infty$, if $|\lambda_i| < 1$ for $i = 2, 3, \dots, n$, then:
+        \[
+        \lambda_i^t \to 0
+        \]
+        Hence, the system converges to:
+        \[
+        a_1 u^{(1)} 
+        \]
+        \begin{itemize}
+            \item $u^{(1)}$ is the eigenvector corresponding to the largest eigenvalue $\lambda_1 = 1$.
+            \item $U^{-1}x = a$ 
+        \end{itemize}
+
+        \item By normalizing the vector $x^{(t)}$ at each iteration, we obtain $u^{(1)}$, which corresponds to the eigenvalue $\lambda_1 = 1$. This process is known as the \textbf{power iteration method}.
+    \end{enumerate}
+\end{definition}
+
+
+

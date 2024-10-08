@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{5}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{9}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{10}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{12}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{13}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{14}{figure.5}%
@@ -34,3 +34,5 @@
 \contentsline {figure}{\numberline {33}{\ignorespaces Upper triangular}}{47}{figure.33}%
 \contentsline {figure}{\numberline {34}{\ignorespaces General matrix}}{47}{figure.34}%
 \contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{48}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{53}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{54}{figure.37}%
