@@ -8,35 +8,54 @@
 \end{intuition}
 
 \subsubsection{Characteristics}
-\begin{intuition}
+\begin{definition}
+        Greedy algorithms are good for max/min problems. 
         \begin{itemize}
-            \item Optimal substructure
-            \item Greedy principle: a greedy choice now leads to a global optimum
+            \item \textbf{Optimal substructure:} Same as DP
+            \item \textbf{Greedy principle:} At every step do greedy choice that looks at the best option at the time begin (i.e. aims to identify and select the most favorable choice at each of the given stagesaims to identify and select the most favorable choice at each of the given stages). 
         \end{itemize}
-\end{intuition}
+\end{definition}
+
+\begin{warning}
+    You will need to do a proof of correctness for DP and GA.
+\end{warning}
 
 \subsubsection{Class Scheduling Example}
 \begin{example}
-    Given one room and many classes, the goal is to maximize the number of classes scheduled in one day. 
-    \begin{itemize}
-        \item Sort by finish time.
+    Given one room and many classes to schedule, the goal is to maximize the number of classes scheduled in one day. The greedy aprooach is that
+    \begin{enumerate}
+        \item Sort by finish time (i.e. start with the class that starts more early)
         \item Schedule classes in order based on sorted times.
-    \end{itemize}
+        \item The time complexity for sorting is $O(n\log(n))$.
+    \end{enumerate}
     \customFigure[0.75]{00_Images/CSE.png}{Class scheduling example.}
-    The time complexity for sorting is $O(n\log(n))$.
+
 \end{example}
 
 \subsubsection{Proof of Correctness of Class Scheduling (On exams)}
 \begin{derivation}
+
+    Prove $g_1,\ldots,g_m$ is optimal:
     \begin{itemize}
-        \item ATaC: Given that greedy choices $g_1, g_2, \dots, g_n$ are not optimal, but some other optimal choices $o_1, o_2, \dots, o_m$ exist $(m > n)$. 
+        \item ATaC: Given that greedy choices $g_1, g_2, \dots, g_m$ are not optimal, but some other optimal choices $o_1, o_2, \dots, o_m$ exist $(m > n)$. 
         \item By the way the greedy algorithm works, $f(g_i) \leq f(o_i)$ (f is the finish time) because it replaces based on the finish time. 
         \customFigure[0.75]{00_Images/POC.png}{WHAT IS THIS EXAMPLE SHOWING.}
+        \begin{itemize}
+            \item You can replace $o_1$ with $g_1$ by construction because $g_1$ finishes first. 
+            \item You can replace $o_2$ with $g_2$ by constrcution 
+            \item Up to $g_m$
+            \item $o_{m+1} \ldots o_k$ cannot exist because the greedy algorithm didn't pick any. So we proved that the optimal solution is $G$
+        \end{itemize}
         \item $o_{n+1},\dots, o_m$ cannot exist as greedy algorithm would take these into account, therefore, this implies a contradiction since the greedy algorithm would take these into account.
+        \item Therefore, $O=G$ and $G=\text{optimal}$.
     \end{itemize}
 \end{derivation}
 
-\subsection{Knapsack Problem}
+\begin{warning}
+    Usually use proof by contradiction. 
+\end{warning}
+
+\subsection{Knapsack Problem (Show Difference B/W DP and GA)}
 
 \subsubsection{Problem setup}
 \begin{intuition}
@@ -55,7 +74,10 @@ A thief breaks into a store and the thief's bag can carry up to $\omega$ weight.
 \begin{definition}
 For fractional knapsack:
 \begin{itemize}
-    \item Sort $\frac{v_i}{w_i}$ and keep taking items in that order.
+    \item Sort $\frac{v_i}{w_i}$ and keep taking items in decreasing order.
+    \begin{itemize}
+        \item \textbf{Intuition:} Take the most valuable per weight items until you reach the max weight that you can hold.
+    \end{itemize}
 \end{itemize}
 \end{definition}
 
@@ -64,12 +86,19 @@ For fractional knapsack:
     For 0-1 knapsack, fix some order $1, \dots, n$ of the items. The recursive formula for 0-1 knapsack is:
     \[
     C[i, \omega] = \begin{cases} 
-        0 & \text{if } i = 0, \omega = 0 \\
-        C[i-1, \omega] & \text{if } w_i > \omega \\
-        \max \{C[i-1, \omega - \omega_i] + v_i, \; C[i-1, \omega]\} & \text{if } \omega \geq \omega_i 
+        0 & \text{if } i = 0 \text{ and } \omega = 0 \\
+        C[i-1, \omega] & \text{if } \omega_i > \omega \\
+        \max \{C[i-1, \omega - \omega_i] +C_i, \; C[i-1, \omega]\} & \text{if } \omega_i \leq \omega
     \end{cases}
     \]
-    where $C[i, \omega]$ denotes the maximum value achievable with $i$ items and a leftover weight of $\omega$.
+    \begin{itemize}
+        \item $C[i, \omega]$ denotes the optimal (most valuable) selection in $1\ldots i$ with $\omega$ as the leftover weight.
+        \item First case is an artificial base case.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    $O(n\cdot \omega)$
 \end{definition}
 
 \subsection{Intro to Huffman Encoding}

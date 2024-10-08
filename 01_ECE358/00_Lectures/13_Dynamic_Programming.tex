@@ -179,32 +179,49 @@ Matrix multiplication is associative, but the order in which matrices are multip
 \begin{definition}
 Given two strings \(X = x_1, x_2, \dots, x_m\) and \(Y = y_1, y_2, \dots, y_n\), the longest common subsequence (LCS) of \(X\) and \(Y\) is the longest sequence that appears in both strings in the same order, though not necessarily consecutively.
 \begin{itemize}
-    \item \textbf{Notation:} Let \(X^k = x_1, x_2, \dots, x_k\) denote a substring of \(X\).
+    \item \textbf{Notation:} Let \(X^k = x_1, x_2, \dots, x_k\) denote a substring of \(X\) (lower case are characters and upper case is a string)
 \end{itemize}
 \end{definition}
 
 \begin{example}
-    Springtime and pioneer. pine is the LCS.
+    \begin{itemize}
+        \item Suppose we are given two strings, "springtime" and "pioneer". 
+        \item pine is the LCS (i.e. $LCS=4$).
+    \end{itemize}
 \end{example}
 
+\subsubsection{Naive Approach / Brute Force Approach}
 \begin{intuition}
-    \textbf{Naive approach:} Assuming \(n > m\), a brute force solution has a time complexity of \(\Omega(m^2 n^2)\).
+    Assuming \(m \leq n\), a brute force solution has a time complexity of \(\Theta(n 2^m)\) ("watchings")
+    \begin{itemize}
+        \item WHY IS THE BRUTE FORCE LIKE THIS
+    \end{itemize}
 \end{intuition}
 
 \begin{theorem}
 If \(Z = z_1, z_2, \dots, z_k\) is the LCS of \(X\) and \(Y\), then:
 \begin{itemize}
-    \item[(A)] If \(x_m = y_n\), then \(x_m = y_n = z_k\) and \(z_{k-1}\) is the LCS of \(X_{m-1}\) and \(Y_{n-1}\).
+    \item[(A)] If \(x_m = y_n = z_k\), then \(z_{k-1}\) is the LCS of \(X_{m-1}\) and \(Y_{n-1}\).
     \item[(B)] If \(x_m \neq y_n\), then \(z_k \neq x_m\), so \(Z\) is the LCS of \(X_{m-1}\) and \(Y_n\).
     \item[(C)] If \(x_m \neq y_n\), then \(z_k \neq y_n\), so \(Z\) is the LCS of \(X_m\) and \(Y_{n-1}\).
 \end{itemize}
 \end{theorem}
 
+\begin{intuition}
+    \begin{itemize}
+        \item GIVE AN EXAMPLE OF THIS FOR EACH OF THE CASES
+    \end{itemize}
+\end{intuition}
+
 \begin{derivation}
     \textbf{Proof of (A):}
     \begin{enumerate}
-        \item ATaC that \(x_m = y_n\) and \(x_m = y_n = z_k\), but \(Z_{k-1}\) is not the LCS of \(X_{m-1}\) and \(Y_{n-1}\). 
-        \item As a result, some other string \(W\) would be the LCS, implying \(|W| \cup z_k > |Z_{k-1}| \cup z_k = Z\), which contradicts the assumption that \(Z\) is the longest common subsequence. 
+        \item ATaC that \(x_m = y_n = z_k\), but \(Z_{k-1}\) is not the LCS of \(X_{m-1}\) and \(Y_{n-1}\). 
+        \item As a result, some other string \(W\) would be the LCS, so $|W|>|Z_{k-1}|$
+        \item This implies \(|W| \cup z_k > |Z_{k-1}| \cup z_k = Z\) (i.e. appending the last character). However, this contradicts the assumption that \(Z\) is the longest common subsequence in the theorem
+        \begin{itemize}
+            \item \textbf{Note:} When you append $z_k$ to $|Z_{k-1}|$, you are forming $Z$.
+        \end{itemize}
     \end{enumerate}
     \begin{itemize}
         \item (B) and (C) follow similarly by considering the cases where \(x_m \neq y_n\).
@@ -217,7 +234,7 @@ If the last characters of \(X\) and \(Y\) match, they are part of the LCS. Other
 
 \subsubsection{Dynamic Programming Approach}
 \begin{definition}
-    We define \(C[i, j]\) as the length of the LCS of \(X_i\) and \(Y_j\).
+    \(C[i, j]\) is the length of the LCS of \(X_i\) and \(Y_j\) (i.e. number of characters of the LCS)
 
     \begin{equation}
     C[i, j] = 
@@ -231,89 +248,53 @@ If the last characters of \(X\) and \(Y\) match, they are part of the LCS. Other
 \end{definition}
 
 \begin{intuition}
-    
+    \begin{enumerate}
+        \item \textbf{Case 1:}
+        \item \textbf{Case 2:} $+1$ comes from the character $x_i = y_j$
+        \item \textbf{Case 3:} 
+    \end{enumerate}
 \end{intuition}
 
+\subsubsection{Memoization}
 \begin{example}
-Consider the strings \(X = \text{computer}\) and \(Y = \text{automation}\). The dynamic programming table for \(C[i,j]\) is shown below.
+    Given bojo $4$ and bat $3$, then 
+    \begin{itemize}
+        \item \textbf{Memoization:} Store results in a 2D array since we have two indices running.
+    \end{itemize}
+\end{example}
+
+\begin{definition}
+    Another representation is the 2 by 2. WHAT DOES THAT FIGURE MEAN IN THE RIGHT ON WEEBLY.
+\end{definition}
+
+\begin{example}
+Consider the strings \(X = \text{spanking}\) and \(Y = \text{amputation}\). The dynamic programming table for \(C[i,j]\) is shown below.
 
 \customFigure[0.5]{00_Images/LCS.png}{Computation of C}
+\begin{itemize}
+    \item Fill up the zero case because we leave the space in the top left. 
+    \item You can go row by row or column by column. 
+    \item Compare the letters and the arrows represent the previous subproblem being added to the the previous subproblem. This relates to the 2by2 matrix. 
+    \item C gives you the length, but you don't know the actual LCS. 
+    \item The 2by2 matrix is a representation of C using the 3 cases. 
+    \item You need another table to see where the values come from
+    \item Take the maximum when they are not the same, and take the previous subproblem otherwise when they are the same. 
+    \item These are representing each of the subcases. 
+    \item Now we know the LCS has a length of $4$
+    \item Whenever you have a diagonal you circle the letter, so you get the word pain as the LCS
+\end{itemize}
 
-WHAT DOES THAT FIGURE MEAN IN THE RIGHT ON WEEBLY.
 \end{example}
 
 \subsubsection{Time Complexity}
 \begin{definition}
-    The time complexity of this approach is \(\mathcal{O}(m \times n)\)
+    The time complexity of this approach is 
+    \begin{equation}
+        \mathcal{O}(m \times n)
+    \end{equation}
     \begin{itemize}
         \item \(m\) is the length of string \(X\)
         \item \(n\) is the length of string \(Y\). 
         \item \textbf{Note:} The algorithm fills a table of size \(m \times n\), and for each cell, it performs a constant number of operations.
     \end{itemize}
 \end{definition}
-
-\subsubsection{Recursive Formula for Binomial Coefficient}
-\begin{definition}
-    \begin{equation}
-        C(n,k) = \binom{n}{k}
-    \end{equation}
-        
-        The base cases are:
-        \[
-        C(n, 0) = 1, \quad C(n, n) = 1
-        \]
-        The recursive relation is:
-        \[
-        C(n, k) = C(n-1, k-1) + C(n-1, k)
-        \]
-\end{definition}
-
-\subsection{Optimal Polygon Triangulation FINISH IN LEC}
-
-\begin{definition}
-    Given a convex polygon with \(n\) vertices \(v_1, v_2, \dots, v_n\), triangulation is the division of the polygon into triangles by adding diagonals. The goal is to find the triangulation that minimizes the total weight \(\omega\).
-\end{definition}
-    
-\subsubsection{Objective}
-\begin{definition}
-    Minimize the total weight of the triangulation, where the weight \(\omega(\Delta v_i v_j v_k)\) of a triangle is the sum of the Euclidean distances between its vertices:
-    \begin{equation}
-        \omega(\Delta v_i v_j v_k) = |v_i v_j| + |v_j v_k| + |v_i v_k|
-    \end{equation}
-\end{definition}    
-
-\subsubsection{Recursive formula}
-\begin{definition}
-    The recursive formula for the optimal triangulation of vertices \(v_i \dots v_j\) is given by:
-    
-    \begin{equation}
-    t[i, j] = 
-    \begin{cases}
-    0 & \text{if} \quad i = j \\
-    \min_{i \leq k \leq j} \left( t[i, k] + t[k+1, j] + \omega(\Delta v_i v_j v_k) \right) & \text{if} \quad i < j
-    \end{cases}
-    \end{equation}
-\end{definition}
-
-\textbf{Triangulation as a tree:} The triangulation can be represented as a binary tree structure, where each node corresponds to a triangle, and the optimal triangulation is achieved by recursively minimizing the weights of the subproblems.
-    
-\[
-\begin{array}{ccccccccc}
-v_0 & v_1 & v_2 & v_3 & v_4 & v_5 & v_6 \\
-\end{array}
-\]
-\[
-\begin{array}{c}
-\underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_0 \dots v_3} \hspace{1cm} \underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_4 \dots v_6}
-\end{array}
-\]
-    
-    \textbf{Example:} The optimal triangulation of vertices \(v_1 \dots v_6\) can be represented as:
-    
-    \[
-    ((((v_0 v_1 v_2) v_3) v_4) (v_5 v_6))
-    \]
-    
-    This recursive structure can be visualized as a tree, with the leaves representing the individual triangles and the root representing the entire polygon.
-
-\customFigure[0.75]{00_Images/PT.png}{Polygon triangulation.}

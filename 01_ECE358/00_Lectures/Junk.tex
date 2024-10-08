@@ -358,3 +358,72 @@ A recurrence $T(n)$ is \textbf{algorithmic} if, for every sufficiently large \te
             \item \( \Theta(n) \): Accounts for the partitioning step, which is linear.
         \end{itemize}
     \end{definition}
+
+
+
+% 13 
+\subsubsection{Recursive Formula for Binomial Coefficient}
+\begin{definition}
+    \begin{equation}
+        C(n,k) = \binom{n}{k}
+    \end{equation}
+        
+        The base cases are:
+        \[
+        C(n, 0) = 1, \quad C(n, n) = 1
+        \]
+        The recursive relation is:
+        \[
+        C(n, k) = C(n-1, k-1) + C(n-1, k)
+        \]
+\end{definition}
+
+\subsection{Optimal Polygon Triangulation FINISH IN LEC}
+
+\begin{definition}
+    Given a convex polygon with \(n\) vertices \(v_1, v_2, \dots, v_n\), triangulation is the division of the polygon into triangles by adding diagonals. The goal is to find the triangulation that minimizes the total weight \(\omega\).
+\end{definition}
+    
+\subsubsection{Objective}
+\begin{definition}
+    Minimize the total weight of the triangulation, where the weight \(\omega(\Delta v_i v_j v_k)\) of a triangle is the sum of the Euclidean distances between its vertices:
+    \begin{equation}
+        \omega(\Delta v_i v_j v_k) = |v_i v_j| + |v_j v_k| + |v_i v_k|
+    \end{equation}
+\end{definition}    
+
+\subsubsection{Recursive formula}
+\begin{definition}
+    The recursive formula for the optimal triangulation of vertices \(v_i \dots v_j\) is given by:
+    
+    \begin{equation}
+    t[i, j] = 
+    \begin{cases}
+    0 & \text{if} \quad i = j \\
+    \min_{i \leq k \leq j} \left( t[i, k] + t[k+1, j] + \omega(\Delta v_i v_j v_k) \right) & \text{if} \quad i < j
+    \end{cases}
+    \end{equation}
+\end{definition}
+
+\textbf{Triangulation as a tree:} The triangulation can be represented as a binary tree structure, where each node corresponds to a triangle, and the optimal triangulation is achieved by recursively minimizing the weights of the subproblems.
+    
+\[
+\begin{array}{ccccccccc}
+v_0 & v_1 & v_2 & v_3 & v_4 & v_5 & v_6 \\
+\end{array}
+\]
+\[
+\begin{array}{c}
+\underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_0 \dots v_3} \hspace{1cm} \underbrace{\hspace{1.5cm}}_{\text{Triangulation of } v_4 \dots v_6}
+\end{array}
+\]
+    
+    \textbf{Example:} The optimal triangulation of vertices \(v_1 \dots v_6\) can be represented as:
+    
+    \[
+    ((((v_0 v_1 v_2) v_3) v_4) (v_5 v_6))
+    \]
+    
+    This recursive structure can be visualized as a tree, with the leaves representing the individual triangles and the root representing the entire polygon.
+
+\customFigure[0.75]{00_Images/PT.png}{Polygon triangulation.}

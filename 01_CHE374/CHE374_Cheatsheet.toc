@@ -3,17 +3,18 @@
 \contentsline {section}{\numberline {2}Introduction and time value of money (PS1)}{5}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Learning objectives}{5}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Tips}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Interest}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Interest rate}{5}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Simple interest}{5}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Compound interest}{6}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Subperiod interest rate}{6}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Effective interest rate}{7}{subsection.2.8}%
-\contentsline {subsection}{\numberline {2.9}Continuous compound interest}{7}{subsection.2.9}%
-\contentsline {subsection}{\numberline {2.10}Compound interest with subperiods}{7}{subsection.2.10}%
-\contentsline {subsection}{\numberline {2.11}L1 Takeaways}{8}{subsection.2.11}%
-\contentsline {subsection}{\numberline {2.12}How to solve for equivalent interest rates?}{8}{subsection.2.12}%
-\contentsline {subsection}{\numberline {2.13}General formula}{8}{subsection.2.13}%
+\contentsline {subsection}{\numberline {2.3}Time value of money}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Interest}{5}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Interest rate}{5}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Simple interest}{5}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Compound interest}{6}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Subperiod interest rate}{6}{subsection.2.8}%
+\contentsline {subsection}{\numberline {2.9}Effective interest rate}{7}{subsection.2.9}%
+\contentsline {subsection}{\numberline {2.10}Continuous compound interest}{7}{subsection.2.10}%
+\contentsline {subsection}{\numberline {2.11}Compound interest with subperiods}{7}{subsection.2.11}%
+\contentsline {subsection}{\numberline {2.12}L1 Takeaways}{8}{subsection.2.12}%
+\contentsline {subsection}{\numberline {2.13}How to solve for equivalent interest rates?}{8}{subsection.2.13}%
+\contentsline {subsection}{\numberline {2.14}General formula}{8}{subsection.2.14}%
 \contentsline {section}{\numberline {3}Cash-flow diagrams and equivalence (PS2)}{9}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Learning objectives}{9}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}QA}{9}{subsection.3.2}%
@@ -57,14 +58,15 @@
 \contentsline {subsection}{\numberline {5.4}Modern Portfolio Theory}{23}{subsection.5.4}%
 \contentsline {subsubsection}{\numberline {5.4.1}Portfolio Return and Volatility}{24}{subsubsection.5.4.1}%
 \contentsline {subsubsection}{\numberline {5.4.2}Expected return vs. voltality}{24}{subsubsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.5}Capital Asset Pricing Model (CAPM)}{25}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}Intuition for Beta}{26}{subsubsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.2}CAPM Assumptions}{26}{subsubsection.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.3}Terms for CAPM}{26}{subsubsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.6}Arbitrage concepts}{27}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Forward vs. Future contracts}{27}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}Forward Rate}{28}{subsection.5.8}%
-\contentsline {subsection}{\numberline {5.9}Replication}{29}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.5}Weighted Average Cost of Capital WHAT IS PURPOSE OF THIS?}{25}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.6}Capital Asset Pricing Model (CAPM)}{25}{subsection.5.6}%
+\contentsline {subsubsection}{\numberline {5.6.1}Intuition for Beta}{26}{subsubsection.5.6.1}%
+\contentsline {subsubsection}{\numberline {5.6.2}CAPM Assumptions}{26}{subsubsection.5.6.2}%
+\contentsline {subsubsection}{\numberline {5.6.3}Terms for CAPM}{26}{subsubsection.5.6.3}%
+\contentsline {subsection}{\numberline {5.7}Arbitrage concepts}{27}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}Forward vs. Future contracts}{27}{subsection.5.8}%
+\contentsline {subsection}{\numberline {5.9}Forward Rate}{28}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Replication}{29}{subsection.5.10}%
 \contentsline {section}{\numberline {6}Comparison methods - PW, AW, FW (PS5)}{33}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Learning objectives}{33}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Background}{33}{subsection.6.2}%

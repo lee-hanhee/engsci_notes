@@ -5,11 +5,11 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Matrix representation of a linear transformation}{4}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Vectors}{5}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Vector spaces}{5}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{5}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Subspace}{6}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{6}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Subspace}{7}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Span}{7}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}How to draw the span?}{7}{subsubsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.6}Linear independent (LI) set}{7}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.6}Linear independent (LI) set}{8}{subsection.2.6}%
 \contentsline {subsubsection}{\numberline {2.6.1}How to determine if a set is linearly independent}{8}{subsubsection.2.6.1}%
 \contentsline {subsection}{\numberline {2.7}Basis}{8}{subsection.2.7}%
 \contentsline {subsubsection}{\numberline {2.7.1}Dimension}{8}{subsubsection.2.7.1}%
@@ -91,35 +91,40 @@
 \contentsline {subsubsection}{\numberline {6.9.3}Convergence to a Steady State Distribution}{53}{subsubsection.6.9.3}%
 \contentsline {subsubsection}{\numberline {6.9.4}Conditions for Convergence}{53}{subsubsection.6.9.4}%
 \contentsline {subsubsection}{\numberline {6.9.5}Practical Modification}{54}{subsubsection.6.9.5}%
-\contentsline {subsubsection}{\numberline {6.9.6}Finding the Steady State Probability Distribution}{54}{subsubsection.6.9.6}%
-\contentsline {subsubsection}{\numberline {6.9.7}Why is 1 an eigenvalue of P?}{54}{subsubsection.6.9.7}%
-\contentsline {subsubsection}{\numberline {6.9.8}What about other eigenvalues?}{55}{subsubsection.6.9.8}%
-\contentsline {subsubsection}{\numberline {6.9.9}Convergence via Power Iteration}{55}{subsubsection.6.9.9}%
+\contentsline {subsubsection}{\numberline {6.9.6}Why is 1 an eigenvalue of P?}{54}{subsubsection.6.9.6}%
+\contentsline {subsubsection}{\numberline {6.9.7}What about other eigenvalues?}{55}{subsubsection.6.9.7}%
+\contentsline {subsubsection}{\numberline {6.9.8}Convergence via Power Iteration}{55}{subsubsection.6.9.8}%
 \contentsline {section}{\numberline {7}Problem set 2}{56}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Calculating inverse of a matrix}{56}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Finding rank and dimension/basis for range and null space of A and A transpose}{58}{subsection.7.2}%
 \contentsline {section}{\numberline {8}Symmetric Matrices, Orthogonal Matrices, Spectral Decomposition, Positive Semidefinite Matrices, Ellipsoids (Ch. 4.1-4.4)}{59}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Symmetric matrices}{59}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Orthogonal matrices}{59}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Spectral decomposition}{59}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Positive semidefinite matrices}{59}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}Ellipsoids}{59}{subsection.8.5}%
-\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{60}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Singular value decomposition}{60}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Principle component analysis}{60}{subsection.9.2}%
-\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{61}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{61}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{61}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{62}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Least squares}{62}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{62}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{62}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{63}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{63}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{63}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{64}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{64}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{64}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{65}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{65}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{65}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {8.1.1}Example of symmetric matrix: Hessian Matrix}{59}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Theorem}{60}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.2}Spectral decomposition}{61}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Spectral theorem}{61}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Difference between Eigendecomposition and Spectral Decomposition}{62}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Orthogonal matrices}{62}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}What happens when we multiply a vector by an orthogonal matrix?}{63}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}What kind of transformation corresponds to multiplying by a symmetric matrix?}{64}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Positive semidefinite matrices}{65}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}Ellipsoids}{65}{subsection.8.5}%
+\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{66}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Singular value decomposition}{66}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Principle component analysis}{66}{subsection.9.2}%
+\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{67}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{67}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{67}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{68}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Least squares}{68}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{68}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{68}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{69}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{69}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{69}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{70}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{70}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{70}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{71}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{71}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{71}{subsection.14.2}%

@@ -1,12 +1,15 @@
 \subsection{Symmetric matrices}
 \begin{definition}
+    Set of real symmetric matrices is 
     \[
     S^n = \left\{ A \in \mathbb{R}^{n \times n} \mid A = A^T \right\}
     \]
     \begin{itemize}
-        \item In other words, a matrix $A$ is symmetric if: $a_{ij} = a_{ji}$
+        \item i.e. a matrix $A$ is symmetric if $a_{ij} = a_{ji} \; \forall i,j$
     \end{itemize}
+    \vspace{1em}
 
+    Set of complex symmetric matrices is
     \[
     S^n = \left\{ A \in \mathbb{C}^{n \times n} \mid A = A^H \right\}
     \]
@@ -16,7 +19,477 @@
     
 \end{definition}
 
-\subsection{Orthogonal matrices}
+\subsubsection{Example of symmetric matrix: Hessian Matrix}
+\begin{example}
+    Recall: The Hessian matrix \(\nabla^2 f\) of a function \( f: \mathbb{R}^n \to \mathbb{R} \) with continuous partial derivatives (i.e. must be continuous for symmetric matrix) is a symmetric matrix:
+    \[
+    [\nabla^2 f]_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j} = \frac{\partial^2 f}{\partial x_j \partial x_i} = [\nabla^2 f]_{ji}.
+    \]
+
+    \textbf{Example}: Consider a quadratic function \( q: \mathbb{R}^n \to \mathbb{R} \):
+
+    \begin{align*}
+        q(x) &= \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j + \sum_{i=1}^n c_i x_i + d \\
+    &= \frac{1}{2} 
+    \begin{bmatrix}
+    x_1 & \dots & x_n
+    \end{bmatrix}
+    \begin{bmatrix}
+    a_{11} & \dots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    a_{n1} & \dots & a_{nn}
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+    \end{bmatrix}
+    + 
+    \begin{bmatrix}
+    c_1 & \dots & c_n
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+    \end{bmatrix}
+    + d \\
+    &= \frac{1}{2} x^\top A x + c^\top x + d.
+    \end{align*}
+
+    \textbf{Note}: If \(A\) is not symmetric, we can replace \(A\) by \( \frac{A + A^\top}{2} \) without changing the evaluation of the function.
+
+    \begin{itemize}
+        \item For example: \(a_{12} x_1 x_2 + a_{21} x_2 x_1 = 2 \left( \frac{a_{12} + a_{21}}{2} \right) x_1 x_2\).
+    \end{itemize}
+
+    Thus, we can always assume that \(A\) is symmetric.
+    \vspace{1em}
+
+    \textbf{Gradient of the Quadratic Function}
+
+    Let 
+    \[
+    q(x) = \frac{1}{2} x^\top A x + c^\top x + d.
+    \]
+    Then,
+    \begin{align*}
+    \nabla(c^\top x) &= \begin{bmatrix}
+    \frac{\partial}{\partial x_1} (c^\top x) \\
+    \vdots \\
+    \frac{\partial}{\partial x_n} (c^\top x)
+    \end{bmatrix} 
+    = \begin{bmatrix}
+    c_1 \\
+    \vdots \\
+    c_n
+    \end{bmatrix}
+    = c.
+    \end{align*}
+
+    Now let's solve $\nabla\left(\frac{1}{2} x^\top A x\right)$, for the $kth$ component:
+    \begin{align*}
+     \frac{\partial}{\partial x_k} \left(\frac{1}{2} x^\top A x\right) &= \frac{\partial}{\partial x_k} \left( \frac{1}{2} \sum_{i=1}^n \sum_{j=1}^n a_{ij} x_i x_j \right) \\
+    &= \frac{\partial}{\partial x_k} \left( \frac{1}{2} a_{kk} x_k^2 + \sum_{i \neq k} a_{ik} x_i x_k \right) \\
+    &= a_{kk} x_k + \sum_{i \neq k} a_{ik} x_i \\
+    &= \begin{bmatrix}
+    a_{k1} & \dots & a_{kn}
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+    \end{bmatrix}.
+    \end{align*}
+
+    Thus,
+    \begin{itemize}
+        \item $\nabla\left(\frac{1}{2} x^\top A x\right) = A x$
+        \item $\nabla q(x) = A x + c$
+        \item $\nabla^2 q(x) = A$
+    \end{itemize}
+\end{example}
+
+\subsubsection{Theorem}
+
+\begin{theorem}
+    Let $A \in S^n$ be a real symmetric matrix. Let $\lambda_1, \dots, \lambda_n$ be its eigenvalues (not necessarily distinct). Then:
+    \begin{enumerate}
+        \item $\lambda_1, \dots, \lambda_n$ are real, and $\text{AM}(\lambda_i) = \text{GM}(\lambda_i)$ for all $i$.
+        \item Eigenvectors corresponding to different eigenvalues are orthogonal.
+    \end{enumerate}
+\end{theorem}
+
+\begin{derivation}
+        \textbf{1)} Let $\lambda$ be an eigenvalue with eigenvector $u$.
+        \[
+        A u = \lambda u \tag{1}
+        \]
+        
+        Let's consider the conjugate transpose:
+        \[
+        (A u)^H = (\lambda u)^H
+        \]
+        \[
+        \implies u^H A^H = \bar{\lambda} u^H \tag{2}
+        \]
+        \vspace{1em}
+
+        Now set up two equivalent equations starting with $u^H A u$:
+        
+        \begin{itemize}
+            \item
+            \[
+            u^H A u = \lambda u^H u \quad \text{Multiply equation (1) by $u^H$}
+            \]
+            \item 
+            \begin{align*}
+                u^H A u &= u^H A^H u \quad \text{since A is symmetric } A^H = A\\
+                &= \bar{\lambda} u^H u \quad \text{Multiply equation (2) by $u$}
+            \end{align*}
+            \begin{itemize}
+                \item ISN'T THIS COMPLEX NOT REAL SINCE WERE USING HERMETIAN.
+            \end{itemize}
+        \end{itemize}
+        \vspace{1em}
+
+        Thus, we have:
+        \[
+        (\lambda - \bar{\lambda}) u^H u = 0
+        \]
+        So, $\lambda = \bar{\lambda}$, meaning that $\lambda$ is real.
+        \vspace{1em}
+
+        For the proof of $\text{AM}(\lambda) = \text{GM}(\lambda)$, check Theorem 4.1 in the OptM book.
+\end{derivation}
+
+\begin{derivation}    
+    \textbf{2)} Let $\lambda_i$ and $\lambda_j$ be two different eigenvalues, and let $v^{(i)}$ and $v^{(j)}$ be the corresponding eigenvectors. 
+    \[
+    A v^{(i)} = \lambda_i v^{(i)} \tag{1}
+    \]
+    \[
+    A v^{(j)} = \lambda_j v^{(j)} \tag{2}
+    \]
+    
+    Now set up two equivalent equations starting with $(v^{(j)})^T A v^{(i)}$:
+    \begin{itemize}
+        \item 
+        \[
+    (v^{(j)})^T A v^{(i)} = \lambda_i (v^{(j)})^T v^{(i)} \quad \text{Multiply (1) by $(v^{(j)})^T$}
+    \]
+        \item 
+        \begin{align*}
+            (v^{(j)})^T A v^{(i)} &= (v^{(j)})^T A^T v^{(i)} \quad \text{Since $A = A^T$} \\ 
+            &= (Av^{(j)})^T v^{(i)} \quad \text{$(AB)^T = B^T A^T$} \\
+            &= \lambda_j (v^{(j)})^T v^{(i)} 
+        \end{align*}
+    \end{itemize}
+    \vspace{1em}
+    
+    Thus, we have:
+    \[
+    (\lambda_i - \lambda_j) (v^{(j)})^T v^{(i)} = 0
+    \]
+    
+    Since $\lambda_i \neq \lambda_j$, we must have:
+    \[
+    (v^{(j)})^T v^{(i)} = 0
+    \]
+    Therefore, $v^{(i)}$ and $v^{(j)}$ are orthogonal.
+\end{derivation}
+
 \subsection{Spectral decomposition}
+\subsubsection{Spectral theorem}
+\begin{theorem}
+    Let $A \in S^n$ be a real symmetric matrix. Let $\lambda_1, \dots, \lambda_n \in \mathbb{R}$ be its eigenvalues. 
+    \vspace{1em}
+
+    Then, there exists a set of real eigenvectors $u^{(1)}, \dots, u^{(n)}$, which are orthonormal (i.e., $u^{(i)} \perp u^{(j)}$ for $i \neq j$, and $\| u^{(i)} \| = 1$ for all $i$). 
+    \vspace{1em}
+
+    Equivalently, the eigendecomposition of $A$ becomes:
+    \[
+    A = U \Lambda U^T
+    \]
+    \begin{itemize}
+        \item $\Lambda = \begin{bmatrix}
+    \lambda_1 & 0 & \dots & 0 \\
+    0 & \lambda_2 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & \lambda_n
+    \end{bmatrix}$
+    \item $U = \begin{bmatrix}
+    u^{(1)} & \dots & u^{(n)}
+    \end{bmatrix}$
+    \item \textbf{Note:} This is called the "spectral decomposition" of $A$. 
+    \begin{itemize}
+        \item Previously, we had $A = U \Lambda U^{-1}$, but for a symmetric matrix $U^{-1} = U^T$.
+    \end{itemize}
+    \end{itemize}
+\end{theorem}
+
+\begin{derivation}
+    We already proved that $\lambda_1, \dots, \lambda_n$ are real. 
+    \vspace{1em}
+
+    Without loss of generality (WLOG), we can take the eigenvectors to be real. Why?
+
+    \begin{enumerate}
+        \item $A\mathbf{v} = \lambda \mathbf{v}$ implies
+        \[
+        \Re \{A \mathbf{v} \} = \Re \{\lambda \mathbf{v} \}
+        \]
+        \item Since $\lambda$ is real, this becomes
+        \[
+        A \Re \{\mathbf{v} \} = \lambda \Re \{\mathbf{v} \}
+        \]
+        \item Therefore, $\Re \{\mathbf{v} \}$ is an eigenvector with eigenvalue $\lambda$.
+    \end{enumerate}
+    \vspace{1em}
+    
+    Now, let's prove that the set of real eigenvectors are orthonormal:
+
+    \begin{enumerate}
+        \item Now, since $\text{AM}(\lambda_i) = \text{GM}(\lambda_i) = m_i$ (since diagonalizable), we can take $m_i$ eigenvectors $u^{(i,1)}, \dots, u^{(i,m_i)}$ which form an orthonormal basis of $\mathcal{N}(A - \lambda_i I)$ 
+        \begin{itemize}
+            \item i.e. by construction, we can form an orthonormal basis for this space by using Gram-Schmidt for example
+            \item $\lambda_1$: $u^{(1)},\ldots, u^{(1,m_1)}$ (these vectors can be chosen to be orthogonal within this space.)
+            \item $\lambda_2$: $u^{(2)},\ldots, u^{(2,m_2)}$ (these vectors can be chosen to be orthogonal within this space.)
+        \end{itemize}
+        \item Previously, we showed that across different $\mathcal{N}(A - \lambda_i I)$'s, the $u^{(i)}$ are orthogonal. 
+        \item Therefore, $\{u^{(1,1)}, \dots, u^{(1,m_1)}, u^{(2,1)}, \dots, u^{(2,m_2)}, \dots\}$ forms an orthonormal basis of $n$ eigenvectors
+    \end{enumerate}
+    \vspace{1em}
+
+    Now we can assemble everything together: 
+    \begin{enumerate}
+        \item So, 
+        \[
+        A u^{(i,j)} = \lambda_i u^{(i,j)}
+        \]
+        \item Therefore, if we let $U = \begin{bmatrix} u^{(1,1)} & \cdots & u^{(n,m_n)} \end{bmatrix}$. Then,
+        \[
+        A U = U \Lambda
+        \]
+        \begin{itemize}
+            \item $\Lambda = \begin{bmatrix} \lambda_1 & 0 & \cdots & 0 \\ 0 & \lambda_2 & \cdots & 0 \\ \vdots & \vdots & \ddots & 0 \\ 0 & 0 & \cdots & \lambda_n \end{bmatrix}$.
+        \end{itemize}
+        \item Since the columns of $U$ form an orthonormal basis, we have
+        \[
+        U^\top U = \begin{bmatrix}
+        (u^{(1)})^\top \\
+        \vdots \\
+        (u^{(n)})^\top
+        \end{bmatrix}
+        \begin{bmatrix}
+        u^{(1)} & \cdots & u^{(n)}
+        \end{bmatrix}
+        = I
+        \]
+        \item Therefore, $U^{-1} = U^\top$, meaning $U$ is an orthogonal matrix.
+        \item Multiply both sides of $A U = U \Lambda$ by $U^\top$:
+        \[
+        A = U \Lambda U^\top
+        \]
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Difference between Eigendecomposition and Spectral Decomposition}
+\begin{definition}
+    Eigendecomposition of a diagonalizable matrix
+    \[
+    A = U \Lambda U^{-1}
+    \]
+    \begin{itemize}
+        \item $U = \begin{bmatrix}
+    u^{(1)} & \dots & u^{(n)}
+    \end{bmatrix}
+    \quad \text{eigenvectors form a basis for} \ \mathbb{R}^n$
+    \item $\Lambda = \begin{bmatrix}
+    \lambda_1 & 0 & \dots & 0 \\
+    0 & \lambda_2 & \dots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \dots & \lambda_n
+    \end{bmatrix}$
+    \end{itemize}
+    \vspace{1em}
+
+    Eigendecomposition of a symmetric matrix $A$
+    \[
+    A = U \Lambda U^T
+    \]
+    \begin{itemize}
+        \item $U = \begin{bmatrix}
+            u^{(1)} & \dots & u^{(n)}
+            \end{bmatrix}
+            \quad \text{eigenvectors form an orthonormal basis}$
+    \end{itemize}  
+\end{definition}
+
+\subsection{Orthogonal matrices}
+\begin{definition}
+    U is an orthogonal matrix if
+    \[
+    U = \begin{bmatrix}
+    u^{(1)} & \cdots & u^{(n)}
+    \end{bmatrix},
+    \]
+    \begin{itemize}
+        \item $
+    (u^{(i)})^\top u^{(j)} = 
+    \begin{cases} 
+    0 & \text{if } i \neq j \\
+    1 & \text{if } i = j
+    \end{cases}$
+    \item i.e. $U^{-1} = U^T$
+    \item i.e. Columns of an orthogonal matrix are orthonormal.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{What happens when we multiply a vector by an orthogonal matrix?}
+\begin{derivation}
+\[
+y = Ux
+\]
+
+\textbf{Answer}: $Ux$ is a rotation of $x$, plus a possible flip.
+\vspace{1em}
+
+\textbf{Why?} Let's start with proving two facts:
+\begin{itemize}
+    \item \textbf{Why? Fact 1}: If $U$ is orthogonal, then 
+    \[
+    \| Ux \|_2 = \| x \|_2.
+    \]
+    \begin{itemize}
+        \item \textbf{Proof}: 
+        \begin{align*}
+        \| Ux \|_2^2 &= (Ux)^\top (Ux) \\
+        &= x^\top U^\top U x \\
+        &= x^\top I x \\
+        &= \| x \|_2^2.
+        \end{align*}
+    \end{itemize}
+    
+    \item \textbf{Fact 2}: Suppose $x$ and $y$ have an angle $\Theta$ between them. Then $Ux$ and $Uy$ have the same angle $\Theta$ between them.
+    
+    \begin{itemize}
+        \item \textbf{Proof (1-2)}: By previous lecture, we showed that 
+        \[
+        \cos \Theta = \frac{\langle x, y \rangle}{\| x \|_2 \| y \|_2}
+        = \frac{x^\top y}{\| x \|_2 \| y \|_2}.
+        \]
+        \item Now, prove 2-1,
+        \begin{align*}
+        \frac{\langle Ux, Uy \rangle}{\| Ux \|_2 \| Uy \|_2} 
+        &= \frac{(Uy)^\top (Ux)}{\| Ux \|_2 \| Uy \|_2} \\
+        &= \frac{y^\top U^\top U x}{\| x \|_2 \| y \|_2} \quad \text{by fact 1} \\ 
+        &= \frac{y^\top x}{\| x \|_2 \| y \|_2} = \cos \Theta \quad \text{by $U^T U = I$}
+        \end{align*}
+    \end{itemize}
+\end{itemize}
+\vspace{1em}
+
+Thus, the angle remains unchanged after applying $U$.
+
+\customFigure[0.75]{00_Images/OM.png}{Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}
+\customFigure[0.75]{00_Images/Flip.png}{Flip.}
+\end{derivation}
+
+\begin{example}
+    Examples of flipping in orthogonal matrices.
+    \[
+    \begin{bmatrix}
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    x_2 \\
+    x_1 \\
+    x_3
+    \end{bmatrix}
+    \]
+    This is flipping across the \(x_1\), \(x_2\) hyperplane.
+
+    \[
+    \begin{bmatrix}
+    0 & 0 & 1 \\
+    0 & 1 & 0 \\
+    1 & 0 & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    x_3
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    x_3 \\
+    x_2 \\
+    x_1
+    \end{bmatrix}
+    \]
+    This is flipping across the \(x_3\), \(x_1\) hyperplane.
+\end{example}
+
+\subsubsection{What kind of transformation corresponds to multiplying by a symmetric matrix?}
+\begin{derivation}
+    \begin{align*}
+        y = A x &= U \Lambda U^\top x \\
+    U^\top y &= \Lambda U^\top x \\
+    \tilde{y} &= \Lambda \tilde{x}
+    \end{align*}
+    \begin{itemize}
+        \item $\tilde{y}$: $U^T y$
+        \item $\tilde{x}$: $U^T x$
+    \end{itemize}
+    \vspace{1em}
+
+    So, an interpretation of \( y = A x \) is:
+
+    \begin{enumerate}
+        \item Rotation (or flip) of $x$ to get \(\tilde{x}\), where \(\tilde{x} = U^\top x\).
+        \item The \(i\)-th component of \(\tilde{x}\) is scaled by \(\lambda_i\), where \(\tilde{y} = \Lambda \tilde{x}\).
+        \item Rotation (or flip) \(\tilde{y}\) back to \textbf{y}, where \(y = U \tilde{y}\).
+    \end{enumerate}
+    \vspace{1em}
+
+
+    Now, let's look at \(\tilde{x} = U^\top x\):
+    \begin{align*}
+    \tilde{x} = U^\top x &= 
+    \begin{bmatrix}
+    (u^{(1)})^\top \\
+    \vdots \\
+    (u^{(n)})^\top
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    \vdots \\
+    x_n
+    \end{bmatrix} =
+    \begin{bmatrix}
+    \langle u^{(1)}, x \rangle \\
+    \vdots \\
+    \langle u^{(n)}, x \rangle
+    \end{bmatrix}
+    \end{align*}
+
+    Recall: The projection of $x$ onto a subspace spanned by \(u^{(i)}\) is just $\langle u^{(i)}, x \rangle u^{(i)}$
+    \begin{itemize}
+        \item So, we can think of \( U^\top x \) as the coordinates of \textbf{x} in the orthonormal basis \(\{ u^{(1)}, \dots, u^{(n)} \}\).
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/P.png}{Projection}
+\end{derivation}
+
 \subsection{Positive semidefinite matrices}
 \subsection{Ellipsoids}
