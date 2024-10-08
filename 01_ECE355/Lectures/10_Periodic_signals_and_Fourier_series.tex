@@ -45,9 +45,224 @@
     This shows that a change of basis diagonalizes $T$, which helps simplify computations, especially for larger matrices.
 \end{intuition}
 
-\subsubsection{Key Fact!}
+\subsection{Key Fact}
 \begin{definition}
     Complex exponential signals are eigenfunctions of LTI systems.
 
     \customFigure[0.5]{00_Images/EF.png}{Eigenfunction.}
+\end{definition}
+
+\subsubsection{Laplace Transform with Eigenfunctions in CT}
+\begin{definition}
+    \begin{equation}
+        y(t) = e^{st} H(s)
+    \end{equation}
+    \begin{itemize}
+        \item \( H(s) \) is the two-sided Laplace transform of \( h(t) \), defined as: $H(s) = \int_{-\infty}^{\infty} h(\tau) e^{-s\tau} d\tau$
+    \end{itemize}
+\end{definition}
+\begin{derivation}
+    In a CT system, consider the input \( e^{st} \) to a LTI system \( h(t) \), which produces the output \( y(t) \). Let $s \in \mathbb{C}$
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h(t)$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$e^{st}$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$y(t)$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    y(t) = e^{st} \ast h(t) = e^{st} \ast h(t)
+    \]
+
+    \begin{itemize}
+        \item By commutativity of convolution, \( h(t) \ast e^{st} = e^{st} \ast h(t) \).
+    \end{itemize}
+    \vspace{1em}
+
+    The convolution integral is:
+
+    \begin{align*}
+    y(t) &= \int_{-\infty}^{\infty} h(\tau) e^{s(t-\tau)} d\tau \\
+    &= e^{st} \int_{-\infty}^{\infty} h(\tau) e^{-s\tau} d\tau \\
+    &= e^{st} H(s)
+    \end{align*}
+
+    \begin{itemize}
+        \item \( H(s) \) is the two-sided Laplace transform of \( h(t) \), defined as: $H(s) = \int_{-\infty}^{\infty} h(\tau) e^{-s\tau} d\tau$
+    \end{itemize}
+    \vspace{1em}
+
+    Thus, the system simplifies to:
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h(t)$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$e^{st}$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$H(s) e^{st}$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    \therefore e^{st} \text{ is an eigenfunction with eigenvalue } H(s).
+    \]
+\end{derivation}
+
+\subsubsection{General Input}
+\begin{derivation}
+    Now, let \( x(t) \) be a sum of exponentials:
+
+    \[
+    x(t) = \alpha_1 e^{s_1 t} + \dots + \alpha_m e^{s_m t}
+    \]
+
+    Passing \( x(t) \) through the system \( h(t) \):
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h(t)$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$x(t)$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$y(t)$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    y(t) = \alpha_1 H(s_1)e^{s_1 t} + \dots + \alpha_m H(s_m)e^{s_m t}
+    \]
+    \begin{itemize}
+        \item We determine \( y(t) \) without convolution, making use of the eigenfunction and linearity, where each \( e^{st} \) is an eigenfunction of the system.
+        \item \textbf{Note:} Since cosine and sine is a sum of complex exponential signals, it should be of the above form with different phase or magnitude, but no new frequencies.
+        \begin{itemize}
+            \item \textbf{Test for Linearity:} If you put a cosine in, you should get a cosine out. If not, it's non-linear. 
+        \end{itemize}
+    \end{itemize}
+\end{derivation}
+
+\subsection{Eigenfunction in DT}
+\subsubsection{Z-Transform System with Eigenfunctions}
+\begin{definition}
+    \begin{align*}
+        y[n] = z^n H(z)
+    \end{align*}
+    
+    \begin{itemize}
+        \item \( H(z) \) is the Z-transform of \( h[n] \), defined as: $H(z) = \sum_{k=-\infty}^{\infty} h[k] z^{-k}$.
+    \end{itemize}
+\end{definition}
+\begin{derivation}
+    In DT, consider the input \( z^n \) where \( z = e^{s} \) is passed through a LTI system with impulse response \( h[n] \), which gives output \( y[n] \).
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h[n]$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$z^n$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$y[n]$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    y[n] = z^n \ast h[n] = h[n] \ast z^n = \sum_{k=-\infty}^{\infty} h[k] z^{n-k}
+    \]
+
+    \begin{align*}
+    y[n] &= z^n \sum_{k=-\infty}^{\infty} h[k] z^{-k} \\
+    &= z^n H(z)
+    \end{align*}
+
+    \begin{itemize}
+        \item \( H(z) \) is the Z-transform of \( h[n] \), defined as: $H(z) = \sum_{k=-\infty}^{\infty} h[k] z^{-k}$.
+    \end{itemize}
+
+    Thus, the system simplifies to:
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h[n]$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$z^n$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$H(z) z^n$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    \therefore z^n \text{ is an eigenfunction with eigenvalue } H(z).
+    \]
+\end{derivation}
+
+\subsubsection{General Input}
+\begin{derivation}
+    Now, let \( x[n] \) be a sum of exponentials:
+
+    \[
+    x[n] = \alpha_1 z_1^n + \dots + \alpha_m z_m^n
+    \]
+
+    Passing \( x[n] \) through the system \( h[n] \):
+
+    \begin{center}
+    \begin{tikzpicture}
+        \node at (0,0) [draw, rectangle, minimum width=1.5cm, minimum height=1cm] (H) {$h[n]$};
+        \draw[->] (-3,0) -- (H) node[midway, above] {$x[n]$};
+        \draw[->] (H) -- (3,0) node[midway, above] {$y[n]$};
+    \end{tikzpicture}
+    \end{center}
+
+    \[
+    y[n] = \alpha_1 H(z_1) z_1^n + \dots + \alpha_m H(z_m) z_m^n
+    \]
+
+    \begin{itemize}
+        \item We determine \( y[n] \) without convolution, where each exponential function \( z^n \) acts as an eigenfunction of the system.
+    \end{itemize}
+\end{derivation}
+
+\begin{warning}
+    Now we want to levereage this property by decomposing all signals into a complex exponential form.
+\end{warning}
+
+\subsection{T-Periodic Signals of Complex Exponential Signals in CT}
+\begin{definition}
+    A complex exponential signal \( e^{(j2\pi f + \alpha)t} \) is \( T \)-periodic if and only if:
+
+    \begin{enumerate}
+        \item \( \alpha = 0 \)
+        \item \( e^{j 2\pi f t} = e^{j 2\pi f (t + T)} \quad \forall t \)
+        
+        \begin{align*}
+        e^{j 2\pi f t} &= e^{j 2\pi f t} e^{j 2\pi f T} \\
+        \Longleftrightarrow 1 &= e^{j 2\pi f T} \\
+        \Longleftrightarrow f T &= \text{integer}
+        \end{align*}
+        
+        Therefore, \( f \in \left\{ \frac{0}{T}, \frac{1}{T}, \frac{2}{T}, \dots \right\} \) or equivalently \( f T = k \in \mathbb{Z} \).
+        \begin{itemize}
+            \item \textbf{Note:} $fT$ needs to be an integer since $2\pi f T$ represents the angle on the complex plane, we need it to be 1, which is only 1 for $2\pi k$ (i.e. when $fT=k$)
+        \end{itemize}
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{T-Periodic Signals}
+\begin{definition}
+    Every linear combination of \( T \)-periodic signals is again \( T \)-periodic. All signals of the following form are \( T \)-periodic:
+        \[
+        x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \left(\frac{k}{T}\right) t}
+        \]
+    \begin{itemize}
+        \item This is a \textit{complex exponential Fourier series} where \( f = \frac{k}{T} \).
+        \item These are like a set of basis vectors, where \( \left\{ e^{j 2\pi \left(\frac{k}{T}\right) T} : k \in \mathbb{Z} \right\} \) is a basis set.
+        \item The \( c_k \) are the coordinates, which are the Fourier series coefficients.
+        \item Most signals can be represented in this form.
+    \end{itemize}
+\end{definition}
+
+\subsection{Inner product}
+\begin{definition}
+    Let \( x, y \in \mathbb{C}^{\mathbb{R}} \) be \( T \)-periodic signals, and define the inner product as:
+    
+    \[
+    \langle x, y \rangle = \frac{1}{T} \int_T x(t) y^*(t) dt
+    \]
+    \begin{itemize}
+        \item where the integral is taken over any length \( T \)-interval, and \( y^*(t) \) denotes the complex conjugate of \( y(t) \).
+    \end{itemize}
 \end{definition}
