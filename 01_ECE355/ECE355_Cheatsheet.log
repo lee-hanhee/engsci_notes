@@ -1368,4 +1368,83 @@ File: 00_Images/DT_UI.png Graphic file (type png)
 Package pdftex.def Info: 00_Images/DT_UI.png  used on input line 11.
 (pdftex.def)             Requested size: 249.55872pt x 60.86688pt.
 <00_Images/DTS.png, id=500, 761.84625pt x 281.05pt>
-File: 00_Images/DTS.png Graphic 
+File: 00_Images/DTS.png Graphic file (type png)
+<use 00_Images/DTS.png>
+Package pdftex.def Info: 00_Images/DTS.png  used on input line 22.
+(pdftex.def)             Requested size: 249.55872pt x 92.06062pt.
+<00_Images/DT_US.png, id=501, 441.65pt x 101.37875pt>
+File: 00_Images/DT_US.png Graphic file (type png)
+<use 00_Images/DT_US.png>
+Package pdftex.def Info: 00_Images/DT_US.png  used on input line 41.
+(pdftex.def)             Requested size: 249.55872pt x 57.28528pt.
+ [32 <./00_Images/DT_UI.png> <./00_Images/DTS.png> <./00_Images/DT_US.png>]
+<00_Images/RS.png, id=522, 439.6425pt x 347.2975pt>
+File: 00_Images/RS.png Graphic file (type png)
+<use 00_Images/RS.png>
+Package pdftex.def Info: 00_Images/RS.png  used on input line 60.
+(pdftex.def)             Requested size: 249.55872pt x 197.14023pt.
+<00_Images/RS_CV.png, id=523, 380.42125pt x 378.41376pt>
+File: 00_Images/RS_CV.png Graphic file (type png)
+<use 00_Images/RS_CV.png>
+Package pdftex.def Info: 00_Images/RS_CV.png  used on input line 73.
+(pdftex.def)             Requested size: 249.55872pt x 248.2468pt.
+ [33 <./00_Images/RS.png>]
+<00_Images/US_CT.png, id=535, 336.25626pt x 193.72375pt>
+File: 00_Images/US_CT.png Graphic file (type png)
+<use 00_Images/US_CT.png>
+Package pdftex.def Info: 00_Images/US_CT.png  used on input line 123.
+(pdftex.def)             Requested size: 249.55872pt x 143.77602pt.
+ [34 <./00_Images/RS_CV.png>]
+<00_Images/DELTA.png, id=549, 265.99374pt x 158.5925pt>
+File: 00_Images/DELTA.png Graphic file (type png)
+<use 00_Images/DELTA.png>
+Package pdftex.def Info: 00_Images/DELTA.png  used on input line 136.
+(pdftex.def)             Requested size: 249.55872pt x 148.79623pt.
+<00_Images/D.png, id=550, 567.11874pt x 239.89626pt>
+File: 00_Images/D.png Graphic file (type png)
+<use 00_Images/D.png>
+Package pdftex.def Info: 00_Images/D.png  used on input line 145.
+(pdftex.def)             Requested size: 249.55872pt x 105.56564pt.
+ [35 <./00_Images/US_CT.png> <./00_Images/DELTA.png>] [36 <./00_Images/D.png>]
+<00_Images/PRO.png, id=577, 577.15625pt x 331.2375pt>
+File: 00_Images/PRO.png Graphic file (type png)
+<use 00_Images/PRO.png>
+Package pdftex.def Info: 00_Images/PRO.png  used on input line 218.
+(pdftex.def)             Requested size: 249.55872pt x 143.22792pt.
+<00_Images/PRO1.png, id=578, 362.35374pt x 253.94875pt>
+File: 00_Images/PRO1.png Graphic file (type png)
+<use 00_Images/PRO1.png>
+Package pdftex.def Info: 00_Images/PRO1.png  used on input line 221.
+(pdftex.def)             Requested size: 249.55872pt x 174.89932pt.
+) [37 <./00_Images/PRO.png> <./00_Images/PRO1.png>] (./Lectures/05_General_systems_and_basic_properties.tex
+<00_Images/DT_S.png, id=588, 467.7475pt x 533.995pt>
+File: 00_Images/DT_S.png Graphic file (type png)
+<use 00_Images/DT_S.png>
+Package pdftex.def Info: 00_Images/DT_S.png  used on input line 7.
+(pdftex.def)             Requested size: 374.33807pt x 427.37584pt.
+<00_Images/CT_S.png, id=589, 421.575pt x 597.23125pt>
+File: 00_Images/CT_S.png Graphic file (type png)
+<use 00_Images/CT_S.png>
+Package pdftex.def Info: 00_Images/CT_S.png  used on input line 16.
+(pdftex.def)             Requested size: 374.33807pt x 530.3221pt.
+ [38 <./00_Images/DT_S.png>]
+<00_Images/AM.png, id=601, 662.475pt x 228.855pt>
+File: 00_Images/AM.png Graphic file (type png)
+<use 00_Images/AM.png>
+Package pdftex.def Info: 00_Images/AM.png  used on input line 21.
+(pdftex.def)             Requested size: 374.33807pt x 129.31728pt.
+<00_Images/MI.png, id=602, 364.36125pt x 221.82875pt>
+File: 00_Images/MI.png Graphic file (type png)
+<use 00_Images/MI.png>
+Package pdftex.def Info: 00_Images/MI.png  used on input line 26.
+(pdftex.def)             Requested size: 249.55872pt x 151.93483pt.
+<00_Images/CSD.png, id=603, 256.96pt x 164.615pt>
+File: 00_Images/CSD.png Graphic file (type png)
+<use 00_Images/CSD.png>
+Package pdftex.def Info: 00_Images/CSD.png  used on input line 28.
+(pdftex.def)             Requested size: 249.55872pt x 159.87729pt.
+ [39 <./00_Images/CT_S.png>]
+<00_Images/MIMO.png, id=612, 244.915pt x 118.4425pt>
+File: 00_Images/MIMO.png Graphic file (type png)
+<use 00_Images/MIMO.png>
+Package
