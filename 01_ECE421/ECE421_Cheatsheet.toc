@@ -4,20 +4,20 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{5}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{7}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{8}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Classification problem setup}{8}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}Classification problem setup}{9}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{9}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{10}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Error process for classification}{10}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Types of error}{11}{subsubsection.1.4.1}%
 \contentsline {subsection}{\numberline {1.5}Hyperparameters}{11}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{11}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{11}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{12}{subsection.1.7}%
 \contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{12}{subsubsection.1.7.1}%
 \contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{12}{subsubsection.1.7.2}%
 \contentsline {subsection}{\numberline {1.8}Linear classification}{12}{subsection.1.8}%
 \contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{12}{subsubsection.1.8.1}%
 \contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{12}{subsubsection.1.8.2}%
-\contentsline {subsubsection}{\numberline {1.8.3}Training}{12}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.3}Training}{13}{subsubsection.1.8.3}%
 \contentsline {subsubsection}{\numberline {1.8.4}Prediction}{13}{subsubsection.1.8.4}%
 \contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{13}{subsubsection.1.8.5}%
 \contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{14}{subsection.1.9}%
@@ -113,36 +113,41 @@
 \contentsline {subsection}{\numberline {7.4}Eigenvalue Decomposition of a Matrix}{59}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Singular Value Decomposition (SVD)}{60}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Unsupervised Learning, Clustering, K-means clustering, Density Estimation, Mixture of Gaussians, Hard-assignment learning of MoG, EM: Soft assignment (PRML: 9.1-2)}{62}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Supervised vs. Unsupervised Learning}{62}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}K-means Clustering}{62}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}K-means Error Function}{62}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Algorithm}{62}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Illustration}{63}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Error Minimization Example}{65}{subsubsection.8.2.4}%
-\contentsline {subsubsection}{\numberline {8.2.5}What's wrong with k-means}{65}{subsubsection.8.2.5}%
-\contentsline {subsection}{\numberline {8.3}Mixture of Gaussians}{66}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Normal Distribution}{66}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Visualization}{66}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Example: 2D Gaussian}{67}{subsubsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.4}Scalar Example}{68}{subsubsection.8.3.4}%
-\contentsline {subsubsection}{\numberline {8.3.5}Example: Mixture of 3 Gaussians}{69}{subsubsection.8.3.5}%
-\contentsline {subsubsection}{\numberline {8.3.6}Likelihood of Data}{70}{subsubsection.8.3.6}%
-\contentsline {subsubsection}{\numberline {8.3.7}Relating k-means and MoG}{71}{subsubsection.8.3.7}%
-\contentsline {subsubsection}{\numberline {8.3.8}Learning a MoG}{71}{subsubsection.8.3.8}%
-\contentsline {subsubsection}{\numberline {8.3.9}Hard-Assignment Learning of MoG}{72}{subsubsection.8.3.9}%
-\contentsline {subsubsection}{\numberline {8.3.10}EM: Soft Assignment}{72}{subsubsection.8.3.10}%
-\contentsline {subsubsection}{\numberline {8.3.11}Transform}{73}{subsubsection.8.3.11}%
-\contentsline {subsubsection}{\numberline {8.3.12}Example of EM}{73}{subsubsection.8.3.12}%
+\contentsline {subsection}{\numberline {8.1}Summary}{62}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Supervised vs. Unsupervised Learning}{62}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}K-means Clustering}{62}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}K-means Error Function}{62}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Algorithm}{62}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Illustration}{63}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Error Minimization Example}{65}{subsubsection.8.3.4}%
+\contentsline {subsubsection}{\numberline {8.3.5}What's wrong with k-means}{65}{subsubsection.8.3.5}%
+\contentsline {subsection}{\numberline {8.4}Mixture of Gaussians}{66}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Normal Distribution}{66}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Visualization}{66}{subsubsection.8.4.2}%
+\contentsline {subsubsection}{\numberline {8.4.3}Example: 2D Gaussian}{67}{subsubsection.8.4.3}%
+\contentsline {subsubsection}{\numberline {8.4.4}Scalar Example}{68}{subsubsection.8.4.4}%
+\contentsline {subsubsection}{\numberline {8.4.5}Example: Mixture of 3 Gaussians}{69}{subsubsection.8.4.5}%
+\contentsline {subsubsection}{\numberline {8.4.6}Likelihood of Data}{70}{subsubsection.8.4.6}%
+\contentsline {subsubsection}{\numberline {8.4.7}Relating k-means and MoG}{71}{subsubsection.8.4.7}%
+\contentsline {subsubsection}{\numberline {8.4.8}Learning a MoG}{71}{subsubsection.8.4.8}%
+\contentsline {subsubsection}{\numberline {8.4.9}Hard-Assignment Learning of MoG}{72}{subsubsection.8.4.9}%
+\contentsline {subsubsection}{\numberline {8.4.10}EM: Soft Assignment}{72}{subsubsection.8.4.10}%
+\contentsline {subsubsection}{\numberline {8.4.11}Transform}{73}{subsubsection.8.4.11}%
+\contentsline {subsubsection}{\numberline {8.4.12}Example of EM}{73}{subsubsection.8.4.12}%
 \contentsline {section}{\numberline {9}Backpropagation, Neural Networks Implementations (LFD: 7.2, DL: 7.12, 8.4, 8.5 (recommended))}{75}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Motivation for neural networks}{75}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Limitation of perceptron}{75}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}Decomposing a complex problem}{75}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Representing as a multilayer perceptron}{75}{subsubsection.9.1.3}%
-\contentsline {subsection}{\numberline {9.2}Differentiable activation functions}{76}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Neural network}{77}{subsection.9.3}%
-\contentsline {subsubsection}{\numberline {9.3.1}Application: Arbitrary 1D Function Approximation}{77}{subsubsection.9.3.1}%
-\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{79}{section.10}%
-\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{80}{section.11}%
-\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{81}{section.12}%
-\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{82}{section.13}%
-\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{83}{section.14}%
+\contentsline {subsection}{\numberline {9.1}Summary}{75}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Motivation for neural networks}{75}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Limitation of perceptron}{75}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Decomposing a complex problem}{75}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Representing as a multilayer perceptron}{76}{subsubsection.9.2.3}%
+\contentsline {subsection}{\numberline {9.3}Differentiable activation functions}{77}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Neural network}{77}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Application: Arbitrary 1D Function Approximation}{78}{subsubsection.9.4.1}%
+\contentsline {subsection}{\numberline {9.5}DL in Genomics (Real-life examples)}{78}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Mostly complete chart of NN}{80}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Forward propogation}{81}{subsection.9.7}%
+\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{82}{section.10}%
+\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{83}{section.11}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{84}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{85}{section.13}%
+\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{86}{section.14}%

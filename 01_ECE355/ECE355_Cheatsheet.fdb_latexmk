@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1728430364.16961 "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" "ECE355_Cheatsheet.pdf" "ECE355_Cheatsheet" 1728430380.62893 0
+["pdflatex"] 1728572808.58607 "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" "ECE355_Cheatsheet.pdf" "ECE355_Cheatsheet" 1728572828.58291 0
   "/Users/hanheelee/Desktop/engsci_notes/01_ECE355/ECE355_Cheatsheet.tex" 1728138904.46635 3612 86a27098b01cf8482854778ba0ecc282 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -74,6 +74,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb" 1255129361 121145 68312a933e2c689ed40ec0aba373e279 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb" 1255129361 112593 fda2373ba4420af33949610de4c28fe8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb" 1254269338 27863 09ce3735688ffde955e72da27c95b61a ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb" 1254269338 28210 987b40585e9bcf6463d6155bb4219492 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb" 1254269338 27941 d1f5d03f61a46c3fcc3a2ba904ddda52 ""
   "/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2024/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -431,12 +432,12 @@
   "00_Images/Truth_Table.png" 1725883338.80752 8653 648fe843c2c9829aa1282e7094f8e1ca ""
   "00_Images/US_CT.png" 1726685912.36477 21794 9f93b3c26e5ce897daa582b6c949571a ""
   "00_Images/Zero.png" 1726012571.72557 50723 46042b5a70b96a9fa8286589b2dc5cf9 ""
-  "ECE355_Cheatsheet.aux" 1728430380.06007 36225 7f336471d5f3435377835a06cc46c1af "pdflatex"
-  "ECE355_Cheatsheet.lof" 1728430380.06987 10616 b413c6476961de8a84054a1d863e3de6 "pdflatex"
-  "ECE355_Cheatsheet.lot" 1728430380.07001 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE355_Cheatsheet.out" 1728430380.06893 29383 76869b2cfc41a73173b3ce7bcec306f2 "pdflatex"
+  "ECE355_Cheatsheet.aux" 1728572828.03329 36856 715abd97d0862c7872bc3a8bb282d4f5 "pdflatex"
+  "ECE355_Cheatsheet.lof" 1728572828.04355 10616 b413c6476961de8a84054a1d863e3de6 "pdflatex"
+  "ECE355_Cheatsheet.lot" 1728572828.04373 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE355_Cheatsheet.out" 1728572828.04244 30473 4c2350c2b96c051d1921f861440e2065 "pdflatex"
   "ECE355_Cheatsheet.tex" 1728138904.46635 3612 86a27098b01cf8482854778ba0ecc282 ""
-  "ECE355_Cheatsheet.toc" 1728430380.0697 14973 634ea0412d2a0025569b04ad535afb62 "pdflatex"
+  "ECE355_Cheatsheet.toc" 1728572828.04337 15440 b930a72e8cce3e88cfc8dbebc8f26810 "pdflatex"
   "Lectures/00_Math.tex" 1726539828.50423 25145 3bc7486c87e2adc0f4601cc41c929c36 ""
   "Lectures/01_Continuous_and_discrete_time_signals.tex" 1726404755.29735 11194 57f5b8de4f11a1397ccfda2b6073906a ""
   "Lectures/02_Time_dilation_shifting.tex" 1726540098.71609 7428 75543e500bae0f49fd5af89729b2cce3 ""
@@ -447,7 +448,7 @@
   "Lectures/07_Convolution_in_discrete_time.tex" 1727484200.88074 8009 e9e7a27c0c15b7e41cd150d5d02a2508 ""
   "Lectures/08_Convolution_in_continuous_time.tex" 1728144334.68173 6954 b20180bf6afbc7d2f5c5306cdb1b2826 ""
   "Lectures/09_Properties_of_LTI_systems.tex" 1727890628.63975 3744 0a278d787a402c583dc0e2d21fd0ee83 ""
-  "Lectures/10_Periodic_signals_and_Fourier_series.tex" 1728430360.93941 10177 7fc4b7de96b2ccd042112ef78177ee9a ""
+  "Lectures/10_Periodic_signals_and_Fourier_series.tex" 1728572775.00078 17295 87c0450062a632fa5c2b60c8c18ce371 ""
   "style.sty" 1725140561.31964 5400 316557ce5cdf092d255727ada2f90def ""
   (generated)
   "ECE355_Cheatsheet.aux"

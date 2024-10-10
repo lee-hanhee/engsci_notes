@@ -1,8 +1,8 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{5}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{6}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{6}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{6}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{7}{figure.4}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{7}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{8}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{8}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{9}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{10}{figure.7}%
@@ -57,8 +57,11 @@
 \contentsline {figure}{\numberline {56}{\ignorespaces Mixture of 3 Gaussians}}{70}{figure.56}%
 \contentsline {figure}{\numberline {57}{\ignorespaces Example of EM.}}{73}{figure.57}%
 \contentsline {figure}{\numberline {58}{\ignorespaces Linearly inseparable.}}{75}{figure.58}%
-\contentsline {figure}{\numberline {59}{\ignorespaces Decomposing the complex problem to be constructed from $f$.}}{75}{figure.59}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Decomposing the complex problem to be constructed from $f$.}}{76}{figure.59}%
 \contentsline {figure}{\numberline {60}{\ignorespaces Multilayer Perceptron}}{76}{figure.60}%
 \contentsline {figure}{\numberline {61}{\ignorespaces Activation functions.}}{77}{figure.61}%
 \contentsline {figure}{\numberline {62}{\ignorespaces Neural network with inputs, hidden units, and outputs that introduce the notation.}}{77}{figure.62}%
 \contentsline {figure}{\numberline {63}{\ignorespaces Approximating functions.}}{78}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Protein binding}}{79}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces 1st layer weights}}{79}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Mostly complete chart of NN}}{80}{figure.66}%

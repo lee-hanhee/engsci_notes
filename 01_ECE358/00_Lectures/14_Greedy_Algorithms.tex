@@ -88,7 +88,7 @@ For fractional knapsack:
     C[i, \omega] = \begin{cases} 
         0 & \text{if } i = 0 \text{ and } \omega = 0 \\
         C[i-1, \omega] & \text{if } \omega_i > \omega \\
-        \max \{C[i-1, \omega - \omega_i] +C_i, \; C[i-1, \omega]\} & \text{if } \omega_i \leq \omega
+        \max \{C[i-1, \omega - \omega_i] +v_i, \; C[i-1, \omega]\} & \text{if } \omega_i \leq \omega
     \end{cases}
     \]
     \begin{itemize}

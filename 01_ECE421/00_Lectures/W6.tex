@@ -1,3 +1,16 @@
+\subsection{Summary}
+\begin{intuition}
+    \begin{itemize}
+        \item Limitations of the perceptron
+        \item Decomposing of a complex problem
+        \item Differentiable activation functions (sgn to logistic, tanh)
+        \item Neural networks
+        \item Applications to Genomics
+        \item Forward propogation
+        \item Back propogation
+    \end{itemize}
+\end{intuition}
+
 \subsection{Motivation for neural networks}
 
 \subsubsection{Limitation of perceptron}
@@ -98,6 +111,9 @@
 \subsection{Neural network}
 \begin{example}
     \customFigure[0.5]{00_Images/NN.png}{Neural network with inputs, hidden units, and outputs that introduce the notation.}
+    \begin{itemize}
+        \item \textbf{Note:} The notation is given by $x_\#$ to be easier for the notation.
+    \end{itemize}
 \end{example}
 
 \subsubsection{Application: Arbitrary 1D Function Approximation}
@@ -117,3 +133,67 @@
     \end{enumerate}
     \customFigure[0.75]{00_Images/A1DF.png}{Approximating functions.}
 \end{example}
+
+\subsection{DL in Genomics (Real-life examples)}
+\begin{example}
+    \textbf{Detecting Protein Binding Sites in DNA}
+    \customFigure[0.75]{00_Images/PB.png}{Protein binding}
+    \begin{itemize}
+        \item \textbf{B:} The disc is the set of representable functions, and it is initialized. The learning algorithm makes the function moves around until you reach the learned function. The true function will lie outside of the representable functions. 
+    \end{itemize}
+\end{example}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/S2S.png}{1st layer weights}
+\end{example}
+
+\subsection{Mostly complete chart of NN}
+\begin{definition}
+    \customFigure[0.65]{00_Images/CNN.png}{Mostly complete chart of NN}
+    \begin{itemize}
+        \item \textbf{Key:} Lots of different architectures.
+    \end{itemize}
+\end{definition}
+
+\subsection{Forward propogation}
+\begin{definition}
+    \begin{itemize}
+        \item $I$ inputs, $O$ outputs, $H$ hidden units
+        \item Total units $M = I + H + O$
+        \item Index units so that connection $i \rightarrow j$ satisfies $i < j$
+        \item Ordered activations:
+        \[
+        x_1, \ldots, x_I, x_{I+1}, \ldots, x_{I+H}, x_{M-O+1}, \ldots, x_M
+        \]
+        \begin{itemize}
+            \item $x_1, \ldots, x_I$: Inputs
+            \item $x_{I+1}, \ldots, x_{I+H}$: Hidden
+            \item $x_{M-O+1}, \ldots, x_M$: Outputs
+        \end{itemize}
+        \item It is convenient to let $x_i$ be the pre-activation value for unit $i$
+        \item Combining the above, we have
+        \[
+        \text{For } j > I, \quad x_j = \sum_{i=1}^{j-1} w_{ij} g_i(x_i)
+        \]
+        \begin{itemize}
+            \item $g_i(x_i)$ is the activation function for $x_i$
+            \item If $j$ is not connected to $i$, set $w_{ij} = 0$.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item If input unit $x_i$, $i \in \{1, \ldots, I\}$ is not transformed, set $g_i(x_i) = x_i$, i.e., $g_i$ is the identity.
+        \begin{itemize}
+            \item This means that for input units (the original features fed into the neural network), the activation function $g_i$ does not change the value of the input. 
+        \end{itemize}
+        \item The outputs of the neural network are $g_{M-O+1}(x_{M-O+1}), \ldots, g_M(x_M)$.
+        \begin{itemize}
+            \item The outputs are derived by applying the activation functions to the last set of units in the network.
+            \item Here, $M$ represents the total number of units (including input, hidden, and output units)
+            \item $O$ represents the number of output units. 
+            \item $M-O+1$ to $M$ refers to the indices of the output units.
+            \item The functions $g_{M-O+1}, \ldots, g_M$ represent the activation functions associated with each output unit. 
+        \end{itemize}
+    \end{itemize}    
+\end{definition}

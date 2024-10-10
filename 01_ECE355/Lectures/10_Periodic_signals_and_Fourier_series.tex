@@ -241,28 +241,183 @@
     \end{enumerate}
 \end{definition}
 
-\subsubsection{T-Periodic Signals}
+\subsubsection{Complex Exponential Fourier Series}
 \begin{definition}
     Every linear combination of \( T \)-periodic signals is again \( T \)-periodic. All signals of the following form are \( T \)-periodic:
         \[
         x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \left(\frac{k}{T}\right) t}
         \]
     \begin{itemize}
-        \item This is a \textit{complex exponential Fourier series} where \( f = \frac{k}{T} \).
-        \item These are like a set of basis vectors, where \( \left\{ e^{j 2\pi \left(\frac{k}{T}\right) T} : k \in \mathbb{Z} \right\} \) is a basis set.
-        \item The \( c_k \) are the coordinates, which are the Fourier series coefficients.
-        \item Most signals can be represented in this form.
+        \item \( f = \frac{k}{T} \).
+        \item \( \left\{ e^{j 2\pi \left(\frac{k}{T}\right) T} : k \in \mathbb{Z} \right\} \): Basis set.
+        \item \( c_k \in \mathbb{C}\): Coordinates (i.e. Fourier series coefficients)
+        \item These are like a linear combination of a set of basis vectors.      
+        \item Most signals can be represented in this form, but not all signals (we will only be focused on complex exp Fourier series though.)
     \end{itemize}
 \end{definition}
 
 \subsection{Inner product}
 \begin{definition}
-    Let \( x, y \in \mathbb{C}^{\mathbb{R}} \) be \( T \)-periodic signals, and define the inner product as:
+    Let \( x, y \in \mathbb{C}^{\mathbb{R}} \) be \( T \)-periodic signals, then
     
     \[
     \langle x, y \rangle = \frac{1}{T} \int_T x(t) y^*(t) dt
     \]
     \begin{itemize}
-        \item where the integral is taken over any length \( T \)-interval, and \( y^*(t) \) denotes the complex conjugate of \( y(t) \).
+        \item $\int_T$: Integral taken over any length \( T \)-interval (e.g. $[0,T)$, $[-T/2,T/2)$)
+        \item \( y^*(t) \) denotes the complex conjugate of \( y(t) \).
     \end{itemize}
 \end{definition}
+
+\subsubsection{Properties of Inner Products}
+\begin{definition}
+    \begin{enumerate}
+        \item $\langle x, y \rangle \in \mathbb{C}$; if $\langle x, y \rangle = 0$ then we say $x, y$ are orthogonal.
+        \item $\langle x, x \rangle = \frac{1}{T} \int_T |x(t)|^2 \, dt$, \quad $\langle x, x \rangle \in \mathbb{R}^{\geq 0}$; \quad $\langle x, x \rangle = 0$ iff $x \subset{a.e.}{=} \text{zero}$.
+        \item $\langle x, y \rangle = \langle y, x \rangle^*$ \quad or \quad $(x, y)^* = \langle y, x \rangle$ \quad (i.e. Hermitian symmetry).
+        \item For any scalars $\alpha, \beta \in \mathbb{C}$, \quad $\langle \alpha x, \beta y \rangle = \alpha \beta^* \langle x, y \rangle$.
+        \begin{itemize}
+            \item \textbf{Proof:}
+            \begin{align*}
+                \langle \alpha x, \beta y \rangle &= \alpha \langle x, \beta y \rangle \\
+                &= \alpha \langle \beta y, x \rangle^* \\
+                &= \alpha \beta^* \langle y, x \rangle^* \\
+                &= \alpha \beta^* \langle x, y \rangle
+            \end{align*}
+        \end{itemize}
+        \item Let $w, x, y, z$ be $T$-periodic signals, $\langle w + x, y + z \rangle = \langle w, y \rangle + \langle w, z \rangle + \langle x, y \rangle + \langle x, z \rangle$.
+    \end{enumerate}    
+\end{definition}
+
+\subsubsection{Inner product of general signals}
+\begin{definition}
+    More generally, if $\{x_i : i \in I\}$ and $\{y_j : j \in J\}$ (i.e., finite/countable sets of $T$-periodic signals), then
+
+    \[
+    \left\langle \sum_{i \in I} a_i x_i, \sum_{j \in J} b_j y_j \right\rangle = \sum_{i \in I} \sum_{j \in J} a_i b_j \langle x_i, y_j \rangle
+    \]
+    \begin{itemize}
+        \item i.e. inner product of sums is the sums of inner products.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Inner product of complex exponential signals}
+\textbf{Motivation:} Want to find the inner product of our basis set for Fourier analysis.
+\begin{definition}
+    For any $k, \lambda \in \mathbb{Z}$, the inner product of $e^{j 2\pi \frac{k}{T} t}$ and $e^{j 2\pi \frac{\lambda}{T} t}$ is
+
+    \begin{align*}
+        \left\langle e^{j 2\pi \frac{k}{T} t}, e^{j 2\pi \frac{\lambda}{T} t} \right\rangle =
+        \begin{cases}
+            1, & \text{if } k = \lambda \\
+            0, & \text{if } k \neq \lambda
+        \end{cases}
+    \end{align*}
+    \begin{itemize}
+        \item \textbf{Note:} This result shows that the orthogonality condition is satisfied for complex exponentials with distinct frequencies.
+        \item \textbf{Note:} This shows that our basis set builds an orthonormal system.
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    For any $k, \lambda \in \mathbb{Z}$, the inner product of $e^{j 2\pi \frac{k}{T} t}$ and $e^{j 2\pi \frac{\lambda}{T} t}$ can be calculated as follows:
+
+    \begin{align*}
+        \left\langle e^{j 2\pi \frac{k}{T} t}, e^{j 2\pi \frac{\lambda}{T} t} \right\rangle &= \frac{1}{T} \int_T e^{j 2\pi \frac{k}{T} t} \cdot \left(e^{j 2\pi \frac{\lambda}{T} t}\right)^* \, dt \\
+        &= \frac{1}{T} \int_T e^{j 2\pi \frac{k}{T} t} \cdot e^{-j 2\pi \frac{\lambda}{T} t} \, dt \\
+        &= \frac{1}{T} \int_T e^{j 2\pi \frac{(k-\lambda)}{T} t} \, dt \\
+        &= \frac{1}{T} \int_T \cos\left(2\pi \frac{(k-\lambda)}{T} t\right) \, dt + j \frac{1}{T} \int_T \sin\left(2\pi \frac{(k-\lambda)}{T} t\right) \, dt \\
+        &= 
+        \begin{cases}
+            1, & \text{if } k = \lambda \\
+            0, & \text{if } k \neq \lambda
+        \end{cases}
+    \end{align*}
+
+    \bigskip
+
+    Now, let's plot the functions $\cos\left(2\pi \frac{(k-\lambda)t}{T}\right)$ and $\sin\left(2\pi \frac{(k-\lambda)t}{T}\right)$.
+
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=12cm,
+            height=6cm,
+            grid=both,
+            title={$k=3$, $\lambda=1$, $T=2$},
+            xlabel={$t$},
+            ylabel={Amplitude},
+            legend style={at={(0.5,-0.15)}, anchor=north,legend columns=-1},
+        ]
+            \addplot[blue, thick, domain=0:8, samples=1000] {cos(deg(2*pi*(3-1)*x/2))};
+            \addlegendentry{$\cos\left(2\pi \frac{(k-\lambda)t}{T}\right)$}
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                width=12cm,
+                height=6cm,
+                grid=both,
+                title={$k=3$, $\lambda=1$, $T=2$},
+                xlabel={$t$},
+                ylabel={Amplitude},
+                legend style={at={(0.5,-0.15)}, anchor=north,legend columns=-1},
+            ]
+                \addplot[red, thick, domain=0:8, samples=1000] {sin(deg(2*pi*(3-1)*x/2))};
+                \addlegendentry{$\sin\left(2\pi \frac{(k-\lambda)t}{T}\right)$}
+            \end{axis}
+        \end{tikzpicture}
+        \end{center}
+    \begin{itemize}
+        \item \textbf{Note:} These plots show that for any length interval $T$, the integral (i.e. area under the curve) is 0. 
+    \end{itemize}
+\end{derivation}
+
+\subsubsection{Analysis and Synthesis equation}
+\begin{definition}
+    \underline{Analysis equation}: Suppose $x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}$.
+
+    For any $\lambda \in \mathbb{Z}$,
+    \[
+    c_k = \frac{1}{T} \int_T x(t) e^{-j 2\pi \frac{k}{T} t} \, dt.
+    \]
+    \begin{itemize}
+        \item \textbf{Intuition:} Given $x(t)$, analyze $x(t)$ and extract $c_k$ (i.e. FS coefficients) using the inner product and notion of orthgonality.
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    Suppose $x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}$.
+
+    For any $\lambda \in \mathbb{Z}$,
+    \begin{align*}
+        \left\langle x(t), e^{j 2\pi \frac{\lambda}{T} t} \right\rangle &= \left\langle \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}, e^{j 2\pi \frac{\lambda}{T} t} \right\rangle \\
+        &= \sum_{k \in \mathbb{Z}} c_k \left\langle e^{j 2\pi \frac{k}{T} t}, e^{j 2\pi \frac{\lambda}{T} t} \right\rangle \quad \text{Only when $k=\lambda$, the inner product is 1}\\
+        &= c_\lambda \quad \text{by orthogonality, it picks out the $c_\lambda$ coefficient}
+    \end{align*}
+
+    Thus, to find the Fourier series coefficients,
+    \[
+    c_\lambda = \left\langle x(t), e^{j 2\pi \frac{\lambda}{T} t} \right\rangle \equiv c_k = \left\langle x(t), e^{j 2\pi \frac{k}{T} t} \right\rangle \quad \text{for any } k \in \mathbb{Z}.
+    \]
+\end{derivation}
+
+\begin{definition}
+    \underline{Synthesis equation}:
+    \[
+    x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}.
+    \]
+    \begin{itemize}
+        \item \textbf{Intuition:} Given $c_k$, synthesize the signal using a linear combination of the basis set. 
+    \end{itemize}
+\end{definition}
+
+\begin{warning}
+    These are the go-to equations for solving Fourier series. 
+    \begin{itemize}
+        \item \textbf{Key:} $x(t)$ needs to be in this form (i.e. have a Fourier series representation) to use these equations. 
+    \end{itemize}
+\end{warning}
