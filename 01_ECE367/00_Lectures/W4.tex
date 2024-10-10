@@ -464,9 +464,16 @@
     \]
     \begin{itemize}
         \item \textbf{Roots can be real or complex.} If complex, they occur in conjugate pairs.
-        \item \textbf{Note:} The determinant is equal to 0 because $Av=\lambda v$ (i.e. linearly dependent), and LD vectors have determinant of $0$ by definition.
+        \item \textbf{Note:} The determinant is equal to 0 because $Av=\lambda v$ (i.e. linearly dependent), and LD vectors have determinant of $0$ by definition, so we want to find $\lambda$ s.t. the determinant is 0. 
     \end{itemize}
 \end{definition}
+
+\begin{warning}
+    $n$ roots doesn't mean there are $n$ distinct eigen values. 
+    \begin{itemize}
+        \item e.g. For $(\lambda - 1)^2$, the root is $2$, but there is only one eigenvalue. 
+    \end{itemize}
+\end{warning}
 
 \subsubsection{Geometric and algebraic multiplicity}
 \begin{definition}
@@ -482,7 +489,7 @@
 \end{definition}
 
 \begin{theorem}
-    In general, for any matrix $A \in \mathbb{R}^{n \times n}$ (i.e. MUST BE SQUARE),
+    In general, for any matrix $A \in \mathbb{R}^{n \times n}$ (square matrix),
     \[
     GM(\lambda) \leq AM(\lambda).
     \]
@@ -527,7 +534,20 @@
 \end{theorem}
 
 \begin{warning}
-    DOES THIS CORRESPOND TO DEFECTIVE/NON-DEFECTIVE MATRICES. IF NON defective, then every eigen vector is independent right?
+    Holds for any defective or non-defective matrix. 
+    \begin{itemize}
+        \item \textbf{Same eigenvalue (key subtle detail):} Eigenvectors corresponding to an eigenvalue can be linearly dependent or independent (\textbf{but not guaranteed to be l.i.}). 
+            \begin{itemize}
+                \item e.g. If $\dim (\mathcal(N)(A-\lambda I)) = 2$, you can find 2 basis vectors (i.e. eigenvectors), but \textbf{not} any two vectors. 
+                \item Since we can choose two vectors to be linearly independent or dependent, you have to choose the linearly independent vectors.
+                \begin{itemize}
+                    \item i.e. Any vector in $\mathcal(N)(A-\lambda I)$ is an eigenvector, but not every 2 eigenvectors in $\mathcal(N)(A-\lambda I)$ is linearly independent. 
+                    \item e.g. If $v$ is an eigenvector, then $2v$ is also an eigenvector. 
+                \end{itemize}
+                \item \textbf{Construction:} So choose two linearly independent vectors to be the eigenvectors of that space. 
+            \end{itemize}
+        \item \textbf{Different eigenvalue:} For eigenvectors corresponding to different eigenvalues though, we are guaranteed for them to be linearly independent since they live in different null spaces. 
+    \end{itemize}
 \end{warning}
 
 \begin{derivation}
@@ -641,6 +661,23 @@
     \end{itemize}
 \end{theorem}
 
+\begin{warning}
+    \begin{itemize}
+        \item This is an extension of the previous theorem, since we are only considering non-defective matrices, which means $AM=GM$, so then you can find $n$ linearly independent vectors. 
+        \begin{itemize}
+            \item \textbf{Defective:} We cannot find $n$ linearly independent vectors because $GM < AM$.
+        \end{itemize}
+        \item But, the same key subtlety pops up as for the same eigenvalue, we have to choose eigenvectors in that space that are linearly independent by \textbf{construction}.
+    \end{itemize}
+\end{warning}
+
+\begin{warning}
+    You cannot orthnormalize these $n$ linearly indpeendent vectors using Gram because they are not in the same space (i.e. if you Gram-Schmidt it, you will get non-eigenvectors).
+    \begin{itemize}
+        \item Therefore orthonormalizing vectors in the same space (i.e. same eigenvalue) retains the eigenvector property, but across spaces, will lose the eigenvector properties. 
+    \end{itemize}
+\end{warning}
+
 \begin{derivation}
     $A u^{(i,j)} = \lambda_i u^{(i,j)}$, where $u^{(i,j)}$ is an eigenvector with eigenvalue $\lambda_i$, then this implies that
 
@@ -676,7 +713,7 @@
 
 \subsubsection{What does this diagonalization mean?}
 \begin{intuition}
-    We start with the eigendecomposition of a matrix \( A \):
+    This applies to any non-defective (or diagonalizable) matrix \( A \in \mathbb{R}^{n \times n} \). We start with the eigendecomposition of a matrix \( A \):
     \[
     A = U \Lambda U^{-1}
     \]
@@ -694,14 +731,25 @@
     A x = U \Lambda \tilde{x} \quad \text{and} \quad x = U \tilde{x} = \begin{bmatrix} u^{(1)} & \dots & u^{(n)} \end{bmatrix} \begin{bmatrix} \tilde{x}_1 \\ \vdots \\ \tilde{x}_n \end{bmatrix} = \sum_{i=1}^{n} \tilde{x}_i u^{(i)}.
     \]
     \begin{itemize}
-        \item The coordinates of \( \tilde{x} \) are the components (i.e. coefficients) of \( x \) in the new basis \( \{u^{(1)}, \dots, u^{(n)}\} \).
+        \item \( \tilde{x} = U^{-1}x\): Coordinates of $x$ in the new basis \( \{u^{(1)}, \dots, u^{(n)}\} \).
+        \begin{itemize}
+            \item Since $x$ is a linear combination of eigenvectors, therefore, we are \textbf{transforming} to the basis of eigenvectors, where $x$ can be written as $\sum_{i=1}^{n} \tilde{x}_i u^{(i)}$.
+        \end{itemize}
         \item \( \Lambda \tilde{x} \) means that we are scaling \( \tilde{x}_i \) by the corresponding eigenvalue \( \lambda_i \).
-        \item \( U \Lambda \tilde{x} \) means that we are changing the coordinates back to the original basis.
+        \item \(y = Ax = U \Lambda \tilde{x} \) means that we are changing the coordinates back to the original basis.
+        \begin{itemize}
+            \item Since the inverse of $U^{-1}$ is $U$, therefore, after scaling by $\Lambda$, we are essentially transforming from the basis of eigenvectors to the original basis by applying the inverse transformation. 
+        \end{itemize}
     \end{itemize}
-    \vspace{1em}
-
-    This applies to any non-defective (or diagonalizable) matrix \( A \in \mathbb{R}^{n \times n} \).
 \end{intuition}
+
+\begin{warning}
+    \begin{itemize}
+        \item \textbf{Change of basis to eigenvector basis:} $U^{-1} x$ transforms $x$ from the original basis to the eigenvector basis. The ith component of $x$ is represented by $\tilde{x}_i$ (i.e. coordinate) in the new basis.
+        \item \textbf{Scaling:} $\tilde{x}$ get scaled by their corresponding eigenvalues in $\Lambda$
+        \item \textbf{Change of basis to original basis:} $\tilde{x}$ then gets transformed back to original basis by applying the inverse transformation of $U^{-1}$, which is $U$.
+    \end{itemize}
+\end{warning}
 
 \subsection{Application: Google's PageRank Algorithm}
 \subsubsection{How to measure importance of a webpage}

@@ -57,13 +57,6 @@
     &= \frac{1}{2} x^\top A x + c^\top x + d.
     \end{align*}
 
-    \textbf{Note}: If \(A\) is not symmetric, we can replace \(A\) by \( \frac{A + A^\top}{2} \) without changing the evaluation of the function.
-
-    \begin{itemize}
-        \item For example: \(a_{12} x_1 x_2 + a_{21} x_2 x_1 = 2 \left( \frac{a_{12} + a_{21}}{2} \right) x_1 x_2\).
-    \end{itemize}
-
-    Thus, we can always assume that \(A\) is symmetric.
     \vspace{1em}
 
     \textbf{Gradient of the Quadratic Function}
@@ -110,6 +103,23 @@
     \end{itemize}
 \end{example}
 
+\begin{warning}
+    If \(A\) is not symmetric, we can replace \(A\) by \( \frac{A + A^\top}{2} \) without changing the evaluation of the function.
+
+    \begin{itemize}
+        \item e.g. \(4  x_1 x_2 + 5 x_2 x_1 = 9 x_1 x_ 2\). This is non-symmetric since $a_{12} \neq a_{21}$, but we can symmetrize this by taking the average of the two points 
+        \begin{itemize}
+            \item $4.5 x_1 x_2 + 4.5 x_2 x_1 = 9 x_1 x_2$. This symmetry was found as $\frac{a_{12} + a_{21}}{2}$
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+
+    Therefore, we can always assume that \(A\) is symmetric 
+    \begin{itemize}
+        \item Since we can always change a non-symmetric matrix $A$ into a symmetric matrix \( \frac{A + A^\top}{2} \) since \( \left(\frac{A + A^\top}{2}\right)^T =\frac{A + A^\top}{2} \)
+    \end{itemize}
+\end{warning}
+
 \subsubsection{Theorem}
 
 \begin{theorem}
@@ -148,7 +158,12 @@
                 &= \bar{\lambda} u^H u \quad \text{Multiply equation (2) by $u$}
             \end{align*}
             \begin{itemize}
-                \item ISN'T THIS COMPLEX NOT REAL SINCE WERE USING HERMETIAN.
+                \item A is real and symmetric and $A = A^H$ since the Hermitian takes the transpose and the conjugage. 
+                \begin{itemize}
+                    \item $A^H = A^T$ since the conjugate of a real matrix is the real matrix 
+                    \item $A=A^T$ because it's symmetric. 
+                    \item Therefore, $A^H = A$
+                \end{itemize}
             \end{itemize}
         \end{itemize}
         \vspace{1em}
@@ -198,6 +213,13 @@
     \]
     Therefore, $v^{(i)}$ and $v^{(j)}$ are orthogonal.
 \end{derivation}
+
+\begin{warning}
+    For these two derivations: $u^H A u$ and $(v^{(j)})^T A v^{(i)}$ were used to use the properties of symmetric matrices. 
+    \begin{itemize}
+        \item $(u^H A u)^H = u^H A u$
+    \end{itemize}
+\end{warning}
 
 \subsection{Spectral decomposition}
 \subsubsection{Spectral theorem}
@@ -490,6 +512,10 @@ Thus, the angle remains unchanged after applying $U$.
 
     \customFigure[0.5]{00_Images/P.png}{Projection}
 \end{derivation}
+
+\begin{warning}
+    The interpretation is the same as the eigendecomposition for non-defective (but not necessarily symmetric matrices), but the change of basis is represented by rotations and flips since we have orthonormal matrices. 
+\end{warning}
 
 \subsection{Positive semidefinite matrices}
 \subsection{Ellipsoids}
