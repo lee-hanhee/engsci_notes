@@ -37,7 +37,7 @@
 \contentsline {figure}{\numberline {36}{\ignorespaces Computation of C}}{90}{figure.36}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Class scheduling example.}}{91}{figure.37}%
 \contentsline {figure}{\numberline {38}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{91}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces WHAT IS THIS SHOWING ME }}{93}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS SHOWING ME?}}{93}{figure.40}%
+\contentsline {figure}{\numberline {39}{\ignorespaces 45\% contains a, 13\% contains b, and so on. Converting this to binary using $d(c_1)$, which is fixed.}}{93}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces $d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}}{93}{figure.40}%
 \contentsline {figure}{\numberline {41}{\ignorespaces Tree}}{93}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces T optimal, T', and T''}}{94}{figure.42}%
+\contentsline {figure}{\numberline {42}{\ignorespaces T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}}{94}{figure.42}%

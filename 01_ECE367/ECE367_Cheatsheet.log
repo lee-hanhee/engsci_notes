@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  10 OCT 2024 14:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  10 OCT 2024 16:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1357,20 +1357,20 @@ Overfull \hbox (6.29707pt too wide) in paragraph at lines 50--50
 <00_Images/OM.png, id=1313, 805.0075pt x 326.21875pt>
 File: 00_Images/OM.png Graphic file (type png)
 <use 00_Images/OM.png>
-Package pdftex.def Info: 00_Images/OM.png  used on input line 418.
+Package pdftex.def Info: 00_Images/OM.png  used on input line 422.
 (pdftex.def)             Requested size: 374.33807pt x 151.69511pt.
 <00_Images/Flip.png, id=1314, 325.215pt x 252.945pt>
 File: 00_Images/Flip.png Graphic file (type png)
 <use 00_Images/Flip.png>
-Package pdftex.def Info: 00_Images/Flip.png  used on input line 419.
+Package pdftex.def Info: 00_Images/Flip.png  used on input line 423.
 (pdftex.def)             Requested size: 374.33807pt x 291.17397pt.
- [64]
-<00_Images/P.png, id=1319, 364.36125pt x 204.765pt>
+ [64] [65 <./00_Images/OM.png> <./00_Images/Flip.png>]
+<00_Images/P.png, id=1325, 364.36125pt x 204.765pt>
 File: 00_Images/P.png Graphic file (type png)
 <use 00_Images/P.png>
-Package pdftex.def Info: 00_Images/P.png  used on input line 513.
+Package pdftex.def Info: 00_Images/P.png  used on input line 517.
 (pdftex.def)             Requested size: 249.55872pt x 140.24754pt.
- [65 <./00_Images/OM.png> <./00_Images/Flip.png>]) [66 <./00_Images/P.png>] (./00_Lectures/W6.tex) [67] (./00_Lectures/W7.tex) [68] (./00_Lectures/W8.tex) [69] (./00_Lectures/W9.tex) [70] (./00_Lectures/W10.tex) [71] (./00_Lectures/W11.tex) [72] (./ECE367_Cheatsheet.aux)
+) [66 <./00_Images/P.png>] [67] (./00_Lectures/W6.tex) [68] (./00_Lectures/W7.tex) [69] (./00_Lectures/W8.tex) [70] (./00_Lectures/W9.tex) [71] (./00_Lectures/W10.tex) [72] (./00_Lectures/W11.tex) [73] (./ECE367_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
@@ -1379,18 +1379,18 @@ Package rerunfilecheck Info: File `ECE367_Cheatsheet.out' has not changed.
 (rerunfilecheck)             Checksum: E8FF7C19E4697F9CFC3302039D6E584D;30416.
  ) 
 Here is how much of TeX's memory you used:
- 50022 strings out of 474116
- 1178743 string characters out of 5743682
+ 50023 strings out of 474116
+ 1178750 string characters out of 5743682
  1956187 words of memory out of 5000000
  71054 multiletter control sequences out of 15000+600000
  629065 words of font info for 100 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,107p,973b,1334s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ECE367_Cheatsheet.pdf (72 pages, 2595013 bytes).
+Output written on ECE367_Cheatsheet.pdf (73 pages, 2595461 bytes).
 PDF statistics:
- 1546 PDF objects out of 1728 (max. 8388607)
- 1340 compressed objects within 14 object streams
- 454 named destinations out of 1000 (max. 500000)
+ 1552 PDF objects out of 1728 (max. 8388607)
+ 1345 compressed objects within 14 object streams
+ 455 named destinations out of 1000 (max. 500000)
  1245 words of extra memory for PDF output out of 10000 (max. 10000000)
 

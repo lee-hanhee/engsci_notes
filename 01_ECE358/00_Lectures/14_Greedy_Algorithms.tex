@@ -103,26 +103,26 @@ For fractional knapsack:
 
 \subsection{Intro to Huffman Encoding}
 \begin{intuition}
-    \customFigure[0.75]{00_Images/I.png}{WHAT IS THIS SHOWING ME }
+    \customFigure[0.75]{00_Images/I.png}{45\% contains a, 13\% contains b, and so on. Converting this to binary using $d(c_1)$, which is fixed.}
     \begin{itemize}
-        \item 
+        \item e.g. bad in binary is $001 \; 000 \; 011$.
+    \end{itemize}
+    \customFigure[0.75]{00_Images/CHARS.png}{$d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}
+    \begin{itemize}
+        \item e.g. bad $101 \; 0 \; 111$. Since is $a$ is 45\%, therefore, we only assign one bit to it. 
     \end{itemize}
 \end{intuition}
 
 \subsubsection{Problem Statement}
-\begin{intuition}
-Huffman coding minimizes the size of the encoded file by assigning fewer bits to more frequent characters.
+\begin{definition}
+Huffman coding minimizes the size of the encoded file $B(T)$ by assigning fewer bits to more frequent characters.
 \begin{equation*}
-    \sum_c f(c)d(c) = \text{total number of bits needed.}
+    B(T) = \text{size of text encoding} = \sum_c f(c)d(c) 
 \end{equation*}
-\end{intuition}
-
-\begin{example}
-    \customFigure[0.75]{00_Images/CHARS.png}{WHAT IS THIS SHOWING ME?}
-    \begin{itemize}
-        \item 
-    \end{itemize}
-\end{example}
+\begin{itemize}
+    \item $\sum_c$: Sum over all characters in text file of binary code of the character times the frequency of the character.
+\end{itemize}
+\end{definition}
 
 \subsubsection{Steps in Huffman Coding}
 \begin{itemize}
@@ -132,17 +132,64 @@ Huffman coding minimizes the size of the encoded file by assigning fewer bits to
     \customFigure[0.75]{00_Images/LG.png}{Tree}
 \end{itemize}
 
-\subsubsection{Proof of Correctness}
+\subsubsection{Algorithm}
+\begin{process}
+    \begin{itemize}
+        \item Unite the two lowest frequency keys $x$ and $y$, new pseudo key $z$ w/ $f(z) = f(x) + f(y)$ 
+        \item Repeat till you get a root. 
+        \item Label resulting tree w/ $0s$ and $1s$ going left and right. 
+    \end{itemize}
+
+    \begin{itemize}
+        \item e.g. $100 \; 0 \; 110$
+        \item the tree allows to read the word off the word for bat. 
+        \item Note: This puts the highest frequency characters up high with the lowest binary bits. 
+    \end{itemize}
+
+\end{process}
+
+\subsubsection{Time complexity}
+\begin{definition}
+    Time $O(n \log n)$
+\end{definition}
+
+\begin{intuition}
+    If you can prove the greedy choice is the correct choice, and then remaining optimal solution, then you can prove that the rest of the greedy choices will be also be good. you are breaking down the problem more and more. In this example, the first two greedy chocies is choosing the lowest frequenceis, and then you have a smaller problem, which can be done inductively. These are the two theorems that we will be proving. 
+\end{intuition}
+
+Now prove the optimality: 
+\subsubsection{Greedy principle}
 \begin{theorem}
-Every optimal tree can have the two lowest frequency keys being siblings, that differ only on one bit, with the greatest depth.
+Every optimal tree can have the two lowest frequency keys being siblings, differing by one bit only in the highest tree depth. 
 
 \end{theorem}
 
+
+No matter then encoding, you can create a tree. 
 IS THIS A PROOF?
 \begin{derivation}
-    Assume two lowest frequency keys $x$ and $y$ and $T''$ remains optimal. 
-    \customFigure[0.75]{00_Images/E.png}{T optimal, T', and T''}
+    Assume the two lowest frequency keys are $x$ and $y$ and $T$ remains optimal. 
+    \customFigure[0.75]{00_Images/E.png}{T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}
+    \begin{itemize}
+        \item \textbf{Note:} This shows that the tree remains optimal. This is just like the class scheduling. 
+        \item T' is not optimal, but T'' is still optimal. 
+        \item No matter what tree you give him, you can transsform into the greedy without changing optimality. 
+        \item You can do the swaps to put x and y, but they are not at the greatest depth, you can perform swaps to put them at the lowest frequnecies. 
+        \item T otpimal is the tree that they give and x and y are the two lowest frequency, but they are not at the highest depth, so we can perform swaps to get the greedy option, which is T''.
+        \item Optimal --> greedy. This is just like the class scheduling. Given a class scheduling, we can find an optimal tree. 
+        \item class schedulign was shown with g1,g2,,...,gn and o1,o2,on. you can keep on swaps to create the optimal tree that you were given and transform it into the greeedy option. 
+        \item optimal means minimizing $B(T)$.
+    \end{itemize}
     \vspace{1em}
+
+    Prove that $B(T') \leq B(T)$
+
+    \begin{align*}
+        B(T) - B(T') = \sum f(c) d_T (c) - \sum f(c) d_{T'} (c) = ((f(b) - f(x))) (d_T (b) -
+    \end{align*}
+    \begin{itemize}
+        \item $f(b)$
+    \end{itemize}
 
     \begin{enumerate}
         \item Let $B(T)$ be the sum of the frequencies and their bit-lengths:
@@ -193,3 +240,16 @@ WHAT IS THE WORKFLOW, HOW DID WE GET HERE. IS THIS A THEOREM?
     \end{enumerate}
 
 \end{theorem}
+
+\begin{derivation}
+    Let in $T_{opt}$ for character set $C$ then 
+    \begin{equation*}
+        T' = T - \{x,y\} + \{z\}
+    \end{equation*}
+    is optimal prefix code for $C = C - \{x,y\} + {z}$, where $f(z) = f(x) + f(y)$
+    \begin{itemize}
+        \item ef is combined together to ahve a frequencty of $f(ef) = 14$. This essentially combines them together. 
+        \item In english, $B(T) = B(T') + [f(x) + f(y)]$
+        \item show tha t 
+    \end{itemize}
+\end{derivation}

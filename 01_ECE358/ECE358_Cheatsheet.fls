@@ -566,14 +566,14 @@ OUTPUT ECE358_Cheatsheet.toc
 INPUT ./ECE358_Cheatsheet.lof
 INPUT ./ECE358_Cheatsheet.lof
 INPUT ECE358_Cheatsheet.lof
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 OUTPUT ECE358_Cheatsheet.lof
 INPUT ./ECE358_Cheatsheet.lot
 INPUT ./ECE358_Cheatsheet.lot
 INPUT ECE358_Cheatsheet.lot
 OUTPUT ECE358_Cheatsheet.lot
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT ./00_Lectures/00_0_Preliminaries.tex
 INPUT ./00_Lectures/00_0_Preliminaries.tex
 INPUT 00_Lectures/00_0_Preliminaries.tex
