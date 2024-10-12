@@ -70,30 +70,30 @@
 \contentsline {subsubsection}{\numberline {6.1.4}Block Matrix Product}{42}{subsubsection.6.1.4}%
 \contentsline {subsubsection}{\numberline {6.1.5}Types of Matrices}{43}{subsubsection.6.1.5}%
 \contentsline {subsubsection}{\numberline {6.1.6}Matrices as Linear Maps}{43}{subsubsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.2}Range Space}{43}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Null Space}{44}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Fundamental theorem of algebra}{44}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.2}Range Space}{44}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Null Space}{45}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Fundamental theorem of algebra}{45}{subsection.6.4}%
 \contentsline {subsubsection}{\numberline {6.4.1}Rank of A}{46}{subsubsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.5}Determinant}{46}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Matrix inner product and norm}{47}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.5}Determinant}{47}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Matrix inner product and norm}{48}{subsection.6.6}%
 \contentsline {subsubsection}{\numberline {6.6.1}Frobenius Norm}{48}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Operator norm (Motivation for eigenvalues and eigenvectors):}{48}{subsubsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.7}Eigenvalues and Eigenvectors}{49}{subsection.6.7}%
-\contentsline {subsubsection}{\numberline {6.7.1}Characteristic polynomial}{49}{subsubsection.6.7.1}%
-\contentsline {subsubsection}{\numberline {6.7.2}Geometric and algebraic multiplicity}{49}{subsubsection.6.7.2}%
-\contentsline {subsubsection}{\numberline {6.7.3}Defective and non-defective}{49}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.6.2}Operator norm (Motivation for eigenvalues and eigenvectors):}{49}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Eigenvalues and Eigenvectors}{50}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Characteristic polynomial}{50}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Geometric and algebraic multiplicity}{50}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Defective and non-defective}{50}{subsubsection.6.7.3}%
 \contentsline {subsubsection}{\numberline {6.7.4}Eigenvectors corresponding to different eigenvalues are l.i.}{50}{subsubsection.6.7.4}%
-\contentsline {subsection}{\numberline {6.8}Matrix Diagonalization}{51}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}What does this diagonalization mean?}{52}{subsubsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.9}Application: Google's PageRank Algorithm}{53}{subsection.6.9}%
-\contentsline {subsubsection}{\numberline {6.9.1}How to measure importance of a webpage}{53}{subsubsection.6.9.1}%
-\contentsline {subsubsection}{\numberline {6.9.2}Example: Random Walk across Webpages}{53}{subsubsection.6.9.2}%
-\contentsline {subsubsection}{\numberline {6.9.3}Convergence to a Steady State Distribution}{54}{subsubsection.6.9.3}%
-\contentsline {subsubsection}{\numberline {6.9.4}Conditions for Convergence}{54}{subsubsection.6.9.4}%
-\contentsline {subsubsection}{\numberline {6.9.5}Practical Modification}{54}{subsubsection.6.9.5}%
+\contentsline {subsection}{\numberline {6.8}Matrix Diagonalization}{52}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}What does this diagonalization mean?}{53}{subsubsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.9}Application: Google's PageRank Algorithm}{54}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}How to measure importance of a webpage}{54}{subsubsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.2}Example: Random Walk across Webpages}{54}{subsubsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.3}Convergence to a Steady State Distribution}{55}{subsubsection.6.9.3}%
+\contentsline {subsubsection}{\numberline {6.9.4}Conditions for Convergence}{55}{subsubsection.6.9.4}%
+\contentsline {subsubsection}{\numberline {6.9.5}Practical Modification}{55}{subsubsection.6.9.5}%
 \contentsline {subsubsection}{\numberline {6.9.6}Why is 1 an eigenvalue of P?}{55}{subsubsection.6.9.6}%
-\contentsline {subsubsection}{\numberline {6.9.7}What about other eigenvalues?}{55}{subsubsection.6.9.7}%
-\contentsline {subsubsection}{\numberline {6.9.8}Convergence via Power Iteration}{55}{subsubsection.6.9.8}%
+\contentsline {subsubsection}{\numberline {6.9.7}What about other eigenvalues?}{56}{subsubsection.6.9.7}%
+\contentsline {subsubsection}{\numberline {6.9.8}Convergence via Power Iteration}{56}{subsubsection.6.9.8}%
 \contentsline {section}{\numberline {7}Problem set 2}{57}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Calculating inverse of a matrix}{57}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Finding rank and dimension/basis for range and null space of A and A transpose}{59}{subsection.7.2}%

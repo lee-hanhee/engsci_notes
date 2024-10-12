@@ -126,6 +126,61 @@
         \]
     \end{definition}
 
+    \begin{intuition}
+        Linear functions imply a linear mapping. Let $\mathbf{v} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}$.
+
+        \begin{enumerate}
+            \item $A = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ leaves the vector $\mathbf{v}$ unchanged (identity transformation).
+            \end{itemize}
+        
+            \item $A = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ swaps the $x$ and $y$ components of the vector, flip it over the line $y=x$.
+            \end{itemize}
+        
+            \item $A = \begin{bmatrix} \frac{1}{\sqrt{2}} & 0 \\ 0 & 1 \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} \frac{1}{\sqrt{2}} & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} \frac{1}{\sqrt{2}} \\ 1 \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ scales the $x$ component of $\mathbf{v}$ by a factor of $\frac{1}{\sqrt{2}}$ while leaving the $y$ component unchanged.
+            \end{itemize}
+        
+            \item $A = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} -1 \\ 1 \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ rotates the vector $\mathbf{v}$ by $90^\circ$ counterclockwise.
+            \end{itemize}
+        
+            \item $A = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} \cos \theta & -\sin \theta \\ \sin \theta & \cos \theta \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} \cos \theta - \sin \theta \\ \sin \theta + \cos \theta \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ rotates the vector $\mathbf{v}$ by an angle $\theta$ counterclockwise.
+            \end{itemize}
+        
+            \item $A = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix}$
+            \[
+            A \mathbf{v} = \begin{bmatrix} 1 & 1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 2 \\ 1 \end{bmatrix}
+            \]
+            \begin{itemize}
+                \item Geometric Interpretation: $A$ shears the vector $\mathbf{v}$, combining both components into the $x$-coordinate while leaving the $y$-coordinate unchanged.
+            \end{itemize}
+        
+        \end{enumerate}        
+    \end{intuition}
+
 \subsection{Range Space}
     \begin{definition}
         \begin{align}
@@ -471,7 +526,7 @@
 \begin{warning}
     $n$ roots doesn't mean there are $n$ distinct eigen values. 
     \begin{itemize}
-        \item e.g. For $(\lambda - 1)^2$, the root is $2$, but there is only one eigenvalue. 
+        \item e.g. For $(\lambda - 1)^2$, there are $2$ roots, but there is only one eigenvalue. 
     \end{itemize}
 \end{warning}
 
@@ -486,6 +541,9 @@
     \vspace{1em}
 
     \textbf{Geometric multiplicity:} $\text{GM}(\lambda) = \dim \mathcal{N}(A - \lambda I)$
+    \begin{itemize}
+        \item \textbf{Key:} If we know the rank of $A - \lambda I$, then we can use FToLA to find the $\text{GM}(\lambda) = \dim \mathcal{N}(A - \lambda I)$.
+    \end{itemize}
 \end{definition}
 
 \begin{theorem}
@@ -499,6 +557,10 @@
 \begin{definition}
 
     \textbf{Defective Matrix:} If $GM(\lambda) < AM(\lambda)$ for some $\lambda$
+    \begin{itemize}
+        \item \textbf{Note:} Defective doesn't mean that it's not invertible.
+        \item \textbf{Key:} Cannot construct $n$ linearly independent vectors because $\exists$ a $\lambda$ s.t. $\sum \text{AM} = n$ but $\sum \text{GM} < n$.  
+    \end{itemize}
     \vspace{1em}
 
     \textbf{Non-defective Matrix:} If $GM(\lambda) = AM(\lambda)$, then the matrix is \textbf{diagonalizable} (i.e. non-defective).

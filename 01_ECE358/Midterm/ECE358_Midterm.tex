@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{style}
+
+\begin{document}
+
+The cheatsheet will consist of the (1) defintions and theorems, (2) process, (3) canonical example with mark distribution. 
+
+\section{Asymptotics}
+
+\subsection{Big-O (Upper bound)}
+\begin{definition}
+    $ f(n) = O(g(n)) \text{ iff } \exists \text{ positive constants } c \text{ and } n_0 \text{ s.t. } 0 \leq f(n) \leq c g(n) \; \forall \; n \geq n_0 $
+\end{definition}
+
+\subsection{Big-Omega (Lower bound)}
+\begin{definition}
+    $ f(n) = \Omega(g(n)) \text{ iff } \exists \text{ positive constants } c \text{ and } n_0 \text{ such that } 0 \leq c g(n) \leq f(n) \; \forall \; n \geq n_0 $
+\end{definition}
+
+\subsection{Big-Theta (Tight bound)}
+\begin{definition}
+    $ f(n) = \Theta(g(n)) \text{ iff } \exists \text{ positive constants } c_1, \; c_2, \; n_0 \text{ s.t. } 0 \leq c_1 g(n) \leq f(n) \leq c_2 g(n) \; \forall \; n \geq n_0 $
+    \vspace{1em}
+    $f(n) = \Theta(g(n))$ iff $f(n) = O(g(n))$ and $f(n)=\Omega(g(n))$.
+\end{definition}
+
+\subsection{Small-o (Strictly slower)}
+\begin{definition}
+    $f(n) = o(g(n)) \text{ iff } \forall c > 0, \exists n_0 > 0 \text{ s.t. } 0 \leq f(n) < c g(n) \text{ for all } n \geq n_0.$
+\end{definition}
+
+\subsection{Small-Omega (Strictly Faster)}
+\begin{definition}
+    $f(n) = \omega(g(n)) \text{ iff } \forall c > 0, \exists n_0 > 0 \text{ s.t. } 0 \leq c g(n) < f(n) \text{ for all } n \geq n_0.$
+\end{definition}
+
+\subsection{Comparing function properties}
+\begin{definition}
+    
+    \textbf{Transitivity:}
+    \begin{itemize}
+        \item $f(n) = \Theta(g(n)) \text{ and } g(n)=\Theta(h(n)) \text{ imply } f(n) = \Theta(h(n))$
+        \item $f(n) = O(g(n)) \text{ and } g(n)=O(h(n)) \text{ imply } f(n) = O(h(n))$
+        \item $f(n) = \Omega(g(n)) \text{ and } g(n)=\Omega(h(n)) \text{ imply } f(n) = \Omega(h(n))$
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Symmetry:}
+    \begin{itemize}
+        \item $f(n) = \Theta(g(n)) \text{ iff } g(n) = \Theta(f(n))$.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Transpose symmetry:}
+    \begin{itemize}
+        \item $f(n) = O(g(n)) \text{ iff } g(n) = \Omega(f(n))$
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Different functions:}
+    \begin{itemize}
+        \item \( n^a = O(n^b) \), iff \( a \leq b \).
+        \item \( \log_a(n) = O(\log_b(n)) \), $\forall$ \( a, b \).
+        \item \( c^n = O(d^n) \), iff \( c \leq d \).
+        \item If \( f(n) = O(f'(n)) \) and \( g(n) = O(g'(n)) \), then:
+        \begin{enumerate}
+            \item \( f(n) \cdot g(n) = O(f'(n) \cdot g'(n)) \).
+            \item \( f(n) + g(n) = O(\max\{f'(n), g'(n)\}) \).
+            \begin{itemize}
+                \item ' is not a derivative, just another function. 
+            \end{itemize}
+        \end{enumerate}
+    \end{itemize}
+    
+\end{definition}
+
+\subsection{Limit method}
+\begin{definition}
+    Find the asymptotic relationship between two functions for which you might not have any intuition about. 
+    \begin{equation}
+        \lim_{n \to \infty} \frac{f(n)}{g(n)} = 0 \Rightarrow f(n) = o(g(n))
+    \end{equation}
+    
+    \begin{equation}
+        \lim_{n \to \infty} \frac{f(n)}{g(n)} = \infty \Rightarrow f(n) = \omega(g(n))
+    \end{equation}
+    
+    \begin{equation}
+        \lim_{n \to \infty} \frac{f(n)}{g(n)} < \infty \text{ i.e. is anything finite } \Leftrightarrow f(n) = O(g(n))
+    \end{equation}
+    
+    \begin{equation}
+        \lim_{n \to \infty} \frac{f(n)}{g(n)} > 0 \text{ i.e. non-zero } \Leftrightarrow f(n) = \Omega(g(n))
+    \end{equation}
+    
+    \begin{equation}
+        \lim_{n \to \infty} \frac{f(n)}{g(n)} = C \text{ s.t. } 0 < C < \infty \Leftrightarrow f(n) = \Theta(g(n))
+    \end{equation}        
+\end{definition}
+
+\subsection{Polynomially-bounded}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Polylogarithmically bounded:} \( f(n) = O((\lg n)^k) \quad \exists k > 0 \)
+        
+        \item \textbf{Polynomially bounded:} \( f(n) = O(n^k) \quad \exists k > 0 \)
+        
+        \item \textbf{Exponentially bounded:} \( f(n) = O(k^n) \quad \exists k > 0 \)
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    All logarithmically bounded functions are polynomially bounded, i.e. \((\lg n)^a = O(n^b) \quad \forall a, b > 0\)
+\end{theorem}
+
+\begin{theorem}
+    All polynomially bounded functions are exponentially bounded, i.e. \( f(n) = O(n^a) \Rightarrow f(n) = O(b^n) \quad \forall a > 0 \text{ and } \forall b > 1\)
+\end{theorem}
+
+\subsection{Logarithm method}
+\subsubsection{Limits of logs are logs of limits}
+\begin{definition}
+    $\lim_{x \to a} (\log_b f(x)) = \log_b \left( \lim_{x \to a} f(x) \right)$
+\end{definition}
+
+\begin{process}
+    $\text{Suppose we want to compute } \lim_{n \to \infty} \frac{f(n)}{g(n)} = L$
+    \begin{enumerate}
+        \item \textbf{Take log of limit:}
+        \begin{equation*}
+            \lg \left( \lim_{n \to \infty} \frac{f(n)}{g(n)} \right) = \lg L
+        \end{equation*}
+        \item \textbf{Change to limit of log and compute it:}
+        \begin{equation*}
+            \lim_{n \to \infty} \left( \lg \frac{f(n)}{g(n)} \right) = \lg L 
+        \end{equation*}
+        \item \textbf{Revert log by taking exponential with base 2:}
+        \begin{equation*}
+            \lim_{n \to \infty} \frac{f(n)}{g(n)} = 2^{\lg L} = L
+        \end{equation*}
+    \end{enumerate}
+\end{process}
+
+\begin{process}
+    
+\end{process}
+
+\newpage
+
+\section{Logarithms}
+\newpage
+
+\section{Induction, Contradiction, \& Combinatorial Arguments}
+\subsection{Direct proof}
+\begin{process}
+    \begin{enumerate}
+        \item Start with the givens
+        \item Mathematically manipulate the givens and/or reason about the givens to arrive at the conclusion.
+    \end{enumerate}
+\end{process}
+
+\subsection{Weak Induction}
+\begin{process}
+    Given predicate $P(n)$
+    \begin{enumerate}
+        \item \textbf{Basis Step:} Prove $P(n_0)$ for some value $n_0$. 
+        \item \textbf{Hypothesis:} Assume true for $P(n)$ for a $n=k$.
+        \item \textbf{Inductive step:} Use the hypothesis to show its true for $P(n=k) \implies P(n+1=k+1)$.
+    \end{enumerate}
+    Therefore, $\forall n \geq c \text{, } P(n)$.
+\end{process}
+
+\subsection{Strong Induction}
+\begin{process} 
+    Given predicate $P(n)$
+    \begin{enumerate}
+        \item \textbf{Basis:} Show \( P(n_0), P(n_1), \ldots \) are true.
+        \item \textbf{Hypothesis:} Assume \( P(k) \) is true, \( \forall k \leq n \).
+        \item \textbf{Step:} Show \( P(n_0) \land \cdots \land P(k) \land \cdots \land P(n) \Rightarrow P(n+1) \).
+    \end{enumerate}    
+\end{process}
+
+\subsection{Contradiction}
+\begin{process}
+    Given predicate $P(n)$ either true or false.
+    \begin{enumerate}
+        \item Assume toward a contradiction $\neg P(n)$.
+        \item Make some argument by working with the expression $\neg P(n)$ to get to a contradiction.
+        \item Arrive at a contradiction
+        \item If this resulted in a contradiction then $P(n)$ is true. 
+    \end{enumerate}
+\end{process}
+\newpage
+
+\section{Recurrences and the Master Theorem}
+\newpage
+
+\section{Heaps \& Heapsort}
+\newpage
+
+\section{Quicksort}
+\newpage
+
+\section{Sorting and Searching in Linear Time}
+\newpage
+
+\section{BSTs \& RBTs}
+\newpage 
+
+\section{Hashing}
+
+\newpage
+
+\section{Dynamic programming}
+\begin{process}
+    \begin{enumerate}
+        \item Visualize example. 
+        \item \textbf{Optimal substructure:} Characterize the structure of an optimal solution)
+        \item \textbf{Recursive formula:} Find a relationship among sub-problems (i.e. defines the values of an optimal solution recursively in terms of the optimal solution to sub-problems)
+        \begin{enumerate}
+            \item Base case(s)
+            \item Recursive formula 
+        \end{enumerate}
+        \item Compute the value of an optimal solution (bottom-up solving sub-problems in order or top-down solving problem recursively)
+        \item \textbf{Time complexity:} $O(n^{\text{\# subproblems per choice}}) O(\text{\# choices})$
+    \end{enumerate}
+\end{process}
+
+\subsection{How to prove optimal substructure?}
+\begin{process}
+    
+\end{process}
+
+\begin{example}
+    
+\end{example}
+\newpage
+
+\section{Greedy Algorithms}
+\begin{process}
+    \begin{enumerate}
+        \item 
+    \end{enumerate}
+\end{process}
+
+\begin{example}
+    
+\end{example}
+
+\end{document}

@@ -376,7 +376,7 @@
     \end{itemize}
 \end{derivation}
 
-\subsubsection{Analysis and Synthesis equation}
+\subsection{Analysis and Synthesis equation}
 \begin{definition}
     \underline{Analysis equation}: Suppose $x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}$.
 
@@ -386,6 +386,7 @@
     \]
     \begin{itemize}
         \item \textbf{Intuition:} Given $x(t)$, analyze $x(t)$ and extract $c_k$ (i.e. FS coefficients) using the inner product and notion of orthgonality.
+        \item \textbf{Note:} Don't forget that the basis set is conjugated.
     \end{itemize}
 \end{definition}
 
@@ -408,7 +409,7 @@
 \begin{definition}
     \underline{Synthesis equation}:
     \[
-    x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}.
+    x(t) \overset{a.e.}{=} \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}.
     \]
     \begin{itemize}
         \item \textbf{Intuition:} Given $c_k$, synthesize the signal using a linear combination of the basis set. 
@@ -421,3 +422,108 @@
         \item \textbf{Key:} $x(t)$ needs to be in this form (i.e. have a Fourier series representation) to use these equations. 
     \end{itemize}
 \end{warning}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/SQWAVE.png}{Square wave.}
+    Take $x(t)$ as T-periodic where 
+    \begin{align*}
+        x(t) = 
+        \begin{cases}
+            0, & -\frac{T}{2} < t \leq -\frac{1}{2} \\
+            \\
+            1, & -\frac{1}{2} < t \leq \frac{1}{2} \\
+            \\
+            0, & \frac{1}{2} < t \leq \frac{T}{2}
+        \end{cases}
+        , \quad \text{extend periodically}.
+    \end{align*}
+    
+    \begin{align*}
+        x(t) &= \sum_{k=-\infty}^{\infty} c_k e^{j2\pi \frac{k}{T} t}, \quad \text{with } c_k = \frac{1}{T} \int_{T} x(t) e^{-j2\pi \frac{k}{T} t} \, dt
+    \end{align*}
+
+    For $k=0$:
+    \begin{align*}
+        c_0 &= \int_{-1/2}^{1/2} 1 dt \\ 
+        &= \frac{1}{T} \left(\frac{1}{2} + \frac{1}{2}\right) \\
+        &= \frac{1}{T}
+    \end{align*}
+    
+    For $k\neq 0$
+    \begin{align*}
+        c_k &= \frac{1}{T} \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-j2\pi \frac{k}{T} t} \, dt \\
+        &= \frac{1}{T} \left( \frac{1}{-j2\pi k/T} e^{-j2\pi \frac{k}{T} t} \Big|_{-\frac{1}{2}}^{\frac{1}{2}} \right) \\
+        &= \frac{1}{T} \left( \frac{T}{-j2\pi k} \left( e^{-j2\pi \frac{k}{T} \left(\frac{1}{2}\right)} - e^{-j2\pi \frac{k}{T} \left(-\frac{1}{2}\right)} \right) \right) \\
+        &= \frac{1}{T} \cdot \frac{T}{j 2\pi k} \left(e^{j \pi \frac{k}{T}} - e^{-j \pi \frac{k}{T}} \right) \quad \text{putting negative into brackets}\\
+        &= \frac{1}{T} \cdot \frac{1}{\pi k / T} \sin \left(\frac{\pi k}{T}\right) \quad \text{where } \sin\theta = \frac{1}{2j} \left(e^{j\theta} - e^{-j\theta}\right)\\
+        c_k &= \frac{1}{T} \text{sinc}\left(\frac{\pi k}{T}\right), \quad \text{(sinc function definition $\text{sinc} (x) \overset{\Delta}{=} \frac{\sin (\pi x)}{\pi x}$)}
+    \end{align*}
+    \vspace{1em}
+    
+    \textbf{Sinc Function Plot}
+
+    \begin{align*}
+        \text{sinc}(x) &\triangleq \frac{\sin(\pi x)}{\pi x} \\
+        &= \frac{1}{\pi x} \left( \pi x - \frac{(\pi x)^3}{3!} + \frac{(\pi x)^5}{5!} - \ldots \right) \\
+        &= 1 - \frac{(\pi x)^2}{3!} + \frac{(\pi x)^4}{5!} - \ldots
+    \end{align*}
+    
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            axis lines=middle,
+            xlabel={$x$},
+            ylabel={$\text{sinc}(x)$},
+            samples=100,
+            domain=-10:10,
+            xmin=-10, xmax=10,
+            ymin=-0.3, ymax=1.1,
+            width=12cm, height=8cm,
+            grid=both,
+            legend pos=north east
+        ]
+        \addplot[thick, black] {sin(deg(pi*x))/(pi*x)};
+        \addlegendentry{$\text{sinc}(x) = \frac{\sin(\pi x)}{\pi x}$}
+        \addplot[dashed, orange] {1/x};
+        \addplot[dashed, orange] {-1/x};
+        \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Note:} Goes through 0 at integer values except for at $x=0$.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Visualization of FS Coefficients}
+    \customFigure[0.5]{00_Images/FSC.png}{Fourier series coefficients at $T=4$}
+    
+    \vspace{1em}
+
+    
+    \textbf{Final form:}
+    \begin{align*}
+        x(t) &= c_0 + 2 c_1 \left( \frac{e^{j2\pi \frac{1}{T} t} + e^{-j2\pi \frac{1}{T} t}}{2} \right) + 2 c_2 \left( \frac{e^{j2\pi \frac{2}{T} t} + e^{-j2\pi \frac{2}{T} t}}{2} \right) + \ldots \\
+        x(t) &= c_0 + \sum_{k=1}^{\infty} \frac{2}{T} \text{sinc} \left( \frac{k}{T} \right) \cos \left( 2\pi \frac{k}{T} t \right)
+    \end{align*}
+    
+    \begin{itemize}
+        \item Added \(\frac{2}{2}\) to introduce \(\cos\theta = \frac{1}{2} \left(e^{j \theta} - e^{-j \theta}\right) \)
+        \item $c_{-k} = c_k = \frac{1}{T} \text{sinc} \left( \frac{k}{T} \right)$
+        \item \(2c_k\): $\frac{2}{T} \text{sinc} \left( \frac{k}{T} \right)$
+        \item Basis set: $\cos \left( 2\pi \frac{k}{T} t \right)$
+    \end{itemize}
+    \vspace{1em}
+    
+    \textbf{Consider a Truncated Series:}
+    \begin{align*}
+        x_N(t) = \frac{1}{T} + \sum_{k=1}^{N} \frac{2}{T} \text{sinc} \left( \frac{k}{T} \right) \cos \left( 2\pi \frac{k}{T} t \right)
+    \end{align*}
+    
+    \customFigure[0.75]{00_Images/GP.png}{Gibb's Phenomenon}
+
+    \customFigure[0.75]{00_Images/NUC.png}{Non-uniform convergence}
+    \begin{itemize}
+        \item \textbf{Gibb's Phenomenon:} There is a 9\% overshoot on either end of the jump discontinuity. The overshoot does not disappear as more terms are added, but the width of the overshoot region becomes smaller.
+        \item \textbf{Non-uniform convergence:} When a series converges to a function at different rates across its domain, meaning that convergence is slower in certain regions (i.e. overshoots) and faster on the flat regions. 
+    \end{itemize}
+\end{example}
