@@ -444,3 +444,24 @@ These contracts are used to hedge against risks or to speculate. Both contracts 
     \customFigure[0.75]{00_Images/R6.png}{Bond example}
 \end{example}
 
+\begin{tikzpicture}[
+    node distance=3cm, 
+    auto, 
+    thick,
+    main/.style = {draw, rectangle, text centered, minimum height=2em}
+  ]
+  
+  % Nodes for Country 1 and Country 2 in a rectangular layout
+  \node[main] (C1) {Country 1 \; $C_1$};
+  \node[main, right=of C1] (C1_after) {Country 1 \; $C_{1,1} = C_1 (1 + r_{f_1})$};
+  \node[main, below=of C1] (C2) {Country 2 \; $C_2 = C_1 \cdot FX_0$};
+  \node[main, below=of C1_after] (C2_after) {Country 2 \; $C_{2,1} = C_2 (1 + r_{f_2})$};
+  
+  % Arrows for FX conversions and interest rate changes
+  \draw[->] (C1) -- node[above] {$1 + r_{f_1}$} (C1_after);
+  \draw[->] (C2) -- node[below] {$1 + r_{f_2}$} (C2_after);
+  \draw[->] (C1) -- node[left] {$FX_0 = \frac{C_2}{C_1}$} (C2);
+  \draw[->] (C1_after) -- node[right] {$FX_1 = \frac{C_{2,1}}{C_{1,1}}$} (C2_after);  
+  \end{tikzpicture}
+  
+

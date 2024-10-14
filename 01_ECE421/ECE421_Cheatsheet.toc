@@ -146,8 +146,17 @@
 \contentsline {subsection}{\numberline {9.5}DL in Genomics (Real-life examples)}{78}{subsection.9.5}%
 \contentsline {subsection}{\numberline {9.6}Mostly complete chart of NN}{80}{subsection.9.6}%
 \contentsline {subsection}{\numberline {9.7}Forward propogation}{81}{subsection.9.7}%
-\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{82}{section.10}%
-\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{83}{section.11}%
-\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{84}{section.12}%
-\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{85}{section.13}%
-\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{86}{section.14}%
+\contentsline {subsection}{\numberline {9.8}Backward Propogation}{82}{subsection.9.8}%
+\contentsline {subsubsection}{\numberline {9.8.1}Learning NNs}{82}{subsubsection.9.8.1}%
+\contentsline {subsubsection}{\numberline {9.8.2}Deriving Backward Prop.}{82}{subsubsection.9.8.2}%
+\contentsline {subsubsection}{\numberline {9.8.3}Backward Propogation Overview (Pre-activation Values):}{83}{subsubsection.9.8.3}%
+\contentsline {subsubsection}{\numberline {9.8.4}Rewriting in Terms of Post-Activation Values}{83}{subsubsection.9.8.4}%
+\contentsline {subsubsection}{\numberline {9.8.5}Relationship to perceptron learning}{84}{subsubsection.9.8.5}%
+\contentsline {subsection}{\numberline {9.9}SGD}{84}{subsection.9.9}%
+\contentsline {subsubsection}{\numberline {9.9.1}Local minima}{85}{subsubsection.9.9.1}%
+\contentsline {subsubsection}{\numberline {9.9.2}Example}{85}{subsubsection.9.9.2}%
+\contentsline {section}{\numberline {10}Unsupervised Learning, Clustering, Density Estimation (LFD: 6.3.3, 6.4)}{87}{section.10}%
+\contentsline {section}{\numberline {11}EM (LFD: 6.4)}{88}{section.11}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{89}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{90}{section.13}%
+\contentsline {section}{\numberline {14}Deep Learning Architectures CNN; Language Models; RNN; Sequence modeling and neural machine translation; Attention; LSTM (PRML: Sec 5.5.6, DL: Sec 10.1, 10.2, 10.4, 10.10, SLP: Ch. 9)}{91}{section.14}%

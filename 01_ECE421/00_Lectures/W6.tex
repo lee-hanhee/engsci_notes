@@ -144,7 +144,7 @@
 \end{example}
 
 \begin{example}
-    \customFigure[0.75]{00_Images/S2S.png}{1st layer weights}
+    \customFigure[0.75]{00_Images/LNN.png}{1st layer weights}
 \end{example}
 
 \subsection{Mostly complete chart of NN}
@@ -197,3 +197,163 @@
         \end{itemize}
     \end{itemize}    
 \end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/LN.png}{Layered net}
+\end{example}
+
+\subsection{Backward Propogation}
+\subsubsection{Learning NNs}
+\begin{example}
+    \customFigure[0.75]{00_Images/LNNN.png}{Layered Neural Network}    
+\end{example}
+
+\subsubsection{Deriving Backward Prop.}
+\begin{derivation}
+    \textbf{Deriving $\frac{\partial E}{\partial w_{lm}}$}
+
+    \begin{enumerate}
+        \item \textbf{Forward propogation:} We know that for $j = l + 1 \dots M$, $x_j = \sum_{i=1}^{j-1} w_{ij} g_i(x_i)$ \quad \text{Eq1}
+
+        \item $\frac{\partial E}{\partial w_{lm}} \text{ for one training case: } w_{lm} \text{ influences $E$ only via $x_m$}$
+        \begin{equation*}
+            \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} g'_l(x_l)   
+        \end{equation*}
+        \begin{itemize}
+            \item Last part obtained by equation 1.
+        \end{itemize}
+
+    
+        \item If $x_m$ is \textit{not} an output unit, then $x_m$ influences $E$ via $x_{m+1}, \dots, x_M$, and we obtain a recursion:
+    
+        \[
+        \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} \frac{\partial x_k}{\partial x_m} = \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} w_{mk} g'_m(x_m)
+        \]
+    
+        \item  If $x_m$ \textit{is} an output unit (assuming using squared error), then
+    
+        \[
+        \frac{\partial E}{\partial x_m} = \frac{\partial (y_m - g_m(x_m))^2}{\partial x_m} = -2(y_m - g_m(x_m)) g'_m(x_m)
+        \]
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Backward Propogation Overview (Pre-activation Values):}
+\begin{definition}
+    Assuming DAG, and each weight feeds into one unit.
+    \textbf{Forward propagation}:
+    For $j = l+1 \dots M$, 
+    \[
+    x_j = \sum_{i=1}^{j-1} w_{ij} g_i(x_i)
+    \]
+
+    \textbf{Output unit error derivatives}:
+    For $n = M \dots M-O+1$:
+    \[
+    \frac{\partial E}{\partial x_m} = -2(y_m - g_n(x_m)) g'_m(x_m)
+    \]
+
+    \textbf{Backpropagation}:
+    For $n = M-O \dots M-O-H$:
+    \[
+    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} w_{mk} g'_m(x_m)
+    \]
+
+    \textbf{Weight derivatives}:
+    For $l = 1 \dots M-O+1$, for $m = l+1 \dots M$
+    \[
+    \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} g'_l(x_l)
+    \]
+    \textbf{Weight update rule:}
+    \[
+    w_{lm} = w_{lm} - \eta \frac{\partial E}{\partial w_{lm}}
+    \]
+    \begin{itemize}
+        \item $\eta$: Learning rate.
+        \item \textbf{Note:} Do a sign check, if you know that increasing the weight increases the error, therefore, you want to decrease the weight so negative sign. 
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Rewriting in Terms of Post-Activation Values}
+\begin{derivation} FINISH THIS LATER ITS NOT CORRECT?
+    We rewrite the following formulas in terms of the post-activation values:
+    \[
+    \hat{x}_i \triangleq g_i(x_i), \quad i = 1 \dots M
+    \]
+    
+    \textbf{1. Forward Propagation}:
+    For $j = l+1 \dots M$:
+    \[
+    x_j = \sum_{i=1}^{j-1} w_{ij} \hat{x}_i
+    \]
+    
+    \textbf{2. Output Unit Error Derivatives}:
+    For $n = M \dots M-O+1$:
+    \[
+    \frac{\partial E}{\partial x_m} = -2(y_m - \hat{x}_m) \hat{x}'_m
+    \]
+    
+    \textbf{3. Backpropagation}:
+    For $n = M-O \dots M-O-H$:
+    \[
+    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} w_{mk} \hat{x}'_m
+    \]
+    
+    \textbf{4. Weight Derivatives}:
+    For $l = 1 \dots M-O+1$, for $m = l+1 \dots M$:
+    \[
+    \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \hat{x}'_l
+    \]
+    
+    \textbf{5. Weight Update Rule}:
+    \[
+    w_{lm} = w_{lm} - \eta \frac{\partial E}{\partial w_{lm}}
+    \]
+    
+    \begin{itemize}
+        \item $\eta$: Learning rate.
+    \end{itemize}
+
+\end{derivation}
+
+\subsubsection{Relationship to perceptron learning}
+\begin{intuition}
+    \customFigure[0.75]{00_Images/RPL.png}{Relationship to perceptron learning.}
+\end{intuition}
+
+\subsection{SGD}
+\begin{definition}
+    \begin{enumerate}
+        \item Initialize weights, e.g., to small random values.
+        \item Iterate until stopping criteria met:
+        \begin{enumerate}
+            \item Select a training case.
+            \item Apply forward propagation to get the values of \( x \)'s.
+            \item Compute output unit error derivatives.
+            \item Apply backpropagation to get \( \frac{\partial E}{\partial x} \)'s.
+            \item Compute weight derivatives \( \frac{\partial E}{\partial w_{lm}} \) and update weights:
+            \[
+            w_{lm} \leftarrow w_{lm} - \eta \frac{\partial E}{\partial w_{lm}}
+            \]
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Local minima}
+\begin{example}
+    \customFigure[0.75]{00_Images/LM.png}{Local minima}
+    \begin{itemize}
+        \item Suppose were trying to approximate the data. Construct this using delta functions (i.e. neurons) with different amplitudes. 
+        \item Each delta function will get adjusted to fit the data better to fit the local data better. 
+        \item The learnt approximation is the bottom image, but there is a high local minima problem. 
+    \end{itemize}
+\end{example}
+
+\subsubsection{Example}
+\begin{example}
+    \customFigure[0.75]{00_Images/E.png}{Example}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{example}
+
