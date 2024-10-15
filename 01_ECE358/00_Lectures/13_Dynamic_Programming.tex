@@ -192,25 +192,49 @@ Given two strings \(X = x_1, x_2, \dots, x_m\) and \(Y = y_1, y_2, \dots, y_n\),
 
 \subsubsection{Naive Approach / Brute Force Approach}
 \begin{intuition}
-    Assuming \(m \leq n\), a brute force solution has a time complexity of \(\Theta(n 2^m)\) ("watchings")
+    Assuming \(m \leq n\), a brute force solution has a time complexity of \(\Theta(n 2^m)\) ("matching each char. of X with Y")
     \begin{itemize}
-        \item WHY IS THE BRUTE FORCE LIKE THIS
+        \item Have to generate all possible combinations of one string, which is $2^m$ since $m$ is the smaller integer. We can either include or exclude a character from the subsequence, which is the reason for base $2$.
+        \item Have to make each subsequence with the other string, requiring $n$ for each. 
     \end{itemize}
 \end{intuition}
 
+\subsubsection{Theorem}
 \begin{theorem}
 If \(Z = z_1, z_2, \dots, z_k\) is the LCS of \(X\) and \(Y\), then:
 \begin{itemize}
-    \item[(A)] If \(x_m = y_n = z_k\), then \(z_{k-1}\) is the LCS of \(X_{m-1}\) and \(Y_{n-1}\).
+    \item[(A)] If \(x_m = y_n\), then \(x_m = y_n = z_k\) and \(z_{k-1}\) is the LCS of \(X_{m-1}\) and \(Y_{n-1}\).
     \item[(B)] If \(x_m \neq y_n\), then \(z_k \neq x_m\), so \(Z\) is the LCS of \(X_{m-1}\) and \(Y_n\).
     \item[(C)] If \(x_m \neq y_n\), then \(z_k \neq y_n\), so \(Z\) is the LCS of \(X_m\) and \(Y_{n-1}\).
 \end{itemize}
 \end{theorem}
 
 \begin{intuition}
-    \begin{itemize}
-        \item GIVE AN EXAMPLE OF THIS FOR EACH OF THE CASES
-    \end{itemize}
+    \begin{enumerate}
+        \item \textbf{(A)} If $x_m = y_n$, then $x_m = y_n = z_k$ and $z_{k-1}$ is the LCS of $X_{m-1}$ and $Y_{n-1}$.
+        
+        \textbf{Example:} Let $X = \text{"ABC"}$ and $Y = \text{"ADC"}$. The LCS is $Z = \text{"AC"}$.
+        \begin{itemize}
+            \item Here, $x_3 = C$ and $y_3 = C$, so $x_3 = y_3 = z_2 = C$.
+            \item The LCS of $X_2 = \text{"AB"}$ and $Y_2 = \text{"AD"}$ is $z_1 = A$, which satisfies part (A).
+        \end{itemize}
+        
+        \item \textbf{(B)} If $x_m \neq y_n$, then $z_k \neq x_m$, so $Z$ is the LCS of $X_{m-1}$ and $Y_n$.
+        
+        \textbf{Example:} Let $X = \text{"ABC"}$ and $Y = \text{"ABDF"}$. The LCS is $Z = \text{"AB"}$.
+        \begin{itemize}
+            \item Here, $x_3 = C$ and $y_4 = F$, so $x_3 \neq y_4$.
+            \item Since $z_2 = B \neq x_3 = C$, the LCS of $X_2 = \text{"AB"}$ and $Y_4 = \text{"ABDF"}$ is still $Z = \text{"AB"}$, which satisfies part (B).
+        \end{itemize}
+        
+        \item \textbf{(C)} If $x_m \neq y_n$, then $z_k \neq y_n$, so $Z$ is the LCS of $X_m$ and $Y_{n-1}$.
+        
+        \textbf{Example:} Let $X = \text{"ABC"}$ and $Y = \text{"BACD"}$. The LCS is $Z = \text{"AC"}$.
+        \begin{itemize}
+            \item Here, $x_3 = C$ and $y_4 = D$, so $x_3 \neq y_4$.
+            \item Since $z_2 = C \neq y_4 = D$, the LCS of $X_3 = \text{"ABC"}$ and $Y_3 = \text{"BAC"}$ is still $Z = \text{"AC"}$, which satisfies part (C).
+        \end{itemize}
+    \end{enumerate}
 \end{intuition}
 
 \begin{derivation}
@@ -248,40 +272,71 @@ If the last characters of \(X\) and \(Y\) match, they are part of the LCS. Other
 \end{definition}
 
 \begin{intuition}
-    \begin{enumerate}
-        \item \textbf{Case 1:}
-        \item \textbf{Case 2:} $+1$ comes from the character $x_i = y_j$
-        \item \textbf{Case 3:} 
-    \end{enumerate}
+    \begin{itemize}
+        \item \textbf{Base Case: \(i = 0\) or \(j = 0\)}\\
+        \textit{Explanation:} When either string is of length zero, the LCS is also zero since no common subsequence can exist.\\
+        \textit{Example:} If \(X = "ABC"\) and \(Y = ""\), then the LCS length is 0 because one of the strings is empty.
+    
+        \item \textbf{Case A: \(x_i = y_j\)}\\
+        \textit{Explanation:} If the characters at position \(i\) in \(X\) and \(j\) in \(Y\) match, we extend the current LCS by 1 because we have found a common character.\\
+        \textit{Example:} Let \(X = "ABC"\) and \(Y = "ADC"\). If we are at \(i = 3\) and \(j = 3\) (comparing \(X_3 = C\) and \(Y_3 = C\)), since they match, the value of \(C[3,3] = C[2,2] + 1\), extending the LCS length by 1.
+    
+        \item \textbf{Case B and C: \(x_i \neq y_j\)}\\
+        \textit{Explanation:} If the characters at position \(i\) and \(j\) do not match, the LCS could either:
+        \begin{itemize}
+            \item Exclude the current character from \(X\), and look at \(C[i-1,j]\).
+            \item Exclude the current character from \(Y\), and look at \(C[i,j-1]\).
+        \end{itemize}
+        \textit{Intuition:} We take the maximum of these two possibilities because we want the longest subsequence.\\
+        \textit{Example:} Let \(X = "ABC"\) and \(Y = "ABD"\). If we are at \(i = 3\) and \(j = 3\) (comparing \(X_3 = C\) and \(Y_3 = D\)), they don’t match, so we take \(C[2,3]\) or \(C[3,2]\), whichever is larger.
+    \end{itemize}    
 \end{intuition}
 
 \subsubsection{Memoization}
 \begin{example}
     Given bojo $4$ and bat $3$, then 
+    \begin{example}
+        \customFigure[0.75]{00_Images/BOJI.png}{Motivation for why memoization is needed.}
+    \end{example}
     \begin{itemize}
         \item \textbf{Memoization:} Store results in a 2D array since we have two indices running.
     \end{itemize}
 \end{example}
 
 \begin{definition}
-    Another representation is the 2 by 2. WHAT DOES THAT FIGURE MEAN IN THE RIGHT ON WEEBLY.
+    Another representation is the 2 by 2. 
+    \customFigure[0.75]{00_Images/2b2.png}{2 by 2 matrix.}
+    \begin{itemize}
+        \item Representation of the 3 cases: 
+
+        \begin{itemize}
+            \item \textbf{Base Case:} $C[i,j] = 0$ when either string is empty. This initializes the matrix where the LCS length starts at zero.
+            
+            \item \textbf{Case A:} If $x_i = y_j$, $C[i,j] = C[i-1, j-1] + 1$. This corresponds to part (A) of the theorem, where matching characters extend the LCS. The diagonal arrow in the diagram reflects this, indicating that the LCS grows by $+1$.
+            
+            \item \textbf{Cases B and C:} If $x_i \neq y_j$, $C[i,j] = \max(C[i-1, j], C[i, j-1])$. This matches parts (B) and (C) of the theorem, where non-matching characters lead to taking the maximum LCS by either excluding $x_i$ or $y_j$. The horizontal and vertical arrows in the diagram represent this decision.
+        \end{itemize}
+
+    \end{itemize}
 \end{definition}
 
 \begin{example}
 Consider the strings \(X = \text{spanking}\) and \(Y = \text{amputation}\). The dynamic programming table for \(C[i,j]\) is shown below.
 
-\customFigure[0.5]{00_Images/LCS.png}{Computation of C}
+\customFigure[0.5]{00_Images/LCS1.png}{Computation of C}
 \begin{itemize}
-    \item Fill up the zero case because we leave the space in the top left. 
-    \item You can go row by row or column by column. 
-    \item Compare the letters and the arrows represent the previous subproblem being added to the the previous subproblem. This relates to the 2by2 matrix. 
-    \item C gives you the length, but you don't know the actual LCS. 
-    \item The 2by2 matrix is a representation of C using the 3 cases. 
-    \item You need another table to see where the values come from
-    \item Take the maximum when they are not the same, and take the previous subproblem otherwise when they are the same. 
-    \item These are representing each of the subcases. 
-    \item Now we know the LCS has a length of $4$
-    \item Whenever you have a diagonal you circle the letter, so you get the word pain as the LCS
+    \item \textbf{Base case:} Since the top left has no characters, we fill up the first column and row with zeros. 
+    \item \textbf{Algorithm procedure:} 
+    \begin{enumerate}
+        \item Go column by column or row by row. 
+        \item Compare the letters and the arrows represent the previous subproblem being added to the the previous subproblem. This relates to the 2by2 matrix. 
+        \begin{itemize}
+            \item Take the maximum when the characters are not the same, and go diagonally when they are the same character.
+            \item \textbf{Note:} We are only focused on one pathway for this that gives the maximum length of the LCS. 
+        \end{itemize}
+        \item C gives you the length, but you don't know the actual LCS, but you the length of the LCS is $4$ (i.e. number of diagonals). 
+        \item So whenever you have a diagonal you circle the letter, so you get the word pain as the LCS.
+    \end{enumerate}
 \end{itemize}
 
 \end{example}

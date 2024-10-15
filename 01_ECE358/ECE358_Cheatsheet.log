@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  11 OCT 2024 15:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  15 OCT 2024 12:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1234,7 +1234,7 @@ Non-PDF special ignored!
 \openout7 = `ECE358_Cheatsheet.lot'.
 
  (./00_Lectures/00_0_Preliminaries.tex) [6] (./00_Lectures/00_Asymptotics.tex [7] [8] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}] [10]
-<00_Images/BigO_Omega_Theta_Notation.png, id=1257, 896.34875pt x 311.1625pt>
+<00_Images/BigO_Omega_Theta_Notation.png, id=1308, 896.34875pt x 311.1625pt>
 File: 00_Images/BigO_Omega_Theta_Notation.png Graphic file (type png)
 <use 00_Images/BigO_Omega_Theta_Notation.png>
 Package pdftex.def Info: 00_Images/BigO_Omega_Theta_Notation.png  used on input line 384.
@@ -1247,42 +1247,42 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 24
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<00_Images/Merge_Sort.png, id=1495, 301.125pt x 443.6575pt>
+<00_Images/Merge_Sort.png, id=1546, 301.125pt x 443.6575pt>
 File: 00_Images/Merge_Sort.png Graphic file (type png)
 <use 00_Images/Merge_Sort.png>
 Package pdftex.def Info: 00_Images/Merge_Sort.png  used on input line 47.
 (pdftex.def)             Requested size: 263.78506pt x 388.68pt.
  [28] [29 <./00_Images/Merge_Sort.png>] [30] [31] [32] [33] [34] [35] [36]
-<00_Images/Recursion_Tree.png, id=1629, 901.3675pt x 190.7125pt>
+<00_Images/Recursion_Tree.png, id=1680, 901.3675pt x 190.7125pt>
 File: 00_Images/Recursion_Tree.png Graphic file (type png)
 <use 00_Images/Recursion_Tree.png>
 Package pdftex.def Info: 00_Images/Recursion_Tree.png  used on input line 701.
 (pdftex.def)             Requested size: 374.33807pt x 79.20241pt.
  [37 <./00_Images/Recursion_Tree.png>]) [38] (./00_Lectures/04_Graphs_Trees.tex
-<00_Images/Directed_Undirected.png, id=1650, 252.945pt x 107.40125pt>
+<00_Images/Directed_Undirected.png, id=1701, 252.945pt x 107.40125pt>
 File: 00_Images/Directed_Undirected.png Graphic file (type png)
 <use 00_Images/Directed_Undirected.png>
 Package pdftex.def Info: 00_Images/Directed_Undirected.png  used on input line 29.
 (pdftex.def)             Requested size: 395.6776pt x 168.00903pt.
  [39 <./00_Images/Directed_Undirected.png>]
-<00_Images/Bipartite.png, id=1656, 175.65625pt x 150.5625pt>
+<00_Images/Bipartite.png, id=1707, 175.65625pt x 150.5625pt>
 File: 00_Images/Bipartite.png Graphic file (type png)
 <use 00_Images/Bipartite.png>
 Package pdftex.def Info: 00_Images/Bipartite.png  used on input line 64.
 (pdftex.def)             Requested size: 124.77936pt x 106.95753pt.
-<00_Images/Clique.png, id=1657, 350.30875pt x 121.45375pt>
+<00_Images/Clique.png, id=1708, 350.30875pt x 121.45375pt>
 File: 00_Images/Clique.png Graphic file (type png)
 <use 00_Images/Clique.png>
 Package pdftex.def Info: 00_Images/Clique.png  used on input line 73.
 (pdftex.def)             Requested size: 374.33807pt x 129.79297pt.
  [40 <./00_Images/Bipartite.png> <./00_Images/Clique.png>]
-<00_Images/DG_AM_AL.png, id=1665, 666.49pt x 182.6825pt>
+<00_Images/DG_AM_AL.png, id=1717, 666.49pt x 182.6825pt>
 File: 00_Images/DG_AM_AL.png Graphic file (type png)
 <use 00_Images/DG_AM_AL.png>
 Package pdftex.def Info: 00_Images/DG_AM_AL.png  used on input line 103.
 (pdftex.def)             Requested size: 527.57014pt x 144.61584pt.
  [41 <./00_Images/DG_AM_AL.png>]
-<00_Images/T.png, id=1676, 265.99374pt x 69.25874pt>
+<00_Images/T.png, id=1728, 265.99374pt x 69.25874pt>
 File: 00_Images/T.png Graphic file (type png)
 <use 00_Images/T.png>
 Package pdftex.def Info: 00_Images/T.png  used on input line 150.
@@ -1293,24 +1293,24 @@ Overfull \hbox (3.92474pt too wide) detected at line 131
  []
 
 [45] [46] [47] [48]) [49] (./00_Lectures/06_Probability.tex [50]) [51] (./00_Lectures/07_Heaps_Heapsort.tex
-<00_Images/Heaps.png, id=1823, 579.16376pt x 202.7575pt>
+<00_Images/Heaps.png, id=1874, 579.16376pt x 202.7575pt>
 File: 00_Images/Heaps.png Graphic file (type png)
 <use 00_Images/Heaps.png>
 Package pdftex.def Info: 00_Images/Heaps.png  used on input line 44.
 (pdftex.def)             Requested size: 395.6776pt x 138.51988pt.
  [52 <./00_Images/Heaps.png>]
-<00_Images/Bubble_Down.png, id=1832, 431.6125pt x 304.13625pt>
+<00_Images/Bubble_Down.png, id=1883, 431.6125pt x 304.13625pt>
 File: 00_Images/Bubble_Down.png Graphic file (type png)
 <use 00_Images/Bubble_Down.png>
 Package pdftex.def Info: 00_Images/Bubble_Down.png  used on input line 74.
 (pdftex.def)             Requested size: 374.33807pt x 263.78426pt.
-<00_Images/Build_Heap.png, id=1833, 438.63875pt x 635.37375pt>
+<00_Images/Build_Heap.png, id=1884, 438.63875pt x 635.37375pt>
 File: 00_Images/Build_Heap.png Graphic file (type png)
 <use 00_Images/Build_Heap.png>
 Package pdftex.def Info: 00_Images/Build_Heap.png  used on input line 90.
 (pdftex.def)             Requested size: 374.33807pt x 542.24191pt.
  [53 <./00_Images/Bubble_Down.png>] [54 <./00_Images/Build_Heap.png>]
-<00_Images/Heap_Sort.png, id=1865, 450.68375pt x 405.515pt>
+<00_Images/Heap_Sort.png, id=1917, 450.68375pt x 405.515pt>
 File: 00_Images/Heap_Sort.png Graphic file (type png)
 <use 00_Images/Heap_Sort.png>
 Package pdftex.def Info: 00_Images/Heap_Sort.png  used on input line 120.
@@ -1320,13 +1320,13 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 41
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<00_Images/Quicksort_Example1.png, id=1895, 729.72626pt x 445.665pt>
+<00_Images/Quicksort_Example1.png, id=1946, 729.72626pt x 445.665pt>
 File: 00_Images/Quicksort_Example1.png Graphic file (type png)
 <use 00_Images/Quicksort_Example1.png>
 Package pdftex.def Info: 00_Images/Quicksort_Example1.png  used on input line 59.
 (pdftex.def)             Requested size: 499.11745pt x 304.82306pt.
  [57{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}]
-<00_Images/QS_LS.png, id=1909, 358.33875pt x 98.3675pt>
+<00_Images/QS_LS.png, id=1960, 358.33875pt x 98.3675pt>
 File: 00_Images/QS_LS.png Graphic file (type png)
 <use 00_Images/QS_LS.png>
 Package pdftex.def Info: 00_Images/QS_LS.png  used on input line 77.
@@ -1334,186 +1334,206 @@ Package pdftex.def Info: 00_Images/QS_LS.png  used on input line 77.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 106.
  [58 <./00_Images/Quicksort_Example1.png> <./00_Images/QS_LS.png>]
-<00_Images/Quicksort_Average.png, id=1927, 335.2525pt x 178.6675pt>
+<00_Images/Quicksort_Average.png, id=1978, 335.2525pt x 178.6675pt>
 File: 00_Images/Quicksort_Average.png Graphic file (type png)
 <use 00_Images/Quicksort_Average.png>
 Package pdftex.def Info: 00_Images/Quicksort_Average.png  used on input line 170.
 (pdftex.def)             Requested size: 249.55872pt x 132.99702pt.
  [59] [60 <./00_Images/Quicksort_Average.png>] [61] [62]) [63] (./00_Lectures/09_CountingSort_RadixSort.tex
-<00_Images/Insertion_Sort.png, id=1975, 840.13875pt x 348.30125pt>
+<00_Images/Insertion_Sort.png, id=2027, 840.13875pt x 348.30125pt>
 File: 00_Images/Insertion_Sort.png Graphic file (type png)
 <use 00_Images/Insertion_Sort.png>
 Package pdftex.def Info: 00_Images/Insertion_Sort.png  used on input line 19.
 (pdftex.def)             Requested size: 249.55872pt x 103.46013pt.
  [64 <./00_Images/Insertion_Sort.png>]
-<00_Images/Counting_Sort.png, id=1990, 750.805pt x 487.8225pt>
+<00_Images/Counting_Sort.png, id=2041, 750.805pt x 487.8225pt>
 File: 00_Images/Counting_Sort.png Graphic file (type png)
 <use 00_Images/Counting_Sort.png>
 Package pdftex.def Info: 00_Images/Counting_Sort.png  used on input line 130.
 (pdftex.def)             Requested size: 249.55872pt x 162.14311pt.
  [65]
-<00_Images/Radix_Sort.png, id=2003, 731.73375pt x 254.9525pt>
+<00_Images/Radix_Sort.png, id=2054, 731.73375pt x 254.9525pt>
 File: 00_Images/Radix_Sort.png Graphic file (type png)
 <use 00_Images/Radix_Sort.png>
 Package pdftex.def Info: 00_Images/Radix_Sort.png  used on input line 212.
 (pdftex.def)             Requested size: 249.55872pt x 86.95111pt.
  [66 <./00_Images/Counting_Sort.png>]
-<00_Images/Bits.png, id=2016, 383.4325pt x 132.495pt>
+<00_Images/Bits.png, id=2067, 383.4325pt x 132.495pt>
 File: 00_Images/Bits.png Graphic file (type png)
 <use 00_Images/Bits.png>
 Package pdftex.def Info: 00_Images/Bits.png  used on input line 241.
 (pdftex.def)             Requested size: 249.55872pt x 86.23595pt.
  [67 <./00_Images/Radix_Sort.png>]
-<00_Images/TT.png, id=2024, 284.06125pt x 470.75874pt>
+<00_Images/TT.png, id=2075, 284.06125pt x 470.75874pt>
 File: 00_Images/TT.png Graphic file (type png)
 <use 00_Images/TT.png>
 Package pdftex.def Info: 00_Images/TT.png  used on input line 261.
 (pdftex.def)             Requested size: 249.55872pt x 413.59377pt.
  [68 <./00_Images/Bits.png>] [69 <./00_Images/TT.png>]) [70] (./00_Lectures/10_SelectionSort_BinarySearchTrees.tex
-<00_Images/BST.png, id=2047, 208.78pt x 86.3225pt>
+<00_Images/BST.png, id=2098, 208.78pt x 86.3225pt>
 File: 00_Images/BST.png Graphic file (type png)
 <use 00_Images/BST.png>
 Package pdftex.def Info: 00_Images/BST.png  used on input line 10.
 (pdftex.def)             Requested size: 249.55872pt x 103.18866pt.
-<00_Images/EX.png, id=2048, 201.75375pt x 85.31876pt>
+<00_Images/EX.png, id=2099, 201.75375pt x 85.31876pt>
 File: 00_Images/EX.png Graphic file (type png)
 <use 00_Images/EX.png>
 Package pdftex.def Info: 00_Images/EX.png  used on input line 13.
 (pdftex.def)             Requested size: 249.55872pt x 105.53636pt.
  [71 <./00_Images/BST.png> <./00_Images/EX.png>] [72]
-<00_Images/D.png, id=2084, 434.62375pt x 481.8pt>
+<00_Images/D.png, id=2135, 434.62375pt x 481.8pt>
 File: 00_Images/D.png Graphic file (type png)
 <use 00_Images/D.png>
 Package pdftex.def Info: 00_Images/D.png  used on input line 181.
 (pdftex.def)             Requested size: 249.55872pt x 276.65056pt.
  [73]
-<00_Images/TT1.png, id=2106, 452.69125pt x 269.005pt>
+<00_Images/TT1.png, id=2157, 452.69125pt x 269.005pt>
 File: 00_Images/TT1.png Graphic file (type png)
 <use 00_Images/TT1.png>
 Package pdftex.def Info: 00_Images/TT1.png  used on input line 197.
 (pdftex.def)             Requested size: 249.55872pt x 148.29388pt.
  [74 <./00_Images/D.png> <./00_Images/TT1.png>]) [75] (./00_Lectures/11_Red_Black_Trees.tex
-<00_Images/RBT.png, id=2118, 249.93375pt x 106.3975pt>
+<00_Images/RBT.png, id=2169, 249.93375pt x 106.3975pt>
 File: 00_Images/RBT.png Graphic file (type png)
 <use 00_Images/RBT.png>
 Package pdftex.def Info: 00_Images/RBT.png  used on input line 18.
 (pdftex.def)             Requested size: 249.55872pt x 106.24136pt.
-<00_Images/IS.png, id=2119, 326.21875pt x 75.28125pt>
+<00_Images/IS.png, id=2170, 326.21875pt x 75.28125pt>
 File: 00_Images/IS.png Graphic file (type png)
 <use 00_Images/IS.png>
 Package pdftex.def Info: 00_Images/IS.png  used on input line 71.
 (pdftex.def)             Requested size: 249.55872pt x 57.59225pt.
  [76 <./00_Images/RBT.png>] [77 <./00_Images/IS.png>]
-<00_Images/C1.png, id=2137, 812.03375pt x 132.495pt>
+<00_Images/C1.png, id=2188, 812.03375pt x 132.495pt>
 File: 00_Images/C1.png Graphic file (type png)
 <use 00_Images/C1.png>
 Package pdftex.def Info: 00_Images/C1.png  used on input line 217.
 (pdftex.def)             Requested size: 374.33807pt x 61.07782pt.
-<00_Images/C2.png, id=2138, 750.805pt x 127.47626pt>
+<00_Images/C2.png, id=2189, 750.805pt x 127.47626pt>
 File: 00_Images/C2.png Graphic file (type png)
 <use 00_Images/C2.png>
 Package pdftex.def Info: 00_Images/C2.png  used on input line 220.
 (pdftex.def)             Requested size: 374.33807pt x 63.559pt.
-<00_Images/C3.png, id=2139, 870.25125pt x 430.60875pt>
+<00_Images/C3.png, id=2190, 870.25125pt x 430.60875pt>
 File: 00_Images/C3.png Graphic file (type png)
 <use 00_Images/C3.png>
 Package pdftex.def Info: 00_Images/C3.png  used on input line 223.
 (pdftex.def)             Requested size: 374.33807pt x 185.23042pt.
  [78]) [79 <./00_Images/C1.png> <./00_Images/C2.png> <./00_Images/C3.png>] (./00_Lectures/12_HashTables_Hashing.tex
-<00_Images/HTM.png, id=2152, 549.05125pt x 116.435pt>
+<00_Images/HTM.png, id=2203, 549.05125pt x 116.435pt>
 File: 00_Images/HTM.png Graphic file (type png)
 <use 00_Images/HTM.png>
 Package pdftex.def Info: 00_Images/HTM.png  used on input line 23.
 (pdftex.def)             Requested size: 374.33807pt x 79.38617pt.
-<00_Images/C.png, id=2153, 306.14375pt x 112.42pt>
+<00_Images/C.png, id=2204, 306.14375pt x 112.42pt>
 File: 00_Images/C.png Graphic file (type png)
 <use 00_Images/C.png>
 Package pdftex.def Info: 00_Images/C.png  used on input line 54.
 (pdftex.def)             Requested size: 374.33807pt x 137.46954pt.
  [80 <./00_Images/HTM.png>] [81 <./00_Images/C.png>] [82]
-<00_Images/Cl.png, id=2171, 390.45876pt x 211.79124pt>
+<00_Images/Cl.png, id=2223, 390.45876pt x 211.79124pt>
 File: 00_Images/Cl.png Graphic file (type png)
 <use 00_Images/Cl.png>
 Package pdftex.def Info: 00_Images/Cl.png  used on input line 208.
 (pdftex.def)             Requested size: 249.55872pt x 135.36496pt.
  [83 <./00_Images/Cl.png>] [84]) [85] (./00_Lectures/13_Dynamic_Programming.tex
-<00_Images/S.png, id=2194, 251.94125pt x 72.27pt>
+<00_Images/S.png, id=2245, 251.94125pt x 72.27pt>
 File: 00_Images/S.png Graphic file (type png)
 <use 00_Images/S.png>
 Package pdftex.def Info: 00_Images/S.png  used on input line 18.
 (pdftex.def)             Requested size: 249.55872pt x 71.58719pt.
  [86 <./00_Images/S.png>]
-<00_Images/EX1.png, id=2204, 621.32124pt x 175.65625pt>
+<00_Images/EX1.png, id=2255, 621.32124pt x 175.65625pt>
 File: 00_Images/EX1.png Graphic file (type png)
 <use 00_Images/EX1.png>
 Package pdftex.def Info: 00_Images/EX1.png  used on input line 106.
 (pdftex.def)             Requested size: 374.33807pt x 105.83144pt.
-<00_Images/M.png, id=2205, 653.44125pt x 258.9675pt>
+<00_Images/M.png, id=2256, 653.44125pt x 258.9675pt>
 File: 00_Images/M.png Graphic file (type png)
 <use 00_Images/M.png>
 Package pdftex.def Info: 00_Images/M.png  used on input line 129.
 (pdftex.def)             Requested size: 249.55872pt x 98.9026pt.
  [87 <./00_Images/EX1.png>] [88 <./00_Images/M.png>] [89]
-<00_Images/LCS.png, id=2233, 413.545pt x 260.975pt>
-File: 00_Images/LCS.png Graphic file (type png)
-<use 00_Images/LCS.png>
-Package pdftex.def Info: 00_Images/LCS.png  used on input line 273.
-(pdftex.def)             Requested size: 249.55872pt x 157.49016pt.
-) [90 <./00_Images/LCS.png>] (./00_Lectures/14_Greedy_Algorithms.tex
-<00_Images/CSE.png, id=2242, 649.42625pt x 112.42pt>
+<00_Images/BOJI.png, id=2283, 434.62375pt x 361.35pt>
+File: 00_Images/BOJI.png Graphic file (type png)
+<use 00_Images/BOJI.png>
+Package pdftex.def Info: 00_Images/BOJI.png  used on input line 299.
+(pdftex.def)             Requested size: 352.99855pt x 293.50243pt.
+ [90]
+<00_Images/2b2.png, id=2290, 238.8925pt x 219.82124pt>
+File: 00_Images/2b2.png Graphic file (type png)
+<use 00_Images/2b2.png>
+Package pdftex.def Info: 00_Images/2b2.png  used on input line 308.
+(pdftex.def)             Requested size: 374.33807pt x 344.47609pt.
+ [91 <./00_Images/BOJI.png>]
+<00_Images/LCS1.png, id=2298, 947.54pt x 560.0925pt>
+File: 00_Images/LCS1.png Graphic file (type png)
+<use 00_Images/LCS1.png>
+Package pdftex.def Info: 00_Images/LCS1.png  used on input line 326.
+(pdftex.def)             Requested size: 249.55872pt x 147.50934pt.
+ [92 <./00_Images/2b2.png>]) [93 <./00_Images/LCS1.png>] (./00_Lectures/14_Greedy_Algorithms.tex
+<00_Images/CSE.png, id=2316, 649.42625pt x 112.42pt>
 File: 00_Images/CSE.png Graphic file (type png)
 <use 00_Images/CSE.png>
 Package pdftex.def Info: 00_Images/CSE.png  used on input line 31.
 (pdftex.def)             Requested size: 374.33807pt x 64.80223pt.
-<00_Images/POC.png, id=2243, 653.44125pt x 112.42pt>
+<00_Images/POC.png, id=2317, 653.44125pt x 112.42pt>
 File: 00_Images/POC.png Graphic file (type png)
 <use 00_Images/POC.png>
 Package pdftex.def Info: 00_Images/POC.png  used on input line 42.
 (pdftex.def)             Requested size: 374.33807pt x 64.40083pt.
- [91 <./00_Images/CSE.png> <./00_Images/POC.png>]
-<00_Images/I.png, id=2255, 386.44376pt x 105.39375pt>
+ [94 <./00_Images/CSE.png> <./00_Images/POC.png>]
+<00_Images/I.png, id=2328, 386.44376pt x 105.39375pt>
 File: 00_Images/I.png Graphic file (type png)
 <use 00_Images/I.png>
 Package pdftex.def Info: 00_Images/I.png  used on input line 106.
 (pdftex.def)             Requested size: 374.33807pt x 102.09349pt.
-<00_Images/CHARS.png, id=2256, 641.39626pt x 54.2025pt>
+<00_Images/CHARS.png, id=2329, 641.39626pt x 54.2025pt>
 File: 00_Images/CHARS.png Graphic file (type png)
 <use 00_Images/CHARS.png>
 Package pdftex.def Info: 00_Images/CHARS.png  used on input line 110.
 (pdftex.def)             Requested size: 374.33807pt x 31.63513pt.
- [92]
-<00_Images/LG.png, id=2261, 913.4125pt x 384.43625pt>
+ [95]
+<00_Images/LG.png, id=2334, 913.4125pt x 384.43625pt>
 File: 00_Images/LG.png Graphic file (type png)
 <use 00_Images/LG.png>
 Package pdftex.def Info: 00_Images/LG.png  used on input line 132.
 (pdftex.def)             Requested size: 395.6776pt x 166.53035pt.
- [93 <./00_Images/I.png> <./00_Images/CHARS.png> <./00_Images/LG.png>]
-<00_Images/E.png, id=2269, 561.09625pt x 123.46124pt>
+ [96 <./00_Images/I.png> <./00_Images/CHARS.png> <./00_Images/LG.png>]
+<00_Images/E.png, id=2342, 561.09625pt x 123.46124pt>
 File: 00_Images/E.png Graphic file (type png)
 <use 00_Images/E.png>
 Package pdftex.def Info: 00_Images/E.png  used on input line 172.
 (pdftex.def)             Requested size: 374.33807pt x 82.3663pt.
- [94 <./00_Images/E.png>]) [95] (./00_Lectures/15_Amortized_Analysis.tex) [96] (./00_Lectures/16_Splay_Trees.tex) [97] (./00_Lectures/17_Graph_Algorithms.tex) [98] (./00_Lectures/18_Minimum_Spanning_Trees.tex) [99] (./00_Lectures/19_Shortest_Paths.tex) [100] (./00_Lectures/20_Maximum_Flow.tex) [101] (./00_Lectures/21_History_of_Computation.tex) [102] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [103] (./00_Lectures/23_NPC.tex) [104] (./ECE358_Cheatsheet.aux)
+ [97 <./00_Images/E.png>]) [98] (./00_Lectures/15_Amortized_Analysis.tex
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 5.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [99] (./00_Lectures/16_Splay_Trees.tex) [100] (./00_Lectures/17_Graph_Algorithms.tex) [101] (./00_Lectures/18_Minimum_Spanning_Trees.tex) [102] (./00_Lectures/19_Shortest_Paths.tex) [103] (./00_Lectures/20_Maximum_Flow.tex) [104] (./00_Lectures/21_History_of_Computation.tex) [105] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [106] (./00_Lectures/23_NPC.tex) [107] (./ECE358_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `ECE358_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: 1F36CB32DD9E566B5374595922A9C125;37211.
+(rerunfilecheck)             Checksum: BD3BC1950910F1D712C77E848BC9ACB3;38682.
  ) 
 Here is how much of TeX's memory you used:
- 53887 strings out of 474116
- 1246702 string characters out of 5743682
+ 53969 strings out of 474116
+ 1248087 string characters out of 5743682
  2233187 words of memory out of 5000000
- 74338 multiletter control sequences out of 15000+600000
+ 74381 multiletter control sequences out of 15000+600000
  631808 words of font info for 109 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,812b,2241s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ECE358_Cheatsheet.pdf (104 pages, 16331925 bytes).
+Output written on ECE358_Cheatsheet.pdf (107 pages, 18164108 bytes).
 PDF statistics:
- 2639 PDF objects out of 2984 (max. 8388607)
- 2374 compressed objects within 24 object streams
- 964 named destinations out of 1000 (max. 500000)
- 1919 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2739 PDF objects out of 2984 (max. 8388607)
+ 2466 compressed objects within 25 object streams
+ 1003 named destinations out of 1200 (max. 500000)
+ 2001 words of extra memory for PDF output out of 10000 (max. 10000000)
 

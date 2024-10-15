@@ -34,10 +34,12 @@
 \contentsline {figure}{\numberline {33}{\ignorespaces Fib numbers}}{86}{figure.33}%
 \contentsline {figure}{\numberline {34}{\ignorespaces Why memoization is needed}}{87}{figure.34}%
 \contentsline {figure}{\numberline {35}{\ignorespaces You do not need the whole 2D array, you just need the upper triangle of the 2D array. Calculate this table from the bottom up.}}{88}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces Computation of C}}{90}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Class scheduling example.}}{91}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{91}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces 45\% contains a, 13\% contains b, and so on. Converting this to binary using $d(c_1)$, which is fixed.}}{93}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces $d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}}{93}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Tree}}{93}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}}{94}{figure.42}%
+\contentsline {figure}{\numberline {36}{\ignorespaces Motivation for why memoization is needed.}}{91}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces 2 by 2 matrix.}}{92}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Computation of C}}{93}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Class scheduling example.}}{94}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{94}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces 45\% contains a, 13\% contains b, and so on. Converting this to binary using $d(c_1)$, which is fixed.}}{96}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces $d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}}{96}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Tree}}{96}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}}{97}{figure.44}%

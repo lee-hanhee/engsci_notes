@@ -1,0 +1,37 @@
+\section{Splay Trees}
+\begin{definition}
+The weighted dictionary problem involves inserting, deleting, and searching keys with frequencies.
+\end{definition}
+
+\begin{intuition}
+Splay trees are binary search trees (BSTs) without any structural balancing condition. Online, splay trees achieve theoretical optimality in an amortized sense.
+\end{intuition}
+
+\begin{lstlisting}
+Splay(x):
+    while x != root:
+        if p(x) = root:
+            rotate p(x)
+        if p(x) and p(p(x)) both left or both right child:
+            rotate p(p(x))
+            rotate p(x)
+        else:
+            rotate p(x)
+            rotate p(p(x))
+\end{lstlisting}
+
+\begin{itemize}
+    \item \textbf{Search(x):} Like BST and splay $x$. $O(\log n)$.
+    \item \textbf{Delete(x):} Like BST and splay $p(x)$. $O(\log n)$.
+    \item \textbf{Insert(x):} Like BST and splay $x$. $O(\log n)$.
+\end{itemize}
+
+\section{Amortized Cost of Splay}
+
+\begin{definition}
+The weight $WT(x)$ of a node $x$ is the number of nodes in the subtree of $x$ plus $x$.
+\end{definition}
+
+\begin{equation*}
+\text{rank}(x) = \lceil \log(WT(x)) \rceil
+\end{equation*}

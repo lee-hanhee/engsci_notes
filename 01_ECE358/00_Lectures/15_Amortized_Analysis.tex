@@ -1,0 +1,75 @@
+\begin{definition}
+A worst-case guarantee (bound) for the average case. We view/analyze every operation as part of the sequence of $n$ operations. If $n$ operations take $T(n)$ time, the operation has $T(n)/n$ amortized costs, which may be different from the actual cost.
+\end{definition}
+
+\subsubsection{Analysis Methods}
+\begin{itemize}
+    \item Aggregate method (brute force)
+    \item Accounting method (splay).
+    \item Potential method.
+\end{itemize}
+
+\subsubsection{Stack Operations}
+\begin{itemize}
+    \item \textbf{Push:} $O(1)$
+    \item \textbf{Pop:} $O(1)$ (naive: $O(n)$ if we call multipop $n$ times)
+    \item \textbf{Multipop:} $O(n)$
+\end{itemize}
+
+\begin{warning}
+    You cannot pop more than what you push, hence $n$ operations can take at most $O(n)$ time or $O(n)/n$ amortized time.
+\end{warning}
+
+\subsubsection{Binary Counter: Increment}
+\begin{lstlisting}
+Increment(A, k)
+    i = 0
+    while i < k and A[i] == 1:
+        A[i] = 0
+        i = i + 1
+    if i < k:
+        A[i] = 1
+\end{lstlisting}
+
+\begin{warning}
+    Let $k = n$. Assume $O(1)$ to flip $1 \rightarrow 0$ or $0 \rightarrow 1$. Increment is $O(n)$ time $\Rightarrow$ calling $n$ times is $O(n^2)$.
+\end{warning}
+
+\subsubsection{Aggregate Analysis of Flips}
+\begin{definition}
+    \[
+\# \text{ bit flips} = \sum_{i=0}^{n} \frac{n}{2^i}
+\]
+The total bit flips is $\leq 2n$, and the amortized cost of increment is $O(1)$.
+\end{definition}
+
+
+\subsubsection{Accounting Method}
+\begin{definition}
+We charge \$ for every operation, and the data structure behaves like a ``bank".
+\begin{itemize}
+    \item \textbf{Amortized cost} $=$ what we charge.
+    \item \textbf{Actual cost} $=$ how expensive the operation actually is.
+    \item If amortized cost $>$ actual cost $\Rightarrow$ save/deposit on the data structure.
+    \item If amortized cost $<$ actual cost $\Rightarrow$ use credit from the data structure.
+    \item We cannot run during analysis on negative credit.
+\end{itemize}
+\end{definition}
+
+\subsubsection{Stack Operations Table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+Operation & Actual Cost & Amortized Cost \\
+\hline
+Push & $O(1)$ & \$2 \\
+Pop & $O(1)$ & \$1 \\
+Multipop & $O(n)$ & \$0 \\
+\hline
+\end{tabular}
+\caption{Cost table for stack operations}
+\end{table}
+
+For $n$ operations, we need $2n$ or $O(n)/n = O(1)$ in an amortized sense.
