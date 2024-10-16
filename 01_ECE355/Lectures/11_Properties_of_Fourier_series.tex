@@ -1,0 +1,182 @@
+\subsection{FS Notation}
+\begin{definition}
+    If \( x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t} \), we write \( x \underset{T}{\overset{FS}{\longleftrightarrow}} c_k \) or \( x \overset{\text{FS}}{\longleftrightarrow} c_k \) if \( T \) is known.
+\end{definition}
+
+\begin{warning}
+    We can find FS in terms of other FS we know. 
+\end{warning}
+
+\subsection{Linearity}
+\begin{definition}
+    \begin{enumerate}
+        \item Linearity: If \( x \underset{T}{\overset{FS}{\longleftrightarrow}} a_k \) and \( y \underset{T}{\overset{FS}{\longleftrightarrow}} b_k \), then for all scalars \(\alpha_1, \alpha_2 \in \mathbb{C} \),
+        \[
+        \alpha_1 x + \alpha_2 y \underset{T}{\overset{FS}{\longleftrightarrow}} \alpha_1 a_k + \alpha_2 b_k
+        \]
+    
+        \item Time Reversal: If \( x(t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_k \), then \( \tilde{x}(t) = x(-t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_{-k} \).
+        \begin{itemize}
+            \item $x_{\text{even}} = \frac{1}{2} \left( x + \tilde{x} \right) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} \frac{1}{2} \left( c_k + c_{-k} \right)$
+            \item $x_{\text{odd}} = \frac{1}{2} \left( x - \tilde{x} \right) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} \frac{1}{2} \left( c_k - c_{-k} \right)$    
+        \end{itemize}
+    
+        \item Conjugation: If \( x(t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_k \), then \( x^*(t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_{-k}^* \).
+        \begin{itemize}
+            \item $x^*(t) = (x(t))^*$
+        \end{itemize}
+        \begin{itemize}
+            \item $\text{Re}(x) = \frac{1}{2} (x + x^*), \text{ so if } x \overset{\text{FS}}{\longleftrightarrow} c_k, \text{ then } \text{Re}(x) \longleftrightarrow \frac{1}{2} (c_k + c_{-k}^*)$
+            \item $\text{Im}(x) = \frac{1}{2j} (x - x^*), \text{ so if } x \overset{\text{FS}}{\longleftrightarrow} c_k, \text{ then } \text{Im}(x) \longleftrightarrow \frac{1}{2j} (c_k - c_{-k}^*)$
+            \begin{itemize}
+                \item $c_k = c_{-k}^*$ if the signal is real, so it becomes $0$.
+            \end{itemize}
+        \end{itemize}
+    
+        \item Time Scaling: If \( x(t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_k \), then \( x(at) \underset{T/a}{\overset{FS}{\longleftrightarrow}}c_k \) for \( a > 0 \), and \( x(at) \underset{T/(-a)}{\overset{FS}{\longleftrightarrow}} c_{-k} \) for \( a < 0 \).
+        \begin{itemize}
+            \item $-a$ is needed to be the period since $a<0$ so $-a>0$, and periods are defined for positive values. 
+            \item \textbf{Note:} Period has changed, but the FS coefficients stay the same (i.e. spacing changes). This is why the notation is good to have. 
+        \end{itemize}
+    
+        \item Time Shifting: If \( x(t) \underset{T}{\overset{FS}{\longleftrightarrow}} c_k \), then \( x(t - t_0) \underset{T}{\overset{FS}{\longleftrightarrow}}  e^{-j 2\pi \frac{k}{T} t_0} c_k \).
+        \begin{itemize}
+            \item The term \( e^{-j 2\pi \frac{k}{T} t_0} \) is a phase factor, so time-shifting alters the phase but not the magnitude of the FS coefficients.
+        \end{itemize}
+    
+        \item Multiplication: If \( x(t) \underset{T}{\overset{FS}{\longleftrightarrow}} a_k \) and \( y(t) \underset{T}{\overset{FS}{\longleftrightarrow}} b_k \), then \( x(t) y(t) \underset{T}{\overset{FS}{\longleftrightarrow}} \sum_{n \in \mathbb{Z}} a_n b_{k-n} \).
+        \begin{itemize}
+            \item \textbf{Key:} Multiplication in time domain is convolution in frequency domain. Vice versa.
+        \end{itemize}
+    \end{enumerate}     
+\end{definition}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item \textbf{Linearity:} Follows from linearity of summation.
+        \item \textbf{Time reversal:} 
+        \[
+        \tilde{x}(t) = x(-t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} (-t)} = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{-k}{T} t}
+        \]
+        Let \( k' = -k \), so we get
+        \[
+        \tilde{x}(t) = \sum_{k' \in \mathbb{Z}} c_{-k'} e^{j 2\pi \frac{k'}{T} t}
+        \]
+        Therefore, \( \tilde{x}(t) \longleftrightarrow c_{-k} \).
+
+        \item \textbf{Conjugation:} 
+        \[
+            x^*(t) = \left( \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t} \right)^* = \sum_{k \in \mathbb{Z}} c_k^* e^{-j 2\pi \frac{k}{T} t}
+            \]
+            Let \( k' = -k \), then 
+            \[
+            x^*(t) = \sum_{k' \in \mathbb{Z}} c_{-k'}^* e^{j 2\pi \frac{k'}{T} t}
+            \]
+            Thus, \( x^*(t) \longleftrightarrow c_{-k}^* \).
+        \item \textbf{Time scaling:}
+        \textbf{Proof:} 
+        \[
+        x(at) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} (at)} = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T/a} t}, \quad \text{if } a > 0
+        \]
+        \vspace{1em}
+
+        \begin{align*}
+            x(at) &= \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{-k}{T/(-a)} t}, \quad \text{if } a < 0 \\
+            &\text{Let $k' = -k$} \\ 
+            &= \sum_{k'\in \mathbb{Z}} c_{-k'} e^{j 2\pi \frac{k'}{T/(-a)} t}
+        \end{align*}
+
+        \item \textbf{Time shifting:}
+        \[
+        x(t - t_0) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} (t - t_0)} = \sum_{k \in \mathbb{Z}} c_k e^{-j 2\pi \frac{k}{T} t_0} e^{j 2\pi \frac{k}{T} t}
+        \]
+
+        \item \textbf{Multiplication:} For notational convenience, let \( \Omega(t) = e^{j 2\pi \frac{t}{T}} \), then for any integer \( \Omega^k(t) = e^{j 2\pi \frac{k}{T} t} \), \( k \in \mathbb{Z} \),
+        \[
+        x(t) = \sum_{n \in \mathbb{Z}} a_n \Omega^n(t), \quad y(t) = \sum_{m \in \mathbb{Z}} b_m \Omega^m(t)
+        \]
+        Therefore, 
+        \[
+        x(t) y(t) = \sum_{n \in \mathbb{Z}} a_n \Omega^n(t) \sum_{m \in \mathbb{Z}} b_m \Omega^m(t) = \sum_n \sum_m a_n b_m \Omega^{n+m}(t)
+        \]
+        Let \( k = n + m \) so $m=k-n$, then 
+        \begin{equation*}
+            x(t) y(t) = \sum_n \sum_k a_n b_{k-n} \Omega^k(t)
+        \end{equation*}
+        \[
+        x(t) y(t) = \sum_k \left( \sum_n a_n b_{k-n} \right) \Omega^k(t)
+        \]
+        Thus, \( c_k = \sum_n a_n b_{k-n} \).
+        
+    \end{enumerate}
+\end{derivation}
+
+\begin{warning}
+    The substitution of $-k=k'$ is made so the basis vectors remain intact, since for all of these $x(t)$, the basis set must always be $x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2\pi \frac{k}{T} t}$.
+\end{warning}
+
+\begin{intuition}
+    \begin{enumerate}
+        \item If $x(t)$ is even: 
+        \begin{equation*}
+            c_k = c_{-k}
+        \end{equation*}
+        \begin{itemize}
+            \item Calculate only half of the FS coefficients and infer the others with conjugate symmetry.
+        \end{itemize}
+        \item If $x(t)$ is odd:
+        \begin{equation*}
+            c_k = - c_{-k}
+        \end{equation*}
+        \item If $x(t)$ is real:
+        \begin{equation*}
+            c_k = c_{-k}^*
+        \end{equation*}
+        \item If $x(t)$ is imaginary:
+        \begin{equation*}
+            c_k = - c_{-k}^*
+        \end{equation*}    
+        \item If \( x(t) \) is even and real: 
+        \begin{equation*}
+            c_k = c_{-k}
+        \end{equation*}
+        \begin{itemize}
+            \item Only cosine contributes.
+        \end{itemize}
+        
+        \item If \( x(t) \) is even and imaginary: 
+        \begin{equation*}
+            c_k = -c_{-k}
+        \end{equation*}
+    
+        \item If \( x(t) \) is odd and real: 
+        \begin{equation*}
+            c_k = -c_{-k}
+        \end{equation*}
+        \begin{itemize}
+            \item Only sine contributes.
+        \end{itemize}
+    
+        \item If \( x(t) \) is odd and imaginary: 
+        \begin{equation*}
+            c_k = - c_{-k}
+        \end{equation*}
+
+        \item Decompose any signal \(x(t)\) into its \textbf{even} and \textbf{odd} parts using:
+            \[
+            x_{\text{even}} \overset{\text{FS}}{\longleftrightarrow} \frac{1}{2} (c_k + c_{-k}), \quad x_{\text{odd}} \overset{\text{FS}}{\longleftrightarrow} \frac{1}{2} (c_k - c_{-k})
+            \]
+
+        \item  If \(x(t)\) is complex, decompose it into its \textbf{real} and \textbf{imaginary} parts:
+        \[
+        \text{Re}(x) \overset{\text{FS}}{\longleftrightarrow} \frac{1}{2}(c_k + c_{-k}^*), \quad \text{Im}(x) \overset{\text{FS}}{\longleftrightarrow} \frac{1}{2j}(c_k - c_{-k}^*)
+        \]
+
+        \begin{itemize}
+            \item To figure out these relationships, just look at the converse. i.e. if x is even, then look at odd case because it has to be 0. Vice versa for real, imaginary, and odd.
+            \item DOUBLE CHECK THE COMBINATION ONES.
+        \end{itemize}
+
+    \end{enumerate}
+    
+\end{intuition}
