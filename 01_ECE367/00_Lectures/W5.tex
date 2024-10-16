@@ -1,3 +1,40 @@
+\subsection{QA}
+\begin{summary}
+    \begin{enumerate}
+        \item Why for defective matrices, we cannot form $n$ l.i. vectors?
+        \begin{itemize}
+            \item B/c $GM<AM$, which means that the $\sum AM =n $, but $\sum GM < n$, so there won't exist $n$ l.i. vectors.
+        \end{itemize}
+        \item Watch 3b1b for eigenvectors and eigenvalues. 
+        \item Are we describing the shape in the new coordinate system for quadratic constraints? 
+        \begin{itemize}
+            \item No, we are just using this transformed coordiante to interpret $A$ easier because then it becomes a scaling of $\Lambda$ in this coordinate system. Afterwards, we apply the rotation by seeing where $1,0$ and $0,1$ vectors go. 
+        \end{itemize}
+        \item Watch MyWhyU linear algebra 54-59 for REF.
+        \item Proofs will be one part of a problem in the midterm. But there will also be computational problems. 
+        \item Do we have to normalize the eigenvectors for decomposition? 
+        \begin{itemize}
+            \item Always normalize the vectors. You just have to show they are l.i. for eigendecomposition, but for spectral decomposition, you normalzie the orthogonal vectors. But as a convention, \textbf{Always noramlzie the vectors}.
+        \end{itemize}
+        \item For a symmetric matrix, and using spectral decomposition, will we always get an orthonormal basis or do we have to construct this ourselves?
+        \begin{itemize}
+            \item No, you have to normalize the vectors to get an orthogonal matrix. 
+        \end{itemize}
+        \item Doesn't the rotation depend on how we set up the orthogonal matrix? 
+        \begin{itemize}
+            \item No, see this by applying $1,0$ and $0,1$ to the rotation matrix and seeing where they get transformed in the $x$ space. 
+        \end{itemize}
+        \item How to determine the rotations of a matrix?
+        \begin{itemize}
+            \item Apply $1,0$ and $0,1$ in the tilde space to the rotation matrix to see where $x$ lands after the transformation.
+        \end{itemize}
+        \item For eigendecomposiiton of a diagonalizable matrix, aren’t they n linearly independent eigen vectors so why can’t we apply gram Schmidt to make them orthogonal. I know for the theorem we proved for symmetric matrices that they have to orthogonal for different eigen values but still
+        \begin{itemize}
+            \item Because we applying GS across different null spaces can results in vectors that do not span the same space. 
+        \end{itemize}
+    \end{enumerate}
+\end{summary}
+
 \subsection{Symmetric matrices}
 \begin{definition}
     Set of real symmetric matrices is 

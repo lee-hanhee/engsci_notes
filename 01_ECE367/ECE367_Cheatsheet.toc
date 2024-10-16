@@ -98,37 +98,38 @@
 \contentsline {subsection}{\numberline {7.1}Calculating inverse of a matrix}{57}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Finding rank and dimension/basis for range and null space of A and A transpose}{59}{subsection.7.2}%
 \contentsline {section}{\numberline {8}Symmetric Matrices, Orthogonal Matrices, Spectral Decomposition, Positive Semidefinite Matrices, Ellipsoids (Ch. 4.1-4.4)}{60}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Symmetric matrices}{60}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Example of symmetric matrix: Hessian Matrix}{60}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Theorem}{62}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Spectral decomposition}{63}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Spectral theorem}{63}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Difference between Eigendecomposition and Spectral Decomposition}{65}{subsubsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.3}Orthogonal matrices}{65}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}What happens when we multiply a vector by an orthogonal matrix?}{65}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}What kind of transformation corresponds to multiplying by a symmetric matrix?}{67}{subsubsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.4}Positive semidefinite matrices and positive definite matrices}{68}{subsection.8.4}%
-\contentsline {subsubsection}{\numberline {8.4.1}Theorem on PSD,PD for Eigenvalues}{68}{subsubsection.8.4.1}%
-\contentsline {subsection}{\numberline {8.5}Ellipsoids}{68}{subsection.8.5}%
-\contentsline {subsection}{\numberline {8.6}Multivariate Gaussian Varibles}{70}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Sqaure roots of PSD}{72}{subsection.8.7}%
-\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{73}{section.9}%
-\contentsline {subsection}{\numberline {9.1}2nd Optimization Problem (Motivation for SVD)}{73}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Singular value decomposition}{74}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Principle component analysis}{74}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{75}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{75}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{75}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{76}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Least squares}{76}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{76}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{76}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{77}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{77}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{77}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{78}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{78}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{78}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{79}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{79}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{79}{subsection.14.2}%
+\contentsline {subsection}{\numberline {8.1}QA}{60}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Symmetric matrices}{60}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Example of symmetric matrix: Hessian Matrix}{60}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Theorem}{63}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Spectral decomposition}{64}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Spectral theorem}{64}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Difference between Eigendecomposition and Spectral Decomposition}{65}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Orthogonal matrices}{65}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}What happens when we multiply a vector by an orthogonal matrix?}{65}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}What kind of transformation corresponds to multiplying by a symmetric matrix?}{67}{subsubsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.5}Positive semidefinite matrices and positive definite matrices}{68}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Theorem on PSD,PD for Eigenvalues}{68}{subsubsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.6}Ellipsoids}{69}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Multivariate Gaussian Varibles}{71}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Sqaure roots of PSD}{72}{subsection.8.8}%
+\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{74}{section.9}%
+\contentsline {subsection}{\numberline {9.1}2nd Optimization Problem (Motivation for SVD)}{74}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Singular value decomposition}{75}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Principle component analysis}{75}{subsection.9.3}%
+\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{76}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{76}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{76}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{77}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Least squares}{77}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{77}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{77}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{78}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{78}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{78}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{79}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{79}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{79}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{80}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{80}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{80}{subsection.14.2}%
