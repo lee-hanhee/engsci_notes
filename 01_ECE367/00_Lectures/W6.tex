@@ -1,2 +1,87 @@
+\subsection{2nd Optimization Problem (Motivation for SVD)}
+\begin{definition}
+    Let \( A \in S^n \) (not necessarily PSD). We are interested in solving the optimization problem:
+
+    \begin{align*}
+    \max_{s.t. ||x||_2 \leq 1} \|A x\|_2  
+    \end{align*}
+    \begin{itemize}
+        \item s.t. is subject to
+    \end{itemize}
+\end{definition}
+
+\begin{intuition}
+    \customFigure[0.75]{00_Images/OPT.png}{Optimization problem}
+    \begin{itemize}
+        \item We are trying to find the maximum $x$ after being transformed by $A$, subject to being contained within the unit circle (in 2D).
+    \end{itemize}
+\end{intuition}
+
+\begin{derivation}
+    Let \( y = A x \). Then, using the spectral decomposition \( A = U \Lambda U^T \), we can express:
+
+    \begin{align*}
+    y &= A x = U \Lambda U^T x \\
+    U^T y &= \Lambda U^T x \quad \text{multiply by $U^T$}\\
+    \tilde{y} &= \Lambda \tilde{x} \quad \text{where} \quad \tilde{x} = U^T x \text{ and } \tilde{y} = U^T y 
+    \end{align*}
+
+    Thus, we have:
+
+    \begin{align*}
+    \| \tilde{y} \|_2 &= \| U^T y \|_2 = \| y \|_2 \\
+    \| \tilde{x} \|_2 &= \| U^T x \|_2 = \| x \|_2
+    \end{align*}
+    \begin{itemize}
+        \item \textbf{Note:} This comes from a previous lecture saying how an orthogonal matrix applied to a vector doesn't change the l2-norm of it. 
+    \end{itemize}
+    \vspace{1em}
+
+    So the optimization problem becomes:
+
+    \begin{align*}
+    \max_{ s.t. \|\tilde{x}\|_2 \leq 1} \| \Lambda \tilde{x} \|_2 
+    \end{align*}
+
+    Since \( \Lambda \tilde{x} \) is diagonal, we can write:
+
+    \begin{align*}
+    \Lambda \tilde{x} = 
+    \begin{bmatrix}
+    \lambda_1 \tilde{x}_1 \\
+    \lambda_2 \tilde{x}_2 \\
+    \vdots \\
+    \lambda_n \tilde{x}_n
+    \end{bmatrix}
+    \end{align*}
+
+    \textbf{Solution:} If \( |\lambda_1| \geq |\lambda_2| \geq \dots \geq |\lambda_n| \), then the optimal solution is:
+
+    \begin{align*}
+    \tilde{x}^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix}
+    \end{align*}
+    \begin{itemize}
+        \item Putting all of our budget into the largest eigenvalue to maximize the product while staying within the constraint.
+    \end{itemize}
+    \vspace{1em}
+
+    Therefore, the optimal \( x^* = U \tilde{x}\) is:
+
+    \begin{align*}
+    x^* &= U \tilde{x}^* = U
+    \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} = u^{(1)}
+    \end{align*}
+
+    The maximum value is:
+
+    \begin{align*}
+    \|A x^*\|_2 = \|y\|_2 = \| \tilde{y} \|_2 = |\lambda_1|
+    \end{align*}
+
+    \textbf{Conclusion:} The optimal direction of \( x \) is the direction of the eigenvector corresponding to the largest eigenvalue. This is the solution where $A$ is symmetric.
+
+    \textbf{Extending to rectangular matrices:} What if we need to maximize \( \| M x \|_2 \) for some \( M \in \mathbb{R}^{m \times n} \) (not necessarily square)? This leads us to the Singular Value Decomposition (SVD).
+\end{derivation}
+
 \subsection{Singular value decomposition}
 \subsection{Principle component analysis}

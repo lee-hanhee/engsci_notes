@@ -1,5 +1,5 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{5}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{6}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{10}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{12}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{13}{figure.4}%
@@ -36,6 +36,7 @@
 \contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{49}{figure.35}%
 \contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{54}{figure.36}%
 \contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{55}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{65}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{65}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{66}{figure.40}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{66}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{66}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{67}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Optimization problem}}{70}{figure.41}%
