@@ -650,27 +650,153 @@ Where \( \tilde{x} = U^T x \). Expanding the right-hand side:
 
 \subsection{Ellipsoids}
 \begin{definition}
-    PSD and PD matrices are used to define ellipsoids.
-    \begin{equation*}
-        \mathcal{E} = \left\{ x \in \mathbb{R}^n \mid (x - x^{(0)})^T P^{-1} (x - x^{(0)}) \leq 1 \right\} \\
-    \end{equation*}       
+    PSD and PD matrices are used to define ellipsoids. For a PD matrix,
+    \begin{align*}
+        \mathcal{E} &= \left\{ x \in \mathbb{R}^n \mid (x - x^{(0)})^T P^{-1} (x - x^{(0)}) \leq 1 \right\} \\
+        \mathcal{E} &= \left\{ x \in \mathbb{R}^n \mid x^T P^{-1} x - 2(x^{(0)})^T P^{-1} x + (x^{(0)})^T P^{-1} x^{(0)}  \leq 1 \right\}
+    \end{align*}       
     \begin{itemize}
         \item $P$: PD matrix (i.e. defines the shape)
         \item $x^{(0)}$: Centered at $x^{(0)}$
-        \item $\text{Where } P \text{ is a PD matrix:} \quad (x - x^{(0)})^T P^{-1} (x - x^{(0)}) = x^T P^{-1} x \quad \text{(centered at \( x^{(0)} \))}$
-        \item $(x - x^{(0)})^T P^{-1} (x - x^{(0)}) = x^T P^{-1} x - 2(x^{(0)})^T P^{-1} x + (x^{(0)})^T P^{-1} x^{(0)}$
+        \item \textbf{Note:} $(x^{(0)})^T P^{-1} x = x^T P^{-1} x^{(0)}$
+        \item \textbf{Note:} This is a quadratic function in $x$.
     \end{itemize}
 \end{definition}
 
 \begin{derivation}
+    How to visualize the ellipsoid? $P = U \Lambda U^T \quad \text{$U$ is orthogonal, $\Lambda$ has eigenvalues with $\lambda_i>0$}$
     \begin{align*}
-        \text{How to visualize the ellipsoid:} \quad P &= U \Lambda U^T \\
-        (x - x^{(0)})^T P^{-1} (x - x^{(0)}) &= \tilde{x}^T P^{-1} \tilde{x} \quad \text{where} \quad \tilde{x} = x - x^{(0)} \\
-        \\
-        &= \tilde{x}^T \left( U \Lambda U^T \right)^{-1} \tilde{x} \\
-        &= \tilde{x}^T U^{-1} \Lambda^{-1} U^{-1} \tilde{x} \quad \text{since } U^T = U^{-1} \\
-        &= \tilde{x}^T U \Lambda^{-1} U^T \tilde{x} \\
-        &= \tilde{x}^T \Lambda^{-1} \tilde{x} \\
-        &= \sum_{i=1}^{n} \frac{\tilde{x}_i^2}{\lambda_i}
+        (x - x^{(0)})^T P^{-1} (x - x^{(0)}) &= \bar{x}^T P^{-1} \bar{x} \quad \text{where } \bar{x} = x - x^{(0)} \\
+        &= \bar{x}^T \left( U \Lambda U^T \right)^{-1} \bar{x} \quad \text{since $P$ is symmetric}\\
+        &= \bar{x}^T (U^{T})^{-1} \Lambda^{-1} U^{-1} \bar{x} \quad \text{since for $X$ and $Y$ invertible } (XY)^{-1} = Y^{-1} X^{-1} \\
+        &= \bar{x}^T U \Lambda^{-1} U^T \bar{x} \quad \text{since } U^T = U^{-1} \\
+        &= \tilde{x}^T \Lambda^{-1} \tilde{x} \quad \text{where $\tilde{x} = U^T \bar{x}$}\\
+        &= \begin{bmatrix}
+            \tilde{x}_1 \\
+            \vdots \\
+            \tilde{x}_n
+            \end{bmatrix}^T
+            \begin{bmatrix}
+            \frac{1}{\lambda_1} & 0 & \cdots & 0 \\
+            0 & \frac{1}{\lambda_2} & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & \frac{1}{\lambda_n}
+            \end{bmatrix}
+            \begin{bmatrix}
+            \tilde{x}_1 \\
+            \vdots \\
+            \tilde{x}_n
+            \end{bmatrix} \\ 
+        &= \sum_{i=1}^{n} \frac{\tilde{x}_i^2}{\lambda_i} \\
+        &= \sum_{i=1}^{n} \left(\frac{\tilde{x}_i}{\sqrt{\lambda_i}}\right)^2
     \end{align*} 
 \end{derivation}
+
+\begin{process}
+    \begin{enumerate}
+        \item Plot in the $\tilde{x}$-axis: $\mathcal{E} = \left\{ \tilde{x} \in \mathbb{R}^n \; \middle| \; \left( \frac{\tilde{x}_1}{\sqrt{\lambda_1}} \right)^2 + \cdots + \left( \frac{\tilde{x}_n}{\sqrt{\lambda_n}} \right)^2 \leq 1 \right\}$
+        \customFigure[0.75]{00_Images/TI.png}{Tilde axis.}
+
+        \item Plot in the $\bar{x}$-axis with rotation: $\tilde{x} = U^T \bar{x}  \rightarrow \bar{x} = U \tilde{x}$
+        \begin{align*}
+            \tilde{x} = \begin{bmatrix} \tilde{x}_1 \\ \tilde{x}_2 \end{bmatrix} \xrightarrow[]{U} \bar{x} = \begin{bmatrix} u^{(1)} & u^{(2)} \end{bmatrix} \begin{bmatrix} \tilde{x}_1 \\ \tilde{x}_2 \end{bmatrix}
+        \end{align*}
+
+        \begin{enumerate}
+            \item For $\tilde{x} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$: 
+            \begin{align*}
+                \bar{x} = \begin{bmatrix} u^{(1)} & u^{(2)} \end{bmatrix} \begin{bmatrix} 1 \\ 0 \end{bmatrix} = u^{(1)}
+            \end{align*}
+            \item For $\tilde{x} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$: 
+            \begin{align*}
+                \bar{x} = \begin{bmatrix} u^{(1)} & u^{(2)} \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = u^{(2)}
+            \end{align*}
+        \end{enumerate}
+
+        \customFigure[0.75]{00_Images/BAR.png}{Bar axes.}
+        
+        \item Plot in the $x$-axis with translation: $\bar{x} = x - x^{(0)} \implies x = \bar{x} + x^{(0)}$
+        \customFigure[0.75]{00_Images/X.png}{X axes.}
+        
+    \end{enumerate}
+\end{process}
+
+\subsection{Multivariate Gaussian Varibles}
+\begin{example}
+    Another reason why PD matrices are important is that they are used to define multivariate Gaussian variables.
+    \vspace{1em}
+
+    \textbf{Single-variable Gaussian:}
+    \[
+    f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-m)^2}{2\sigma^2}}
+    \]
+
+    \begin{itemize}
+        \item $\sigma$: standard deviation
+        \item $\sigma^2$: variance
+        \item $m$: mean
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/GD.png}{Single-variable Gaussian distribution}
+    \vspace{1em}
+
+    \textbf{Multivariate Gaussian:}
+
+    \[
+    f(x) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} e^{-\frac{1}{2}(x-m)^T \Sigma^{-1}(x-m)}
+    \]
+
+    \begin{itemize}
+        \item $x \in \mathbb{R}^n$
+        \item $m \in \mathbb{R}^n$: mean vector 
+
+        \item $\Sigma =
+        \begin{bmatrix}
+        \mathbb{E}[(x_1 - m_1)^2] &  \cdots & \mathbb{E}[(x_1 - m_1)(x_n - m_n)] \\
+        \vdots & \ddots & \vdots \\
+        \mathbb{E}[(x_n - m_n)(x_1 - m_1)] & \cdots & \mathbb{E}[(x_n - m_n)^2]
+        \end{bmatrix}$: covariance matrix (\textbf{PD matrix})
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/GD2D.png}{3D-variable Gaussian distribution}
+
+
+    \vspace{1em}
+
+    \textbf{How do we visualize the Gaussian distribution?} See the intersection of $f$ with $g$, which happens when $f$ is the constant. $f$ is a constant when the exponent term is equal to a constant, i.e., 
+
+\[
+(x - m)^T \Sigma^{-1} (x - m) = \text{constant}
+\]
+
+We take the cross-section of the Gaussian PDF with the horizontal hyperplane. This cross-section is defined by:
+
+\[
+(x - m)^T \Sigma^{-1} (x - m) \leq \text{constant}
+\]
+\begin{itemize}
+    \item \textbf{Note:} This is the form of the ellipse.
+\end{itemize}
+
+\customFigure[0.75]{00_Images/CS.png}{Cross-section of GD (i.e. Intersection of Gaussian distribution with horizontal hyperplane).}
+\end{example}
+
+\subsection{Sqaure roots of PSD}
+\begin{definition}
+    PSD matrices always has square roots (i.e. if $B=C^2$, then $C$ is the square root of $B$)
+
+If $A \in S_+^n$, then:
+\[
+A = U \Lambda U^T
+\]
+\begin{itemize}
+    \item Since $\lambda_i > 0$, therefore, we can always define the square root of $\Lambda$: $\Lambda^{1/2} = \begin{bmatrix} \sqrt{\lambda_1} & 0 & \cdots & 0 \\ 0 & \sqrt{\lambda_2} & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & \sqrt{\lambda_n} \end{bmatrix}$
+\end{itemize}
+
+Then:
+\[
+A = U \Lambda^{1/2} \Lambda^{1/2} U^T = (U \Lambda^{1/2} U^T)(U \Lambda^{1/2} U^T) = B \cdot B
+\]
+
+Therefore, $B = U \Lambda^{1/2} U^T$. $B$ is the square root of $A$, denoted by $A^{1/2}$.
+\end{definition}
