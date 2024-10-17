@@ -1,37 +1,117 @@
-\section{Splay Trees}
 \begin{definition}
-The weighted dictionary problem involves inserting, deleting, and searching keys with frequencies.
+    Splay trees are binary search trees (BSTs) without any structural balancing condition. 
+    \begin{itemize}
+        \item \textbf{Weighted dictionary problem:} Key and frequencies accessed. You want to insert, delete, and search.
+    \end{itemize}
+\end{definition}
+
+\subsection{Online vs. Offline:}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Offline:} A prior know the frequencies.
+        \item \textbf{Online:} Splay trees achieve the info $\rightarrow$ achieves theoretical optimality (amortized sense) 
+    \end{itemize}
+\end{definition}
+
+
+\subsection{Splay operation}
+\begin{definition}
+    \begin{lstlisting}
+        Splay(x):
+            while x != root:
+                if p(x) = root: # zig
+                    rotate p(x)
+                if p(x) and x both left or both right child: # zigzig
+                    rotate p(p(x))
+                    rotate p(x)
+                else: # zigzag
+                    rotate p(x)
+                    rotate p(p(x))
+    \end{lstlisting}
 \end{definition}
 
 \begin{intuition}
-Splay trees are binary search trees (BSTs) without any structural balancing condition. Online, splay trees achieve theoretical optimality in an amortized sense.
+    \begin{enumerate}
+        \item \textbf{Zig Case}: 
+        \begin{lstlisting}
+        Occurs when x's parent is the root.
+        - Intuition: x is one step from the root, so a single rotation is enough to bring x to the root.
+        \end{lstlisting}
+    
+        \item \textbf{Zig-Zig Case}: 
+        \begin{lstlisting}
+        Occurs when both x and its parent are on the same side (both left or both right).
+        - Intuition: Two aligned nodes, so we perform two rotations in the same direction to bring x closer to the root.
+        \end{lstlisting}
+    
+        \item \textbf{Zig-Zag Case}:
+        \begin{lstlisting}
+        Occurs when x and its parent are on opposite sides (one left, one right).
+        - Intuition: Zig-zag structure is flattened by alternating two rotations in opposite directions.
+        \end{lstlisting}
+        
+    \end{enumerate}  
 \end{intuition}
 
-\begin{lstlisting}
-Splay(x):
-    while x != root:
-        if p(x) = root:
-            rotate p(x)
-        if p(x) and p(p(x)) both left or both right child:
-            rotate p(p(x))
-            rotate p(x)
-        else:
-            rotate p(x)
-            rotate p(p(x))
-\end{lstlisting}
+\begin{example}
+    \customFigure[0.75]{00_Images/EX2.png}{Example 2}
+\end{example}
 
-\begin{itemize}
-    \item \textbf{Search(x):} Like BST and splay $x$. $O(\log n)$.
-    \item \textbf{Delete(x):} Like BST and splay $p(x)$. $O(\log n)$.
-    \item \textbf{Insert(x):} Like BST and splay $x$. $O(\log n)$.
-\end{itemize}
-
-\section{Amortized Cost of Splay}
-
+\subsection{Operations}
 \begin{definition}
-The weight $WT(x)$ of a node $x$ is the number of nodes in the subtree of $x$ plus $x$.
+    \begin{itemize}
+        \item \textbf{Search(x):} Like BST and splay $x$. $O(\log n)$.
+        \item \textbf{Delete(x):} Like BST and splay $p(x)$. $O(\log n)$.
+        \item \textbf{Insert(x):} Like BST and splay $x$. $O(\log n)$.
+        \customFigure[0.75]{00_Images/INS.png}{Reason for time complexity for insert.}
+        \item \textbf{Split(x):} $\text{splay}(x)$ and disconnect components. $O(\log n)$
+        \customFigure[0.75]{00_Images/SPLIT.png}{Split}
+        \item \textbf{Join(x,R,L):} $O(\log n)$
+        \customFigure[0.75]{00_Images/JOIN.png}{Join.}
+        % FIGURE
+    \end{itemize}
 \end{definition}
 
-\begin{equation*}
-\text{rank}(x) = \lceil \log(WT(x)) \rceil
-\end{equation*}
+\subsection{Amortized Cost of Splay}
+
+\subsubsection{Rank}
+\begin{definition}
+    $WT(x)$ of a node $x$ is the number of nodes in the subtree of $x$ plus $x$, therefore, the rank of $x$ is 
+    \begin{equation*}
+        \text{rank}(x) = \lceil \log(WT(x)) \rceil
+    \end{equation*}
+\end{definition}
+
+\subsubsection{Credit invariant}
+\begin{definition}
+    Every node has $\$(\text{rank}(x))$ on it. 
+\end{definition}
+
+\subsubsection{Lemma}
+\begin{theorem}
+    Every zig, zigzig, zigzag costs 
+    \begin{equation*}
+        3(\text{nr}(x) - \text{or(x)})
+    \end{equation*}    
+    except the zig that may require an extra \$1.
+    \begin{itemize}
+        \item nr: new rank
+        \item or: old rank
+    \end{itemize}
+\end{theorem}
+
+\begin{derivation}
+    \customFigure[0.75]{00_Images/P1.png}{Proof of zig zig}
+    \customFigure[0.75]{00_Images/P2.png}{Proof of zig zag and zig}
+\end{derivation}
+
+\subsubsection{Theorem}
+\begin{theorem}
+    Amortized cost of splay is $O(\log n)$ dollars. 
+\end{theorem}
+
+\begin{derivation}
+    \customFigure[0.75]{00_Images/PROOF.png}{PROOF by telescoping.}
+\end{derivation}
+
+

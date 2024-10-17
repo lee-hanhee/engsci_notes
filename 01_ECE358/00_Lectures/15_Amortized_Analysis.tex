@@ -1,75 +1,99 @@
 \begin{definition}
-A worst-case guarantee (bound) for the average case. We view/analyze every operation as part of the sequence of $n$ operations. If $n$ operations take $T(n)$ time, the operation has $T(n)/n$ amortized costs, which may be different from the actual cost.
-\end{definition}
+    A worst-case guarantee (bound) for the average case. 
+    \begin{itemize}
+        \item We view/analyze every operation as part of the sequence of $n$ operations. 
+        \item If $n$ operations take $T(n)$ time, the operation has $T(n)/n$ amortized costs, which may be different from the actual cost.
+    \end{itemize}
+    \end{definition}
+    
+    \subsection{Analysis Methods}
+    \begin{definition}
+        \begin{itemize}
+            \item Aggregate method (brute force)
+            \item Accounting method (splay)
+            \item Potential method
+        \end{itemize}
+    \end{definition}
+    
+    \subsection{Aggregate Method}
+    \begin{process}
+        The aggregate method works by computing the total cost of \( n \) operations and dividing by \( n \) to find the average, or amortized cost, per operation.
 
-\subsubsection{Analysis Methods}
-\begin{itemize}
-    \item Aggregate method (brute force)
-    \item Accounting method (splay).
-    \item Potential method.
-\end{itemize}
+        \begin{enumerate}
+            \item \textcolor{black}{We begin by analyzing the total cost $T(n)$ of a sequence of operations.}
+            \item \textcolor{black}{Next, we calculate the amortized cost per operation as $\frac{T(n)}{n}$.}
+            \item \textcolor{black}{In this method, the expensive operations are averaged out over a large number of operations, ensuring that the average cost per operation is small.}
+        \end{enumerate}
+    \end{process}
+    
+    \subsection{Accounting Method}
+    \begin{process}
+        We charge \$ for every operation, and the data structure behaves like a ``bank".
+        \begin{itemize}
+            \item \textbf{Amortized cost} $=$ what we charge.
+            \item \textbf{Actual cost} $=$ how expensive the operation actually is.
+            \item If amortized cost $>$ actual cost $\Rightarrow$ save/deposit on the data structure.
+            \item If amortized cost $<$ actual cost $\Rightarrow$ use credit from the data structure.
+            \item \textbf{Note:} We cannot run during analysis on negative credit (use as a check).
+            \begin{itemize}
+                \item Most likely fix the set amortized cost. 
+            \end{itemize}
+        \end{itemize}
+    \end{process}
+    
+    \subsection{Stack Operations Example}
+    \begin{example}
+    \begin{tabbing}
+        \hspace*{4cm} \= \hspace*{5cm} \= \kill
+        \textbf{Operation} \> \textbf{Cost} \> \textbf{Naive Approach} \\
+        \textbf{push} \> $O(1)$ \\
+        \textbf{pop} \> $O(1)$ \>  \\
+        \textbf{multipop} \> $O(n)$
+    \end{tabbing}
+    \end{example}
 
-\subsubsection{Stack Operations}
-\begin{itemize}
-    \item \textbf{Push:} $O(1)$
-    \item \textbf{Pop:} $O(1)$ (naive: $O(n)$ if we call multipop $n$ times)
-    \item \textbf{Multipop:} $O(n)$
-\end{itemize}
+    \subsubsection{Naive analysis:}
+    \begin{example}
+        $n \cdot O(n)=O(n^2)$ if we call \textit{multipop} $n$ times
+    \end{example}
+    
+    \subsubsection{Aggregate Method}
+    \begin{example}
+        You cannot pop more than what you push, hence $n$ operations can take at most $O(n)$ time or $O(n)/n = O(1)$ per increment in amortized time.
+    \end{example}
+    
+    \subsubsection{Accounting Method}
+    \begin{example}
+        \customFigure[0.75]{00_Images/OPS.png}{Accounting method.}
+        \begin{itemize}
+            \item For n operations, need $\$ 2n$ or $\frac{O(n)}{n}= O(1)$ per increment in an amortized sense. 
+        \end{itemize}
+    \end{example}
+    
+    \subsection{Binary Counter Example}
+    \begin{example}
+    \begin{lstlisting}
+        Increment(A, k)
+            i = 0
+            while i < k and A[i] == 1:
+                A[i] = 0
+                i = i + 1
+            if i < k:
+                A[i] = 1
+    \end{lstlisting}
+    \end{example}
 
-\begin{warning}
-    You cannot pop more than what you push, hence $n$ operations can take at most $O(n)$ time or $O(n)/n$ amortized time.
-\end{warning}
-
-\subsubsection{Binary Counter: Increment}
-\begin{lstlisting}
-Increment(A, k)
-    i = 0
-    while i < k and A[i] == 1:
-        A[i] = 0
-        i = i + 1
-    if i < k:
-        A[i] = 1
-\end{lstlisting}
-
-\begin{warning}
-    Let $k = n$. Assume $O(1)$ to flip $1 \rightarrow 0$ or $0 \rightarrow 1$. Increment is $O(n)$ time $\Rightarrow$ calling $n$ times is $O(n^2)$.
-\end{warning}
-
-\subsubsection{Aggregate Analysis of Flips}
-\begin{definition}
-    \[
-\# \text{ bit flips} = \sum_{i=0}^{n} \frac{n}{2^i}
-\]
-The total bit flips is $\leq 2n$, and the amortized cost of increment is $O(1)$.
-\end{definition}
-
-
-\subsubsection{Accounting Method}
-\begin{definition}
-We charge \$ for every operation, and the data structure behaves like a ``bank".
-\begin{itemize}
-    \item \textbf{Amortized cost} $=$ what we charge.
-    \item \textbf{Actual cost} $=$ how expensive the operation actually is.
-    \item If amortized cost $>$ actual cost $\Rightarrow$ save/deposit on the data structure.
-    \item If amortized cost $<$ actual cost $\Rightarrow$ use credit from the data structure.
-    \item We cannot run during analysis on negative credit.
-\end{itemize}
-\end{definition}
-
-\subsubsection{Stack Operations Table}
-
-\begin{table}[h!]
-\centering
-\begin{tabular}{|c|c|c|}
-\hline
-Operation & Actual Cost & Amortized Cost \\
-\hline
-Push & $O(1)$ & \$2 \\
-Pop & $O(1)$ & \$1 \\
-Multipop & $O(n)$ & \$0 \\
-\hline
-\end{tabular}
-\caption{Cost table for stack operations}
-\end{table}
-
-For $n$ operations, we need $2n$ or $O(n)/n = O(1)$ in an amortized sense.
+    \subsubsection{Naive analysis:}
+    \begin{example}
+        Let $k = n$. Assume $O(1)$ to flip $1 \rightarrow 0$ or $0 \rightarrow 1$. Increment is $O(n)$ time $\Rightarrow$ calling $n$ times is $O(n^2)$.
+    \end{example}
+    
+    \subsubsection{Aggregate Method}
+    \begin{example}
+        \customFigure[0.75]{00_Images/AGR.png}{Aggregate method}
+    \end{example}
+    
+    \subsubsection{Accounting Method}
+    \begin{example}
+        \customFigure[0.75]{00_Images/BINCTR.png}{Derivation of amoritzed sense.}
+    \end{example}
