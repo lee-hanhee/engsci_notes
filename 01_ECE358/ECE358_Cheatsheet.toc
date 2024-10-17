@@ -196,27 +196,25 @@
 \contentsline {subsection}{\numberline {17.3}Intro to Huffman Encoding}{95}{subsection.17.3}%
 \contentsline {subsubsection}{\numberline {17.3.1}Problem Statement}{96}{subsubsection.17.3.1}%
 \contentsline {subsubsection}{\numberline {17.3.2}Steps in Huffman Coding}{96}{subsubsection.17.3.2}%
-\contentsline {subsubsection}{\numberline {17.3.3}Algorithm}{97}{subsubsection.17.3.3}%
-\contentsline {subsubsection}{\numberline {17.3.4}Time complexity}{97}{subsubsection.17.3.4}%
-\contentsline {subsubsection}{\numberline {17.3.5}Greedy principle}{97}{subsubsection.17.3.5}%
-\contentsline {subsubsection}{\numberline {17.3.6}Optimal Substructure}{98}{subsubsection.17.3.6}%
-\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{99}{section.18}%
-\contentsline {subsubsection}{\numberline {18.0.1}Analysis Methods}{99}{subsubsection.18.0.1}%
-\contentsline {subsubsection}{\numberline {18.0.2}Stack Operations}{99}{subsubsection.18.0.2}%
-\contentsline {subsubsection}{\numberline {18.0.3}Binary Counter: Increment}{99}{subsubsection.18.0.3}%
-\contentsline {subsubsection}{\numberline {18.0.4}Aggregate Analysis of Flips}{99}{subsubsection.18.0.4}%
-\contentsline {subsubsection}{\numberline {18.0.5}Accounting Method}{99}{subsubsection.18.0.5}%
-\contentsline {subsubsection}{\numberline {18.0.6}Stack Operations Table}{99}{subsubsection.18.0.6}%
-\contentsline {section}{\numberline {19}Splay trees}{100}{section.19}%
-\contentsline {section}{\numberline {20}Splay Trees}{100}{section.20}%
-\contentsline {section}{\numberline {21}Amortized Cost of Splay}{100}{section.21}%
-\contentsline {section}{\numberline {22}Graph algorithms (Ch. 20)}{101}{section.22}%
-\contentsline {subsection}{\numberline {22.1}Intro}{101}{subsection.22.1}%
-\contentsline {subsection}{\numberline {22.2}Breadth-first search}{101}{subsection.22.2}%
-\contentsline {subsection}{\numberline {22.3}Depth-first search}{101}{subsection.22.3}%
-\contentsline {section}{\numberline {23}Minimum spanning trees (Ch. 21)}{102}{section.23}%
-\contentsline {section}{\numberline {24}Shortest paths (Ch. 22)}{103}{section.24}%
-\contentsline {section}{\numberline {25}Maximum flow (Ch. 24)}{104}{section.25}%
-\contentsline {section}{\numberline {26}History of computation}{105}{section.26}%
-\contentsline {section}{\numberline {27}P, NP, and NPC introduction (Ch. 34)}{106}{section.27}%
-\contentsline {section}{\numberline {28}NP Completeness (NPC) (Ch. 34)}{107}{section.28}%
+\contentsline {subsubsection}{\numberline {17.3.3}Time complexity}{97}{subsubsection.17.3.3}%
+\contentsline {subsubsection}{\numberline {17.3.4}Optimal substructure}{98}{subsubsection.17.3.4}%
+\contentsline {section}{\numberline {18}Amortized analysis (Ch. 16)}{100}{section.18}%
+\contentsline {subsubsection}{\numberline {18.0.1}Analysis Methods}{100}{subsubsection.18.0.1}%
+\contentsline {subsubsection}{\numberline {18.0.2}Stack Operations}{100}{subsubsection.18.0.2}%
+\contentsline {subsubsection}{\numberline {18.0.3}Binary Counter: Increment}{100}{subsubsection.18.0.3}%
+\contentsline {subsubsection}{\numberline {18.0.4}Aggregate Analysis of Flips}{100}{subsubsection.18.0.4}%
+\contentsline {subsubsection}{\numberline {18.0.5}Accounting Method}{100}{subsubsection.18.0.5}%
+\contentsline {subsubsection}{\numberline {18.0.6}Stack Operations Table}{100}{subsubsection.18.0.6}%
+\contentsline {section}{\numberline {19}Splay trees}{101}{section.19}%
+\contentsline {section}{\numberline {20}Splay Trees}{101}{section.20}%
+\contentsline {section}{\numberline {21}Amortized Cost of Splay}{101}{section.21}%
+\contentsline {section}{\numberline {22}Graph algorithms (Ch. 20)}{102}{section.22}%
+\contentsline {subsection}{\numberline {22.1}Intro}{102}{subsection.22.1}%
+\contentsline {subsection}{\numberline {22.2}Breadth-first search}{102}{subsection.22.2}%
+\contentsline {subsection}{\numberline {22.3}Depth-first search}{102}{subsection.22.3}%
+\contentsline {section}{\numberline {23}Minimum spanning trees (Ch. 21)}{103}{section.23}%
+\contentsline {section}{\numberline {24}Shortest paths (Ch. 22)}{104}{section.24}%
+\contentsline {section}{\numberline {25}Maximum flow (Ch. 24)}{105}{section.25}%
+\contentsline {section}{\numberline {26}History of computation}{106}{section.26}%
+\contentsline {section}{\numberline {27}P, NP, and NPC introduction (Ch. 34)}{107}{section.27}%
+\contentsline {section}{\numberline {28}NP Completeness (NPC) (Ch. 34)}{108}{section.28}%

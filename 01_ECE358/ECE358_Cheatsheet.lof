@@ -38,8 +38,9 @@
 \contentsline {figure}{\numberline {37}{\ignorespaces 2 by 2 matrix.}}{92}{figure.37}%
 \contentsline {figure}{\numberline {38}{\ignorespaces Computation of C}}{93}{figure.38}%
 \contentsline {figure}{\numberline {39}{\ignorespaces Class scheduling example.}}{94}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces WHAT IS THIS EXAMPLE SHOWING.}}{94}{figure.40}%
+\contentsline {figure}{\numberline {40}{\ignorespaces It is showing that you can replace $o$ by $g$. In the diagram, it uses $n$ instead of $m$, but same meaning (i.e. $n=m$).}}{94}{figure.40}%
 \contentsline {figure}{\numberline {41}{\ignorespaces 45\% contains a, 13\% contains b, and so on. Converting this to binary using $d(c_1)$, which is fixed.}}{96}{figure.41}%
 \contentsline {figure}{\numberline {42}{\ignorespaces $d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}}{96}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces Tree}}{96}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}}{97}{figure.44}%
+\contentsline {figure}{\numberline {43}{\ignorespaces Tree}}{97}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}}{98}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces Derivation.}}{99}{figure.45}%

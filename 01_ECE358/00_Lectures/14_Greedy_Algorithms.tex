@@ -25,7 +25,7 @@
     Given one room and many classes to schedule, the goal is to maximize the number of classes scheduled in one day. The greedy aprooach is that
     \begin{enumerate}
         \item Sort by finish time (i.e. start with the class that starts more early)
-        \item Schedule classes in order based on sorted times.
+        \item Schedule classes in this order based on sorted times.
         \item The time complexity for sorting is $O(n\log(n))$.
     \end{enumerate}
     \customFigure[0.75]{00_Images/CSE.png}{Class scheduling example.}
@@ -39,10 +39,10 @@
     \begin{itemize}
         \item ATaC: Given that greedy choices $g_1, g_2, \dots, g_m$ are not optimal, but some other optimal choices $o_1, o_2, \dots, o_m$ exist $(m > n)$. 
         \item By the way the greedy algorithm works, $f(g_i) \leq f(o_i)$ (f is the finish time) because it replaces based on the finish time. 
-        \customFigure[0.75]{00_Images/POC.png}{WHAT IS THIS EXAMPLE SHOWING.}
+        \customFigure[0.75]{00_Images/POC.png}{It is showing that you can replace $o$ by $g$. In the diagram, it uses $n$ instead of $m$, but same meaning (i.e. $n=m$).}
         \begin{itemize}
             \item You can replace $o_1$ with $g_1$ by construction because $g_1$ finishes first. 
-            \item You can replace $o_2$ with $g_2$ by constrcution 
+            \item You can replace $o_2$ with $g_2$ by construction
             \item Up to $g_m$
             \item $o_{m+1} \ldots o_k$ cannot exist because the greedy algorithm didn't pick any. So we proved that the optimal solution is $G$
         \end{itemize}
@@ -94,6 +94,8 @@ For fractional knapsack:
     \begin{itemize}
         \item $C[i, \omega]$ denotes the optimal (most valuable) selection in $1\ldots i$ with $\omega$ as the leftover weight.
         \item First case is an artificial base case.
+        \item Second case is when the weight exceeds limit, so the max is the previous value that was valid. 
+        \item Third case is the max of not picking the item and picking the item and adding the value of it and subtracting the weight of the result of adding item for the next recursion.
     \end{itemize}
 \end{definition}
 
@@ -110,6 +112,7 @@ For fractional knapsack:
     \customFigure[0.75]{00_Images/CHARS.png}{$d(c_2)$ variable size encoding to account for assigning fewer bits to more frequent characters}
     \begin{itemize}
         \item e.g. bad $101 \; 0 \; 111$. Since is $a$ is 45\%, therefore, we only assign one bit to it. 
+        \item \textbf{Note:} This encoding is not unique. 
     \end{itemize}
 \end{intuition}
 
@@ -125,25 +128,19 @@ Huffman coding minimizes the size of the encoded file $B(T)$ by assigning fewer 
 \end{definition}
 
 \subsubsection{Steps in Huffman Coding}
-\begin{itemize}
-    \item Write two letters with the lowest frequency in a tree-like fashion.
-    \item Replace the two letters with a new character that sums their frequencies.
-    \item Label the resulting tree.
-    \customFigure[0.75]{00_Images/LG.png}{Tree}
-\end{itemize}
-
-\subsubsection{Algorithm}
 \begin{process}
-    \begin{itemize}
-        \item Unite the two lowest frequency keys $x$ and $y$, new pseudo key $z$ w/ $f(z) = f(x) + f(y)$ 
-        \item Repeat till you get a root. 
-        \item Label resulting tree w/ $0s$ and $1s$ going left and right. 
-    \end{itemize}
-
+    \begin{enumerate}
+        \item Write two letters $x$,$y$ with the lowest frequency in a tree-like fashion.
+        \item These two letters is replaced by the two letters with a new pseudo key $z$ that sums their frequencies $f(z)=f(x)+f(y)$
+        \item Repeat till you get to a root. 
+        \item Label the resulting tree with $0s$ and $1s$ going left and right respectively.
+        \customFigure[0.75]{00_Images/TREE.png}{Tree}
+    \end{enumerate}
     \begin{itemize}
         \item e.g. $100 \; 0 \; 110$
         \item the tree allows to read the word off the word for bat. 
         \item Note: This puts the highest frequency characters up high with the lowest binary bits. 
+        \item No matter then encoding, you can create a tree. 
     \end{itemize}
 
 \end{process}
@@ -157,40 +154,24 @@ Huffman coding minimizes the size of the encoded file $B(T)$ by assigning fewer 
     If you can prove the greedy choice is the correct choice, and then remaining optimal solution, then you can prove that the rest of the greedy choices will be also be good. you are breaking down the problem more and more. In this example, the first two greedy chocies is choosing the lowest frequenceis, and then you have a smaller problem, which can be done inductively. These are the two theorems that we will be proving. 
 \end{intuition}
 
-Now prove the optimality: 
-\subsubsection{Greedy principle}
+\subsubsection{Optimal substructure}
 \begin{theorem}
 Every optimal tree can have the two lowest frequency keys being siblings, differing by one bit only in the highest tree depth. 
 
 \end{theorem}
 
-
-No matter then encoding, you can create a tree. 
-IS THIS A PROOF?
 \begin{derivation}
-    Assume the two lowest frequency keys are $x$ and $y$ and $T$ remains optimal. 
+    Assume the two lowest frequency keys are $x$ and $y$ and $T$ is optimal. 
     \customFigure[0.75]{00_Images/E.png}{T optimal, T' (swapped b and x from T optimal), and T'' (swapped y and c from T')}
     \begin{itemize}
-        \item \textbf{Note:} This shows that the tree remains optimal. This is just like the class scheduling. 
-        \item T' is not optimal, but T'' is still optimal. 
-        \item No matter what tree you give him, you can transsform into the greedy without changing optimality. 
-        \item You can do the swaps to put x and y, but they are not at the greatest depth, you can perform swaps to put them at the lowest frequnecies. 
-        \item T otpimal is the tree that they give and x and y are the two lowest frequency, but they are not at the highest depth, so we can perform swaps to get the greedy option, which is T''.
-        \item Optimal --> greedy. This is just like the class scheduling. Given a class scheduling, we can find an optimal tree. 
-        \item class schedulign was shown with g1,g2,,...,gn and o1,o2,on. you can keep on swaps to create the optimal tree that you were given and transform it into the greeedy option. 
-        \item optimal means minimizing $B(T)$.
+        \item \textbf{Note:} This shows that the tree remains optimal. This is just like the class scheduling. (i.e. $T''$ is still optimal after rotations). T' is not optimal, but T'' is still optimal. 
+        \item \textbf{Key:} No matter what tree you give him, you can transform into the greedy without changing optimality. 
+        \item \textbf{Optimal to greedy:} T optimal is the tree that they give and x and y are the two lowest frequency, but they are not at the highest depth, so we can perform swaps to get the greedy option, which is T''.
+        \item \textbf{Note 2:} Optimal means minimizing $B(T)$.
     \end{itemize}
     \vspace{1em}
 
     Prove that $B(T') \leq B(T)$
-
-    \begin{align*}
-        B(T) - B(T') = \sum f(c) d_T (c) - \sum f(c) d_{T'} (c) = ((f(b) - f(x))) (d_T (b) -
-    \end{align*}
-    \begin{itemize}
-        \item $f(b)$
-    \end{itemize}
-
     \begin{enumerate}
         \item Let $B(T)$ be the sum of the frequencies and their bit-lengths:
         \[
@@ -201,55 +182,12 @@ IS THIS A PROOF?
     
         \item By the greedy principle:
         \[
-        B(T_{\text{opt}}) - B(T') = \sum_c f(c)(d(c_{opt}) - \sum_c f(c) d(c_{gr}) \geq 0
+        B(T_{\text{opt}}) - B(T') = \sum_c f(c)(d(c_{opt}) - \sum_c f(c) d(c_{gr}) = ((f(b) - f(x))) (d_{T_{opt}} (b) - d_{T_{opt}} (x)) \geq 0
         \]
         Thus, $B(T_{\text{opt}}) \geq B(T')$.
     \end{enumerate}
 \end{derivation}
 
-\subsubsection{Optimal Substructure}
-WHAT IS THE WORKFLOW, HOW DID WE GET HERE. IS THIS A THEOREM?
-\begin{theorem}
-    \begin{enumerate}
-        \item Let \( x \) $\leftarrow z \rightarrow$ \( y \) be part of \( T_{\text{opt}} \) for character set \( C \). Then
-        \[
-        T_{\text{opt}} = T_{\text{opt}} - \{x, y\} + \{z\}
-        \]
-        is optimal prefix code for new set \( C' = C - \{x, y\} + \{z\} \), where \( f(z') = f(x) + f(y) \).
-    
-        \item We have
-        \[
-        f(x) \cdot d_{T_{\text{opt}}}(x) + f(y) \cdot d_{T_{\text{opt}}}(y) = f(z) \cdot d_{T_{\text{opt}}}(z) + [f(x) + f(y)]
-        \]
-        because 
-        \[
-        d_{T_{\text{opt}}}(x) = d_{T_{\text{opt}}}(y) = d_{T_{\text{opt}}}(z) + 1.
-        \]
-    
-        \item Every time we "move" from \( T_{\text{opt}} \) to \( T'_{\text{opt}} \) by merging 2 keys, we have
-        \[
-        \mathcal{B}(T_{\text{opt}}) = \mathcal{B}(T'_{\text{opt}}) + (f(x) + f(y)).
-        \]
-    
-        \item ATaC \( T'_{\text{opt}} \) is not optimal for \( C' \), but \( T'' \) is. 
-    
-        \[
-        \mathcal{B}(T'') + (f(x) f(y)) < \mathcal{B}(T'_{\text{opt}}) + (f(x) f(y)),
-        \]
-        which is more optimal than \( T_{\text{opt}} \), a contradiction.
-    \end{enumerate}
-
-\end{theorem}
-
 \begin{derivation}
-    Let in $T_{opt}$ for character set $C$ then 
-    \begin{equation*}
-        T' = T - \{x,y\} + \{z\}
-    \end{equation*}
-    is optimal prefix code for $C = C - \{x,y\} + {z}$, where $f(z) = f(x) + f(y)$
-    \begin{itemize}
-        \item ef is combined together to ahve a frequencty of $f(ef) = 14$. This essentially combines them together. 
-        \item In english, $B(T) = B(T') + [f(x) + f(y)]$
-        \item show tha t 
-    \end{itemize}
+    \customFigure[0.75]{00_Images/D1.png}{Derivation.}
 \end{derivation}
