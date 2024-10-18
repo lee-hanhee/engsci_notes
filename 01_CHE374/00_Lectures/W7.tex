@@ -23,45 +23,17 @@
                 \item Diminish in value over time.
                 \item Reduce the recorded value of an asset over a predetermined period.
                     \begin{itemize}
-                        \item Not a cash flow!
+                        \item \textbf{Not a cash flow!}
+                        \item i.e. This value is from our own bookkeeping.
                     \end{itemize}
             \end{enumerate}
+
         
         \item \textbf{Cost Basis:} The value against which depreciation is measured. Usually based on First Cost.
         
         \item \textbf{Market Value:} Actual value of an asset if sold in a free market. Usually cannot be observed until the item is actually sold.
         
-        \item \textbf{Book Value:} The value calculated for accounting purposes according to an agreed-upon model.
-        
-        \item \textbf{$BV_t$:} Book value at time $t$ (end of year)
-        
-        \begin{equation}
-            BV_t = BV_{t-1} - D_t = BV_0 - \sum_{k=1}^{t} D_k
-        \end{equation}
-        
-        \item \textbf{B:} Basis, AKA first cost, original purchase price.
-            \[
-            B = BV_0
-            \]
-        
-        \item \textbf{S:} Salvage value, AKA selling cost, market value (not always interchangeable).
-        
-        \item \textbf{$D_t$:} Depreciation in year $t$.
-        
-        \item \textbf{N:} Depreciable life of the asset. Not necessarily equal to the useful life.
-        
-        \item \textbf{d:} Proportion of asset value lost to depreciation.
-            \begin{itemize}
-                \item See Declining Balance Method.
-            \end{itemize}
-        
-        \item \textbf{Loss on Disposal:} One-time additional depreciation value. Accounts for lower salvage value than predicted by depreciation.
-        
-        \item \textbf{Recaptured Depreciation:} One-time negative depreciation value. Accounts for higher salvage value than predicted by depreciation.
-            \begin{itemize}
-                \item If higher than cost basis, the difference between market value and salvage value is called capital gain, and the difference between predicted value and cost basis is recaptured depreciation.
-            \end{itemize}
-    
+        \item \textbf{Book Value:} The value calculated for accounting purposes according to an agreed-upon model.    
     \end{itemize}
 \end{terminology}
 
@@ -71,7 +43,7 @@
     \textbf{Asset Deterioration}
         \begin{itemize}
             \item \textbf{Use-Related Physical Loss:} As something is used, the more it/its parts wear out. AKA "wear and tear."
-            \item \textbf{Time-Related Physical Loss:} Even if not used, things will deteriorate over time due to natural or other factors.
+            \item \textbf{Time-Related Physical Loss:} Even if not used, things will deteriorate over time due to nature or other factors.
         \end{itemize}
         
     \textbf{Asset Obsolescence}
@@ -83,8 +55,46 @@
         \end{itemize}
 \end{definition}
 
-\subsection{Straight line method}
+\subsection{Depreciation in accounting}
+\begin{intuition}
+    Determining how to distribute the value of an asset over time from the first cost to the salvage value. 
+    \customFigure[0.75]{00_Images/D.png}{Different functions that model the depreciation in different ways.}
+\end{intuition}
+
+\begin{warning}
+    Depreciation is not cash flow, so only the first cost and salvage value are in the CF diagram. Since depreciation does not involve any CFs, then it doesn't enter into PW calculations.
+\end{warning}
+
+\subsubsection{Variables of interest}
 \begin{definition}
+    \begin{itemize}
+        \item \textbf{$BV_t$:} Book value at time $t$ (end of year)
+        \item 
+        \begin{equation}
+            BV_t = BV_{t-1} - D_t = BV_0 - \sum_{k=1}^{t} D_k
+        \end{equation}
+        
+        \item \textbf{B:} Basis, AKA first cost, original purchase price.
+            \[
+            B = BV_0
+            \]
+        
+        \item \textbf{S:} Salvage value, AKA selling cost, market value (not always interchangeable).
+        
+        \item \textbf{$D_t$:} Depreciation in year $t$ (i.e. loss of value assigned to accounting period $t$)
+        
+        \item \textbf{N:} Depreciable life of the asset (Not necessarily equal to the useful life of the asset).
+        
+        \item \textbf{d:} Proportion of asset value lost to depreciation.
+            \begin{itemize}
+                \item See Declining Balance Method.
+            \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Straight line method}
+\begin{definition}
+    Assumes the annual loss in value is constant over the asset life.
     \begin{equation}
         D_t = \frac{B - S}{N}
     \end{equation}
@@ -94,7 +104,11 @@
     \end{equation}
 \end{definition}
 
-\subsection{Declining balance method}
+\begin{example}
+    L2
+\end{example}
+
+\subsubsection{Declining balance method}
 \begin{definition}
     \begin{equation}
         D_t = (BV_{t-1}) \cdot d            
@@ -107,22 +121,32 @@
     \textbf{Rate Selection}
 
     \begin{equation}
-        S = B(1 - d)^N
+        S = B(1 - d)^N \rightarrow d = 1 - \sqrt[N]{\frac{S}{B}}
     \end{equation}
-
-    \begin{equation}
-        d = 1 - \sqrt[N]{\frac{S}{B}}
-    \end{equation}
+    \begin{itemize}
+        \item \textbf{Note:} $S$ (salvage value) must be known.
+    \end{itemize}
 
     \textbf{Double Declining Balance:}
-    Double what the straight-line method would have been.
+    Double what the straight-line method would have been. 
 
     \begin{equation}
         d = \frac{2}{N}
     \end{equation}
+    \begin{itemize}
+        \item \textbf{Note:} $N$ must be known. 
+    \end{itemize}
 \end{definition}
 
-\subsection{Sum of years' digits (SOYD)}
+\begin{example}
+    L2
+\end{example}
+
+\begin{warning}
+    Under declining depreciation, the asset value nevers drop to $0$ (can be asymptotically close to it).
+\end{warning}
+
+\subsubsection{Sum of years' digits (SOYD)}
 \begin{definition}
     \begin{itemize}
         \item Faster than straight line during early years, slower than straight line during later years. 
@@ -142,7 +166,11 @@
     \end{equation}    
 \end{definition}
 
-\subsection{Unit of production method}
+\begin{example}
+    L3
+\end{example}
+
+\subsubsection{Unit of production method}
 \begin{definition}
     Assumes depreciation is a function of equipment use rather than time
 
@@ -154,6 +182,51 @@
     BV_t = BV_{t-1} - D_t
     \end{equation}
 \end{definition}
+
+\begin{example}
+    L3
+\end{example}
+
+\subsection{Market value differs from book value}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Loss on Disposal:} One-time additional depreciation value. Accounts for lower salvage value than predicted by depreciation.
+        
+        \item \textbf{Recaptured Depreciation:} One-time negative depreciation value. Accounts for higher salvage value than predicted by depreciation.
+            \begin{itemize}
+                \item If higher than cost basis, the difference between market value and salvage value is called capital gain, and the difference between predicted value and cost basis is recaptured depreciation.
+            \end{itemize}
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/LOD.png}{Loss on disposal}
+    \customFigure[0.75]{00_Images/RD.png}{Recaptured depreciation}
+    \customFigure[0.75]{00_Images/CG.png}{Capital gain}
+    \begin{itemize}
+        \item Market value differs at sale $\Rightarrow$ Reconcile book value with true salvage
+        \begin{itemize}
+            \item Salvage $<$ Book value $=$ Loss at disposal
+            \item Salvage $>$ Book value $=$ Recaptured depreciation
+            \item Salvage $>$ First cost $=$ Capital gains
+        \end{itemize}
+    \end{itemize}
+    
+\end{definition}
+
+\begin{example}
+    L4
+\end{example}
+
+\subsubsection{Re-evaluated service life}
+\begin{definition}
+    If service life differs from that assumed, re-evaluate service life and depreciate at faster or slower rate from then on. 
+    \begin{itemize}
+        \item Do not change previous book values
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    L4
+\end{example}
 
 \subsection{CCA depreciation}
 \begin{definition}
@@ -174,12 +247,4 @@
         UCC_N = UCC_{N-1} + \text{This year's addition} - CCA
     \end{equation}
 
-\end{definition}
-
-\subsection{Re-evaluated service life}
-\begin{definition}
-    If service life differs from that assumed, re-evaluate service life and depreciate at faster or slower rate from then on. 
-    \begin{itemize}
-        \item Do not change previous book values
-    \end{itemize}
 \end{definition}
