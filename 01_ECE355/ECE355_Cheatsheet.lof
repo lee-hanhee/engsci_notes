@@ -1,12 +1,12 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{9}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{9}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{10}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{10}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{10}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{11}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{12}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{13}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{13}{figure.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{14}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{14}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{14}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{15}{figure.11}%
@@ -99,6 +99,11 @@
 \contentsline {figure}{\numberline {98}{\ignorespaces Fourier series coefficients at $T=4$}}{81}{figure.98}%
 \contentsline {figure}{\numberline {99}{\ignorespaces Gibb's Phenomenon}}{81}{figure.99}%
 \contentsline {figure}{\numberline {100}{\ignorespaces Non-uniform convergence}}{82}{figure.100}%
-\contentsline {figure}{\numberline {101}{\ignorespaces Modulation with the complex exponential results in a shift by $m$}}{86}{figure.101}%
-\contentsline {figure}{\numberline {102}{\ignorespaces Cosine}}{87}{figure.102}%
-\contentsline {figure}{\numberline {103}{\ignorespaces Product}}{87}{figure.103}%
+\contentsline {figure}{\numberline {101}{\ignorespaces $p_N [n]$}}{83}{figure.101}%
+\contentsline {figure}{\numberline {102}{\ignorespaces $p_N [n-1]$}}{83}{figure.102}%
+\contentsline {figure}{\numberline {103}{\ignorespaces Example of $N=4$}}{84}{figure.103}%
+\contentsline {figure}{\numberline {104}{\ignorespaces Square wave.}}{85}{figure.104}%
+\contentsline {figure}{\numberline {105}{\ignorespaces Square wave 2, where the discrete lines are the FS coefficients.}}{86}{figure.105}%
+\contentsline {figure}{\numberline {106}{\ignorespaces Modulation with the complex exponential results in a shift by $m$}}{90}{figure.106}%
+\contentsline {figure}{\numberline {107}{\ignorespaces Cosine}}{91}{figure.107}%
+\contentsline {figure}{\numberline {108}{\ignorespaces Product}}{91}{figure.108}%

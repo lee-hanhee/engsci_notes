@@ -275,44 +275,13 @@
 \end{definition}
 
 \subsubsection{Rewriting in Terms of Post-Activation Values}
-\begin{derivation} FINISH THIS LATER ITS NOT CORRECT?
+\begin{derivation} 
     We rewrite the following formulas in terms of the post-activation values:
     \[
     \hat{x}_i \triangleq g_i(x_i), \quad i = 1 \dots M
     \]
     
-    \textbf{1. Forward Propagation}:
-    For $j = l+1 \dots M$:
-    \[
-    x_j = \sum_{i=1}^{j-1} w_{ij} \hat{x}_i
-    \]
-    
-    \textbf{2. Output Unit Error Derivatives}:
-    For $n = M \dots M-O+1$:
-    \[
-    \frac{\partial E}{\partial x_m} = -2(y_m - \hat{x}_m) \hat{x}'_m
-    \]
-    
-    \textbf{3. Backpropagation}:
-    For $n = M-O \dots M-O-H$:
-    \[
-    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} w_{mk} \hat{x}'_m
-    \]
-    
-    \textbf{4. Weight Derivatives}:
-    For $l = 1 \dots M-O+1$, for $m = l+1 \dots M$:
-    \[
-    \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \hat{x}'_l
-    \]
-    
-    \textbf{5. Weight Update Rule}:
-    \[
-    w_{lm} = w_{lm} - \eta \frac{\partial E}{\partial w_{lm}}
-    \]
-    
-    \begin{itemize}
-        \item $\eta$: Learning rate.
-    \end{itemize}
+    MIDTERM QUESTION. PUT IN SOLUTION AFTERWARDS.
 
 \end{derivation}
 
@@ -343,9 +312,9 @@
 \begin{example}
     \customFigure[0.75]{00_Images/LM.png}{Local minima}
     \begin{itemize}
-        \item Suppose were trying to approximate the data. Construct this using delta functions (i.e. neurons) with different amplitudes. 
-        \item Each delta function will get adjusted to fit the data better to fit the local data better. 
-        \item The learnt approximation is the bottom image, but there is a high local minima problem. 
+        \item \textbf{Given:} Suppose were trying to approximate the data. Construct this using delta functions (i.e. neurons) with different amplitudes. 
+        \item \textbf{What happens?} Each delta function will get adjusted to fit the data better to fit the local data better. 
+        \item \textbf{Local minima problem:} The learnt approximation is the bottom image, but there is a high local minima problem. 
     \end{itemize}
 \end{example}
 
@@ -353,7 +322,7 @@
 \begin{example}
     \customFigure[0.75]{00_Images/E.png}{Example}
     \begin{itemize}
-        \item 
+        \item \textbf{Note:} Even a simple one input and one output function takes a lot of hidden layers and units to come up with an approximation to the function. 
     \end{itemize}
 \end{example}
 

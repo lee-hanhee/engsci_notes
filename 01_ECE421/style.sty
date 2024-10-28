@@ -16,8 +16,7 @@
 \usepackage{physics} % various physics related changes
 \usepackage{xcolor} % more colors
 \usepackage{float} % allows for the use of [H] in figures
-
-
+\usepackage{multicol} % Include the package for multiple columns
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%% STYLE %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,6 +45,7 @@
 %%%%%%%%%%%%%%%%%%%%%% GRAPHICS %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{tikz} % Drawing capabilities
+\usetikzlibrary{arrows.meta, positioning}
 \usetikzlibrary{shapes,arrows}
 \usepackage{pgfplots} % Plotting capabilities
 \pgfplotsset{compat=1.14}
@@ -68,6 +68,19 @@
 \definecolor{my-black}{RGB}{0,0,0}
 \definecolor{my-red}{RGB}{255,0,0}
 \definecolor{my-light-blue}{RGB}{173,216,230}
+\definecolor{my-bronze}{RGB}{205,127,50}
+
+\definecolor{my-turquoise}{RGB}{64,224,208}   % Turquoise
+\definecolor{my-gold}{RGB}{255,215,0}         % Gold
+\definecolor{my-coral}{RGB}{255,127,80}       % Coral
+\definecolor{my-lavender}{RGB}{230,230,250}   % Lavender
+\definecolor{my-salmon}{RGB}{250,128,114}     % Salmon
+\definecolor{my-olive}{RGB}{128,128,0}        % Olive
+\definecolor{my-navy}{RGB}{0,0,128}           % Navy
+\definecolor{my-silver}{RGB}{192,192,192}     % Silver
+\definecolor{my-lime}{RGB}{0,255,0}           % Lime
+\definecolor{my-maroon}{RGB}{128,0,0}         % Maroon
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,7 +158,7 @@
 
 \newtcolorbox{intuition}{
     one-sided-color=my-teal,
-    title=\textbf{Intuition},
+    title=\textbf{Intuition/Tips},
 }
 
 \newtcolorbox{derivation}{
@@ -156,6 +169,16 @@
 \newtcolorbox{warning}{
     one-sided-color=my-red,
     title=\textbf{Warning},
+}
+
+\newtcolorbox{summary}{
+    one-sided-color=my-bronze,
+    title=\textbf{Summary},
+}
+
+\newtcolorbox{algo}{
+    one-sided-color=my-gold,
+    title=\textbf{Algorithm},
 }
 
 \newtcolorbox{terminology}{
@@ -204,3 +227,32 @@
         \caption{#3}
     \end{figure}
 }
+
+% CODE
+\usepackage{listings} % Import the listings package
+\usepackage{xcolor}   % For customizing colors
+
+% Define the style for pseudocode
+\lstdefinestyle{pseudocode}{
+    backgroundcolor=\color{white},   % Background color
+    commentstyle=\color{gray},       % Style for comments
+    keywordstyle=\color{blue},       % Style for keywords
+    numberstyle=\tiny\color{gray},   % Style for line numbers
+    basicstyle=\ttfamily\footnotesize,  % Basic font style
+    breaklines=true,                 % Line breaking
+    captionpos=b,                    % Caption position
+    keepspaces=true,                 % Keep spaces in text
+    numbers=left,                    % Line numbers on the left
+    numbersep=5pt,                   % Space between line numbers and code
+    showspaces=false,                % Do not show spaces
+    showstringspaces=false,          % Do not show spaces in strings
+    showtabs=false,                  % Do not show tab characters
+    tabsize=4,                       % Size of tabs
+    xleftmargin=0pt,                 % Set left margin to zero for left alignment
+    frame=single                     % Adds a frame around the code
+}
+
+% Apply the style to pseudocode
+\lstset{style=pseudocode}
+
+

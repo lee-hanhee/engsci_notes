@@ -1,0 +1,96 @@
+\subsection{Deep Learning in Practice (Choice of Act. Fcns., Input Preprocessing):}
+\begin{summary}
+    This is not a comprehensive list, but some of parameters that we get to choose. 
+    \begin{itemize}
+        \item \textbf{Architecture Choices}
+        \begin{itemize}
+            \item \textbf{DAG:} Number of layers, etc.
+            \item \textbf{Activation functions:} (e.g., logistic, tanh, ReLU, \dots)
+            \item \textbf{Error or log-loss functions}
+            \item \textbf{Input preprocessing}
+        \end{itemize}
+    
+        \item \textbf{Data Choices}
+        \begin{itemize}
+            \item Train, validation, test, cross-validation, \dots
+        \end{itemize}
+    
+        \item \textbf{Algorithm Choices}
+        \begin{itemize}
+            \item Initialization of weights \& biases
+            \item Gradient descent, SGD, minibatches, line search, momentum, Adam, \dots
+            \item Stopping criterion, weight regularization, dropout, \dots
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsection{Weight Initialization}
+\begin{summary}
+    \begin{itemize}
+        \item Recall that \( \frac{\partial E}{\partial w_{lm}} \propto g'(x_m) \) (proportional)
+        
+        \item If \( g'(x_m) \) is close to zero, it will be very difficult to change \( w_{lm} \), therefore,
+        \[
+        \Rightarrow \text{Initialize } w\text{'s so } |g(x_m)| > \varepsilon \quad \text{(Minimum derivative)}
+        \]
+        \begin{itemize}
+            \item \textbf{i.e.} Greater than the numerical precision of the computer, so you can update the weights in a meaningful way, and don't have a vanishing gradient problem. 
+        \end{itemize}
+    
+        \item \textbf{One hidden unit:} For \( g = \tanh \), if we sample weights from a zero-mean distribution, then:
+        \[
+        \mathbb{E}[x_m] = \sum_{i=1}^{m-1} \mathbb{E}[w_{lm}] \mathbb{E}[g(x_i)] = \sum_{i=1}^{m-1} 0 \cdot \mathbb{E}[g(x_i)] = 0
+        \]
+        \begin{itemize}
+            \item \textbf{Assumption:} Assuming $w$ and $g$ are independent, so we can seperate expectations for weights and post-activation b/c these are only being initialized so far.
+            \item \textbf{Note:} Expected value of $w_{lm} = 0$ because we sample from a zero-mean (i.e. expectation is 0).
+            \item \textbf{i.e.} Therefore, expected activity is 0 (i.e. on average $x_m =0$). This is good because for $tanh$, slope is steepest when the input is $0$ (region we want to be in).
+        \end{itemize}
+        
+        \item \textbf{One hidden unit:} Variance calculation:
+        \[
+        V[x_m] = \sum_{i=1}^{m-1} V[w_{lm} g(x_i)] = \sum_{i=1}^{m-1} V[w_{lm}] \cdot V[g(x_i)]
+        \]
+        \begin{itemize}
+            \item \textbf{Assumption:} $w$ and $g$ are independent so we can seperate their variances.
+            \item \textbf{Note:} $V[g(x_i)] \leq 1$ because for $tanh$ it is bounded between $-1$ and $1$.
+        \end{itemize}
+        \[
+        \leq \sum_{i=1}^{m-1} V[w_{lm}] = (\#\text{inputs to } x_m) \times V[w]
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} We want the variance of the input to unit $m$ to be less than or equal to 1 (i.e. $(\#\text{inputs to } x_m) \times V[w] \leq 1$).
+            \item $(\#\text{inputs to } x_m) \times V[w]$: Since weights are all drawn from the same distribution. 
+        \end{itemize}
+    
+        \item \textbf{One hidden unit:} Therefore, sample \( w \)'s with variance:
+        \[
+            V[w] = \frac{1}{\#\text{inputs}}
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} This is to have the variance of the input to be less than or equal to $1$, so that there is consistent variance across layers, which prevents activations from diminishing or growing uncontrollably.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Glorot and Bergio}
+\begin{summary}
+    \begin{itemize}
+        \item Consider a fully connected layer with \( m \) inputs and \( n \) outputs.
+        
+        \item Sample weights \( w \)'s from a uniform distribution:
+        \[
+        w \sim \text{Uniform}\left(-\sqrt{\frac{6}{m+n}}, \sqrt{\frac{6}{m+n}}\right)
+        \]
+        \begin{itemize}
+            \item \textbf{Intuition:} $m$ is to keep the gradients in check, $n$ is to keep the activations in check. 
+            \item \textbf{Note:} This balance prevents gradients from becoming excessively large (exploding gradients) or diminishing towards zero (vanishing gradients) as they propagate through the layers, which is crucial for effective backpropagation in deep networks.
+            \item \textbf{Note:} Find a compromise that keeps both activation variance and gradient variance at a manageable level.
+        \end{itemize}
+    
+        \item \textbf{High-level:} This initialization is a compromise between ensuring activation variance is the same across layers and all weights \( w \)'s have the same gradient variance.
+        \begin{itemize}
+            \item \textbf{Note:} As you go through the layers of the neural network, you want to be in the active range of the gradient, so that the weight updates can be meaningful
+        \end{itemize}
+    \end{itemize}
+\end{summary}
