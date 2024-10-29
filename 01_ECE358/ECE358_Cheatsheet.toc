@@ -223,9 +223,12 @@
 \contentsline {subsection}{\numberline {20.1}Intro}{109}{subsection.20.1}%
 \contentsline {subsection}{\numberline {20.2}Breadth-first search}{109}{subsection.20.2}%
 \contentsline {subsection}{\numberline {20.3}Depth-first search}{109}{subsection.20.3}%
-\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{110}{section.21}%
-\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{111}{section.22}%
-\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{112}{section.23}%
-\contentsline {section}{\numberline {24}History of computation}{113}{section.24}%
-\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{114}{section.25}%
-\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{115}{section.26}%
+\contentsline {subsubsection}{\numberline {20.3.1}Well Parenthesis Theorem}{110}{subsubsection.20.3.1}%
+\contentsline {subsection}{\numberline {20.4}Topological Sort}{111}{subsection.20.4}%
+\contentsline {subsubsection}{\numberline {20.4.1}Lemma}{111}{subsubsection.20.4.1}%
+\contentsline {section}{\numberline {21}Minimum spanning trees (Ch. 21)}{113}{section.21}%
+\contentsline {section}{\numberline {22}Shortest paths (Ch. 22)}{114}{section.22}%
+\contentsline {section}{\numberline {23}Maximum flow (Ch. 24)}{115}{section.23}%
+\contentsline {section}{\numberline {24}History of computation}{116}{section.24}%
+\contentsline {section}{\numberline {25}P, NP, and NPC introduction (Ch. 34)}{117}{section.25}%
+\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{118}{section.26}%

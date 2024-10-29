@@ -1,5 +1,140 @@
 \subsection{Intro}
+\begin{summary}
+    \begin{itemize}
+        \item Let \( G = (V, E) \) represent a graph, where \( V \) is the set of vertices and \( E \) is the set of edges.
+        \item Edge complexity: \( E = O(V^2) \).
+        \item Types of Graphs:
+        \begin{itemize}
+            \item Directed / Undirected Graphs
+            \item Weighted / Unweighted Graphs
+            \item Cliques (Complete Graphs)
+            \item Directed Acyclic Graphs (DAGs)
+            \item Paths / Cycles (Simple — no repeated vertex except for start, perhaps)
+        \end{itemize}
+    \end{itemize}
+\end{summary}
 
 \subsection{Breadth-first search}
+\begin{definition}
+    Traverse vertices by sending a wave and visit what the wave passes through. 
+    \begin{itemize}
+        \item \textbf{Time complexity:} $O(V + E)$
+        \begin{itemize}
+            \item \textbf{Note:} Edge or vertices will dominate.
+        \end{itemize}
+        \item \textbf{Implementation:} Implement with first-in-first-out.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/BFS.png}{BFS.}
+\end{example}
 
 \subsection{Depth-first search}
+\begin{definition}
+\begin{lstlisting}[mathescape=true]
+DFS(G=(V, E)):
+    for each $u \in V$
+        color(u) = white
+    time = 0
+    
+    for each $u \in V$
+        if color(u) = white
+            DFS_VISIT(u)
+
+DFS_VISIT(u):
+    color(u) = gray
+    time += 1
+    d[u] = time # discovery
+    
+    for each $v \in Adjacent(u)$
+        if color(v) = white
+            DFS_VISIT(v)
+    
+    color(u) = black
+    time += 1
+    f(u) = time # finish
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Time compelxity:} $O(V+E)$
+    \item \textbf{d/f:} discovery and finish time. 
+\end{itemize}
+
+\end{definition}
+
+\subsubsection{Well Parenthesis Theorem}
+\begin{theorem}
+    In a DFS of an undirected graph, every edge is tree and back edge (i.e. no cross edges and forward edges)
+    \begin{itemize}
+        \item No forward edge: It is a back edge. 
+        \item No cross edge: It is a tree edge.
+    \end{itemize}
+\end{theorem}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/DFS.png}{DFS}
+    \vspace{1em}
+
+    \textbf{DFS Forest}
+    \customFigure[0.75]{00_Images/DFS_Forest.png}{DFS Forest}
+
+    \vspace{1em}
+    \customFigure[0.75]{00_Images/WP.png}{Well-parenthesis theorem}
+    \begin{itemize}
+        \item \textbf{Note:} Descendants nested with ancestors in terms of $d/f$ times. Look in the graph above to grasp how this works.
+    \end{itemize}
+\end{example}
+
+\subsection{Topological Sort}
+\begin{definition}
+    Given a DAG, create a linear (total) order out fo the partial order $\rightarrow$ "serialize" these events (may not be unique).
+    \begin{itemize}
+        \item \textbf{Note:} Doesn't work on non-DAG graphs since a cycle cannot be serialized, therefore, problem is undefined if graph is not DAG.
+    \end{itemize}
+    
+\begin{lstlisting}
+Topological_Sort(G):
+    Call DFS from a source (no incoming edges)
+    Report vertice order in descending finish time. 
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Time Complexity:} $O(V+E)$
+    \item \textbf{Report Reverse Order:} Shorts, socks, skates, books, t-shirt, sweater, bag.
+    \begin{itemize}
+        \item \textbf{Note:} These change order depending on starting source (hence not unique).
+    \end{itemize}
+\end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/TS.png}{Topological sort.}
+\end{example}
+
+\subsubsection{Lemma}
+\begin{theorem}
+    A directed graph is a DAG iff DFS yields no back edges.
+\end{theorem}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item If G is a DAG $\Rightarrow$ no back edges. 
+        \begin{itemize}
+            \item ATaC that if G is a DAG $\Rightarrow$ back edges, then G becomes a cycle, but G is a DAG, so contraction.
+        \end{itemize}
+        \item If no backedges $\Rightarrow$ G is a DAG. 
+        \begin{itemize}
+            \item ATaC that no backedges $\Rightarrow$ G is not a DAG, then G becomes a cycle, but a backedge is formed, so contradiction.
+        \end{itemize}
+    \end{enumerate}
+\end{derivation}
+
+\begin{derivation} \textbf{Proof of Correctness}
+    We need to prove that if edge \( (u, v) \in E \), then \( f(u) > f(v) \). When DFS enters \( u \), it is colored gray. What is the color of \( v \)? It can either be:
+    \begin{itemize}
+        \item \textbf{Black:} \( v \) has finished already, but not \( u \), thus \( f(u) > f(v) \).
+        
+        \item \textbf{White:} \( v \) must be fully traversed before \( u \) completes, therefore \( f(u) > f(v) \) (descendant).
+        
+        \item \textbf{Gray:} This is impossible, as it would imply a back edge. Since gray means \( v \) was visited before but not fully completed, \( v \) would have been visited before \( u \), which is impossible by the lemma above.
+    \end{itemize}
+\end{derivation}
