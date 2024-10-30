@@ -1,0 +1,211 @@
+\subsection{N-Periodic}
+\begin{definition}
+    $x \in \mathbb{C}^\mathbb{Z}$ is $N$-periodic (for a positive integer $N$) if 
+    \begin{equation*}
+        x[n] = x[n+N] \; \forall n \in \mathbb{Z}
+    \end{equation*}
+    \begin{itemize}
+        \item $\mathbb{P}^n$: Denote the set of all $N$-periodic signals (his own notation).
+        \begin{itemize}
+            \item \textbf{Note:} $\mathbb{P}^n$ is an N-dimensional vector space over $\mathbb{C}$ (i.e. finite dimensionality, while for $T$-periodic, it was infinitely dimensional.)
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{Basis set of N-periodic Signals}
+\subsubsection{Basis set with shifted impulses}
+\begin{definition}
+    Let $p_N [n] = \sum_{k \in \mathbb{Z}} \delta [n-kN]$ (i.e. impulse train), then 
+    \begin{equation*}
+        B = \{p_N [n], p_N [n-1], \ldots , p_N [n- (N-1)]\}
+    \end{equation*}
+    is a basis set for $N$ periodic signals. 
+    \begin{itemize}
+        \item i.e. Using shifted impulses to create a basis set. 
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $p_N [n]$:
+    \customFigure[0.75]{00_Images/0.png}{$p_N [n]$}
+    
+    $p_N [n-1]$ is a shifted impulse shift by 1:
+    \customFigure[0.75]{00_Images/0.png}{$p_N [n-1]$}
+\end{example}
+
+\subsubsection{How to write x as l.c. of B}
+\begin{definition}
+    An $N$-periodic signal $x[n]$ can be written as a l.c. of elements of $B$. 
+    \begin{equation*}
+        x[n] = \sum_{k=0}^{N-1} x[k] p_N [n-k] 
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/BS.png}{Example of $N=4$}
+\end{example}
+
+\subsubsection{Basis set with Complex Exponentials}
+Interested in these because they are eigenfunctions of LTI systems. 
+
+\begin{definition}
+    \begin{equation*}
+        F_N = \{e^{j2\pi \frac{k}{N} n}: \; k \in \{0,1,2,\ldots,N-1\}\}
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Key:} Must have $N$ consecutive integers because it's the unit length that we care about. Therefore, $k \in \{1,2,\ldots,N\}$ is also valid. 
+        \item \textbf{Key:} $F_N$ is a basis for $\mathbb{P}^N$
+    \end{itemize}
+\end{definition}
+
+\subsection{Inner product}
+\begin{definition}
+    \begin{equation*}
+        \langle x,y\rangle = \frac{1}{N} \sum_{n \in [N]} x[n] y^* [n] 
+    \end{equation*}
+    \begin{itemize}
+        \item $[N]$: any set of size $N$ covering one period. 
+        \begin{itemize}
+            \item e.g. $[N] = \{0,1,\ldots,N-1\}$
+            \item e.g. $[N] = \{1,\ldots,N\}$
+        \end{itemize}
+        \item \textbf{Argument of sum:} Dot product with the conjugate. 
+        \item \textbf{Average power:} $\langle x,x \rangle = \frac{1}{N} \sum_{n \in [N]} |x[n]|^2 = P_x$
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    \begin{equation*}
+        \langle e^{j2\pi \frac{k}{N} n},e^{j2\pi \frac{l}{N} n} \rangle = 
+        \begin{cases}
+            1 & \text{if $k-l$ is a multiple of $N$} \\
+            0 & \text{otherwise}
+        \end{cases}
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Orthonormal basis:} Orthogonal to each other and unit power. 
+    \end{itemize}
+\end{definition}
+
+\subsection{Synthesis equation}
+\begin{definition}
+    Every $x \in \mathbb{P}^N$ is a l.c. of elments of $F_N$: 
+    \begin{equation*}
+        x[n] = \sum_{k=0}^{N-1} c_k e^{j 2\pi \frac{k}{N} n}
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Change of basis:} Rewriting $x$ in a new basis (i.e. orthonormal basis).
+    \end{itemize}
+\end{definition}
+
+\subsection{Analysis equation}
+\begin{definition}
+    \begin{equation*}
+        c_k = \frac{1}{N} \sum_{n \in \mathbb{N}} x[n] e^{-j2\pi \frac{k}{N} n} 
+    \end{equation*}
+\end{definition}
+
+\begin{derivation}
+    Suppose \( x \in \mathbb{P}^{\mathbb{N}} \)
+
+    \[
+    \left\langle x, e^{\frac{j2\pi k}{N} n} \right\rangle 
+    = \left\langle \sum_{\ell = 0}^{N-1} c_\ell e^{\frac{j2\pi \ell n}{N}}, e^{\frac{j2\pi k}{N} n} \right\rangle
+    = \sum_{\ell = 0}^{N-1} c_\ell \left\langle e^{\frac{j2\pi \ell}{N} n}, e^{\frac{j2\pi k}{N} n} \right\rangle
+    \]
+
+    \[
+    = c_k \quad \text{from orthogonality.}
+    \]
+    \begin{itemize}
+        \item $k \in \{ 0, \dots, N-1 \} \quad \text{or} \quad k \in \{1, \dots, N \} \quad \text{as long FS coefficients are periodic.}$
+    \end{itemize}
+
+\end{derivation}
+
+\subsection{Reformulating synethesis and analysis equation}
+\begin{warning}
+    \textbf{Convention:} Let's extend Fourier Series (FS) coefficients periodically:
+    \[
+    c_0 = c_N = c_{2N} = \cdots 
+    \]
+    \[
+    c_1 = c_{N+1} = c_{2N+1} \cdots
+    \]
+    \begin{itemize}
+        \item But only take a finite window of size \( n \) when using the synthesis and/or analysis. 
+    \end{itemize}
+
+    \textbf{Under this convention:}
+    \[
+    x[n] = \sum_{k \in [N]} c_k e^{j2\pi \frac{k}{N} n} \quad \text{(any period)}
+    \]
+
+    \[
+    c_k = \frac{1}{N} \sum_{n \in [N]} x[n] e^{-j 2\pi \frac{k}{N} n} \quad \text{for any } k \in \mathbb{Z}
+    \]
+\end{warning}
+
+\begin{example}
+    Square wave in DT
+    \customFigure[0.75]{00_Images/SW.png}{Square wave.}
+    \vspace{1em}
+
+    \begin{align*}
+        c_k &= \frac{1}{N} \sum_{n=-N_1}^{N_1} 1 \cdot e^{-j 2\pi \frac{k}{N} n} \\
+        &= \frac{1}{N} \sum_{n=-N_1}^{N_1} \alpha^n \quad \text{where} \quad \alpha = e^{-j 2\pi \frac{k}{N}} \\
+        &= \frac{1}{N} \alpha^{-N_1} \sum_{m=0}^{2N_1} \alpha^m \\
+        &= \frac{1}{N} \alpha^{-N_1} \left( 
+        \begin{cases} 
+            \frac{1 - \alpha^{2N_1+1}}{1 - \alpha} & \text{if } \alpha \neq 1 \\
+            2N_1 + 1 & \text{if } \alpha = 1
+        \end{cases}
+        \right) \\
+        &\Rightarrow \text{If } \alpha \neq 1 \Rightarrow k \text{ is not a multiple of } N \\
+        c_k &= \frac{1}{N} \frac{\sin\left( 2\pi k \left( N_1 + \frac{1}{2} \right) / N \right)}{\sin\left( \pi \frac{k}{N} \right)}
+    \end{align*}
+
+    \customFigure[0.75]{00_Images/SW2.png}{Square wave 2, where the discrete lines are the FS coefficients.}
+\end{example}
+
+\subsection{Properties of DT Fourier Series}
+\begin{definition}
+    If \( x \in \mathbb{P}^N \) with Fourier Series
+    \begin{equation*}
+        x[n] = \sum_{k=0}^{N-1} a_k e^{j 2\pi \frac{k}{N} n}
+    \end{equation*}
+
+    Define:
+    \begin{equation*}
+        x \underset{N}{\overset{FS}{\leftrightarrow}} a_k
+    \end{equation*}
+
+    Similarly, suppose \( y \underset{N}{\overset{FS}{\leftrightarrow}} b_k \). Then, the following is true:
+
+    \begin{enumerate}
+        \item \( \alpha x + \beta y \underset{N}{\overset{FS}{\leftrightarrow}} \alpha a_k + \beta b_k \quad \alpha, \beta \in \mathbb{C} \) \hspace{10pt} (Linearity)
+
+        \item \( x^* \underset{N}{\overset{FS}{\leftrightarrow}} a_{-k}^* \)
+
+        \item \( \tilde{x} \underset{N}{\overset{FS}{\leftrightarrow}} a_{-k} \)
+
+        \item \( x[n - n_0] \underset{N}{\overset{FS}{\leftrightarrow}} a_k e^{-j 2\pi \frac{k}{N} n_0} \) \hspace{10pt} (Time-shifting)
+
+        \item \( x[n] e^{j 2\pi \frac{m}{N} n} \underset{N}{\overset{FS}{\leftrightarrow}} a_{k - m} \) \hspace{10pt} (Frequency-shifting)
+        \begin{itemize}
+            \item \textbf{Note:} \( (k - m) \mod N \) cyclic indexing.
+        \end{itemize}
+
+        \item \( x[n] y[n] \underset{N}{\overset{FS}{\leftrightarrow}} c_k = \sum_{\ell \in [N]} a_\ell b_{k - \ell} \) \hspace{10pt} (Multiplication in time domain = convolution in frequency domain)
+
+        \item \( \frac{1}{N} \sum_{n \in [N]} |x[n]|^2 = \sum_{k \in [N]} |a_k|^2 \) \hspace{10pt} (Parseval's Relation)
+    \end{enumerate}
+
+    \begin{itemize}
+        \item The most important aspect of using Fourier Series (FS) and Fourier Transform (FT) representations is their applicability in simplifying Linear Time-Invariant (LTI) systems.
+        \item Convolutions can be avoided, and we can just perform multiplications when using Fourier Transforms (FTs).
+    \end{itemize}
+\end{definition}
+
+
+

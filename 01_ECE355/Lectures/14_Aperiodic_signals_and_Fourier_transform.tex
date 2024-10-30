@@ -1,0 +1,159 @@
+\subsection{Fourier Transform of Rectangle Function}
+\begin{intuition}
+    \textbf{Recall this \( T \)-periodic signal, \( x_T(t) \)} represented by the rectangular function \( \text{rect}(t) \):
+    \customFigure[0.75]{00_Images/RECT1.png}{Periodic rectangular function}
+    \[
+    x_T(t) \underset{T}{\overset{FS}{\leftrightarrow}} c_k = \frac{1}{T} \, \text{sinc} \left( \frac{k}{T} \right)
+    \]
+    where \( \text{sinc}(x) = \frac{\sin(\pi x)}{\pi x} \).
+    \vspace{1em}
+
+    \textbf{What happens as $T \to \infty$?}
+    \begin{itemize}
+        \item As \( T \to \infty \), we observe that \( c_k \) terms vanish for all \( k \neq 0 \), however, the limit of \( T c_k \) converges to \( \text{sinc}(f) \) as \( f = \frac{k}{T} \).
+        \item Each bar represents a \( c_k \) value at frequency \( \frac{k}{T} \), and these values vibrate at frequencies defined by \( k \).
+    \end{itemize}
+    \customFigure[0.5]{00_Images/CK.png}{Fourier series coefficients}
+    \vspace{1em}
+    \textbf{Transition to Aperiodic Signal as \( T \to \infty \):} In the limit as \( T \to \infty \), only the central rectangle remains while the others vanish, indicating a transition from periodic to aperiodic. 
+    Thus, as \( T \to \infty \),
+    \[
+    x_T(t) \to \text{rect}(t) = 
+    \begin{cases}
+    1, & -\frac{1}{2} \leq t \leq \frac{1}{2} \\
+    0, & \text{otherwise}
+    \end{cases}
+    \]
+
+    \textbf{Fourier Transform of the \( \text{rect}(t) \) function:} In the frequency domain, as \( T \to \infty \), \( \frac{1}{T} \to 0 \), therefore, the bars become a continuum and are not just at multiples of $\frac{1}{T}$. 
+    \customFigure[0.75]{00_Images/RECT2.png}{Continuum of the FS coefficients.}
+\end{intuition}
+
+\subsection{Arbitrary Signal with Finite Support Fourier Transform}
+\begin{derivation}
+    Let \( x(t) \) be an arbitrary signal with finite support \( \left[ -\frac{S}{2}, \frac{S}{2} \right] \). For \( T > S \), let \( x_T(t) \) be the \( T \)-periodic extension of \( x(t) \):
+    \[
+    x_T(t) = \sum_{k=-\infty}^{\infty} x(t - kT)
+    \]
+    \customFigure[0.75]{00_Images/PERIODIC.png}{Periodic signal.}
+
+    The Fourier Series of \( x_T(t) \) is:
+    \begin{align*}
+        x_T(t) &\underset{T}{\overset{FS}{\leftrightarrow}} c_k = \frac{1}{T} \int_{T} x_T(t) e^{-j 2 \pi \frac{k}{T} t} \, dt \\
+        x_T(t) &\underset{T}{\overset{FS}{\leftrightarrow}} c_k = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x_T(t) e^{-j 2 \pi \frac{k}{T} t} \, dt \\ 
+        x_T(t) &\underset{T}{\overset{FS}{\leftrightarrow}} c_k = \frac{1}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}} x(t) e^{-j 2 \pi \frac{k}{T} t} \, dt
+    \end{align*}
+    \begin{itemize}
+        \item \textbf{Line 3:} Since \( x_T(t) = x(t) \) for \( t \in \left( -\frac{T}{2}, \frac{T}{2} \right) \).
+    \end{itemize}
+
+    Define \( T c_k \) as:
+    \[
+    T c_k = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt = X(f) \quad \text{where} \quad f = \frac{k}{T}
+    \]
+    \begin{itemize}
+        \item $X(f):$ Fourier transform of $x(t)$.
+    \end{itemize}
+    Thus,
+    \[
+    c_k = \frac{1}{T} X\left( \frac{k}{T} \right)
+    \]
+    \vspace{1em}
+
+    Furthermore, 
+    \begin{align*}
+        x_T(t) &= \sum_{k \in \mathbb{Z}} c_k e^{j 2 \pi \frac{k}{T} t} \\
+               &= \sum_{k \in \mathbb{Z}} \frac{1}{T} X\left( \frac{k}{T} \right) e^{j 2 \pi \frac{k}{T} t} \\
+               &= \sum_{k \in \mathbb{Z}} X\left( k \Delta f \right) e^{j 2 \pi k \Delta f \, t} \, \Delta f \quad \text{where} \quad \Delta f = \frac{1}{T}
+    \end{align*}    
+    As \( T \to \infty \), \( \Delta f \to 0 \), we have the conversion from a Riemann sum to an integral:
+    \begin{equation*}
+        x_T(t) = \sum_{k} X\left( k \Delta f \right) e^{j 2 \pi (k \Delta f) t} \, \Delta f \to x(t) = \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df
+    \end{equation*}
+\end{derivation}
+
+\subsubsection{Fourier Transform Synthesis and Analysis Equations}
+\begin{definition}
+    \begin{equation*}
+        x(t) = \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df \quad \text{and} \quad X(f) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt
+    \end{equation*}
+
+    \begin{itemize}
+        \item The first equation is the \textbf{synthesis equation} (Inverse Fourier Transform of \( X(f) \)).
+        \begin{itemize}
+            \item i.e. Synethesizing $x(t)$ as a LC of frequnecies in continuous summation, with $X(f)$ as the weights.
+        \end{itemize}
+        \item The second equation is the \textbf{analysis equation} (Fourier Transform of \( x(t) \)).
+    \end{itemize}
+
+    \textbf{Note:} We have that \( x(t) \overset{F}{\leftrightarrow} X(f) \), therefore \( x \) and \( X \) form a Fourier Transform pair.
+\end{definition}
+
+\begin{definition}
+    \( \omega = 2 \pi f \), which implies \( d\omega = 2 \pi \, df \).
+    \[
+    x(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} X(\omega) e^{j \omega t} \, d\omega \quad \text{and} \quad X(\omega) = \int_{-\infty}^{\infty} x(t) e^{-j \omega t} \, dt
+    \]
+    \begin{itemize}
+        \item Same formulation, with a factor of \( 2 \pi \) for the \( \omega = 2 \pi f \) case.
+    \end{itemize}
+\end{definition}
+
+\begin{warning}
+    \begin{itemize}
+        \item \textbf{Note:} These integrals may not converge in some cases, but for our purposes, all integrals of practical signals will converge.
+        \item While these integrals are theoretically present, in practice we can often refer to tables of known Fourier Transform results to avoid calculating each integral directly.
+    \end{itemize}
+\end{warning}
+
+\subsection{Non-Time-Limited Signals Fourier Transform}
+\begin{derivation}
+    \textbf{What happens if \( x(t) \) is not time-limited (i.e., not of finite support)?} To address this, we can approximate by limiting it and then allowing the truncation to extend to infinity. For example, suppose \( x(t) \) is some Gaussian function.
+
+    Define \( x_S(t) \) as:
+    \[
+    x_S(t) = 
+    \begin{cases}
+        x(t), & -\frac{S}{2} \leq t \leq \frac{S}{2} \\
+        0, & \text{otherwise}
+    \end{cases}
+    \]
+    \customFigure[0.75]{00_Images/NTLS.png}{Non Time-limited Signals}
+
+    By cutting off the tails of the function, we proceed with the Fourier Transform theory.
+
+    \begin{align*}
+        x_S(t) &= \int_{-\infty}^{\infty} X_S(f) e^{j 2 \pi f t} \, df \quad \text{and} \quad X_S(f) = \int_{-\frac{S}{2}}^{\frac{S}{2}} x_S(t) e^{-j 2 \pi f t} \, dt 
+    \end{align*}
+
+    Now take $S \to \infty$, then
+    \begin{equation*}
+        x_S(t) \to x(t) = \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df, \quad \text{and} \quad X_S(f) \to X(f) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt
+    \end{equation*}
+
+    \begin{itemize}
+        \item \textbf{Note:} \( S \) grows to infinity more slowly than \( t \) does.
+        \item \textbf{Key:} Converges to the same formula as the time-limited signals.
+    \end{itemize}
+\end{derivation}
+
+\subsection{Example: Fourier Transform of rect(t)}
+\begin{example}
+    Consider \( x(t) = \text{rect}(t) \).
+
+    Then,
+    \begin{align*}
+        X(f) &= \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt \\
+             &= \int_{-\frac{1}{2}}^{\frac{1}{2}} e^{-j 2 \pi f t} \, dt \\
+             &= \left. \frac{e^{-j 2 \pi f t}}{-j 2 \pi f} \right|_{-\frac{1}{2}}^{\frac{1}{2}} \\
+             &= \frac{e^{-j \pi f} - e^{j \pi f}}{-j 2 \pi f} \\
+             &= \frac{\sin(\pi f)}{\pi f} \\
+             &= \text{sinc}(f)
+    \end{align*}
+    
+    Thus,
+    \[
+    \text{rect}(t) \overset{F}{\leftrightarrow} \text{sinc}(f)
+    \]
+\end{example}
+
