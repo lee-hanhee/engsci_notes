@@ -1,39 +1,80 @@
-\subsection{Taxable income (FIX)}
+\subsection{Learning Objectives}
+\begin{summary}
+    \begin{itemize}
+        \item Include the effect of taxes in PW and IRR calculations.
+        \begin{itemize}
+            \item Calculate corporate taxes in the income statement.
+            \item Describe how corporate taxes are affected or unaffected by entries in the income statement and balance sheet.
+            \item Approximate the effects of taxation on rate of returns.
+            \item Describe how corporate taxes are affected by depreciation and asset sale
+        \end{itemize}
+        \item Describe the capital cost allowance system for calcuating Canadian taxes.
+        \item Calculate PW including tax implications on a year-by-year basis.
+        \begin{itemize}
+            \item Taxes on revenues
+            \item Tax savings from depreciation
+            \item Gains/loss froma asset disposition.
+        \end{itemize}
+        \item Calculate PW including tax implications using the tax-benefit factor
+        \begin{itemize}
+            \item Define tax benefit factor and other equivalent factors (e.g. capital tax factor, capital salvage factor)
+            \item Apply tax benefit factor to calculate PW (using previous example)
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\begin{intuition}
+    Find the effect of PW with taxes for 
+    \begin{itemize}
+        \item First Cost
+        \item Revenues
+        \item Expenses
+        \item Depreciation
+        \item Salvage
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/PW.png}{PW with taxes.}
+\end{intuition}
+
+\subsection{Corporate Tax (REVENUE AND EXPENSES):}
 \begin{definition}
-    \begin{equation}
+    \textbf{Taxable Income:} Amount of taxes owed depends on profits:
+    \begin{equation*}
         \text{Taxable Income} = \text{Revenue} - \text{Expenses}
-    \end{equation}
-\end{definition}
+    \end{equation*}
+    \vspace{1em}
 
-\subsection{Flat corporate tax}
-\begin{definition}
-    \begin{equation}
-        \text{Corporate Tax Payable} = \text{Taxable Income} \times \text{Tax Rate}
-    \end{equation}
-
+    \textbf{Flat Corporate Tax:} Taxes are calculated from taxable income as
+    \begin{equation*}
+        \text{Corporate Tax} = \text{Taxable Income} \times \text{Tax Rate}
+    \end{equation*}
     \begin{itemize}
         \item Paying tax results in a negative cash flow.
         \item Tax savings result in a positive cash flow.
-    \end{itemize}    
+        \item Revenues/gains \textbf{increases} the amount of taxes owed.
+        \item Expenses/deductions \textbf{decreases} the amount of taxes owed.
+    \end{itemize}  
+    
+    \customFigure[0.75]{00_Images/PW1.png}{PW with taxes, where it is discounted using after-tax MARR}
 \end{definition}
 
-\subsection{Types of revenue}
+\subsubsection{Types of revenues}
 \begin{terminology}
     \begin{itemize}
         \item Sales revenues
         \item Interest revenues (interest earned)
-        \item Capital gains: $Salvage \: Value - Book \: Value$
+        \item Capital gains (asset sale above cost (i.e. book value)): $\text{Salvage Value} - \text{Book Value}$ (i.e. difference between selling price and book value)
     \end{itemize}
 \end{terminology}
 
-\subsection{Types of expenses}
+\subsubsection{Types of expenses}
 \begin{terminology}
     \begin{itemize}
         \item Cost of goods sold (raw materials)
-        \item General expenses/SG\&A (salaries)
-        \item Interest expenses (debt)
+        \item General expenses/SG\&A (rent,salaries)
+        \item Interest expenses (loan,debt)
         \item Depreciation expenses
-        \item Capital losses
+        \item Capital losses (i.e. difference between selling price and book value)
         \item Not included
         \begin{itemize}
             \item Dividends 
@@ -43,76 +84,109 @@
     \end{itemize}            
 \end{terminology}
 
-\subsection{Discounting after-tax cash flow requires lower rate of return}
-\begin{definition} \textbf{Modified Rates:}
-    \begin{equation}
-        \text{(After tax) MARR} = \text{MARR (before tax)} \times (1 - \text{tax rate})
-    \end{equation}
-    \begin{equation}
-        \text{(After tax) IRR} = \text{IRR (before tax)} \times (1 - \text{tax rate})
-    \end{equation}
+\subsection{Assets affect taxation through depreciation (FIRST COST)}
+\begin{definition}
+    \begin{itemize}
+        \item Purchasing an asset has no immediate effect on corporate taxes.
+        \item But once your company holds an asset, this asset can affect taxes in two ways:
+        \begin{itemize}
+            \item Claiming depreciation
+            \item Capital gains/loss
+        \end{itemize}
+    \end{itemize}
 \end{definition}
 
-\subsection{Capital cost allowance (CCA)}
-\begin{definition} Amount depreciated in a given year.
+\subsection{Effect of taxation on rate of returns}
+\begin{definition} \textbf{Modified Rates:} Discounting after-tax cash flow requires lower rate of return
+    \begin{equation}
+        \text{MARR (after tax)} = \text{MARR (before tax)} \times (1 - \text{tax rate})
+    \end{equation}
+    \begin{equation}
+        \text{IRR (after tax)} = \text{IRR (before tax)} \times (1 - \text{tax rate})
+    \end{equation}
+    \begin{itemize}
+        \item \textbf{Key:} The after tax rate is used after the tax has been applied. 
+    \end{itemize}
+\end{definition}
+
+\subsection{Capital cost allowance (CCA) (DEPRECIATION)}
+\subsubsection{Depreciation}
+\begin{intuition}
+    \begin{itemize}
+        \item Depreciation itself is not a cash flow. 
+        \item Claiming depreciation results in tax savings (positive cash flow)
+        \item \textbf{Claiming depreciation earins you money.}
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{CCA}
+\begin{terminology}
+    \begin{itemize}
+        \item CCA: Canadian system for calculating depreciation and taxes.
+        \item Classes: Assets are groups in classes by CCA asset class and each class has a CCA rate (depreciation rate).
+        \item Terms for CCA
+        \customFigure[0.75]{00_Images/TERMS.png}{Book and tax depreciation terms, but focus on the tax depreciation}
+    \end{itemize}
+\end{terminology}
+
+\subsubsection{2 Important Points}
+\begin{definition}
+    \begin{enumerate}
+        \item \textbf{CCA Pooling:} All assets in a class are pooled together and depreciation expenses are based on the UCC of all assets in that class.
+        \begin{itemize}
+            \item Assets are not depreciated individually.
+        \end{itemize}
+        \item \textbf{Half year rule:} (1) Additions in the current year are depreciated at half the CCA rate, (2) carried-over UCC is depreciated at the normal rate.
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Key equations}
+\begin{definition} 
+    \textbf{Capital cost allowance:} Amount depreciated in a given year.
     \begin{equation}
         \text{CCA}_N = \text{CCA Rate} \times \left( \frac{1}{2} \text{ This year's addition} + \text{UCC}_{N-1} \right)
     \end{equation}
     \begin{itemize}
         \item $ \text{UCC}_{N-1} $: UCC from last year
     \end{itemize}
-\end{definition}
+    \vspace{1em}
 
-\subsection{Undepreciated capital cost (UCC)}
-\begin{definition}
-    Book value in given year.
+    \textbf{Undepreciated capital cost (UCC)} Book value in given year.
     \begin{equation}
         \text{UCC}_N = \text{UCC}_{N-1} + \text{This year's addition} - \text{CCA}
     \end{equation}
 \end{definition}
 
-\subsection{CCA pooling}
+\subsubsection{Tax savings from depreciation}
 \begin{definition}
-    All assets in a class are pooled together, with depreciation expenses based on UCC of all assets in that class.
-\end{definition}
-
-\subsection{CCA half-year rule}
-\begin{definition}
-    \begin{itemize}
-        \item Additions in the current year are depreciated at half the CCA rate. 
-        \item Carried-over UCC is depreciated at the normal rate.
-    \end{itemize}
-\end{definition}
-
-\subsection{Tax savings from depreciation}
-\begin{definition}
+    The tax savings for year $N$ is
     \begin{equation}
-        \text{Tax savings} = \text{CCA} \times t 
+        \text{Tax savings}_N = \text{CCA}_N \times t 
     \end{equation}
     \begin{itemize}
         \item $t$: Tax rate
+        \item \textbf{Note:} (1) Claiming depreciation saves taxes. (2) No out-of-pocket expense from depreciation.
     \end{itemize}
+
+    \customFigure[0.75]{00_Images/FC.png}{Tax savings from depreciation effect.}
 \end{definition}
 
-\subsection{CCA rules on disposition (selling asset)}
+\subsubsection{CCA rules on disposition (selling asset)}
 \begin{definition}
     \begin{itemize}
-        \item If other items remain in pool: \textbf{Open Book}
-        \begin{itemize}
-            \item Pool not closed upon sale of asset.
-            \item UCC reduced by sales proceeds (\( S \)). % sales proceed may be wrong.
-        \end{itemize}
-        \item If no other items in pool: \textbf{Closed Book}
-        \begin{itemize}
-            \item If \( S < \text{Book Value (BV)} \): \textbf{Terminal loss}, claim \( \text{BV} - S \) as expense, reduce taxable income by loss.
-            \item If \( S > \text{BV} \) and \( S < \text{Cost (C)} \): \textbf{Recapture}, report \( S - \text{BV} \) as income, increase taxable income by \( S - \text{BV} \).
-            \item If \( S > \text{C} \): \textbf{Capital Gain}.
-            \item UCC must always be zero after the pool is closed. % after the pool is closed is different
-        \end{itemize}
+        \item \textbf{Key:} UCC must always be zero after the pool is closed for closed book. 
+        \item \textbf{Note:} Loss means that there is a tax savings. 
+        \item \textbf{Note:} Gain menas that there is tax losses.
     \end{itemize}
+    \customFigure[0.75]{00_Images/RULES.png}{Rule 1}
+    \customFigure[0.75]{00_Images/RULES2.png}{Rule 2}
 \end{definition}
 
-\subsection{Calculating PW with taxes: explicit method}
+\begin{example}
+    L2 on Open Book, and Two examples of Closed book.
+\end{example}
+
+\subsection{Calculating PW with taxes: explicit method FIX ONWARDS}
 \begin{process}
     \begin{enumerate}
         \item \textbf{Find After-Tax MARR:}
@@ -158,6 +232,10 @@
         \end{itemize}
     \end{enumerate}
 \end{process}
+
+\begin{example}
+    L3
+\end{example}
 
 \subsection{Calculating PW with taxes: tax benefit factor}
 \subsubsection{Tax benefit factor:}
