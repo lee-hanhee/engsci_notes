@@ -59,3 +59,10 @@
 \contentsline {figure}{\numberline {58}{\ignorespaces DFS Forest}}{110}{figure.58}%
 \contentsline {figure}{\numberline {59}{\ignorespaces Well-parenthesis theorem}}{111}{figure.59}%
 \contentsline {figure}{\numberline {60}{\ignorespaces Topological sort.}}{111}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Minimum Spanning Tree}}{113}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces MST Diagram}}{114}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Prim's Algorithm}}{114}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Shortest Path}}{115}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Edge relaxation.}}{116}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Example of edge relaxation: Relaxation from 10 to 8 and non-relaxation cases.}}{116}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Example of single source shortest paths on DAG with positive and negative weights.}}{117}{figure.67}%

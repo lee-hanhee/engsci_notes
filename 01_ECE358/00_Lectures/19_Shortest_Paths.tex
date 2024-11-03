@@ -1,0 +1,104 @@
+\subsection{Definition}
+\begin{definition}
+    Given a connected, directed, weighted (positive or negative) graph, find the shortest path from start vertex \( S \) to \(\forall\) vertex. (e.g., cities and air mileage).
+
+    \begin{itemize}
+        \item \textbf{SPs} (Shortest Paths) may not be unique.
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/SP.png}{Shortest Path}
+\end{definition}
+
+\subsubsection{Graph-based Formulation}
+\begin{definition}
+    Given a weighted, directed graph, find
+    \[
+    \delta(S, V) = \begin{cases} 
+        \min \{ u(p) : S \rightarrow V \} & \text{if } \exists \, p \, S \overset{P}{\rightarrow} V \\
+        \infty & \text{if } \nexists \, p \, S \overset{P}{\rightarrow} V 
+    \end{cases}
+    \]
+\end{definition}
+
+\subsection{Topics of Study}
+\begin{definition}
+    We will study:
+    \begin{itemize}
+        \item \textbf{Dijkstra's Algorithm} (for graphs with non-negative weights).
+        \item \textbf{SPs on DAGs} (Directed Acyclic Graphs).
+        \item \textbf{Bellman-Ford Algorithm} (handles negative weights and reports negative cycles).
+        \item \textbf{Application to Difference Constraints}.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Variations}
+\begin{definition}
+    \begin{itemize}
+        \item Single source SP (what we study).
+        \item Single destination SP (reverse edges and run single source SP).
+        \item Single pair SP (no better than single source SP).
+        \item All pairs SP.
+    \end{itemize}
+    \begin{enumerate}
+        \item First 3 are greedy 
+        \item Last one is dynamic programming
+    \end{enumerate}
+\end{definition}
+
+\subsection{Edge Relaxation}
+\begin{definition}
+    Both Dijkstra's and Bellman-Ford algorithms use \textbf{edge relaxation}.
+
+    Keep track of this quantity \( d[v] \), which is the best estimate you got for the shortest path (SP) from \( S \overset{P}{\rightarrow} V \). They \textbf{relax} edges, trying to improve that estimate.
+
+    \begin{itemize}
+        \item $\text{Relax}(u, v, w(u, v)) \quad \leftarrow \quad (u, v) \in E$
+        \begin{itemize}
+            \item \textbf{If} \( d[v] > d[u] + w(u, v) \):
+            \begin{itemize}
+                \item \( d[v] = d[u]] + w(u, v) \)
+                \item \( \pi(v) = u \) (parent of \( v \) in SP is \( u \))
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+    
+    Always \( d[V] \geq \delta(S, V) \).
+
+    \customFigure[0.75]{00_Images/SP1.png}{Edge relaxation.}
+    
+    \customFigure[0.75]{00_Images/SP2.png}{Example of edge relaxation: Relaxation from 10 to 8 and non-relaxation cases.}
+\end{definition}
+
+\subsection{Dijkstra's Algorithm (no negative weights)}
+\begin{definition}
+    \textbf{Time Complexity:} \( O(E \log(V)) \)
+
+    \begin{enumerate}
+        \item Initialize \( d[V] = \infty \) for all \( V \in V \).
+        \item Set \( d[S] = 0 \).
+        \item \( Q = V \) \quad (\( Q \) is a priority queue).
+        \item While \( Q \neq \emptyset \):
+        \begin{enumerate}
+            \item \( u = \text{extract\_min}(Q) \).
+            \item \( S = S \cup \{ u \} \).
+            \item For each vertex adjacent to \( u \), do:
+            \begin{itemize}
+                \item Relax \( (u, v, w(u, v)) \).
+            \end{itemize}
+        \end{enumerate}
+    \end{enumerate}
+\end{definition}
+
+\subsection{SSSPs on DAGs (Single Source Shortest Paths on Directed Acyclic Graphs)}
+\begin{definition}
+    \textbf{Weights:} Can be positive or negative \\
+    \textbf{Time Complexity:} \( O(V + E) \)
+
+    \customFigure[0.75]{00_Images/SP3.png}{Example of single source shortest paths on DAG with positive and negative weights.}
+
+    \begin{itemize}
+        \item Topologically sort vertices.
+        \item Initialize \( \forall V, d[V] = \infty \), \( d[S] = 0 \).
+        \item For each \( (u, v) \) in the topological order, Relax \( (u, v, w(u, v)) \).
+    \end{itemize}
+\end{definition}
