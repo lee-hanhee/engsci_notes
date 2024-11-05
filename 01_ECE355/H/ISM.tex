@@ -8,15 +8,50 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-The digital music synthesizer (DMS) is a system that generates and manipulates signals to create musical sound using digital signal processing (DSP) techniques (wikipedia).
+The digital music synthesizer (DMS) is a system that makes musical sounds by using digital signal processing (DSP) techniques to (wikipedia). 
+The DMS does this by modulating 
 \end{abstract} 
 
 \section{Introduction}
 
 \section{Mathematical Background}
-\subsection{Common Waveforms for Digital Music Representation}
-The fundamental building blocks of digital music synthesis are the basic waveforms. These waveforms are used to create more complex sounds by combining them in various ways. The most common waveforms used in digital music synthesis are the sine wave, square wave, sawtooth wave, and triangle wave.
-For $x \in \mathbb{R}^{\mathbb{R}}$ (from mathworld and PS6)
+There are several mathematical concepts related to ECE355 that are relevant ot the DMS. These include: 
+
+
+\subsection{Fourier Analysis}
+From lecture
+\begin{enumerate}
+    \item \textbf{Synthesis Equation (Inverse Fourier Transform):}
+    \begin{equation}
+        x(t) = \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df
+    \end{equation}
+
+    \item \textbf{Analysis Equation (Fourier Transform):}
+    \begin{equation}
+        X(f) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt
+    \end{equation}
+
+\end{enumerate}
+
+\subsection{LTI Systems}
+From lecture
+\begin{enumerate}
+    \item \textbf{Convolution Integral in Time Domain:}
+    \begin{equation}
+        y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau) h(t - \tau) \, d\tau 
+    \end{equation}
+    \item \textbf{Convolution Integral in Frequency Domain:}
+    \begin{equation}
+        Y(f) = X(f) \cdot H(f)
+    \end{equation}
+\end{enumerate}
+
+\section{Digital Synthesis Pipeline}
+\subsection{Frequency Oscillators}
+The fundamental building blocks of digital music synthesis are the basic waveforms. These waveforms are used to create more complex sounds by combining them in various ways. The most common waveforms used in digital music synthesis are the sine wave, square wave, sawtooth wave, and triangle wave, 
+which are created from frequency oscillators by adjusting the amplitude, frequency, and phase of the waveforms.
+For $x \in \mathbb{R}^{\mathbb{R}}$ 
+% MATHWORLD, PS6, https://www.antarestech.com/community/what-are-synths-in-music
 \begin{enumerate}
     \item \textbf{Sine:} 
     \begin{equation}
@@ -173,36 +208,8 @@ For $x \in \mathbb{R}^{\mathbb{R}}$ (from mathworld and PS6)
         \end{itemize}
     \end{itemize}
 \end{enumerate}
-\subsection{Fourier Analysis}
-From lecture
-\begin{enumerate}
-    \item \textbf{Synthesis Equation (Inverse Fourier Transform):}
-    \begin{equation}
-        x(t) = \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df
-    \end{equation}
 
-    \item \textbf{Analysis Equation (Fourier Transform):}
-    \begin{equation}
-        X(f) = \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt
-    \end{equation}
 
-\end{enumerate}
-\subsection{Sampling}
-
-\subsection{LTI Systems}
-From lecture
-\begin{enumerate}
-    \item \textbf{Convolution Integral in Time Domain:}
-    \begin{equation}
-        y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau) h(t - \tau) \, d\tau 
-    \end{equation}
-    \item \textbf{Convolution Integral in Frequency Domain:}
-    \begin{equation}
-        Y(f) = X(f) \cdot H(f)
-    \end{equation}
-\end{enumerate}
-
-\section{Digital Synthesis Pipeline}
 \subsection{Waveform Generation}
 \begin{enumerate}
     \item \textbf{Subtractive Synthesis:}
@@ -225,28 +232,56 @@ From lecture
 
 \subsection{Envelope Shaping}
 \begin{enumerate}
-    \item \textbf{Filtering:}
+    \item \textbf{Filtering:} Filtering is a method to affect only a certain range of frequencies in a signal. Some common filters are:
     \begin{itemize}
-        \item \textbf{Low Pass Filter:}
+        \item \textbf{Low Pass Filter:} This filter allows low frequencies to pass through.
             $H(j2\pi f) = 
             \begin{cases} 
             1 & \text{if } |f| \leq f_c \\
             0 & \text{if } |f| > f_c 
             \end{cases}$
-        \item \textbf{High Pass Filter:}
+        \item \textbf{High Pass Filter:} This filter allows high frequencies to pass through.
             $H(j2\pi f) = 
             \begin{cases} 
             1 & \text{if } |f| \geq f_c \\
             0 & \text{if } |f| > f_c 
+            \end{cases}$
+        \item \textbf{Band Pass Filter:} This filter allows a certain band of frequencies to pass through.
+            $H(j2\pi f) = 
+            \begin{cases} 
+            1 & \text{if } f_c - \frac{B}{2} \leq |f| \leq f_c + \frac{B}{2} \\
+            0 & \text{otherwise} 
             \end{cases}$
     \end{itemize}
 
 
 \end{enumerate}
 
-\subsection{Effects Processing}
+\subsection{ADSR Envelope}
+
 
 \subsection{Digital-to-Analog Conversion}
+\subsubsection{Nyquist-Shannon Sampling Theorem}
+% https://www.geeksforgeeks.org/nyquist-sampling-theorem/
+The theorem states that a continuous signal can be reconstructed from its samples if the sampling frequency is greater than 
+twice the maximum frequency of the signal:
+\begin{equation}
+    f_s > 2 f_{\text{max}}
+\end{equation}
+\begin{itemize}
+    \item $f_s$: Sampling frequency.
+    \item $f_{\text{max}}$: Maximum frequency of the original signal.
+\end{itemize}
+
+As a result, there are enough samples to accurately capture the details fo the signal without aliasing (i.e. distortion 
+in the reconstructed signal). 
+\begin{itemize}
+    \item The theorem is used for Digital-to-Analog Conversion (DAC) and Analog-to-Digital Conversion (ADC). 
+    \begin{itemize}
+        \item Specifically, for DAC, the theorem ensures that the processed digital signal after going through the DMS pipeline can be 
+        accurately converted back to an analog signal for playback through speakers or headphones. 
+\end{itemize}
+
 
 \subsection{Example}
 

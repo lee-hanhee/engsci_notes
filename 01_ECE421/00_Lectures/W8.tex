@@ -1,0 +1,152 @@
+\subsection{Convolutional Neural Networks (DL in Practice: Weight Regularization)}
+\begin{summary}
+    \begin{itemize}
+        \item To avoid overfitting and ensure cooperation of hidden units during training, employ \underline{modularity}.
+        \item Use convolution modules: Recall from before.
+        \begin{itemize}
+            \item \textbf{Shared weights:} Convolutional layers have shared weights across all neurons in the layer by using the same filter.
+        \end{itemize}
+    \end{itemize}
+    \customFigure[0.75]{00_Images/CNN2.png}{CNN}
+\end{summary}
+
+\subsubsection{How to CNNs work?}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{Convolutions}: Apply a set of filters to the input image or feature map to extract local features, such as edges, textures, or shapes. Each filter creates a feature map highlighting specific patterns in the input.
+    
+        \item \textbf{Subsampling (Pooling)}: Reduces the spatial dimensions of feature maps, typically using max or average pooling. This operation decreases computational complexity and makes the model more invariant to small translations in the input.
+    
+        \item \textbf{Full Connection (Fully Connected Layer)}: Connects every neuron in one layer to every neuron in the next layer, similar to a traditional neural network layer. This layer combines extracted features to make the final classification or prediction.
+    
+        \item \textbf{Gaussian Connections}: Adds Gaussian noise or introduces Gaussian-based connectivity for regularization and robustness, which helps the network generalize better to unseen data.
+    \end{itemize}    
+\end{summary}
+
+\subsubsection{LeCun, 1989}
+\begin{example}
+    Best result on handwritten digit recognition in 1989:
+    \customFigure[0.75]{00_Images/HDR.png}{Handwritten Digit Recognition}
+\end{example}
+
+\subsubsection{Weight Sharing}
+\begin{summary}
+    In CNNs and other architectures, we can have a situation where many connections hare the same single weight. This is called \textbf{weight sharing}.
+    \begin{itemize}
+        \item Let \( k(i, j) \) be the index of the weight on the connection \( i \rightarrow j \). Instead of
+        \[
+        x_j = \sum_{i=1}^{j-1} w_{ij} \, g_i(x_i)
+        \]
+        we have
+        \[
+        x_j = \sum_{i=1}^{j-1} w_{k(i,j)} \, g_i(x_i)
+        \]
+    
+        \item \textbf{Example:}
+        \begin{itemize}
+            \customFigure[0.5]{00_Images/WW.png}{Weight Sharing}
+            \item Mapping of \( k(i, j) \):
+            \begin{itemize}
+                \item \( k(1,5) = 1 \), \( k(2,6) = 1 \), \( k(3,7) = 1 \)
+                \item \( k(2,5) = 2 \), \( k(3,6) = 2 \), \( k(4,7) = 2 \)
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Weight sharing: Learning}
+\begin{summary}
+    \begin{itemize}
+        \item Before, for \( \frac{\partial E}{\partial w_{lm}} \), we had that \( w_{lm} \) influences \( E \) only \underline{via} \( x_m \), so
+        \[
+        \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \, g_l(x_l)
+        \]
+    
+        \item Now, \( w_k \) influences \( E \) via all \( x_m \) such that \( k(l, m) = k \), so
+        \[
+        \frac{\partial E}{\partial w_k} = \sum_{l, m: \; k(l, m) = k} \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_k} = \sum_{l, m: \; k(l, m) = k} \frac{\partial E}{\partial x_m} \, g_l(x_l)
+        \]
+    
+        \item \textbf{Algorithm:}
+        \begin{itemize}
+            \item Forward \& back propagation are the same as before.
+            \item The weight derivatives are computed as above.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Updated Forward and Backpropagation for Weight Sharing: Learning}
+\begin{summary}
+    \textbf{Forward propagation:} For \( j = I+1, \ldots, M \), 
+    \[
+    x_j = \sum_{i=1}^{j-1} \textcolor{red}{w_{k(i,j)}} \, g_i(x_i)
+    \]
+
+    \textbf{Output unit error derivatives:} \\
+    For \( m = M-O+1 \):
+    \[
+    \frac{\partial E}{\partial x_m} = -2(y_m - g_m(x_m)) g'_m(x_m)
+    \]
+
+    \textbf{Backpropagation:} \\
+    For \( m = M-O, \ldots, M-O-H+1 \):
+    \[
+    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} \, \textcolor{red}{w_{k(m,k)}} \, g'_m(x_m)
+    \]
+
+    \textbf{Weight derivatives:} \\
+    For \( l = 1, \ldots, M-O+1 \), for \( m = l+1, \ldots, M \):
+    \[
+    \textcolor{red}{\frac{\partial E}{\partial w_k} = \sum_{l,m: \; k(l,m)=k} \frac{\partial E}{\partial x_m} \, g_l(x_l)}
+    \]
+    The weights are updated as follows:
+    \[
+    w_{lm} \leftarrow w_{lm} - \eta \frac{\partial E}{\partial w_{lm}}
+    \]
+\end{summary}
+
+\subsection{Recurrent neural networks (DL in Practice: Architecture Choices)}
+\begin{summary}
+    \begin{itemize}
+        \item Instead of a DAG, we allow cycles to denote signals feeding back \underline{across time}:
+        \begin{itemize}
+            \item \( x_2 \) at time \( t \) depends on \( x_2 \) at time \( t-1 \) and \( x_1 \) at time \( t \).
+        \end{itemize}
+        \customFigure[0.5]{00_Images/RNN.png}{RNN}  
+    
+        \item \textbf{Unrolling an RNN:}
+        \customFigure[0.5]{00_Images/RNN1.png}{Unrolling an RNN}
+    
+        \item \textbf{Learning:} This is a DAG NN with weight sharing, so we an use the method described previously.
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Improving RNN as Sequence Generators}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{Conditional RNNs:} Output $(t)$ sees outputs $(1), \ldots, (t-1)$.
+        \customFigure[0.5]{00_Images/RNN2.png}{Conditional RNN}
+        \item \textbf{Bidirectional RNNs:} Output $(t)$ sees inputs $(1), \ldots, (t)$.
+        \customFigure[0.5]{00_Images/RNN3.png}{Bidirectional RNN}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{The Problem of Vanishing Gradients}
+\begin{summary}
+    \begin{itemize}
+        \item As gradients propagate through more hidden units, or through time, they get more and more suppressed (vanish) or amplified (explode).
+        \item This makes it hard to learn RNNs with long sequences, or very deep NNs.
+        \item A general approach is to add mechanisms that propagate derivatives directly across time, or layers.
+    \end{itemize}  
+\end{summary}
+
+\subsection{LSTMs: Long Short-Term Memory Cells (DL in Practice: Architecture Choices)}
+\begin{summary}
+    \begin{itemize}
+        \item Create gates that can copy over the previous cell state to the next cell state. 
+        \item \textbf{Key:} $H$'s all differentiable!!!!
+    \end{itemize}
+
+    \customFigure[0.5]{00_Images/LSTM.png}{LSTM}   
+\end{summary}
+

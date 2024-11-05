@@ -1,0 +1,322 @@
+\documentclass{article}
+\usepackage{style}
+
+\begin{document}
+\begin{center}
+    \section*{General}
+\end{center}
+
+\section{Math}
+% Subsection for Euler's Formula and Trigonometric Identities
+\subsection{Euler's Formula and Trigonometric Identities}
+\begin{definition}
+    For \( \theta \in \mathbb{R} \),
+    \begin{equation*}
+        e^{j\theta} = \cos \theta + j \sin \theta,
+    \end{equation*}
+    \begin{equation*}
+        \cos \theta = \frac{1}{2}\left(e^{j\theta} + e^{-j\theta}\right),
+    \end{equation*}
+    \begin{equation*}
+        \sin \theta = \frac{1}{2j}\left(e^{j\theta} - e^{-j\theta}\right).
+    \end{equation*}
+\end{definition}
+
+% Subsection for Trigonometric Phase Shifts
+\subsection{Trigonometric Phase Shifts}
+\begin{definition}
+    \begin{equation*}
+        \sin(\theta) = \cos\left(\theta - \frac{\pi}{2}\right),
+    \end{equation*}
+    \begin{equation*}
+        \cos(\theta) = \sin\left(\theta + \frac{\pi}{2}\right),
+    \end{equation*}
+    \begin{equation*}
+        -\sin(\theta) = \cos\left(\theta + \frac{\pi}{2}\right),
+    \end{equation*}
+    \begin{equation*}
+        -\cos(\theta) = \sin\left(\theta - \frac{\pi}{2}\right).
+    \end{equation*}
+\end{definition}
+
+% Subsection for Sinc Function
+\subsection{Sinc Function}
+\begin{definition}
+    \begin{equation*}
+        \operatorname{sinc}(x) = \frac{\sin(\pi x)}{\pi x}
+    \end{equation*}
+\end{definition}
+
+% Subsection for Geometric Sums
+\subsection{Geometric Sums}
+\begin{definition}
+    For \( \alpha \in \mathbb{C}, n \in \mathbb{N} \),
+    \begin{equation*}
+        \sum_{i=0}^{n} \alpha^i = 
+        \begin{cases} 
+            \frac{1 - \alpha^{n+1}}{1 - \alpha}, & \text{if } \alpha \neq 1, \\ 
+            n + 1, & \text{if } \alpha = 1;
+        \end{cases}
+    \end{equation*}
+    If \( |\alpha| < 1 \), then
+    \begin{equation*}
+        \sum_{i=0}^{\infty} \alpha^i = \frac{1}{1 - \alpha}.
+    \end{equation*}
+\end{definition}
+
+% Subsection for Complex Number Properties
+\subsection{Complex Number Properties}
+\begin{definition}
+    Magnitude:
+    \begin{equation*}
+        |z|, \quad |z|^2
+    \end{equation*}
+
+    Complex conjugate:
+    \begin{equation*}
+        z^* = |z| \cos(\theta) - j |z| \sin(\theta),
+    \end{equation*}
+    \begin{equation*}
+        z = |z| \cos(\theta) + j |z| \sin(\theta),
+    \end{equation*}
+    \begin{equation*}
+        z^* = |z| e^{-j\theta},
+    \end{equation*}
+    \begin{equation*}
+        z = |z| e^{j\theta}.
+    \end{equation*}
+
+    Polar form:
+    \begin{equation*}
+        |z| = \sqrt{z z^*} = \sqrt{x^2 + y^2},
+    \end{equation*}
+    \begin{equation*}
+        |z|^2 = z z^*,
+    \end{equation*}
+    where \( z = x + jy \) and \( z^* = x - jy \).
+
+    Angle:
+    \begin{equation*}
+        \tan(\theta) = \frac{y}{x}
+    \end{equation*}
+\end{definition}
+
+\section{Signal Basics}
+\subsection{Even and Odd}
+\begin{definition}
+    \begin{equation*}
+        x_{\text{even}} = \frac{1}{2}(x + \tilde{x})
+    \end{equation*}
+    
+    \begin{equation*}
+        x_{\text{odd}} = \frac{1}{2}(x - \tilde{x})
+    \end{equation*}
+    
+    \begin{equation*}
+        x = x_{\text{even}} + x_{\text{odd}}
+    \end{equation*}
+\end{definition}
+
+\subsection{Real and Odd}
+\begin{definition}
+    \begin{equation*}
+        \operatorname{Re}(x) = \frac{1}{2}(x + x^*)
+    \end{equation*}
+    
+    \begin{equation*}
+        \operatorname{Im}(x) = \frac{1}{2j}(x - x^*)
+    \end{equation*}
+\end{definition}
+
+\section{Systems}
+\begin{definition}
+
+\end{definition}
+
+
+\begin{paracol}{2} % Start a two-column layout
+\switchcolumn[0] % Start content in the left column
+\begin{center}
+    \section*{Discrete Time}
+\end{center}
+
+\switchcolumn[1] % Switch to right column
+\begin{center}
+    \section*{Continuous Time}
+\end{center}
+
+\switchcolumn[0]
+\subsection{Support}
+\begin{definition}
+    $x \in \mathbb{C}^{\mathbb{Z}}, x[n] \neq$ zero is the smallest interval $\{a, a + 1, \dots, b\}$ s.t.
+
+    \begin{equation*}
+        x[n] = 0 \text{ for } n \notin \{a, a + 1, \dots, b\}
+    \end{equation*}
+\end{definition}
+
+\switchcolumn[1]
+\subsection{Support}
+\begin{definition}
+    $x \in \mathbb{C}^{\mathbb{R}}, x(t) \neq$ zero is the smallest interval $[a, b]$ s.t.
+
+    \begin{equation*}
+        x(t) = 0 \text{ for } t \notin [a, b]
+    \end{equation*}
+\end{definition}
+
+\switchcolumn[0] % Discrete Time Column
+\subsection{Power}
+\begin{definition}
+    \begin{equation*}
+        P_x = \lim_{N \to \infty} \frac{1}{2N + 1} \sum_{n=-N}^{+N} |x[n]|^2
+    \end{equation*}
+\end{definition}
+
+\switchcolumn[1] % Continuous Time Column
+\subsection{Power}
+\begin{definition}
+    \begin{equation*}
+        P_x = \lim_{T \to \infty} \frac{1}{2T} \int_{-T}^{+T} |x(t)|^2 \, dt
+    \end{equation*}
+\end{definition}
+
+\switchcolumn[0] % Discrete Time Column
+\subsection{Energy}
+\begin{definition}
+    \begin{equation*}
+        E_x = \sum_{n=-\infty}^{+\infty} |x[n]|^2
+    \end{equation*}
+\end{definition}
+
+\switchcolumn[1] % Continuous Time Column
+\subsection{Energy}
+\begin{definition}
+    \begin{equation*}
+        E_x = \int_{-\infty}^{+\infty} |x(t)|^2 \, dt
+    \end{equation*}
+\end{definition}
+
+% N-Periodic Definition for Discrete Time
+\switchcolumn[0]
+\subsection{\( N \)-Periodic}
+\begin{definition}
+    A signal \( x \) is \( N \)-periodic for a positive integer \( N \) if
+    \begin{equation*}
+        x[n] = x[n + N]
+    \end{equation*}
+    for all \( n \in \mathbb{Z} \).
+\end{definition}
+
+\subsubsection{Fundamental Period}
+\begin{definition}
+    \( N_0 \) of \( x \) is the smallest positive value of \( N \) such that \( x \) is \( N_0 \)-periodic.
+\end{definition}
+
+% T-Periodic Definition for Continuous Time
+\switchcolumn[1]
+\subsection{\( T \)-Periodic}
+\begin{definition}
+    A signal \( x \) is \( T \)-periodic for a positive real number \( T \) if
+    \begin{equation*}
+        x(t) = x(t + T)
+    \end{equation*}
+    for all \( t \in \mathbb{R} \).
+\end{definition}
+
+\subsubsection{Fundamental Period}
+\begin{definition}
+    \( T_0 \) (if it exists) is the smallest positive value of \( T \) such that \( x \) is \( T_0 \)-periodic.
+\end{definition}
+
+% Inner Product for Discrete Time
+\switchcolumn[0]
+\subsection{Inner Product}
+\begin{definition}
+    Let \( x, y \in \mathbb{C}^{\mathbb{Z}} \) be \( N \)-periodic, then
+    \begin{equation*}
+        \langle x, y \rangle = \frac{1}{N} \sum_{n \in [N]} x[n]y^*[n]
+    \end{equation*}
+\end{definition}
+
+% Inner Product for Continuous Time
+\switchcolumn[1]
+\subsection{Inner Product}
+\begin{definition}
+    Let \( x, y \in \mathbb{C}^{\mathbb{R}} \) be \( T \)-periodic signals, then
+    \begin{equation*}
+        \langle x, y \rangle = \frac{1}{T} \int_{T} x(t)y^*(t) \, dt \in \mathbb{C}
+    \end{equation*}
+\end{definition}
+
+% Discrete-Time Fourier Series Properties
+\switchcolumn[0]
+\newpage
+\subsection{FS Properties}
+\begin{definition}
+    Given \( x \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} c_k \):
+    \begin{enumerate}
+        \item Time Reversal: \( \tilde{x}[n] \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} c_{-k} \)
+        \item Conjugation: \( x^*[n] \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} c^*_{-k} \)
+        \item Time Shifting: \( x[n - n_0] \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} e^{-j2\pi \frac{k}{N} n_0} c_k \)
+        \begin{itemize}
+            \item \( e^{-j2\pi \frac{k}{N} n_0} \): Phase factor.
+        \end{itemize}
+        \item Parseval's Relation: 
+        \begin{equation*}
+            \frac{1}{N} \sum_{n \in [N]} |x[n]|^2 = \sum_{k \in [N]} |c_k|^2
+        \end{equation*}
+        \item Modulation (Frequency-Shifting): 
+        \begin{equation*}
+            x[n] e^{j2\pi \frac{m}{N} n} \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} c_{k-m}
+        \end{equation*}
+        \begin{itemize}
+            \item \( (k - m)\%N \): Cyclic indexing
+        \end{itemize}
+    \end{enumerate}
+    \vspace{1em}
+
+        Given \( x \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} a_k \) and \( y \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} b_k \), with \( \alpha_1, \alpha_2 \in \mathbb{C} \):
+    \begin{enumerate}
+        \item Linearity: \( \alpha_1 x + \alpha_2 y \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} \alpha_1 a_k + \alpha_2 b_k \)
+        \item Multiplication: \( (x[n] y[n]) \underset{N}{\overset{\text{FS}}{\longleftrightarrow}} \sum_{\ell \in [N]} a_\ell b_{k - \ell} \)
+    \end{enumerate}
+\end{definition}
+
+\switchcolumn[1]
+\newpage
+% Continuous-Time Fourier Series Properties
+\subsection{FS Properties}
+\begin{definition}
+    Given \( x \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} c_k \):
+    \begin{enumerate}
+        \item Time Reversal: \( \tilde{x}(t) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} c_{-k} \)
+        \item Conjugation: \( x^*(t) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} c^*_{-k} \)
+        \item Time Scaling: For \( a > 0 \): 
+        \begin{equation*}
+            x(at) \underset{T/a}{\overset{\text{FS}}{\longleftrightarrow}} c_{\frac{k}{a}}
+        \end{equation*}
+        For $a<0$:
+        \begin{equation*}
+            x(at) \underset{T/(-a)}{\overset{\text{FS}}{\longleftrightarrow}} c_{-k}
+        \end{equation*}
+        \item Time Shifting: \( x(t - t_0) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} e^{-j2\pi \frac{k}{T} t_0} c_k \)
+        \begin{itemize}
+            \item \( e^{-j2\pi \frac{k}{T} t_0} \): Phase factor.
+        \end{itemize}
+        \item Parseval's Relation: \( \frac{1}{T} \int_T |x(t)|^2 dt = \sum_{k \in \mathbb{Z}} |c_k|^2 \)
+        \item Modulation (Frequency-Shifting): \( \forall m \in \mathbb{Z} \), then \( x(t) e^{j2\pi \frac{m}{T} t} \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} c_{k-m} \)
+        \item Differentiation: \( x'(t) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} j \frac{2\pi k}{T} c_k \)
+    \end{enumerate}
+    \vspace{1em}
+
+    Given \( x \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} a_k \) and \( y \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} b_k \), \( \forall \alpha_1, \alpha_2 \in \mathbb{C} \):
+    \begin{enumerate}
+        \item Linearity: \( \alpha_1 x + \alpha_2 y \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} \alpha_1 a_k + \alpha_2 b_k \)
+        \item Multiplication: \( (x(t)y(t)) \underset{T}{\overset{\text{FS}}{\longleftrightarrow}} \sum_{n \in \mathbb{Z}} a_n b_{k - n} \)
+    \end{enumerate}
+\end{definition}
+
+\end{paracol}
+\end{document}
+

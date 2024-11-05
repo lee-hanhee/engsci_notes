@@ -1,4 +1,5 @@
-\subsection{Deep Learning in Practice (Choice of Act. Fcns., Input Preprocessing):}
+LOOK IN TEXTBOOK FOR MORE DETAILS. 
+\subsection{Deep Learning in Practice:}
 \begin{summary}
     This is not a comprehensive list, but some of parameters that we get to choose. 
     \begin{itemize}
@@ -24,7 +25,7 @@
     \end{itemize}
 \end{summary}
 
-\subsection{Weight Initialization}
+\subsection{DL in Practice: Initialization of Weights and Biases} 
 \begin{summary}
     \begin{itemize}
         \item Recall that \( \frac{\partial E}{\partial w_{lm}} \propto g'(x_m) \) (proportional)
@@ -91,6 +92,113 @@
         \item \textbf{High-level:} This initialization is a compromise between ensuring activation variance is the same across layers and all weights \( w \)'s have the same gradient variance.
         \begin{itemize}
             \item \textbf{Note:} As you go through the layers of the neural network, you want to be in the active range of the gradient, so that the weight updates can be meaningful
+            \item \textbf{Note:} $\text{Variance is proportional to } \frac{6}{m+n}$ (i.e. 1 over the number of inputs and outputs, where the 6 is to take into a account the uniform distribution).
         \end{itemize}
     \end{itemize}
 \end{summary}
+
+\subsection{Avoiding overfitting (DL in Practice: Train, validation, test, stopping criterion, weight regularization, dropout, \dots)}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{Weight Penalties (CDL 7.1):} Minimize \( E(\text{data}, \omega) + \lambda \|\omega\| \)
+        \begin{itemize}
+            \item Favors small weights \& neural nets that make 'smooth' predictions
+            \item i.e. Keep the weights small, so that the model is less likely to overfit.
+        \end{itemize}
+        \item \textbf{Early stopping:} Start with tiny weights, monitor a validation set during training, and stop when the validation error starts to increase.
+        \begin{itemize}
+            \item Helpful because the training error will always decrease, but the validation error will start to increase when the model starts to overfit.
+        \end{itemize}
+        \customFigure[0.75]{00_Images/AO.png}{Avoiding overfitting}
+        \item \textbf{Bagging (CDL 7.1)}: Train many (e.g., 10) neural nets, and allow them to overfit. To make a prediction for a test case, \underline{average} the predictions from the ensemble of neural nets.
+        \begin{itemize}
+            \item Some models will overfit in different ways, so averaging them will reduce the overfitting.
+        \end{itemize}
+        \customFigure[0.75]{00_Images/AO1.png}{Avoiding overfitting}
+    \end{itemize}
+\end{summary}
+
+\subsection{Wasted and Stuck Units}
+\begin{summary}
+    The main challenge for large neural nets is not just overfitting, but that most hidden units get \underline{stuck where they aren't needed} \& are thus \underline{wasted}.
+    \begin{itemize}
+        \item \textbf{Wasted Units:} If the weights are too small, the unit will not be able to learn anything.
+        \begin{itemize}
+            \item \textbf{Note:} This is why we want to initialize the weights to be large enough so that the unit can learn something.
+        \end{itemize}
+        \item \textbf{Stuck Units:} If the weights are too large, the unit will saturate and not be able to learn anything.
+        \begin{itemize}
+            \item \textbf{Note:} This is why we want to initialize the weights to be small enough so that the unit can learn something.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+    
+    \begin{itemize}
+        \item Weight regularization \& early stopping don't help.
+        \item Bagging somewhat helps, but
+        \begin{itemize}
+            \item The number of nets needed grows rapidly with the complexity of the data.
+            \item When training each net in the ensemble, most units still get stuck.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/FA.png}{Function approximation example}
+    \begin{itemize}
+        \item The top plot shows a "good solution," where both sigmoid units contribute meaningfully. Sigmoid 1 captures the first rise in the function, while Sigmoid 2 adjusts to capture the second rise, leading to an accurate approximation.
+        
+        \item The bottom plot demonstrates a poor solution where Sigmoid 2 is "stuck." Here:
+            \begin{itemize}
+                \item Sigmoid 1 is positioned to capture the initial rise in the function.
+                \item However, Sigmoid 2 fails to adjust effectively and remains flat, resulting in a suboptimal approximation.
+            \end{itemize}
+    \end{itemize}    
+\end{example}
+
+\subsubsection{Dropout (Solution to Wasted and Stuck Units)}
+\begin{summary}
+    \begin{itemize}
+        \item \underline{Goal}: Train very large networks while avoiding \underline{overfitting and wasting most hidden units}.
+        
+        \begin{itemize}
+            \item \textit{Recall the wasted hidden units for a simple task}
+            \customFigure[0.5]{00_Images/E1.png}{Example 1}
+        \end{itemize}
+    
+        \item \underline{Method}
+        \begin{itemize}
+            \item Set dropout probabilities \(\{\mu_i\}\), e.g., for input units \(\mu_i = 0.8\) and for hidden units \(\mu_i = 0.5\).
+            \item During training, for each forward pass, set the activity of \(\hat{x}_i\) to zero with probability \(1 - \mu_i\) (i.e. probability of dropping the unit), independent of other units.
+            \item During testing, set \( w_{ij} \leftarrow w_{ij} \cdot \mu_i \) (i.e. multiply by the probability of keeping the unit) for all $i,j$.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+
+\subsubsection{Dropout: Cooperation and Exponential Bagging}
+\begin{summary}
+    \begin{itemize}
+        \item Dropout simulates an exponential number of neural architectures 
+        \begin{itemize}
+            \item \textit{Exponential bagging}
+        \end{itemize}
+        
+        \item Because the weights are shared across all networks and they are trained jointly, the units can cooperate during training to get unstuck.
+    \end{itemize}
+    
+    \customFigure[0.5]{00_Images/DE.png}{Dropout}
+    
+    \textit{These are the nets that get sampled in the forward pass}
+\end{summary}
+
+
+\begin{example}
+    Suppose each hidden unit is dropped out with \( p = 0.5 \).
+
+    \customFigure[0.5]{00_Images/S.png}{Sigmoid with dropout}
+
+    \begin{itemize}
+        \item \( \frac{1}{4} \) of the time, only sigmoid 2 is used to predict the output, so it will be pressured to take over for sigmoid 1, which can then capture the incline on the far right.
+    \end{itemize}
+\end{example}
