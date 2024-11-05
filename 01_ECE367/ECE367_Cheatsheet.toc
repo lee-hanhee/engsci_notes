@@ -115,21 +115,23 @@
 \contentsline {subsection}{\numberline {8.8}Sqaure roots of PSD}{72}{subsection.8.8}%
 \contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{74}{section.9}%
 \contentsline {subsection}{\numberline {9.1}2nd Optimization Problem (Motivation for SVD)}{74}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Singular value decomposition}{75}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Principle component analysis}{75}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{76}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{76}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{76}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{77}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Least squares}{77}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{77}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{77}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{78}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{78}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{78}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{79}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{79}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{79}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{80}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{80}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{80}{subsection.14.2}%
+\contentsline {subsection}{\numberline {9.2}3rd Optimization Problem}{75}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Theorem}{76}{subsubsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.3}Singular value decomposition}{77}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Principle component analysis}{78}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{79}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{79}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{79}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{80}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Least squares}{80}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{80}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{80}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{81}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{81}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{81}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{82}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{82}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{82}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{83}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{83}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{83}{subsection.14.2}%

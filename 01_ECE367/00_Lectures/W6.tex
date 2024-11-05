@@ -3,7 +3,7 @@
     Let \( A \in S^n \) (not necessarily PSD). We are interested in solving the optimization problem:
 
     \begin{align*}
-    \max_{s.t. ||x||_2 \leq 1} \|A x\|_2  
+    \max_{s.t. ||x||_2 = 1} \|A x\|_2  
     \end{align*}
     \begin{itemize}
         \item s.t. is subject to
@@ -40,7 +40,7 @@
     So the optimization problem becomes:
 
     \begin{align*}
-    \max_{ s.t. \|\tilde{x}\|_2 \leq 1} \| \Lambda \tilde{x} \|_2 
+    \max_{ s.t. \|\tilde{x}\|_2 = 1} \| \Lambda \tilde{x} \|_2 
     \end{align*}
 
     Since \( \Lambda \tilde{x} \) is diagonal, we can write:
@@ -79,9 +79,201 @@
     \end{align*}
 
     \textbf{Conclusion:} The optimal direction of \( x \) is the direction of the eigenvector corresponding to the largest eigenvalue. This is the solution where $A$ is symmetric.
+\end{derivation}
 
+\subsection{3rd Optimization Problem}
+\begin{derivation}
     \textbf{Extending to rectangular matrices:} What if we need to maximize \( \| M x \|_2 \) for some \( M \in \mathbb{R}^{m \times n} \) (not necessarily square)? This leads us to the Singular Value Decomposition (SVD).
+    \begin{enumerate}
+        \item \textbf{Generalization for Non-Symmetric or Non-Square Matrices}:
+            \begin{itemize}
+                \item For a matrix $M \in \mathbb{R}^{m \times n}$, the optimization problem becomes:
+                    \begin{align*}
+                        \max_{\text{s.t. } \|x\|_2 = 1} \|Mx\|_2.
+                    \end{align*}
+                \item This can be rewritten as:
+                    \begin{align*}
+                        \max_{\text{s.t. } \|x\|_2 = 1} \|Mx\|_2^2 = \max_{\text{s.t. } \|x\|_2 = 1} x^T (M^T M) x,
+                    \end{align*}
+                    \begin{itemize}
+                        \item $A = M^T M$ is symmetric and positive semi-definite (PSD).
+                        \begin{itemize}
+                            \item $A^T = (M^T M)^T = M^T M = A$
+                            \item \textbf{Note:} $A$ is in fact a PSD matrix because for any $x \in \mathbb{R}^n$, $x^T A x = x^T M^T M x = ||Mx||_2^2 \geq 0$
+                        \end{itemize}
+                    \end{itemize}
+            \end{itemize}
+        \item \textbf{Rayleigh Quotient:}
+        \begin{itemize}
+            \item We aim to solve:
+                \begin{align*}
+                    \max_{\text{s.t. } \|x\|_2^2 = x^T x=1} x^T A x.
+                \end{align*}
+            \item This is equivalent to maximizing the Rayleigh quotient:
+                \begin{align*}
+                    \max_{\text{s.t. } x \neq 0} \frac{x^T A x}{x^T x}.
+                \end{align*}
+                \begin{itemize}
+                    \item \textbf{Note:} This is equivalent bc if $x$ is not unit norm, the division by $x^T x$ will normalize the function, therefore, any scaling factor will be canceled out. As a result, the only condition needed is that $x$ is not zero, so we don't divide by 0.
+                \end{itemize}
+        \end{itemize}
+        \item \textbf{Upper and Lower Bounds}
+        \begin{itemize}
+            \item \textbf{Upper bound} can be achieved when $\tilde{x}$ is given by:
+            \begin{align*}
+                \tilde{x} &= 
+                \begin{bmatrix}
+                    1 \\ 
+                    0 \\ 
+                    \vdots \\ 
+                    0 
+                \end{bmatrix},
+            \end{align*}
+            which corresponds to $x = u^{(1)}$, the eigenvector associated with the largest eigenvalue $\lambda_{\max}(A)$.
+        
+            \item \textbf{Lower bound} can be achieved when $\tilde{x}$ is given by:
+            \begin{align*}
+                \tilde{x} &= 
+                \begin{bmatrix}
+                    0 \\ 
+                    0 \\ 
+                    \vdots \\ 
+                    1 
+                \end{bmatrix},
+            \end{align*}
+            which corresponds to $x = u^{(n)}$, the eigenvector associated with the smallest eigenvalue $\lambda_{\min}(A)$.
+        \end{itemize}
+        
+        \item \textbf{Optimization Solution}
+        
+        Thus, this gives us a solution to the optimization problem:
+        \begin{align*}
+            \max_{\text{s.t. } \|x\|_2 = 1} \|Mx\|_2.
+        \end{align*}
+        
+        The solution is the eigenvector of $M^T M$ corresponding to the largest eigenvalue, and the maximum is:
+        \begin{align*}
+            \sqrt{\lambda_{\max}(M^T M)}.
+        \end{align*}
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Theorem}
+\begin{theorem}
+    Given a symmetric matrix $A \in \mathbb{R}^{n \times n}$, we have 
+    \begin{align*}
+        \lambda_{\text{min}}(A) \leq \frac{x^T A x}{x^T x} \leq \lambda_{\text{max}}(A), \quad \forall x \in \mathbb{R}^n.
+    \end{align*}
+    \begin{itemize}
+        \item $\lambda_{\text{max}}(A) = \max_{x \neq 0} \frac{x^T A x}{x^T x}$
+        \item $\lambda_{\text{min}}(A) = \min_{x \neq 0} \frac{x^T A x}{x^T x}$
+    \end{itemize}    
+\end{theorem}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item Given a symmetric matrix $A$, we can write its spectral decomposition as:
+        \begin{align*}
+            A &= U \Lambda U^T,
+        \end{align*}
+        where $U$ is orthogonal and $\Lambda$ is diagonal.
+    
+        \item For any vector $x$, we have:
+        \begin{align*}
+            x^T A x &= x^T U \Lambda U^T x \\
+                    &= \tilde{x}^T \Lambda \tilde{x},
+        \end{align*}
+        where $\tilde{x} = U^T x$.
+    
+        \item Expanding this expression, we get:
+        \begin{align*}
+            x^T A x &= \sum_{i=1}^n \lambda_i \tilde{x}_i^2.
+        \end{align*}
+    
+        \item Since $x^T x = \|x\|_2^2 = \|\tilde{x}\|_2^2$, we have:
+        \begin{align*}
+            \|x\|_2^2 &= \sum_{i=1}^n \tilde{x}_i^2
+        \end{align*}
+    
+        \item The Rayleigh quotient becomes:
+        \begin{align*}
+            \frac{x^T A x}{x^T x} &= \frac{\sum_{i=1}^n \lambda_i \tilde{x}_i^2}{\sum_{i=1}^n \tilde{x}_i^2}.
+        \end{align*}
+        \begin{itemize}
+            \item \textbf{Upper Bound}: Using the properties of eigenvalues, we get:
+            \begin{align*}
+                \frac{x^T A x}{x^T x} &\leq \frac{\sum_{i=1}^n \lambda_{\max} \tilde{x}_i^2}{\sum_{i=1}^n \tilde{x}_i^2} = \lambda_{\max}(A).
+            \end{align*}
+            \begin{itemize}
+                \item \textbf{Note:} $\lambda_{\text{max}}$ doesn't rely on index, so we can bring it out.
+            \end{itemize}
+        
+            \item \textbf{Lower Bound}: Similarly, we have:
+            \begin{align*}
+                \frac{x^T A x}{x^T x} &\geq \frac{\sum_{i=1}^n \lambda_{\min} \tilde{x}_i^2}{\sum_{i=1}^n \tilde{x}_i^2} = \lambda_{\min}(A).
+            \end{align*}
+            \begin{itemize}
+                \item \textbf{Note:} $\lambda_{\text{min}}$ doesn't rely on index, so we can bring it out.
+            \end{itemize}
+        \end{itemize}
+    
+        \item Therefore, 
+        \begin{align*}
+            \lambda_{\min}(A) \leq \frac{x^T A x}{x^T x} \leq \lambda_{\max}(A).
+        \end{align*}
+    
+        \item \textbf{Note:} If $\lambda_1 \geq \lambda_2 \geq \dots \geq \lambda_n$, the maximum value is achieved when $\tilde{x} = \begin{bmatrix} 1 & 0 & \dots & 0 \end{bmatrix}^T$, giving:
+        \begin{align*}
+            x^T A x = \sum_{i=1}^{n} \lambda_i \tilde{x}_i^2 = \lambda_{\max} \|x\|_2^2
+        \end{align*}
+    \end{enumerate}    
 \end{derivation}
 
 \subsection{Singular value decomposition}
+\begin{intuition}
+    For any matrix $A \in \mathbb{R}^{m \times n}$, we can express it using Singular Value Decomposition (SVD) as:
+    \begin{align*}
+        A = U \Sigma V^T,
+    \end{align*}
+    where:
+    \begin{itemize}
+        \item $U$ is an orthogonal matrix of size $m \times m$.
+        \item $V$ is an orthogonal matrix of size $n \times n$.
+        \item $\Sigma$ is a "nearly diagonal" matrix of size $m \times n$ containing the singular values of $A$ along its main diagonal.
+    \end{itemize}
+
+    The matrix $\Sigma$ has the form:
+    \begin{align*}
+        \Sigma = 
+        \begin{bmatrix}
+            \sigma_1 & 0 & \dots & 0 & 0 \\
+            0 & \sigma_2 & \dots & 0 & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \vdots\\
+            0 & 0 & \dots & \sigma_r & 0 \\
+            0 & 0 & \dots & 0 & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \vdots \\
+            0 & 0 & \dots & 0 & 0 \\
+        \end{bmatrix},
+    \end{align*}
+    \begin{itemize}
+        \item $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0$ are the singular values of $A$, and $r = \text{rank}(A)$. The remaining entries in $\Sigma$ are zero.
+    \end{itemize}
+\end{intuition}
+
+\section*{Singular Value Decomposition (SVD)}
+        
+\begin{itemize}
+    \item \textbf{Spectral Decomposition for Symmetric Matrices}:
+        \begin{align*}
+            A = U \Delta U^T,
+        \end{align*}
+        where $U$ performs rotation/flip, $\Delta$ scales each component, and $U^T$ rotates/flips back.
+    \item For any $A \in \mathbb{R}^{m \times n}$, we have:
+        \begin{align*}
+            A = U \Sigma V^T,
+        \end{align*}
+        where $U$ and $V$ are orthogonal matrices, and $\Sigma$ is a "nearly diagonal" matrix containing the singular values.
+\end{itemize}
+
+
 \subsection{Principle component analysis}
