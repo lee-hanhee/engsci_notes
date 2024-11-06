@@ -100,6 +100,9 @@
     \[
     x(t) = \sum_{k \in \mathbb{Z}} c_k e^{j 2 \pi \frac{k}{T} t} \rightarrow X(f) = \sum_{k \in \mathbb{Z}} c_k \delta\left(f - \frac{k}{T}\right) \quad \text{(Line Spectrum)}
     \]
+    \begin{itemize}
+        \item i.e. Periodic signals have a line spectrum as the Fourier Transform.
+    \end{itemize}
 \end{definition}
 
 \begin{example}
@@ -137,5 +140,151 @@
            \]
            This represents a \textbf{picket fence function}, which will be significant in sampling theory.
            \customFigure[0.75]{00_Images/PF.png}{Picket fence.}
+           \begin{itemize}
+            \item \textbf{Reciprocal Spacing:} If the spacing is wide in the time domain, then the spacing will be narrow in the frequency domain. Vice versa.
+           \end{itemize}
     \end{enumerate}
 \end{example}
+
+\subsection{Properties of Fourier Transform (MIDTERM CUTOFF EXCLUSIVE)}
+\begin{warning}
+    \begin{itemize}
+        \item Time domain is on left side of FT Pair and frequency domain is on the right side.
+    \end{itemize}
+\end{warning}
+
+\subsubsection{1. Linearity}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \) and \( y(t) \overset{\mathcal{F}}{\leftrightarrow} Y(f) \), then
+\[
+\alpha x(t) + \beta y(t) \overset{\mathcal{F}}{\leftrightarrow} \alpha X(f) + \beta Y(f), \quad \forall \, \alpha, \beta \in \mathbb{C}.
+\]
+\end{definition}
+
+\subsubsection{2. Time-shifting}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \), then
+\[
+x(t - t_0) \overset{\mathcal{F}}{\leftrightarrow} e^{-j 2 \pi f t_0} X(f).
+\]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    \mathcal{F}^{-1} \left( e^{-j 2 \pi f t_0} X(f) \right) &= \int_{-\infty}^{\infty} X(f) e^{-j 2 \pi f t_0} e^{j 2 \pi f t} \, df \\
+    &= \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f (t - t_0)} \, df \\
+    &= x(t - t_0).
+    \end{align*}
+\end{derivation}
+
+\subsubsection{3. Frequency-shifting (Modulation)}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \), then
+    \[
+    e^{j 2 \pi f_0 t} x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f - f_0).
+    \]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    \mathcal{F} \left( e^{j 2 \pi f_0 t} x(t) \right) &= \int_{-\infty}^{\infty} e^{j 2 \pi f_0 t} x(t) e^{-j 2 \pi f t} \, dt \\
+    &= \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi (f - f_0) t} \, dt \\
+    &= X(f - f_0).
+    \end{align*}
+\end{derivation}
+
+\subsubsection{4. Time-reversal}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \), then
+    \[
+    \tilde{x}(t) = x(-t) \overset{\mathcal{F}}{\leftrightarrow} \tilde{X}(f) = X(-f).
+    \]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    \mathcal{F} \left( x(-t) \right) &= \int_{-\infty}^{\infty} x(-t) e^{-j 2 \pi f t} \, dt \\
+    &= \int_{\infty}^{-\infty} x(s) e^{-j 2 \pi f (-s)} (-ds) \quad \text{(substitute } s = -t, \, ds = -dt) \\
+    &= \int_{-\infty}^{\infty} x(s) e^{-j 2 \pi (-f) s} \, ds \\
+    &= X(-f) \\
+    &= \tilde{X}(f).
+    \end{align*}
+\end{derivation}
+
+\subsubsection{5. Conjugation}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \), then
+    \[
+    x^*(t) \overset{\mathcal{F}}{\leftrightarrow} \tilde{X}^*(f) = X^*(-f).
+    \]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    \mathcal{F} \left( x^*(t) \right) &= \int_{-\infty}^{\infty} x^*(t) e^{-j 2 \pi f t} \, dt \\
+    &= \left( \int_{-\infty}^{\infty} x(t) e^{j 2 \pi f t} \, dt \right)^* \\
+    &= \left( \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi (-f) t} \, dt \right)^* \\
+    &= \left( X(-f) \right)^* \\
+    &= X^*(-f).
+    \end{align*}
+\end{derivation}
+
+\subsubsection{6. Duality}
+\begin{definition}
+    If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \), then
+    \[
+    X(t) \overset{\mathcal{F}}{\leftrightarrow} \tilde{x}(f) = x(-f).
+    \]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    X(f) &= \int_{-\infty}^{\infty} x(t) e^{-j 2 \pi f t} \, dt, \\
+    X(t) &= \int_{-\infty}^{\infty} x(s) e^{-j 2 \pi t s} \, ds, \quad (t \rightarrow s) \text{ and } (f \rightarrow t) \\
+    \mathcal{F}(X(t)) &= \int_{-\infty}^{\infty} X(t) e^{-j 2 \pi f t} \, dt \\
+    &= \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} x(s) e^{-j 2 \pi t s} \, ds \right) e^{-j 2 \pi f t} \, dt \\
+    &= \int_{-\infty}^{\infty} x(s) \int_{-\infty}^{\infty} e^{-j 2 \pi t s}  e^{-j 2 \pi f t} \, dt \, ds \\
+    &= \int_{-\infty}^{\infty} x(s) \delta(s + f) \, ds \\
+    &= x(-f) \\
+    &= \tilde{x}(f)
+    \end{align*}
+\end{derivation}
+
+\begin{figure}[h!]
+    \centering
+    % Left Diagram
+    \begin{tikzpicture}
+        % Nodes
+        \node (X) at (0, 2) {\( x(t) \)};
+        \node (XF) at (2, 2) {\( X(f) \)};
+        \node (XTildeF) at (2, 0) {\( \tilde{x}(f) \)};
+        \node (XTilde) at (0, 0) {\( \tilde{X}(t) \)};
+
+        % Arrows
+        \draw[->] (X) -- node[above] {\( \mathcal{F} \)} (XF);
+        \draw[<-] (XTilde) -- node[below] {\( \mathcal{F} \)} (XTildeF);
+        \draw[<-] (X) -- node[left] {\( \mathcal{F} \)} (XTilde);
+        \draw[->] (XF) -- node[right] {\( \mathcal{F} \)} (XTildeF);
+    \end{tikzpicture}
+    \quad
+    % Right Diagram
+    \begin{tikzpicture}
+        % Nodes
+        \node (XStar) at (0, 2) {\( x^*(t) \)};
+        \node (XFStar) at (2, 2) {\( X^*(f) \)};
+        \node (XTildeFStar) at (2, 0) {\( \tilde{x}^*(f) \)};
+        \node (XTildeStar) at (0, 0) {\( \tilde{X}^*(t) \)};
+
+        % Arrows
+        \draw[<-] (XStar) -- node[above] {\( \mathcal{F} \)} (XFStar);
+        \draw[->] (XTildeStar) -- node[below] {\( \mathcal{F} \)} (XTildeFStar);
+        \draw[->] (XStar) -- node[left] {\( \mathcal{F} \)} (XTildeStar);
+        \draw[<-] (XFStar) -- node[right] {\( \mathcal{F} \)} (XTildeFStar);
+    \end{tikzpicture}
+\end{figure}
+

@@ -1,104 +1,312 @@
-\subsection{Definition}
+\subsection{Definition of Single Source Shortest Paths (SSSPs)}
 \begin{definition}
-    Given a connected, directed, weighted (positive or negative) graph, find the shortest path from start vertex \( S \) to \(\forall\) vertex. (e.g., cities and air mileage).
+    Given a connected, directed, weighted (positive or negative) graph, find the shortest path (i.e. SP) from start vertex \( S \) (i.e. source) to \(\forall\) vertex in $V$. (e.g., cities and air mileage).
 
     \begin{itemize}
         \item \textbf{SPs} (Shortest Paths) may not be unique.
     \end{itemize}
 
     \customFigure[0.75]{00_Images/SP.png}{Shortest Path}
+    \begin{itemize}
+        \item \textbf{Weights:} Cost, distance, penalities, delays, profits, etc, which can be positive or negative, but no negative cycles.  
+        \item \textbf{Source to Top Right Node:} $3 + 6 = 9$
+    \end{itemize}
 \end{definition}
 
 \subsubsection{Graph-based Formulation}
 \begin{definition}
-    Given a weighted, directed graph, find
+    Given a weighted (+ or -), directed graph G, find $\delta(u,v)$ s.t.
     \[
-    \delta(S, V) = \begin{cases} 
-        \min \{ u(p) : S \rightarrow V \} & \text{if } \exists \, p \, S \overset{P}{\rightarrow} V \\
-        \infty & \text{if } \nexists \, p \, S \overset{P}{\rightarrow} V 
+    \delta(u, v) = \begin{cases} 
+        \min \{ w(p) : u  \overset{P}{\rightarrow} v \} & \text{if } \exists \, \text{path } p \, u \overset{p}{\rightarrow} v \\
+        \infty & \text{if } \nexists \, \text{path } p \, u \overset{p}{\rightarrow} v
     \end{cases}
     \]
 \end{definition}
 
 \subsection{Topics of Study}
-\begin{definition}
+\begin{summary}
     We will study:
     \begin{itemize}
         \item \textbf{Dijkstra's Algorithm} (for graphs with non-negative weights).
-        \item \textbf{SPs on DAGs} (Directed Acyclic Graphs).
+        \item \textbf{SPs on DAGs}
         \item \textbf{Bellman-Ford Algorithm} (handles negative weights and reports negative cycles).
         \item \textbf{Application to Difference Constraints}.
     \end{itemize}
-\end{definition}
+\end{summary}
 
 \subsubsection{Variations}
-\begin{definition}
+\begin{summary}
     \begin{itemize}
-        \item Single source SP (what we study).
-        \item Single destination SP (reverse edges and run single source SP).
-        \item Single pair SP (no better than single source SP).
+        \item Single source SP (What we study).
+        \item Single destination SP (Solution: reverse edges and run single source SP).
+        \item Single pair SP (No better than SSSP).
         \item All pairs SP.
     \end{itemize}
     \begin{enumerate}
         \item First 3 are greedy 
         \item Last one is dynamic programming
     \end{enumerate}
-\end{definition}
+\end{summary}
 
 \subsection{Edge Relaxation}
 \begin{definition}
     Both Dijkstra's and Bellman-Ford algorithms use \textbf{edge relaxation}.
-
-    Keep track of this quantity \( d[v] \), which is the best estimate you got for the shortest path (SP) from \( S \overset{P}{\rightarrow} V \). They \textbf{relax} edges, trying to improve that estimate.
-
     \begin{itemize}
-        \item $\text{Relax}(u, v, w(u, v)) \quad \leftarrow \quad (u, v) \in E$
+        \item \textbf{Intuition:} Both algorithms keep an estimate $d[u]$ of $\delta(s,u)$ and iteratively they improve that estimate until they converge \& $d[u] = \delta(s,u)$.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{RELAX Methodology:} Keep track of this quantity \( d[v] \), which is the best estimate you got for the shortest path (SP) from \( s \overset{P}{\rightarrow} v \). They \textbf{relax} edges, trying to improve that estimate.
+
+\begin{lstlisting}[mathescape=true]
+Relax($u, v, w(u, v)$)   # Note: $(u, v) \in E$
+    if $d[v] > d[u] + w(u, v)$ then
+        $d[v] = d[u] + w(u, v)$
+        $\pi(v) = u$   # parent of $v$ in SP is $u$
+\end{lstlisting}
+        
+    \begin{itemize}
+        \item \textbf{Note:} Always \( d[V] \geq \delta(S, V) \).
+    \end{itemize}
+    \begin{itemize}
+        \item Edge relaxation is a process used in shortest path algorithms.
+        \item For each edge \((u, v)\) with weight \(w(u, v)\), we check if going through \(u\) offers a shorter path to \(v\) than previously known.
+        \item If \(d[v] > d[u] + w(u, v)\):
         \begin{itemize}
-            \item \textbf{If} \( d[v] > d[u] + w(u, v) \):
-            \begin{itemize}
-                \item \( d[v] = d[u]] + w(u, v) \)
-                \item \( \pi(v) = u \) (parent of \( v \) in SP is \( u \))
-            \end{itemize}
+            \item We update \(d[v]\) to \(d[u] + w(u, v)\), reflecting the shorter path estimate to \(v\).
+            \item We set \(\pi(v) = u\), making \(u\) the predecessor of \(v\) in the shortest path tree.
         \end{itemize}
+        \item This process is repeated for all edges, gradually refining shortest path estimates.
     \end{itemize}
     
-    Always \( d[V] \geq \delta(S, V) \).
 
     \customFigure[0.75]{00_Images/SP1.png}{Edge relaxation.}
+    \begin{itemize}
+        \item \textbf{Note:} The idea is to relax edges until you get the shortest path.
+    \end{itemize}
     
     \customFigure[0.75]{00_Images/SP2.png}{Example of edge relaxation: Relaxation from 10 to 8 and non-relaxation cases.}
 \end{definition}
 
 \subsection{Dijkstra's Algorithm (no negative weights)}
 \begin{definition}
-    \textbf{Time Complexity:} \( O(E \log(V)) \)
+    \textbf{Time Complexity:} \( O(E \log(V)) \) due to topological sort. 
 
     \begin{enumerate}
-        \item Initialize \( d[V] = \infty \) for all \( V \in V \).
-        \item Set \( d[S] = 0 \).
+        \item Initialize \( d[V] = \infty \) for all \( v \in V \).
+        \item Set \( d[s] = 0 \).
         \item \( Q = V \) \quad (\( Q \) is a priority queue).
-        \item While \( Q \neq \emptyset \):
+        \item While \( Q \neq \emptyset \): $O(v \log v)$
         \begin{enumerate}
-            \item \( u = \text{extract\_min}(Q) \).
+            \item \( u = \text{extract\_min}(Q) \). $O( \log v)$
             \item \( S = S \cup \{ u \} \).
-            \item For each vertex adjacent to \( u \), do:
+            \item For each vertex adjacent to \( u \), do: $O(E \log v)$
             \begin{itemize}
-                \item Relax \( (u, v, w(u, v)) \).
+                \item Relax \( (u, v, w(u, v)) \) $O(\log v)$
             \end{itemize}
         \end{enumerate}
     \end{enumerate}
+    \begin{itemize}
+        \item \textbf{Extract Min:} $O(\log v)$
+        \item \textbf{While Loop:} $O(v \log v)$
+        \item \textbf{Relax:} $O(\log v)$
+        \item \textbf{For loop:} $O(E \log v)$
+        \item \textbf{Fibonnaci Heaps Amortized:} $O(v \log v)$
+        \item \textbf{Note:} Implement with a min-heap (priority queue, extract min).
+    \end{itemize}
 \end{definition}
 
 \subsection{SSSPs on DAGs (Single Source Shortest Paths on Directed Acyclic Graphs)}
 \begin{definition}
     \textbf{Weights:} Can be positive or negative \\
-    \textbf{Time Complexity:} \( O(V + E) \)
+    \textbf{Note:} No cycles; guarantees shortest path.
 
     \customFigure[0.75]{00_Images/SP3.png}{Example of single source shortest paths on DAG with positive and negative weights.}
 
+\begin{lstlisting}[mathescape=true]
+# Shortest Path Algorithm using Relaxation in Topological Order
+
+1. Initialize $\forall u \in V, d[u] = \infty$, $d[s] = 0$.
+2. Topologically sort vertices.
+3. From left to right, relax the edges.
+4. For each $(u, v)$ in the topological order, Relax $(u, v, w(u, v))$.
+\end{lstlisting}
+\begin{itemize}
+    \item \textbf{Time Complexity:} \( O(V + E) \) due to topological sort.
+\end{itemize}
+\end{definition}
+
+\subsection{Bellman-Ford Algorithm (Negative Weights)}
+\begin{summary}
     \begin{itemize}
-        \item Topologically sort vertices.
-        \item Initialize \( \forall V, d[V] = \infty \), \( d[S] = 0 \).
-        \item For each \( (u, v) \) in the topological order, Relax \( (u, v, w(u, v)) \).
+        \item \( \delta(u, v) \): The true shortest path length from \( u \) to \( v \).
+        \item \( d(u, v) \): The current estimate of \( \delta(u, v) \).
+        \item Typically, \( d(u, v) \geq \delta(u, v) \), meaning the estimate is initially greater than or equal to the true shortest path.
+    \end{itemize}        
+\end{summary}
+
+\begin{definition}
+\begin{lstlisting}[mathescape=true]
+for $1 \dots (|V| - 1)$:
+    for $\forall (u, v) \in E$ with weight $w$:
+        Relax($u, v, w$)
+
+for $\forall (u, v) \in E$:
+    if $d[v] > d[u] + w(u, v)$:
+        return False  # negative cycle detected
+\end{lstlisting} 
+\begin{itemize}
+    \item \textbf{Time Complexity:} \( O(VE) \) due to nested loops.
+\end{itemize}
+\end{definition}
+
+\begin{example}
+    Add an example for intuition
+\end{example}
+
+\begin{intuition}
+    Let us say the shortest path from \( v_1 \) to \( v_n \) is \( v_1, v_2, \dots, v_n \).
+
+    \begin{itemize}
+        \item This path consists of edges: \( (v_1, v_2), (v_2, v_3), \dots, (v_{n-1}, v_n) \).
+        
+        \item If we relax these edges in that order (even with other relaxations in between), we obtain the correct shortest path lengths.
+        
+        \item The first iteration relaxes every edge (including \( (v_1, v_2) \)).
+        
+        \item The \( i \)-th iteration relaxes every edge (including \( (v_i, v_{i+1}) \)).
+        
+        \item Thus, after \( |V| - 1 \) iterations, the needed sequence has occurred.
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Theorem}
+\begin{theorem}
+    Bellman-Ford (BF) correctly reports no solution if there is a negative cycle.
+\end{theorem}
+
+\begin{derivation}
+    \textbf{ATaC:} Suppose there exists a negative cycle \( v_1, \dots, v_k \) where \( v_1 = v_k \). In other words, 
+    \[
+    \sum_{i=2}^{k} w(v_{i-1}, v_i) < 0.
+    \]
+
+    However, if BF does not report \texttt{FALSE}, this means the "if" condition for detecting a negative cycle didn't trigger.
+
+    Using telescoping:
+
+    \[
+    d[v_2] \leq d[v_1] + w(v_1, v_2)
+    \]
+    \[
+    d[v_3] \leq d[v_2] + w(v_2, v_3)
+    \]
+    \[
+    d[v_4] \leq d[v_3] + w(v_3, v_4)
+    \]
+    \[
+    \vdots
+    \]
+    \[
+    d[v_k] \leq d[v_{k-1}] + w(v_{k-1}, v_k)
+    \]
+
+    Adding these inequalities together, we get:
+    \[
+    0 \leq \sum_{i=2}^{k} w(v_{i-1}, v_i).
+    \]
+
+    This contradicts the assumption that the cycle has a negative weight. Thus, BF correctly reports \texttt{FALSE} if there is a negative cycle.
+    \customFigure[0.75]{00_Images/NC.png}{Negative cycle.}
+\end{derivation}
+
+\subsection{Application to Difference Constraints Through Integer Programming}
+\begin{definition}
+    Given matrices \( A \in \mathbb{R}^{m \times n} \), \( B \in \mathbb{R}^{m \times 1} \), and \( C \in \mathbb{R}^{1 \times n} \), we want to find \( x_1, \dots, x_n \) (i.e. integer solutions) such that it satisfies the constraint map:
+    \[
+    \begin{bmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{m1} & a_{m2} & \cdots & a_{mn}
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+    \end{bmatrix}
+    \leq
+    \begin{bmatrix}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m
+    \end{bmatrix}
+    \]
+    while maximizing (or minimizing) the objective function:
+    \[
+    \begin{bmatrix}
+    c_1 & c_2 & \cdots & c_n
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+    \end{bmatrix}
+    = c_1 x_1 + c_2 x_2 + \dots + c_n x_n.
+    \]
+    \begin{itemize}
+        \item \textbf{Algorithm:} Simplix(exp)
+        \item \textbf{Algorithm:} Ellipsoid(Poly)
+        \item \textbf{Note:} In integer programming, all \( x \in \mathbb{Z} \).
     \end{itemize}
 \end{definition}
+
+
+\subsubsection{Difference Constraints}
+\begin{example}
+Difference constraints are often tested on exams. They take the form:
+\begin{align*}
+x_1 - x_2 &\leq 5, \\
+x_1 - x_3 &\leq 6, \\
+x_2 - x_4 &\leq -1, \\
+x_3 - x_4 &\leq -2, \\
+x_4 - x_1 &\leq -3.
+\end{align*}
+\begin{itemize}
+    \item \textbf{Note:} No objective function, if there is a solution, then there are infinite solutions.
+\end{itemize}
+
+\textbf{Algorithm: Constraint Graph}
+    To solve these constraints:
+    \begin{itemize}
+        \item Build a "constraint graph:" Create vertices \( v_0, \dots, v_n \), where each vertex represents a variable, plus a pseudo source \( v_0 \).
+        \item For each constraint, add one edge per constraint. The edge set \( E = \{ (v_i, v_j) \} \) with weight \( b_k \) is defined such that \( x_j - x_i \leq b_k \).
+        \item Add edges with zero weight from the pseudo source \( v_0 \) to all other vertices.
+        \item Run the Bellman-Ford algorithm from \( v_0 \).
+        \begin{itemize}
+            \item If there is a negative cycle, then there is no solution.
+        \end{itemize}
+    \end{itemize}
+    \vspace{1em}
+
+    We \textbf{reduce DC to SSSP} such that if there is a solution to SSSP, we obtain a solution to DC.
+
+    \begin{itemize}
+        \item Introduce one vertex for each variable.
+        \item Add a pseudo source vertex \( v_0 \).
+        \item For each inequality constraint, add an edge with the corresponding weight.
+        \item Add pseudo edges with weight zero from \( v_0 \) to all other vertices.
+        \item Relax all edges in the graph.
+    \end{itemize}
+    \vspace{1em}
+
+    An example of the constraint graph is shown below:
+
+    \customFigure[0.75]{00_Images/BF.png}{Example of a constraint graph.}
+
+    This builds the graph based on difference constraints, setting up the edges and weights to represent inequalities and running the Bellman-Ford algorithm to find feasible solutions.
+\end{example}

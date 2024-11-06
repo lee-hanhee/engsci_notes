@@ -552,12 +552,12 @@ INPUT ./ECE355_Cheatsheet.lof
 INPUT ECE355_Cheatsheet.lof
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 OUTPUT ECE355_Cheatsheet.lof
 INPUT ./ECE355_Cheatsheet.lot
 INPUT ./ECE355_Cheatsheet.lot
 INPUT ECE355_Cheatsheet.lot
 OUTPUT ECE355_Cheatsheet.lot
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 INPUT ./Lectures/00_Math.tex
 INPUT ./Lectures/00_Math.tex
 INPUT Lectures/00_Math.tex

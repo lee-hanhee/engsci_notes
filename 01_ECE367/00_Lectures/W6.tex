@@ -148,7 +148,7 @@
         
         Thus, this gives us a solution to the optimization problem:
         \begin{align*}
-            \max_{\text{s.t. } \|x\|_2 = 1} \|Mx\|_2.
+            \max_{\text{s.t. }\|x\|_2 = 1} \|Mx\|_2.
         \end{align*}
         
         The solution is the eigenvector of $M^T M$ corresponding to the largest eigenvalue, and the maximum is:
@@ -243,37 +243,559 @@
     \end{itemize}
 
     The matrix $\Sigma$ has the form:
-    \begin{align*}
-        \Sigma = 
-        \begin{bmatrix}
-            \sigma_1 & 0 & \dots & 0 & 0 \\
-            0 & \sigma_2 & \dots & 0 & 0 \\
-            \vdots & \vdots & \ddots & \vdots & \vdots\\
-            0 & 0 & \dots & \sigma_r & 0 \\
-            0 & 0 & \dots & 0 & 0 \\
-            \vdots & \vdots & \ddots & \vdots & \vdots \\
-            0 & 0 & \dots & 0 & 0 \\
-        \end{bmatrix},
-    \end{align*}
+    \[
+    \Sigma = \begin{bmatrix}
+    \sigma_1 & 0       & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    0       & \sigma_2 & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \vdots  & \vdots   & \ddots & \vdots  & \vline & \vdots  & \ddots & \vdots \\
+    0       & 0        & \cdots & \sigma_r & \vline & 0       & \cdots & 0 \\
+    \hline
+    0       & 0        & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \vdots  & \vdots   & \ddots & \vdots  & \vline & \vdots  & \ddots & \vdots \\
+    0       & 0        & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \end{bmatrix}
+    \]
     \begin{itemize}
         \item $\sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r > 0$ are the singular values of $A$, and $r = \text{rank}(A)$. The remaining entries in $\Sigma$ are zero.
     \end{itemize}
 \end{intuition}
 
-\section*{Singular Value Decomposition (SVD)}
-        
+\begin{definition}
+        Any matrix \( A \in \mathbb{R}^{m \times n} \) can be decomposed into
+    \begin{equation*}
+        A = U \Sigma V^T,
+    \end{equation*}
+    \begin{itemize}
+        \item \( U \in \mathbb{R}^{m \times m} \): Orthogonal matrix. 
+        \item \( V^T \in \mathbb{R}^{n \times n} \): Orthogonal matrix. 
+        \begin{itemize}
+            \item $U$ and $V^T$ live in different spaces.
+        \end{itemize}
+        \item \( \Sigma \in \mathbb{R}^{m \times n} \): Its first \( r \) diagonal entries \( \sigma_1, \dots, \sigma_r \) as positive, where \( r = \text{rank}(A) \), and the rest is zero.
+    \end{itemize}
+
+    \[
+    \begin{bmatrix} A \end{bmatrix}_{m \times n} = \begin{bmatrix} U \end{bmatrix}_{m \times m} \begin{bmatrix} \Sigma \end{bmatrix}_{m \times n} \begin{bmatrix} V^T \end{bmatrix}_{n \times n}
+    \]
+    where
+   \[
+    \Sigma = \begin{bmatrix}
+    \sigma_1 & 0       & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    0       & \sigma_2 & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \vdots  & \vdots   & \ddots & \vdots  & \vline & \vdots  & \ddots & \vdots \\
+    0       & 0        & \cdots & \sigma_r & \vline & 0       & \cdots & 0 \\
+    \hline
+    0       & 0        & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \vdots  & \vdots   & \ddots & \vdots  & \vline & \vdots  & \ddots & \vdots \\
+    0       & 0        & \cdots & 0       & \vline & 0       & \cdots & 0 \\
+    \end{bmatrix}
+    \]
+\end{definition}
+
+\subsubsection{Intuition on SVD:}
+\begin{intuition}
+    The decomposition \( y = A x \) can be written as
+    \begin{align*}
+        y &= A x \\
+        &= U \Sigma V^T x,
+    \end{align*}
+    and
+    \begin{align*}
+        U^T y &= \Sigma V^T x \\
+        \tilde{y} &= \Sigma \tilde{x}.
+    \end{align*}
+
+    The steps in the transformation are as follows:
+    \begin{enumerate}
+        \item Rotate/Flip using \( V^T \),
+        \item Scale using \( \Sigma \),
+        \item Rotate/Flip using \( U \).
+    \end{enumerate}
+    \vspace{1em}
+
 \begin{itemize}
-    \item \textbf{Spectral Decomposition for Symmetric Matrices}:
-        \begin{align*}
-            A = U \Delta U^T,
-        \end{align*}
-        where $U$ performs rotation/flip, $\Delta$ scales each component, and $U^T$ rotates/flips back.
-    \item For any $A \in \mathbb{R}^{m \times n}$, we have:
-        \begin{align*}
-            A = U \Sigma V^T,
-        \end{align*}
-        where $U$ and $V$ are orthogonal matrices, and $\Sigma$ is a "nearly diagonal" matrix containing the singular values.
+    \item \textbf{Note:} Since a linear map can be represented as $y=Ax$, therefore, SVD states that all linear maps are essentially scaling each component if 
+    \begin{itemize}
+        \item We allow some pre-processing of \( x \) by a rotation/flip into \( \tilde{x} \). 
+        \item And then some post-processing of \( \tilde{y} \) by a rotation/flip to get \( y \).
+    \end{itemize}
 \end{itemize}
+\end{intuition}
+
+\begin{warning}
+    Whenever you get the matrix, do the SVD.
+\end{warning}
+
+\subsection{Proof of SVD}
+\subsubsection{$AA^T$ and $A^T A$}
+\begin{derivation}
+    Since we want \( A = U \Sigma V^T \), let's consider:
+
+    \begin{enumerate}
+        \item For \( A A^T \in m \times m\):
+        \begin{align*}
+            A A^T &= U \Sigma V^T (U \Sigma V^T)^T \\
+            &= U \Sigma V^T V \Sigma^T U^T \\
+            &= U \Sigma \Sigma^T U^T,
+        \end{align*}
+        \begin{itemize}
+            \item \( A A^T \): Positive semi-definite (PSD) matrix (from previous lecture)
+            \item Hence, \( \sigma_i = \sqrt{\lambda_i(A A^T)} \).
+            \[
+            \begin{bmatrix}
+            \sigma_1^2 & 0         & \cdots & 0       & 0       & 0       \\
+            0          & \sigma_2^2 & \cdots & 0       & 0       & 0       \\
+            \vdots     & \vdots    & \ddots & \vdots  & \vdots  & \vdots  \\
+            0          & 0         & \cdots & \sigma_r^2 & 0       & 0       \\
+            0          & 0         & \cdots & 0       & \ddots  & \vdots  \\
+            0          & 0         & \cdots & 0       & 0       & 0
+            \end{bmatrix} \in m \times m
+            \]
+
+        \end{itemize}
+    
+        \item For \( A^T A \in n \times n\):
+        \begin{align*}
+            A^T A &= (U \Sigma V^T)^T U \Sigma V^T \\
+            &= V \Sigma^T U^T U \Sigma V^T \\
+            &= V \Sigma^T \Sigma V^T,
+        \end{align*}
+        \begin{itemize}
+            \item Hence, \( \sigma_i = \sqrt{\lambda_i(A^T A)} \)
+            \[
+            \begin{bmatrix}
+            \sigma_1^2 & 0         & \cdots & 0       & 0       & 0       \\
+            0          & \sigma_2^2 & \cdots & 0       & 0       & 0       \\
+            \vdots     & \vdots    & \ddots & \vdots  & \vdots  & \vdots  \\
+            0          & 0         & \cdots & \sigma_r^2 & 0       & 0       \\
+            0          & 0         & \cdots & 0       & \ddots  & \vdots  \\
+            0          & 0         & \cdots & 0       & 0       & 0
+            \end{bmatrix} \in n \times n
+            \]
+        \end{itemize}
+    \end{enumerate}
+    \begin{itemize}
+        \item \textbf{Same eigenvalues:} \( A A^T \) and \( A^T A \) share the same set of non-zero eigenvalues, which will be proven as a fact, however, the total number of eigenvalues may differ.
+    \end{itemize}
+\end{derivation}
+
+\subsubsection{Fact}
+\begin{definition}
+    For any matrices \( A \) and \( B \), \( AB \) and \( BA \) share the same set of non-zero eigenvalues.
+\end{definition}
+
+\begin{derivation}
+    \begin{align*}
+        A B v &= \lambda v, \\
+        B A B v &= \lambda B v, 
+    \end{align*}
+    which implies that \( \lambda \) is an eigenvalue of \( BA \) with eigenvector $Bv$.
+\end{derivation}\
+
+\subsubsection{How are u and v related?}
+\begin{derivation}
+    We don’t need to do two spectral decompositions because \( u^{(i)} \)'s and \( v^{(i)} \)'s are related.
+    \vspace{1em}
+
+    \begin{enumerate}
+        \item If \( v^{(i)} \) is an eigenvector of \( A^T A \), then
+        \begin{align*}
+            A^T A v^{(i)} &= \lambda_i v^{(i)}, \\
+            A A^T (A v^{(i)}) &= \lambda_i (A v^{(i)}),
+        \end{align*}
+        which implies that \( A v^{(i)} \) is an eigenvector of \( A A^T \).
+        \vspace{1em}
+    
+        \item Thus, we can find $u^{(i)}$ by normalizing \( A v^{(i)} \) by the corresponding singular value \( \sigma_i \) since $u$ lives in $AA^T$ space.
+    
+        \begin{align*}
+            u^{(i)} &= \frac{A v^{(i)}}{\| A v^{(i)} \|_2} \\
+            &= \frac{A v^{(i)}}{\sqrt{(A v^{(i)})^T (A v^{(i)})}} \\
+            &= \frac{A v^{(i)}}{\sqrt{v^{(i) T} A^T A v^{(i)}}} \\
+            &= \frac{A v^{(i)}}{\sqrt{v^{(i) T} \lambda_i v^{(i)}}} \quad \text{since $v^{(i)}$ is an eigenvector of $A^T A$}\\
+            &= \frac{A v^{(i)}}{\sqrt{\lambda_i \, v^{(i) T} v^{(i)}}} \\
+            &= \frac{A v^{(i)}}{\sqrt{\lambda_i}} \quad \text{(since } v^{(i)} \text{ is orthonormal vector}) \\
+            &= \frac{A v^{(i)}}{\sigma_i}.
+        \end{align*}
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Summarization of Steps for SVD Construction}
+\begin{derivation}
+    \begin{enumerate}
+        \item Do a spectral decomposition of \( A^T A \) to get \( \{ v^{(1)}, \dots, v^{(n)} \} \) and \( \lambda_1, \dots, \lambda_r \), where \( r = \text{rank}(A^T A) \).
+
+        \item Set \( \sigma_i = \sqrt{\lambda_i} \), for \( i = 1, \dots, r \).
+        
+        \item Set \( u^{(i)} = \frac{A v^{(i)}}{\sigma_i} \), for \( i = 1, \dots, r \).
+    \end{enumerate}
+    \begin{itemize}
+        \item \textbf{Note:} We want to extend this to complete the orthonormal basis of \( \mathbb{R}^m \).
+    \end{itemize}
+\end{derivation}
+
+\subsubsection{Orthogonality of \( u^{(i)} \)'s}
+\begin{derivation}
+    \( u^{(i)} \)'s are orthonormal because
+    \begin{align*}
+        u^{(i) T} u^{(j)} &= \left( \frac{A v^{(i)}}{\sigma_i} \right)^T \left( \frac{A v^{(j)}}{\sigma_j} \right) \\
+        &= \frac{(v^{(i)})^T A^T A v^{(j)}}{\sigma_i \sigma_j} \\
+        &= \frac{(v^{(i)})^T (\lambda_j v^{(j)})}{\sigma_i \sigma_j} \quad \text{since $v^{(i)}$ is an eigenvector of $A^T A$} \\
+        &= \frac{\lambda_j \, (v^{(i)})^T v^{(j)}}{\sigma_i \sigma_j} \\
+        &= \frac{\sigma_j^2 \, (v^{(i)})^T v^{(j)}}{\sigma_i \sigma_j} \\
+        &= \begin{cases} 
+            1 & \text{if } i = j, \\
+            0 & \text{if } i \neq j.
+        \end{cases}
+    \end{align*}
+\end{derivation}
+
+\subsubsection{Why does this correspond to SVD?}
+\begin{derivation}
+    \[
+    u^{(i) T} A v^{(j)} = u^{(i) T} u^{(j)} \cdot \sigma_j = 
+    \begin{cases} 
+        \sigma_j & \text{if } i = j, \\
+        0 & \text{if } i \neq j.
+    \end{cases}
+    \]
+    \begin{itemize}
+        \item 1st to 2nd line comes from $u^{(i)} = \frac{A v^{(i)}}{\sigma_i}$.
+    \end{itemize}
+    \vspace{1em}
+
+    We can represent this in matrix form as follows:
+    \[
+    \begin{bmatrix}
+    u^{(1) T} \\
+    \vdots \\
+    u^{(r) T} \\
+    \end{bmatrix}
+    A 
+    \begin{bmatrix}
+    v^{(1)} & \dots & v^{(r)}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \sigma_1 & 0 & \cdots & 0 \\
+    0 & \sigma_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \sigma_r
+    \end{bmatrix}.
+    \]
+\end{derivation}
+
+\subsubsection{Completing SVD:}
+\begin{derivation}
+    If \( r = \text{rank}(A) < m \), i.e., \( \{ u^{(1)}, \dots, u^{(r)} \} \) does not span \( \mathbb{R}^m \), we can find \( u^{(r+1)}, \dots, u^{(m)} \) to complete the orthonormal basis of \( \mathbb{R}^m \).
+
+    \[
+    \begin{bmatrix}
+    u^{(1) T} \\
+    \vdots \\
+    u^{(r) T} \\
+    u^{(r+1) T} \\
+    \vdots \\
+    u^{(m) T}
+    \end{bmatrix}
+    A 
+    \begin{bmatrix}
+    v^{(1)} & \dots & v^{(r)} & v^{(r+1)} & \dots & v^{(n)}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \sigma_1 & 0 & \cdots & 0 & \cdots & 0 \\
+    0 & \sigma_2 & \cdots & 0 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \sigma_r & \cdots & 0 \\
+    0 & 0 & \cdots & 0 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & 0 & \cdots & 0
+    \end{bmatrix}.
+    \]
+    \begin{itemize}
+        \item 
+    \end{itemize}
+
+    This matrix is denoted by \( \Sigma \), where
+    \[
+    U^T A V = \Sigma \Rightarrow A = U \Sigma V^T.
+    \]
+\end{derivation}
+
+\subsubsection{Fact:}
+\begin{definition}
+    \[
+    \mathcal{N}(A^T A) = \mathcal{N}(A)
+    \]
+\end{definition}
+
+\begin{derivation}
+    
+    \begin{enumerate}
+        \item If \( x \in \mathcal{N}(A) \), then:
+        \[
+        A x = 0 \Rightarrow A^T A x = 0 \Rightarrow x \in \mathcal{N}(A^T A).
+        \]
+     
+        \item Conversely, if \( x \in \mathcal{N}(A^T A) \), then:
+        \begin{align*}
+            A^T A x &= 0, \\
+            \Rightarrow x^T A^T A x &= 0, \\
+            \Rightarrow \| A x \|_2^2 &= 0, \\
+            \Rightarrow A x &= 0, \\
+            \Rightarrow x &\in \mathcal{N}(A).
+        \end{align*}
+    \end{enumerate}
+    
+    Therefore, \( \mathcal{N}(A^T A) = \mathcal{N}(A) \).
+\end{derivation}
+
+\subsection{SVD in Two Forms}
+\begin{definition}
+    We can write SVD in two forms:
+    \begin{enumerate}
+        \item Full SVD:
+        \[
+        A = U \Sigma V^T
+        \]
+        where
+        \begin{itemize}
+            \item \( A \) is \( m \times n \),
+            \item \( U \) is \( m \times m \) (orthogonal matrix),
+            \item \( \Sigma \) is \( m \times n \) (diagonal matrix with singular values),
+            \item \( V^T \) is \( n \times n \) (orthogonal matrix).
+        \end{itemize}
+        \vspace{1em}
+    
+        \item Compact or Reduced SVD:
+        \[
+        \begin{bmatrix} A \end{bmatrix} = 
+        \begin{bmatrix} 
+        u^{(1)} & \cdots & u^{(r)} & \vline & u^{(r+1)} & \cdots & u^{(m)} 
+        \end{bmatrix}
+        \begin{bmatrix}
+            \sigma_1 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & \sigma_r & \vline & 0 & \cdots & 0 \\
+            \hline
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 
+        \end{bmatrix}
+        \begin{bmatrix}
+            u^{(1) T} \\
+            \vdots \\
+            u^{(r) T} \\
+            \hline
+            u^{(r+1) T} \\
+            \vdots \\
+            u^{(n) T}
+        \end{bmatrix}
+        \]
+        where
+        \begin{itemize}
+            \item \( \tilde{U} \) is \( m \times r \), the first \( r \) columns of \( U \) (not orthogonal matrix)
+            \item \( \tilde{\Sigma} \) is \( r \times r \), containing the non-zero singular values \( \sigma_1, \dots, \sigma_r \),
+            \item \( \tilde{V}^T \) is \( r \times n \), the first \( r \) columns of \( V^T \) (not orthogonal matrix)
+        \end{itemize}
+    
+        Thus,
+        \[
+        A = \tilde{U} \tilde{\Sigma} \tilde{V}^T.
+        \]
+    \end{enumerate}
+\end{definition}
+
+\subsection{Maximization Problem}
+\begin{derivation}
+    The goal is to maximize \( \|A x\|_2 \) subject to \( \|x\|_2 = 1 \).
+    \begin{enumerate}
+        \item Formulation
+        \begin{align*}
+            y &= A x \\
+              &= U \Sigma V^T x,
+        \end{align*}
+        where \( U^T y = \Sigma V^T x \), leading to 
+        \begin{equation*}
+            \tilde{y} = \Sigma \tilde{x}
+        \end{equation*}
+        \vspace{1em}
+
+        \item Optimization Reformulation:
+        \begin{enumerate}
+            \item Rewrite \( \|y\|_2 = \|\tilde{y}\|_2 \) and \( \|\tilde{x}\|_2 = \|x\|_2 \) since orthogonal matrix preserves the norms.
+            \item The optimization problem becomes:
+              \[
+              \max_{\text{s.t. } \|\tilde{x}\|_2 = 1.} \| \Sigma \tilde{x} \|_2 
+              \]
+        \end{enumerate}
+     
+        \item Solution:
+        \[
+        \Sigma \tilde{x} = 
+        \begin{bmatrix}
+            \sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+            0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & \sigma_r & 0 & \cdots & 0 \\
+            0 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & 0 & 0 & \cdots & 0
+        \end{bmatrix}
+        \begin{bmatrix}
+            \tilde{x}_1 \\
+            \tilde{x}_2 \\
+            \vdots \\
+            \tilde{x}_r \\
+            \tilde{x}_{r+1} \\
+            \vdots \\
+            \tilde{x}_n
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+            \sigma_1 \tilde{x}_1 \\
+            \sigma_2 \tilde{x}_2 \\
+            \vdots \\
+            \sigma_r \tilde{x}_r \\
+            0 \\
+            \vdots \\
+            0
+        \end{bmatrix}.
+        \]
+     
+        \item Notation:
+        \begin{itemize}
+            \item \( \sigma_1, \dots, \sigma_r \): Singular values.
+            \item \( u^{(1)}, \dots, u^{(m)} \): Left singular vectors.
+            \item \( v^{(1)}, \dots, v^{(n)} \): Right singular vectors.
+        \end{itemize}
+     
+        \item Result:
+        If \( \sigma_1 \geq \sigma_2 \geq \dots \geq \sigma_r \), then the solution is 
+        \[
+        \tilde{x}^* = 
+        \begin{bmatrix}
+            1 \\
+            0 \\
+            \vdots \\
+            0
+        \end{bmatrix}.
+        \]
+     
+     Thus, \( x^* = V \tilde{x}^* = v^{(1)} \), and we have:
+     \[
+     \| y^* \|_2 = \| A x^* \|_2 = \| \tilde{y}^* \|_2 = \| \Sigma \tilde{x}^* \|_2 = \sigma_1(A).
+     \]
+    \end{enumerate}
+\end{derivation}
+
+\subsection{SVD Relation to Range space and Null space of A}
+\begin{definition}
+    \begin{equation*}
+        \mathcal{R}(A) = \text{span} \{ u^{(1)}, \dots, u^{(r)} \}
+    \end{equation*}
+    \begin{equation*}
+        \mathcal{N}(A) = \text{span} \{ v^{(r+1)}, \dots, v^{(n)} \}
+    \end{equation*}
+\end{definition}
+\begin{derivation}
+    Given the decomposition:
+    \[
+    A x = U \Sigma V^T x
+    \]
+    we have:
+    \[
+    A x = 
+    \begin{bmatrix}
+    u^{(1)} & \cdots & u^{(r)} & \vline & u^{(r+1)} & \cdots & u^{(m)}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \sigma_1 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+        0 & \sigma_2 & \cdots & 0 & 0 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & \sigma_r & 0 & \cdots & 0 \\
+        0 & 0 & \cdots & 0 & 0 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \cdots & 0 & 0 & \cdots & 0
+    \end{bmatrix}
+    \begin{bmatrix}
+    v^{(1) T} \\
+    \vdots \\
+    v^{(r) T} \\
+    \hline
+    v^{(r+1) T} \\
+    \vdots \\
+    v^{(n) T}
+    \end{bmatrix} x
+    \]
+
+    \textbf{Range of \( A \)}
+    The range of \( A \), \( \mathcal{R}(A) \), is defined as the span of the columns of \( A \):
+    \[
+    \mathcal{R}(A) = \text{span of columns of } A = \{ A x \mid x \in \mathbb{R}^n \}.
+    \]
+    We can write this as:
+    \[
+    A x = 
+    \begin{bmatrix}
+    u^{(1)} & \cdots & u^{(r)} & u^{(r+1)} & \cdots & u^{(m)}
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1 \\
+    \vdots \\
+    x_r \\
+    0 \\
+    \vdots \\
+    0
+    \end{bmatrix}.
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} $0$ for $r+1$ to $n$ (i.e. $n-r$ entries) because they get multiplied by $0$ in $\Sigma$. 
+        \item \textbf{Note:} $x_i$ for $1$ to $r$ (i.e. $r$ entries) because they get multiplied by $\sigma_i$ in $\Sigma$.
+    \end{itemize}
+    Therefore,
+    \[
+    \mathcal{R}(A) = \text{span} \{ u^{(1)}, \dots, u^{(r)} \}.
+    \]
+    \vspace{1em}
+
+    \textbf{Null Space of \( A \)}
+    The null space of \( A \), \( \mathcal{N}(A) \), is defined as:
+    \[
+    \mathcal{N}(A) = \{ x \mid A x = 0 \}.
+    \]
+    If \( x = \sum_{i=r+1}^n \beta_i v^{(i)} \), then
+    \[
+    A x = U \Sigma 
+    \begin{bmatrix}
+    v^{(1) T} \\
+    \vdots \\
+    v^{(r) T} \\
+    v^{(r+1) T} \\
+    \vdots \\
+    v^{(n) T}
+    \end{bmatrix} x =  U \Sigma \begin{bmatrix}
+        0 \\
+        \vdots 
+        0 \\
+        x_{r+1} \\
+        \vdots \\
+        x_n
+        \end{bmatrix}.
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} First $r$ entries are $0$ because of inner product with $v^{(i)}$ for $i=r+1$ to $n$ (i.e. how $x$ is defined)
+        \item \textbf{Note:} Last $n-r$ entries are $x_{r+1}$ to $x_n$ because of inner product with $v^{(i)}$ for $i=r+1$ to $n$ (i.e. how $x$ is defined)
+    \end{itemize}
+    Thus,
+    \[
+    \mathcal{N}(A) = \text{span} \{ v^{(r+1)}, \dots, v^{(n)} \}.
+    \]
+\end{derivation}
+
+
+
 
 
 \subsection{Principle component analysis}

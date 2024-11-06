@@ -570,8 +570,8 @@ INPUT ./ECE358_Cheatsheet.lof
 INPUT ECE358_Cheatsheet.lof
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc
-OUTPUT ECE358_Cheatsheet.lof
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
+OUTPUT ECE358_Cheatsheet.lof
 INPUT ./ECE358_Cheatsheet.lot
 INPUT ./ECE358_Cheatsheet.lot
 INPUT ECE358_Cheatsheet.lot
@@ -1007,6 +1007,16 @@ INPUT ./00_Images/SP3.png
 INPUT ./00_Images/SP3.png
 INPUT ./00_Images/SP3.png
 INPUT ./00_Images/SP3.png
+INPUT ./00_Images/NC.png
+INPUT ./00_Images/NC.png
+INPUT ./00_Images/NC.png
+INPUT ./00_Images/NC.png
+INPUT ./00_Images/NC.png
+INPUT ./00_Images/BF.png
+INPUT ./00_Images/BF.png
+INPUT ./00_Images/BF.png
+INPUT ./00_Images/BF.png
+INPUT ./00_Images/BF.png
 INPUT ./00_Lectures/20_Maximum_Flow.tex
 INPUT ./00_Lectures/20_Maximum_Flow.tex
 INPUT 00_Lectures/20_Maximum_Flow.tex
