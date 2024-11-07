@@ -255,36 +255,179 @@ x(t - t_0) \overset{\mathcal{F}}{\leftrightarrow} e^{-j 2 \pi f t_0} X(f).
     \end{align*}
 \end{derivation}
 
-\begin{figure}[h!]
-    \centering
-    % Left Diagram
-    \begin{tikzpicture}
-        % Nodes
-        \node (X) at (0, 2) {\( x(t) \)};
-        \node (XF) at (2, 2) {\( X(f) \)};
-        \node (XTildeF) at (2, 0) {\( \tilde{x}(f) \)};
-        \node (XTilde) at (0, 0) {\( \tilde{X}(t) \)};
+\begin{definition}
+    \begin{center}
+        \begin{tikzpicture}
+            % Nodes
+            \node (X) at (0, 2) {\( x \)};
+            \node (XF) at (2, 2) {\( X \)};
+            \node (XTildeF) at (2, 0) {\( \tilde{x} \)};
+            \node (XTilde) at (0, 0) {\( \tilde{X} \)};
+    
+            % Arrows
+            \draw[->] (X) -- node[above] {\( \mathcal{F} \)} (XF);
+            \draw[<-] (XTilde) -- node[below] {\( \mathcal{F} \)} (XTildeF);
+            \draw[<-] (X) -- node[left] {\( \mathcal{F} \)} (XTilde);
+            \draw[->] (XF) -- node[right] {\( \mathcal{F} \)} (XTildeF);
+        \end{tikzpicture}
+    \end{center}
 
-        % Arrows
-        \draw[->] (X) -- node[above] {\( \mathcal{F} \)} (XF);
-        \draw[<-] (XTilde) -- node[below] {\( \mathcal{F} \)} (XTildeF);
-        \draw[<-] (X) -- node[left] {\( \mathcal{F} \)} (XTilde);
-        \draw[->] (XF) -- node[right] {\( \mathcal{F} \)} (XTildeF);
-    \end{tikzpicture}
-    \quad
-    % Right Diagram
-    \begin{tikzpicture}
-        % Nodes
-        \node (XStar) at (0, 2) {\( x^*(t) \)};
-        \node (XFStar) at (2, 2) {\( X^*(f) \)};
-        \node (XTildeFStar) at (2, 0) {\( \tilde{x}^*(f) \)};
-        \node (XTildeStar) at (0, 0) {\( \tilde{X}^*(t) \)};
+    \begin{center}
+        \begin{tikzpicture}
+            % Nodes
+            \node (XStar) at (0, 2) {\( x^* \)};
+            \node (XFStar) at (2, 2) {\( X^* \)};
+            \node (XTildeFStar) at (2, 0) {\( \tilde{x}^* \)};
+            \node (XTildeStar) at (0, 0) {\( \tilde{X}^* \)};
+    
+            % Arrows
+            \draw[<-] (XStar) -- node[above] {\( \mathcal{F} \)} (XFStar);
+            \draw[->] (XTildeStar) -- node[below] {\( \mathcal{F} \)} (XTildeFStar);
+            \draw[->] (XStar) -- node[left] {\( \mathcal{F} \)} (XTildeStar);
+            \draw[<-] (XFStar) -- node[right] {\( \mathcal{F} \)} (XTildeFStar);
+        \end{tikzpicture}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Note:} These are all in the time domain bc we are applying the Fourier Transform.
+    \end{itemize}
+\end{definition}
 
-        % Arrows
-        \draw[<-] (XStar) -- node[above] {\( \mathcal{F} \)} (XFStar);
-        \draw[->] (XTildeStar) -- node[below] {\( \mathcal{F} \)} (XTildeFStar);
-        \draw[->] (XStar) -- node[left] {\( \mathcal{F} \)} (XTildeStar);
-        \draw[<-] (XFStar) -- node[right] {\( \mathcal{F} \)} (XTildeFStar);
-    \end{tikzpicture}
-\end{figure}
+\begin{example}
+    \customFigure[0.75]{00_Images/DU.png}{Duality example}
+\end{example}
 
+\subsection{Time Scaling Property}
+\begin{definition}
+    If \( x \overset{\mathcal{F}}{\leftrightarrow} X \), then:
+    \begin{align*}
+    x(at) &\overset{\mathcal{F}}{\leftrightarrow} \frac{1}{|a|} X\left( \frac{f}{a} \right) \\
+    |a| x(at) &\overset{\mathcal{F}}{\leftrightarrow} X\left( \frac{f}{a} \right) 
+    \end{align*}
+    for $a \in \mathbb{R}$, $a \neq 0$.
+    \begin{itemize}
+        \item \textbf{Note:} Time stretching is frequency inversie stretching. 
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    If $a>0$
+    \begin{align*}
+        \mathcal{F}\{x(at)\} &= \int_{-\infty}^{\infty} x(at) e^{-j 2 \pi f t} \, dt \\
+        &= \int_{-\infty}^{\infty} x(s) e^{-j 2 \pi \frac{f}{a} s} \frac{ds}{a} \quad \text{(substitute } s = at, \, ds = a \, dt\text{)} \\
+        &= \frac{1}{a} X\left(\frac{f}{a}\right)
+    \end{align*}
+    
+    If $a<0$
+    \begin{align*}
+        \mathcal{F}\{x(at)\} &= \int_{-\infty}^{\infty} x(at) e^{-j 2 \pi f t} \, dt \\
+        &= \int_{-\infty}^{\infty} x(s) e^{-j 2 \pi \frac{f}{a} s} \frac{ds}{a} \quad \text{(substitute } s = at, \, ds = a \, dt\text{)} \\
+        \mathcal{F}\{x(at)\} &= -\frac{1}{a} X\left(\frac{f}{a}\right)
+    \end{align*}
+\end{derivation}
+
+\begin{example}
+    \begin{align*}
+        \text{rect}(t) &\leftrightarrow \text{sinc}(f) \\
+        \text{rect}\left(\frac{t}{T}\right) &\leftrightarrow T \, \text{sinc}(f T)
+    \end{align*}
+
+    \customFigure[0.5]{00_Images/C1.png}{Rect vs. Sinc}
+    \begin{center}
+        \begin{multicols}{2}
+            \textbf{Time Domain}
+            \begin{itemize}
+                \item Narrow in time $(T \text{ small})$: "fast"
+                \item Wide in time $(T \text{ large})$: "slow"
+            \end{itemize}
+    
+            \columnbreak
+    
+            \textbf{Frequency Domain}
+            \begin{itemize}
+                \item Wide in frequency $\left(\frac{1}{T} \text{ large}\right)$: "wideband"
+                \item Narrow in frequency $\left(\frac{1}{T} \text{ small}\right)$: "narrowband"
+            \end{itemize}
+        \end{multicols}
+    \end{center}
+\end{example}
+
+\subsection{Unitarity (Calculate Energy Easily)}
+
+\begin{definition}
+    Recall that the inner product of two functions \( x(t) \) and \( y(t) \) over \( (-\infty, \infty) \) is defined as:
+    \begin{align*}
+    \langle x, y \rangle &= \int_{-\infty}^{\infty} x(t) y^*(t) \, dt.
+    \end{align*}
+
+    For a function \( x(t) \), its energy is given by:
+    \begin{align*}
+    \langle x, x \rangle &= \int_{-\infty}^{\infty} |x(t)|^2 \, dt = E_x.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    If \( x \overset{\mathcal{F}}{\leftrightarrow} X \) and \( y \overset{\mathcal{F}}{\leftrightarrow} Y \), then 
+    \begin{align*}
+        \langle x, y \rangle = \langle X, Y \rangle &= \int_{-\infty}^{\infty} X(f) Y^*(f) \, df.
+    \end{align*}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    \langle x, y \rangle &= \int_{-\infty}^{\infty} x(t) y^*(t) \, dt \\
+    &= \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} X(f_1) e^{j 2 \pi f_1 t} \, df_1 \right) \left( \int_{-\infty}^{\infty} Y(f_2) e^{j 2 \pi f_2 t} \, df_2 \right)^* \, dt \\
+    &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} X(f_1) Y^*(f_2) \left( \int_{-\infty}^{\infty} e^{j 2 \pi (f_1 - f_2) t} \, dt \right) df_1 \, df_2 \\
+    &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} X(f_1) Y^*(f_2) \delta(f_1 - f_2) \, df_1 \, df_2 \quad \text{due to FT pair}\\
+    &= \int_{-\infty}^{\infty} X(f) Y^*(f) \, df \quad \text{due to sifting property}\\
+    &= \langle X, Y \rangle.
+    \end{align*}
+\end{derivation}
+
+\subsection{Parseval's Relation}
+\begin{definition}
+    If \( x \overset{\mathcal{F}}{\leftrightarrow} X \) then
+    \[
+    \int_{-\infty}^{\infty} |x(t)|^2 \, dt = \int_{-\infty}^{\infty} |X(f)|^2 \, df
+    \]
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \[
+    \int_{-\infty}^{\infty} |x(t)|^2 \, dt = \langle x, x \rangle = \langle X, X \rangle = \int_{-\infty}^{\infty} |X(f)|^2 \, df \quad \text{by unitarity}
+    \]
+\end{derivation}
+
+\begin{example}
+    \textbf{Example:}
+    Let \( x(t) = \operatorname{sinc}(t) \).
+    \begin{align*}
+        E_x &= \int_{-\infty}^{\infty} \operatorname{sinc}^2(t) \, dt \\ 
+        &= \int_{-\infty}^{\infty} \frac{\sin^2(\pi t)}{(\pi t)^2} \, dt \\
+        &= \int_{-\infty}^{\infty} \operatorname{rect}^2(f) \, df \\
+        &= 1
+    \end{align*}
+\end{example}
+
+\subsection{Differentiation Property}
+\begin{definition}
+    If \( x \overset{\mathcal{F}}{\leftrightarrow} X \), then:
+    \begin{align*}
+    \frac{d}{dt} x(t) \overset{\mathcal{F}}{\leftrightarrow} j2\pi f X(f).
+    \end{align*}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+    x(t) &= \int_{-\infty}^{\infty} X(f) e^{j 2 \pi f t} \, df, \\
+    \frac{d}{dt} x(t) &= \int_{-\infty}^{\infty} X(f) \left( j 2 \pi f \right) e^{j 2 \pi f t} \, df, \\
+    &= \mathcal{F}^{-1} \left( j 2 \pi f X(f) \right).
+    \end{align*}
+\end{derivation}
+
+\begin{warning}
+    Choose the domain that is most convienent for the problem.
+\end{warning}

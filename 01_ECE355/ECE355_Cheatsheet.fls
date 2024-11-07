@@ -99,6 +99,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/tools/multicol.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map
@@ -1221,6 +1223,16 @@ INPUT ./00_Images/PF.png
 INPUT ./00_Images/PF.png
 INPUT ./00_Images/PF.png
 INPUT ./00_Images/PF.png
+INPUT ./00_Images/DU.png
+INPUT ./00_Images/DU.png
+INPUT ./00_Images/DU.png
+INPUT ./00_Images/DU.png
+INPUT ./00_Images/DU.png
+INPUT ./00_Images/C1.png
+INPUT ./00_Images/C1.png
+INPUT ./00_Images/C1.png
+INPUT ./00_Images/C1.png
+INPUT ./00_Images/C1.png
 INPUT ECE355_Cheatsheet.aux
 INPUT ./ECE355_Cheatsheet.out
 INPUT ./ECE355_Cheatsheet.out
