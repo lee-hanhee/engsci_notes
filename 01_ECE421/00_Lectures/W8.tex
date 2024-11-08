@@ -150,3 +150,94 @@
     \customFigure[0.5]{00_Images/LSTM.png}{LSTM}   
 \end{summary}
 
+\subsection{Transformers}
+\subsubsection{Tokenization}
+\begin{definition}
+    \begin{itemize}
+        \item Map a raw sequence to a sequence of tokens
+        \begin{itemize}
+            \item ``Train a neural network'' $\rightarrow$ ``Train'', ``a'', ``neural network''
+        \end{itemize}
+        \item Map tokens to real- or vector-valued representation
+        \begin{itemize}
+            \item ``Train'', ``a'', ``neural network''
+            \customFigure[0.75]{00_Images/T.png}{Tokenization}
+            \begin{itemize}
+                \item \textbf{Tool:} word2vec
+            \end{itemize}
+            \item ACGJAACG $\rightarrow$ $(1,0,0,0)$, $(0,1,0,0)$, $(0,0,1,0)$, $(0,0,0,1)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $\dots$
+        \end{itemize}
+        % Note: This section includes a drawing to depict vector representation, which is omitted.
+    \end{itemize}
+\end{definition}
+
+% Next section
+
+\subsubsection{Attention (SLP 9)}
+\begin{definition}
+    \begin{itemize}
+        \item Consider two sentences
+        \begin{itemize}
+            \item \textbf{\textcolor{orange}{The chicken}} \textcolor{blue}{didn’t cross} \textcolor{orange}{the road} \textcolor{blue}{because} \textcolor{orange}{it} \textcolor{blue}{was too tired}
+            \item \textcolor{orange}{The chicken} \textcolor{blue}{didn’t cross} \textbf{\textcolor{orange}{the road}} \textcolor{blue}{because} \textcolor{orange}{it} \textcolor{blue}{was too tired}
+        \end{itemize}
+        \item ``It'' refers to ``The chicken'' in the first sentence, and "it" refers to ``the road'' in the second sentence.
+        \item For each token, ``attention'' is used to represent the contextual meaning given other tokens.
+    \end{itemize}
+\end{definition}
+
+% Next section
+
+\subsubsection{Transformers (SLP 9)}
+\begin{definition}
+    \textbf{Simplified ``attention head''}
+    \begin{itemize}
+        \item Let $\underline{x}_i$ be the input representation of token $i$.
+        \item The attention vector for token $i$ is:
+        \[
+        \underline{a}_i = \sum_j \alpha_{ij} \underline{x}_j,
+        \]
+        \textcolor{orange}{a and x have same dimensionality}.
+        
+        \item where $\alpha_{ij}$ is the similarity of representations $\underline{x}_i$ and $\underline{x}_j$:
+        \[
+        \alpha_{ij} = \frac{e^{\underline{x}_i^T \underline{x}_j}}{\sum_{j} e^{\underline{x}_i^T \underline{x}_j}}.
+        \]
+    \end{itemize}
+
+    $\underline{a}_1, \underline{a}_2, \underline{a}_3, \dots$ incorporate contextual information.
+    \vspace{1em}
+
+    \customFigure[0.75]{00_Images/T1.png}{Transformers}
+    \[
+    \underline{a}_i = \sum_j \alpha_{ij} \underline{x}_j,
+    \]
+    where
+    \[
+    \alpha_{ij} = \frac{e^{\underline{x}_i^T \underline{x}_j}}{\sum_{j} e^{\underline{x}_i^T \underline{x}_j}}.
+    \]
+\end{definition}
+
+\begin{definition}
+    \textbf{Actual ``attention head''}
+\begin{itemize}
+    \item \textbf{Query:} Element for which we are creating context
+    \item \textbf{Key:} Other elements used to provide context
+    \item \textbf{Value:} Vectors representing the elements
+\end{itemize}
+\vspace{1em}
+
+Weight matrices:
+\[
+\underline{q}_i = W^Q \underline{x}_i, \quad \underline{k}_i = W^K \underline{x}_i, \quad \underline{v}_i = W^V \underline{x}_i,
+\]
+
+\begin{itemize}
+    \item Map the vector for token $i$, $\underline{x}_i$, to vectors representing the query, key, and value.
+    \item \[
+        \alpha_{ij} = \frac{e^{\underline{q}_i^T \underline{k}_j / \sqrt{d_k}}}{\sum_j e^{\underline{q}_i^T \underline{k}_j / \sqrt{d_k}}}
+    \]
+\end{itemize}
+
+$d_k = $ dimensionality of $q_i, k_j$. % CONFIRM DURING LECTURE.
+\end{definition}

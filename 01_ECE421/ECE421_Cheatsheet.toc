@@ -4,26 +4,26 @@
 \contentsline {subsubsection}{\numberline {1.1.1}Supervised learning}{6}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Unsupervised learning}{8}{subsubsection.1.1.2}%
 \contentsline {subsubsection}{\numberline {1.1.3}Reinforcement learning}{9}{subsubsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.2}Classification problem setup}{9}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{9}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.2}Classification problem setup}{10}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}k-Nearest neighbour}{10}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Decision boundary}{11}{subsubsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.4}Error process for classification}{11}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Types of error}{11}{subsubsection.1.4.1}%
-\contentsline {subsection}{\numberline {1.5}Hyperparameters}{11}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.4.1}Types of error}{12}{subsubsection.1.4.1}%
+\contentsline {subsection}{\numberline {1.5}Hyperparameters}{12}{subsection.1.5}%
 \contentsline {subsection}{\numberline {1.6}Over/underfitting, Outliers}{12}{subsection.1.6}%
-\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{12}{subsection.1.7}%
-\contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{12}{subsubsection.1.7.1}%
-\contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{12}{subsubsection.1.7.2}%
+\contentsline {subsection}{\numberline {1.7}Encoding (Ways to transform data)}{13}{subsection.1.7}%
+\contentsline {subsubsection}{\numberline {1.7.1}Transform numeric data}{13}{subsubsection.1.7.1}%
+\contentsline {subsubsection}{\numberline {1.7.2}Transform categorical data}{13}{subsubsection.1.7.2}%
 \contentsline {subsection}{\numberline {1.8}Linear classification}{13}{subsection.1.8}%
 \contentsline {subsubsection}{\numberline {1.8.1}What is the hypothesis set for linear classification problem?}{13}{subsubsection.1.8.1}%
 \contentsline {subsubsection}{\numberline {1.8.2}How to describe hypothesis set through a function form?}{13}{subsubsection.1.8.2}%
-\contentsline {subsubsection}{\numberline {1.8.3}Training}{13}{subsubsection.1.8.3}%
-\contentsline {subsubsection}{\numberline {1.8.4}Prediction}{13}{subsubsection.1.8.4}%
+\contentsline {subsubsection}{\numberline {1.8.3}Training}{14}{subsubsection.1.8.3}%
+\contentsline {subsubsection}{\numberline {1.8.4}Prediction}{14}{subsubsection.1.8.4}%
 \contentsline {subsubsection}{\numberline {1.8.5}How to find and draw decision boundaries?}{14}{subsubsection.1.8.5}%
 \contentsline {subsection}{\numberline {1.9}Basic setup of learning problem of supervised learning}{15}{subsection.1.9}%
-\contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{15}{subsection.1.10}%
+\contentsline {subsection}{\numberline {1.10}Basic setup of learning problem of binary linear classification}{16}{subsection.1.10}%
 \contentsline {subsubsection}{\numberline {1.10.1}Training}{16}{subsubsection.1.10.1}%
-\contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{16}{subsubsection.1.10.2}%
+\contentsline {subsubsection}{\numberline {1.10.2}How hard is it to find the best decision boundary? (i.e. minimizing the error)}{17}{subsubsection.1.10.2}%
 \contentsline {section}{\numberline {2}Linear regression, Regularization (LFD: 3.2.1, 3.4.1, Appendix B)}{18}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Perceptron learning algorithm}{18}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}New Formulation of Binary Linear Classification}{18}{subsubsection.2.1.1}%
@@ -174,6 +174,10 @@
 \contentsline {subsubsection}{\numberline {11.2.1}Improving RNN as Sequence Generators}{96}{subsubsection.11.2.1}%
 \contentsline {subsubsection}{\numberline {11.2.2}The Problem of Vanishing Gradients}{97}{subsubsection.11.2.2}%
 \contentsline {subsection}{\numberline {11.3}LSTMs: Long Short-Term Memory Cells (DL in Practice: Architecture Choices)}{97}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{98}{section.12}%
-\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{99}{section.13}%
-\contentsline {section}{\numberline {14}Fair ML}{100}{section.14}%
+\contentsline {subsection}{\numberline {11.4}Transformers}{97}{subsection.11.4}%
+\contentsline {subsubsection}{\numberline {11.4.1}Tokenization}{97}{subsubsection.11.4.1}%
+\contentsline {subsubsection}{\numberline {11.4.2}Attention (SLP 9)}{98}{subsubsection.11.4.2}%
+\contentsline {subsubsection}{\numberline {11.4.3}Transformers (SLP 9)}{98}{subsubsection.11.4.3}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{100}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{101}{section.13}%
+\contentsline {section}{\numberline {14}Fair ML}{102}{section.14}%

@@ -1,62 +1,90 @@
 \subsection{Definition}
 \begin{definition}
-    Given G (connected, undirected) with weights $w(u,v)$ for $(u,v) \in E$, find a tree $T$ where $w(T) = \sum_{(u,v) \in T} w(u,v)$ is a minimum. 
+    Given G (connected, undirected) with non-negative weights $w(u,v)$ for $(u,v) \in E$, find a tree $T$ called $\text{MST}$ where $w(T) = \sum_{(u,v) \in E} w(u,v)$ is a minimum that contains all vertices. 
     \customFigure[0.75]{00_Images/MST.png}{Minimum Spanning Tree}
+    \begin{itemize}
+        \item i.e. A tree of min-weight with all vertices.
+    \end{itemize}
 \end{definition}
 
 \begin{warning}
     MST may not be unique.
 \end{warning}
 
-\subsection{Partial MST}
+\subsection{Generic Approach to Solving MST}
 \begin{intuition}
-    Assume we have a \textbf{partial MST} \( T_p \).
+    Let \( T_p^{\text{opt}} \) be part of an MST (i.e. partial MST).
     \begin{itemize}
-        \item \textbf{Safe edge}: an edge that can be added to \( T_p \) to give the ``next step'' toward the MST.
+        \item \textbf{Safe edge}: An edge that can be added to \( T_p^{\text{opt}} \) to make it "one step" more complete
 
         \item \textbf{Cut in G}: A partition of \( V \) into \( V_1 \) and \( V_2 \), such that:
         \[
         V = V_1 \cup V_2, \quad V_1 \cap V_2 = \emptyset
         \]
-    
-        \begin{itemize}
-            \item An edge \( (u, v) \) crosses a cut if \( u \in V_1 \) and \( v \in V_2 \) (or vice versa).
-        \end{itemize}
-        \item \textbf{Light edge for a cut} = edge of lowest weight crossing a cut.
+        \item \textbf{$(u,v)$ Crossing Cut:} An edge \( (u, v) \) crosses a cut if \( u \in V_1 \) and \( v \in V_2 \) (or vice versa).
+        \item \textbf{Light edge for a cut:} An edge crossing a cut of lowest weight.
     \end{itemize}
 
     \begin{lstlisting}[mathescape]
         Generic Approach 
-        $T_p = 0$.
+        $T_p^{\text{opt}} = 0$ (i.e. $|T_p^{\text{opt}}| < V$)
         
-        while $T_p \neq$ MST:
-            find safe edge $(u, v)$ for $T_p$.
-            $T_p = T_p \cup \{ (u, v) \}$.
+        while $T_p^{\text{opt}} \neq$ MST:
+            find light edge $(u, v)$ for $T_p^{\text{opt}}$ (i.e. safe edge is not well defined)
+            $T_p^{\text{opt}} = T_p^{\text{opt}} \cup \{ (u, v) \}$.
         
         $\textit{Notes:}$
         - $T$ (MST) does not contain all vertices.
-        - Don't know safe edge $\rightarrow$ Greedy choice: pick the light edge.
+        - Don't know safe edge $\rightarrow$. 
+        - Greedy choice: pick the light edge.
         \end{lstlisting}        
 \end{intuition}
 
 \begin{derivation}
-    \textbf{Theorem (Correctness):} Let \( T_p \) be a subset of an MST. Let \( (u, v) \) be a light edge crossing the \( (V_{T_p}, V - V_{T_p}) \) cut. Then \( (u, v) \) is also a safe edge.
+    \textbf{Theorem (Correctness):} Let \( T_p^{\text{opt}} \) be a subset of an MST on vertex set $T_p^{\text{opt}}$. Let \( (u, v) \) be a light edge crossing the \( (V_{T_p}, V - V_{T_p}) \) cut. Then \( (u, v) \) is also a safe edge.
 
     \begin{center}
-    e.g. \( V_{T_p} \quad V - V_{T_p} \)
+    e.g. \( V_{T_p} \quad V - V_{T_p} \) 
     \end{center}
 
     \begin{center}
-    \customFigure{00_Images/MST1.png}{MST Diagram}
+    \customFigure{00_Images/MST3.png}{MST Diagram}
     \textit{(illustrative diagram of light edge crossing between partitions \( V_{T_p} \) and \( V - V_{T_p} \))}
     \end{center}
 
-    \textbf{Proof by Contradiction:} Assume it does not have the final MST. The light edge connecting the two cut partitions but some other one. Add the light edge, create a cycle, and break it by removing the other edge. The new tree has less weight than the MST, a contradiction.
+    \textbf{Proof by Contradiction:} Assume optimal algorithm picked $(x,y)$ instead to $(u,v)$ to build the MST. Introduce in MST, the $(u,v)$ edge creating a cycle and break cycle by detecting $(x,y)$ b/c $w(x,y) \geq w(u,v)$. So new tree has same (or less) weight.
+    \begin{itemize}
+        \item i.e. Assume it does not have the final MST. The light edge connecting the two cut partitions but some other one. Add the light edge, create a cycle, and break it by removing the other edge. The new tree has less weight than the MST, a contradiction.
+    \end{itemize}
 
 \end{derivation}
 
-\subsection{Prim's Algorithm}
+\subsection{Prim's Algorithm (Similar to Dijkstra's Algorithm)}
 \begin{definition}
     \customFigure[0.75]{00_Images/MST2.png}{Prim's Algorithm}
+\begin{lstlisting}[language=Python, caption=Prim's Algorithm]
+# Insert all vertices into priority queue with key = infinity
+for each vertex v in V:
+    insert(Q, v, key=infty)
+
+# Decrease key for the starting vertex s
+decrease_key(Q, s, 0)
+
+# While queue is not empty
+while Q is not empty: # O(V)
+    u = extract_min(Q)  # O(log V)
+
+    # For each vertex v adjacent to u
+    for each v adjacent to u: # O(E)
+        # If edge weight is less than current key of v
+        if w(u, v) < key(v):
+            # Update key and parent
+            decrease_key(Q, v, w(u, v))  # O(log V)
+            pi(v) = u  # Update parent to maintain MST structure
+    \end{lstlisting}
+    \begin{itemize}
+        \item \textbf{Note:} Greedy algorithm 
+        \item \textbf{Time Complexity:} \(O((V + E) \log V) = O(E \log V)\) because $E \geq V$
+    \end{itemize}
 \end{definition}
 

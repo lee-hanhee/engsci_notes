@@ -1,17 +1,17 @@
 \babel@toc {english}{}\relax 
-\contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{6}{figure.1}%
+\contentsline {figure}{\numberline {1}{\ignorespaces Linear classification}}{7}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Linear regression}}{7}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{7}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{8}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{8}{figure.5}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Non-linear transformation of data}}{8}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces K-Means Clustering}}{9}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Density Estimation-Gaussian Mixture Models}}{9}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces 1-nearest neighbour and linear classifier example.}}{10}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{10}{figure.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces 1-nearest neighbour and linear classifier complex example.}}{11}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Nearest neighbour comparison.}}{11}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Over and under fitting of k-nearest neighbours.}}{12}{figure.9}%
 \contentsline {figure}{\numberline {10}{\ignorespaces Linear classification example.}}{15}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{15}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{16}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Linearly separable vs. Not linearly seperable}}{16}{figure.13}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Summary of the process.}}{16}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Example of making a decision boundary.}}{17}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Linearly separable vs. Not linearly seperable}}{17}{figure.13}%
 \contentsline {figure}{\numberline {14}{\ignorespaces Table for classification}}{18}{figure.14}%
 \contentsline {figure}{\numberline {15}{\ignorespaces PLA not unique.}}{19}{figure.15}%
 \contentsline {figure}{\numberline {16}{\ignorespaces The best weight is the weight with the lowest error at this iteration.}}{20}{figure.16}%
@@ -84,3 +84,5 @@
 \contentsline {figure}{\numberline {83}{\ignorespaces Conditional RNN}}{97}{figure.83}%
 \contentsline {figure}{\numberline {84}{\ignorespaces Bidirectional RNN}}{97}{figure.84}%
 \contentsline {figure}{\numberline {85}{\ignorespaces LSTM}}{97}{figure.85}%
+\contentsline {figure}{\numberline {86}{\ignorespaces Tokenization}}{98}{figure.86}%
+\contentsline {figure}{\numberline {87}{\ignorespaces Transformers}}{98}{figure.87}%

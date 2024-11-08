@@ -61,10 +61,10 @@
 \contentsline {figure}{\numberline {60}{\ignorespaces Topological sort.}}{111}{figure.60}%
 \contentsline {figure}{\numberline {61}{\ignorespaces Minimum Spanning Tree}}{113}{figure.61}%
 \contentsline {figure}{\numberline {62}{\ignorespaces MST Diagram}}{114}{figure.62}%
-\contentsline {figure}{\numberline {63}{\ignorespaces Prim's Algorithm}}{114}{figure.63}%
-\contentsline {figure}{\numberline {64}{\ignorespaces Shortest Path}}{115}{figure.64}%
-\contentsline {figure}{\numberline {65}{\ignorespaces Edge relaxation.}}{116}{figure.65}%
-\contentsline {figure}{\numberline {66}{\ignorespaces Example of edge relaxation: Relaxation from 10 to 8 and non-relaxation cases.}}{117}{figure.66}%
-\contentsline {figure}{\numberline {67}{\ignorespaces Example of single source shortest paths on DAG with positive and negative weights.}}{117}{figure.67}%
-\contentsline {figure}{\numberline {68}{\ignorespaces Negative cycle.}}{119}{figure.68}%
-\contentsline {figure}{\numberline {69}{\ignorespaces Example of a constraint graph.}}{120}{figure.69}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Prim's Algorithm}}{115}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Shortest Path}}{116}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Edge relaxation.}}{117}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Example of edge relaxation: Relaxation from 10 to 8 and non-relaxation cases.}}{118}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Example of single source shortest paths on DAG with positive and negative weights.}}{118}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Negative cycle.}}{120}{figure.68}%
+\contentsline {figure}{\numberline {69}{\ignorespaces Example of a constraint graph.}}{121}{figure.69}%
