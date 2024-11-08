@@ -1,0 +1,255 @@
+\subsection{Informal Definition}
+\begin{definition}
+    Informally, we want to maximize the flow from the source node $s$ to the sink node $t$. This means maximizing the units of flow from $s$ to $t$, where:
+    \[
+    \text{max flow} = \text{min cut} \quad \text{(Bottleneck)}
+    \]
+
+\customFigure[0.75]{00_Images/MF.png}{Maximum Flow Diagram}
+\end{definition}
+
+\subsection{Formal Definition}
+\begin{definition}
+    Given a directed, connected, positively weighted graph $G$, where for every edge $(u, v)$, there is a capacity $c(u, v)$:
+    \begin{itemize}
+        \item If $(u, v) \notin E$, then $c(u, v) = 0$.
+        \item The vertices are distinguished as the source $s$ and the sink $t$.
+    \end{itemize}
+
+    A flow $f: V^2 \to \mathbb{R}$ is defined with the following properties:
+    \begin{enumerate}
+        \item \textbf{Capacity Constraints:} 
+        \[
+        \forall (u, v) \in V, \quad f(u, v) \leq c(u, v)
+        \]
+        \item \textbf{Skew Symmetry:}
+        \[
+        \forall (u, v) \in V, \quad f(u, v) = -f(v, u)
+        \]
+        \item \textbf{Flow Conservation:}
+        \[
+        \forall u \in V - \{s, t\}, \quad \sum_{v \in V} f(u, v) = 0
+        \]
+    \end{enumerate}
+\end{definition}
+
+\subsection{Objective}
+\begin{definition}
+    The objective is to maximize the total flow in the graph:
+    \[
+    |f| = \sum_{v \in V} f(s, v) = \sum_{v \in V} f(v, t)
+    \]
+\end{definition}
+
+\subsection{Observations}
+\begin{definition}
+    \begin{itemize}
+        \item Handling multiple sources and sinks can be simplified using an equivalent graph transformation.
+    \end{itemize}
+    \customFigure[0.75]{00_Images/MF1.png}{Equivalent Graph Transformation}
+\end{definition}
+
+\subsection{Flow Math}
+\begin{definition}
+    Given a set of vertices $X, Y$, we define:
+    \[
+    f(X, Y) = \sum_{x \in X} \sum_{y \in Y} f(x, y)
+    \]
+
+    \textbf{Lemma}
+    \begin{enumerate}
+        \item $f(X, X) = 0$
+        \item $f(X, Y) = -f(Y, X)$
+        \item $f(X \cup Y, W) = f(X, W) + f(Y, W) \quad \text{if } X \cap Y = \emptyset$
+        \item $f(W, X \cup Y) = f(W, X) + f(W, Y) \quad \text{if } X \cap Y = \emptyset$ 
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Proof (Homework)}
+\begin{derivation}
+    Show that the total flow from the source to the sink satisfies:
+    \begin{align*}
+    |f| &= f(s, V) \\
+        &= f(V,V) - f(V - s, V) \\
+        &= f(V, V - s) \quad f(V,V) = 0\\
+        &= f(V, t) - f(V,V - s - t) \\
+        &= f(V, t) \quad f(V, V - s - t) = 0
+    \end{align*}
+\end{derivation}
+
+\subsection{Conclusion}
+\begin{summary}
+    We have formally defined the maximum flow problem, established its properties, and derived the conditions under which flow conservation and optimal flow can be achieved. The observations on graph equivalency provide an approach for handling more complex networks with multiple sources and sinks.
+\end{summary}
+
+\subsection{Residual Capacity of Edge}
+\begin{definition}
+    The residual capacity $c_f(u, v)$ of an edge $(u, v)$ represents the additional flow that can be pushed through the edge $(u,v)$:
+    \[
+    c_f(u, v) = c(u, v) - f(u, v)
+    \]
+\end{definition}
+
+\subsection{Residual Network Definition}
+\begin{definition}
+    A residual network $G_f(V, E_f)$ is defined based on the graph $G$:
+    \[
+    E_f = \{(u, v) \in V^2 \mid c_f(u, v) > 0\}
+    \]
+    \customFigure[0.75]{00_Images/MF2.png}{Residual Network Example}
+\end{definition}
+
+\subsection{Augmented Paths in Residual Networks}
+\begin{definition}
+    An \textbf{augmented path} in the residual network $G_f$ is defined as a simple path from the source $s$ to the sink $t$. 
+    \begin{itemize}
+        \item The key idea is to find such paths to increase the total flow from $s$ to $t$.
+    \end{itemize}
+\end{definition}
+
+\subsection{Ford-Fulkerson Algorithm (Generic Version)}
+\begin{algo}
+    The Ford-Fulkerson method is an algorithm to find the maximum flow in a flow network. Below is a summary of the algorithm:
+
+    \begin{enumerate}
+        \item \textbf{Initialization:} $f(u, v) = 0, \quad \forall (u, v) \in E$
+        \item While $\nexists$ augmented path $AP$ s.t. $s \overset{AP}{\rightarrow} t$ in $G_f$
+        \begin{itemize}
+            \item Increase flow by minimum capacity of the AP.
+        \end{itemize}
+    \end{enumerate}
+\end{algo}
+
+\subsection{Conclusion}
+\begin{summary}
+    In this section, we explored the concepts of residual capacity and residual networks, and demonstrated how the Ford-Fulkerson algorithm uses augmented paths to determine the maximum flow in a network. The residual network plays a crucial role in identifying the paths that can still accommodate additional flow.
+\end{summary}
+
+\subsection{Definition Summary}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{Capacity Constraints:} For every edge $(u, v) \in V$, we have:
+        \[
+        f(u, v) \leq c(u, v)
+        \]
+        \item \textbf{Skew Symmetry:} For every vertex $u \in V - \{s, t\}$,
+        \[
+        f(u, v) = -f(v, u)
+        \]
+        \item \textbf{Flow Conservation:} For every vertex $u \in V - \{s, t\}$,
+        \[
+        \sum_{v \in V} f(u, v) = 0
+        \]
+        \item \textbf{Residual Capacity:}
+        \[
+        c_f(u, v) = c(u, v) - f(u, v)
+        \]
+        \item \textbf{Residual Graph:} The residual graph $G_f(V, E_f)$ is defined as:
+        \[
+        E_f = \{(u, v) \in V^2 \mid c_f(u, v) > 0\}
+        \]
+        \item \textbf{Augmenting Path:} A simple path $s \overset{AP}{\rightarrow} t$ in $G_f$.
+        \item \textbf{Residual Capacity of AP:} $c_f (p) = \min \{c_f(u,v): \; (u,v) \in AP\}$
+        \item \textbf{Problem:} Maximize $|f| = \sum_{v \in V} f(s,v)$
+    \end{itemize}
+\end{summary}
+
+\subsection{Ford-Fulkerson Algorithm}
+\begin{algo}
+    The goal is to maximize the flow $|f| = \sum_{v} f(s, v)$ using the following steps:
+
+    \customFigure[0.75]{00_Images/MF5.png}{Ford-Fulkerson Algorithm Steps}
+\end{algo}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/MF3.png}{Ford-Fulkerson Algorithm Example}
+\end{example}
+
+\subsection{Max-Flow Min-Cut Theorem}
+\begin{theorem}
+    To prove why the Ford-Fulkerson algorithm terminates with the maximum flow, we leverage the max-flow min-cut theorem:
+    \begin{itemize}
+        \item For any flow $f$ in $G$, the following statements are equivalent:
+        \begin{enumerate}
+            \item $f$ is a maximum flow in $G$.
+            \item The residual graph $G_f$ has no augmented paths.
+            \item $|f| = c(S, T)$ for some cut $(S, T)$.
+        \end{enumerate}
+    \end{itemize}
+\end{theorem}
+
+\subsubsection{Lemma}
+\begin{theorem}
+    $|f| \leq c(S, T)$ for any cut $(S, T)$
+\end{theorem}
+
+\subsection{Capacity of a Cut}
+\begin{definition} The capacity of cut $S,T$
+    \[
+    c(S, T) = \sum_{\forall \text{edge}} c(\text{edges } S \rightarrow T)
+    \]
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/MF6.png}{Capacity of a Cut Example}
+\end{example}
+
+\subsection{Conclusion}
+\begin{summary}
+    The Ford-Fulkerson algorithm efficiently finds the maximum flow in a network by repeatedly finding augmenting paths and adjusting the flow along those paths. The max-flow min-cut theorem provides a formal guarantee that the algorithm terminates with the optimal solution.
+\end{summary}
+
+\subsection{Edmonds-Karp Algorithm}
+\begin{algo}
+    The Edmonds-Karp algorithm is an implementation of the Ford-Fulkerson method for computing maximum flow in a flow network using breadth-first search (BFS) to find augmenting paths.
+    \vspace{1em}
+
+    Pick the shortest path (\# edges) as augmented path.
+
+    \begin{itemize}
+        \item Using BFS to find augmenting paths gives a time complexity of:
+        \[
+        O(V E^2)
+        \]
+    \end{itemize}
+\end{algo}
+
+\subsection{Maximum Bipartite Matching}
+\begin{definition}
+    Bipartite matching is a classic problem that can be reduced to a maximum flow problem.
+\end{definition}
+
+\subsubsection{Definitions}
+\begin{definition}
+    \begin{itemize}
+        \item A \textbf{matching} $M$ is a subset of edges such that each vertex is incident to at most one edge in $M$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \textbf{Example:} $M = \{B \rightarrow 1, C \rightarrow 2, E \rightarrow 3\}$.
+    \customFigure[0.75]{00_Images/MF4.png}{Maximum vs Maximal Matching}
+\end{example}
+
+\subsubsection{Maximum Matching vs Maximal Matching}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Maximum Matching}: A matching that covers the maximum number of vertices.
+        \item \textbf{Maximal Matching}: A matching that cannot be extended by adding an edge.
+    \end{itemize}
+\end{definition}
+
+\subsection{Reduction to Maximum Flow Problem}
+\begin{process}
+    To convert the bipartite matching problem into a maximum flow problem:
+    \begin{enumerate}
+        \item Add a pseudo source $s$ and sink $t$ with $\infty$.
+        \item Set capacities of original edges to $1$.
+        \item Use the Edmonds-Karp algorithm to find the maximum flow.
+    \end{enumerate}
+\end{process}
+
+\subsection{Conclusion}
+\begin{summary}
+    The Edmonds-Karp algorithm provides a systematic approach to solving flow network problems, including its application to maximum bipartite matching. By reducing matching problems to flow problems, we can leverage efficient algorithms like Edmonds-Karp for optimal solutions.
+\end{summary}
