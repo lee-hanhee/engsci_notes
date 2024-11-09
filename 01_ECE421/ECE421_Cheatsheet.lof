@@ -85,4 +85,8 @@
 \contentsline {figure}{\numberline {84}{\ignorespaces Bidirectional RNN}}{97}{figure.84}%
 \contentsline {figure}{\numberline {85}{\ignorespaces LSTM}}{97}{figure.85}%
 \contentsline {figure}{\numberline {86}{\ignorespaces Tokenization}}{98}{figure.86}%
-\contentsline {figure}{\numberline {87}{\ignorespaces Transformers}}{98}{figure.87}%
+\contentsline {figure}{\numberline {87}{\ignorespaces Transformers}}{99}{figure.87}%
+\contentsline {figure}{\numberline {88}{\ignorespaces Example of calculating attention for $3$}}{100}{figure.88}%
+\contentsline {figure}{\numberline {89}{\ignorespaces Multi-Head Attention}}{101}{figure.89}%
+\contentsline {figure}{\numberline {90}{\ignorespaces Residual Streams}}{102}{figure.90}%
+\contentsline {figure}{\numberline {91}{\ignorespaces Putting it all together}}{103}{figure.91}%

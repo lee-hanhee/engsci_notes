@@ -175,9 +175,13 @@
 \contentsline {subsubsection}{\numberline {11.2.2}The Problem of Vanishing Gradients}{97}{subsubsection.11.2.2}%
 \contentsline {subsection}{\numberline {11.3}LSTMs: Long Short-Term Memory Cells (DL in Practice: Architecture Choices)}{97}{subsection.11.3}%
 \contentsline {subsection}{\numberline {11.4}Transformers}{97}{subsection.11.4}%
-\contentsline {subsubsection}{\numberline {11.4.1}Tokenization}{97}{subsubsection.11.4.1}%
+\contentsline {subsubsection}{\numberline {11.4.1}Tokenization (Pre-processing Step)}{98}{subsubsection.11.4.1}%
 \contentsline {subsubsection}{\numberline {11.4.2}Attention (SLP 9)}{98}{subsubsection.11.4.2}%
 \contentsline {subsubsection}{\numberline {11.4.3}Transformers (SLP 9)}{98}{subsubsection.11.4.3}%
-\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{100}{section.12}%
-\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{101}{section.13}%
-\contentsline {section}{\numberline {14}Fair ML}{102}{section.14}%
+\contentsline {subsubsection}{\numberline {11.4.4}Multi-Head Attention}{100}{subsubsection.11.4.4}%
+\contentsline {subsubsection}{\numberline {11.4.5}Residual Streams}{101}{subsubsection.11.4.5}%
+\contentsline {subsubsection}{\numberline {11.4.6}Putting it all together}{102}{subsubsection.11.4.6}%
+\contentsline {subsection}{\numberline {11.5}Guess Lecture \#1}{103}{subsection.11.5}%
+\contentsline {section}{\numberline {12}Markov Decision Process (AIMA: 16)}{104}{section.12}%
+\contentsline {section}{\numberline {13}Reinforcement Learning (AIMA: 23.1-23.4)}{105}{section.13}%
+\contentsline {section}{\numberline {14}Fair ML}{106}{section.14}%

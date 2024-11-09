@@ -151,23 +151,37 @@
 \end{summary}
 
 \subsection{Transformers}
-\subsubsection{Tokenization}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{English Sentences:} Mapping Englsih sentences to real valued vetors, which can be processed by neural networks to perform tasks (i.e. translation, generate text).
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Tokenization (Pre-processing Step)}
 \begin{definition}
     \begin{itemize}
-        \item Map a raw sequence to a sequence of tokens
+        \item Map a raw sequence (e.g. DNA) to a sequence of tokens.
         \begin{itemize}
-            \item ``Train a neural network'' $\rightarrow$ ``Train'', ``a'', ``neural network''
+            \item \textbf{e.g.} ``Train a neural network'' $\rightarrow$ ``Train'', ``a'', ``neural network''
+            \item \textbf{Note:} Think of it as a pre-processing step. 
         \end{itemize}
         \item Map tokens to real- or vector-valued representation
         \begin{itemize}
-            \item ``Train'', ``a'', ``neural network''
+            \item \textbf{e.g.} ``Train'', ``a'', ``neural network''
+            \begin{itemize}
+                \item \textbf{Note:} Group words with similar meanings together (e.g. neural network)
+                \item \textbf{Note:} Also want meaningful differentiation between words (e.g. ``train'' vs. ``training'')
+            \end{itemize}
             \customFigure[0.75]{00_Images/T.png}{Tokenization}
             \begin{itemize}
-                \item \textbf{Tool:} word2vec
+                \item \textbf{Tool:} word2vec (Mikolov et al., 2013) to map words to vectors (i.e. tokenize input words).
             \end{itemize}
-            \item ACGJAACG $\rightarrow$ $(1,0,0,0)$, $(0,1,0,0)$, $(0,0,1,0)$, $(0,0,0,1)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $\dots$
+            \item \textbf{e.g. One Hot Encoding for DNA (i.e. Guest Lecture)} ACGTAACG $\rightarrow$ $(1,0,0,0)$, $(0,1,0,0)$, $(0,0,1,0)$, $(0,0,0,1)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $(1,0,0,0)$, $\dots$
+            \begin{itemize}
+                \item \textbf{Note:} Memory intensive from using one hot encoding for each letter in the alphabet. 
+            \end{itemize}
         \end{itemize}
-        % Note: This section includes a drawing to depict vector representation, which is omitted.
+        \item \textbf{Result:} Vectors that can be inputted into a neural network.
     \end{itemize}
 \end{definition}
 
@@ -179,33 +193,56 @@
         \item Consider two sentences
         \begin{itemize}
             \item \textbf{\textcolor{orange}{The chicken}} \textcolor{blue}{didn’t cross} \textcolor{orange}{the road} \textcolor{blue}{because} \textcolor{orange}{it} \textcolor{blue}{was too tired}
-            \item \textcolor{orange}{The chicken} \textcolor{blue}{didn’t cross} \textbf{\textcolor{orange}{the road}} \textcolor{blue}{because} \textcolor{orange}{it} \textcolor{blue}{was too tired}
+            \item \textcolor{orange}{The chicken} \textcolor{blue}{didn’t cross} \textbf{\textcolor{orange}{the road}} \textcolor{blue}{because} \textcolor{orange}{it} \textcolor{blue}{was too wide}
         \end{itemize}
-        \item ``It'' refers to ``The chicken'' in the first sentence, and "it" refers to ``the road'' in the second sentence.
+        \item Suppose we are trying to tokenize the word ``it''. Then it would be useful to know the context of the word to determine the meaning before feeding into a neural network.
+        \begin{itemize}
+            \item ``It'' refers to ``The chicken'' in the first sentence, and "it" refers to ``the road'' in the second sentence.
+            \item \textbf{Note:} This is all probabilistic (i.e. soft constraints).
+        \end{itemize}
         \item For each token, ``attention'' is used to represent the contextual meaning given other tokens.
     \end{itemize}
 \end{definition}
 
+\begin{warning}
+    Most complicated model.
+\end{warning}
+
 % Next section
 
 \subsubsection{Transformers (SLP 9)}
+\begin{summary}
+    \begin{itemize}
+        \item Position $i$ in the sequence 
+        \item Representation of the token at position $i$
+        \item Attention will give additional context to the token at position $i$
+        \item What is it were learning vs. what is being computed?
+    \end{itemize}
+\end{summary}
+
 \begin{definition}
-    \textbf{Simplified ``attention head''}
+    \textbf{Simplified ``attention head''} (i.e. can have multiple heads)
     \begin{itemize}
         \item Let $\underline{x}_i$ be the input representation of token $i$.
         \item The attention vector for token $i$ is:
         \[
         \underline{a}_i = \sum_j \alpha_{ij} \underline{x}_j,
         \]
-        \textcolor{orange}{a and x have same dimensionality}.
         
-        \item where $\alpha_{ij}$ is the similarity of representations $\underline{x}_i$ and $\underline{x}_j$:
+        \item \textbf{Note:} $a_i$ is based on the weighted sum of the token vectors for the previous vectors (e.g. chicken and read) (i.e. $j \leq i$)
+        \item \textcolor{orange}{a and x have same dimensionality}.
+        \item where $\alpha_{ij}$ is the similarity of representations $\underline{x}_i$ and $\underline{x}_j$ (i.e. softmax of dot product):
         \[
         \alpha_{ij} = \frac{e^{\underline{x}_i^T \underline{x}_j}}{\sum_{j} e^{\underline{x}_i^T \underline{x}_j}}.
         \]
+        \begin{itemize}
+            \item \textbf{Note:} Normalizing b/c we want to know how much attention to give to each token.
+            \item \textbf{Note:} $i=j$ is the self-attention (i.e. how much attention to give to the token itself).
+            \item \textbf{Note:} $i \neq j$ is the cross-attention (i.e. how much attention to give to other tokens).
+            \item \textbf{Note:} There are not any parameters in the attention mechanism (e.g. no weights) b/c for each sentence, there is no sense of how $x_i$ and $x_j$ will be similar across all sentences.
+        \end{itemize}
+        \item $\underline{a}_1, \underline{a}_2, \underline{a}_3, \dots$ incorporate contextual information (i.e. attention) from all previous tokens.
     \end{itemize}
-
-    $\underline{a}_1, \underline{a}_2, \underline{a}_3, \dots$ incorporate contextual information.
     \vspace{1em}
 
     \customFigure[0.75]{00_Images/T1.png}{Transformers}
@@ -220,6 +257,9 @@
 
 \begin{definition}
     \textbf{Actual ``attention head''}
+    \vspace{1em}
+
+The following terms are defined because we want to be able to have multiple layers of attention heads.
 \begin{itemize}
     \item \textbf{Query:} Element for which we are creating context
     \item \textbf{Key:} Other elements used to provide context
@@ -227,17 +267,66 @@
 \end{itemize}
 \vspace{1em}
 
-Weight matrices:
+\textbf{Weight matrices:} The weight matrices (learnt from a large corpus) are used to map the input vectors to a new space to make the dot products meaningful to retain the context.
 \[
 \underline{q}_i = W^Q \underline{x}_i, \quad \underline{k}_i = W^K \underline{x}_i, \quad \underline{v}_i = W^V \underline{x}_i,
 \]
 
 \begin{itemize}
+    \item \textbf{Note:} New vectors will provide more context to the dot product.
     \item Map the vector for token $i$, $\underline{x}_i$, to vectors representing the query, key, and value.
     \item \[
         \alpha_{ij} = \frac{e^{\underline{q}_i^T \underline{k}_j / \sqrt{d_k}}}{\sum_j e^{\underline{q}_i^T \underline{k}_j / \sqrt{d_k}}}
     \]
 \end{itemize}
 
-$d_k = $ dimensionality of $q_i, k_j$. % CONFIRM DURING LECTURE.
+$d_k = $ dimensionality of $q, k$. (Heuristic to stabilize the $\alpha$ to not explode since we have high dimensional keys and queries)
+\begin{itemize}
+    \item \textbf{Note:} $\alpha_{ij}$ does not have any tunable parameters. Tunable parameters should be shared across all test and train cases (i.e. weight matrices).
+    \item Train the weight matrices to do useful things with the model. 
+\end{itemize}
+    \customFigure[0.75]{00_Images/C.png}{Example of calculating attention for $3$}.
 \end{definition}
+
+\subsubsection{Multi-Head Attention}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Idea:} Use multiple attention heads to capture different aspects of the input (i.e. multiple weight matrices).
+        \item \textbf{Example:} One head might capture syntactic information, while another captures semantic information.
+        \item \textbf{Note:} Each head has its own weight matrices.
+    \end{itemize}
+    \customFigure[0.75]{00_Images/MHA.png}{Multi-Head Attention}
+    \begin{itemize}
+        \item Combine the different weight matrices using $W^0$ to get the final output.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Residual Streams}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Idea:} Add the input to the output of the attention layer.
+        \item \textbf{Note:} This helps with the vanishing gradient problem by providing a direct path for the gradient to flow through.
+        \item \textbf{How does Residual Neural Networks Work:} The input is added to the output of the layer, and the gradient can flow through the input to the output. 
+    \end{itemize}
+    \customFigure[0.75]{00_Images/RS.png}{Residual Streams}
+\end{definition}
+
+\subsubsection{Putting it all together}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Input Tokens:} e.g. word to vectors to obtain input tokens.
+        \item \textbf{Stacke Transformer Blocks:} This is the attention mechanism, which can be chained with multiple transformers.
+        \item \textbf{Output:} Language modeling head to take us back from the vectors to the words. 
+        \itemize
+    \end{itemize}
+    \customFigure[0.75]{00_Images/PT.png}{Putting it all together}
+\end{definition}
+
+\subsection{Guess Lecture \#1}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{Analogous to tokens:} Splice sites, promoter, enhance, etc, but these are just words in a sentence (i.e. tokens). \\
+        As you read through the DNA, you will come across a set of letters that will represent a splice site (i.e. boundary between exons and introns). \\
+        Or a set of letters that will represent an enhancer (i.e. a region that will increase the expression of a gene). \\
+    \end{itemize}
+\end{summary}
