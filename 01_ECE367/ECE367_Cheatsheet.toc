@@ -4,10 +4,10 @@
 \contentsline {subsection}{\numberline {2.1}Linear transformation}{5}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Matrix representation of a linear transformation}{5}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Vectors}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Vector spaces}{5}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}Vector spaces}{6}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{6}{subsubsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.4}Subspace}{7}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Span}{7}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.5}Span}{8}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}How to draw the span?}{8}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}Linear independent (LI) set}{8}{subsection.2.6}%
 \contentsline {subsubsection}{\numberline {2.6.1}How to determine if a set is linearly independent}{8}{subsubsection.2.6.1}%
@@ -15,11 +15,11 @@
 \contentsline {subsubsection}{\numberline {2.7.1}Dimension}{9}{subsubsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.8}Norms (Notion of distance)}{9}{subsection.2.8}%
 \contentsline {subsubsection}{\numberline {2.8.1}Norm balls}{10}{subsubsection.2.8.1}%
-\contentsline {subsubsection}{\numberline {2.8.2}Motivation for Norms}{10}{subsubsection.2.8.2}%
+\contentsline {subsubsection}{\numberline {2.8.2}Motivation for Norms}{11}{subsubsection.2.8.2}%
 \contentsline {subsubsection}{\numberline {2.8.3}Distance metric}{11}{subsubsection.2.8.3}%
 \contentsline {subsection}{\numberline {2.9}Inner product (Notion of angle)}{11}{subsection.2.9}%
 \contentsline {subsubsection}{\numberline {2.9.1}Examples of inner products}{11}{subsubsection.2.9.1}%
-\contentsline {subsubsection}{\numberline {2.9.2}Connection of inner product to angle}{11}{subsubsection.2.9.2}%
+\contentsline {subsubsection}{\numberline {2.9.2}Connection of inner product to angle}{12}{subsubsection.2.9.2}%
 \contentsline {subsubsection}{\numberline {2.9.3}Cauchy-Schwartz inequality and its generalization}{12}{subsubsection.2.9.3}%
 \contentsline {subsubsection}{\numberline {2.9.4}Inner product induces a norm}{12}{subsubsection.2.9.4}%
 \contentsline {subsection}{\numberline {2.10}Orthogonal decomposition}{13}{subsection.2.10}%
@@ -27,124 +27,133 @@
 \contentsline {subsubsection}{\numberline {2.10.2}Orthonormal basis}{13}{subsubsection.2.10.2}%
 \contentsline {subsubsection}{\numberline {2.10.3}Orthogonal}{13}{subsubsection.2.10.3}%
 \contentsline {subsubsection}{\numberline {2.10.4}Orthogonal complement}{13}{subsubsection.2.10.4}%
-\contentsline {section}{\numberline {3}Orthogonal Decomposition, Projecting onto Subspaces, Gram-Schmidt, QR Decomposition, Projection onto Affine Sets, Hyperplanes and Half-Spaces (Ch. 2.2-2.3)}{14}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Projection onto subspaces}{14}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Basic problem}{15}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Projection onto a 1D subspace}{15}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Projection onto an n dimensional space}{16}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Application of projections: Fourier series}{17}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}Gram-Schmidt and QR decomposition}{18}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}What if the set of basis vectors is not orthonormal?}{18}{subsubsection.3.2.1}%
-\contentsline {subsubsection}{\numberline {3.2.2}Gram-Schmidt Procedure}{19}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}QR decomposition}{20}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Projection of a subspace defined by its orthogonal vectors}{21}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Subspace defined by its orthogonal vectors}{21}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Projection}{22}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Projection onto affine sets}{23}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Affine spaces}{23}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Projection of Affine space defined in terms of basis vectors of corresponding subspace}{24}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Projection of Affine space defined in terms of orthogonal vectors to corresponding subspace}{26}{subsubsection.3.4.3}%
-\contentsline {subsubsection}{\numberline {3.4.4}Show that the two affine sets are equal}{27}{subsubsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.5}Summary}{28}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Hyperplanes and half-spaces}{29}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Problem set 1}{31}{section.4}%
-\contentsline {section}{\numberline {5}Non-Euclidean Projection, Functions, Gradients and Hessians (Ch. 2.3-2.4)}{32}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Non-Euclidean projection}{32}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Functions}{33}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Terminology of functions}{34}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Common Sets}{34}{subsubsection.5.2.2}%
-\contentsline {subsubsection}{\numberline {5.2.3}Linear functions}{36}{subsubsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.3}Function approximations}{37}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Gradients}{37}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}First-Order Approximation}{37}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Gradient properties}{38}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}Tangent plane}{39}{subsubsection.5.3.4}%
-\contentsline {subsubsection}{\numberline {5.3.5}Second order approximations}{41}{subsubsection.5.3.5}%
-\contentsline {subsubsection}{\numberline {5.3.6}Hessians}{41}{subsubsection.5.3.6}%
-\contentsline {subsubsection}{\numberline {5.3.7}Approximating}{41}{subsubsection.5.3.7}%
-\contentsline {section}{\numberline {6}Matrices, Range, Null Space, Eigenvalues, Eigenvectors, Matrix Diagonalization (Ch. 3.1-3.5)}{42}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Matrices}{42}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Matrix Transpose}{42}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Matrix Multiplication}{42}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Matrix vector multiplication}{42}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Block Matrix Product}{42}{subsubsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.5}Types of Matrices}{43}{subsubsection.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.1.6}Matrices as Linear Maps}{43}{subsubsection.6.1.6}%
-\contentsline {subsection}{\numberline {6.2}Range Space}{44}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Null Space}{45}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Fundamental theorem of algebra}{45}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {6.4.1}Rank of A}{46}{subsubsection.6.4.1}%
-\contentsline {subsection}{\numberline {6.5}Determinant}{47}{subsection.6.5}%
-\contentsline {subsection}{\numberline {6.6}Matrix inner product and norm}{48}{subsection.6.6}%
-\contentsline {subsubsection}{\numberline {6.6.1}Frobenius Norm}{48}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Operator norm (Motivation for eigenvalues and eigenvectors):}{49}{subsubsection.6.6.2}%
-\contentsline {subsection}{\numberline {6.7}Eigenvalues and Eigenvectors}{50}{subsection.6.7}%
-\contentsline {subsubsection}{\numberline {6.7.1}Characteristic polynomial}{50}{subsubsection.6.7.1}%
-\contentsline {subsubsection}{\numberline {6.7.2}Geometric and algebraic multiplicity}{50}{subsubsection.6.7.2}%
-\contentsline {subsubsection}{\numberline {6.7.3}Defective and non-defective}{50}{subsubsection.6.7.3}%
-\contentsline {subsubsection}{\numberline {6.7.4}Eigenvectors corresponding to different eigenvalues are l.i.}{50}{subsubsection.6.7.4}%
-\contentsline {subsection}{\numberline {6.8}Matrix Diagonalization}{52}{subsection.6.8}%
-\contentsline {subsubsection}{\numberline {6.8.1}What does this diagonalization mean?}{53}{subsubsection.6.8.1}%
-\contentsline {subsection}{\numberline {6.9}Application: Google's PageRank Algorithm}{54}{subsection.6.9}%
-\contentsline {subsubsection}{\numberline {6.9.1}How to measure importance of a webpage}{54}{subsubsection.6.9.1}%
-\contentsline {subsubsection}{\numberline {6.9.2}Example: Random Walk across Webpages}{54}{subsubsection.6.9.2}%
-\contentsline {subsubsection}{\numberline {6.9.3}Convergence to a Steady State Distribution}{55}{subsubsection.6.9.3}%
-\contentsline {subsubsection}{\numberline {6.9.4}Conditions for Convergence}{55}{subsubsection.6.9.4}%
-\contentsline {subsubsection}{\numberline {6.9.5}Practical Modification}{55}{subsubsection.6.9.5}%
-\contentsline {subsubsection}{\numberline {6.9.6}Why is 1 an eigenvalue of P?}{55}{subsubsection.6.9.6}%
-\contentsline {subsubsection}{\numberline {6.9.7}What about other eigenvalues?}{56}{subsubsection.6.9.7}%
-\contentsline {subsubsection}{\numberline {6.9.8}Convergence via Power Iteration}{56}{subsubsection.6.9.8}%
-\contentsline {section}{\numberline {7}Problem set 2}{57}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Calculating inverse of a matrix}{57}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Finding rank and dimension/basis for range and null space of A and A transpose}{59}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Symmetric Matrices, Orthogonal Matrices, Spectral Decomposition, Positive Semidefinite Matrices, Ellipsoids (Ch. 4.1-4.4)}{60}{section.8}%
-\contentsline {subsection}{\numberline {8.1}QA}{60}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Symmetric matrices}{60}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Example of symmetric matrix: Hessian Matrix}{60}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Theorem}{63}{subsubsection.8.2.2}%
-\contentsline {subsection}{\numberline {8.3}Spectral decomposition}{64}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Spectral theorem}{64}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Difference between Eigendecomposition and Spectral Decomposition}{65}{subsubsection.8.3.2}%
-\contentsline {subsection}{\numberline {8.4}Orthogonal matrices}{65}{subsection.8.4}%
-\contentsline {subsubsection}{\numberline {8.4.1}What happens when we multiply a vector by an orthogonal matrix?}{65}{subsubsection.8.4.1}%
-\contentsline {subsubsection}{\numberline {8.4.2}What kind of transformation corresponds to multiplying by a symmetric matrix?}{67}{subsubsection.8.4.2}%
-\contentsline {subsection}{\numberline {8.5}Positive semidefinite matrices and positive definite matrices}{68}{subsection.8.5}%
-\contentsline {subsubsection}{\numberline {8.5.1}Theorem on PSD,PD for Eigenvalues}{68}{subsubsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.6}Ellipsoids}{69}{subsection.8.6}%
-\contentsline {subsection}{\numberline {8.7}Multivariate Gaussian Varibles}{71}{subsection.8.7}%
-\contentsline {subsection}{\numberline {8.8}Sqaure roots of PSD}{72}{subsection.8.8}%
-\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{74}{section.9}%
-\contentsline {subsection}{\numberline {9.1}2nd Optimization Problem (Motivation for SVD)}{74}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}3rd Optimization Problem}{75}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Theorem}{76}{subsubsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.3}Singular value decomposition}{77}{subsection.9.3}%
-\contentsline {subsubsection}{\numberline {9.3.1}Intuition on SVD:}{78}{subsubsection.9.3.1}%
-\contentsline {subsection}{\numberline {9.4}Proof of SVD}{78}{subsection.9.4}%
-\contentsline {subsubsection}{\numberline {9.4.1}$AA^T$ and $A^T A$}{78}{subsubsection.9.4.1}%
-\contentsline {subsubsection}{\numberline {9.4.2}Fact}{79}{subsubsection.9.4.2}%
-\contentsline {subsubsection}{\numberline {9.4.3}How are u and v related?}{79}{subsubsection.9.4.3}%
-\contentsline {subsubsection}{\numberline {9.4.4}Summarization of Steps for SVD Construction}{80}{subsubsection.9.4.4}%
-\contentsline {subsubsection}{\numberline {9.4.5}Orthogonality of \( u^{(i)} \)'s}{80}{subsubsection.9.4.5}%
-\contentsline {subsubsection}{\numberline {9.4.6}Why does this correspond to SVD?}{80}{subsubsection.9.4.6}%
-\contentsline {subsubsection}{\numberline {9.4.7}Completing SVD:}{81}{subsubsection.9.4.7}%
-\contentsline {subsubsection}{\numberline {9.4.8}Fact:}{81}{subsubsection.9.4.8}%
-\contentsline {subsection}{\numberline {9.5}SVD in Two Forms}{81}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}Maximization Problem}{82}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}SVD Relation to Range space and Null space of A}{83}{subsection.9.7}%
-\contentsline {subsection}{\numberline {9.8}Principle component analysis}{84}{subsection.9.8}%
-\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{85}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{85}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{85}{subsection.10.2}%
-\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{86}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Least squares}{86}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{86}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{86}{subsection.11.3}%
-\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{87}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{87}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{87}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{88}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{88}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{88}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{89}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{89}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{89}{subsection.14.2}%
+\contentsline {section}{\numberline {3}Orthogonal Decomposition, Projecting onto Subspaces, Gram-Schmidt, QR Decomposition, Projection onto Affine Sets, Hyperplanes and Half-Spaces (Ch. 2.2-2.3)}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Projection onto subspaces}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Basic problem}{16}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Projection onto a 1D subspace}{16}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Projection onto an n dimensional space}{17}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Application of projections: Fourier series}{18}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Gram-Schmidt and QR decomposition}{19}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}What if the set of basis vectors is not orthonormal?}{19}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}Gram-Schmidt Procedure}{20}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}QR decomposition}{21}{subsubsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.3}Projection of a subspace defined by its orthogonal vectors}{22}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Subspace defined by its orthogonal vectors}{22}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Projection}{23}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Projection onto affine sets}{24}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Affine spaces}{24}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Projection of Affine space defined in terms of basis vectors of corresponding subspace}{25}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Projection of Affine space defined in terms of orthogonal vectors to corresponding subspace}{27}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Show that the two affine sets are equal}{28}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Summary}{29}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Hyperplanes and half-spaces}{30}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Problem set 1}{32}{section.4}%
+\contentsline {section}{\numberline {5}Non-Euclidean Projection, Functions, Gradients and Hessians (Ch. 2.3-2.4)}{33}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Non-Euclidean projection}{33}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Functions}{34}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Terminology of functions}{35}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Common Sets}{35}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Linear functions}{37}{subsubsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.3}Function approximations}{38}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}Gradients}{38}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}First-Order Approximation}{38}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}Gradient properties}{39}{subsubsection.5.3.3}%
+\contentsline {subsubsection}{\numberline {5.3.4}Tangent plane}{40}{subsubsection.5.3.4}%
+\contentsline {subsubsection}{\numberline {5.3.5}Second order approximations}{42}{subsubsection.5.3.5}%
+\contentsline {subsubsection}{\numberline {5.3.6}Hessians}{42}{subsubsection.5.3.6}%
+\contentsline {subsubsection}{\numberline {5.3.7}Approximating}{42}{subsubsection.5.3.7}%
+\contentsline {section}{\numberline {6}Matrices, Range, Null Space, Eigenvalues, Eigenvectors, Matrix Diagonalization (Ch. 3.1-3.5)}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Matrices}{43}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Matrix Transpose}{43}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Matrix Multiplication}{43}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Matrix vector multiplication}{43}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Block Matrix Product}{43}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Types of Matrices}{44}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Matrices as Linear Maps}{44}{subsubsection.6.1.6}%
+\contentsline {subsection}{\numberline {6.2}Range Space}{45}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Null Space}{46}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Fundamental theorem of algebra}{46}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Rank of A}{47}{subsubsection.6.4.1}%
+\contentsline {subsection}{\numberline {6.5}Determinant}{48}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Matrix inner product and norm}{49}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Frobenius Norm}{49}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Operator norm (Motivation for eigenvalues and eigenvectors):}{50}{subsubsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.7}Eigenvalues and Eigenvectors}{51}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Characteristic polynomial}{51}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Geometric and algebraic multiplicity}{51}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Defective and non-defective}{51}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.4}Eigenvectors corresponding to different eigenvalues are l.i.}{51}{subsubsection.6.7.4}%
+\contentsline {subsection}{\numberline {6.8}Matrix Diagonalization}{53}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}What does this diagonalization mean?}{54}{subsubsection.6.8.1}%
+\contentsline {subsection}{\numberline {6.9}Application: Google's PageRank Algorithm}{55}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}How to measure importance of a webpage}{55}{subsubsection.6.9.1}%
+\contentsline {subsubsection}{\numberline {6.9.2}Example: Random Walk across Webpages}{55}{subsubsection.6.9.2}%
+\contentsline {subsubsection}{\numberline {6.9.3}Convergence to a Steady State Distribution}{56}{subsubsection.6.9.3}%
+\contentsline {subsubsection}{\numberline {6.9.4}Conditions for Convergence}{56}{subsubsection.6.9.4}%
+\contentsline {subsubsection}{\numberline {6.9.5}Practical Modification}{56}{subsubsection.6.9.5}%
+\contentsline {subsubsection}{\numberline {6.9.6}Why is 1 an eigenvalue of P?}{56}{subsubsection.6.9.6}%
+\contentsline {subsubsection}{\numberline {6.9.7}What about other eigenvalues?}{57}{subsubsection.6.9.7}%
+\contentsline {subsubsection}{\numberline {6.9.8}Convergence via Power Iteration}{57}{subsubsection.6.9.8}%
+\contentsline {section}{\numberline {7}Problem set 2}{58}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Calculating inverse of a matrix}{58}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Finding rank and dimension/basis for range and null space of A and A transpose}{60}{subsection.7.2}%
+\contentsline {section}{\numberline {8}Symmetric Matrices, Orthogonal Matrices, Spectral Decomposition, Positive Semidefinite Matrices, Ellipsoids (Ch. 4.1-4.4)}{61}{section.8}%
+\contentsline {subsection}{\numberline {8.1}QA}{61}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Symmetric matrices}{61}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Example of symmetric matrix: Hessian Matrix}{61}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Theorem}{64}{subsubsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.3}Spectral decomposition}{65}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Spectral theorem}{65}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Difference between Eigendecomposition and Spectral Decomposition}{66}{subsubsection.8.3.2}%
+\contentsline {subsection}{\numberline {8.4}Orthogonal matrices}{66}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}What happens when we multiply a vector by an orthogonal matrix?}{66}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}What kind of transformation corresponds to multiplying by a symmetric matrix?}{68}{subsubsection.8.4.2}%
+\contentsline {subsection}{\numberline {8.5}Positive semidefinite matrices and positive definite matrices}{69}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {8.5.1}Theorem on PSD,PD for Eigenvalues}{69}{subsubsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.6}Ellipsoids}{70}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Multivariate Gaussian Varibles}{72}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Sqaure roots of PSD}{73}{subsection.8.8}%
+\contentsline {section}{\numberline {9}Singular Value Decomposition, Principal Component Analysis (Ch. 5.1, 5.3.2)}{75}{section.9}%
+\contentsline {subsection}{\numberline {9.1}2nd Optimization Problem (Motivation for SVD)}{75}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}3rd Optimization Problem}{76}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Theorem}{77}{subsubsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.3}Singular value decomposition}{78}{subsection.9.3}%
+\contentsline {subsubsection}{\numberline {9.3.1}Intuition on SVD:}{79}{subsubsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.4}Proof of SVD}{79}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}$AA^T$ and $A^T A$}{79}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Fact}{80}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}How are u and v related?}{80}{subsubsection.9.4.3}%
+\contentsline {subsubsection}{\numberline {9.4.4}Summarization of Steps for SVD Construction}{81}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.5}Orthogonality of \( u^{(i)} \)'s}{81}{subsubsection.9.4.5}%
+\contentsline {subsubsection}{\numberline {9.4.6}Why does this correspond to SVD?}{81}{subsubsection.9.4.6}%
+\contentsline {subsubsection}{\numberline {9.4.7}Completing SVD:}{82}{subsubsection.9.4.7}%
+\contentsline {subsubsection}{\numberline {9.4.8}Fact:}{82}{subsubsection.9.4.8}%
+\contentsline {subsection}{\numberline {9.5}SVD in Two Forms}{82}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}Maximization Problem}{83}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}SVD Relation to Range space and Null space of A}{84}{subsection.9.7}%
+\contentsline {subsection}{\numberline {9.8}What about A transpose?}{86}{subsection.9.8}%
+\contentsline {subsubsection}{\numberline {9.8.1}Range and Null Space}{87}{subsubsection.9.8.1}%
+\contentsline {subsection}{\numberline {9.9}Matrix Inverse}{87}{subsection.9.9}%
+\contentsline {subsection}{\numberline {9.10}Pseudo-Inverse}{87}{subsection.9.10}%
+\contentsline {subsubsection}{\numberline {9.10.1}Least Squares Solution}{88}{subsubsection.9.10.1}%
+\contentsline {subsection}{\numberline {9.11}Matrix Norms}{88}{subsection.9.11}%
+\contentsline {subsubsection}{\numberline {9.11.1}Frobenius Norm}{88}{subsubsection.9.11.1}%
+\contentsline {subsubsection}{\numberline {9.11.2}Operator Norm}{89}{subsubsection.9.11.2}%
+\contentsline {subsection}{\numberline {9.12}Conditioning Number of a Matrix}{89}{subsection.9.12}%
+\contentsline {subsection}{\numberline {9.13}Principle component analysis}{89}{subsection.9.13}%
+\contentsline {section}{\numberline {10}Interpretations of SVD, Low-Rank Approximation (Ch. 5.2-5.3.1)}{90}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Interpretation of SVD}{90}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Low-rank approximation}{90}{subsection.10.2}%
+\contentsline {section}{\numberline {11}Least Squares, Overdetermined and Underdetermined Linear Equations (Ch. 6.1-6.4)}{91}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Least squares}{91}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{91}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{91}{subsection.11.3}%
+\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{92}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{92}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{92}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{93}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{93}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{93}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{94}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{94}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{94}{subsection.14.2}%

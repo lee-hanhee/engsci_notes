@@ -317,7 +317,6 @@ $d_k = $ dimensionality of $q, k$. (Heuristic to stabilize the $\alpha$ to not e
         \item \textbf{Input Tokens:} e.g. word to vectors to obtain input tokens.
         \item \textbf{Stacke Transformer Blocks:} This is the attention mechanism, which can be chained with multiple transformers.
         \item \textbf{Output:} Language modeling head to take us back from the vectors to the words. 
-        \itemize
     \end{itemize}
     \customFigure[0.75]{00_Images/PT.png}{Putting it all together}
 \end{definition}
@@ -328,5 +327,7 @@ $d_k = $ dimensionality of $q, k$. (Heuristic to stabilize the $\alpha$ to not e
         \item \textbf{Analogous to tokens:} Splice sites, promoter, enhance, etc, but these are just words in a sentence (i.e. tokens). \\
         As you read through the DNA, you will come across a set of letters that will represent a splice site (i.e. boundary between exons and introns). \\
         Or a set of letters that will represent an enhancer (i.e. a region that will increase the expression of a gene). \\
+        \item \textbf{Nucleotides:} These are the tokens in the DNA sequence, and we will adjust the model by implementing CNNs to produce an output set of tokens (i.e. splice sites, enhancers, etc).\\
+        Use a transformer architecture using the same attention process. 
     \end{itemize}
 \end{summary}

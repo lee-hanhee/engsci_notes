@@ -1,0 +1,296 @@
+\subsection{Overview of Part 1}
+\begin{summary}
+    \begin{itemize}
+        \item \textbf{What is RL?} Learning through experience/data to make good decisions under uncertainty.
+        \item Decision making is an essential part of intelligence.
+        \item So far in the course, we have studied techniques to identify things.
+        \item Also, in real life, we have seen a lot of progress in what is called \textbf{perceptual machine learning}, e.g., perceiving faces, cats, and dogs.
+        \begin{itemize}
+            \item e.g., to perceive faces, cats, dogs, digits, etc.
+            \item Perceptual machine learning tries to identify something.
+        \end{itemize}
+        
+        \item In reality, what we are trying to do is to make decisions based on the perception/information we receive.
+        \begin{itemize}
+            \item So, it's critical to think about how to make ``good'' decisions when it comes to intelligence.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsection{How to make good decision from limited experience/data}
+\begin{summary}
+    \begin{itemize}
+        \item These sorts of questions, particularly when faced with uncertainty, have been studied in depth at least since the 1950s.
+        
+        \item Reinforcement Learning (RL) builds strongly from theory and ideas starting in the 1950s with Richard Bellman.
+        
+        \item So, why should we study RL?
+        \begin{itemize}
+            \item Because understanding how to make good decisions from limited experience when faced with uncertainty is essential for any (artificial) intelligent entity.
+            \item Also, because it's cool. It's practical.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsection{Some impressive successes in the last decade}
+\begin{summary}
+    \begin{itemize}
+        \item Board game Go.
+        \begin{itemize}
+            \item An extremely challenging board game.
+            \item In 2016, a team called ``DeepMind,'' by combining Reinforcement Learning (RL) and Monte Carlo Tree Search, built an agent that could defeat the world champion.
+        \end{itemize}
+        \item Plasma control for fusion science.
+        \item Efficient and targeted Covid-19 testing via RL. 
+        \item ChatGPT
+    \end{itemize}
+\end{summary}
+
+\subsection{What does RL generally involve?}
+\begin{summary}
+    \begin{itemize}
+        \item Optimization
+        \item Delayed consequences
+        \item Exploration 
+        \item Generalization
+    \end{itemize}
+
+\end{summary}
+
+\subsubsection{Optimization}
+\begin{summary}
+    \begin{itemize}
+        \item To find the "best" way to make decisions.
+        \begin{itemize}
+            \item Our decisions must yield the best outcomes or at least very good outcomes.
+        \end{itemize}
+        \item Best outcomes? How can we specify if an outcome is the best outcome?
+        \begin{itemize}
+            \item How to compare outcomes?
+            \begin{itemize}
+                \item We do it with an explicit notion of decision utility.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Delayed Consequences}
+\begin{summary}
+    \begin{itemize}
+        \item Decisions made now can impact things much later.
+        \begin{itemize}
+            \item e.g., Consider saving for retirement.
+        \end{itemize}
+        \item Delayed consequences introduce two challenges:
+        \begin{itemize}
+            \item \textbf{When planning:} Even when we know how the world works, decisions involve reasoning not only about the immediate benefit of a decision but also its long-term consequences.
+            \item \textbf{When learning:} We don't know how the world works. We learn through direct world experience, but temporal credit assignment is challenging.
+            \begin{itemize}
+                \item You take some action now, and later you receive a good/bad outcome. How do you figure out which of your actions caused that good or bad outcome?
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Exploration}
+\begin{summary}
+    \begin{itemize}
+        \item We learn from direct experience by interacting with our environment.
+        \item You only learn about what you try out.
+        \begin{itemize}
+            \item We don’t know what would have happened for other decisions.
+        \end{itemize}
+        \item That's why it's important to sometimes explore alternative actions as it may give you valuable information.
+    \end{itemize}
+\end{summary}
+
+\subsubsection{Generalization}
+\begin{summary}
+    \begin{itemize}
+        \item Good decisions are learned from past experience.
+        \begin{itemize}
+            \item We need a mapping from possible states to decisions.
+        \end{itemize}
+        \item Why not just pre-program a decision policy/mapping?
+        \begin{itemize}
+            \item Because the number of possible states of the environment can be vast.
+            \item From a small set of states that we have seen, we must learn a mapping that generalizes well to states that we have not seen.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsubsection{RL vs. AI planning vs. (un)supervised learning}
+\begin{summary}
+    \customFigure[0.75]{00_Images/RL.png}{RL}
+\end{summary}
+
+\subsection{Overview of Part 2}
+\begin{summary}
+    \begin{itemize}
+        \item Sequential decision process
+        \item Observation, history, and state.
+        \item Markov Decision Process (MDP).
+        \begin{itemize}
+            \item What is Markov about MDP? Why is the Markov assumption so common?
+        \end{itemize}
+        \item Dynamics Model \& Reward Model.
+        \begin{itemize}
+            \item Transition Graph.
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsection{Sequential Decision Making}
+\begin{definition}
+    \customFigure[0.75]{00_Images/RL1.png}{Sequential Decision Making}
+    \begin{itemize}
+        \item \textbf{Goal:} Select actions to maximize total expected future reward. 
+        \begin{itemize}
+            \item May require balancing immediate and long-term rewards.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/RL2.png}{Internet}
+    \customFigure[0.75]{00_Images/RL3.png}{Diswasher Robot}
+    \begin{itemize}
+        \item The agent might exploit the reward system in unintended ways. The robot can break all dishes by throwing them on the floor. 
+        \begin{itemize}
+            \item This issue is known as Reward Hacking.
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsubsection{Sequential Decision Making: Agent \& the World (Discrete Time)}
+\begin{definition}
+    \customFigure[0.75]{00_Images/RL4.png}{Sequential Decision Making}
+    At each time step \( t \), the following sequence occurs:
+    \begin{enumerate}
+        \item \textbf{Agent takes an action} \( a_t \).
+        \item \textbf{Given action} \( a_t \), the world updates and emits observation \( o_{t+1} \) and reward \( r_{t+1} \).
+        \item \textbf{The agent receives} the new observation \( o_{t+1} \) and reward \( r_{t+1} \).
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{History: Sequence of Past Observations, Actions, \& Rewards}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{History}:
+        \[
+        h_t = (a_0, o_1, r_1, a_1, o_2, r_2, \ldots, a_{t-1}, o_t, r_t)
+        \]
+        \begin{itemize}
+            \item The agent chooses its actions based on the history \( h_t \).
+        \end{itemize}
+        
+        \item \textbf{State}: Information assumed to determine what happens next.
+        \begin{itemize}
+            \item State \( S_t \) is a function of the history:
+            \[
+            S_t = \psi(h_t)
+            \]
+            \begin{itemize}
+                \item The simplest state function can be:
+                \[
+                S_z = h_t \quad \text{or} \quad S_t = o_t
+                \]
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Observation vs. History vs. State}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Question}: What is the difference between observation, history, and state?
+        \begin{itemize}
+            \item \textbf{Observation} (\( o_t \)): The latest snapshot of the environment at time \( t \).
+            \item \textbf{History} (\( h_t \)): The entire sequence of past actions, observations, and rewards up to time \( t \).
+            \item \textbf{State} (\( S_t \)): A function of history that summarizes the necessary information to predict future outcomes.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \textbf{Atari Game:} Consider the design of observation, history, and state for an Atari game:
+    
+    \begin{itemize}
+        \item \textbf{Observation}: The last image snapshot of the game.
+        \item \textbf{State}: The last few observations to infer the speed and direction of moving objects, such as the ball.
+        \begin{itemize}
+            \item This allows the agent to determine the velocity and trajectory of objects for decision-making.
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsection{Markov Assumption}
+\begin{definition}
+    \begin{itemize}
+        \item Often, to make problems tractable, and because it is not a terrible assumption in reality, we will make the \textbf{Markov Assumption}.
+        \[
+        P(S_{t+1} \mid S_t, a_t) = P(S_{t+1} \mid S_t, a_t, S_{t-1}, a_{t-1}, S_{t-2}, a_{t-2}, \ldots, S_1, a_1)
+        \]
+    
+        \item \textbf{Future} (\( S_{t+1} \)) is independent of \textbf{past} (\( S_{t-1}, a_{t-1}, \ldots, S_1, a_1 \)) given the \textbf{present} (\( S_t, a_t \)).
+        
+        \item With the Markov Assumption: STOPPED HERE.
+        \begin{align*}
+            P(S_{t+1} \mid S_t, S_{t-1}, \ldots, S_1, a_t, \ldots, a_1, \theta) &= P(S_{t+1} \mid S_t, a_t) \\
+            &\Rightarrow P(S_t \mid S_{t-1}, S_{t-2}, \ldots, a_{t-1}) \\
+            P(S_t \mid S_{t-1}, \ldots, S_1, a_{t-1}, \ldots, a_1) &= P(S_t \mid S_{t-1}, a_{t-1})
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Why is Markov Assumption Popular?}
+\begin{definition}
+    \begin{itemize}
+        \item It is simple and often can be satisfied if we include some previous observations as part of the state.
+        
+        \item There are many problems where we can satisfy the Markov assumption by simply setting:
+        \[
+        S_t = o_t
+        \]
+    
+        \item The Markov assumption significantly simplifies working with the problem.
+        
+        \item Just like all machine learning problems we studied so far, there is a trade-off between the expressive power of state representation and how long it takes to train your model.
+    \end{itemize}    
+\end{definition}
+
+\begin{example}
+    
+\end{example}
+
+\subsection{Dynamics Model \& Reward Model}
+
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    
+\end{example}
+
+\subsubsection{Transition Graph}
+\begin{definition}
+    \begin{itemize}
+        \item A \textbf{Transition Graph} is a useful way of summarizing the dynamics of a finite MDP.
+        
+        \item There are two types of nodes:
+        \begin{itemize}
+            \item \textbf{State nodes}:
+            \begin{itemize}
+                \item There is a state node for each possible state.
+                \item Typically represented by a large circle labeled with the name of the state, e.g., \( S \).
+            \end{itemize}
+            
+            \item \textbf{Action nodes} (also called \textbf{q-state nodes}):
+            \begin{itemize}
+                \item There is an action node for each state-action pair.
+                \item Typically represented by a small solid circle labeled with the name of the action or the (state, action) pair, e.g., \( a \) or \( (s, a) \).
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{definition}

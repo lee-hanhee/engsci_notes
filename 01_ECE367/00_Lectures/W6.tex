@@ -604,6 +604,15 @@
         \[
         A = \tilde{U} \tilde{\Sigma} \tilde{V}^T.
         \]
+        \item \textbf{Summation:}
+        \begin{equation*}
+            A = \sum_{i=1}^r \sigma_i u^{(i)} v^{(i) T}.
+        \end{equation*}
+        \begin{itemize}
+            \item $u^{(i)}$: $m \times 1$
+            \item $v^{(i)T}$: $1 \times n$
+            \item $\sigma_i u^{(i)} v^{(i) T}$: $m \times n$
+        \end{itemize}
     \end{enumerate}
 \end{definition}
 
@@ -797,4 +806,201 @@
 \begin{derivation}
     \customFigure[0.4]{00_Images/RS1.png}{Another Derivation}
 \end{derivation}
+
+\subsection{What about A transpose?}
+\begin{definition}
+    \begin{equation*}
+        A = U \Sigma V^T
+        \end{equation*}
+        
+        \begin{equation*}
+        A^T = (U \Sigma V^T)^T = V \Sigma^T U^T
+        \end{equation*}
+        \begin{itemize}
+            \item $V$: $n \times n$
+            \item $\Sigma^T$: $n \times m$
+            \item $U^T$: $m \times m$
+        \end{itemize}
+        \begin{equation*}
+            \begin{bmatrix}
+            v^{(1)} & \ldots & v^{(r)} & | & v^{(r+1)} & \ldots & v^{(n)}
+            \end{bmatrix}
+            \Sigma^T
+            \begin{bmatrix}
+                u^{(1)T} \\ \vdots \\ u^{(r)T} \\ u^{(r+1)T} \\ \vdots \\ u^{(m)T}
+            \end{bmatrix}
+        \end{equation*}
+\end{definition}
+
+\subsubsection{Range and Null Space}
+\begin{definition}
+    \begin{align*}
+        \mathcal{R}(A^T) &= \text{span}\{v^{(1)}, \ldots, v^{(r)}\} \\
+        \mathcal{N}(A^T) &= \text{span}\{u^{(r+1)}, \ldots, u^{(m)}\}
+    \end{align*}
+    
+    \vspace{1em}
+
+    \textbf{FToLA:}
+    \begin{equation*}
+    \mathcal{N}(A) \oplus \mathcal{R}(A^T) = \mathbb{R}^n, \quad \mathcal{R}(A) \oplus \mathcal{N}(A^T) = \mathbb{R}^m
+    \end{equation*}
+\end{definition}
+
+\subsection{Matrix Inverse}
+\begin{definition}
+    If \( A \) is a square matrix and invertible, then the SVD of $A^{-1}$
+    \begin{equation*}
+    A^{-1} = (U \Sigma V^T)^{-1} = V \Sigma^{-1} U^T
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Note:} $U^{-1} = U^T$ and $V^{-1} = V^T$ because they are orthogonal matrices.
+    \end{itemize}
+
+    \begin{equation*}
+    A^{-1} = V 
+    \begin{bmatrix}
+    \frac{1}{\sigma_1} & 0 & \ldots & 0 \\
+    0 & \frac{1}{\sigma_2} & \ldots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \ldots & \frac{1}{\sigma_r}
+    \end{bmatrix}
+    U^T
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Note on $A^{-1}$:} Rotate/Flip using \( U^T \), Scale using \( \Sigma^{-1} \), Rotate/Flip using \( V \).
+        \item \textbf{Note on A:} Rotate/Flip using \( V^T \), Scale using \( \Sigma^{-1} \), Rotate/Flip using \( U \).
+        \item \textbf{Conclusion:} The inverse of A does the opposite transformation of A in the SVD.
+    \end{itemize}
+\end{definition}
+
+\subsection{Pseudo-Inverse}
+\begin{definition}
+    For any matrix \( A = U \Sigma V^T \), the pseudo-inverse is given by:
+    \begin{equation*}
+    A^{\dagger} = V 
+    \begin{bmatrix}
+        1/\sigma_1 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+        \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+        0 & \cdots & 1/\sigma_r & \vline & 0 & \cdots & 0 \\
+        \hline
+        0 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+        \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+        0 & \cdots & 0 & \vline & 0 & \cdots & 0 
+    \end{bmatrix}
+    U^T
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Note:} It turns out this can be generalized to any matrix (not necessarily invertible) to the Moore-Penrose pseudo-inverse.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Least Squares Solution}
+\begin{definition}
+    \begin{align*}
+        A &= 
+        \begin{bmatrix}
+        \text{tall matrix with linearly independent columns}
+        \end{bmatrix} 
+        \Rightarrow A^{\dagger} = (A^T A)^{-1} A^T, \quad A^{\dagger} A = I \\
+        A &= 
+        \begin{bmatrix}
+        \text{fat matrix with linearly independent rows}
+        \end{bmatrix}
+        \Rightarrow A^{\dagger} = A^T (A A^T)^{-1}, \quad A A^{\dagger} = I
+    \end{align*}
+\end{definition}
+
+\subsection{Matrix Norms}
+\subsubsection{Frobenius Norm}
+\begin{definition}
+    \begin{equation*}
+        \|A\|_F = \sqrt{\sum_{i,j} a_{ij}^2} = \sqrt{\text{tr}(A^T A)} = \sqrt{\sum_{i=1}^r \sigma_i^2}
+        \end{equation*}
+\end{definition}
+
+\begin{intuition}
+    \customFigure[0.75]{00_Images/SVD.png}{Frobenius Norm}
+    \begin{itemize}
+        \item $\text{tr}(A^TA)$ makes sense because we are taking first row of $A^T$ and multiplying it with first column of $A$ and summing it up. Repeating this for all rows and columns gives us the sum of squares of all elements.
+    \end{itemize}
+\end{intuition}
+
+\begin{derivation}
+    \begin{align*}
+        A &= U \Sigma V^T \\
+        A^T A &= (V \Sigma^T U^T)(U \Sigma V^T) = V \Sigma^T \Sigma V^T \\
+        &= V 
+        \begin{bmatrix}
+            \sigma_1^2 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & \sigma_r^2 & \vline & 0 & \cdots & 0 \\
+            \hline
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 
+        \end{bmatrix} V^T
+        \end{align*}
+        
+        \begin{align*}
+        \text{tr}(A^T A) &= \text{tr} \left( V 
+        \begin{bmatrix}
+            \sigma_1^2 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & \sigma_r^2 & \vline & 0 & \cdots & 0 \\
+            \hline
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 \\
+            \vdots & \ddots & \vdots & \vline & \vdots & \ddots & \vdots \\
+            0 & \cdots & 0 & \vline & 0 & \cdots & 0 
+        \end{bmatrix} V^T \right) \\
+        &= \text{tr} \left( 
+            V V^T
+            \begin{bmatrix}
+                \sigma_1^2 & \cdots & 0 \\
+                \vdots & \ddots & \vdots \\
+                0 & \cdots & \sigma_r^2 
+            \end{bmatrix} \right) \quad \text{since tr($AB$) = tr($BA$)}\\
+        &= \text{tr} \left( 
+        \begin{bmatrix}
+            \sigma_1^2 & \cdots & 0 \\
+            \vdots & \ddots & \vdots \\
+            0 & \cdots & \sigma_r^2 
+        \end{bmatrix} \right) \\
+        &= \sum_{i=1}^{r} \sigma_i^2
+        \end{align*}
+        
+        \begin{equation*}
+        \|A\|_F = \sqrt{\sum_{i=1}^{r} \sigma_i^2}
+        \end{equation*}
+\end{derivation}
+
+\subsubsection{Operator Norm}
+\begin{definition}
+    \begin{equation*}
+        \|A\|_2 = \max_{\|x\|_2 = 1} \|Ax\|_2 = \sigma_{\max}(A)
+        \end{equation*}
+\end{definition}
+
+\subsection{Conditioning Number of a Matrix}
+\begin{definition}
+    \begin{equation*}
+        \kappa(A) = \frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}
+        \end{equation*}
+\end{definition}
+
+\begin{intuition}
+    The condition number \( \kappa(A) \) measures the numerical stability of solving \( A x = b \). 
+    \vspace{1em}
+    The solution is \( x = A^{-1} b \) (if A is invertible). If we change
+    \begin{align*}
+    b &\rightarrow b + \Delta b \\
+    x &\rightarrow x + \Delta x
+    \end{align*}
+
+    We are interested in comparing:
+    \begin{equation*}
+    \frac{\|\Delta x\|_2}{\|x\|_2} \quad \text{vs} \quad \frac{\|\Delta b\|_2}{\|b\|_2}
+    \end{equation*}
+\end{intuition}
+
 \subsection{Principle component analysis}

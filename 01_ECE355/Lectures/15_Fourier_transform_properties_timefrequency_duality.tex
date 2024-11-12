@@ -431,3 +431,120 @@ x(t - t_0) \overset{\mathcal{F}}{\leftrightarrow} e^{-j 2 \pi f t_0} X(f).
 \begin{warning}
     Choose the domain that is most convienent for the problem.
 \end{warning}
+
+\subsection{Convolution Property}
+\begin{definition}
+    \begin{itemize}
+        \item If \( x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) \) and \( y(t) \overset{\mathcal{F}}{\leftrightarrow} Y(f) \), then
+        \[
+        x(t) * y(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) Y(f).
+        \]
+        \item Convolution in the time domain becomes multiplication in the frequency domain.
+        \item This justifies the use of the frequency domain for certain computations.
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+    \begin{align*}
+        \mathcal{F}\{x * y\} &= \int_{-\infty}^{\infty} (x * y)(t) e^{-j 2 \pi f t} \, dt \\
+        &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} x(\tau) y(t - \tau) \, d\tau \, e^{-j 2 \pi f t} \, dt \\
+        &= \int_{-\infty}^{\infty} x(\tau) \int_{-\infty}^{\infty} y(t - \tau) e^{-j 2 \pi f t} \, dt \, d\tau \\
+        &= \int_{-\infty}^{\infty} x(\tau) \left( \int_{-\infty}^{\infty} y(t - \tau) e^{-j 2 \pi f t} \, dt \right) d\tau \\
+        &= \int_{-\infty}^{\infty} x(\tau) \left( Y(f) e^{-j 2 \pi f \tau} \right) d\tau \\
+        &= \left( \int_{-\infty}^{\infty} x(\tau) e^{-j 2 \pi f \tau} d\tau \right) Y(f) \\
+        &= X(f) Y(f).
+    \end{align*}
+\end{derivation}
+
+\subsubsection{Cascading Systems:}
+\begin{definition}
+    \customFigure[0.75]{00_Images/H1.png}{Cascading Systems}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/H2.png}{Cascading Systems}
+    \customFigure[0.75]{00_Images/H.png}{Cascading Systems}
+\end{example}
+
+\subsubsection{Non-Ideal Low Pass Filter}
+\begin{example}
+    \customFigure[0.75]{00_Images/H4.png}{Cascading Systems}
+\end{example}
+
+\subsection{Sign Function}
+\begin{definition}
+    \[
+\text{sgn}(t) = 
+\begin{cases}
+    1, & t > 0 \\
+    0, & t = 0 \\
+    -1, & t < 0
+\end{cases}
+\]
+    \customFigure[0.75]{00_Images/SGN.png}{Sign function}
+\end{definition}
+
+\begin{definition}
+    \begin{equation*}
+        \text{sgn}(t) \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{j \pi f}.
+    \end{equation*}
+\end{definition}
+
+\begin{definition}
+    \begin{equation*}
+        u(t) \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{2} \delta(f) + \frac{1}{j 2 \pi f}.
+    \end{equation*}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Proof:}
+\[
+x_\alpha(t) =
+\begin{cases}
+    e^{-\alpha t}, & \text{if } t > 0, \\
+    0, & \text{if } t = 0, \\
+    -e^{-\alpha t}, & \text{if } t < 0,
+\end{cases}
+\]
+where \( \alpha > 0 \).
+
+\customFigure[0.75]{00_Images/S.png}{Sign function}
+\bigskip
+
+\textbf{Limit as } \( \alpha \to 0 \):
+\[
+\lim_{\alpha \to 0} x_\alpha(t) = \text{sgn}(t).
+\]
+
+
+
+\begin{align*}
+    X_\alpha(f) &= \int_{-\infty}^{\infty} x_\alpha(t) e^{-j 2 \pi f t} \, dt \\
+    &= \int_{-\infty}^{0} -e^{-\alpha t} e^{-j 2 \pi f t} \, dt + \int_{0}^{\infty} e^{-\alpha t} e^{-j 2 \pi f t} \, dt \\
+    &= -\frac{1}{\alpha - j 2 \pi f} + \frac{1}{\alpha + j 2 \pi f} \\
+    &= \frac{4 \pi f}{j (\alpha^2 + 4 \pi^2 f^2)}.
+\end{align*}
+
+\textbf{As \( \alpha \to 0 \):}
+\begin{align*}
+    x_\alpha(f) &\to \lim_{\alpha \to 0} \frac{4 \pi f}{j (\alpha^2 + 4 \pi^2 f^2)} \\
+    &= \frac{4 \pi f}{j \cdot 4 \pi^2 f^2} = \frac{1}{j \pi f}.
+\end{align*}
+
+\textbf{Therefore:}
+\[
+\text{sgn}(t) \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{j \pi f}.
+\]
+
+\bigskip
+
+\textbf{Note that:}
+\[
+u(t) = \frac{1}{2} \left(1 + \text{sgn}(t)\right).
+\]
+
+\[
+u(t) \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{2} \delta(f) + \frac{1}{j 2 \pi f}.
+\]
+\end{derivation}

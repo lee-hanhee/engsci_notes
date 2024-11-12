@@ -1,49 +1,50 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{6}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{10}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{12}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{13}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{14}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Visual representation of the projection problem.}}{16}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Generalization of projection.}}{17}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Periodic triangle function.}}{17}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{19}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{19}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{22}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{23}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{25}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{26}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{29}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{32}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{32}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{33}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{33}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{34}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{35}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{35}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Example of a 2D function.}}{36}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{36}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{38}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Tangent plane.}}{39}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{40}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces The tangent plane is defined as this plane.}}{41}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Range space.}}{44}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Orthogonal complement.}}{45}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Example of fundamental theorem of linear algebra.}}{46}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Diagonal}}{47}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Upper triangular}}{48}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces General matrix}}{48}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{49}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{54}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{55}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{66}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{67}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{68}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Tilde axis.}}{70}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Bar axes.}}{70}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces X axes.}}{71}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Single-variable Gaussian distribution}}{71}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces 3D-variable Gaussian distribution}}{72}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Cross-section of GD (i.e. Intersection of Gaussian distribution with horizontal hyperplane).}}{72}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Optimization problem}}{74}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Another Derivation}}{84}{figure.48}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{13}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{14}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{15}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Visual representation of the projection problem.}}{17}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Generalization of projection.}}{18}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Periodic triangle function.}}{18}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{20}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{20}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{23}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{24}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{26}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{27}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{30}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{33}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{33}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{34}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{34}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{35}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{36}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{36}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Example of a 2D function.}}{37}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{37}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{39}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Tangent plane.}}{40}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{41}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces The tangent plane is defined as this plane.}}{42}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Range space.}}{45}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Orthogonal complement.}}{46}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Example of fundamental theorem of linear algebra.}}{47}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Diagonal}}{48}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Upper triangular}}{49}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces General matrix}}{49}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{50}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{55}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{56}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{67}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{68}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{69}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Tilde axis.}}{71}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Bar axes.}}{71}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces X axes.}}{72}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Single-variable Gaussian distribution}}{72}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces 3D-variable Gaussian distribution}}{73}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Cross-section of GD (i.e. Intersection of Gaussian distribution with horizontal hyperplane).}}{73}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Optimization problem}}{75}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Another Derivation}}{86}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Frobenius Norm}}{88}{figure.49}%

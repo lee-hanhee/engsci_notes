@@ -1,11 +1,11 @@
 \babel@toc {english}{}\relax 
 \contentsline {section}{\numberline {1}Mathematical Review}{7}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Sets}{7}{subsection.1.1}%
-\contentsline {subsubsection}{\numberline {1.1.1}Set notation}{7}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Set notation}{8}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Important sets}{8}{subsubsection.1.1.2}%
 \contentsline {subsection}{\numberline {1.2}Ordered n-tuples}{8}{subsection.1.2}%
 \contentsline {subsubsection}{\numberline {1.2.1}How are two tuples equal?}{8}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}Cartesian product}{8}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.2}Cartesian product}{9}{subsubsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.3}Functions}{9}{subsection.1.3}%
 \contentsline {subsubsection}{\numberline {1.3.1}Range/Image}{9}{subsubsection.1.3.1}%
 \contentsline {subsubsection}{\numberline {1.3.2}Inverse Image}{9}{subsubsection.1.3.2}%
@@ -18,13 +18,13 @@
 \contentsline {subsubsection}{\numberline {1.3.9}Set of all functions with domain and codomain}{12}{subsubsection.1.3.9}%
 \contentsline {subsection}{\numberline {1.4}Complex math}{12}{subsection.1.4}%
 \contentsline {subsubsection}{\numberline {1.4.1}Complex number basics}{12}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Complex exponential function}{12}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.2}Complex exponential function}{13}{subsubsection.1.4.2}%
 \contentsline {subsubsection}{\numberline {1.4.3}Complex plane with radius r}{13}{subsubsection.1.4.3}%
 \contentsline {subsubsection}{\numberline {1.4.4}Complex conjugate}{13}{subsubsection.1.4.4}%
 \contentsline {subsubsection}{\numberline {1.4.5}Converting between polar and rectangular form}{13}{subsubsection.1.4.5}%
-\contentsline {subsection}{\numberline {1.5}Propositional logic}{13}{subsection.1.5}%
-\contentsline {subsubsection}{\numberline {1.5.1}Proposition}{13}{subsubsection.1.5.1}%
-\contentsline {subsubsection}{\numberline {1.5.2}Compound proposition}{13}{subsubsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5}Propositional logic}{14}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Proposition}{14}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Compound proposition}{14}{subsubsection.1.5.2}%
 \contentsline {subsubsection}{\numberline {1.5.3}Logical negation (logical not)}{14}{subsubsection.1.5.3}%
 \contentsline {subsubsection}{\numberline {1.5.4}Logical conjunction (logical AND)}{14}{subsubsection.1.5.4}%
 \contentsline {subsubsection}{\numberline {1.5.5}Logical disjunction (logical OR)}{14}{subsubsection.1.5.5}%
@@ -33,167 +33,171 @@
 \contentsline {subsubsection}{\numberline {1.5.8}Converse, inverse, contrapositive}{15}{subsubsection.1.5.8}%
 \contentsline {subsubsection}{\numberline {1.5.9}Biconditional}{16}{subsubsection.1.5.9}%
 \contentsline {subsubsection}{\numberline {1.5.10}Rules of inference}{16}{subsubsection.1.5.10}%
-\contentsline {subsection}{\numberline {1.6}Predicate logic}{16}{subsection.1.6}%
-\contentsline {subsubsection}{\numberline {1.6.1}Quantifiers}{16}{subsubsection.1.6.1}%
+\contentsline {subsection}{\numberline {1.6}Predicate logic}{17}{subsection.1.6}%
+\contentsline {subsubsection}{\numberline {1.6.1}Quantifiers}{17}{subsubsection.1.6.1}%
 \contentsline {subsubsection}{\numberline {1.6.2}De Morgan's Law}{17}{subsubsection.1.6.2}%
 \contentsline {subsection}{\numberline {1.7}Geometric series}{17}{subsection.1.7}%
 \contentsline {subsection}{\numberline {1.8}Trig identities}{17}{subsection.1.8}%
-\contentsline {section}{\numberline {2}Continuous and discrete-time signals (Ch. 1.1)}{18}{section.2}%
-\contentsline {subsection}{\numberline {2.1}4 main classes of signals}{18}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Support}{18}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}How to sketch CT signals?}{19}{subsubsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.3}Signal energy and power}{19}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Energy}{19}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Power}{19}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Examples of energy and power signals}{20}{subsubsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.4}Zero-energy signals}{22}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Examples of CT zero energy signals}{22}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Almost everywhere}{23}{subsubsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.5}Signal spaces are vector spaces}{23}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Signal addition}{23}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Scalar multiplication}{23}{subsubsection.2.5.2}%
-\contentsline {section}{\numberline {3}Time dilation, shifting (Ch. 1.2)}{24}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Affine transformations of the Independent Variable}{24}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Time dilation}{24}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Time reversal}{24}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Time delay}{25}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Time advance}{25}{subsubsection.3.1.4}%
-\contentsline {subsubsection}{\numberline {3.1.5}Combined transformations}{26}{subsubsection.3.1.5}%
-\contentsline {subsection}{\numberline {3.2}Transformations of Discrete Time}{27}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Periodic Signals}{28}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Aperiodic}{28}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}CT: T-periodic}{28}{subsubsection.3.3.2}%
-\contentsline {subsubsection}{\numberline {3.3.3}CT: Fundamental period}{28}{subsubsection.3.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.4}DT: N-Periodic}{28}{subsubsection.3.3.4}%
-\contentsline {subsubsection}{\numberline {3.3.5}DT: Fundamental Period}{28}{subsubsection.3.3.5}%
-\contentsline {subsection}{\numberline {3.4}Even and Odd Signals}{29}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Even and odd parts of a signal}{29}{subsubsection.3.4.1}%
-\contentsline {section}{\numberline {4}Complex exponential signals (Ch. 1.3)}{31}{section.4}%
-\contentsline {subsection}{\numberline {4.1}CT: Complex exponential signals}{31}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}CT: Real-valued exponential signals}{31}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}CT: Sinusoidal complex exponential signals}{31}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}CT: Rotating unit-magnitude phasor}{32}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}CT: Real and imaginary parts}{32}{subsubsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.4}The general case}{33}{subsection.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.1}Real and imaginary parts}{33}{subsubsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.5}DT: Complex exponential signals}{33}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {4.5.1}Oscillatory vs. Periodic}{34}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {4.5.2}Equivalent frequencies}{34}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {4.5.3}When is a DT complex exponential signal periodic?}{36}{subsubsection.4.5.3}%
-\contentsline {subsubsection}{\numberline {4.5.4}Computing the fundamental period}{36}{subsubsection.4.5.4}%
-\contentsline {section}{\numberline {5}Step and impulse functions (Ch. 1.4)}{37}{section.5}%
-\contentsline {subsection}{\numberline {5.1}DT: Unit Impulse}{37}{subsection.5.1}%
-\contentsline {subsubsection}{\numberline {5.1.1}Sampling}{37}{subsubsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.2}DT: Unit Step}{37}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}First-order difference (Impulse as a function of steps)}{38}{subsubsection.5.2.1}%
-\contentsline {subsubsection}{\numberline {5.2.2}Running sum (Step as a function of impulses)}{38}{subsubsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.3}CT: Unit Step}{39}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}CT: Unit Impulse}{40}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Approximatation}{40}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Sampling}{41}{subsubsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.5}Intuition from tutorial}{41}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}Two operators}{41}{subsubsection.5.5.1}%
-\contentsline {section}{\numberline {6}General systems and basic properties (Ch. 1.5-6)}{43}{section.6}%
-\contentsline {subsection}{\numberline {6.1}DT: System}{43}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}CT: System}{43}{subsection.6.2}%
-\contentsline {subsubsection}{\numberline {6.2.1}Systems can have more than one input}{44}{subsubsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.3}Multiple input multiple output (MIMO) systems}{45}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Interacting subsystems}{46}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Properties of single-input single-output systems}{47}{subsection.6.5}%
-\contentsline {subsubsection}{\numberline {6.5.1}Memoryless}{47}{subsubsection.6.5.1}%
-\contentsline {subsubsection}{\numberline {6.5.2}Invertible}{49}{subsubsection.6.5.2}%
-\contentsline {subsubsection}{\numberline {6.5.3}Causal}{49}{subsubsection.6.5.3}%
-\contentsline {subsubsection}{\numberline {6.5.4}Stable}{50}{subsubsection.6.5.4}%
-\contentsline {subsubsection}{\numberline {6.5.5}Time invariant}{51}{subsubsection.6.5.5}%
-\contentsline {subsubsection}{\numberline {6.5.6}Linear}{52}{subsubsection.6.5.6}%
-\contentsline {section}{\numberline {7}DT Impulse response (Ch. 2.1)}{55}{section.7}%
-\contentsline {subsection}{\numberline {7.1}LTI Systems}{55}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}General DT Signal}{55}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Impulse response}{55}{subsection.7.3}%
-\contentsline {subsubsection}{\numberline {7.3.1}General input-output relationship of impulse response}{56}{subsubsection.7.3.1}%
-\contentsline {section}{\numberline {8}DT Convolution (Ch. 2.1,2.3)}{58}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Alternative expressions}{59}{subsection.8.1}%
-\contentsline {subsubsection}{\numberline {8.1.1}Impulse expression}{59}{subsubsection.8.1.1}%
-\contentsline {subsubsection}{\numberline {8.1.2}Graphical expression}{60}{subsubsection.8.1.2}%
-\contentsline {subsection}{\numberline {8.2}Properties of convolution}{61}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Commutativity}{61}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Associativity}{61}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Distributivity Over Addition}{61}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Time-Shifting Property}{61}{subsubsection.8.2.4}%
-\contentsline {subsubsection}{\numberline {8.2.5}Scaling property}{62}{subsubsection.8.2.5}%
-\contentsline {subsubsection}{\numberline {8.2.6}Convolutional Identity}{62}{subsubsection.8.2.6}%
-\contentsline {subsection}{\numberline {8.3}Cascading systems}{62}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}Theorem of LTI System Properties}{63}{subsection.8.4}%
-\contentsline {section}{\numberline {9}CT Convolution and Properties of LTI systems (Ch. 2.2)}{65}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Any signal in CT as a superposition of impulse signals}{65}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Convolution integral}{66}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Alternative expression}{67}{subsubsection.9.2.1}%
-\contentsline {subsection}{\numberline {9.3}Computing convolution}{67}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Examples of convolution integrals in CT}{68}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Properties of convolution in CT}{72}{subsection.9.5}%
-\contentsline {subsection}{\numberline {9.6}CT Properties of LTI Systems}{72}{subsection.9.6}%
-\contentsline {section}{\numberline {10}CT Periodic signals and Fourier series}{73}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Linear Algebra Primer}{73}{subsection.10.1}%
-\contentsline {subsubsection}{\numberline {10.1.1}Eigenvalues and eigenvectors}{73}{subsubsection.10.1.1}%
-\contentsline {subsection}{\numberline {10.2}Key Fact}{73}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Laplace Transform with Eigenfunctions in CT}{74}{subsubsection.10.2.1}%
-\contentsline {subsubsection}{\numberline {10.2.2}General Input}{74}{subsubsection.10.2.2}%
-\contentsline {subsection}{\numberline {10.3}Eigenfunction in DT}{75}{subsection.10.3}%
-\contentsline {subsubsection}{\numberline {10.3.1}Z-Transform System with Eigenfunctions}{75}{subsubsection.10.3.1}%
-\contentsline {subsubsection}{\numberline {10.3.2}General Input}{75}{subsubsection.10.3.2}%
-\contentsline {subsection}{\numberline {10.4}T-Periodic Signals of Complex Exponential Signals in CT}{76}{subsection.10.4}%
-\contentsline {subsubsection}{\numberline {10.4.1}Complex Exponential Fourier Series}{76}{subsubsection.10.4.1}%
-\contentsline {subsection}{\numberline {10.5}Inner product}{76}{subsection.10.5}%
-\contentsline {subsubsection}{\numberline {10.5.1}Properties of Inner Products}{76}{subsubsection.10.5.1}%
-\contentsline {subsubsection}{\numberline {10.5.2}Inner product of general signals}{77}{subsubsection.10.5.2}%
-\contentsline {subsubsection}{\numberline {10.5.3}Inner product of complex exponential signals}{77}{subsubsection.10.5.3}%
-\contentsline {subsection}{\numberline {10.6}Analysis and Synthesis equation}{78}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}QA}{82}{subsection.10.7}%
-\contentsline {subsection}{\numberline {10.8}FS Notation}{82}{subsection.10.8}%
-\contentsline {subsection}{\numberline {10.9}Properties of FS}{82}{subsection.10.9}%
-\contentsline {subsubsection}{\numberline {10.9.1}Consequences of even,odd,imaginary,real}{85}{subsubsection.10.9.1}%
-\contentsline {subsubsection}{\numberline {10.9.2}Intuition on modulation:}{85}{subsubsection.10.9.2}%
-\contentsline {subsection}{\numberline {10.10}Example using properties}{86}{subsection.10.10}%
-\contentsline {section}{\numberline {11}DT Periodic signals and Fourier series}{89}{section.11}%
-\contentsline {subsection}{\numberline {11.1}N-Periodic}{89}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Basis set of N-periodic Signals}{89}{subsection.11.2}%
-\contentsline {subsubsection}{\numberline {11.2.1}Basis set with shifted impulses}{89}{subsubsection.11.2.1}%
-\contentsline {subsubsection}{\numberline {11.2.2}How to write x as l.c. of B}{90}{subsubsection.11.2.2}%
-\contentsline {subsubsection}{\numberline {11.2.3}Basis set with Complex Exponentials}{90}{subsubsection.11.2.3}%
-\contentsline {subsection}{\numberline {11.3}Inner product}{90}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Synthesis equation}{91}{subsection.11.4}%
-\contentsline {subsection}{\numberline {11.5}Analysis equation}{91}{subsection.11.5}%
-\contentsline {subsection}{\numberline {11.6}Reformulating synethesis and analysis equation}{91}{subsection.11.6}%
-\contentsline {subsection}{\numberline {11.7}Properties of DT Fourier Series}{92}{subsection.11.7}%
-\contentsline {section}{\numberline {12}Response of LTI systems to periodic signals}{93}{section.12}%
-\contentsline {subsection}{\numberline {12.1}CT Periodic FS and LTI systems}{93}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}DT Periodic FS and LTI systems}{94}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Aperiodic signals and Fourier transform}{96}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Fourier Transform of Rectangle Function}{96}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Arbitrary Signal with Finite Support Fourier Transform}{97}{subsection.13.2}%
-\contentsline {subsubsection}{\numberline {13.2.1}Fourier Transform Synthesis and Analysis Equations}{98}{subsubsection.13.2.1}%
-\contentsline {subsection}{\numberline {13.3}Non-Time-Limited Signals Fourier Transform}{98}{subsection.13.3}%
-\contentsline {subsection}{\numberline {13.4}Example: Fourier Transform of rect(t)}{99}{subsection.13.4}%
-\contentsline {section}{\numberline {14}Fourier transform properties; time-frequency duality}{100}{section.14}%
-\contentsline {subsection}{\numberline {14.1}FT Properties}{100}{subsection.14.1}%
-\contentsline {subsubsection}{\numberline {14.1.1}Common Fourier Transform Pairs}{100}{subsubsection.14.1.1}%
-\contentsline {subsection}{\numberline {14.2}Fourier Series Transforms of Periodic Signals (4.2)}{101}{subsection.14.2}%
-\contentsline {subsection}{\numberline {14.3}Properties of Fourier Transform (MIDTERM CUTOFF EXCLUSIVE)}{103}{subsection.14.3}%
-\contentsline {subsubsection}{\numberline {14.3.1}1. Linearity}{103}{subsubsection.14.3.1}%
-\contentsline {subsubsection}{\numberline {14.3.2}2. Time-shifting}{104}{subsubsection.14.3.2}%
-\contentsline {subsubsection}{\numberline {14.3.3}3. Frequency-shifting (Modulation)}{104}{subsubsection.14.3.3}%
-\contentsline {subsubsection}{\numberline {14.3.4}4. Time-reversal}{104}{subsubsection.14.3.4}%
-\contentsline {subsubsection}{\numberline {14.3.5}5. Conjugation}{104}{subsubsection.14.3.5}%
-\contentsline {subsubsection}{\numberline {14.3.6}6. Duality}{105}{subsubsection.14.3.6}%
-\contentsline {subsection}{\numberline {14.4}Time Scaling Property}{106}{subsection.14.4}%
-\contentsline {subsection}{\numberline {14.5}Unitarity (Calculate Energy Easily)}{107}{subsection.14.5}%
-\contentsline {subsection}{\numberline {14.6}Parseval's Relation}{108}{subsection.14.6}%
-\contentsline {subsection}{\numberline {14.7}Differentiation Property}{108}{subsection.14.7}%
-\contentsline {section}{\numberline {15}Bandlimited signals}{109}{section.15}%
-\contentsline {section}{\numberline {16}The sampling theorem (Ch. 7.1)}{110}{section.16}%
-\contentsline {section}{\numberline {17}Reconstruction (Ch. 7.2)}{111}{section.17}%
-\contentsline {section}{\numberline {18}Amplitude modulation systems}{112}{section.18}%
-\contentsline {section}{\numberline {19}Envelope detection, coherent detection}{113}{section.19}%
-\contentsline {section}{\numberline {20}Single-sideband modulation}{114}{section.20}%
-\contentsline {section}{\numberline {21}Angle modulation}{115}{section.21}%
-\contentsline {section}{\numberline {22}Concepts of digital communication}{116}{section.22}%
+\contentsline {section}{\numberline {2}Continuous and discrete-time signals (Ch. 1.1)}{19}{section.2}%
+\contentsline {subsection}{\numberline {2.1}4 main classes of signals}{19}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Support}{19}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}How to sketch CT signals?}{20}{subsubsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.3}Signal energy and power}{20}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Energy}{20}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Power}{20}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Examples of energy and power signals}{21}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Zero-energy signals}{23}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Examples of CT zero energy signals}{23}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Almost everywhere}{24}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Signal spaces are vector spaces}{24}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Signal addition}{24}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Scalar multiplication}{24}{subsubsection.2.5.2}%
+\contentsline {section}{\numberline {3}Time dilation, shifting (Ch. 1.2)}{25}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Affine transformations of the Independent Variable}{25}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Time dilation}{25}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Time reversal}{25}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Time delay}{26}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Time advance}{26}{subsubsection.3.1.4}%
+\contentsline {subsubsection}{\numberline {3.1.5}Combined transformations}{27}{subsubsection.3.1.5}%
+\contentsline {subsection}{\numberline {3.2}Transformations of Discrete Time}{28}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Periodic Signals}{29}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Aperiodic}{29}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}CT: T-periodic}{29}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}CT: Fundamental period}{29}{subsubsection.3.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.4}DT: N-Periodic}{29}{subsubsection.3.3.4}%
+\contentsline {subsubsection}{\numberline {3.3.5}DT: Fundamental Period}{29}{subsubsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.4}Even and Odd Signals}{30}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Even and odd parts of a signal}{30}{subsubsection.3.4.1}%
+\contentsline {section}{\numberline {4}Complex exponential signals (Ch. 1.3)}{32}{section.4}%
+\contentsline {subsection}{\numberline {4.1}CT: Complex exponential signals}{32}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}CT: Real-valued exponential signals}{32}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}CT: Sinusoidal complex exponential signals}{32}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}CT: Rotating unit-magnitude phasor}{33}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}CT: Real and imaginary parts}{33}{subsubsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.4}The general case}{34}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}Real and imaginary parts}{34}{subsubsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.5}DT: Complex exponential signals}{34}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {4.5.1}Oscillatory vs. Periodic}{35}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {4.5.2}Equivalent frequencies}{35}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {4.5.3}When is a DT complex exponential signal periodic?}{37}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {4.5.4}Computing the fundamental period}{37}{subsubsection.4.5.4}%
+\contentsline {section}{\numberline {5}Step and impulse functions (Ch. 1.4)}{38}{section.5}%
+\contentsline {subsection}{\numberline {5.1}DT: Unit Impulse}{38}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Sampling}{38}{subsubsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.2}DT: Unit Step}{38}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}First-order difference (Impulse as a function of steps)}{39}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Running sum (Step as a function of impulses)}{39}{subsubsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.3}CT: Unit Step}{40}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}CT: Unit Impulse}{41}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Approximatation}{41}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Sampling}{42}{subsubsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.5}Intuition from tutorial}{42}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Two operators}{42}{subsubsection.5.5.1}%
+\contentsline {section}{\numberline {6}General systems and basic properties (Ch. 1.5-6)}{44}{section.6}%
+\contentsline {subsection}{\numberline {6.1}DT: System}{44}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}CT: System}{44}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Systems can have more than one input}{45}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Multiple input multiple output (MIMO) systems}{46}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Interacting subsystems}{47}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Properties of single-input single-output systems}{48}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Memoryless}{48}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Invertible}{50}{subsubsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.3}Causal}{50}{subsubsection.6.5.3}%
+\contentsline {subsubsection}{\numberline {6.5.4}Stable}{51}{subsubsection.6.5.4}%
+\contentsline {subsubsection}{\numberline {6.5.5}Time invariant}{52}{subsubsection.6.5.5}%
+\contentsline {subsubsection}{\numberline {6.5.6}Linear}{53}{subsubsection.6.5.6}%
+\contentsline {section}{\numberline {7}DT Impulse response (Ch. 2.1)}{56}{section.7}%
+\contentsline {subsection}{\numberline {7.1}LTI Systems}{56}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}General DT Signal}{56}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Impulse response}{56}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}General input-output relationship of impulse response}{57}{subsubsection.7.3.1}%
+\contentsline {section}{\numberline {8}DT Convolution (Ch. 2.1,2.3)}{59}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Alternative expressions}{60}{subsection.8.1}%
+\contentsline {subsubsection}{\numberline {8.1.1}Impulse expression}{60}{subsubsection.8.1.1}%
+\contentsline {subsubsection}{\numberline {8.1.2}Graphical expression}{61}{subsubsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.2}Properties of convolution}{62}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Commutativity}{62}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Associativity}{62}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Distributivity Over Addition}{62}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Time-Shifting Property}{62}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.5}Scaling property}{63}{subsubsection.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.6}Convolutional Identity}{63}{subsubsection.8.2.6}%
+\contentsline {subsection}{\numberline {8.3}Cascading systems}{63}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Theorem of LTI System Properties}{64}{subsection.8.4}%
+\contentsline {section}{\numberline {9}CT Convolution and Properties of LTI systems (Ch. 2.2)}{66}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Any signal in CT as a superposition of impulse signals}{66}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Convolution integral}{67}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Alternative expression}{68}{subsubsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.3}Computing convolution}{68}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Examples of convolution integrals in CT}{69}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Properties of convolution in CT}{73}{subsection.9.5}%
+\contentsline {subsection}{\numberline {9.6}CT Properties of LTI Systems}{73}{subsection.9.6}%
+\contentsline {section}{\numberline {10}CT Periodic signals and Fourier series}{74}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Linear Algebra Primer}{74}{subsection.10.1}%
+\contentsline {subsubsection}{\numberline {10.1.1}Eigenvalues and eigenvectors}{74}{subsubsection.10.1.1}%
+\contentsline {subsection}{\numberline {10.2}Key Fact}{74}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Laplace Transform with Eigenfunctions in CT}{75}{subsubsection.10.2.1}%
+\contentsline {subsubsection}{\numberline {10.2.2}General Input}{75}{subsubsection.10.2.2}%
+\contentsline {subsection}{\numberline {10.3}Eigenfunction in DT}{76}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {10.3.1}Z-Transform System with Eigenfunctions}{76}{subsubsection.10.3.1}%
+\contentsline {subsubsection}{\numberline {10.3.2}General Input}{76}{subsubsection.10.3.2}%
+\contentsline {subsection}{\numberline {10.4}T-Periodic Signals of Complex Exponential Signals in CT}{77}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {10.4.1}Complex Exponential Fourier Series}{77}{subsubsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.5}Inner product}{77}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {10.5.1}Properties of Inner Products}{77}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {10.5.2}Inner product of general signals}{78}{subsubsection.10.5.2}%
+\contentsline {subsubsection}{\numberline {10.5.3}Inner product of complex exponential signals}{78}{subsubsection.10.5.3}%
+\contentsline {subsection}{\numberline {10.6}Analysis and Synthesis equation}{79}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}QA}{83}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}FS Notation}{83}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Properties of FS}{83}{subsection.10.9}%
+\contentsline {subsubsection}{\numberline {10.9.1}Consequences of even,odd,imaginary,real}{86}{subsubsection.10.9.1}%
+\contentsline {subsubsection}{\numberline {10.9.2}Intuition on modulation:}{86}{subsubsection.10.9.2}%
+\contentsline {subsection}{\numberline {10.10}Example using properties}{87}{subsection.10.10}%
+\contentsline {section}{\numberline {11}DT Periodic signals and Fourier series}{90}{section.11}%
+\contentsline {subsection}{\numberline {11.1}N-Periodic}{90}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Basis set of N-periodic Signals}{90}{subsection.11.2}%
+\contentsline {subsubsection}{\numberline {11.2.1}Basis set with shifted impulses}{90}{subsubsection.11.2.1}%
+\contentsline {subsubsection}{\numberline {11.2.2}How to write x as l.c. of B}{91}{subsubsection.11.2.2}%
+\contentsline {subsubsection}{\numberline {11.2.3}Basis set with Complex Exponentials}{91}{subsubsection.11.2.3}%
+\contentsline {subsection}{\numberline {11.3}Inner product}{91}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Synthesis equation}{92}{subsection.11.4}%
+\contentsline {subsection}{\numberline {11.5}Analysis equation}{92}{subsection.11.5}%
+\contentsline {subsection}{\numberline {11.6}Reformulating synethesis and analysis equation}{92}{subsection.11.6}%
+\contentsline {subsection}{\numberline {11.7}Properties of DT Fourier Series}{93}{subsection.11.7}%
+\contentsline {section}{\numberline {12}Response of LTI systems to periodic signals}{94}{section.12}%
+\contentsline {subsection}{\numberline {12.1}CT Periodic FS and LTI systems}{94}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}DT Periodic FS and LTI systems}{95}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Aperiodic signals and Fourier transform}{97}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Fourier Transform of Rectangle Function}{97}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Arbitrary Signal with Finite Support Fourier Transform}{98}{subsection.13.2}%
+\contentsline {subsubsection}{\numberline {13.2.1}Fourier Transform Synthesis and Analysis Equations}{99}{subsubsection.13.2.1}%
+\contentsline {subsection}{\numberline {13.3}Non-Time-Limited Signals Fourier Transform}{99}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Example: Fourier Transform of rect(t)}{100}{subsection.13.4}%
+\contentsline {section}{\numberline {14}Fourier transform properties; time-frequency duality}{101}{section.14}%
+\contentsline {subsection}{\numberline {14.1}FT Properties}{101}{subsection.14.1}%
+\contentsline {subsubsection}{\numberline {14.1.1}Common Fourier Transform Pairs}{101}{subsubsection.14.1.1}%
+\contentsline {subsection}{\numberline {14.2}Fourier Series Transforms of Periodic Signals (4.2)}{102}{subsection.14.2}%
+\contentsline {subsection}{\numberline {14.3}Properties of Fourier Transform (MIDTERM CUTOFF EXCLUSIVE)}{104}{subsection.14.3}%
+\contentsline {subsubsection}{\numberline {14.3.1}1. Linearity}{104}{subsubsection.14.3.1}%
+\contentsline {subsubsection}{\numberline {14.3.2}2. Time-shifting}{105}{subsubsection.14.3.2}%
+\contentsline {subsubsection}{\numberline {14.3.3}3. Frequency-shifting (Modulation)}{105}{subsubsection.14.3.3}%
+\contentsline {subsubsection}{\numberline {14.3.4}4. Time-reversal}{105}{subsubsection.14.3.4}%
+\contentsline {subsubsection}{\numberline {14.3.5}5. Conjugation}{105}{subsubsection.14.3.5}%
+\contentsline {subsubsection}{\numberline {14.3.6}6. Duality}{106}{subsubsection.14.3.6}%
+\contentsline {subsection}{\numberline {14.4}Time Scaling Property}{107}{subsection.14.4}%
+\contentsline {subsection}{\numberline {14.5}Unitarity (Calculate Energy Easily)}{108}{subsection.14.5}%
+\contentsline {subsection}{\numberline {14.6}Parseval's Relation}{109}{subsection.14.6}%
+\contentsline {subsection}{\numberline {14.7}Differentiation Property}{109}{subsection.14.7}%
+\contentsline {subsection}{\numberline {14.8}Convolution Property}{109}{subsection.14.8}%
+\contentsline {subsubsection}{\numberline {14.8.1}Cascading Systems:}{110}{subsubsection.14.8.1}%
+\contentsline {subsubsection}{\numberline {14.8.2}Non-Ideal Low Pass Filter}{111}{subsubsection.14.8.2}%
+\contentsline {subsection}{\numberline {14.9}Sign Function}{112}{subsection.14.9}%
+\contentsline {section}{\numberline {15}Bandlimited signals}{115}{section.15}%
+\contentsline {section}{\numberline {16}The sampling theorem (Ch. 7.1)}{116}{section.16}%
+\contentsline {section}{\numberline {17}Reconstruction (Ch. 7.2)}{117}{section.17}%
+\contentsline {section}{\numberline {18}Amplitude modulation systems}{118}{section.18}%
+\contentsline {section}{\numberline {19}Envelope detection, coherent detection}{119}{section.19}%
+\contentsline {section}{\numberline {20}Single-sideband modulation}{120}{section.20}%
+\contentsline {section}{\numberline {21}Angle modulation}{121}{section.21}%
+\contentsline {section}{\numberline {22}Concepts of digital communication}{122}{section.22}%
