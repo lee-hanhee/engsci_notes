@@ -1,0 +1,116 @@
+\subsection{Bandwidth}
+\begin{definition}
+    Length of support of a signal over non-negative frequencies.
+\end{definition}
+
+\subsection{Modulation Motivational Examples}
+\subsubsection{Modulation with cosine wave}
+\begin{example}
+    \customFigure[0.75]{00_Images/M2.png}{Modulation with cosine wave}
+    \begin{itemize}
+        \item Since muiltiplication in the time domain is convolution in the frequency domain, the message signal is shifted to the carrier frequency in the frequency domain by $-f_c$ and $f_c$.
+        \item \textbf{Note:} $W \gg f_c$, where $W$ is the bandwidth of the message signal.
+        \item \textbf{Lower side band:} The range of frequencies that are below the carrier frequency and bounded by $W$ (i.e. the bandwidth of the message signal).
+        \begin{itemize}
+            \item Range: $f_c - W \leq f \leq f_c$
+        \end{itemize}
+        \item \textbf{Upper side band:} The range of frequencies that are above the carrier frequency and bounded by $W$.
+        \begin{itemize}
+            \item Range: $f_c \leq f \leq f_c + W$
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsubsection{Modulation with square wave}
+\begin{example}
+    \customFigure[0.75]{00_Images/M3.png}{Modulation with square wave}
+    \begin{itemize}
+        \item Same idea here but the square wave has a lot of harmonics rather than 2, so the modulation with impulse functions creates copies at harmonics of $f_c$. 
+    \end{itemize}
+\end{example}
+
+\subsection{Sinusoidal modulation}
+\begin{definition}
+    \begin{equation*}
+        x(t) = A \cos(2 \pi f t + \Theta)
+    \end{equation*}
+
+\begin{itemize}
+    \item $A$: \text{Amplitude}
+    \item $f$: \text{Frequency}
+    \item $\Theta$: \text{Phase}
+\end{itemize}
+\vspace{1em}
+
+\textbf{Modulation}: Making one (or more) of these parameters vary in response to a message signal $m(t)$ so that $m(t)$ can be recovered (demodulated) by the receiver.
+\customFigure[0.75]{00_Images/M4.png}{System diagram}
+\end{definition}
+
+\subsubsection{Types of Modulation}
+\begin{definition}
+    \begin{enumerate}
+        \item $\textbf{If} \, x(t) = A(t) \cos(2 \pi f_c t + \Theta) \, \text{(Amplitude Modulation)}$
+        \item $\textbf{If} \, x(t) = A \cos(\Psi(t)) \, \text{(Angle Modulation)}$
+
+        \begin{itemize}
+            \item $\Psi(t)$: \text{Instantaneous phase}
+            \item \(\frac{1}{2\pi} \frac{d}{dt} \Psi(t)\): \text{Instantaneous frequency}
+        \end{itemize}
+
+        \item \textbf{In PM (Phase Modulation)}:
+        \[
+        \Psi(t) = 2 \pi f_c t + k_{p} m(t)
+        \]
+        \customFigure[0.75]{00_Images/M5.png}{System diagram}
+
+    \item \textbf{In FM (Frequency Modulation)}:
+        \[
+        \frac{1}{2\pi} \frac{d}{dt} \Psi(t) = f_c + k_f m(t) \rightarrow \Psi(t)=2 \pi f_c t + 2 \pi k_f \int_{-\infty}^{t} m(\tau) d\tau + \Theta
+        \]
+        \[
+        x(t) = A_c \cos\left(2 \pi f_c t + 2 \pi k_f \int_{-\infty}^{t} m(\tau) d\tau + \Theta\right)
+        \]
+
+    \end{enumerate}
+
+
+\end{definition}
+
+\subsubsection{Assumptions}
+\begin{definition}
+    \textbf{Typical Assumptions about } m(t):
+    \begin{enumerate}
+        \item Bandlimited
+        \item Peak-limited: $|m(t)| \leq A_m, \, \forall t$
+        \item Peak-limited derivative: $|m'(t)| \leq B_m$
+    \end{enumerate}
+\end{definition}
+
+\subsubsection{Envelope}
+\begin{definition}
+    \textbf{Unmodulated Carrier}
+    \[
+    A \cos(2 \pi f_c t + \theta)
+    \]
+    \vspace{1em}
+
+    \textbf{Modulating Signal}
+    \[
+    A(t) \cos(2 \pi f_c t + \theta)
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} Often, \( A(t) \) varies slowly relative to \( f_c \), i.e., \( W \ll f_c \).
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Envelope of $x(t)$:}
+    \[
+    |A(t)|
+    \]
+    \customFigure[0.75]{00_Images/M6.png}{System diagram}
+\end{definition}
+
+\subsection{Envelope Detector}
+\begin{intuition}
+    \customFigure[0.75]{00_Images/M7.png}{System diagram}
+\end{intuition}

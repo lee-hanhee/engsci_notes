@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  8 NOV 2024 08:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  12 NOV 2024 15:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1654,60 +1654,61 @@ Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before br
 <00_Images/MF.png, id=2969, 831.105pt x 228.855pt>
 File: 00_Images/MF.png Graphic file (type png)
 <use 00_Images/MF.png>
-Package pdftex.def Info: 00_Images/MF.png  used on input line 8.
+Package pdftex.def Info: 00_Images/MF.png  used on input line 11.
 (pdftex.def)             Requested size: 374.33807pt x 103.07808pt.
-<00_Images/MF1.png, id=2970, 1280.785pt x 208.78pt>
+ [123 <./00_Images/MF.png>]
+<00_Images/MF1.png, id=2978, 1280.785pt x 208.78pt>
 File: 00_Images/MF1.png Graphic file (type png)
 <use 00_Images/MF1.png>
-Package pdftex.def Info: 00_Images/MF1.png  used on input line 49.
+Package pdftex.def Info: 00_Images/MF1.png  used on input line 81.
 (pdftex.def)             Requested size: 374.33807pt x 61.0193pt.
- [123 <./00_Images/MF.png>]
-<00_Images/MF2.png, id=2979, 945.5325pt x 181.67876pt>
+ [124 <./00_Images/MF1.png>]
+<00_Images/MF2.png, id=2989, 945.5325pt x 181.67876pt>
 File: 00_Images/MF2.png Graphic file (type png)
 <use 00_Images/MF2.png>
-Package pdftex.def Info: 00_Images/MF2.png  used on input line 99.
+Package pdftex.def Info: 00_Images/MF2.png  used on input line 140.
 (pdftex.def)             Requested size: 374.33807pt x 71.92726pt.
- [124 <./00_Images/MF1.png>] [125 <./00_Images/MF2.png>]
-<00_Images/MF5.png, id=2996, 372.39125pt x 238.8925pt>
+ [125 <./00_Images/MF2.png>]
+<00_Images/MF5.png, id=2997, 372.39125pt x 238.8925pt>
 File: 00_Images/MF5.png Graphic file (type png)
 <use 00_Images/MF5.png>
-Package pdftex.def Info: 00_Images/MF5.png  used on input line 161.
+Package pdftex.def Info: 00_Images/MF5.png  used on input line 211.
 (pdftex.def)             Requested size: 374.33807pt x 240.14949pt.
-<00_Images/MF3.png, id=2997, 525.965pt x 123.46124pt>
+<00_Images/MF3.png, id=2998, 525.965pt x 123.46124pt>
 File: 00_Images/MF3.png Graphic file (type png)
 <use 00_Images/MF3.png>
-Package pdftex.def Info: 00_Images/MF3.png  used on input line 165.
+Package pdftex.def Info: 00_Images/MF3.png  used on input line 215.
 (pdftex.def)             Requested size: 374.33807pt x 87.87283pt.
  [126 <./00_Images/MF5.png>]
 <00_Images/MF6.png, id=3004, 700.6175pt x 183.68625pt>
 File: 00_Images/MF6.png Graphic file (type png)
 <use 00_Images/MF6.png>
-Package pdftex.def Info: 00_Images/MF6.png  used on input line 194.
+Package pdftex.def Info: 00_Images/MF6.png  used on input line 257.
 (pdftex.def)             Requested size: 374.33807pt x 98.14363pt.
- [127 <./00_Images/MF3.png> <./00_Images/MF6.png>]
-<00_Images/MF4.png, id=3016, 395.4775pt x 315.1775pt>
+ [127 <./00_Images/MF3.png>]
+<00_Images/MF4.png, id=3015, 395.4775pt x 315.1775pt>
 File: 00_Images/MF4.png Graphic file (type png)
 <use 00_Images/MF4.png>
-Package pdftex.def Info: 00_Images/MF4.png  used on input line 231.
+Package pdftex.def Info: 00_Images/MF4.png  used on input line 294.
 (pdftex.def)             Requested size: 374.33807pt x 298.33485pt.
- [128 <./00_Images/MF4.png>]) [129] (./00_Lectures/21_History_of_Computation.tex) [130] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [131] (./00_Lectures/23_NPC.tex) [132] (./ECE358_Cheatsheet.aux)
+ [128 <./00_Images/MF6.png>]) [129 <./00_Images/MF4.png>] (./00_Lectures/21_History_of_Computation.tex) [130] (./00_Lectures/22_P_NP_NPC_Introduction.tex) [131] (./00_Lectures/23_NPC.tex) [132] (./ECE358_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `ECE358_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: 5C32028CD07FDE9AB9739719BFFB5A4C;47541.
+(rerunfilecheck)             Checksum: 4EB4AA90568DC1072D65BD132587A1AE;48041.
  ) 
 Here is how much of TeX's memory you used:
- 54699 strings out of 474116
- 1260587 string characters out of 5743682
+ 54703 strings out of 474116
+ 1260647 string characters out of 5743682
  2294187 words of memory out of 5000000
- 74868 multiletter control sequences out of 15000+600000
+ 74872 multiletter control sequences out of 15000+600000
  632450 words of font info for 111 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,14n,107p,812b,2241s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ECE358_Cheatsheet.pdf (132 pages, 36024315 bytes).
+Output written on ECE358_Cheatsheet.pdf (132 pages, 36026611 bytes).
 PDF statistics:
  3432 PDF objects out of 3580 (max. 8388607)
  3056 compressed objects within 31 object streams

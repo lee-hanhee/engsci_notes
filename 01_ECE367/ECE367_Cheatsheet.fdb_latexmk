@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731381951.13868 "/Users/hanheelee/Desktop/engsci_notes/01_ECE367/ECE367_Cheatsheet.tex" "ECE367_Cheatsheet.pdf" "ECE367_Cheatsheet" 1731381962.6009 0
+["pdflatex"] 1731602154.03134 "/Users/hanheelee/Desktop/engsci_notes/01_ECE367/ECE367_Cheatsheet.tex" "ECE367_Cheatsheet.pdf" "ECE367_Cheatsheet" 1731602166.08528 0
   "/Users/hanheelee/Desktop/engsci_notes/01_ECE367/ECE367_Cheatsheet.tex" 1728182540.82092 2275 850bea01135d6961c0d314111250cba7 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -395,17 +395,17 @@
   "00_Lectures/W3.tex" 1727454286.79647 15524 609e1d53aa0a0401246cd0a4c7ab3d9f ""
   "00_Lectures/W4.tex" 1729102780.12517 40380 3aa68240a8010e6df2bc5bb14adfb95c ""
   "00_Lectures/W5.tex" 1729103175.03743 30936 ee14c8e747775aca7315768213c97bf9 ""
-  "00_Lectures/W6.tex" 1731381949.21393 36463 80a875250e135990c2b813867e248897 ""
+  "00_Lectures/W6.tex" 1731602141.75627 46778 f9b506809f63e82f38eda0176766d704 ""
   "00_Lectures/W7.tex" 1725307442.62646 70 36a0104fb3f13b0c35c8cbe8b729644b ""
   "00_Lectures/W8.tex" 1725313170.6451 115 be72716ee8ab24354faf6c145e678b52 ""
   "00_Lectures/W9.tex" 1725313224.35087 84 7eadd716298cd558c091b4ef1ac428e9 ""
   "00_images/function_graph.png" 1726254424.96174 37957 fb9ef19a4fe80a173a5fdf1e8331c302 ""
-  "ECE367_Cheatsheet.aux" 1731381962.09204 30697 405c2633c9cb269ba6d5924df269b8d5 "pdflatex"
-  "ECE367_Cheatsheet.lof" 1731381962.10073 5802 6e7e5f7489ca6666d5efd51abc96c68a "pdflatex"
-  "ECE367_Cheatsheet.lot" 1731381962.1009 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE367_Cheatsheet.out" 1731381962.09984 35657 901e990bd10dca103ba7b913c34ba159 "pdflatex"
+  "ECE367_Cheatsheet.aux" 1731602165.54115 30960 6b0f79738c5ee9b9bc1c1037f0fa9742 "pdflatex"
+  "ECE367_Cheatsheet.lof" 1731602165.55134 5802 6e7e5f7489ca6666d5efd51abc96c68a "pdflatex"
+  "ECE367_Cheatsheet.lot" 1731602165.55153 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE367_Cheatsheet.out" 1731602165.55048 35959 626e6ee8778fd9397aa1f3da504297bb "pdflatex"
   "ECE367_Cheatsheet.tex" 1728182540.82092 2275 850bea01135d6961c0d314111250cba7 ""
-  "ECE367_Cheatsheet.toc" 1731381962.1006 16186 e085ec7cea426982a2f8b30951d086a3 "pdflatex"
+  "ECE367_Cheatsheet.toc" 1731602165.55122 16367 dd472f390ad234380cea449d5c7bb0d2 "pdflatex"
   "style.sty" 1729089772.69765 6075 96e3d119301d5e53439bc06e02094a25 ""
   (generated)
   "ECE367_Cheatsheet.aux"

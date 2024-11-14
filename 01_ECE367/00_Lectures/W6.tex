@@ -841,7 +841,7 @@
     
     \vspace{1em}
 
-    \textbf{FToLA:}
+    \textbf{FToLA (Use as a check):}
     \begin{equation*}
     \mathcal{N}(A) \oplus \mathcal{R}(A^T) = \mathbb{R}^n, \quad \mathcal{R}(A) \oplus \mathcal{N}(A^T) = \mathbb{R}^m
     \end{equation*}
@@ -869,7 +869,7 @@
     \end{equation*}
     \begin{itemize}
         \item \textbf{Note on $A^{-1}$:} Rotate/Flip using \( U^T \), Scale using \( \Sigma^{-1} \), Rotate/Flip using \( V \).
-        \item \textbf{Note on A:} Rotate/Flip using \( V^T \), Scale using \( \Sigma^{-1} \), Rotate/Flip using \( U \).
+        \item \textbf{Note on A:} Rotate/Flip using \( V^T \), Scale using \( \Sigma \), Rotate/Flip using \( U \).
         \item \textbf{Conclusion:} The inverse of A does the opposite transformation of A in the SVD.
     \end{itemize}
 \end{definition}
@@ -983,24 +983,303 @@
 
 \subsection{Conditioning Number of a Matrix}
 \begin{definition}
+    The condition number \( \kappa(A) \) measures the numerical stability of solving \( A x = b \). 
     \begin{equation*}
         \kappa(A) = \frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}
         \end{equation*}
 \end{definition}
 
-\begin{intuition}
-    The condition number \( \kappa(A) \) measures the numerical stability of solving \( A x = b \). 
-    \vspace{1em}
-    The solution is \( x = A^{-1} b \) (if A is invertible). If we change
-    \begin{align*}
-    b &\rightarrow b + \Delta b \\
-    x &\rightarrow x + \Delta x
-    \end{align*}
+\subsubsection{Stability}
+\begin{derivation}
+        The solution is \( x = A^{-1} b \) (if A is invertible). If we change by some small perturbation:
+        \begin{align*}
+        b &\rightarrow b + \Delta b \\
+        x &\rightarrow x + \Delta x
+        \end{align*}
+    
+        We are interested in comparing:
+        \begin{equation*}
+        \frac{\|\Delta x\|_2}{\|x\|_2} \quad \text{vs} \quad \frac{\|\Delta b\|_2}{\|b\|_2}
+        \end{equation*}
+        \vspace{1em}
 
-    We are interested in comparing:
-    \begin{equation*}
-    \frac{\|\Delta x\|_2}{\|x\|_2} \quad \text{vs} \quad \frac{\|\Delta b\|_2}{\|b\|_2}
-    \end{equation*}
+    \textbf{Observation}: If \( Ax = b \), and \( A(x + \Delta x) = b + \Delta b \), then 
+\[
+A \cdot \Delta x = \Delta b \implies \Delta x = A^{-1} \Delta b
+\]
+
+\textbf{Observation 2}:
+\begin{itemize}
+    \item \( Ax = b \implies \| b \|_2 = \| A x \|_2 \leq \sigma_{\max}(A) \| x \|_2 \)
+    \begin{itemize}
+        \item Multiply by the norm of $x$ because $x$ is not assumed to have unit norm (i.e. $1$), so there is no limitation on $x$. Same idea for $\Delta b$
+        \item \textbf{Note:} This was proven in the previous section.
+    \end{itemize}
+    \item \( \Delta x = A^{-1} \Delta b \implies \| \Delta x \|_2 = \| A^{-1} \Delta b \|_2 \leq \sigma_{\max}(A^{-1}) \| \Delta b \|_2 \)
+\end{itemize}
+\vspace{1em}
+
+Now we can compare the quantity we are interested in: 
+
+\begin{equation*}
+    \frac{\|\Delta x\|_2}{\|x\|_2} \leq \frac{\sigma_{\max}(A^{-1}) \|\Delta b\|_2}{\frac{\|b\|_2}{\sigma_{\max}(A)}} 
+    = \sigma_{\max}(A) \cdot \sigma_{\max}(A^{-1}) \cdot \frac{\|\Delta b\|_2}{\|b\|_2}
+\end{equation*}
+\begin{itemize}
+    \item \textbf{QUESTION:} How is this upper bounded because in the previous derivations one is lower bounded and the other is upper bounded. 
+\end{itemize}
+
+Let \( A = U \Sigma V^T \), then 
+\[
+A^{-1} = V \Sigma^{-1} U^T = V 
+\begin{bmatrix}
+\frac{1}{\sigma_1} & 0 & \ldots & 0 \\
+0 & \frac{1}{\sigma_2} & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \ldots & \frac{1}{\sigma_r}
+\end{bmatrix} 
+U^T
+\]
+
+\[
+\sigma_{\max}(A^{-1}) = \frac{1}{\sigma_{\min}(A)}
+\]
+
+Thus,
+\[
+\frac{\| \Delta x \|_2}{\| x \|_2} \leq \frac{\sigma_{\max}(A)}{\sigma_{\min}(A)} \cdot \frac{\| \Delta b \|_2}{\| b \|_2}
+\]
+
+Define the condition number as:
+\[
+\kappa(A) = \frac{\sigma_{\max}(A)}{\sigma_{\min}(A)}
+\]
+
+If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 10\% \).
+
+\begin{itemize}
+    \item If \( \kappa(A) \) is small, solving \( Ax = b \) is numerically stable, implying \( A \) is a \textbf{well-conditioned} matrix.
+    \item If \( \kappa(A) \) is large, solving \( Ax = b \) is numerically unstable, implying \( A \) is an \textbf{ill-conditioned} matrix.
+\end{itemize}
+\vspace{1em}
+
+\textbf{Note:} The smallest value of $\kappa$ is $1$ (i.e. $\sigma_{\min} = \sigma_{\max}$), which is the best case scenario.
+\end{derivation}
+
+\subsection{Latent Semantic Indexing}
+\begin{intuition}
+    In homework 1, we compared documents. Assume we have a dictionary of size \( N \). Represent each document by a vector 
+    \[
+    d = \begin{bmatrix} d_1 \\ \vdots \\ d_N \end{bmatrix}
+    \]
+    where \( d_i = \) \# of occurrences of word \( i \) in the document.
+    \vspace{1em}
+
+    In the homework, we compared documents \( i \) and \( j \) by comparing their corresponding vectors \( d^{(i)} \) and \( d^{(j)} \). Instead, it would be nice to extract the meaning (i.e., the "semantics") of the words in the document.
+    \vspace{1em}
+
+    \textbf{Idea}: Think about a document as a linear combination of "concepts". 
+    \begin{enumerate}
+        \item Construct a data matrix 
+        \[
+        A = \begin{bmatrix} d^{(1)} & \ldots & d^{(m)} \end{bmatrix}
+        \]
+        where \( N \times m \) represents the number of words in the dictionary and the number of documents, respectively.
+        \vspace{1em}
+        
+        \item Perform Singular Value Decomposition (SVD) on the data matrix \( A \):
+        \[
+        A = U \Sigma V^T = \tilde{U} \tilde{\Sigma} \tilde{V}^T = \begin{bmatrix} u^{(1)} & \ldots & u^{(r)} \end{bmatrix} 
+        \begin{bmatrix}
+        \sigma_1 & 0 & \ldots & 0 \\
+        0 & \sigma_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \sigma_r
+        \end{bmatrix} 
+        \begin{bmatrix} v^{(1)T} \\ \vdots \\ v^{(r)T} \end{bmatrix}
+        \]
+    
+        \item To analyze the \( i \)-th document:
+        \[
+        d^{(i)} = A e^{(i)} 
+        \]
+        where \( e^{(i)} \) is a standard basis vector with 1 in the \( i \)-th position. Thus,
+        \[
+        d^{(i)} = \tilde{U} \tilde{\Sigma} \tilde{V}^T e^{(i)}
+        \]
+        \[
+        = \begin{bmatrix} u^{(1)} & \ldots & u^{(r)} \end{bmatrix}
+        \begin{bmatrix}
+        \sigma_1 & 0 & \ldots & 0 \\
+        0 & \sigma_2 & \ldots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & 0 & \ldots & \sigma_r
+        \end{bmatrix}
+        \begin{bmatrix} v^{(1)T} \\ \vdots \\ v^{(r)T} \end{bmatrix} e^{(i)}
+        \]
+        \[
+        = \begin{bmatrix} u^{(1)} & \ldots & u^{(r)} \end{bmatrix}
+        \begin{bmatrix} \sigma_1 v^{(1)T} \\ \vdots \\ \sigma_r v^{(r)T} \end{bmatrix} e^{(i)}
+        \]
+        \[
+        = \begin{bmatrix} u^{(1)} & \ldots & u^{(r)} \end{bmatrix}
+        \begin{bmatrix} \alpha_1 \\ \vdots \\ \alpha_r \end{bmatrix}
+        = \sum_{j=1}^{r} \alpha_j u^{(j)}
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} Each $u$ vector is a concept, so we are writing the document as a linear combination of concepts weighted by $\alpha$, which is different for each document. This is what we are using to compare documents.
+            \begin{itemize}
+                \item $\alpha$ represents the importance of each concept in the document..
+            \end{itemize}
+            \textbf{Motivation:} $r \ll N$ (i.e. $r$ is much smaller than the size of the dictionary), so we are reducing the dimensionality of the problem, making it less computationally expensive to compare the similarity of documents. 
+            \begin{itemize}
+                \item HW1: Compared between length $N$ and here it's only $r$.
+            \end{itemize}
+        \end{itemize}
+    
+        \item To compare documents, we can compare the corresponding coefficient vector \( \alpha \).
+    
+        \item \textbf{New Document:} When a new document \( g \) comes along, we can add \( g \) to \( A \) and rerun the SVD, but this is computationally expensive.
+    
+        Instead, we project \( g \) onto the span of \( \mathcal{R} = \{ u^{(1)}, \ldots, u^{(r)} \} \) (i.e. projecting onto the range of \( A \)):
+        \[
+        g^* = \sum_{j=1}^{r} \beta_j u^{(j)}, \quad \beta_j = \langle g, u^{(j)} \rangle
+        \]
+    
+        \item We then use the vectors \( \{ \alpha_j \} \) and \( \{ \beta_j \} \) to compare documents, for example, by finding the angle between them.
+    \end{enumerate}
+
 \end{intuition}
 
 \subsection{Principle component analysis}
+\begin{example}
+    \textbf{Example of PCA: Eigenfaces for face recognition (HW3)}
+
+1. Vectorize each image: Each face image of size \( 32 \times 32 \) pixels is vectorized into a column vector \( x^{(i)} \) of dimension \( m = 32 \times 32 \).
+
+2. Center each vector: 
+   \[
+   \tilde{x}^{(i)} = x^{(i)} - \bar{x}
+   \]
+   where 
+   \[
+   \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x^{(i)}
+   \]
+
+3. Construct the data matrix:
+   \[
+   \tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(N)} \end{bmatrix}
+   \]
+
+4. Perform spectral decomposition on the covariance matrix:
+   \[
+   C = \tilde{X} \tilde{X}^T = U \Lambda U^T
+   \]
+   \[
+    C= 
+    \begin{bmatrix}
+    u^{(1)} & \ldots & u^{(m)}
+    \end{bmatrix}
+    \Lambda
+    \begin{bmatrix}
+    u^{(1)T} \\
+    \vdots \\
+    u_{(m)T}
+    \end{bmatrix}
+    \]
+
+Alternatively, we could perform SVD on \( \tilde{X} \):
+\[
+\tilde{X} = U \Sigma V^T
+\]
+\begin{itemize}
+    \item \textbf{Note:} This results in the same matrix \( U \) as obtained from the spectral decomposition of \( \tilde{X} \tilde{X}^T \).
+\end{itemize}
+\end{example}
+
+\begin{intuition}
+\textbf{PCA:}
+Given data points \( x^{(i)} \in \mathbb{R}^n \), $i=1,\ldots,m$
+\vspace{1em}
+
+ \textbf{Goal of PCA:} Find a direction \( z \in \mathbb{R}^n \) that explains most of the variance in \( x^{(i)} \)'s.
+\vspace{1em}
+
+\textbf{How to formulate this problem?}
+
+i. Center the data:
+\[
+\tilde{x}^{(i)} = x^{(i)} - \bar{x}, \quad \bar{x} = \frac{1}{m} \sum_{i=1}^{m} x^{(i)}
+\]
+
+ii. Fix a direction \( z \). Project \( \tilde{x}^{(i)} \) onto \( \text{span}\{z\} \):
+\[
+\text{Proj}_{\text{span}\{z\}} \tilde{x}^{(i)} = \langle \tilde{x}^{(i)}, z \rangle z = \alpha_i z \quad (\text{assuming } \|z\|_2 = 1)
+\]
+
+iii. Look for $z$ that maximizes the variance of the \( \alpha_i \)'s:
+\[
+\text{Variance} = \frac{1}{m} \sum_{i=1}^{m} \alpha_i^2 = \frac{1}{m} \sum_{i=1}^{m} \left( z^T \tilde{x}^{(i)} \right) \left( \tilde{x}^{(i)T} z \right)
+\]
+\[
+= \frac{1}{m} z^T \left( \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T} \right) z
+\]
+\[
+= \frac{1}{m} z^T \tilde{X} \tilde{X}^T z
+\]
+\begin{itemize}
+    \item $\tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)} \end{bmatrix}$
+    \item $
+\tilde{X} \tilde{X}^T = 
+\begin{bmatrix}
+\tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)}
+\end{bmatrix}
+\begin{bmatrix}
+\tilde{x}^{(1)T} \\
+\vdots \\
+\tilde{x}^{(m)T}
+\end{bmatrix}
+= \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T}$
+\end{itemize}
+
+We want to solve:
+\[
+\max_{z} z^T \tilde{X} \tilde{X}^T z \quad \text{subject to} \quad \|z\|_2 = 1
+\]
+This can be expressed as maximizing the Rayleigh quotient:
+\[
+\max \frac{z^T \tilde{X} \tilde{X}^T z}{\|z\|_2^2}
+\]
+
+The solution is given by the eigenvector corresponding to the largest eigenvalue of \( \tilde{X} \tilde{X}^T \).
+
+Alternatively, we could have used SVD on \( \tilde{X} \):
+\[
+\tilde{X} = U \Sigma V^T
+\]
+\[
+z^T \tilde{X} \tilde{X}^T z = z^T \left( U \Sigma V^T \right) \left( V \Sigma^T U^T \right) z = z^T U \Sigma^2 U^T z
+\]
+
+So, the problem becomes:
+\[
+\max \sum_{i=1}^{r} \sigma_i^2 \omega_i^2 \quad \text{subject to} \quad \sum_{i=1}^{r} \omega_i^2 = 1
+\]
+
+The solution is \( \omega^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \), corresponding to the first singular vector.
+
+To find the second principal component, remove the effect of the first component:
+\[
+\tilde{x}^{(i)} = \tilde{x}^{(i)} - \langle \tilde{x}^{(i)}, u^{(1)} \rangle u^{(1)}
+\]
+\[
+\tilde{X}^{(2)} = \left( I - u^{(1)} u^{(1)T} \right) \tilde{X}
+\]
+
+Repeat the process on \( \tilde{X}^{(2)} \) to find the direction with the second-largest variance:
+\[
+\tilde{X}^{(2)} = U \Sigma V^T = \sum_{i=2}^{r} \sigma_i u^{(i)} v^{(i)T}
+\]
+
+So, the next strongest direction that explains the most variance is the singular vector corresponding to the second-largest singular value.
+\end{intuition}

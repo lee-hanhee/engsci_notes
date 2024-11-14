@@ -548,3 +548,51 @@ u(t) = \frac{1}{2} \left(1 + \text{sgn}(t)\right).
 u(t) \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{2} \delta(f) + \frac{1}{j 2 \pi f}.
 \]
 \end{derivation}
+
+\subsubsection{Recovering Unit Impulse from Unit Step}
+\begin{derivation}
+    Since $\frac{d}{dt} u(t) = \delta(t)$, then
+    \begin{align*}
+        \frac{d}{dt} u(t) = \delta(t) &\overset{\mathcal{F}}{\leftrightarrow} j2\pi f \left( \frac{1}{j2\pi f} + \frac{1}{2} \delta(f) \right) = 1 + j\pi f \delta(f) = 1
+    \end{align*}        
+    \begin{itemize}
+        \item \textbf{Note:} Last term goes to $0$ since $j\pi f$ is $0$ at $f=0$ (i.e. where the delta function is).
+    \end{itemize}
+\end{derivation}
+
+\subsection{Integration Property}
+\begin{definition}
+    $\text{If } x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f),$
+\begin{equation*}
+\int_{-\infty}^{t} x(\tau) d\tau \overset{\mathcal{F}}{\leftrightarrow} \frac{1}{j2\pi f} X(f) + \frac{1}{2} X(0) \delta(f)
+\end{equation*}
+\end{definition}
+
+\begin{derivation}
+    Since $\int_{-\infty}^{t} x(\tau) d\tau = x(t) * u(t)$
+    \begin{align*}
+        x(t) * u(t) \overset{\mathcal{F}}{\leftrightarrow} &X(f) U(f) \\
+        &= X(f) \left( \frac{1}{j2\pi f} + \frac{1}{2} \delta(f) \right) \\
+        &= \frac{X(f)}{j2\pi f} + \frac{1}{2} X(f) \delta(f)
+        \end{align*}        
+\end{derivation}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/SC.png}{Integration Property Example}
+\end{example}
+
+\subsection{Multiplication Property}
+\begin{definition}
+    $ \text{If } x(t) \overset{\mathcal{F}}{\leftrightarrow} X(f), y(t) \overset{\mathcal{F}}{\leftrightarrow} Y(f), \text{ then } x(t) y(t) \overset{\mathcal{F}}{\leftrightarrow} X(f) * Y(f)$
+\end{definition}
+
+\begin{derivation}
+    \begin{align*}
+        \mathcal{F}^{-1} \left( X(f) * Y(f) \right) &= \mathcal{F}^{-1} \left( \int_{-\infty}^{\infty} X(\lambda) Y(f - \lambda) d\lambda \right) \\
+        &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} X(\lambda) Y(f - \lambda) d\lambda e^{j 2 \pi f t} df \\
+        &= \int_{-\infty}^{\infty} X(\lambda) \int_{-\infty}^{\infty} Y(f - \lambda) e^{j2\pi ft} df d\lambda \\
+        &\overset{s=f-\lambda}{=} \int_{-\infty}^{\infty} X(\lambda) \int_{-\infty}^{\infty} Y(s) e^{j2\pi (s + \lambda)t} ds d\lambda \\
+        &= \int_{-\infty}^{\infty} X(\lambda) e^{j2\pi \lambda t} \left( \int_{-\infty}^{\infty} Y(s) e^{j2\pi st} ds \right) d\lambda \\
+        &= x(t) y(t)
+        \end{align*}
+\end{derivation}

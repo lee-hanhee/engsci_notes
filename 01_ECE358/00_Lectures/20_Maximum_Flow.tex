@@ -1,45 +1,77 @@
 \subsection{Informal Definition}
 \begin{definition}
-    Informally, we want to maximize the flow from the source node $s$ to the sink node $t$. This means maximizing the units of flow from $s$ to $t$, where:
+    Maximize units of liquid sent out from source $s$ to sink $t$. 
     \[
     \text{max flow} = \text{min cut} \quad \text{(Bottleneck)}
     \]
+    \begin{itemize}
+        \item \textbf{Min cut:} Cut with the lowest capacity from left to right, which is the bottleneck because it limits the flow.
+    \end{itemize}
 
 \customFigure[0.75]{00_Images/MF.png}{Maximum Flow Diagram}
+\begin{itemize}
+    \item \textbf{Note:} The intermediate pipes has the same flow going in and out (i.e. cancel outs). You can see this by summing the flow going in and out of each node.
+\end{itemize}
 \end{definition}
+
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Source:} Producing liquid. 
+        \item \textbf{Intermediate Nodes:} Pipes (no leaking)
+        \item \textbf{Sink:} Consuming liquid.
+        \item \textbf{Problem:}  Maximize the flow from the source to the sink.
+    \end{itemize}
+\end{intuition}
 
 \subsection{Formal Definition}
 \begin{definition}
-    Given a directed, connected, positively weighted graph $G$, where for every edge $(u, v)$, there is a capacity $c(u, v)$:
+    Given a directed, connected, and positively weighted graph $G=(V,E)$, where $\forall$ edge $(u, v)$, there is a capacity $c(u, v)$ (i.e. weight).:
     \begin{itemize}
         \item If $(u, v) \notin E$, then $c(u, v) = 0$.
-        \item The vertices are distinguished as the source $s$ and the sink $t$.
+        \item Distinguish two special vertices: a source $s$ and the sink $t$.
     \end{itemize}
+    \vspace{1em}
 
-    A flow $f: V^2 \to \mathbb{R}$ is defined with the following properties:
+    A flow is a function $f: V^2 \to \mathbb{R}$ with the following properties:
     \begin{enumerate}
         \item \textbf{Capacity Constraints:} 
         \[
         \forall (u, v) \in V, \quad f(u, v) \leq c(u, v)
         \]
+        \begin{itemize}
+            \item Flow cannot exceed the capacity of the edge. 
+        \end{itemize}
         \item \textbf{Skew Symmetry:}
         \[
         \forall (u, v) \in V, \quad f(u, v) = -f(v, u)
         \]
-        \item \textbf{Flow Conservation:}
+        \begin{itemize}
+            \item Flow going in to $v$ is the negative of the flow going to $u$.
+        \end{itemize}
+        \item \textbf{Flow Conservation (No leakage):}
         \[
         \forall u \in V - \{s, t\}, \quad \sum_{v \in V} f(u, v) = 0
         \]
+        \begin{itemize}
+            \item All flow that goes in must come out.
+        \end{itemize}
     \end{enumerate}
-\end{definition}
+    \begin{itemize}
+        \item \textbf{Notation:} $x/y$: $x$ is the flow, $y$ is the capacity. This is useful in the formal definition
+    \end{itemize}
+    \vspace{1em}
 
-\subsection{Objective}
-\begin{definition}
-    The objective is to maximize the total flow in the graph:
+    \textbf{Problem:} The objective is to maximize the total flow in the graph:
     \[
-    |f| = \sum_{v \in V} f(s, v) = \sum_{v \in V} f(v, t)
+    |f| = \sum_{v \in V} f(s, v) \quad \text{subject to the constraints above}
     \]
 \end{definition}
+
+\begin{warning}
+    \begin{itemize}
+        \item \textbf{Note:} The definitions are defined w.r.t $(u,v)$ in the vertices, not edges. 
+    \end{itemize}
+\end{warning}
 
 \subsection{Observations}
 \begin{definition}
@@ -47,16 +79,20 @@
         \item Handling multiple sources and sinks can be simplified using an equivalent graph transformation.
     \end{itemize}
     \customFigure[0.75]{00_Images/MF1.png}{Equivalent Graph Transformation}
+    \begin{itemize}
+        \item \textbf{Multiple Source/Sink:} Introduce a pseudo sink and source with infinity as the capacity.
+        \item \textbf{Equivalency:} Pushing $3$ units from top to bottom node is same as pushing $3$ units from bottom to top node and reducing the flow appropriately.
+    \end{itemize}
 \end{definition}
 
 \subsection{Flow Math}
 \begin{definition}
-    Given a set of vertices $X, Y$, we define:
+    Given a set of vertices $X, Y,W$, so the flow of $X$ to $Y$ is the sum of the flow of each vertices in $X$ to each vertices in $Y$:
     \[
     f(X, Y) = \sum_{x \in X} \sum_{y \in Y} f(x, y)
     \]
 
-    \textbf{Lemma}
+    \textbf{Lemma (Properties)}
     \begin{enumerate}
         \item $f(X, X) = 0$
         \item $f(X, Y) = -f(Y, X)$
@@ -65,17 +101,22 @@
     \end{enumerate}
 \end{definition}
 
-\subsubsection{Proof (Homework)}
-\begin{derivation}
-    Show that the total flow from the source to the sink satisfies:
+\begin{warning}
+    Do the Lemma. 
+\end{warning}
+
+\begin{example}
+    Show that all units of flow exiting $s$ goes into $t$ (i.e. $f(s, V) = f(V,t)$):
     \begin{align*}
-    |f| &= f(s, V) \\
-        &= f(V,V) - f(V - s, V) \\
-        &= f(V, V - s) \quad f(V,V) = 0\\
-        &= f(V, t) - f(V,V - s - t) \\
-        &= f(V, t) \quad f(V, V - s - t) = 0
+        f(s, V) &= f(V,V) - f(V - s, V) \quad \text{3rd property}\\
+        &= f(V, V - s) \quad \text{since 1st property } f(V,V) = 0 \text{ and 2nd property}\\
+        &= f(V, t) - f(V,V - s - t) \quad \text{4th property}\\ 
+        &= f(V, t) \quad f(V, V - s - t) = 0 \text{ since what goes in must come out for the intermediate vertices}
     \end{align*}
-\end{derivation}
+    \begin{itemize}
+        \item \textbf{Note:} Just applying the Lemma properties.
+    \end{itemize}
+\end{example}
 
 \subsection{Conclusion}
 \begin{summary}
@@ -102,9 +143,18 @@
 \subsection{Augmented Paths in Residual Networks}
 \begin{definition}
     An \textbf{augmented path} in the residual network $G_f$ is defined as a simple path from the source $s$ to the sink $t$. 
+    \begin{equation*}
+        s \overset{AP}{\rightarrow} t
+    \end{equation*}
     \begin{itemize}
         \item The key idea is to find such paths to increase the total flow from $s$ to $t$.
+        \item \textbf{Bottleneck:} The bottleneck of the path is the minimum residual capacity of the edges in the path. 
     \end{itemize}
+\end{definition}
+
+\subsection{Residual Capacity of Augmented Path (BottleNeck)}
+\begin{definition}
+    \textbf{Residual Capacity of AP:} $c_f (AP) = \min \{c_f(u,v): \; (u,v) \in AP\}$
 \end{definition}
 
 \subsection{Ford-Fulkerson Algorithm (Generic Version)}
@@ -149,7 +199,7 @@
         E_f = \{(u, v) \in V^2 \mid c_f(u, v) > 0\}
         \]
         \item \textbf{Augmenting Path:} A simple path $s \overset{AP}{\rightarrow} t$ in $G_f$.
-        \item \textbf{Residual Capacity of AP:} $c_f (p) = \min \{c_f(u,v): \; (u,v) \in AP\}$
+        \item \textbf{Residual Capacity of AP:} $c_f (AP) = \min \{c_f(u,v): \; (u,v) \in AP\}$
         \item \textbf{Problem:} Maximize $|f| = \sum_{v \in V} f(s,v)$
     \end{itemize}
 \end{summary}
@@ -163,36 +213,49 @@
 
 \begin{example}
     \customFigure[0.75]{00_Images/MF3.png}{Ford-Fulkerson Algorithm Example}
+    \begin{itemize}
+        \item \textbf{Cut:} The cut is made to separate the nodes that only have flows going out so we can separate these nodes. Why does this matter?
+        \item \textbf{Note:} $G_f$ were not drawn, but should be used to use this algorithm.
+    \end{itemize}
 \end{example}
 
 \subsection{Max-Flow Min-Cut Theorem}
 \begin{theorem}
     To prove why the Ford-Fulkerson algorithm terminates with the maximum flow, we leverage the max-flow min-cut theorem:
     \begin{itemize}
-        \item For any flow $f$ in $G$, the following statements are equivalent:
+        \item For all flow $F$ in $G$, the following statements are equivalent:
         \begin{enumerate}
-            \item $f$ is a maximum flow in $G$.
+            \item $F$ is a maximum flow in $G$.
             \item The residual graph $G_f$ has no augmented paths.
-            \item $|f| = c(S, T)$ for some cut $(S, T)$.
+            \item $|F| = c(S, T)$ for some cut $(S, T)$ (and actually the min cut).
         \end{enumerate}
     \end{itemize}
 \end{theorem}
 
 \subsubsection{Lemma}
 \begin{theorem}
-    $|f| \leq c(S, T)$ for any cut $(S, T)$
+    $|F| \leq c(S, T)$ for any cut $(S, T)$
 \end{theorem}
 
-\subsection{Capacity of a Cut}
+\subsection{Capacity of a Cut (Not taken up in class)}
 \begin{definition} The capacity of cut $S,T$
     \[
     c(S, T) = \sum_{\forall \text{edge}} c(\text{edges } S \rightarrow T)
     \]
 \end{definition}
 
-\begin{example}
+\subsection{Runtime}
+\begin{definition}
+    \begin{equation*}
+        O(E \cdot |f_{\max}|)
+    \end{equation*}
+    \begin{itemize}
+        \item \textbf{Why?} The number of augmenting paths is $O(E)$ and the bottleneck is $|f_{\max}|$.
+    \end{itemize}
+\end{definition}
+\begin{derivation}
     \customFigure[0.75]{00_Images/MF6.png}{Capacity of a Cut Example}
-\end{example}
+\end{derivation}
 
 \subsection{Conclusion}
 \begin{summary}
@@ -204,31 +267,34 @@
     The Edmonds-Karp algorithm is an implementation of the Ford-Fulkerson method for computing maximum flow in a flow network using breadth-first search (BFS) to find augmenting paths.
     \vspace{1em}
 
-    Pick the shortest path (\# edges) as augmented path.
-
+    Pick the shortest path (\# edges) as augmented path at each iteration.
     \begin{itemize}
         \item Using BFS to find augmenting paths gives a time complexity of:
         \[
-        O(V E^2)
+        O(VE \cdot E) = O(V E^2)
         \]
+        \item B/c each time the shortest path increases. 
     \end{itemize}
 \end{algo}
 
-\subsection{Maximum Bipartite Matching}
+\subsection{Maximum Bipartite Matching (Application of Maximum Flow)}
 \begin{definition}
     Bipartite matching is a classic problem that can be reduced to a maximum flow problem.
 \end{definition}
 
-\subsubsection{Definitions}
+\subsubsection{Bipartite Matching}
 \begin{definition}
     \begin{itemize}
-        \item A \textbf{matching} $M$ is a subset of edges such that each vertex is incident to at most one edge in $M$.
+        \item A \textbf{matching} $M$ is a subset of edges (i.e. $M \subseteq E$) s.t. $\forall v \in V$, at most on edge from $M$ is adjacent to $v$.
     \end{itemize}
 \end{definition}
 
 \begin{example}
     \textbf{Example:} $M = \{B \rightarrow 1, C \rightarrow 2, E \rightarrow 3\}$.
     \customFigure[0.75]{00_Images/MF4.png}{Maximum vs Maximal Matching}
+    \begin{itemize}
+        \item \textbf{Note:} You want the maximum not the maximal.
+    \end{itemize}
 \end{example}
 
 \subsubsection{Maximum Matching vs Maximal Matching}
@@ -243,13 +309,20 @@
 \begin{process}
     To convert the bipartite matching problem into a maximum flow problem:
     \begin{enumerate}
-        \item Add a pseudo source $s$ and sink $t$ with $\infty$.
+        \item Add a pseudo source $s$ and sink $t$ with $1$.
         \item Set capacities of original edges to $1$.
         \item Use the Edmonds-Karp algorithm to find the maximum flow.
     \end{enumerate}
+
+    
+
 \end{process}
 
 \subsection{Conclusion}
 \begin{summary}
     The Edmonds-Karp algorithm provides a systematic approach to solving flow network problems, including its application to maximum bipartite matching. By reducing matching problems to flow problems, we can leverage efficient algorithms like Edmonds-Karp for optimal solutions.
 \end{summary}
+
+\begin{warning}
+    Common Exam Questions.
+\end{warning}
