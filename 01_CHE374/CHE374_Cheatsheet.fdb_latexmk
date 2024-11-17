@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1730306052.99475 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" "CHE374_Cheatsheet.pdf" "CHE374_Cheatsheet" 1730306083.74497 0
+["pdflatex"] 1731805783.94511 "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" "CHE374_Cheatsheet.pdf" "CHE374_Cheatsheet" 1731805814.2641 0
   "/Users/hanheelee/Desktop/engsci_notes/01_CHE374/CHE374_Cheatsheet.tex" 1728182287.29252 1594 515c443d4ecb21c3814a400dc4f4fbf5 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -400,7 +400,7 @@
   "00_Images/TAE.png" 1730211151.11464 241783 d05149719538d22a4fcfd79970b7bdc5 ""
   "00_Images/TERMS.png" 1730303332.39641 146298 4fff5c4d21b25c012085a5c932a0bc16 ""
   "00_Lectures/W1.tex" 1728361196.0222 8971 6a155cc1f27f9f4cd3dc0da2756cbcce ""
-  "00_Lectures/W10.tex" 1724718722.5814 10263 ca0485e3c0795e399280dc85910051dd ""
+  "00_Lectures/W10.tex" 1731805753.77637 13124 3be5a34a747473e19cc30e7af810ceb5 ""
   "00_Lectures/W11.tex" 1724875085.52195 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/W2.tex" 1728182328.80603 18733 4bed183d178c6ec96b832e7d9cc57a18 ""
   "00_Lectures/W3.tex" 1728361329.82381 9349 87c14ce1d76b836084dbbeae20d7d8a9 ""
@@ -409,13 +409,13 @@
   "00_Lectures/W6.tex" 1729224737.89209 8187 b5ed8a14f991f82c5635442d7db66fbe ""
   "00_Lectures/W7.tex" 1729225573.32436 8229 864fe60eeedd8b1312bb0f1577ae005c ""
   "00_Lectures/W8.tex" 1730222466.23165 23186 48a8e3aea1475c739b549940040a61e2 ""
-  "00_Lectures/W9.tex" 1730306018.15311 12693 c429de7af4bc322c61e68657dd08d006 ""
-  "CHE374_Cheatsheet.aux" 1730306083.23119 32320 aa22a1f0fd97a4d55f23c3b8f4722f84 "pdflatex"
-  "CHE374_Cheatsheet.lof" 1730306083.2405 6865 ed58812bb59eb0bd46737874418b7fe6 "pdflatex"
-  "CHE374_Cheatsheet.lot" 1730306083.24072 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "CHE374_Cheatsheet.out" 1730306083.23905 31395 0c2787744548d496b6c2b090e11da113 "pdflatex"
+  "00_Lectures/W9.tex" 1731788092.84152 12822 ddb0b0d0cd61e771361bfc9257e851d3 ""
+  "CHE374_Cheatsheet.aux" 1731805813.74528 33118 81d5757d927ada7403cff29c6b20061b "pdflatex"
+  "CHE374_Cheatsheet.lof" 1731805813.75701 6865 795646de93d09eb6a1ad999f3073cbc1 "pdflatex"
+  "CHE374_Cheatsheet.lot" 1731805813.75721 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "CHE374_Cheatsheet.out" 1731805813.75454 32433 25ac758defdac896cf98fc9cb759e1a7 "pdflatex"
   "CHE374_Cheatsheet.tex" 1728182287.29252 1594 515c443d4ecb21c3814a400dc4f4fbf5 ""
-  "CHE374_Cheatsheet.toc" 1730306083.2397 15844 d64ef67cabd89bec84e8d6afd945e1e8 "pdflatex"
+  "CHE374_Cheatsheet.toc" 1731805813.75688 16396 c70e7f2ccfca08db306bfce1b4b26c56 "pdflatex"
   "style.sty" 1728766554.4548 5612 c6ce01a92ebbc3ac65adc8789577fc56 ""
   (generated)
   "CHE374_Cheatsheet.aux"

@@ -8,47 +8,81 @@
         \end{itemize}
     \end{itemize}
     \customFigure[0.75]{00_Images/CNN2.png}{CNN}
-\end{summary}
-
-\subsubsection{How to CNNs work?}
-\begin{summary}
     \begin{itemize}
-        \item \textbf{Convolutions}: Apply a set of filters to the input image or feature map to extract local features, such as edges, textures, or shapes. Each filter creates a feature map highlighting specific patterns in the input.
-    
-        \item \textbf{Subsampling (Pooling)}: Reduces the spatial dimensions of feature maps, typically using max or average pooling. This operation decreases computational complexity and makes the model more invariant to small translations in the input.
-    
-        \item \textbf{Full Connection (Fully Connected Layer)}: Connects every neuron in one layer to every neuron in the next layer, similar to a traditional neural network layer. This layer combines extracted features to make the final classification or prediction.
-    
-        \item \textbf{Gaussian Connections}: Adds Gaussian noise or introduces Gaussian-based connectivity for regularization and robustness, which helps the network generalize better to unseen data.
-    \end{itemize}    
+        \item \textbf{Recall:} The input sequence is encoded with one hot encoding for ACTG. 
+        \item Input Encoding: The DNA sequence (A, C, G, T) is encoded into a matrix format where each nucleotide is represented by a unique column.
+        \item First Convolutional Layer: Three filters of size 3 by 4 are applied to detect specific nucleotide patterns (e.g., "CAA", "AGAC", "ACTT"), creating a feature map that highlights where these motifs occur.
+        \item Second Convolutional Layer: A filter of size 7 by 3 is applied to the feature map, combining the detected motifs into higher-level patterns.
+        \item Pattern Detection Output: The final output track indicates regions where complex patterns were recognized, facilitating sequence analysis tasks like motif discovery and functional annotation.
+    \end{itemize}
 \end{summary}
 
 \subsubsection{LeCun, 1989}
 \begin{example}
-    Best result on handwritten digit recognition in 1989:
+    Best result on handwritten digit recognition in 1989. This section outlines the structure of the convolutional neural network (CNN) depicted in the diagram:
+
+    \begin{enumerate}
+        \item \textbf{Input Layer (32x32):} 
+        The network takes as input a grayscale image of size $32 \times 32$ pixels, representing, for example, a handwritten digit.
+    
+        \item \textbf{Convolution Layer (C1):} 
+        Applies 6 convolutional filters, each generating a feature map of size $28 \times 28$. This layer extracts low-level features such as edges and textures.
+        
+        \item \textbf{Subsampling Layer (S2):} 
+        Performs downsampling (e.g., max pooling) to reduce the spatial dimensions, resulting in 6 feature maps of size $14 \times 14$. This step helps reduce computational complexity and increases robustness to spatial variations.
+        
+        \item \textbf{Convolution Layer (C3):} 
+        Applies 16 convolutional filters to the subsampled feature maps, producing 16 feature maps of size $10 \times 10$. This layer captures more complex patterns and features.
+        
+        \item \textbf{Subsampling Layer (S4):} 
+        Further downsampling is performed, reducing the size of the feature maps to $5 \times 5$ while retaining the 16 channels.
+        
+        \item \textbf{Fully Connected Layer (C5):} 
+        Flattens the feature maps into a single vector with 120 neurons. This layer integrates information from all previous layers.
+        
+        \item \textbf{Fully Connected Layer (F6):} 
+        Reduces the representation to 84 neurons, further preparing the network for classification.
+        
+        \item \textbf{Output Layer:} 
+        The final layer consists of 10 neurons, corresponding to the 10 possible classes (e.g., digits 0-9). A softmax activation function is used to classify the input image.
+    \end{enumerate}
     \customFigure[0.75]{00_Images/HDR.png}{Handwritten Digit Recognition}
+    \begin{itemize}
+        \item \textbf{Convolutions}: Apply a set of filters to the input image or feature map to extract local features, such as edges, textures, or shapes. Each filter creates a feature map highlighting specific patterns in the input.
+    
+        \item \textbf{Subsampling (Pooling)}: Reduces the spatial dimensions of feature maps, typically using max or average pooling. This operation decreases computational complexity and makes the model more invariant to small translations in the input.
+        \begin{itemize}
+            \item Changes the size of the feature maps.
+        \end{itemize}
+
+        \item \textbf{Feature Maps:} The output of the convolutional and pooling layers are feature maps that capture the most important patterns in the input data.
+    
+        \item \textbf{Full Connection (Fully Connected Layer)}: Connects every neuron in one layer to every neuron in the next layer, similar to a traditional neural network layer. This layer combines extracted features to make the final classification or prediction.
+    
+        \item \textbf{Gaussian Connections}: Adds Gaussian noise or introduces Gaussian-based connectivity for regularization and robustness, which helps the network generalize better to unseen data.
+    \end{itemize}   
 \end{example}
 
 \subsubsection{Weight Sharing}
 \begin{summary}
     In CNNs and other architectures, we can have a situation where many connections hare the same single weight. This is called \textbf{weight sharing}.
     \begin{itemize}
-        \item Let \( k(i, j) \) be the index of the weight on the connection \( i \rightarrow j \). Instead of
+        \item Let \( \kappa(i, j) \) be the index of the weight on the connection \( i \rightarrow j \). Instead of
         \[
         x_j = \sum_{i=1}^{j-1} w_{ij} \, g_i(x_i)
         \]
         we have
         \[
-        x_j = \sum_{i=1}^{j-1} w_{k(i,j)} \, g_i(x_i)
+        x_j = \sum_{i=1}^{j-1} w_{\kappa(i,j)} \, g_i(x_i)
         \]
     
         \item \textbf{Example:}
         \begin{itemize}
             \customFigure[0.5]{00_Images/WW.png}{Weight Sharing}
-            \item Mapping of \( k(i, j) \):
+            \item Mapping of \( \kappa(i, j) \):
             \begin{itemize}
-                \item \( k(1,5) = 1 \), \( k(2,6) = 1 \), \( k(3,7) = 1 \)
-                \item \( k(2,5) = 2 \), \( k(3,6) = 2 \), \( k(4,7) = 2 \)
+                \item \( \kappa(1,5) = 1 \), \( \kappa(2,6) = 1 \), \( \kappa(3,7) = 1 \)
+                \item \( \kappa(2,5) = 2 \), \( \kappa(3,6) = 2 \), \( \kappa(4,7) = 2 \)
             \end{itemize}
         \end{itemize}
     \end{itemize}
@@ -62,9 +96,9 @@
         \frac{\partial E}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_{lm}} = \frac{\partial E}{\partial x_m} \, g_l(x_l)
         \]
     
-        \item Now, \( w_k \) influences \( E \) via all \( x_m \) such that \( k(l, m) = k \), so
+        \item Now, \( w_k \) influences \( E \) via all \( x_m \) such that \( \kappa(l, m) = k \), so
         \[
-        \frac{\partial E}{\partial w_k} = \sum_{l, m: \; k(l, m) = k} \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_k} = \sum_{l, m: \; k(l, m) = k} \frac{\partial E}{\partial x_m} \, g_l(x_l)
+        \frac{\partial E}{\partial w_k} = \sum_{l, m: \; \kappa(l, m) = k} \frac{\partial E}{\partial x_m} \frac{\partial x_m}{\partial w_k} = \sum_{l, m: \; \kappa(l, m) = k} \frac{\partial E}{\partial x_m} \, g_l(x_l)
         \]
     
         \item \textbf{Algorithm:}
@@ -79,7 +113,7 @@
 \begin{summary}
     \textbf{Forward propagation:} For \( j = I+1, \ldots, M \), 
     \[
-    x_j = \sum_{i=1}^{j-1} \textcolor{red}{w_{k(i,j)}} \, g_i(x_i)
+    x_j = \sum_{i=1}^{j-1} \textcolor{red}{w_{\kappa(i,j)}} \, g_i(x_i)
     \]
 
     \textbf{Output unit error derivatives:} \\
@@ -91,13 +125,13 @@
     \textbf{Backpropagation:} \\
     For \( m = M-O, \ldots, M-O-H+1 \):
     \[
-    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} \, \textcolor{red}{w_{k(m,k)}} \, g'_m(x_m)
+    \frac{\partial E}{\partial x_m} = \sum_{k=m+1}^{M} \frac{\partial E}{\partial x_k} \, \textcolor{red}{w_{\kappa(m,k)}} \, g'_m(x_m)
     \]
 
     \textbf{Weight derivatives:} \\
     For \( l = 1, \ldots, M-O+1 \), for \( m = l+1, \ldots, M \):
     \[
-    \textcolor{red}{\frac{\partial E}{\partial w_k} = \sum_{l,m: \; k(l,m)=k} \frac{\partial E}{\partial x_m} \, g_l(x_l)}
+    \textcolor{red}{\frac{\partial E}{\partial w_k} = \sum_{l,m: \; \kappa(l,m)=k} \frac{\partial E}{\partial x_m} \, g_l(x_l)}
     \]
     The weights are updated as follows:
     \[

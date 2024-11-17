@@ -78,12 +78,12 @@
 \contentsline {figure}{\numberline {77}{\ignorespaces Sigmoid with dropout}}{92}{figure.77}%
 \contentsline {figure}{\numberline {78}{\ignorespaces CNN}}{93}{figure.78}%
 \contentsline {figure}{\numberline {79}{\ignorespaces Handwritten Digit Recognition}}{94}{figure.79}%
-\contentsline {figure}{\numberline {80}{\ignorespaces Weight Sharing}}{94}{figure.80}%
+\contentsline {figure}{\numberline {80}{\ignorespaces Weight Sharing}}{95}{figure.80}%
 \contentsline {figure}{\numberline {81}{\ignorespaces RNN}}{96}{figure.81}%
-\contentsline {figure}{\numberline {82}{\ignorespaces Unrolling an RNN}}{96}{figure.82}%
+\contentsline {figure}{\numberline {82}{\ignorespaces Unrolling an RNN}}{97}{figure.82}%
 \contentsline {figure}{\numberline {83}{\ignorespaces Conditional RNN}}{97}{figure.83}%
 \contentsline {figure}{\numberline {84}{\ignorespaces Bidirectional RNN}}{97}{figure.84}%
-\contentsline {figure}{\numberline {85}{\ignorespaces LSTM}}{97}{figure.85}%
+\contentsline {figure}{\numberline {85}{\ignorespaces LSTM}}{98}{figure.85}%
 \contentsline {figure}{\numberline {86}{\ignorespaces Tokenization}}{98}{figure.86}%
 \contentsline {figure}{\numberline {87}{\ignorespaces Transformers}}{99}{figure.87}%
 \contentsline {figure}{\numberline {88}{\ignorespaces Example of calculating attention for $3$}}{100}{figure.88}%

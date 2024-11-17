@@ -1,14 +1,109 @@
+\subsection{Learning Objectives}
+\begin{summary}
+    \begin{itemize}
+        \item Explain common causes and effects of inflation. 
+        \item Understand how inflation is measured. 
+        \item Understand real and actual interest rates. 
+        \item Know how to account for inflation when evaluating cash-flows.
+        \item Know how to account for inflation when using the tax benefit factors. 
+    \end{itemize}
+\end{summary}
+
 \subsection{Inflation terms}
 \begin{terminology}
     \begin{itemize}
         \item \textbf{Inflation:} A rise in the average price of goods and services over time, reflecting a decline in the purchasing power of the dollar.
         \item \textbf{Deflation:} A decrease in the average price of goods and services over time.
+    \end{itemize}
+\end{terminology}
+
+\subsection{What causes inflation?}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Demand-pull inflation:} When demand for goods and services exceeds supply causing prices to rise.
+        \item \textbf{Cost-push inflation:} When production costs increase, causing firms to raise prices to maintain profit margins.
+        \item \textbf{Expanding money supply:} When the government prints more money or banks lend more money, causing the value of money to decrease.
+        \item \textbf{Expectations:} When people expect prices to rise, they buy more now, causing businesses to raise prices, causing people to buy more now. This creates a cycle of inflation.
+    \end{itemize}
+\end{definition}
+
+\subsection{What are the effects of inflation?}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Benefits borrowers:} Borrowers repay loans with money that is worth less than when they borrowed it.
+        \item \textbf{Hurts lenders, savers, unemployed, retirees, etc:} Money they have saved or invested is worth less.
+        \item \textbf{Menu costs, and tax distortions:} Cost of changing prices and taxes to keep up with inflation.
+        \item \textbf{Short Run:} Higher inflation can lead to lower unemployment because people spend more causing businesses to hire more.
+        \item \textbf{Low levels of inflation:} Stimulates the economy by encouraging spending.
+        \item \textbf{High levels of inflation:} Can lead to hyperinflation, which can destroy an economy. Hyperinflation is when prices rise more than 50\% a month.
+    \end{itemize}
+\end{definition}
+
+\subsection{Why don't we target zero inflation?}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Deflation:} Can lead to a recession because people expect prices to fall, so they wait to buy things, causing businesses to lay off workers.
+        \item \textbf{Low inflation:} Encourages spending and investment.
+        \item \textbf{Moderate inflation:} Encourages people to spend and invest, but not so much that it causes hyperinflation.
+    \end{itemize}
+\end{intuition}
+
+\subsection{CPI}
+\begin{terminology}
+    \begin{itemize}
         \item \textbf{Consumer Price Index (CPI):} A measure that examines the weighted average of prices of a basket of goods and services which are of primary consumer needs.
         \item \textbf{CPI Base Year:} 2002
         \item \textbf{CPI Base Year Index:} 100
         \begin{itemize}
             \item Index for any other year indicates the number of dollars needed in that year to buy the basket of goods that cost \$100 in 2002.
         \end{itemize}
+    \end{itemize}
+\end{terminology}
+
+\begin{warning}
+    Inflation is determined by changes in CPI. 
+\end{warning}
+
+\subsection{Calculating CPI \& inflation}
+\subsubsection{CPI index}
+    \begin{definition}
+        \begin{equation}
+            \text{CPI Index} = \left( \frac{\text{Basket Value in Year } N}{\text{Basket Value in Base Year}} \right) \times 100
+        \end{equation}
+    \end{definition}
+
+\subsubsection{Inflation rate from CPI index}
+    \begin{definition}
+        \begin{equation}
+            f_{N_1 \rightarrow N_2} = \frac{\text{CPI Index in Year } N_2 - \text{CPI Index in Year } N_1}{\text{CPI Index in Year } N_1};\: N_2 > N_1
+        \end{equation}
+        \begin{itemize}
+            \item \(f\): Inflation from year $N_1$ to $N_2$.
+        \end{itemize}
+        \begin{equation}
+            f_N = \frac{\text{CPI Index}_{N} - \text{CPI Index}_{N-1}}{\text{CPI Index}_{N-1}}
+        \end{equation}
+        
+        \begin{itemize}
+            \item $f_N$: Inflation in year N from CPI.
+        \end{itemize}
+    \end{definition}
+
+\subsubsection{Average inflation from CPI}
+    \begin{definition}
+        \begin{equation}
+            1 + f_{N_1 \rightarrow N_2} = \frac{\text{CPI Index}_{N_2}}{\text{CPI Index}_{N_1}}
+        \end{equation}
+        
+        \begin{equation}
+            (1 + f_{\text{avg}})^{N_2 - N_1} = 1 + f_{N_1 \rightarrow N_2}
+        \end{equation}
+    \end{definition}
+
+\subsection{Real value}
+\subsubsection{Terminology}
+\begin{terminology}
+    \begin{itemize}
         \item \textbf{Actual (current, nominal) dollars:} Expressed in the monetary units at the time the cash flow occurs.
         \item \textbf{Real (constant) dollars:} Expressed in the monetary units of constant purchasing power, and must always be associated with a particular date.
         \item \textbf{Purchasing Power Ratio:} Ratio of actual investment value over price of good when base values are identical.
@@ -21,43 +116,6 @@
     \end{itemize}
 \end{terminology}
 
-\subsection{Calculating CPI \& inflation}
-\subsubsection{CPI index}
-    \begin{definition}
-        \begin{equation}
-            \text{Index} = \left( \frac{\text{Basket Value in Year } N}{\text{Basket Value in Base Year}} \right) \times 100
-        \end{equation}
-    \end{definition}
-
-\subsubsection{Inflation rate from CPI index}
-    \begin{definition}
-        \begin{equation}
-            1 + f = \frac{\text{Index in Year } N_2 - \text{Index in Year } N_1}{\text{Index in Year } N_1};\: N_2 > N_1
-        \end{equation}
-        \begin{itemize}
-            \item \(f\): Inflation from year $N_1$ to $N_2$.
-        \end{itemize}
-        \begin{equation}
-            1 + f_N = \frac{\text{CPI}_{N} - \text{CPI}_{N-1}}{\text{CPI}_{N-1}}
-        \end{equation}
-        
-        \begin{itemize}
-            \item $f_N$: Inflation in year N from CPI.
-        \end{itemize}
-    \end{definition}
-
-\subsubsection{Average inflation from CPI}
-    \begin{definition}
-        \begin{equation}
-            1 + f_{N_1 \rightarrow N_2} = \frac{\text{CPI}_{N_2}}{\text{CPI}_{N_1}}
-        \end{equation}
-        
-        \begin{equation}
-            (1 + f_{\text{avg}})^{N_2 - N_1} = 1 + f_{N_1 \rightarrow N_2}
-        \end{equation}
-    \end{definition}
-
-\subsection{Real value}
 \subsubsection{Real rate}
     \begin{definition}
         \begin{equation}

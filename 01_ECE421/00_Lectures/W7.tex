@@ -121,16 +121,6 @@ LOOK IN TEXTBOOK FOR MORE DETAILS.
 \subsection{Wasted and Stuck Units}
 \begin{summary}
     The main challenge for large neural nets is not just overfitting, but that most hidden units get \underline{stuck where they aren't needed} \& are thus \underline{wasted}.
-    \begin{itemize}
-        \item \textbf{Wasted Units:} If the weights are too small, the unit will not be able to learn anything.
-        \begin{itemize}
-            \item \textbf{Note:} This is why we want to initialize the weights to be large enough so that the unit can learn something.
-        \end{itemize}
-        \item \textbf{Stuck Units:} If the weights are too large, the unit will saturate and not be able to learn anything.
-        \begin{itemize}
-            \item \textbf{Note:} This is why we want to initialize the weights to be small enough so that the unit can learn something.
-        \end{itemize}
-    \end{itemize}
     \vspace{1em}
     
     \begin{itemize}
@@ -168,7 +158,7 @@ LOOK IN TEXTBOOK FOR MORE DETAILS.
     
         \item \underline{Method}
         \begin{itemize}
-            \item Set dropout probabilities \(\{\mu_i\}\), e.g., for input units \(\mu_i = 0.8\) and for hidden units \(\mu_i = 0.5\).
+            \item Set dropout probabilities \(\{\mu_i\}\) (i.e. probability of keeping the unit), e.g., for input units \(\mu_i = 0.8\) and for hidden units \(\mu_i = 0.5\).
             \item During training, for each forward pass, set the activity of \(\hat{x}_i\) to zero with probability \(1 - \mu_i\) (i.e. probability of dropping the unit), independent of other units.
             \item During testing, set \( w_{ij} \leftarrow w_{ij} \cdot \mu_i \) (i.e. multiply by the probability of keeping the unit) for all $i,j$.
         \end{itemize}
@@ -182,6 +172,7 @@ LOOK IN TEXTBOOK FOR MORE DETAILS.
         \item Dropout simulates an exponential number of neural architectures 
         \begin{itemize}
             \item \textit{Exponential bagging}
+            \item \textbf{Note:} Dropout is similar to bagging, but instead of training many nets, we sample many nets during training which all have the same weights.
         \end{itemize}
         
         \item Because the weights are shared across all networks and they are trained jointly, the units can cooperate during training to get unstuck.
