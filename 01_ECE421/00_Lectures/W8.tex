@@ -140,6 +140,10 @@
 \end{summary}
 
 \subsection{Recurrent neural networks (DL in Practice: Architecture Choices)}
+\begin{warning}
+    The following models will be used to predict an output sequence based on an input sequence.
+\end{warning}
+
 \begin{summary}
     \begin{itemize}
         \item Instead of a DAG, we allow cycles to denote signals feeding back \underline{across time}:
@@ -152,18 +156,49 @@
         \customFigure[0.5]{00_Images/RNN1.png}{Unrolling an RNN}
     
         \item \textbf{Learning:} This is a DAG NN with weight sharing, so we an use the method described previously.
+        \item \textbf{Note:} We can see that by unrolling the RNN, we can see the dependency across time for x2.
+        \item \textbf{Application to Answering a Question:} $t=1 \text{ to } 20$ are the inputs of the question, and $t=21 \text{ to } 40$ are the words in the answer. $x_2^{t-1}$ is a state variable that is capturing the information from the question to generate the answer. 
+        \begin{itemize}
+            \item $x_2^t$ receives information from $x_2^{t-1}$ and $x_1^t$ to generate the answer $x_3^t$.
+        \end{itemize}
     \end{itemize}
 \end{summary}
+
+\begin{example}
+    Applications of the RNN 
+    \begin{enumerate}
+        \item \textbf{Language Modeling:} Predict the next word in a sentence.
+        \item \textbf{Speech Recognition:} Predict the next phoneme in a speech signal.
+        \item \textbf{Music Generation:} Predict the next note in a melody.
+        \item \textbf{Machine Translation:} Predict the next word in a translated sentence.
+        \item \textbf{Video Analysis:} Predict the next frame in a video.
+        \item \textbf{Stock Market Prediction:} Predict the next price of a stock.
+        \item \textbf{DNA Sequence Analysis:} Predict the next nucleotide in a DNA sequence.
+    \end{enumerate}
+\end{example}
 
 \subsubsection{Improving RNN as Sequence Generators}
 \begin{summary}
     \begin{itemize}
         \item \textbf{Conditional RNNs:} Output $(t)$ sees outputs $(1), \ldots, (t-1)$.
         \customFigure[0.5]{00_Images/RNN2.png}{Conditional RNN}
-        \item \textbf{Bidirectional RNNs:} Output $(t)$ sees inputs $(1), \ldots, (t)$.
+        \begin{itemize}
+            \item Introduce the blue connections to allow the output at time \( t \) to depend on the outputs at times \( 1, \ldots, t-1 \).
+            \item E.g. Someone is asking you a question, and you are answering it but need the information of what you said at $x_3^{t-1}$ to answer the question at $x_2^t$.
+        \end{itemize}
+        \item \textbf{Bidirectional RNNs:} Output $(t)$ sees inputs $(1), \ldots, (T)$.
         \customFigure[0.5]{00_Images/RNN3.png}{Bidirectional RNN}
+        \begin{itemize}
+            \item IN RNA biology, this is useful to see the whole sequence before the output and the whole sequence after the output to make a prediction.
+        \end{itemize}
     \end{itemize}
 \end{summary}
+
+\begin{warning}
+    \begin{itemize}
+        \item \textbf{DAG and Weight Sharing:} RNNs are DAGs with weight sharing, so we can use backpropagation to learn the weights.
+    \end{itemize}
+\end{warning}
 
 \subsubsection{The Problem of Vanishing Gradients}
 \begin{summary}
@@ -171,6 +206,9 @@
         \item As gradients propagate through more hidden units, or through time, they get more and more suppressed (vanish) or amplified (explode).
         \item This makes it hard to learn RNNs with long sequences, or very deep NNs.
         \item A general approach is to add mechanisms that propagate derivatives directly across time, or layers.
+        \begin{itemize}
+            \item \textbf{Skip connections:} Add connections that skip one or more layers to propagate gradients directly, but this depends on the context and can be abritrary. This is motivation for the LSTM, which has a more principled approach.
+        \end{itemize}
     \end{itemize}  
 \end{summary}
 
@@ -179,6 +217,16 @@
     \begin{itemize}
         \item Create gates that can copy over the previous cell state to the next cell state. 
         \item \textbf{Key:} $H$'s all differentiable!!!!
+        \item \textbf{Note:} Previous output and current input go through a fully connected layer. 
+        \begin{itemize}
+            \item Goes through a sigmoid function to decide what to keep and what to forget and does multiplication with the previous state or context to decide what is the current state. 
+        \end{itemize}
+        \item \textbf{Forget gate:} Decides what to keep from the previous cell state.
+        \item \textbf{Input Gate:} Decides what to add to the cell state, which gets modified by the previous output and current input after the activation function gets applied. The chocies of activation functions are arbitrary. 
+        \begin{itemize}
+            \item \textbf{Key:} Given the current input, what probability should we use the previous output to modify the current state. 
+        \end{itemize}
+        \item \textbf{Output Gate:} Decides what to output. The current input and and previous output after used and also the current state is multiplied to decide what the output should be. 
     \end{itemize}
 
     \customFigure[0.5]{00_Images/LSTM.png}{LSTM}   

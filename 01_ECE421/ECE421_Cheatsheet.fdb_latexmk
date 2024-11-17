@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1731781010.14692 "/Users/hanheelee/Desktop/engsci_notes/01_ECE421/ECE421_Cheatsheet.tex" "ECE421_Cheatsheet.pdf" "ECE421_Cheatsheet" 1731781040.42236 0
+["pdflatex"] 1731869807.87763 "/Users/hanheelee/Desktop/engsci_notes/01_ECE421/ECE421_Cheatsheet.tex" "ECE421_Cheatsheet.pdf" "ECE421_Cheatsheet" 1731869838.90177 0
   "/Users/hanheelee/Desktop/engsci_notes/01_ECE421/ECE421_Cheatsheet.tex" 1730078879.861 1852 b16e4e839ed17a79176448875472847b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1202520719 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -458,17 +458,17 @@
   "00_Lectures/W5.tex" 1728448550.83789 27428 49da13bc346b6293d113a91b80f49d2b ""
   "00_Lectures/W6.tex" 1730083078.42316 13351 8ae2e04bbe157957334758874728f66b ""
   "00_Lectures/W7.tex" 1731781009.59711 10456 8f12f71deda4c4e5e799b72f54a6d52c ""
-  "00_Lectures/W8.tex" 1731780881.1195 19141 795788e489898263318d7bdf5c6d6927 ""
+  "00_Lectures/W8.tex" 1731869774.00921 22587 4ee0861257c17595643baaf2dd35c13f ""
   "00_Lectures/W9.tex" 1731379054.47968 12031 856d09a201a1ead5e2268c7c0168cc65 ""
   "00_Lectures/WS1.tex" 1728164989.61842 14542 0b44999c8f264f14f8aa402e838d02a4 ""
   "00_Lectures/WS2.tex" 1727529049.03434 0 d41d8cd98f00b204e9800998ecf8427e ""
   "00_Lectures/WS3.tex" 1727534384.65505 15402 5b3a9e7e88a5b277cdfc8c782b20a0b6 ""
-  "ECE421_Cheatsheet.aux" 1731781039.8128 43922 4640651938c3f2fe60cf2e2ebb9da6a8 "pdflatex"
-  "ECE421_Cheatsheet.lof" 1731781039.82378 10325 bba699d274908eefa24a995c8d0b58d4 "pdflatex"
-  "ECE421_Cheatsheet.lot" 1731781039.82399 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
-  "ECE421_Cheatsheet.out" 1731781039.82285 46682 37f76acfcf694cb0ae91c14140abe96f "pdflatex"
+  "ECE421_Cheatsheet.aux" 1731869838.31153 43923 f423d15f7eac28f949e3dbf15068f602 "pdflatex"
+  "ECE421_Cheatsheet.lof" 1731869838.32258 10326 8a2b58922aa8735ddd62d7da3d4d9db4 "pdflatex"
+  "ECE421_Cheatsheet.lot" 1731869838.32277 30 283c90c47f0e16887e96cec4ba110f76 "pdflatex"
+  "ECE421_Cheatsheet.out" 1731869838.32156 46682 37f76acfcf694cb0ae91c14140abe96f "pdflatex"
   "ECE421_Cheatsheet.tex" 1730078879.861 1852 b16e4e839ed17a79176448875472847b ""
-  "ECE421_Cheatsheet.toc" 1731781039.82366 21114 c40813411ca30845099f5bd58fd43f2f "pdflatex"
+  "ECE421_Cheatsheet.toc" 1731869838.32243 21114 fa955e7631512a5cf8d39c791fc3fb64 "pdflatex"
   "style.sty" 1730084438.37525 7499 d0a7e72e235778db78b4d512fe88df64 ""
   (generated)
   "ECE421_Cheatsheet.aux"
