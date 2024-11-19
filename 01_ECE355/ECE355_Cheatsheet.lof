@@ -2,13 +2,13 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces Injective function.}}{10}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Surjective function.}}{11}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Bijective function.}}{11}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{11}{figure.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Composition example}}{12}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Illustration of bijective function}}{12}{figure.5}%
 \contentsline {figure}{\numberline {6}{\ignorespaces Complex plane in general with radius r.}}{13}{figure.6}%
 \contentsline {figure}{\numberline {7}{\ignorespaces Truth table for negation.}}{14}{figure.7}%
 \contentsline {figure}{\numberline {8}{\ignorespaces Truth table of AND, where truth value T only when $p$ and $q$ are truth.}}{15}{figure.8}%
 \contentsline {figure}{\numberline {9}{\ignorespaces Truth table of OR, where truth value F only when both $p$ and $q$ are F and truth value T when either of $p$ or $q$ or both are true.}}{15}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{15}{figure.10}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Truth table of logical implication, where truth value F only when $p$ is true and $q$ is false}}{16}{figure.10}%
 \contentsline {figure}{\numberline {11}{\ignorespaces Truth table}}{16}{figure.11}%
 \contentsline {figure}{\numberline {12}{\ignorespaces Truth table of biconditional, where having truth value "true" whenever $p$ and $q$ have the same truth value, and "false" whenever $p$ and $q$ have different truth values.}}{16}{figure.12}%
 \contentsline {figure}{\numberline {13}{\ignorespaces Support of a nonzero signal.}}{19}{figure.13}%
@@ -134,4 +134,11 @@
 \contentsline {figure}{\numberline {133}{\ignorespaces System diagram}}{118}{figure.133}%
 \contentsline {figure}{\numberline {134}{\ignorespaces System diagram}}{119}{figure.134}%
 \contentsline {figure}{\numberline {135}{\ignorespaces System diagram}}{120}{figure.135}%
-\contentsline {figure}{\numberline {136}{\ignorespaces System diagram}}{120}{figure.136}%
+\contentsline {figure}{\numberline {136}{\ignorespaces Envelope detector}}{120}{figure.136}%
+\contentsline {figure}{\numberline {137}{\ignorespaces Full wave rectifier}}{121}{figure.137}%
+\contentsline {figure}{\numberline {138}{\ignorespaces Full wave rectifier}}{121}{figure.138}%
+\contentsline {figure}{\numberline {139}{\ignorespaces Half wave rectifier}}{121}{figure.139}%
+\contentsline {figure}{\numberline {140}{\ignorespaces Distortion}}{122}{figure.140}%
+\contentsline {figure}{\numberline {141}{\ignorespaces Commercial AM Transmission}}{122}{figure.141}%
+\contentsline {figure}{\numberline {142}{\ignorespaces Commercial AM Transmission}}{123}{figure.142}%
+\contentsline {figure}{\numberline {143}{\ignorespaces DSB-SC}}{123}{figure.143}%

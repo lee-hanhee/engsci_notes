@@ -60,7 +60,7 @@
 \subsubsection{Optimization}
 \begin{summary}
     \begin{itemize}
-        \item To find the "best" way to make decisions.
+        \item To find the "best" way to make decisions in each possible state of the environment.
         \begin{itemize}
             \item Our decisions must yield the best outcomes or at least very good outcomes.
         \end{itemize}
@@ -68,7 +68,7 @@
         \begin{itemize}
             \item How to compare outcomes?
             \begin{itemize}
-                \item We do it with an explicit notion of decision utility.
+                \item We do it with an explicit notion of decision utility (objective function that needs to be maximized)
             \end{itemize}
         \end{itemize}
     \end{itemize}
@@ -101,6 +101,7 @@
             \item We don’t know what would have happened for other decisions.
         \end{itemize}
         \item That's why it's important to sometimes explore alternative actions as it may give you valuable information.
+        \item \textbf{Exploitation:} Use the best decision learned so far.
     \end{itemize}
 \end{summary}
 
@@ -122,6 +123,12 @@
 \subsubsection{RL vs. AI planning vs. (un)supervised learning}
 \begin{summary}
     \customFigure[0.75]{00_Images/RL.png}{RL}
+    \begin{itemize}
+        \item \textbf{Supervised Learning}: A type of machine learning where the model is trained on labeled data, using input-output pairs to learn a mapping function for predictions.
+        \item \textbf{Unsupervised Learning}: A method of learning where the model discovers patterns, structures, or relationships in data without predefined labels or outputs.
+        \item \textbf{AI Planning}: The process of generating a sequence of actions or decisions to achieve a specific goal or solve a problem in a structured environment.
+        \item \textbf{Reinforcement Learning}: A learning paradigm where an agent learns to make decisions by interacting with an environment to maximize cumulative rewards over time.
+    \end{itemize}
 \end{summary}
 
 \subsection{Overview of Part 2}
@@ -144,17 +151,26 @@
 \begin{definition}
     \customFigure[0.75]{00_Images/RL1.png}{Sequential Decision Making}
     \begin{itemize}
-        \item \textbf{Goal:} Select actions to maximize total expected future reward. 
-        \begin{itemize}
-            \item May require balancing immediate and long-term rewards.
-        \end{itemize}
+        \item Agent: Agent makes a decision at each time step to impact the environment. 
+        \item Observation \& Reward: Based on environment's changes, it will receive observation \& reward (positive, negative, or 0)
+            \begin{itemize}
+                \item Observation: Latest snapshot of the environment at time $t$.
+            \end{itemize}
+        \item Goal: Select actions to maximize total expected future reward.
+            \begin{itemize}
+                \item May require balancing immediate/long-term rewards.
+            \end{itemize}
     \end{itemize}
 \end{definition}
 
 \begin{example}
     \customFigure[0.75]{00_Images/RL2.png}{Internet}
+    \begin{itemize}
+        \item The AW Advertising Agent chooses which webpages to display ads on. Then the observation is the view time, and the reward is the click on the advertisement (i.e. money).
+    \end{itemize}
     \customFigure[0.75]{00_Images/RL3.png}{Diswasher Robot}
     \begin{itemize}
+        \item The robot can move certain joints to place the dishes inside the dishwasher and the observation is the camera image of the kitchen. The reward is +1 if there are no dishes on the counter and 0 otherwise. 
         \item The agent might exploit the reward system in unintended ways. The robot can break all dishes by throwing them on the floor. 
         \begin{itemize}
             \item This issue is known as Reward Hacking.
@@ -180,21 +196,23 @@
         \[
         h_t = (a_0, o_1, r_1, a_1, o_2, r_2, \ldots, a_{t-1}, o_t, r_t)
         \]
-        \begin{itemize}
-            \item The agent chooses its actions based on the history \( h_t \).
-        \end{itemize}
+
+        \item \textbf{Agent:} The agent chooses its actions based on the history \( h_t \).
         
         \item \textbf{State}: Information assumed to determine what happens next.
         \begin{itemize}
             \item State \( S_t \) is a function of the history:
             \[
-            S_t = \psi(h_t)
+            s_t = \psi(h_t)
             \]
             \begin{itemize}
                 \item The simplest state function can be:
                 \[
-                S_z = h_t \quad \text{or} \quad S_t = o_t
+                s_t = h_t \quad \text{or} \quad s_t = o_t
                 \]
+                \item Sometimes the state function is a function of just the last observation, which makes sense in many cases.
+                \item The state function can be more complex, e.g., a function of the last few observations.
+                \item The state function can be a function of the entire history.
             \end{itemize}
         \end{itemize}
     \end{itemize}
@@ -264,7 +282,12 @@
 \end{example}
 
 \subsection{Dynamics Model \& Reward Model}
-
+\begin{definition}
+    \begin{itemize}
+        \item The reward model can depend only on the outcome, only on the action and current state, or the output, action, and current state. 
+        \item The terminal states do not have to be 0, but in the Mars example it is. 
+    \end{itemize}
+\end{definition}
 \begin{example}
     
 \end{example}
@@ -294,3 +317,123 @@
         \end{itemize}
     \end{itemize}
 \end{definition}
+
+\subsubsection{Expected Return}
+\begin{warning}
+    In reinforcement learning, maximizing the expected return is preferred over maximizing just the return because the return for a given trajectory can vary due to uncertainty or stochasticity in the environment, making it unreliable as a sole optimization target. By focusing on the expected return, the learning process accounts for all possible trajectories and their probabilities, ensuring that the policy is robust and performs well on average rather than optimizing for a single potentially rare or atypical outcome.
+\end{warning}
+
+\subsection{Lecture Part 3}
+\begin{example}
+    Example of Efran the gambler. 
+\end{example}
+
+\subsubsection{Expected Return}
+\begin{derivation}
+    % Slide 1
+\section*{Formalizing for General MDPs}
+\begin{itemize}
+    \item $\bullet$ Let's formalize what we saw in the previous example for general MDP.
+    \item $\bullet$ The \textbf{value (utility) of policy} $\pi$ \textbf{at state} $s$, denoted by $V_\pi(s)$, is the \textbf{expected return} if starting at $s$ and \textbf{following policy} $\pi$.
+    \item $\bullet$ Starting at state ``$s$'' and following policy ``$\pi$'' can yield to different sequences of (state, action, reward), e.g.,
+
+    \[
+    \begin{aligned}
+        &\square\ (s, \pi(s), R(s, \pi(s))), (s', \pi(s'), R(s', \pi(s'))), (s'', \pi(s''), R(s'', \pi(s''))), \dots, \\
+        &\square\ (s, \pi(s), R(s, \pi(s))), (s', \pi(s'), R(s', \pi(s'))), (s''', \pi(s'''), R(s''', \pi(s'''))), \dots, \\
+        &\square\ (s, \pi(s), R(s, \pi(s))), (s''', \pi(s'''), R(s''', \pi(s'''))), (s', \pi(s'), R(s', \pi(s'))), \dots, \\
+        &\square\ (s, \pi(s), R(s, \pi(s))), (s'', \pi(s''), R(s'', \pi(s''))), (s', \pi(s'), R(s', \pi(s'))), \dots, \\
+        &\dots
+    \end{aligned}
+    \]
+
+    \item $\bullet$ Each one of the possible episodes happens with a probability.
+
+    \item \textbf{Note:} In the above MDP, we assumed a reward model of type $R(s, a)$ for simplicity.
+\end{itemize}
+
+% Slide 2
+\section*{Formulating $V_\pi(s)$}
+\begin{itemize}
+    \item $\bullet$ How can we formulate $V_\pi(s)$?
+
+    \[
+    V_\pi(s) = \mathbb{E}_{(s_1, s_2, \dots) | s_0=s} \left[ R(s, \pi(s)) + \gamma R(s_1, \pi(s_1)) + \gamma^2 R(s_2, \pi(s_2)) + \dots \mid (s_0 = s, \pi(s)) \right]
+    \]
+
+    Where $s_1, s_2, \dots$ is a random sequence of states yielded by following policy $\pi$. So $s_i \in \mathcal{S}$ for any $i \geq 1$.
+
+    \item $\bullet$ What is the probability of observing the sequence $s_1, s_2, s_3, \dots$ conditioned on $s_0 = s$?
+
+    \[
+    P(s_1 \mid s, \pi(s)) \times P(s_2 \mid s_1, \pi(s_1)) \times \dots
+    \]
+
+    \item $\bullet$ We can rewrite $V_\pi(s)$ as:
+
+    \[
+    V_\pi(s) = \mathbb{E}_{(s_1, s_2, \dots) | s_0=s} \left[ R(s, \pi(s)) + \gamma R(s_1, \pi(s_1)) + \gamma^2 R(s_2, \pi(s_2)) + \dots \mid s_0 = s, \pi(s) \right]
+    \]
+
+    \[
+    = R(s, \pi(s)) + \gamma \mathbb{E}_{(s_1, s_2, \dots)| s_0=s} \left[ R(s_1, \pi(s_1)) + \gamma R(s_2, \pi(s_2)) + \dots \mid s_0 = s, \pi(s) \right]
+    \]
+    \begin{itemize}
+        \item \textbf{Note:} Can pull out $R(s, \pi(s))$ from the expectation because no randomness as it's given. 
+    \end{itemize}
+\end{itemize}
+
+% Slide 3
+\section*{Law of Total Probability}
+\begin{itemize}
+    \item $\bullet$ Recall: Law of total probability
+    \[
+    \mathbb{E}_x[X] = \sum_i P(A_i) \mathbb{E}_x[X \mid A_i],
+    \]
+    where $\{A_i\}$ is a finite partition of the sample space.
+
+    \item $\bullet$ Recall: Let us rewrite the above recall with an additional condition, so that it is more suitable for us.
+    \[
+    \mathbb{E}[X \mid B] = \sum_i P(A_i \mid B) \mathbb{E}[X \mid B, A_i].
+    \]
+
+    \item $\bullet$ Thus, we can rewrite $V_\pi(s)$ as:
+
+    \begin{align*}
+        V_\pi(s) &= R(s, \pi(s)) + \gamma \sum_{s' \in \mathcal{S}} P(s_i = s' \mid s_0 = s, \pi(s)) \\
+        &\mathbb{E}_{(s_1, s_2, \dots)| s_1=s',s_0=s} \left[ R(s_1, \pi(s_1)) + \gamma R(s_2, \pi(s_2)) + \dots \mid (s_0 = s, \pi(s_0)),(s_1=s',\pi(s')) \right].
+    \end{align*}
+    \begin{itemize}
+        \item This is using the 2nd last expression. 
+    \end{itemize}
+\end{itemize}
+
+\section*{Rewriting $V_\pi(s)$}
+Using the Markov assumption, we can remove the condition of the past state $s$ from the expectation.
+
+\[
+\Rightarrow V_\pi(s) = R(s, \pi(s)) + 
+\gamma \sum_{s' \in \mathcal{S}} T(s, \pi(s), s') 
+\mathbb{E}_{(s_2, s_3, \dots)|s_1=s'} \left[ R(s', \pi(s')) + \gamma R(s_2, \pi(s_2)) + \dots \mid s_1 = s',\pi(s') \right]
+\]
+
+\[
+\Rightarrow V_\pi(s) = R(s, \pi(s)) + 
+\gamma \sum_{s' \in \mathcal{S}} T(s, \pi(s), s') V_\pi(s')
+\]
+
+% Slide 5
+\section*{Recursion and Reward Models}
+\begin{itemize}
+    \item $\bullet$ We found a recursion for $V_\pi(s)$ under the \textbf{dynamics model} $T(s, a, s')$ and \textbf{reward model} $R(s, a)$:
+    \[
+    V_\pi(s) = R(s, \pi(s)) + \gamma \sum_{s'} T(s, \pi(s), s') V_\pi(s').
+    \]
+
+    \item $\bullet$ More generally, we can show that for the dynamics model $T(s, a, s')$ and the \textbf{reward model} $R(s, a, s')$:
+    \[
+    V_\pi(s) = \sum_{s' \in \mathcal{S}} T(s, \pi(s), s') \left[ R(s, \pi(s), s') + \gamma V_\pi(s') \right].
+    \]
+\end{itemize}
+
+\end{derivation}

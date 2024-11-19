@@ -111,6 +111,53 @@
 \end{definition}
 
 \subsection{Envelope Detector}
-\begin{intuition}
-    \customFigure[0.75]{00_Images/M7.png}{System diagram}
-\end{intuition}
+\begin{definition}
+    \customFigure[0.75]{00_Images/ED.png}{Envelope detector}
+    \begin{itemize}
+        \item \textbf{Rectifier:} Rectifier is needed to create a periodic signal and then a low-pass filter is used to remove the high frequency components, leaving $|A(t)|$
+        \item \textbf{Key:} Envelope detector doesn't recover the sign of the original signal. 
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Full Wave Rectifier Analysis}
+\begin{derivation}
+    \customFigure[0.75]{00_Images/ED2.png}{Full wave rectifier}
+    \begin{itemize}
+        \item The periodic is $T=\frac{1}{2f_c}$
+    \end{itemize}
+    \customFigure[0.75]{00_Images/ED1.png}{Full wave rectifier}
+\end{derivation}
+
+\subsubsection{Half Wave Rectifier Analysis}
+\begin{derivation}
+    \customFigure[0.75]{00_Images/ED3.png}{Half wave rectifier}
+\end{derivation}
+
+\subsection{Distortion}
+\begin{definition}
+    If $A(t)$ can go negative, then $|A(t) \neq A(t)$.
+    \customFigure[0.75]{00_Images/D3.png}{Distortion}
+    \begin{itemize}
+        \item \textbf{Solution:} To avoid distortion, add a DC offset to the message signal. 
+    \end{itemize}
+\end{definition}
+
+\subsection{Commericial AM Transmission}
+\begin{definition}
+    \begin{equation*}
+        x(t) = A_c \left(1 + k_a m(t)\right) \cos(2 \pi f_c t)
+    \end{equation*}
+    \begin{itemize}
+        \item $k_a$: Amplitude sensitivity $k_a \leq 1$
+        \item $|m(t)| \leq 1$: Normalized message signal
+    \end{itemize}
+
+    \customFigure[0.75]{00_Images/D4.png}{Commercial AM Transmission}
+    \customFigure[0.75]{00_Images/D5.png}{Commercial AM Transmission}
+\end{definition}
+
+\subsection{Double Sideband Suppressed Carrier (DSB-SC)}
+\begin{definition}
+    \customFigure[0.75]{00_Images/D6.png}{DSB-SC}
+\end{definition}
+
