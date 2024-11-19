@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  19 NOV 2024 11:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.6.30)  19 NOV 2024 18:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1192,7 +1192,7 @@ Non-PDF special ignored!
 \tf@toc=\write5
 \openout5 = `ECE355_Cheatsheet.toc'.
 
- (./ECE355_Cheatsheet.lof [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}])
+ (./ECE355_Cheatsheet.lof [5{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}] [6{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}] [7{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}])
 \tf@lof=\write6
 \openout6 = `ECE355_Cheatsheet.lof'.
 
@@ -1200,30 +1200,30 @@ Non-PDF special ignored!
 \tf@lot=\write7
 \openout7 = `ECE355_Cheatsheet.lot'.
 
- [7{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}] (./Lectures/00_Math.tex [8] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<00_Images/Injective.png, id=1471, 238.8925pt x 131.49126pt>
+ (./Lectures/00_Math.tex [8] [9{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
+<00_Images/Injective.png, id=1501, 238.8925pt x 131.49126pt>
 File: 00_Images/Injective.png Graphic file (type png)
 <use 00_Images/Injective.png>
 Package pdftex.def Info: 00_Images/Injective.png  used on input line 198.
 (pdftex.def)             Requested size: 124.77936pt x 68.6808pt.
- [10 <./00_Images/Injective.png>]
-<00_Images/Surjective.png, id=1480, 239.89626pt x 127.47626pt>
+ [10]
+<00_Images/Surjective.png, id=1509, 239.89626pt x 127.47626pt>
 File: 00_Images/Surjective.png Graphic file (type png)
 <use 00_Images/Surjective.png>
 Package pdftex.def Info: 00_Images/Surjective.png  used on input line 225.
 (pdftex.def)             Requested size: 124.77936pt x 66.30553pt.
-<00_Images/Bijective.png, id=1481, 232.87pt x 141.52875pt>
+<00_Images/Bijective.png, id=1510, 232.87pt x 141.52875pt>
 File: 00_Images/Bijective.png Graphic file (type png)
 <use 00_Images/Bijective.png>
 Package pdftex.def Info: 00_Images/Bijective.png  used on input line 252.
 (pdftex.def)             Requested size: 124.77936pt x 75.83482pt.
-<00_Images/Composition.png, id=1482, 386.44376pt x 153.57375pt>
+ [11 <./00_Images/Injective.png> <./00_Images/Surjective.png>]
+<00_Images/Composition.png, id=1523, 386.44376pt x 153.57375pt>
 File: 00_Images/Composition.png Graphic file (type png)
 <use 00_Images/Composition.png>
 Package pdftex.def Info: 00_Images/Composition.png  used on input line 259.
 (pdftex.def)             Requested size: 249.55872pt x 99.17497pt.
- [11 <./00_Images/Surjective.png> <./00_Images/Bijective.png>]
-<00_Images/Bijective_Property.png, id=1495, 374.39874pt x 184.69pt>
+<00_Images/Bijective_Property.png, id=1524, 374.39874pt x 184.69pt>
 File: 00_Images/Bijective_Property.png Graphic file (type png)
 <use 00_Images/Bijective_Property.png>
 Package pdftex.def Info: 00_Images/Bijective_Property.png  used on input line 275.
@@ -1233,353 +1233,353 @@ Overfull \hbox (1.60892pt too wide) detected at line 335
 \OML/lmm/m/it/10 B[] \OT1/lmr/m/n/10 = []
  []
 
-[12 <./00_Images/Composition.png> <./00_Images/Bijective_Property.png>]
-<00_Images/Complex_Plane_General.png, id=1503, 365.365pt x 219.82124pt>
+[12 <./00_Images/Bijective.png> <./00_Images/Composition.png> <./00_Images/Bijective_Property.png>]
+<00_Images/Complex_Plane_General.png, id=1533, 365.365pt x 219.82124pt>
 File: 00_Images/Complex_Plane_General.png Graphic file (type png)
 <use 00_Images/Complex_Plane_General.png>
 Package pdftex.def Info: 00_Images/Complex_Plane_General.png  used on input line 393.
 (pdftex.def)             Requested size: 249.55872pt x 150.1473pt.
- [13 <./00_Images/Complex_Plane_General.png>]
-<00_Images/Truth_Table.png, id=1514, 75.28125pt x 70.2625pt>
+ [13]
+<00_Images/Truth_Table.png, id=1543, 75.28125pt x 70.2625pt>
 File: 00_Images/Truth_Table.png Graphic file (type png)
 <use 00_Images/Truth_Table.png>
 Package pdftex.def Info: 00_Images/Truth_Table.png  used on input line 443.
 (pdftex.def)             Requested size: 99.82196pt x 93.17561pt.
-<00_Images/And.png, id=1515, 121.45375pt x 104.39pt>
+ [14 <./00_Images/Complex_Plane_General.png>]
+<00_Images/And.png, id=1555, 121.45375pt x 104.39pt>
 File: 00_Images/And.png Graphic file (type png)
 <use 00_Images/And.png>
 Package pdftex.def Info: 00_Images/And.png  used on input line 458.
 (pdftex.def)             Requested size: 124.77936pt x 107.24731pt.
- [14 <./00_Images/Truth_Table.png>]
-<00_Images/Or.png, id=1528, 113.42375pt x 106.3975pt>
+<00_Images/Or.png, id=1556, 113.42375pt x 106.3975pt>
 File: 00_Images/Or.png Graphic file (type png)
 <use 00_Images/Or.png>
 Package pdftex.def Info: 00_Images/Or.png  used on input line 464.
 (pdftex.def)             Requested size: 124.77936pt x 117.05058pt.
-<00_Images/Implication.png, id=1529, 152.57pt x 130.4875pt>
+<00_Images/Implication.png, id=1557, 152.57pt x 130.4875pt>
 File: 00_Images/Implication.png Graphic file (type png)
 <use 00_Images/Implication.png>
 Package pdftex.def Info: 00_Images/Implication.png  used on input line 483.
 (pdftex.def)             Requested size: 124.77936pt x 106.72366pt.
- [15 <./00_Images/And.png> <./00_Images/Or.png>]
-<00_Images/Converse.png, id=1537, 620.3175pt x 150.5625pt>
+ [15 <./00_Images/Truth_Table.png> <./00_Images/And.png> <./00_Images/Or.png>]
+<00_Images/Converse.png, id=1567, 620.3175pt x 150.5625pt>
 File: 00_Images/Converse.png Graphic file (type png)
 <use 00_Images/Converse.png>
 Package pdftex.def Info: 00_Images/Converse.png  used on input line 508.
 (pdftex.def)             Requested size: 249.55872pt x 60.57083pt.
-<00_Images/IFF.png, id=1538, 262.9825pt x 130.4875pt>
+<00_Images/IFF.png, id=1568, 262.9825pt x 130.4875pt>
 File: 00_Images/IFF.png Graphic file (type png)
 <use 00_Images/IFF.png>
 Package pdftex.def Info: 00_Images/IFF.png  used on input line 518.
 (pdftex.def)             Requested size: 124.77936pt x 61.91449pt.
- [16 <./00_Images/Implication.png> <./00_Images/Converse.png> <./00_Images/IFF.png>] [17]) [18] (./Lectures/01_Continuous_and_discrete_time_signals.tex
-<00_Images/Support.png, id=1570, 549.05125pt x 163.61125pt>
+ [16 <./00_Images/Implication.png> <./00_Images/Converse.png>] [17 <./00_Images/IFF.png>]) [18] (./Lectures/01_Continuous_and_discrete_time_signals.tex
+<00_Images/Support.png, id=1600, 549.05125pt x 163.61125pt>
 File: 00_Images/Support.png Graphic file (type png)
 <use 00_Images/Support.png>
 Package pdftex.def Info: 00_Images/Support.png  used on input line 28.
 (pdftex.def)             Requested size: 249.55872pt x 74.36583pt.
  [19 <./00_Images/Support.png>] [20]
-<00_Images/Zero.png, id=1612, 343.2825pt x 325.215pt>
+<00_Images/Zero.png, id=1642, 343.2825pt x 325.215pt>
 File: 00_Images/Zero.png Graphic file (type png)
 <use 00_Images/Zero.png>
 Package pdftex.def Info: 00_Images/Zero.png  used on input line 166.
 (pdftex.def)             Requested size: 249.55872pt x 236.42242pt.
-<00_Images/Rect.png, id=1613, 665.48625pt x 275.0275pt>
+<00_Images/Rect.png, id=1643, 665.48625pt x 275.0275pt>
 File: 00_Images/Rect.png Graphic file (type png)
 <use 00_Images/Rect.png>
 Package pdftex.def Info: 00_Images/Rect.png  used on input line 167.
 (pdftex.def)             Requested size: 249.55872pt x 103.13506pt.
-<00_Images/Impulse_Sig.png, id=1614, 501.875pt x 203.76125pt>
+<00_Images/Impulse_Sig.png, id=1644, 501.875pt x 203.76125pt>
 File: 00_Images/Impulse_Sig.png Graphic file (type png)
 <use 00_Images/Impulse_Sig.png>
 Package pdftex.def Info: 00_Images/Impulse_Sig.png  used on input line 168.
 (pdftex.def)             Requested size: 249.55872pt x 101.32072pt.
-<00_Images/Complex.png, id=1615, 409.53pt x 347.2975pt>
+<00_Images/Complex.png, id=1645, 409.53pt x 347.2975pt>
 File: 00_Images/Complex.png Graphic file (type png)
 <use 00_Images/Complex.png>
 Package pdftex.def Info: 00_Images/Complex.png  used on input line 169.
 (pdftex.def)             Requested size: 249.55872pt x 211.63919pt.
-<00_Images/Power.jpeg, id=1616, 1868.9825pt x 917.4275pt>
+<00_Images/Power.jpeg, id=1646, 1868.9825pt x 917.4275pt>
 File: 00_Images/Power.jpeg Graphic file (type jpg)
 <use 00_Images/Power.jpeg>
 Package pdftex.def Info: 00_Images/Power.jpeg  used on input line 170.
 (pdftex.def)             Requested size: 499.11745pt x 244.99297pt.
  [21 <./00_Images/Zero.png> <./00_Images/Rect.png>] [22 <./00_Images/Impulse_Sig.png> <./00_Images/Complex.png> <./00_Images/Power.jpeg>]
-<00_Images/Impulse_2.png, id=1631, 488.82625pt x 274.02374pt>
+<00_Images/Impulse_2.png, id=1661, 488.82625pt x 274.02374pt>
 File: 00_Images/Impulse_2.png Graphic file (type png)
 <use 00_Images/Impulse_2.png>
 Package pdftex.def Info: 00_Images/Impulse_2.png  used on input line 193.
 (pdftex.def)             Requested size: 249.55872pt x 139.89659pt.
-<00_Images/Finite.png, id=1632, 602.25pt x 143.53625pt>
+<00_Images/Finite.png, id=1662, 602.25pt x 143.53625pt>
 File: 00_Images/Finite.png Graphic file (type png)
 <use 00_Images/Finite.png>
 Package pdftex.def Info: 00_Images/Finite.png  used on input line 194.
 (pdftex.def)             Requested size: 249.55872pt x 59.47882pt.
-<00_Images/Countable.png, id=1633, 582.175pt x 196.735pt>
+<00_Images/Countable.png, id=1663, 582.175pt x 196.735pt>
 File: 00_Images/Countable.png Graphic file (type png)
 <use 00_Images/Countable.png>
 Package pdftex.def Info: 00_Images/Countable.png  used on input line 195.
 (pdftex.def)             Requested size: 249.55872pt x 84.33322pt.
  [23 <./00_Images/Impulse_2.png> <./00_Images/Finite.png> <./00_Images/Countable.png>]) [24] (./Lectures/02_Time_dilation_shifting.tex
-<00_Images/TD_Speed.png, id=1658, 759.83875pt x 356.33125pt>
+<00_Images/TD_Speed.png, id=1688, 759.83875pt x 356.33125pt>
 File: 00_Images/TD_Speed.png Graphic file (type png)
 <use 00_Images/TD_Speed.png>
 Package pdftex.def Info: 00_Images/TD_Speed.png  used on input line 13.
 (pdftex.def)             Requested size: 374.33807pt x 175.5499pt.
-<00_Images/TD_Slow.png, id=1659, 770.88pt x 356.33125pt>
+<00_Images/TD_Slow.png, id=1689, 770.88pt x 356.33125pt>
 File: 00_Images/TD_Slow.png Graphic file (type png)
 <use 00_Images/TD_Slow.png>
 Package pdftex.def Info: 00_Images/TD_Slow.png  used on input line 14.
 (pdftex.def)             Requested size: 374.33807pt x 173.03249pt.
-<00_Images/TR.png, id=1660, 768.8725pt x 357.335pt>
+<00_Images/TR.png, id=1690, 768.8725pt x 357.335pt>
 File: 00_Images/TR.png Graphic file (type png)
 <use 00_Images/TR.png>
 Package pdftex.def Info: 00_Images/TR.png  used on input line 23.
 (pdftex.def)             Requested size: 374.33807pt x 173.97792pt.
  [25 <./00_Images/TD_Speed.png> <./00_Images/TD_Slow.png>]
-<00_Images/TD.png, id=1671, 759.83875pt x 353.32pt>
+<00_Images/TD.png, id=1701, 759.83875pt x 353.32pt>
 File: 00_Images/TD.png Graphic file (type png)
 <use 00_Images/TD.png>
 Package pdftex.def Info: 00_Images/TD.png  used on input line 32.
 (pdftex.def)             Requested size: 374.33807pt x 174.06638pt.
-<00_Images/TA.png, id=1672, 753.81625pt x 349.305pt>
+<00_Images/TA.png, id=1702, 753.81625pt x 349.305pt>
 File: 00_Images/TA.png Graphic file (type png)
 <use 00_Images/TA.png>
 Package pdftex.def Info: 00_Images/TA.png  used on input line 41.
 (pdftex.def)             Requested size: 374.33807pt x 173.45815pt.
  [26 <./00_Images/TR.png> <./00_Images/TD.png>]
-<00_Images/TDS.png, id=1682, 764.8575pt x 357.335pt>
+<00_Images/TDS.png, id=1712, 764.8575pt x 357.335pt>
 File: 00_Images/TDS.png Graphic file (type png)
 <use 00_Images/TDS.png>
 Package pdftex.def Info: 00_Images/TDS.png  used on input line 48.
 (pdftex.def)             Requested size: 374.33807pt x 174.88847pt.
-<00_Images/TRDS.png, id=1683, 761.84625pt x 354.32375pt>
+<00_Images/TRDS.png, id=1713, 761.84625pt x 354.32375pt>
 File: 00_Images/TRDS.png Graphic file (type png)
 <use 00_Images/TRDS.png>
 Package pdftex.def Info: 00_Images/TRDS.png  used on input line 50.
 (pdftex.def)             Requested size: 374.33807pt x 174.09592pt.
  [27 <./00_Images/TA.png> <./00_Images/TDS.png>]
-<00_Images/DT1.png, id=1693, 663.47874pt x 276.03125pt>
+<00_Images/DT1.png, id=1723, 663.47874pt x 276.03125pt>
 File: 00_Images/DT1.png Graphic file (type png)
 <use 00_Images/DT1.png>
 Package pdftex.def Info: 00_Images/DT1.png  used on input line 58.
 (pdftex.def)             Requested size: 374.33807pt x 155.73892pt.
-<00_Images/DT2.png, id=1694, 664.4825pt x 266.9975pt>
+<00_Images/DT2.png, id=1724, 664.4825pt x 266.9975pt>
 File: 00_Images/DT2.png Graphic file (type png)
 <use 00_Images/DT2.png>
 Package pdftex.def Info: 00_Images/DT2.png  used on input line 59.
 (pdftex.def)             Requested size: 374.33807pt x 150.41385pt.
  [28 <./00_Images/TRDS.png> <./00_Images/DT1.png> <./00_Images/DT2.png>]
-<00_Images/FP_DT.png, id=1703, 634.37pt x 225.84375pt>
+<00_Images/FP_DT.png, id=1734, 634.37pt x 225.84375pt>
 File: 00_Images/FP_DT.png Graphic file (type png)
 <use 00_Images/FP_DT.png>
 Package pdftex.def Info: 00_Images/FP_DT.png  used on input line 133.
 (pdftex.def)             Requested size: 374.33807pt x 133.27422pt.
  [29]
-<00_Images/EO.png, id=1711, 514.92375pt x 270.00874pt>
+<00_Images/EO.png, id=1742, 514.92375pt x 270.00874pt>
 File: 00_Images/EO.png Graphic file (type png)
 <use 00_Images/EO.png>
 Package pdftex.def Info: 00_Images/EO.png  used on input line 160.
 (pdftex.def)             Requested size: 374.33807pt x 196.29309pt.
  [30 <./00_Images/FP_DT.png> <./00_Images/EO.png>]
-<00_Images/EO_Ex.png, id=1721, 390.45876pt x 271.0125pt>
+<00_Images/EO_Ex.png, id=1751, 390.45876pt x 271.0125pt>
 File: 00_Images/EO_Ex.png Graphic file (type png)
 <use 00_Images/EO_Ex.png>
 Package pdftex.def Info: 00_Images/EO_Ex.png  used on input line 194.
 (pdftex.def)             Requested size: 249.55872pt x 173.21582pt.
 ) [31 <./00_Images/EO_Ex.png>] (./Lectures/03_Complex_exponential_signals.tex
-<00_Images/CE_W0.png, id=1731, 495.8525pt x 150.5625pt>
+<00_Images/CE_W0.png, id=1761, 495.8525pt x 150.5625pt>
 File: 00_Images/CE_W0.png Graphic file (type png)
 <use 00_Images/CE_W0.png>
 Package pdftex.def Info: 00_Images/CE_W0.png  used on input line 26.
 (pdftex.def)             Requested size: 374.33807pt x 113.66594pt.
-<00_Images/CCW_CW.png, id=1732, 500.87125pt x 129.48375pt>
+<00_Images/CCW_CW.png, id=1762, 500.87125pt x 129.48375pt>
 File: 00_Images/CCW_CW.png Graphic file (type png)
 <use 00_Images/CCW_CW.png>
 Package pdftex.def Info: 00_Images/CCW_CW.png  used on input line 43.
 (pdftex.def)             Requested size: 374.33807pt x 96.77667pt.
-<00_Images/RUMP.png, id=1733, 434.62375pt x 252.945pt>
+<00_Images/RUMP.png, id=1763, 434.62375pt x 252.945pt>
 File: 00_Images/RUMP.png Graphic file (type png)
 <use 00_Images/RUMP.png>
 Package pdftex.def Info: 00_Images/RUMP.png  used on input line 50.
 (pdftex.def)             Requested size: 374.33807pt x 217.87196pt.
  [32 <./00_Images/CE_W0.png> <./00_Images/CCW_CW.png>]
-<00_Images/RE_IM.png, id=1743, 521.95pt x 181.67876pt>
+<00_Images/RE_IM.png, id=1773, 521.95pt x 181.67876pt>
 File: 00_Images/RE_IM.png Graphic file (type png)
 <use 00_Images/RE_IM.png>
 Package pdftex.def Info: 00_Images/RE_IM.png  used on input line 69.
 (pdftex.def)             Requested size: 374.33807pt x 130.29851pt.
-<00_Images/GC.png, id=1744, 474.77374pt x 211.79124pt>
+<00_Images/GC.png, id=1774, 474.77374pt x 211.79124pt>
 File: 00_Images/GC.png Graphic file (type png)
 <use 00_Images/GC.png>
 Package pdftex.def Info: 00_Images/GC.png  used on input line 81.
 (pdftex.def)             Requested size: 374.33807pt x 166.9933pt.
  [33 <./00_Images/RUMP.png> <./00_Images/RE_IM.png>]
-<00_Images/RE_IM_GC.png, id=1753, 516.93124pt x 279.0425pt>
+<00_Images/RE_IM_GC.png, id=1783, 516.93124pt x 279.0425pt>
 File: 00_Images/RE_IM_GC.png Graphic file (type png)
 <use 00_Images/RE_IM_GC.png>
 Package pdftex.def Info: 00_Images/RE_IM_GC.png  used on input line 86.
 (pdftex.def)             Requested size: 374.33807pt x 202.07709pt.
  [34 <./00_Images/GC.png> <./00_Images/RE_IM_GC.png>]
-<00_Images/RE_IM_DT.png, id=1762, 460.72125pt x 244.915pt>
+<00_Images/RE_IM_DT.png, id=1792, 460.72125pt x 244.915pt>
 File: 00_Images/RE_IM_DT.png Graphic file (type png)
 <use 00_Images/RE_IM_DT.png>
 Package pdftex.def Info: 00_Images/RE_IM_DT.png  used on input line 112.
 (pdftex.def)             Requested size: 374.33807pt x 198.99294pt.
  [35 <./00_Images/RE_IM_DT.png>]
-<00_Images/SIG_EX.png, id=1774, 364.36125pt x 97.36375pt>
+<00_Images/SIG_EX.png, id=1804, 364.36125pt x 97.36375pt>
 File: 00_Images/SIG_EX.png Graphic file (type png)
 <use 00_Images/SIG_EX.png>
 Package pdftex.def Info: 00_Images/SIG_EX.png  used on input line 213.
 (pdftex.def)             Requested size: 374.33807pt x 100.0332pt.
  [36 <./00_Images/SIG_EX.png>]) [37] (./Lectures/04_Step_and_impulse_functions.tex
-<00_Images/DT_UI.png, id=1800, 452.69125pt x 110.4125pt>
+<00_Images/DT_UI.png, id=1830, 452.69125pt x 110.4125pt>
 File: 00_Images/DT_UI.png Graphic file (type png)
 <use 00_Images/DT_UI.png>
 Package pdftex.def Info: 00_Images/DT_UI.png  used on input line 11.
 (pdftex.def)             Requested size: 249.55872pt x 60.86688pt.
-<00_Images/DTS.png, id=1801, 761.84625pt x 281.05pt>
+<00_Images/DTS.png, id=1831, 761.84625pt x 281.05pt>
 File: 00_Images/DTS.png Graphic file (type png)
 <use 00_Images/DTS.png>
 Package pdftex.def Info: 00_Images/DTS.png  used on input line 22.
 (pdftex.def)             Requested size: 249.55872pt x 92.06062pt.
-<00_Images/DT_US.png, id=1802, 441.65pt x 101.37875pt>
+<00_Images/DT_US.png, id=1832, 441.65pt x 101.37875pt>
 File: 00_Images/DT_US.png Graphic file (type png)
 <use 00_Images/DT_US.png>
 Package pdftex.def Info: 00_Images/DT_US.png  used on input line 41.
 (pdftex.def)             Requested size: 249.55872pt x 57.28528pt.
  [38 <./00_Images/DT_UI.png> <./00_Images/DTS.png> <./00_Images/DT_US.png>]
-<00_Images/RS.png, id=1816, 439.6425pt x 347.2975pt>
+<00_Images/RS.png, id=1847, 439.6425pt x 347.2975pt>
 File: 00_Images/RS.png Graphic file (type png)
 <use 00_Images/RS.png>
 Package pdftex.def Info: 00_Images/RS.png  used on input line 60.
 (pdftex.def)             Requested size: 249.55872pt x 197.14023pt.
-<00_Images/RS_CV.png, id=1817, 380.42125pt x 378.41376pt>
+<00_Images/RS_CV.png, id=1848, 380.42125pt x 378.41376pt>
 File: 00_Images/RS_CV.png Graphic file (type png)
 <use 00_Images/RS_CV.png>
 Package pdftex.def Info: 00_Images/RS_CV.png  used on input line 73.
 (pdftex.def)             Requested size: 249.55872pt x 248.2468pt.
  [39 <./00_Images/RS.png>]
-<00_Images/US_CT.png, id=1827, 336.25626pt x 193.72375pt>
+<00_Images/US_CT.png, id=1857, 336.25626pt x 193.72375pt>
 File: 00_Images/US_CT.png Graphic file (type png)
 <use 00_Images/US_CT.png>
 Package pdftex.def Info: 00_Images/US_CT.png  used on input line 123.
 (pdftex.def)             Requested size: 249.55872pt x 143.77602pt.
  [40 <./00_Images/RS_CV.png>]
-<00_Images/DELTA.png, id=1839, 265.99374pt x 158.5925pt>
+<00_Images/DELTA.png, id=1869, 265.99374pt x 158.5925pt>
 File: 00_Images/DELTA.png Graphic file (type png)
 <use 00_Images/DELTA.png>
 Package pdftex.def Info: 00_Images/DELTA.png  used on input line 136.
 (pdftex.def)             Requested size: 249.55872pt x 148.79623pt.
-<00_Images/D.png, id=1840, 567.11874pt x 239.89626pt>
+<00_Images/D.png, id=1870, 567.11874pt x 239.89626pt>
 File: 00_Images/D.png Graphic file (type png)
 <use 00_Images/D.png>
 Package pdftex.def Info: 00_Images/D.png  used on input line 145.
 (pdftex.def)             Requested size: 249.55872pt x 105.56564pt.
  [41 <./00_Images/US_CT.png> <./00_Images/DELTA.png>] [42 <./00_Images/D.png>]
-<00_Images/PRO.png, id=1858, 577.15625pt x 331.2375pt>
+<00_Images/PRO.png, id=1888, 577.15625pt x 331.2375pt>
 File: 00_Images/PRO.png Graphic file (type png)
 <use 00_Images/PRO.png>
 Package pdftex.def Info: 00_Images/PRO.png  used on input line 218.
 (pdftex.def)             Requested size: 249.55872pt x 143.22792pt.
-<00_Images/PRO1.png, id=1859, 362.35374pt x 253.94875pt>
+<00_Images/PRO1.png, id=1889, 362.35374pt x 253.94875pt>
 File: 00_Images/PRO1.png Graphic file (type png)
 <use 00_Images/PRO1.png>
 Package pdftex.def Info: 00_Images/PRO1.png  used on input line 221.
 (pdftex.def)             Requested size: 249.55872pt x 174.89932pt.
 ) [43 <./00_Images/PRO.png> <./00_Images/PRO1.png>] (./Lectures/05_General_systems_and_basic_properties.tex
-<00_Images/DT_S.png, id=1867, 467.7475pt x 533.995pt>
+<00_Images/DT_S.png, id=1897, 467.7475pt x 533.995pt>
 File: 00_Images/DT_S.png Graphic file (type png)
 <use 00_Images/DT_S.png>
 Package pdftex.def Info: 00_Images/DT_S.png  used on input line 7.
 (pdftex.def)             Requested size: 374.33807pt x 427.37584pt.
-<00_Images/CT_S.png, id=1868, 421.575pt x 597.23125pt>
+<00_Images/CT_S.png, id=1898, 421.575pt x 597.23125pt>
 File: 00_Images/CT_S.png Graphic file (type png)
 <use 00_Images/CT_S.png>
 Package pdftex.def Info: 00_Images/CT_S.png  used on input line 16.
 (pdftex.def)             Requested size: 374.33807pt x 530.3221pt.
  [44 <./00_Images/DT_S.png>]
-<00_Images/AM.png, id=1876, 662.475pt x 228.855pt>
+<00_Images/AM.png, id=1906, 662.475pt x 228.855pt>
 File: 00_Images/AM.png Graphic file (type png)
 <use 00_Images/AM.png>
 Package pdftex.def Info: 00_Images/AM.png  used on input line 21.
 (pdftex.def)             Requested size: 374.33807pt x 129.31728pt.
-<00_Images/MI.png, id=1877, 364.36125pt x 221.82875pt>
+<00_Images/MI.png, id=1907, 364.36125pt x 221.82875pt>
 File: 00_Images/MI.png Graphic file (type png)
 <use 00_Images/MI.png>
 Package pdftex.def Info: 00_Images/MI.png  used on input line 26.
 (pdftex.def)             Requested size: 249.55872pt x 151.93483pt.
-<00_Images/CSD.png, id=1878, 256.96pt x 164.615pt>
+<00_Images/CSD.png, id=1908, 256.96pt x 164.615pt>
 File: 00_Images/CSD.png Graphic file (type png)
 <use 00_Images/CSD.png>
 Package pdftex.def Info: 00_Images/CSD.png  used on input line 28.
 (pdftex.def)             Requested size: 249.55872pt x 159.87729pt.
  [45 <./00_Images/CT_S.png>]
-<00_Images/MIMO.png, id=1885, 244.915pt x 118.4425pt>
+<00_Images/MIMO.png, id=1915, 244.915pt x 118.4425pt>
 File: 00_Images/MIMO.png Graphic file (type png)
 <use 00_Images/MIMO.png>
 Package pdftex.def Info: 00_Images/MIMO.png  used on input line 33.
 (pdftex.def)             Requested size: 249.55872pt x 120.69046pt.
  [46 <./00_Images/AM.png> <./00_Images/MI.png> <./00_Images/CSD.png>]
-<00_Images/Series.png, id=1893, 466.74374pt x 74.2775pt>
+<00_Images/Series.png, id=1923, 466.74374pt x 74.2775pt>
 File: 00_Images/Series.png Graphic file (type png)
 <use 00_Images/Series.png>
 Package pdftex.def Info: 00_Images/Series.png  used on input line 46.
 (pdftex.def)             Requested size: 249.55872pt x 39.71483pt.
-<00_Images/Parallel.png, id=1894, 404.51125pt x 148.555pt>
+<00_Images/Parallel.png, id=1924, 404.51125pt x 148.555pt>
 File: 00_Images/Parallel.png Graphic file (type png)
 <use 00_Images/Parallel.png>
 Package pdftex.def Info: 00_Images/Parallel.png  used on input line 51.
 (pdftex.def)             Requested size: 249.55872pt x 91.64978pt.
-<00_Images/Series_Parallel.png, id=1895, 689.57625pt x 151.56625pt>
+<00_Images/Series_Parallel.png, id=1925, 689.57625pt x 151.56625pt>
 File: 00_Images/Series_Parallel.png Graphic file (type png)
 <use 00_Images/Series_Parallel.png>
 Package pdftex.def Info: 00_Images/Series_Parallel.png  used on input line 53.
 (pdftex.def)             Requested size: 249.55872pt x 54.85289pt.
-<00_Images/Feedback.png, id=1896, 512.91624pt x 159.59625pt>
+<00_Images/Feedback.png, id=1926, 512.91624pt x 159.59625pt>
 File: 00_Images/Feedback.png Graphic file (type png)
 <use 00_Images/Feedback.png>
 Package pdftex.def Info: 00_Images/Feedback.png  used on input line 55.
 (pdftex.def)             Requested size: 249.55872pt x 77.65247pt.
-<00_Images/FBS.png, id=1897, 175.65625pt x 109.40875pt>
+<00_Images/FBS.png, id=1927, 175.65625pt x 109.40875pt>
 File: 00_Images/FBS.png Graphic file (type png)
 <use 00_Images/FBS.png>
 Package pdftex.def Info: 00_Images/FBS.png  used on input line 56.
 (pdftex.def)             Requested size: 249.55872pt x 155.45163pt.
  [47 <./00_Images/MIMO.png> <./00_Images/Series.png> <./00_Images/Parallel.png> <./00_Images/Series_Parallel.png>]
-<00_Images/MEMORYLESS.png, id=1906, 434.62375pt x 459.7175pt>
+<00_Images/MEMORYLESS.png, id=1936, 434.62375pt x 459.7175pt>
 File: 00_Images/MEMORYLESS.png Graphic file (type png)
 <use 00_Images/MEMORYLESS.png>
 Package pdftex.def Info: 00_Images/MEMORYLESS.png  used on input line 84.
 (pdftex.def)             Requested size: 249.55872pt x 263.97073pt.
-<00_Images/MEMORY.png, id=1907, 807.015pt x 294.09875pt>
+<00_Images/MEMORY.png, id=1937, 807.015pt x 294.09875pt>
 File: 00_Images/MEMORY.png Graphic file (type png)
 <use 00_Images/MEMORY.png>
 Package pdftex.def Info: 00_Images/MEMORY.png  used on input line 86.
 (pdftex.def)             Requested size: 249.55872pt x 90.94528pt.
-<00_Images/TDL.png, id=1908, 601.24625pt x 310.15875pt>
+<00_Images/TDL.png, id=1938, 601.24625pt x 310.15875pt>
 File: 00_Images/TDL.png Graphic file (type png)
 <use 00_Images/TDL.png>
 Package pdftex.def Info: 00_Images/TDL.png  used on input line 87.
 (pdftex.def)             Requested size: 374.33807pt x 193.11044pt.
-<00_Images/ANTICIPATION.png, id=1909, 258.9675pt x 69.25874pt>
+<00_Images/ANTICIPATION.png, id=1939, 258.9675pt x 69.25874pt>
 File: 00_Images/ANTICIPATION.png Graphic file (type png)
 <use 00_Images/ANTICIPATION.png>
 Package pdftex.def Info: 00_Images/ANTICIPATION.png  used on input line 88.
 (pdftex.def)             Requested size: 249.55872pt x 66.74548pt.
  [48 <./00_Images/Feedback.png> <./00_Images/FBS.png>] [49 <./00_Images/MEMORYLESS.png> <./00_Images/MEMORY.png> <./00_Images/TDL.png>]
-<00_Images/INVERTIBLE.png, id=1926, 576.1525pt x 326.21875pt>
+<00_Images/INVERTIBLE.png, id=1957, 576.1525pt x 326.21875pt>
 File: 00_Images/INVERTIBLE.png Graphic file (type png)
 <use 00_Images/INVERTIBLE.png>
 Package pdftex.def Info: 00_Images/INVERTIBLE.png  used on input line 111.
 (pdftex.def)             Requested size: 374.33807pt x 211.96002pt.
-<00_Images/CAUSAL.png, id=1927, 946.53625pt x 470.75874pt>
+<00_Images/CAUSAL.png, id=1958, 946.53625pt x 470.75874pt>
 File: 00_Images/CAUSAL.png Graphic file (type png)
 <use 00_Images/CAUSAL.png>
 Package pdftex.def Info: 00_Images/CAUSAL.png  used on input line 127.
 (pdftex.def)             Requested size: 374.33807pt x 186.17393pt.
  [50 <./00_Images/ANTICIPATION.png> <./00_Images/INVERTIBLE.png>]
-<00_Images/C.png, id=1935, 287.0725pt x 171.64125pt>
+<00_Images/C.png, id=1966, 287.0725pt x 171.64125pt>
 File: 00_Images/C.png Graphic file (type png)
 <use 00_Images/C.png>
 Package pdftex.def Info: 00_Images/C.png  used on input line 131.
@@ -1589,128 +1589,128 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--137
 
  []
 
-<00_Images/STABLE.png, id=1936, 578.16pt x 431.6125pt>
+<00_Images/STABLE.png, id=1967, 578.16pt x 431.6125pt>
 File: 00_Images/STABLE.png Graphic file (type png)
 <use 00_Images/STABLE.png>
 Package pdftex.def Info: 00_Images/STABLE.png  used on input line 144.
 (pdftex.def)             Requested size: 249.55872pt x 186.30103pt.
-<00_Images/NS.png, id=1937, 542.025pt x 302.12875pt>
+<00_Images/NS.png, id=1968, 542.025pt x 302.12875pt>
 File: 00_Images/NS.png Graphic file (type png)
 <use 00_Images/NS.png>
 Package pdftex.def Info: 00_Images/NS.png  used on input line 145.
 (pdftex.def)             Requested size: 249.55872pt x 139.10538pt.
 [51 <./00_Images/CAUSAL.png> <./00_Images/C.png>]
-<00_Images/Ti.png, id=1947, 443.6575pt x 262.9825pt>
+<00_Images/Ti.png, id=1977, 443.6575pt x 262.9825pt>
 File: 00_Images/Ti.png Graphic file (type png)
 <use 00_Images/Ti.png>
 Package pdftex.def Info: 00_Images/Ti.png  used on input line 161.
 (pdftex.def)             Requested size: 249.55872pt x 147.92728pt.
-<00_Images/TV.png, id=1948, 384.43625pt x 217.81375pt>
+<00_Images/TV.png, id=1978, 384.43625pt x 217.81375pt>
 File: 00_Images/TV.png Graphic file (type png)
 <use 00_Images/TV.png>
 Package pdftex.def Info: 00_Images/TV.png  used on input line 163.
 (pdftex.def)             Requested size: 249.55872pt x 141.39777pt.
  [52 <./00_Images/STABLE.png> <./00_Images/NS.png>] [53 <./00_Images/Ti.png> <./00_Images/TV.png>]
-<00_Images/L.png, id=1966, 294.09875pt x 418.56375pt>
+<00_Images/L.png, id=1996, 294.09875pt x 418.56375pt>
 File: 00_Images/L.png Graphic file (type png)
 <use 00_Images/L.png>
 Package pdftex.def Info: 00_Images/L.png  used on input line 218.
 (pdftex.def)             Requested size: 374.33807pt x 532.76436pt.
-<00_Images/NL1.png, id=1967, 548.0475pt x 463.7325pt>
+<00_Images/NL1.png, id=1997, 548.0475pt x 463.7325pt>
 File: 00_Images/NL1.png Graphic file (type png)
 <use 00_Images/NL1.png>
 Package pdftex.def Info: 00_Images/NL1.png  used on input line 220.
 (pdftex.def)             Requested size: 374.33807pt x 316.7562pt.
  [54 <./00_Images/L.png>]) [55 <./00_Images/NL1.png>] (./Lectures/06_Impulse_response.tex
-<00_Images/SC1.png, id=1980, 735.74875pt x 210.7875pt>
+<00_Images/SC1.png, id=2010, 735.74875pt x 210.7875pt>
 File: 00_Images/SC1.png Graphic file (type png)
 <use 00_Images/SC1.png>
 Package pdftex.def Info: 00_Images/SC1.png  used on input line 21.
 (pdftex.def)             Requested size: 249.55872pt x 71.49632pt.
-<00_Images/SC2.png, id=1981, 273.02pt x 92.345pt>
+<00_Images/SC2.png, id=2011, 273.02pt x 92.345pt>
 File: 00_Images/SC2.png Graphic file (type png)
 <use 00_Images/SC2.png>
 Package pdftex.def Info: 00_Images/SC2.png  used on input line 26.
 (pdftex.def)             Requested size: 249.55872pt x 84.41028pt.
-<00_Images/SC3.png, id=1982, 537.00626pt x 187.70125pt>
+<00_Images/SC3.png, id=2012, 537.00626pt x 187.70125pt>
 File: 00_Images/SC3.png Graphic file (type png)
 <use 00_Images/SC3.png>
 Package pdftex.def Info: 00_Images/SC3.png  used on input line 28.
 (pdftex.def)             Requested size: 249.55872pt x 87.22862pt.
-<00_Images/SC4.png, id=1983, 556.0775pt x 190.7125pt>
+<00_Images/SC4.png, id=2013, 556.0775pt x 190.7125pt>
 File: 00_Images/SC4.png Graphic file (type png)
 <use 00_Images/SC4.png>
 Package pdftex.def Info: 00_Images/SC4.png  used on input line 30.
 (pdftex.def)             Requested size: 249.55872pt x 85.58992pt.
-<00_Images/SC5.png, id=1984, 440.64626pt x 153.57375pt>
+<00_Images/SC5.png, id=2014, 440.64626pt x 153.57375pt>
 File: 00_Images/SC5.png Graphic file (type png)
 <use 00_Images/SC5.png>
 Package pdftex.def Info: 00_Images/SC5.png  used on input line 32.
 (pdftex.def)             Requested size: 249.55872pt x 86.97552pt.
  [56 <./00_Images/SC1.png> <./00_Images/SC2.png> <./00_Images/SC3.png>]
-<00_Images/GC1.png, id=1997, 427.5975pt x 173.64874pt>
+<00_Images/GC1.png, id=2027, 427.5975pt x 173.64874pt>
 File: 00_Images/GC1.png Graphic file (type png)
 <use 00_Images/GC1.png>
 Package pdftex.def Info: 00_Images/GC1.png  used on input line 45.
 (pdftex.def)             Requested size: 249.55872pt x 101.34695pt.
-<00_Images/EX.png, id=1998, 540.0175pt x 604.2575pt>
+<00_Images/EX.png, id=2028, 540.0175pt x 604.2575pt>
 File: 00_Images/EX.png Graphic file (type png)
 <use 00_Images/EX.png>
 Package pdftex.def Info: 00_Images/EX.png  used on input line 49.
 (pdftex.def)             Requested size: 249.55872pt x 279.24344pt.
  [57 <./00_Images/SC4.png> <./00_Images/SC5.png> <./00_Images/GC1.png>]) [58 <./00_Images/EX.png>] (./Lectures/07_Convolution_in_discrete_time.tex
-<00_Images/CLTI.png, id=2015, 194.7275pt x 55.20625pt>
+<00_Images/CLTI.png, id=2045, 194.7275pt x 55.20625pt>
 File: 00_Images/CLTI.png Graphic file (type png)
 <use 00_Images/CLTI.png>
 Package pdftex.def Info: 00_Images/CLTI.png  used on input line 10.
 (pdftex.def)             Requested size: 249.55872pt x 70.75386pt.
-<00_Images/PM.png, id=2016, 702.625pt x 633.36626pt>
+<00_Images/PM.png, id=2046, 702.625pt x 633.36626pt>
 File: 00_Images/PM.png Graphic file (type png)
 <use 00_Images/PM.png>
 Package pdftex.def Info: 00_Images/PM.png  used on input line 14.
 (pdftex.def)             Requested size: 249.55872pt x 224.95773pt.
-<00_Images/PMEX.png, id=2017, 600.2425pt x 222.8325pt>
+<00_Images/PMEX.png, id=2047, 600.2425pt x 222.8325pt>
 File: 00_Images/PMEX.png Graphic file (type png)
 <use 00_Images/PMEX.png>
 Package pdftex.def Info: 00_Images/PMEX.png  used on input line 23.
 (pdftex.def)             Requested size: 249.55872pt x 92.64377pt.
  [59 <./00_Images/CLTI.png> <./00_Images/PM.png> <./00_Images/PMEX.png>]
-<00_Images/EX1.png, id=2027, 349.305pt x 356.33125pt>
+<00_Images/EX1.png, id=2057, 349.305pt x 356.33125pt>
 File: 00_Images/EX1.png Graphic file (type png)
 <use 00_Images/EX1.png>
 Package pdftex.def Info: 00_Images/EX1.png  used on input line 34.
 (pdftex.def)             Requested size: 249.55872pt x 254.57916pt.
  [60 <./00_Images/EX1.png>]
-<00_Images/GE.png, id=2035, 846.16125pt x 602.25pt>
+<00_Images/GE.png, id=2065, 846.16125pt x 602.25pt>
 File: 00_Images/GE.png Graphic file (type png)
 <use 00_Images/GE.png>
 Package pdftex.def Info: 00_Images/GE.png  used on input line 86.
 (pdftex.def)             Requested size: 374.33807pt x 266.43358pt.
  [61 <./00_Images/GE.png>] [62]) (./Lectures/09_Properties_of_LTI_systems.tex
-<00_Images/CS.png, id=2056, 619.31375pt x 519.9425pt>
+<00_Images/CS.png, id=2087, 619.31375pt x 519.9425pt>
 File: 00_Images/CS.png Graphic file (type png)
 <use 00_Images/CS.png>
 Package pdftex.def Info: 00_Images/CS.png  used on input line 4.
 (pdftex.def)             Requested size: 374.33807pt x 314.28455pt.
  [63]
-<00_Images/ST.png, id=2066, 317.185pt x 46.1725pt>
+<00_Images/ST.png, id=2096, 317.185pt x 46.1725pt>
 File: 00_Images/ST.png Graphic file (type png)
 <use 00_Images/ST.png>
 Package pdftex.def Info: 00_Images/ST.png  used on input line 40.
 (pdftex.def)             Requested size: 374.33807pt x 54.49643pt.
  [64 <./00_Images/CS.png>]) [65 <./00_Images/ST.png>] (./Lectures/08_Convolution_in_continuous_time.tex
-<00_Images/D1.png, id=2083, 514.92375pt x 776.9025pt>
+<00_Images/D1.png, id=2113, 514.92375pt x 776.9025pt>
 File: 00_Images/D1.png Graphic file (type png)
 <use 00_Images/D1.png>
 Package pdftex.def Info: 00_Images/D1.png  used on input line 9.
 (pdftex.def)             Requested size: 374.33807pt x 564.79875pt.
  [66] [67 <./00_Images/D1.png>]
-<00_Images/D2.png, id=2096, 1061.9675pt x 480.79625pt>
+<00_Images/D2.png, id=2126, 1061.9675pt x 480.79625pt>
 File: 00_Images/D2.png Graphic file (type png)
 <use 00_Images/D2.png>
 Package pdftex.def Info: 00_Images/D2.png  used on input line 26.
 (pdftex.def)             Requested size: 374.33807pt x 169.47702pt.
-<00_Images/A.png, id=2097, 531.9875pt x 425.59pt>
+<00_Images/A.png, id=2127, 531.9875pt x 425.59pt>
 File: 00_Images/A.png Graphic file (type png)
 <use 00_Images/A.png>
 Package pdftex.def Info: 00_Images/A.png  used on input line 55.
@@ -1719,61 +1719,61 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 59
  (/usr/local/texlive/2024/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [68 <./00_Images/D2.png>] [69{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc} <./00_Images/A.png>]
-<00_Images/E1.png, id=2109, 470.75874pt x 861.2175pt>
+<00_Images/E1.png, id=2139, 470.75874pt x 861.2175pt>
 File: 00_Images/E1.png Graphic file (type png)
 <use 00_Images/E1.png>
 Package pdftex.def Info: 00_Images/E1.png  used on input line 104.
 (pdftex.def)             Requested size: 349.38068pt x 639.17015pt.
  [70]
-<00_Images/E3.png, id=2115, 454.69875pt x 559.08875pt>
+<00_Images/E3.png, id=2145, 454.69875pt x 559.08875pt>
 File: 00_Images/E3.png Graphic file (type png)
 <use 00_Images/E3.png>
 Package pdftex.def Info: 00_Images/E3.png  used on input line 108.
 (pdftex.def)             Requested size: 349.38068pt x 429.59537pt.
-<00_Images/E4.png, id=2116, 505.89pt x 354.32375pt>
+<00_Images/E4.png, id=2146, 505.89pt x 354.32375pt>
 File: 00_Images/E4.png Graphic file (type png)
 <use 00_Images/E4.png>
 Package pdftex.def Info: 00_Images/E4.png  used on input line 109.
 (pdftex.def)             Requested size: 349.38068pt x 244.71072pt.
  [71 <./00_Images/E1.png>] [72 <./00_Images/E3.png>]) [73 <./00_Images/E4.png>] (./Lectures/10_Periodic_signals_and_Fourier_series_CT.tex
-<00_Images/EF.png, id=2148, 312.16624pt x 72.27pt>
+<00_Images/EF.png, id=2178, 312.16624pt x 72.27pt>
 File: 00_Images/EF.png Graphic file (type png)
 <use 00_Images/EF.png>
 Package pdftex.def Info: 00_Images/EF.png  used on input line 52.
 (pdftex.def)             Requested size: 249.55872pt x 57.77635pt.
  [74] [75 <./00_Images/EF.png>] [76] [77] [78] [79]
-<00_Images/SQWAVE.png, id=2187, 493.845pt x 85.31876pt>
+<00_Images/SQWAVE.png, id=2217, 493.845pt x 85.31876pt>
 File: 00_Images/SQWAVE.png Graphic file (type png)
 <use 00_Images/SQWAVE.png>
 Package pdftex.def Info: 00_Images/SQWAVE.png  used on input line 427.
 (pdftex.def)             Requested size: 374.33807pt x 64.67107pt.
-<00_Images/FSC.png, id=2188, 411.5375pt x 269.005pt>
+<00_Images/FSC.png, id=2218, 411.5375pt x 269.005pt>
 File: 00_Images/FSC.png Graphic file (type png)
 <use 00_Images/FSC.png>
 Package pdftex.def Info: 00_Images/FSC.png  used on input line 498.
 (pdftex.def)             Requested size: 249.55872pt x 163.1282pt.
-<00_Images/GP.png, id=2189, 828.09375pt x 387.4475pt>
+<00_Images/GP.png, id=2219, 828.09375pt x 387.4475pt>
 File: 00_Images/GP.png Graphic file (type png)
 <use 00_Images/GP.png>
 Package pdftex.def Info: 00_Images/GP.png  used on input line 522.
 (pdftex.def)             Requested size: 374.33807pt x 175.14787pt.
-<00_Images/NUC.png, id=2190, 750.805pt x 253.94875pt>
+<00_Images/NUC.png, id=2220, 750.805pt x 253.94875pt>
 File: 00_Images/NUC.png Graphic file (type png)
 <use 00_Images/NUC.png>
 Package pdftex.def Info: 00_Images/NUC.png  used on input line 524.
 (pdftex.def)             Requested size: 374.33807pt x 126.61755pt.
  [80 <./00_Images/SQWAVE.png>] [81] [82 <./00_Images/FSC.png> <./00_Images/GP.png>]) (./Lectures/11_Properties_of_Fourier_series.tex [83 <./00_Images/NUC.png>] [84] [85]
-<00_Images/MOD.png, id=2240, 971.63pt x 201.75375pt>
+<00_Images/MOD.png, id=2270, 971.63pt x 201.75375pt>
 File: 00_Images/MOD.png Graphic file (type png)
 <use 00_Images/MOD.png>
 Package pdftex.def Info: 00_Images/MOD.png  used on input line 270.
 (pdftex.def)             Requested size: 374.33807pt x 77.7293pt.
-<00_Images/MOD1.png, id=2241, 972.63374pt x 751.80875pt>
+<00_Images/MOD1.png, id=2271, 972.63374pt x 751.80875pt>
 File: 00_Images/MOD1.png Graphic file (type png)
 <use 00_Images/MOD1.png>
 Package pdftex.def Info: 00_Images/MOD1.png  used on input line 271.
 (pdftex.def)             Requested size: 374.33807pt x 289.34975pt.
-<00_Images/MOD2.png, id=2242, 947.54pt x 310.15875pt>
+<00_Images/MOD2.png, id=2272, 947.54pt x 310.15875pt>
 File: 00_Images/MOD2.png Graphic file (type png)
 <use 00_Images/MOD2.png>
 Package pdftex.def Info: 00_Images/MOD2.png  used on input line 275.
@@ -1781,7 +1781,7 @@ Package pdftex.def Info: 00_Images/MOD2.png  used on input line 275.
  [86
 
  <./00_Images/MOD.png>] [87 <./00_Images/MOD1.png> <./00_Images/MOD2.png>] [88]) [89] (./Lectures/12_Periodic_signals_and_Fourier_series_DT.tex
-<00_Images/0.png, id=2286, 623.32875pt x 210.7875pt>
+<00_Images/0.png, id=2316, 623.32875pt x 210.7875pt>
 File: 00_Images/0.png Graphic file (type png)
 <use 00_Images/0.png>
 Package pdftex.def Info: 00_Images/0.png  used on input line 30.
@@ -1791,237 +1791,264 @@ File: 00_Images/0.png Graphic file (type png)
 Package pdftex.def Info: 00_Images/0.png  used on input line 33.
 (pdftex.def)             Requested size: 374.33807pt x 126.58926pt.
  [90 <./00_Images/0.png>]
-<00_Images/BS.png, id=2293, 667.49374pt x 268.00125pt>
+<00_Images/BS.png, id=2323, 667.49374pt x 268.00125pt>
 File: 00_Images/BS.png Graphic file (type png)
 <use 00_Images/BS.png>
 Package pdftex.def Info: 00_Images/BS.png  used on input line 45.
 (pdftex.def)             Requested size: 374.33807pt x 150.30049pt.
  [91 <./00_Images/BS.png>]
-<00_Images/SW.png, id=2301, 854.19125pt x 248.93pt>
+<00_Images/SW.png, id=2331, 854.19125pt x 248.93pt>
 File: 00_Images/SW.png Graphic file (type png)
 <use 00_Images/SW.png>
 Package pdftex.def Info: 00_Images/SW.png  used on input line 151.
 (pdftex.def)             Requested size: 374.33807pt x 109.08891pt.
-<00_Images/SW2.png, id=2302, 1017.8025pt x 226.8475pt>
+<00_Images/SW2.png, id=2332, 1017.8025pt x 226.8475pt>
 File: 00_Images/SW2.png Graphic file (type png)
 <use 00_Images/SW2.png>
 Package pdftex.def Info: 00_Images/SW2.png  used on input line 168.
 (pdftex.def)             Requested size: 374.33807pt x 83.4338pt.
  [92 <./00_Images/SW.png>]) [93 <./00_Images/SW2.png>] (./Lectures/13_Response_of_LTI_systems_to_periodic_signals.tex [94] [95]) [96] (./Lectures/14_Aperiodic_signals_and_Fourier_transform.tex
-<00_Images/RECT1.png, id=2340, 664.4825pt x 195.73125pt>
+<00_Images/RECT1.png, id=2370, 664.4825pt x 195.73125pt>
 File: 00_Images/RECT1.png Graphic file (type png)
 <use 00_Images/RECT1.png>
 Package pdftex.def Info: 00_Images/RECT1.png  used on input line 4.
 (pdftex.def)             Requested size: 374.33807pt x 110.2658pt.
-<00_Images/CK.png, id=2341, 689.57625pt x 412.54124pt>
+<00_Images/CK.png, id=2371, 689.57625pt x 412.54124pt>
 File: 00_Images/CK.png Graphic file (type png)
 <use 00_Images/CK.png>
 Package pdftex.def Info: 00_Images/CK.png  used on input line 16.
 (pdftex.def)             Requested size: 249.55872pt x 149.30159pt.
-<00_Images/RECT2.png, id=2342, 557.08125pt x 276.03125pt>
+<00_Images/RECT2.png, id=2372, 557.08125pt x 276.03125pt>
 File: 00_Images/RECT2.png Graphic file (type png)
 <use 00_Images/RECT2.png>
 Package pdftex.def Info: 00_Images/RECT2.png  used on input line 29.
 (pdftex.def)             Requested size: 374.33807pt x 185.4875pt.
  [97 <./00_Images/RECT1.png> <./00_Images/CK.png>]
-<00_Images/PERIODIC.png, id=2350, 595.22375pt x 139.52126pt>
+<00_Images/PERIODIC.png, id=2380, 595.22375pt x 139.52126pt>
 File: 00_Images/PERIODIC.png Graphic file (type png)
 <use 00_Images/PERIODIC.png>
 Package pdftex.def Info: 00_Images/PERIODIC.png  used on input line 38.
 (pdftex.def)             Requested size: 374.33807pt x 87.74556pt.
  [98 <./00_Images/RECT2.png> <./00_Images/PERIODIC.png>]
-<00_Images/NTLS.png, id=2357, 763.85374pt x 257.96375pt>
+<00_Images/NTLS.png, id=2387, 763.85374pt x 257.96375pt>
 File: 00_Images/NTLS.png Graphic file (type png)
 <use 00_Images/NTLS.png>
 Package pdftex.def Info: 00_Images/NTLS.png  used on input line 121.
 (pdftex.def)             Requested size: 374.33807pt x 126.41908pt.
  [99]) [100 <./00_Images/NTLS.png>] (./Lectures/15_Fourier_transform_properties_timefrequency_duality.tex
-<00_Images/RECT3.png, id=2368, 815.045pt x 175.65625pt>
+<00_Images/RECT3.png, id=2399, 815.045pt x 175.65625pt>
 File: 00_Images/RECT3.png Graphic file (type png)
 <use 00_Images/RECT3.png>
 Package pdftex.def Info: 00_Images/RECT3.png  used on input line 32.
 (pdftex.def)             Requested size: 374.33807pt x 80.67686pt.
-<00_Images/P1.png, id=2369, 416.55624pt x 154.5775pt>
+<00_Images/P1.png, id=2400, 416.55624pt x 154.5775pt>
 File: 00_Images/P1.png Graphic file (type png)
 <use 00_Images/P1.png>
 Package pdftex.def Info: 00_Images/P1.png  used on input line 68.
 (pdftex.def)             Requested size: 249.55872pt x 92.60803pt.
-<00_Images/P2.png, id=2370, 469.755pt x 217.81375pt>
+<00_Images/P2.png, id=2401, 469.755pt x 217.81375pt>
 File: 00_Images/P2.png Graphic file (type png)
 <use 00_Images/P2.png>
 Package pdftex.def Info: 00_Images/P2.png  used on input line 77.
 (pdftex.def)             Requested size: 249.55872pt x 115.71326pt.
  [101 <./00_Images/RECT3.png>] [102 <./00_Images/P1.png> <./00_Images/P2.png>]
-<00_Images/COS.png, id=2391, 498.86375pt x 189.70876pt>
+<00_Images/COS.png, id=2421, 498.86375pt x 189.70876pt>
 File: 00_Images/COS.png Graphic file (type png)
 <use 00_Images/COS.png>
 Package pdftex.def Info: 00_Images/COS.png  used on input line 115.
 (pdftex.def)             Requested size: 249.55872pt x 94.90045pt.
-<00_Images/SINE.png, id=2392, 477.785pt x 216.81pt>
+<00_Images/SINE.png, id=2422, 477.785pt x 216.81pt>
 File: 00_Images/SINE.png Graphic file (type png)
 <use 00_Images/SINE.png>
 Package pdftex.def Info: 00_Images/SINE.png  used on input line 122.
 (pdftex.def)             Requested size: 249.55872pt x 113.24469pt.
-<00_Images/RECT4.png, id=2393, 966.61125pt x 169.63374pt>
+<00_Images/RECT4.png, id=2423, 966.61125pt x 169.63374pt>
 File: 00_Images/RECT4.png Graphic file (type png)
 <use 00_Images/RECT4.png>
 Package pdftex.def Info: 00_Images/RECT4.png  used on input line 128.
 (pdftex.def)             Requested size: 249.55872pt x 43.7957pt.
-<00_Images/REC5.png, id=2394, 839.135pt x 281.05pt>
+<00_Images/REC5.png, id=2424, 839.135pt x 281.05pt>
 File: 00_Images/REC5.png Graphic file (type png)
 <use 00_Images/REC5.png>
 Package pdftex.def Info: 00_Images/REC5.png  used on input line 132.
 (pdftex.def)             Requested size: 249.55872pt x 83.5823pt.
-<00_Images/PF.png, id=2395, 750.805pt x 440.64626pt>
+<00_Images/PF.png, id=2425, 750.805pt x 440.64626pt>
 File: 00_Images/PF.png Graphic file (type png)
 <use 00_Images/PF.png>
 Package pdftex.def Info: 00_Images/PF.png  used on input line 142.
 (pdftex.def)             Requested size: 374.33807pt x 219.704pt.
  [103 <./00_Images/COS.png> <./00_Images/SINE.png> <./00_Images/RECT4.png>] [104 <./00_Images/REC5.png> <./00_Images/PF.png>] [105]
-<00_Images/DU.png, id=2419, 784.9325pt x 528.97626pt>
+<00_Images/DU.png, id=2449, 784.9325pt x 528.97626pt>
 File: 00_Images/DU.png Graphic file (type png)
 <use 00_Images/DU.png>
 Package pdftex.def Info: 00_Images/DU.png  used on input line 296.
 (pdftex.def)             Requested size: 374.33807pt x 252.27527pt.
  [106]
-<00_Images/C1.png, id=2424, 856.19875pt x 234.8775pt>
+<00_Images/C1.png, id=2454, 856.19875pt x 234.8775pt>
 File: 00_Images/C1.png Graphic file (type png)
 <use 00_Images/C1.png>
 Package pdftex.def Info: 00_Images/C1.png  used on input line 335.
 (pdftex.def)             Requested size: 249.55872pt x 68.46036pt.
  [107 <./00_Images/DU.png>] [108 <./00_Images/C1.png>] [109]
-<00_Images/H1.png, id=2443, 612.2875pt x 556.0775pt>
+<00_Images/H1.png, id=2473, 612.2875pt x 556.0775pt>
 File: 00_Images/H1.png Graphic file (type png)
 <use 00_Images/H1.png>
 Package pdftex.def Info: 00_Images/H1.png  used on input line 462.
 (pdftex.def)             Requested size: 374.33807pt x 339.97043pt.
-<00_Images/H2.png, id=2444, 689.57625pt x 389.455pt>
+<00_Images/H2.png, id=2474, 689.57625pt x 389.455pt>
 File: 00_Images/H2.png Graphic file (type png)
 <use 00_Images/H2.png>
 Package pdftex.def Info: 00_Images/H2.png  used on input line 466.
 (pdftex.def)             Requested size: 374.33807pt x 211.41977pt.
-<00_Images/H.png, id=2445, 754.82pt x 430.60875pt>
+<00_Images/H.png, id=2475, 754.82pt x 430.60875pt>
 File: 00_Images/H.png Graphic file (type png)
 <use 00_Images/H.png>
 Package pdftex.def Info: 00_Images/H.png  used on input line 467.
 (pdftex.def)             Requested size: 374.33807pt x 213.5495pt.
  [110 <./00_Images/H1.png>]
-<00_Images/H4.png, id=2452, 496.85625pt x 608.2725pt>
+<00_Images/H4.png, id=2482, 496.85625pt x 608.2725pt>
 File: 00_Images/H4.png Graphic file (type png)
 <use 00_Images/H4.png>
 Package pdftex.def Info: 00_Images/H4.png  used on input line 472.
 (pdftex.def)             Requested size: 374.33807pt x 458.28232pt.
  [111 <./00_Images/H2.png> <./00_Images/H.png>]
-<00_Images/SGN.png, id=2460, 309.155pt x 194.7275pt>
+<00_Images/SGN.png, id=2490, 309.155pt x 194.7275pt>
 File: 00_Images/SGN.png Graphic file (type png)
 <use 00_Images/SGN.png>
 Package pdftex.def Info: 00_Images/SGN.png  used on input line 485.
 (pdftex.def)             Requested size: 374.33807pt x 235.80519pt.
  [112 <./00_Images/H4.png>]
-<00_Images/S.png, id=2466, 250.9375pt x 138.5175pt>
+<00_Images/S.png, id=2496, 250.9375pt x 138.5175pt>
 File: 00_Images/S.png Graphic file (type png)
 <use 00_Images/S.png>
 Package pdftex.def Info: 00_Images/S.png  used on input line 512.
 (pdftex.def)             Requested size: 374.33807pt x 206.65973pt.
  [113 <./00_Images/SGN.png>] [114 <./00_Images/S.png>]
-<00_Images/SC.png, id=2477, 475.7775pt x 219.82124pt>
+<00_Images/SC.png, id=2508, 475.7775pt x 219.82124pt>
 File: 00_Images/SC.png Graphic file (type png)
 <use 00_Images/SC.png>
 Package pdftex.def Info: 00_Images/SC.png  used on input line 581.
 (pdftex.def)             Requested size: 374.33807pt x 172.96254pt.
  [115 <./00_Images/SC.png>]) [116] (./Lectures/16_Modulation.tex
-<00_Images/M2.png, id=2489, 835.12pt x 460.72125pt>
+<00_Images/M2.png, id=2520, 835.12pt x 460.72125pt>
 File: 00_Images/M2.png Graphic file (type png)
 <use 00_Images/M2.png>
 Package pdftex.def Info: 00_Images/M2.png  used on input line 9.
 (pdftex.def)             Requested size: 374.33807pt x 206.52122pt.
-<00_Images/M3.png, id=2490, 607.26875pt x 210.7875pt>
+<00_Images/M3.png, id=2521, 607.26875pt x 210.7875pt>
 File: 00_Images/M3.png Graphic file (type png)
 <use 00_Images/M3.png>
 Package pdftex.def Info: 00_Images/M3.png  used on input line 26.
 (pdftex.def)             Requested size: 374.33807pt x 129.93748pt.
  [117 <./00_Images/M2.png>]
-<00_Images/M4.png, id=2500, 574.145pt x 98.3675pt>
+<00_Images/M4.png, id=2530, 574.145pt x 98.3675pt>
 File: 00_Images/M4.png Graphic file (type png)
 <use 00_Images/M4.png>
 Package pdftex.def Info: 00_Images/M4.png  used on input line 46.
 (pdftex.def)             Requested size: 374.33807pt x 64.13622pt.
-<00_Images/M5.png, id=2501, 218.8175pt x 140.525pt>
+<00_Images/M5.png, id=2531, 218.8175pt x 140.525pt>
 File: 00_Images/M5.png Graphic file (type png)
 <use 00_Images/M5.png>
 Package pdftex.def Info: 00_Images/M5.png  used on input line 64.
 (pdftex.def)             Requested size: 374.33807pt x 240.40529pt.
  [118 <./00_Images/M3.png> <./00_Images/M4.png>]
-<00_Images/M6.png, id=2511, 625.33624pt x 243.91125pt>
+<00_Images/M6.png, id=2541, 625.33624pt x 243.91125pt>
 File: 00_Images/M6.png Graphic file (type png)
 <use 00_Images/M6.png>
 Package pdftex.def Info: 00_Images/M6.png  used on input line 110.
 (pdftex.def)             Requested size: 374.33807pt x 146.01291pt.
  [119 <./00_Images/M5.png>]
-<00_Images/ED.png, id=2521, 630.355pt x 522.95375pt>
+<00_Images/ED.png, id=2551, 630.355pt x 522.95375pt>
 File: 00_Images/ED.png Graphic file (type png)
 <use 00_Images/ED.png>
 Package pdftex.def Info: 00_Images/ED.png  used on input line 115.
 (pdftex.def)             Requested size: 374.33807pt x 310.55888pt.
-<00_Images/ED2.png, id=2522, 746.79pt x 237.88875pt>
+<00_Images/ED2.png, id=2552, 746.79pt x 237.88875pt>
 File: 00_Images/ED2.png Graphic file (type png)
 <use 00_Images/ED2.png>
 Package pdftex.def Info: 00_Images/ED2.png  used on input line 124.
 (pdftex.def)             Requested size: 374.33807pt x 119.24535pt.
-<00_Images/ED1.png, id=2523, 562.1pt x 254.9525pt>
+<00_Images/ED1.png, id=2553, 562.1pt x 254.9525pt>
 File: 00_Images/ED1.png Graphic file (type png)
 <use 00_Images/ED1.png>
 Package pdftex.def Info: 00_Images/ED1.png  used on input line 128.
 (pdftex.def)             Requested size: 374.33807pt x 169.79024pt.
  [120 <./00_Images/M6.png> <./00_Images/ED.png>]
-<00_Images/ED3.png, id=2530, 609.27625pt x 106.3975pt>
+<00_Images/ED3.png, id=2560, 609.27625pt x 106.3975pt>
 File: 00_Images/ED3.png Graphic file (type png)
 <use 00_Images/ED3.png>
 Package pdftex.def Info: 00_Images/ED3.png  used on input line 133.
 (pdftex.def)             Requested size: 374.33807pt x 65.37155pt.
-<00_Images/D3.png, id=2531, 440.64626pt x 183.68625pt>
+<00_Images/D3.png, id=2561, 440.64626pt x 183.68625pt>
 File: 00_Images/D3.png Graphic file (type png)
 <use 00_Images/D3.png>
 Package pdftex.def Info: 00_Images/D3.png  used on input line 139.
 (pdftex.def)             Requested size: 374.33807pt x 156.04994pt.
  [121 <./00_Images/ED2.png> <./00_Images/ED1.png> <./00_Images/ED3.png>]
-<00_Images/D4.png, id=2540, 973.6375pt x 323.2075pt>
+<00_Images/D4.png, id=2570, 973.6375pt x 323.2075pt>
 File: 00_Images/D4.png Graphic file (type png)
 <use 00_Images/D4.png>
 Package pdftex.def Info: 00_Images/D4.png  used on input line 155.
 (pdftex.def)             Requested size: 374.33807pt x 124.26512pt.
-<00_Images/D5.png, id=2541, 662.475pt x 342.27875pt>
+<00_Images/D5.png, id=2571, 662.475pt x 342.27875pt>
 File: 00_Images/D5.png Graphic file (type png)
 <use 00_Images/D5.png>
 Package pdftex.def Info: 00_Images/D5.png  used on input line 156.
 (pdftex.def)             Requested size: 374.33807pt x 193.40872pt.
  [122 <./00_Images/D3.png> <./00_Images/D4.png>]
-<00_Images/D6.png, id=2548, 1053.9375pt x 408.52625pt>
+<00_Images/D6.png, id=2578, 1053.9375pt x 408.52625pt>
 File: 00_Images/D6.png Graphic file (type png)
 <use 00_Images/D6.png>
 Package pdftex.def Info: 00_Images/D6.png  used on input line 161.
 (pdftex.def)             Requested size: 374.33807pt x 145.09952pt.
-) [123 <./00_Images/D5.png> <./00_Images/D6.png>] [124] [125] [126] [127] [128] [129] [130] [131] (./ECE355_Cheatsheet.aux)
+<00_Images/DSB.png, id=2579, 960.58875pt x 760.8425pt>
+File: 00_Images/DSB.png Graphic file (type png)
+<use 00_Images/DSB.png>
+Package pdftex.def Info: 00_Images/DSB.png  used on input line 162.
+(pdftex.def)             Requested size: 374.33807pt x 296.4952pt.
+<00_Images/DSB1.png, id=2580, 688.5725pt x 259.97125pt>
+File: 00_Images/DSB1.png Graphic file (type png)
+<use 00_Images/DSB1.png>
+Package pdftex.def Info: 00_Images/DSB1.png  used on input line 163.
+(pdftex.def)             Requested size: 374.33807pt x 141.33044pt.
+ [123 <./00_Images/D5.png> <./00_Images/D6.png>]
+<00_Images/QAM.png, id=2587, 874.26625pt x 328.22626pt>
+File: 00_Images/QAM.png Graphic file (type png)
+<use 00_Images/QAM.png>
+Package pdftex.def Info: 00_Images/QAM.png  used on input line 180.
+(pdftex.def)             Requested size: 374.33807pt x 140.53854pt.
+ [124 <./00_Images/DSB.png> <./00_Images/DSB1.png>]
+<00_Images/QAM1.png, id=2594, 824.07875pt x 531.9875pt>
+File: 00_Images/QAM1.png Graphic file (type png)
+<use 00_Images/QAM1.png>
+Package pdftex.def Info: 00_Images/QAM1.png  used on input line 185.
+(pdftex.def)             Requested size: 374.33807pt x 241.65694pt.
+<00_Images/SSB.png, id=2595, 701.62125pt x 733.74126pt>
+File: 00_Images/SSB.png Graphic file (type png)
+<use 00_Images/SSB.png>
+Package pdftex.def Info: 00_Images/SSB.png  used on input line 194.
+(pdftex.def)             Requested size: 374.33807pt x 391.47849pt.
+ [125 <./00_Images/QAM.png> <./00_Images/QAM1.png>]) [126 <./00_Images/SSB.png>] [127] [128] [129] [130] [131] [132] [133] [134] (./ECE355_Cheatsheet.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `ECE355_Cheatsheet.out' has not changed.
-(rerunfilecheck)             Checksum: E49FB780E894A533176C057234743255;42049.
+(rerunfilecheck)             Checksum: E4B96F604B66186A06439AB71BDF98AF;42708.
  ) 
 Here is how much of TeX's memory you used:
- 52270 strings out of 474116
- 1229449 string characters out of 5743682
- 2054255 words of memory out of 5000000
- 72925 multiletter control sequences out of 15000+600000
+ 52332 strings out of 474116
+ 1230707 string characters out of 5743682
+ 2054258 words of memory out of 5000000
+ 72975 multiletter control sequences out of 15000+600000
  626223 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,18n,107p,812b,2485s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy5.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on ECE355_Cheatsheet.pdf (131 pages, 14720540 bytes).
+Output written on ECE355_Cheatsheet.pdf (134 pages, 15325800 bytes).
 PDF statistics:
- 2852 PDF objects out of 2984 (max. 8388607)
- 2373 compressed objects within 24 object streams
- 817 named destinations out of 1000 (max. 500000)
- 2483 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2909 PDF objects out of 2984 (max. 8388607)
+ 2416 compressed objects within 25 object streams
+ 829 named destinations out of 1000 (max. 500000)
+ 2540 words of extra memory for PDF output out of 10000 (max. 10000000)
 
