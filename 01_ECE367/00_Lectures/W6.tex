@@ -1007,8 +1007,6 @@
 \[
 A \cdot \Delta x = \Delta b \implies \Delta x = A^{-1} \Delta b
 \]
-
-\textbf{Observation 2}:
 \begin{itemize}
     \item \( Ax = b \implies \| b \|_2 = \| A x \|_2 \leq \sigma_{\max}(A) \| x \|_2 \)
     \begin{itemize}
@@ -1067,7 +1065,7 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
 \end{derivation}
 
 \subsection{Latent Semantic Indexing}
-\begin{intuition}
+\begin{example}
     In homework 1, we compared documents. Assume we have a dictionary of size \( N \). Represent each document by a vector 
     \[
     d = \begin{bmatrix} d_1 \\ \vdots \\ d_N \end{bmatrix}
@@ -1149,137 +1147,178 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
         \item We then use the vectors \( \{ \alpha_j \} \) and \( \{ \beta_j \} \) to compare documents, for example, by finding the angle between them.
     \end{enumerate}
 
-\end{intuition}
+\end{example}
 
 \subsection{Principle component analysis}
 \begin{example}
     \textbf{Example of PCA: Eigenfaces for face recognition (HW3)}
+    \begin{enumerate}
+        \item Vectorize each image: Each face image of size \( 32 \times 32 \) pixels is vectorized into a column vector \( x^{(i)} \) of dimension \( m = 32 \times 32 \).
 
-1. Vectorize each image: Each face image of size \( 32 \times 32 \) pixels is vectorized into a column vector \( x^{(i)} \) of dimension \( m = 32 \times 32 \).
-
-2. Center each vector: 
-   \[
-   \tilde{x}^{(i)} = x^{(i)} - \bar{x}
-   \]
-   where 
-   \[
-   \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x^{(i)}
-   \]
-
-3. Construct the data matrix:
-   \[
-   \tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(N)} \end{bmatrix}
-   \]
-
-4. Perform spectral decomposition on the covariance matrix:
-   \[
-   C = \tilde{X} \tilde{X}^T = U \Lambda U^T
-   \]
-   \[
-    C= 
-    \begin{bmatrix}
-    u^{(1)} & \ldots & u^{(m)}
-    \end{bmatrix}
-    \Lambda
-    \begin{bmatrix}
-    u^{(1)T} \\
-    \vdots \\
-    u_{(m)T}
-    \end{bmatrix}
-    \]
-
-Alternatively, we could perform SVD on \( \tilde{X} \):
-\[
-\tilde{X} = U \Sigma V^T
-\]
-\begin{itemize}
-    \item \textbf{Note:} This results in the same matrix \( U \) as obtained from the spectral decomposition of \( \tilde{X} \tilde{X}^T \).
-\end{itemize}
+        \item Center each vector: 
+           \[
+           \tilde{x}^{(i)} = x^{(i)} - \bar{x}
+           \]
+           where 
+           \[
+           \bar{x} = \frac{1}{N} \sum_{i=1}^{N} x^{(i)}
+           \]
+        
+        \item Construct the data matrix:
+           \[
+           \tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(N)} \end{bmatrix}
+           \]
+        
+        \item Perform spectral decomposition on the covariance matrix:
+           \[
+           C = \tilde{X} \tilde{X}^T = U \Lambda U^T
+           \]
+           \[
+            C= 
+            \begin{bmatrix}
+            u^{(1)} & \ldots & u^{(m)}
+            \end{bmatrix}
+            \Lambda
+            \begin{bmatrix}
+            u^{(1)T} \\
+            \vdots \\
+            u_{(m)T}
+            \end{bmatrix}
+            \]
+        
+        \item Alternatively, we could perform SVD on \( \tilde{X} \):
+        \[
+        \tilde{X} = U \Sigma V^T
+        \]
+        \begin{itemize}
+            \item \textbf{Note:} This results in the same matrix \( U \) as obtained from the spectral decomposition of \( \tilde{X} \tilde{X}^T \).
+        \end{itemize}
+    \end{enumerate}
 \end{example}
 
-\begin{intuition}
-\textbf{PCA:}
-Given data points \( x^{(i)} \in \mathbb{R}^n \), $i=1,\ldots,m$
-\vspace{1em}
+\begin{example} \textbf{PCA:}
+    \begin{enumerate}
+        \item Given data points \( x^{(i)} \in \mathbb{R}^n \), $i=1,\ldots,m$
+        
+        \item \textbf{Goal of PCA:} Find a direction \( z \in \mathbb{R}^n \) that explains most of the variance in \( x^{(i)} \)'s.
+        \customFigure[0.5]{00_Images/PCA.png}{PCA}
+        \item \textbf{How to formulate this problem?}
+        
+        \begin{enumerate}
+            \item Center the data:
+            \[
+            \tilde{x}^{(i)} = x^{(i)} - \bar{x}, \quad \bar{x} = \frac{1}{m} \sum_{i=1}^{m} x^{(i)}
+            \]
+            
+            \item Fix a direction \( z \). Project \( \tilde{x}^{(i)} \) onto \( \text{span}\{z\} \):
+            \[
+            \text{Proj}_{\text{span}\{z\}} \tilde{x}^{(i)} = \langle \tilde{x}^{(i)}, z \rangle z = \alpha_i z \quad (\text{assuming } \|z\|_2 = 1)
+            \]
+            
+            \item Look for $z$ that maximizes the variance of the \( \alpha_i \)'s:
+            \[
+            \text{Variance} = \frac{1}{m} \sum_{i=1}^{m} \alpha_i^2 = \frac{1}{m} \sum_{i=1}^{m} \left( z^T \tilde{x}^{(i)} \right) \left( \tilde{x}^{(i)T} z \right)
+            \]
+            \[
+            = \frac{1}{m} z^T \left( \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T} \right) z
+            \]
+            \[
+            = \frac{1}{m} z^T \tilde{X} \tilde{X}^T z
+            \]
+            \begin{itemize}
+                \item $\tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)} \end{bmatrix}$
+                \item $
+            \tilde{X} \tilde{X}^T = 
+            \begin{bmatrix}
+            \tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)}
+            \end{bmatrix}
+            \begin{bmatrix}
+            \tilde{x}^{(1)T} \\
+            \vdots \\
+            \tilde{x}^{(m)T}
+            \end{bmatrix}
+            = \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T}$
+            \end{itemize}
+        \end{enumerate}
+        
+        \item We want to solve:
+        \[
+        \max_{z} z^T \tilde{X} \tilde{X}^T z \quad \text{subject to} \quad \|z\|_2 = 1
+        \]
+        This can be expressed as maximizing the Rayleigh quotient:
+        \[
+        \max \frac{z^T \tilde{X} \tilde{X}^T z}{\|z\|_2^2}
+        \]
+        
+       \item The solution is given by the eigenvector corresponding to the largest eigenvalue of \( \tilde{X} \tilde{X}^T \).
+        
+        \item \textbf{Alternatively}, we could have used SVD on \( \tilde{X} \):
+        \[
+        \tilde{X} = U \Sigma V^T
+        \]
+        \[
+        z^T \tilde{X} \tilde{X}^T z = z^T \left( U \Sigma V^T \right) \left( V \Sigma^T U^T \right) z = z^T U \Sigma^2 U^T z = \omega^T \Sigma^2 \omega = \sum_{i=1}^{r} \sigma_i^2 \omega_i^2
+        \]
+        
+        \item So, the problem becomes:
+        \[
+        \max \sum_{i=1}^{r} \sigma_i^2 \omega_i^2 \quad \text{subject to} \quad \sum_{i=1}^{r} \omega_i^2 = 1
+        \]
+        
+        \item The solution is \( \omega^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \), corresponding to the first singular vector, assuming $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r$, so the maximizing $z^* = U \omega^* u^{(1)}$.
+        In addition, the maximum is \( \sigma_1^2 = \lambda_{\max} (\tilde{X} \tilde{X}^T) \).
+        
+        \item To find the second principal component, remove the effect of the direction $u^{(1)}$ with the largest variance, and then compute
 
- \textbf{Goal of PCA:} Find a direction \( z \in \mathbb{R}^n \) that explains most of the variance in \( x^{(i)} \)'s.
-\vspace{1em}
+        \begin{enumerate}
+            \item \textbf{Computation}
 
-\textbf{How to formulate this problem?}
-
-i. Center the data:
-\[
-\tilde{x}^{(i)} = x^{(i)} - \bar{x}, \quad \bar{x} = \frac{1}{m} \sum_{i=1}^{m} x^{(i)}
-\]
-
-ii. Fix a direction \( z \). Project \( \tilde{x}^{(i)} \) onto \( \text{span}\{z\} \):
-\[
-\text{Proj}_{\text{span}\{z\}} \tilde{x}^{(i)} = \langle \tilde{x}^{(i)}, z \rangle z = \alpha_i z \quad (\text{assuming } \|z\|_2 = 1)
-\]
-
-iii. Look for $z$ that maximizes the variance of the \( \alpha_i \)'s:
-\[
-\text{Variance} = \frac{1}{m} \sum_{i=1}^{m} \alpha_i^2 = \frac{1}{m} \sum_{i=1}^{m} \left( z^T \tilde{x}^{(i)} \right) \left( \tilde{x}^{(i)T} z \right)
-\]
-\[
-= \frac{1}{m} z^T \left( \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T} \right) z
-\]
-\[
-= \frac{1}{m} z^T \tilde{X} \tilde{X}^T z
-\]
-\begin{itemize}
-    \item $\tilde{X} = \begin{bmatrix} \tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)} \end{bmatrix}$
-    \item $
-\tilde{X} \tilde{X}^T = 
-\begin{bmatrix}
-\tilde{x}^{(1)} & \ldots & \tilde{x}^{(m)}
-\end{bmatrix}
-\begin{bmatrix}
-\tilde{x}^{(1)T} \\
-\vdots \\
-\tilde{x}^{(m)T}
-\end{bmatrix}
-= \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T}$
-\end{itemize}
-
-We want to solve:
-\[
-\max_{z} z^T \tilde{X} \tilde{X}^T z \quad \text{subject to} \quad \|z\|_2 = 1
-\]
-This can be expressed as maximizing the Rayleigh quotient:
-\[
-\max \frac{z^T \tilde{X} \tilde{X}^T z}{\|z\|_2^2}
-\]
-
-The solution is given by the eigenvector corresponding to the largest eigenvalue of \( \tilde{X} \tilde{X}^T \).
-
-Alternatively, we could have used SVD on \( \tilde{X} \):
-\[
-\tilde{X} = U \Sigma V^T
-\]
-\[
-z^T \tilde{X} \tilde{X}^T z = z^T \left( U \Sigma V^T \right) \left( V \Sigma^T U^T \right) z = z^T U \Sigma^2 U^T z
-\]
-
-So, the problem becomes:
-\[
-\max \sum_{i=1}^{r} \sigma_i^2 \omega_i^2 \quad \text{subject to} \quad \sum_{i=1}^{r} \omega_i^2 = 1
-\]
-
-The solution is \( \omega^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \), corresponding to the first singular vector.
-
-To find the second principal component, remove the effect of the first component:
-\[
-\tilde{x}^{(i)} = \tilde{x}^{(i)} - \langle \tilde{x}^{(i)}, u^{(1)} \rangle u^{(1)}
-\]
-\[
-\tilde{X}^{(2)} = \left( I - u^{(1)} u^{(1)T} \right) \tilde{X}
-\]
-
-Repeat the process on \( \tilde{X}^{(2)} \) to find the direction with the second-largest variance:
-\[
-\tilde{X}^{(2)} = U \Sigma V^T = \sum_{i=2}^{r} \sigma_i u^{(i)} v^{(i)T}
-\]
-
-So, the next strongest direction that explains the most variance is the singular vector corresponding to the second-largest singular value.
-\end{intuition}
+            We compute:
+            \begin{align*}
+            \tilde{\tilde{x}}^{(i)} &= \tilde{x}^{(i)} - \langle \tilde{x}^{(i)}, u^{(1)} \rangle u^{(1)} \\
+            &= \tilde{x}^{(i)} - u^{(1)} u^{(1)\top} \tilde{x}^{(i)} \\
+            &= \left(I - u^{(1)} u^{(1)\top} \right) \tilde{x}^{(i)}.
+            \end{align*}
+    
+            Next, define:
+            \[
+            \tilde{\tilde{X}} = 
+            \begin{bmatrix}
+            \tilde{\tilde{x}}^{(1)} & \cdots & \tilde{\tilde{x}}^{(m)}
+            \end{bmatrix}.
+            \]
+    
+            Then:
+            \[
+            \tilde{\tilde{X}} = \left(I - u^{(1)} u^{(1)\top} \right) \tilde{X}.
+            \]
+    
+            \item \textbf{Using Singular Value Decomposition (SVD)}
+    
+            Let \(\tilde{X} = U \Sigma V^\top\), where:
+            \[
+            \tilde{X} = \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top}.
+            \]
+    
+            Compute \( \tilde{\tilde{X}} \):
+            \begin{align*}
+            \tilde{\tilde{X}} &= \left(I - u^{(1)} u^{(1)\top} \right) \tilde{X} \\
+            &= \tilde{X} - u^{(1)} u^{(1)\top} \tilde{X} \\
+            &= \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top} - u^{(1)} u^{(1)\top} \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top}.
+            \end{align*}
+    
+            Simplify:
+            \begin{align*}
+            \tilde{\tilde{X}} &= \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top} - \sum_{i=1}^r \sigma_i \left(u^{(1)} u^{(1)\top} u^{(i)} \right) v^{(i)\top}.
+            \end{align*}
+    
+            Since \(u^{(1)\top} u^{(i)} = 0\) for \(i \neq 1\), we get:
+            \begin{align*}
+            \tilde{\tilde{X}} &= \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top} - \sigma_1 u^{(1)} v^{(1)T} = \sum_{i=2}^r \sigma_i u^{(i)} v^{(i)\top} .
+            \end{align*}
+    
+            
+            So, the next strongest direction that explains the most variance is the singular vector corresponding to the second-largest singular value.
+        \end{enumerate}
+    \end{enumerate}
+\end{example}

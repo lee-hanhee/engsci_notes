@@ -1,3 +1,721 @@
 \subsection{Least squares}
+\begin{definition}
+    The least squares problem is:
+    \[
+    \min_x \|Ax - b\|_2^2.
+    \]
+\end{definition}
+
+\subsubsection{Motivation:}
+\begin{intuition}
+    Recall the system of linear equations: 
+    \[
+    A x = b
+    \]
+    where $A \in \mathbb{R}^{m \times n}$ and $b \in \mathbb{R}^m$ are given. \\
+
+    The goal is to solve for the unknown $x \in \mathbb{R}^n$. \\
+
+    If $A$ is a square matrix and has full rank (i.e., $A$ is invertible), then the solution is:
+    \[
+    x^* = A^{-1}b.
+    \]
+
+    What if $A$ is not square or not full-rank? What can we say about the solutions to the system of linear equations? \\
+
+    There are two cases:
+    \begin{enumerate}
+        \item Overdetermined ($m > n$)
+        \item Underdetermined ($m < n$)
+    \end{enumerate}
+\end{intuition}
+
 \subsection{Overdetermined linear equation}
+\begin{definition}
+    Solve 
+    \begin{equation*}
+        \min_x \|Ax - b\|_2^2
+    \end{equation*}
+
+    The solution is  $x^* = (A^\top A)^{-1} A^\top b = A^\dagger b$.
+\end{definition}
+\begin{derivation}
+    \begin{enumerate}
+        \item \textbf{Setup:} \[
+    \begin{bmatrix}
+    A_{m \times n}
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_{n \times 1}
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    b_{m \times 1}
+    \end{bmatrix}
+    \]
+
+    \customFigure[0.5]{00_Images/LS3.png}{Tall matrix.}
+
+    This represents a case where there are more equations than unknowns. \\
+
+    \item \textbf{Note:} Assume $A$ has full column rank (columns of $A$ are linearly independent). This implies:
+    \[
+    \mathcal{N}(A) = \{x \mid A x = 0 \} = \{x \mid x_1 a^{(1)} + \cdots + x_n a^{(n)} = 0 \} = \{0\},
+    \]
+    where $\mathcal{N}(A)$ is the null space of $A$. \\
+
+    If $A$ does not have full column rank, we can remove some of the columns of $A$ to achieve linear independence. \\
+
+    \item \textbf{Projection Problem:} In general, there are no solutions to $Ax=b$, instead
+    \begin{equation*}
+        \min_x \|Ax - b\|_2^2 
+    \end{equation*}
+
+    Recall the range of $A$, denoted as $\mathcal{R}(A)$, is defined as:
+    \[
+    \mathcal{R}(A) = \{Ax \mid x \in \mathbb{R}^n\}.
+    \]
+
+    Let $A x^* \in \mathcal{R}(A)$, where $x^*$ minimizes the norm:
+    \[
+    \min_x \|A x - b\|_2
+    \]
+    or equivalently:
+    \[
+    \min_{y \in \mathcal{R}(A)} \|y - b\|_2.
+    \]
+    \customFigure[0.5]{00_Images/LS.png}{Least squares projection problem}
+
+    Let $x^* = \begin{bmatrix} x_1^* \\ \vdots \\ x_n^* \end{bmatrix}$, then:
+    \[
+    A x^* = \sum_{i=1}^n x_i^* a^{(i)},
+    \]
+    where $a^{(i)}$ are the columns of $A$. \\
+
+    \item \textbf{Orthogonality Principle:} By the orthogonality principle:
+    \[
+    b - A x^* \perp a^{(j)} \quad \forall j.
+    \]
+
+    This implies:
+    \[
+    \langle b - \sum_{i=1}^n x_i^* a^{(i)}, a^{(j)} \rangle = 0 \quad \forall j.
+    \]
+
+    Expanding:
+    \[
+    \langle b, a^{(j)} \rangle = \sum_{i=1}^n x_i^* \langle a^{(i)}, a^{(j)} \rangle \quad \forall j.
+    \]
+
+    In matrix form, this can be written as:
+    \[
+    \begin{bmatrix}
+    \langle a^{(1)}, a^{(1)} \rangle & \cdots & \langle a^{(1)}, a^{(n)} \rangle \\
+    \vdots & \ddots & \vdots \\
+    \langle a^{(n)}, a^{(1)} \rangle & \cdots & \langle a^{(n)}, a^{(n)} \rangle
+    \end{bmatrix}
+    \begin{bmatrix}
+    x_1^* \\
+    \vdots \\
+    x_n^*
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+    \langle a^{(1)}, b \rangle \\
+    \vdots \\
+    \langle a^{(n)}, b \rangle
+    \end{bmatrix}.
+    \]
+
+    Therefore, the solution to the overdetermined least squares problem is $x^* = (A^T A)^{-1} A^T b$
+
+    \item \textbf{Full Column Rank:} If $A$ has full column rank, then $A^T A$ is invertible
+
+    \[
+    \mathcal{N}(A) = \mathcal{N}(A^\top A) = \{0\}.
+    \]
+
+    This implies that $\dim (\mathcal{R} (A^T A)) = n$, which is the number of non-zero eigenvalues. \\
+
+    The inverse can be expressed as:
+    \[
+    (A^\top A)^{-1} = (U \Lambda U^\top)^{-1},
+    \]
+    where $U$ and $\Lambda$ are components of the spectral decomposition, and the rank $r = n$, which means that all the components in the SVD are invertible.
+
+    \item \textbf{Analytic Method to find the solution:}
+    The objective is to minimize the function:
+    \[
+    \min_x \|A x - b\|_2^2,
+    \]
+    denoted as $f(x)$. \\
+    
+    Define:
+    \[
+    f(x) = \|A x - b\|_2^2 = (A x - b)^\top (A x - b).
+    \]
+    
+    Expanding the terms:
+    \[
+    f(x) = x^\top A^\top A x - 2 b^\top A x + b^\top b.
+    \]
+    
+    The gradient of $f(x)$ is:
+    \[
+    \nabla f(x) = 2 A^\top A x - 2 A^\top b.
+    \]
+    
+    Setting $\nabla f(x) = 0$:
+    \[
+    A^\top A x = A^\top b.
+    \]
+    
+    Solving for $x^*$:
+    \[
+    x^* = (A^\top A)^{-1} A^\top b.
+    \]
+    \end{enumerate} 
+
+\end{derivation}
+
+\subsubsection{Why the solution has a pseudo inverse form?}
+\begin{intuition}
+    \begin{enumerate}
+        \item \textbf{Proving Equality} Given the singular value decomposition (SVD):
+        \[
+        A = U \Sigma V^\top, \quad \text{where} \quad \Sigma = 
+        \begin{bmatrix}
+        \tilde{\Sigma}_{n\times n} \\
+        0_{(m-n) \times n}
+        \end{bmatrix}_{m \times n}.
+        \]
+        
+        \item \textbf{LS:} The pseudo-inverse of \(A\) is:
+        \[
+        A^\dagger = V \Sigma^{-1} U^\top.
+        \]
+
+        Expanding \( \Sigma^{-1} \):
+        \[
+        A^\dagger = V 
+        \begin{bmatrix}
+        \tilde{\Sigma}^{-1} & 0
+        \end{bmatrix}
+        U^\top,
+        \]
+        where:
+        \[
+        \tilde{\Sigma}^{-1} =
+        \begin{bmatrix}
+        \frac{1}{\sigma_1} & \cdots & 0 \\
+        \vdots & \ddots & \vdots \\
+        0 & \cdots & \frac{1}{\sigma_n}
+        \end{bmatrix}.
+        \]
+        
+        \item \textbf{RS:} For \( (A^\top A)^{-1} A^\top \), then
+        \begin{align*}
+            (A^\top A)^{-1} A^\top 
+            &= \left(V \Sigma^\top U^\top U \Sigma V^\top \right)^{-1} V \Sigma^\top U^\top \\
+            &= \left(V \tilde{\Sigma}^2 V^\top \right)^{-1} V \Sigma^\top U^\top \\
+            &= V \tilde{\Sigma}^{-2} V^\top V 
+            \begin{bmatrix}
+            \tilde{\Sigma} & 0
+            \end{bmatrix}
+            U^\top \\
+            &= V \tilde{\Sigma}^{-2} 
+            \begin{bmatrix}
+            \tilde{\Sigma} & 0
+            \end{bmatrix}
+            U^\top \\
+            &= V 
+            \begin{bmatrix}
+            \tilde{\Sigma}^{-1} & 0
+            \end{bmatrix}
+            U^\top \\
+            &= V \Sigma^{-1} U^\top = A^\dagger,
+        \end{align*}
+        \begin{itemize}
+            \item $
+                    \begin{bmatrix}
+                    \tilde{\Sigma} & 0
+                    \end{bmatrix}
+                    \begin{bmatrix}
+                    \tilde{\Sigma} \\
+                    0
+                    \end{bmatrix}
+                    =
+                    \tilde{\Sigma}^2.$
+        \end{itemize}
+        
+        \item \textbf{Result:} The pseudo-inverse \(A^\dagger\) is the "best" we can do for inverting \(A\) in \(A x = b\), especially when \(A\) is a tall matrix. In fact,
+        \[
+        A^\dagger A = I \quad \text{(but } A A^\dagger \neq I\text{)},
+        \]
+        Moreover, $AA^\dagger$ is the projection matrix onto $\mathcal{R}(A)$
+        \[
+        A A^\dagger = \text{projection matrix onto } \mathcal{R}(A).
+        \]
+
+        \customFigure[0.75]{00_Images/LS1.png}{Projection matrix onto $\mathcal{R}(A)$}
+        
+        \item \textbf{Solution to the Least Squares Problem}
+        
+        The solution \(x^*\) to the least squares problem is:
+        \[
+        x^* = (A^\top A)^{-1} A^\top b = A^\dagger b.
+        \]
+        
+        \item The projection of \(b\) onto \(\mathcal{R}(A)\) is:
+        \[
+        A x^* = A A^\dagger b.
+        \]
+    \end{enumerate}
+
+\end{intuition}
+
+\subsubsection{Application: Linear Regression}
+\begin{example}
+    \begin{enumerate}
+        \item Given data points \( \{(x_i, y_i)\}_{i=1}^n \), we want to fit a straight line \( y_i = ax_i + b \) by minimizing the squared error:
+
+        \[
+        \min_{(a, b)} \sum_{i=1}^n (y_i - ax_i - b)^2.
+        \]
+
+        \customFigure[0.5]{00_Images/LS2.png}{Linear regression}
+    
+        \item Rewriting in matrix form:
+        \[
+        \min_{a, b} \left\| 
+        \begin{bmatrix}
+        y_1 \\ 
+        \vdots \\ 
+        y_n
+        \end{bmatrix}
+        - 
+        \begin{bmatrix}
+        x_1 & 1 \\ 
+        \vdots & \vdots \\ 
+        x_n & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        a \\ 
+        b
+        \end{bmatrix}
+        \right\|_2^2,
+        \]
+        where:
+        \[
+        y = \begin{bmatrix}
+        y_1 \\ 
+        \vdots \\ 
+        y_n
+        \end{bmatrix}, \quad
+        A = \begin{bmatrix}
+        x_1 & 1 \\ 
+        \vdots & \vdots \\ 
+        x_n & 1
+        \end{bmatrix}, \quad
+        x = \begin{bmatrix}
+        a \\ 
+        b
+        \end{bmatrix}.
+        \]
+    
+        \item Solution:
+        \[
+        \begin{bmatrix}
+        a^* \\ 
+        b^*
+        \end{bmatrix}
+        = (A^\top A)^{-1} A^\top y,
+        \]
+        assuming \( A \) has full column rank.
+    
+        \item \textbf{Gradient Derivation}
+    
+        We minimize:
+        \[
+        \min_{a, b} \sum_{i=1}^n (y_i - ax_i - b)^2 = f(a, b).
+        \]
+    
+        Compute the partial derivatives:
+        \[
+        \frac{\partial f}{\partial a} = \sum_{i=1}^n 2(y_i - ax_i - b)(-x_i) = 0,
+        \]
+        \[
+        \frac{\partial f}{\partial b} = \sum_{i=1}^n 2(y_i - ax_i - b)(-1) = 0.
+        \]
+    
+        This yields two equations and two unknowns, which can be solved for \( a \) and \( b \).
+        \begin{itemize}
+            \item \textbf{HW:} Check this YOURSELF.
+        \end{itemize}
+    \end{enumerate}
+
+\end{example}
+
+\subsubsection{Regularized LS:}
+\begin{example}
+    \begin{enumerate}
+        \item Consider the overdetermined case:
+        \[
+        \min_x \|Ax - b\|_2^2.
+        \]
+        
+        \item In certain cases, we prefer a "smaller" \(x\). To achieve this, we add a regularization term:
+        \[
+        \min_x \|Ax - b\|_2^2 + \gamma \|x\|_2^2,
+        \]
+        where \(\gamma > 0\) controls the strength of regularization.
+        
+        \item Rewriting:
+        \begin{align*}
+        \min_x \|Ax - b\|_2^2 + \gamma \|x\|_2^2 
+        &= \min_x \left\|
+            \begin{bmatrix}
+            A x - b\\ 
+            \sqrt{\gamma} x
+            \end{bmatrix}
+            \right\|_2^2, \\
+        &= \min_x \left\|
+        \begin{bmatrix}
+        A \\ 
+        \sqrt{\gamma} I
+        \end{bmatrix}
+        x - 
+        \begin{bmatrix}
+        b \\ 
+        0
+        \end{bmatrix}
+        \right\|_2^2, \\
+        &= \min_x \|A'x - b'\|_2^2,
+        \end{align*}
+        where:
+        \[
+        A' = 
+        \begin{bmatrix}
+        A \\ 
+        \sqrt{\gamma} I
+        \end{bmatrix},
+        \quad 
+        b' = 
+        \begin{bmatrix}
+        b \\ 
+        0
+        \end{bmatrix}.
+        \]
+        
+        \item The solution is:
+        \begin{align*}
+        x^* 
+        &= (A'^\top A')^{-1} A'^\top b', \\
+        &= \left(
+        \begin{bmatrix}
+        A^\top & \sqrt{\gamma} I
+        \end{bmatrix}
+        \begin{bmatrix}
+        A \\ 
+        \sqrt{\gamma} I
+        \end{bmatrix}
+        \right)^{-1}
+        \begin{bmatrix}
+        A^\top & \sqrt{\gamma} I
+        \end{bmatrix}
+        \begin{bmatrix}
+        b \\ 
+        0
+        \end{bmatrix}, \\
+        &= \left(A^\top A + \gamma I\right)^{-1} A^\top b.
+        \end{align*}
+        
+        This is known as \textbf{ridge regression}.
+    \end{enumerate}
+\end{example}
+
+
 \subsection{Underdetermined linear equation}
+\begin{definition}
+    Solve 
+    \begin{equation*}
+        \min_{x, \text{ s.t. } Ax=b} \|x\|_2^2
+    \end{equation*}
+
+    The solution is  $x^* = A^\top (A A^\top)^{-1} b$.
+\end{definition}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item Consider a matrix \( A \in \mathbb{R}^{m \times n} \) with \( m < n \):
+        \customFigure[0.5]{00_Images/LS4.png}{Fat matrix.}
+        
+        \item Assume \( A \) has full row rank, i.e., \(\text{rank}(A) = m\). There are many vectors \( x \) that satisfy \( A x = b \).
+        
+        Out of all these \( x \)'s, we aim to find the one with the least norm:
+        \[
+        \min_x \|x\|_2^2 \quad \text{s.t. } A x = b.
+        \]
+        
+        \item \textbf{Note} If \( A \bar{x} = b \), then for any \( x_0 \in \mathcal{N}(A) \) (null space of \( A \)):
+        \[
+        A (\bar{x} + x_0) = A \bar{x} + A x_0 = A \bar{x} = b.
+        \]
+        
+        This means we can write any solution \( x \) as:
+        \[
+        x = \bar{x} + x_0, \quad \text{where } A x_0 = 0.
+        \]
+        
+        \item \textbf{Projection:} The projection of a vector \(y\) onto a set \(S\) is defined as:
+        \[
+        \text{Proj}_S(y) = \arg \min_{z \in S} \|z - y\|_2.
+        \]
+
+        The projection of the zero vector onto \(S\) is:
+        \[
+        \text{Proj}_S(0) = \arg \min_{z \in S} \|z\|_2.
+        \]
+        \customFigure[0.5]{00_Images/LS5.png}{Projection}
+
+        \item \textbf{Orthogonality Principle} By the orthogonality principle, the least-norm solution \(x^*\) should belong to the span of the rows of \(A\), i.e.:
+        \[
+        x^* \in \mathcal{R}(A^\top),
+        \]
+        where:
+        \[
+        \mathcal{R}(A^\top) = \mathcal{N}(A)^\perp,
+        \]
+        the orthogonal complement of the null space of \(A\).
+
+        \item \textbf{Solution to the Underdetermined System}
+
+        We express the least-norm solution \(x^*\) as:
+        \[
+        x^* = A^\top c \quad \text{for some } c.
+        \]
+
+        To satisfy \(A x^* = b\), we substitute:
+        \[
+        A A^\top c = b.
+        \]
+
+        Since \(A A^\top\) is invertible (because \(A\) has full row rank), we solve for \(c\):
+        \[
+        c = (A A^\top)^{-1} b.
+        \]
+
+        Substituting \(c\) back, we find:
+        \[
+        x^* = A^\top c = A^\top (A A^\top)^{-1} b.
+        \]
+
+        Thus, the solution to the underdetermined system is:
+        \[
+        x^* = A^\top (A A^\top)^{-1} b.
+        \]
+
+        \item \textbf{Note:} The expression \(A^\top (A A^\top)^{-1} = A^\dagger \) is the pseudo-inverse of \(A\), denoted as \(A^\dagger\). That is:
+        \[
+        A^\dagger = A^\top (A A^\top)^{-1}.
+        \]
+
+        Using the singular value decomposition (SVD), where \(A = U \Sigma V^\top\) with
+        $
+        \Sigma = 
+        \begin{bmatrix}
+        \tilde{\Sigma} & 0
+        \end{bmatrix},
+        $
+        we can show that:
+        \[
+        A^\top (A A^\top)^{-1} = A^\dagger.
+        \]
+
+        \item \textbf{Analytic Method to Solve Underdetermined Least Squares}
+
+        \begin{enumerate}
+            \item We aim to solve:
+            \[
+            \min \|x\|_2^2 \quad \text{subject to } A x = b,
+            \]
+            where \(\|x\|_2^2\) is the objective and \(A x = b\) represents the \(m\) constraints. This is a constrained optimization problem.
+            
+            \item \textbf{Lagrangian Formulation:} We form the Lagrangian function:
+            \[
+            \mathcal{L}(x, \lambda) = \|x\|_2^2 + \lambda^\top (A x - b),
+            \]
+            where \(\lambda\) can be interpreted as a "price" that penalizes the deviation of \(A x\) from \(b\).
+            
+            \item \textbf{Solving the Problem}
+            
+            For fixed \(\lambda\), minimize \(\mathcal{L}(x, \lambda)\) over \(x\):
+            \[
+            \nabla_x \mathcal{L} = 2x + A^\top \lambda = 0 \quad \Rightarrow \quad x = -\frac{1}{2} A^\top \lambda.
+            \]
+            
+            Substitute into the constraint \(A x = b\):
+            \[
+            A \left(-\frac{1}{2} A^\top \lambda \right) = b \quad \Rightarrow \quad -\frac{1}{2} A A^\top \lambda = b.
+            \]
+            
+            Solve for \(\lambda\):
+            \[
+            \lambda = -2 (A A^\top)^{-1} b.
+            \]
+            
+            Substitute back to find \(x\):
+            \[
+            x = -\frac{1}{2} A^\top \lambda = A^\top (A A^\top)^{-1} b.
+            \]
+            
+            \item \textbf{Conclusion} The solution matches the least-norm solution derived earlier:
+            \[
+            x = A^\top (A A^\top)^{-1} b.
+            \]
+        \end{enumerate}
+        
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Application: Optimal Control}
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{State of the Mass}
+
+        Assume \( m = 1 \). The state of the mass is represented as:
+        \[
+        \begin{bmatrix}
+        x[n] \\ 
+        v[n]
+        \end{bmatrix},
+        \]
+        where \(x[n]\) is the position and \(v[n]\) is the velocity.
+
+        \customFigure[0.5]{00_Images/LS6.png}{Mass system}
+        
+        The equations of motion are:
+        \[
+        x(t) = x(0) + vt + \frac{1}{2} a t^2, \quad v(t) = v(0) + at.
+        \]
+        
+        Discretizing, we have:
+        \[
+        \begin{bmatrix}
+        x[n] \\ 
+        v[n]
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        1 & 1 \\ 
+        0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+        x[n-1] \\ 
+        v[n-1]
+        \end{bmatrix}
+        +
+        \begin{bmatrix}
+        \frac{1}{2} \\ 
+        1
+        \end{bmatrix} p_n,
+        \]
+        where \(p_n = ma\) is the applied force.
+        
+        Define:
+        \[
+        A = 
+        \begin{bmatrix}
+        1 & 1 \\ 
+        0 & 1
+        \end{bmatrix}, \quad 
+        B = 
+        \begin{bmatrix}
+        \frac{1}{2} \\ 
+        1
+        \end{bmatrix}.
+        \]
+        
+        The system evolves as:
+        \[
+        x_n = A x_{n-1} + B p_n.
+        \]
+        
+        \item \textbf{Iterative Evolution}
+        
+        Suppose \(x_0 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\) and the final state is \(\begin{bmatrix} 1\\ 0 \end{bmatrix}\) after 10 time steps. Then:
+        \[
+        \begin{bmatrix}
+        x[10] \\ 
+        v[10]
+        \end{bmatrix}
+        =
+        A \begin{bmatrix}
+        x[9] \\ 
+        v[9]
+        \end{bmatrix}
+        + B p_{10}.
+        \]
+        
+        Expanding recursively:
+        \[
+        \begin{bmatrix}
+        x[10] \\ 
+        v[10]
+        \end{bmatrix}
+        =
+        A \left(A \begin{bmatrix}
+        x[8] \\ 
+        v[8]
+        \end{bmatrix}
+        + B p_9 \right) + B p_{10}.
+        \]
+        
+        Simplify to:
+        \[
+        \begin{bmatrix}
+        x[10] \\ 
+        v[10]
+        \end{bmatrix}
+        =
+        \begin{bmatrix}
+        A^{10} B & A^9 B & A^8 B & \cdots & AB & B
+        \end{bmatrix}
+        \begin{bmatrix}
+        p_0 \\ 
+        \vdots \\ 
+        p_{10}
+        \end{bmatrix}.
+        \]
+        
+        Let:
+        \[
+        C = \begin{bmatrix}
+        A^{10} B & A^9 B & A^8 B & \cdots & AB & B
+        \end{bmatrix}, \quad 
+        p = \begin{bmatrix}
+        p_0 \\ 
+        \vdots \\ 
+        p_{10}
+        \end{bmatrix}.
+        \]
+        
+        \item \textbf{Optimization Problem:} We want to solve:
+        \[
+        \min \|p\|_2^2 \quad \text{subject to } Cp = 
+        \begin{bmatrix}
+        0 \\ 
+        1
+        \end{bmatrix}.
+        \]
+        
+        \item This is an underdetermined least squares problem, with the solution:
+        \[
+        p^* = C^\top (C C^\top)^{-1} 
+        \begin{bmatrix}
+        1 \\ 
+        0
+        \end{bmatrix}.
+        \]
+    \end{enumerate}
+\end{example}

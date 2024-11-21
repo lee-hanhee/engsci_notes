@@ -1,2 +1,61 @@
-\subsection{Interpretation of SVD}
 \subsection{Low-rank approximation}
+\begin{definition}
+    A rank-$k$ approximation of $A$ is:
+    \[
+    \sum_{i=1}^k \sigma_i u^{(i)} v^{(i)\top}.
+    \]
+\end{definition}
+\begin{derivation}
+    Let $A \in \mathbb{R}^{m \times n}$:
+    \[
+    A = U \Sigma V^\top
+    \]
+    \[
+    = \begin{bmatrix} u^{(1)} & \cdots & u^{(r)} \end{bmatrix}
+    \begin{bmatrix} 
+    \sigma_1 & 0 & \cdots & 0 \\
+    0 & \sigma_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \sigma_r
+    \end{bmatrix}
+    \begin{bmatrix}
+    v^{(1)\top} \\
+    \vdots \\
+    v^{(r)\top}
+    \end{bmatrix}
+    \]
+    \[
+    = \sum_{i=1}^r \sigma_i u^{(i)} v^{(i)\top}.
+    \]
+
+    Assume $\sigma_1 \geq \sigma_2 \geq \cdots \geq \sigma_r \geq 0$.
+
+    A rank-$k$ approximation of $A$ is:
+    \[
+    \sum_{i=1}^k \sigma_i u^{(i)} v^{(i)\top}.
+    \]
+
+    It turns out that this is the \textbf{best rank-$k$ approximation}. It minimizes the Frobenius norm:
+    \[
+    \min_X \|A - X\|_F^2 \quad \text{s.t. } \text{rank}(X) = k.
+    \]
+
+    The solution is:
+    \[
+    X^* = \sum_{i=1}^k \sigma_i u^{(i)} v^{(i)\top}
+    \]
+    \[
+    = \begin{bmatrix} u^{(1)} & \cdots & u^{(k)} \end{bmatrix}
+    \begin{bmatrix} 
+    \sigma_1 & 0 & \cdots & 0 \\
+    0 & \sigma_2 & \cdots & 0 \\
+    \vdots & \vdots & \ddots & \vdots \\
+    0 & 0 & \cdots & \sigma_k
+    \end{bmatrix}
+    \begin{bmatrix}
+    v^{(1)\top} \\
+    \vdots \\
+    v^{(k)\top}
+    \end{bmatrix}.
+    \]
+\end{derivation}
