@@ -565,6 +565,7 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT ./00_Images/00_Vector_Space.png
@@ -572,7 +573,6 @@ INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT ./00_Images/Norm_Balls.png
 INPUT ./00_Images/Norm_Balls.png
 INPUT ./00_Images/Norm_Balls.png
@@ -897,6 +897,8 @@ INPUT 00_Lectures/W11.tex
 INPUT ECE367_Cheatsheet.aux
 INPUT ./ECE367_Cheatsheet.out
 INPUT ./ECE367_Cheatsheet.out
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx12.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmbx7.pfb

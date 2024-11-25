@@ -5,8 +5,8 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Matrix representation of a linear transformation}{5}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Vectors}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Vector spaces}{6}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{7}{subsubsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.4}Subspace}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{6}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Subspace}{7}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Span}{8}{subsection.2.5}%
 \contentsline {subsubsection}{\numberline {2.5.1}How to draw the span?}{8}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}Linear independent (LI) set}{9}{subsection.2.6}%
@@ -150,16 +150,18 @@
 \contentsline {subsubsection}{\numberline {11.1.1}Motivation:}{96}{subsubsection.11.1.1}%
 \contentsline {subsection}{\numberline {11.2}Overdetermined linear equation}{96}{subsection.11.2}%
 \contentsline {subsubsection}{\numberline {11.2.1}Why the solution has a pseudo inverse form?}{98}{subsubsection.11.2.1}%
-\contentsline {subsubsection}{\numberline {11.2.2}Application: Linear Regression}{100}{subsubsection.11.2.2}%
-\contentsline {subsubsection}{\numberline {11.2.3}Regularized LS:}{101}{subsubsection.11.2.3}%
-\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{101}{subsection.11.3}%
-\contentsline {subsubsection}{\numberline {11.3.1}Application: Optimal Control}{103}{subsubsection.11.3.1}%
-\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{105}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{105}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{105}{subsection.12.2}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{106}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{106}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{106}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{107}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{107}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{107}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {11.2.2}Pseudo Inverse}{99}{subsubsection.11.2.2}%
+\contentsline {subsubsection}{\numberline {11.2.3}Application: Linear Regression}{100}{subsubsection.11.2.3}%
+\contentsline {subsubsection}{\numberline {11.2.4}Application: Polynomial Regression}{102}{subsubsection.11.2.4}%
+\contentsline {subsubsection}{\numberline {11.2.5}Regularized LS:}{102}{subsubsection.11.2.5}%
+\contentsline {subsection}{\numberline {11.3}Underdetermined linear equation}{103}{subsection.11.3}%
+\contentsline {subsubsection}{\numberline {11.3.1}Application: Optimal Control}{106}{subsubsection.11.3.1}%
+\contentsline {section}{\numberline {12}Regularized Least-Squares, Convex Sets and Convex Functions (Ch. 6.7.3, 8.1-8.4)}{108}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Regularized least-squares}{108}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{108}{subsection.12.2}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{109}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{109}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{109}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{110}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{110}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{110}{subsection.14.2}%

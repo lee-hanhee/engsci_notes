@@ -1003,17 +1003,17 @@
         \end{equation*}
         \vspace{1em}
 
-    \textbf{Observation}: If \( Ax = b \), and \( A(x + \Delta x) = b + \Delta b \), then 
-\[
-A \cdot \Delta x = \Delta b \implies \Delta x = A^{-1} \Delta b
-\]
 \begin{itemize}
-    \item \( Ax = b \implies \| b \|_2 = \| A x \|_2 \leq \sigma_{\max}(A) \| x \|_2 \)
+    \item \textbf{Observation 1:} If \( Ax = b \), and \( A(x + \Delta x) = b + \Delta b \), then 
+        \[
+        A \cdot \Delta x = \Delta b \text{ since $Ax=b$}\implies \Delta x = A^{-1} \Delta b
+        \]
+    \item \textbf{Observation 2:} \( Ax = b \implies \| b \|_2 = \| A x \|_2 \leq \sigma_{\max}(A) \| x \|_2 \)
     \begin{itemize}
         \item Multiply by the norm of $x$ because $x$ is not assumed to have unit norm (i.e. $1$), so there is no limitation on $x$. Same idea for $\Delta b$
         \item \textbf{Note:} This was proven in the previous section.
     \end{itemize}
-    \item \( \Delta x = A^{-1} \Delta b \implies \| \Delta x \|_2 = \| A^{-1} \Delta b \|_2 \leq \sigma_{\max}(A^{-1}) \| \Delta b \|_2 \)
+    \item \textbf{Observation 3:} \( \Delta x = A^{-1} \Delta b \implies \| \Delta x \|_2 = \| A^{-1} \Delta b \|_2 \leq \sigma_{\max}(A^{-1}) \| \Delta b \|_2 \)
 \end{itemize}
 \vspace{1em}
 
@@ -1025,7 +1025,11 @@ Now we can compare the quantity we are interested in:
 \end{equation*}
 \begin{itemize}
     \item \textbf{QUESTION:} How is this upper bounded because in the previous derivations one is lower bounded and the other is upper bounded. 
+    \begin{itemize}
+        \item This is correct, b/c the lower bound is in the denominator, making $\frac{1}{||x||_2}$ being upper bounded by $1/\frac{||b||_2}{\sigma_{\max}(A)}$ NOT lower bounded.
+    \end{itemize}
 \end{itemize}
+\vspace{1em}
 
 Let \( A = U \Sigma V^T \), then 
 \[
@@ -1080,9 +1084,9 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
     \begin{enumerate}
         \item Construct a data matrix 
         \[
-        A = \begin{bmatrix} d^{(1)} & \ldots & d^{(m)} \end{bmatrix}
+        A = \begin{bmatrix} d^{(1)} & \ldots & d^{(m)} \end{bmatrix}_{N\times m}
         \]
-        where \( N \times m \) represents the number of words in the dictionary and the number of documents, respectively.
+        where \( N \) represents the number of words in the dictionary and $m$ represents the number of documents, respectively.
         \vspace{1em}
         
         \item Perform Singular Value Decomposition (SVD) on the data matrix \( A \):
@@ -1125,26 +1129,27 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
         = \sum_{j=1}^{r} \alpha_j u^{(j)}
         \]
         \begin{itemize}
-            \item \textbf{Note:} Each $u$ vector is a concept, so we are writing the document as a linear combination of concepts weighted by $\alpha$, which is different for each document. This is what we are using to compare documents.
+            \item \textbf{Key:} Each $u$ vector is a concept, so we are writing the document as a linear combination of concepts weighted by $\alpha$ (i.e. strength of the concept in the document). 
             \begin{itemize}
-                \item $\alpha$ represents the importance of each concept in the document..
+                \item \textbf{Note:} This is what we are using to compare documents.
             \end{itemize}
-            \textbf{Motivation:} $r \ll N$ (i.e. $r$ is much smaller than the size of the dictionary), so we are reducing the dimensionality of the problem, making it less computationally expensive to compare the similarity of documents. 
+            \textbf{Reducing Computational Complexity:} $r \ll N$, so we are reducing the dimensionality of the problem, making it less computationally expensive to compare the similarity of documents. 
             \begin{itemize}
-                \item HW1: Compared between length $N$ and here it's only $r$.
+                \item \textbf{Note:} HW1: Compared between length $N$ and here it's only $r$.
             \end{itemize}
         \end{itemize}
+
     
-        \item To compare documents, we can compare the corresponding coefficient vector \( \alpha \).
+        \item \textbf{New Document:} When a new document \( g \) comes along, we have two options: 
+        \begin{enumerate}
+            \item \textbf{Bad:} We can add \( g \) to \( A \) and rerun the SVD, but this is computationally expensive.
+            \item \textbf{Good:} We project \( g \) onto the span of \( \mathcal{R}(A) = \{ u^{(1)}, \ldots, u^{(r)} \} \) (i.e. projecting onto the range of \( A \)):
+            \[
+            g^* = \sum_{j=1}^{r} \beta_j u^{(j)}, \quad \beta_j = \langle g, u^{(j)} \rangle
+            \]
+        \end{enumerate}
     
-        \item \textbf{New Document:} When a new document \( g \) comes along, we can add \( g \) to \( A \) and rerun the SVD, but this is computationally expensive.
-    
-        Instead, we project \( g \) onto the span of \( \mathcal{R} = \{ u^{(1)}, \ldots, u^{(r)} \} \) (i.e. projecting onto the range of \( A \)):
-        \[
-        g^* = \sum_{j=1}^{r} \beta_j u^{(j)}, \quad \beta_j = \langle g, u^{(j)} \rangle
-        \]
-    
-        \item We then use the vectors \( \{ \alpha_j \} \) and \( \{ \beta_j \} \) to compare documents, for example, by finding the angle between them.
+        \item \textbf{Comparison:} We then use the vectors \( \{ \alpha_j \} \) and \( \{ \beta_j \} \) to compare documents, for example, by finding the angle between them.
     \end{enumerate}
 
 \end{example}
@@ -1153,6 +1158,7 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
 \begin{example}
     \textbf{Example of PCA: Eigenfaces for face recognition (HW3)}
     \begin{enumerate}
+        \item Given face 1 to face $N$, we want to do facial recognition. 
         \item Vectorize each image: Each face image of size \( 32 \times 32 \) pixels is vectorized into a column vector \( x^{(i)} \) of dimension \( m = 32 \times 32 \).
 
         \item Center each vector: 
@@ -1185,13 +1191,16 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
             u_{(m)T}
             \end{bmatrix}
             \]
+            \begin{itemize}
+                \item \textbf{Note:} Each face could be represented as a linear combination of the \( u \)'s, where the coefficients represent the strength of each \( u \) in the face.
+            \end{itemize}
         
         \item Alternatively, we could perform SVD on \( \tilde{X} \):
         \[
         \tilde{X} = U \Sigma V^T
         \]
         \begin{itemize}
-            \item \textbf{Note:} This results in the same matrix \( U \) as obtained from the spectral decomposition of \( \tilde{X} \tilde{X}^T \).
+            \item \textbf{Note:} This results in the same matrix \( U \) as obtained from the spectral decomposition of \( \tilde{X} \tilde{X}^T \). 
         \end{itemize}
     \end{enumerate}
 \end{example}
@@ -1201,6 +1210,9 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
         \item Given data points \( x^{(i)} \in \mathbb{R}^n \), $i=1,\ldots,m$
         
         \item \textbf{Goal of PCA:} Find a direction \( z \in \mathbb{R}^n \) that explains most of the variance in \( x^{(i)} \)'s.
+        \begin{itemize}
+            \item \textbf{Motivation:} The largest variance gives us the most information about the problem.
+        \end{itemize}
         \customFigure[0.5]{00_Images/PCA.png}{PCA}
         \item \textbf{How to formulate this problem?}
         
@@ -1217,7 +1229,7 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
             
             \item Look for $z$ that maximizes the variance of the \( \alpha_i \)'s:
             \[
-            \text{Variance} = \frac{1}{m} \sum_{i=1}^{m} \alpha_i^2 = \frac{1}{m} \sum_{i=1}^{m} \left( z^T \tilde{x}^{(i)} \right) \left( \tilde{x}^{(i)T} z \right)
+            \text{Variance} = \frac{1}{m} \sum_{i=1}^{m} \alpha_i^2 = \frac{1}{m} \sum_{i=1}^{m} \left( z^T \tilde{x}^{(i)} \right) \left( \tilde{x}^{(i)T} z \right) \quad \text{Writing $\alpha$ in two ways and by defintiion of variance}
             \]
             \[
             = \frac{1}{m} z^T \left( \sum_{i=1}^{m} \tilde{x}^{(i)} \tilde{x}^{(i)T} \right) z
@@ -1241,16 +1253,16 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
             \end{itemize}
         \end{enumerate}
         
-        \item We want to solve:
+        \item We want to solve (i.e. maximize the variance to explain most of the variance):
         \[
         \max_{z} z^T \tilde{X} \tilde{X}^T z \quad \text{subject to} \quad \|z\|_2 = 1
         \]
-        This can be expressed as maximizing the Rayleigh quotient:
+        This can be expressed as maximizing the Rayleigh quotient from previous lectures.
         \[
-        \max \frac{z^T \tilde{X} \tilde{X}^T z}{\|z\|_2^2}
+        \max_{z \neq 0} \frac{z^T \tilde{X} \tilde{X}^T z}{\|z\|_2^2}
         \]
         
-       \item The solution is given by the eigenvector corresponding to the largest eigenvalue of \( \tilde{X} \tilde{X}^T \).
+       \item The solution is given by the eigenvector corresponding to the largest eigenvalue of \( \tilde{X} \tilde{X}^T \) from previous lecture i.e. $\lambda_{\max} (\tilde{X} \tilde{X}^T)$, which also corresponds to the left singular vector of \( \tilde{X} \) since $\tilde{X} \tilde{X}^T = U \Sigma^2 U^T$.
         
         \item \textbf{Alternatively}, we could have used SVD on \( \tilde{X} \):
         \[
@@ -1260,15 +1272,18 @@ If \( b \) changes by 10\%, then \( x \) changes by at most \( \kappa(A) \cdot 1
         z^T \tilde{X} \tilde{X}^T z = z^T \left( U \Sigma V^T \right) \left( V \Sigma^T U^T \right) z = z^T U \Sigma^2 U^T z = \omega^T \Sigma^2 \omega = \sum_{i=1}^{r} \sigma_i^2 \omega_i^2
         \]
         
-        \item So, the problem becomes:
+        \item So, the problem becomes (i.e. maximizing the variance):
         \[
-        \max \sum_{i=1}^{r} \sigma_i^2 \omega_i^2 \quad \text{subject to} \quad \sum_{i=1}^{r} \omega_i^2 = 1
+        \max \sum_{i=1}^{r} \sigma_i^2 \omega_i^2 \quad \text{subject to} \quad \sum_{i=1}^{r} \omega_i^2 = ||\omega||_2 = 1
         \]
+        \begin{itemize}
+            \item \textbf{Note:} This holds because $\omega$ is transformed by an orthogonal matrix, so the norm is preserved.
+        \end{itemize}
         
-        \item The solution is \( \omega^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \), corresponding to the first singular vector, assuming $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r$, so the maximizing $z^* = U \omega^* u^{(1)}$.
+        \item The solution is \( \omega^* = \begin{bmatrix} 1 \\ 0 \\ \vdots \\ 0 \end{bmatrix} \), corresponding to the first singular vector, assuming $\sigma_1 \geq \sigma_2 \geq \ldots \geq \sigma_r$, so the maximizing $z^* = U \omega^* = u^{(1)}$.
         In addition, the maximum is \( \sigma_1^2 = \lambda_{\max} (\tilde{X} \tilde{X}^T) \).
-        
-        \item To find the second principal component, remove the effect of the direction $u^{(1)}$ with the largest variance, and then compute
+    
+        \item What if we're interested in the two directions with largest variance? To find the second principal component, remove the effect of the direction $u^{(1)}$ with the largest variance, and then compute
 
         \begin{enumerate}
             \item \textbf{Computation}

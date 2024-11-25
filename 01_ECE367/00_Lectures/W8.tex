@@ -39,7 +39,7 @@
 
     The solution is  $x^* = (A^\top A)^{-1} A^\top b = A^\dagger b$.
 \end{definition}
-\begin{derivation}
+\begin{derivation} \textbf{Projection Method:}
     \begin{enumerate}
         \item \textbf{Setup:} \[
     \begin{bmatrix}
@@ -124,7 +124,7 @@
     \langle a^{(1)}, b \rangle \\
     \vdots \\
     \langle a^{(n)}, b \rangle
-    \end{bmatrix}.
+    \end{bmatrix} \implies A^\top A x^* = A^\top b.
     \]
 
     Therefore, the solution to the overdetermined least squares problem is $x^* = (A^T A)^{-1} A^T b$
@@ -142,43 +142,47 @@
     (A^\top A)^{-1} = (U \Lambda U^\top)^{-1},
     \]
     where $U$ and $\Lambda$ are components of the spectral decomposition, and the rank $r = n$, which means that all the components in the SVD are invertible.
-
-    \item \textbf{Analytic Method to find the solution:}
-    The objective is to minimize the function:
-    \[
-    \min_x \|A x - b\|_2^2,
-    \]
-    denoted as $f(x)$. \\
-    
-    Define:
-    \[
-    f(x) = \|A x - b\|_2^2 = (A x - b)^\top (A x - b).
-    \]
-    
-    Expanding the terms:
-    \[
-    f(x) = x^\top A^\top A x - 2 b^\top A x + b^\top b.
-    \]
-    
-    The gradient of $f(x)$ is:
-    \[
-    \nabla f(x) = 2 A^\top A x - 2 A^\top b.
-    \]
-    
-    Setting $\nabla f(x) = 0$:
-    \[
-    A^\top A x = A^\top b.
-    \]
-    
-    Solving for $x^*$:
-    \[
-    x^* = (A^\top A)^{-1} A^\top b.
-    \]
     \end{enumerate} 
-
+    \vspace{1em}
 \end{derivation}
 
-\subsubsection{Why the solution has a pseudo inverse form?}
+\begin{derivation}
+    \textbf{Analytic Method to find the solution (Alterantive Way to Find the Solution):}
+    \begin{enumerate}
+        \item  The objective is to minimize the function:
+        \[
+        \min_x \|A x - b\|_2^2,
+        \]
+        denoted as $f(x)$. \\
+        
+        \item Define:
+        \[
+        f(x) = \|A x - b\|_2^2 = (A x - b)^\top (A x - b).
+        \]
+        
+        \item Expanding the terms:
+        \[
+        f(x) = x^\top A^\top A x - 2 b^\top A x + b^\top b.
+        \]
+        
+        \item The gradient of $f(x)$ is:
+        \[
+        \nabla f(x) = 2 A^\top A x - 2 A^\top b.
+        \]
+        
+        \item Setting $\nabla f(x) = 0$:
+        \[
+        A^\top A x = A^\top b.
+        \]
+        
+        \item Solving for $x^*$:
+        \[
+        x^* = (A^\top A)^{-1} A^\top b.
+        \]
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Why the solution has a pseudo inverse form?} Show $A^\dagger = (A^\top A)^{-1} A^\top$ 
 \begin{intuition}
     \begin{enumerate}
         \item \textbf{Proving Equality} Given the singular value decomposition (SVD):
@@ -217,7 +221,17 @@
         \begin{align*}
             (A^\top A)^{-1} A^\top 
             &= \left(V \Sigma^\top U^\top U \Sigma V^\top \right)^{-1} V \Sigma^\top U^\top \\
-            &= \left(V \tilde{\Sigma}^2 V^\top \right)^{-1} V \Sigma^\top U^\top \\
+            &= \left(V \Sigma^\top \Sigma V^\top \right)^{-1} V \Sigma^\top U^\top \\
+            &= \left(V \tilde{\Sigma}^2 V^\top \right)^{-1} V \Sigma^\top U^\top \quad  \text{since } \Sigma^T \Sigma = 
+            \begin{bmatrix}
+            \tilde{\Sigma} & 0
+            \end{bmatrix}
+            \begin{bmatrix}
+            \tilde{\Sigma} \\
+            0
+            \end{bmatrix}
+            =
+            \tilde{\Sigma}^2.\\
             &= V \tilde{\Sigma}^{-2} V^\top V 
             \begin{bmatrix}
             \tilde{\Sigma} & 0
@@ -235,43 +249,35 @@
             U^\top \\
             &= V \Sigma^{-1} U^\top = A^\dagger,
         \end{align*}
-        \begin{itemize}
-            \item $
-                    \begin{bmatrix}
-                    \tilde{\Sigma} & 0
-                    \end{bmatrix}
-                    \begin{bmatrix}
-                    \tilde{\Sigma} \\
-                    0
-                    \end{bmatrix}
-                    =
-                    \tilde{\Sigma}^2.$
-        \end{itemize}
-        
-        \item \textbf{Result:} The pseudo-inverse \(A^\dagger\) is the "best" we can do for inverting \(A\) in \(A x = b\), especially when \(A\) is a tall matrix. In fact,
+    \end{enumerate}
+
+\end{intuition}
+
+\subsubsection{Pseudo Inverse}
+\begin{intuition}
+    \begin{enumerate}
+        \item \textbf{Key 1:} The pseudo-inverse \(A^\dagger\) is the "best" we can do for inverting \(A\) in \(A x = b\) (when \(A\) is a tall matrix). In fact,
         \[
         A^\dagger A = I \quad \text{(but } A A^\dagger \neq I\text{)},
         \]
-        Moreover, $AA^\dagger$ is the projection matrix onto $\mathcal{R}(A)$
+        
+        \item \textbf{Key 2:} Moreover, $AA^\dagger$ is the projection matrix onto $\mathcal{R}(A)$
         \[
         A A^\dagger = \text{projection matrix onto } \mathcal{R}(A).
         \]
+        \begin{itemize}
+            \item Since the projection is $Ax^*$, therefore, for a certain $b$ and you want to project onto the range space of $A$, then the projection of \(b\) onto \(\mathcal{R}(A)\) is:
+            \[
+            A x^* = A A^\dagger b.
+            \]
+            \item The solution \(x^*\) to the least squares problem is:
+            \[
+            x^* = (A^\top A)^{-1} A^\top b = A^\dagger b.
+            \]
+        \end{itemize}
 
         \customFigure[0.75]{00_Images/LS1.png}{Projection matrix onto $\mathcal{R}(A)$}
-        
-        \item \textbf{Solution to the Least Squares Problem}
-        
-        The solution \(x^*\) to the least squares problem is:
-        \[
-        x^* = (A^\top A)^{-1} A^\top b = A^\dagger b.
-        \]
-        
-        \item The projection of \(b\) onto \(\mathcal{R}(A)\) is:
-        \[
-        A x^* = A A^\dagger b.
-        \]
     \end{enumerate}
-
 \end{intuition}
 
 \subsubsection{Application: Linear Regression}
@@ -280,12 +286,12 @@
         \item Given data points \( \{(x_i, y_i)\}_{i=1}^n \), we want to fit a straight line \( y_i = ax_i + b \) by minimizing the squared error:
 
         \[
-        \min_{(a, b)} \sum_{i=1}^n (y_i - ax_i - b)^2.
+        \min_{(a, b)} \sum_{i=1}^n (y_i - ax_i - b)^2
         \]
 
         \customFigure[0.5]{00_Images/LS2.png}{Linear regression}
     
-        \item Rewriting in matrix form:
+        \item Rewriting in matrix form (i.e. reformulating to a least squares problem):
         \[
         \min_{a, b} \left\| 
         \begin{bmatrix}
@@ -331,9 +337,9 @@
         \end{bmatrix}
         = (A^\top A)^{-1} A^\top y,
         \]
-        assuming \( A \) has full column rank.
+        assuming \( A \) has full column rank and $n > 2$. 
     
-        \item \textbf{Gradient Derivation}
+        \item \textbf{Gradient Derivation (Alternative way to solve the problem)}
     
         We minimize:
         \[
@@ -356,6 +362,92 @@
 
 \end{example}
 
+\begin{warning}
+    EXAM QUESTION EXAM QUESTION!! He will do a linear regression problem on the exam. So verify the gradient derivation. 
+\end{warning}
+
+\subsubsection{Application: Polynomial Regression}
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Data:} Given data points \( \{(x_i, y_i)\}_{i=1}^n \)
+        \item \textbf{Model Representation} For an $m$-order polynomial:
+        \[
+        y_i^* = \alpha_0 + \alpha_1 x_i + \alpha_2 x_i^2 + \cdots + \alpha_m x_i^m
+        \]
+    
+        \item \textbf{Objective Function} The goal is to minimize the squared error:
+        \[
+        \min \sum_{i=1}^n \left( y_i - y_i^* \right)^2
+        \]
+    
+        Substituting the polynomial:
+        \[
+        \min_{\alpha_0, \dots, \alpha_m} \sum_{i=1}^n \left( y_i - \alpha_0 - \alpha_1 x_i - \alpha_2 x_i^2 - \cdots - \alpha_m x_i^m \right)^2
+        \]
+    
+        \item \textbf{Matrix Formulation} Expressing in matrix form:
+        \[
+        \min_{\boldsymbol{\alpha}} 
+        \left\| 
+        \begin{bmatrix} 
+        y_1 \\ 
+        y_2 \\ 
+        \vdots \\ 
+        y_n 
+        \end{bmatrix} 
+        - 
+        \begin{bmatrix} 
+        1 & x_1 & x_1^2 & \cdots & x_1^m \\ 
+        1 & x_2 & x_2^2 & \cdots & x_2^m \\ 
+        \vdots & \vdots & \vdots & \ddots & \vdots \\ 
+        1 & x_n & x_n^2 & \cdots & x_n^m 
+        \end{bmatrix} 
+        \begin{bmatrix} 
+        \alpha_0 \\ 
+        \alpha_1 \\ 
+        \vdots \\ 
+        \alpha_m 
+        \end{bmatrix} 
+        \right\|_2^2
+        \]
+    
+        Let:
+        \[
+        \mathbf{y} = 
+        \begin{bmatrix} 
+        y_1 \\ 
+        y_2 \\ 
+        \vdots \\ 
+        y_n 
+        \end{bmatrix}, \quad 
+        \mathbf{X} = 
+        \begin{bmatrix} 
+        1 & x_1 & x_1^2 & \cdots & x_1^m \\ 
+        1 & x_2 & x_2^2 & \cdots & x_2^m \\ 
+        \vdots & \vdots & \vdots & \ddots & \vdots \\ 
+        1 & x_n & x_n^2 & \cdots & x_n^m 
+        \end{bmatrix}, \quad 
+        \boldsymbol{\alpha} = 
+        \begin{bmatrix} 
+        \alpha_0 \\ 
+        \alpha_1 \\ 
+        \vdots \\ 
+        \alpha_m 
+        \end{bmatrix}
+        \]
+    
+        Then the objective becomes:
+        \[
+        \min_{\boldsymbol{\alpha}} \| \mathbf{y} - \mathbf{X} \boldsymbol{\alpha} \|_2^2
+        \]
+    
+        \item \textbf{Closed-Form Solution:} If $\mathbf{X}$ is full column rank and $n > m+1$, the least squares solution is given by:
+        \[
+        \boldsymbol{\alpha} = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}
+        \]    
+    \end{enumerate}
+\end{example}
+
 \subsubsection{Regularized LS:}
 \begin{example}
     \begin{enumerate}
@@ -369,6 +461,9 @@
         \min_x \|Ax - b\|_2^2 + \gamma \|x\|_2^2,
         \]
         where \(\gamma > 0\) controls the strength of regularization.
+        \begin{itemize}
+            \item $\gamma$ helps tune the trade off between $Ax-b$ and $x$.
+        \end{itemize}
         
         \item Rewriting:
         \begin{align*}
@@ -404,7 +499,7 @@
         \begin{bmatrix}
         b \\ 
         0
-        \end{bmatrix}.
+        \end{bmatrix}
         \]
         
         \item The solution is:
@@ -434,6 +529,57 @@
     \end{enumerate}
 \end{example}
 
+\begin{example}
+    \textbf{Regularized LS:} Analytical Method
+    We aim to solve the regularized least squares problem:
+    \[
+    \min_{\mathbf{x}} \| A \mathbf{x} - \mathbf{b} \|_2^2 + \gamma \| \mathbf{x} \|_2^2,
+    \]
+    where \( A \) is an \( m \times n \) matrix, \(\mathbf{b}\) is an \( m \times 1 \) vector, \(\gamma > 0\) is the regularization parameter, and \(\mathbf{x}\) is the \( n \times 1 \) vector of variables.
+
+    \begin{enumerate}
+        \item \textbf{Define the objective function:} The cost function can be written as:
+        \[
+        f(\mathbf{x}) = \| A \mathbf{x} - \mathbf{b} \|_2^2 + \gamma \| \mathbf{x} \|_2^2.
+        \]
+        Expanding the terms:
+        \[
+        f(\mathbf{x}) = (A \mathbf{x} - \mathbf{b})^T (A \mathbf{x} - \mathbf{b}) + \gamma \mathbf{x}^T \mathbf{x}.
+        \]
+        Expanding further:
+        \[
+        f(\mathbf{x}) = \mathbf{x}^T A^T A \mathbf{x} - 2 \mathbf{b}^T A \mathbf{x} + \mathbf{b}^T \mathbf{b} + \gamma \mathbf{x}^T \mathbf{x}.
+        \]
+        Simplify:
+        \[
+        f(\mathbf{x}) = \mathbf{x}^T (A^T A + \gamma I) \mathbf{x} - 2 \mathbf{b}^T A \mathbf{x} + \mathbf{b}^T \mathbf{b},
+        \]
+        where \( I \) is the identity matrix.
+
+        \item \textbf{Take the gradient of \( f(\mathbf{x}) \) with respect to \( \mathbf{x} \):}
+        The gradient of \( f(\mathbf{x}) \) is:
+        \[
+        \nabla f(\mathbf{x}) = 2 (A^T A + \gamma I) \mathbf{x} - 2 A^T \mathbf{b}.
+        \]
+
+        \item \textbf{Set the gradient to zero:}
+        To find the minimizer, set \(\nabla f(\mathbf{x}) = 0\):
+        \[
+        2 (A^T A + \gamma I) \mathbf{x} - 2 A^T \mathbf{b} = 0.
+        \]
+        Simplify:
+        \[
+        (A^T A + \gamma I) \mathbf{x} = A^T \mathbf{b}.
+        \]
+
+        \item \textbf{Solve for \(\mathbf{x}\):}
+        Assuming \( A^T A + \gamma I \) is invertible, the solution is:
+        \[
+        \mathbf{x} = (A^T A + \gamma I)^{-1} A^T \mathbf{b}.
+        \]
+    \end{enumerate}
+\end{example}
+
 
 \subsection{Underdetermined linear equation}
 \begin{definition}
@@ -450,14 +596,18 @@
         \item Consider a matrix \( A \in \mathbb{R}^{m \times n} \) with \( m < n \):
         \customFigure[0.5]{00_Images/LS4.png}{Fat matrix.}
         
-        \item Assume \( A \) has full row rank, i.e., \(\text{rank}(A) = m\). There are many vectors \( x \) that satisfy \( A x = b \).
-        
-        Out of all these \( x \)'s, we aim to find the one with the least norm:
+        \begin{itemize}
+            \item Assume \( A \) has full row rank, i.e., \(\text{rank}(A) = m\). 
+        \end{itemize}
+        \item There are many vectors \( x \) that satisfy \( A x = b \) (i.e. infinitely many solutions). Out of all these \( x \)'s, we aim to find the one with the least norm (i.e. the best solution):
         \[
-        \min_x \|x\|_2^2 \quad \text{s.t. } A x = b.
+        \min_{x \text{ s.t. } A x = b} \|x\|_2^2
         \]
+        \begin{itemize}
+            \item \textbf{Note:} More unknowns than equations, so some unknowns can be arbitrary, which can lead to infinitely many solutions. This is because of the full row rank assumption (i.e. rows are linearly independent). If \( A \) is not full row rank, then there are no solutions, but it can still be solved (HW5) IS THIS CORRECT?
+        \end{itemize}
         
-        \item \textbf{Note} If \( A \bar{x} = b \), then for any \( x_0 \in \mathcal{N}(A) \) (null space of \( A \)):
+        \item \textbf{Note} If \( A \bar{x} = b \) where $\bar{x}$ is one solution to $Ax=b$, then for any \( x_0 \in \mathcal{N}(A) \) (null space of \( A \)):
         \[
         A (\bar{x} + x_0) = A \bar{x} + A x_0 = A \bar{x} = b.
         \]
@@ -466,6 +616,7 @@
         \[
         x = \bar{x} + x_0, \quad \text{where } A x_0 = 0.
         \]
+        Since $x_0$ is part of the null space. 
         
         \item \textbf{Projection:} The projection of a vector \(y\) onto a set \(S\) is defined as:
         \[
@@ -474,7 +625,7 @@
 
         The projection of the zero vector onto \(S\) is:
         \[
-        \text{Proj}_S(0) = \arg \min_{z \in S} \|z\|_2.
+        x^* = \text{Proj}_S(0) = \arg \min_{z \in S} \|z\|_2.
         \]
         \customFigure[0.5]{00_Images/LS5.png}{Projection}
 
@@ -487,6 +638,9 @@
         \mathcal{R}(A^\top) = \mathcal{N}(A)^\perp,
         \]
         the orthogonal complement of the null space of \(A\).
+        \begin{itemize}
+            \item This makes sense because you want $x^*$ to be orthogonal to the null space of $A$ as shown in the diagram above. 
+        \end{itemize}
 
         \item \textbf{Solution to the Underdetermined System}
 
@@ -524,59 +678,90 @@
         $
         \Sigma = 
         \begin{bmatrix}
-        \tilde{\Sigma} & 0
+        \tilde{\Sigma}_{m \times m} & 0
         \end{bmatrix},
         $
         we can show that:
         \[
         A^\top (A A^\top)^{-1} = A^\dagger.
         \]
-
-        \item \textbf{Analytic Method to Solve Underdetermined Least Squares}
-
-        \begin{enumerate}
-            \item We aim to solve:
-            \[
-            \min \|x\|_2^2 \quad \text{subject to } A x = b,
-            \]
-            where \(\|x\|_2^2\) is the objective and \(A x = b\) represents the \(m\) constraints. This is a constrained optimization problem.
-            
-            \item \textbf{Lagrangian Formulation:} We form the Lagrangian function:
-            \[
-            \mathcal{L}(x, \lambda) = \|x\|_2^2 + \lambda^\top (A x - b),
-            \]
-            where \(\lambda\) can be interpreted as a "price" that penalizes the deviation of \(A x\) from \(b\).
-            
-            \item \textbf{Solving the Problem}
-            
-            For fixed \(\lambda\), minimize \(\mathcal{L}(x, \lambda)\) over \(x\):
-            \[
-            \nabla_x \mathcal{L} = 2x + A^\top \lambda = 0 \quad \Rightarrow \quad x = -\frac{1}{2} A^\top \lambda.
-            \]
-            
-            Substitute into the constraint \(A x = b\):
-            \[
-            A \left(-\frac{1}{2} A^\top \lambda \right) = b \quad \Rightarrow \quad -\frac{1}{2} A A^\top \lambda = b.
-            \]
-            
-            Solve for \(\lambda\):
-            \[
-            \lambda = -2 (A A^\top)^{-1} b.
-            \]
-            
-            Substitute back to find \(x\):
-            \[
-            x = -\frac{1}{2} A^\top \lambda = A^\top (A A^\top)^{-1} b.
-            \]
-            
-            \item \textbf{Conclusion} The solution matches the least-norm solution derived earlier:
-            \[
-            x = A^\top (A A^\top)^{-1} b.
-            \]
-        \end{enumerate}
-        
+        \begin{itemize}
+            \item \textbf{Note:} This is similar to how we derived the pseudo-inverse for the overdetermined case.
+            \item $\tilde{\Sigma}$ is $m \times m$ because it is full row rank. 
+        \end{itemize}        
     \end{enumerate}
 \end{derivation}
+
+\begin{derivation}
+    \textbf{Analytic Method to Solve Underdetermined Least Squares}
+
+    \begin{enumerate}
+        \item We aim to solve:
+        \[
+        \min \|x\|_2^2 \quad \text{subject to } A x = b,
+        \]
+        where \(\|x\|_2^2\) is the objective and \(A x = b\) represents the \(m\) constraints. This is a constrained optimization problem.
+        
+        \item \textbf{Lagrangian Formulation:} We form the Lagrangian function:
+        \[
+        \mathcal{L}(x, \lambda) = \|x\|_2^2 + \lambda^\top (A x - b),
+        \]
+        where \(\lambda\) can be interpreted as a "price" that penalizes the deviation of \(A x\) from \(b\).
+        \begin{itemize}
+            \item \textbf{Note:} The Lagrangian is the objective function plus the constraints multiplied by the Lagrange multipliers.
+            \begin{itemize}
+                \item $Ax-b$ is the constraint, which is multiplied by the Lagrange multiplier $\lambda$.
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Solving the Problem}
+        
+        For fixed \(\lambda\), minimize \(\mathcal{L}(x, \lambda)\) over \(x\):
+        \[
+        \nabla_x \mathcal{L} = 2x + A^\top \lambda = 0 \quad \Rightarrow \quad x = -\frac{1}{2} A^\top \lambda.
+        \]
+        
+        Substitute into the constraint \(A x = b\) to ensure that this $x$ satisfies the constraint:
+        \[
+        A \left(-\frac{1}{2} A^\top \lambda \right) = b \quad \Rightarrow \quad -\frac{1}{2} A A^\top \lambda = b.
+        \]
+        
+        Solve for \(\lambda\):
+        \[
+        \lambda = -2 (A A^\top)^{-1} b.
+        \]
+        \begin{itemize}
+            \item This is telling me the optimal penalty to minimize the Langrangian function.
+        \end{itemize}
+        
+        Substitute back to find \(x\):
+        \[
+        x = -\frac{1}{2} A^\top \lambda = A^\top (A A^\top)^{-1} b.
+        \]
+        
+        \item \textbf{Conclusion} The solution matches the least-norm solution derived earlier:
+        \[
+        x = A^\top (A A^\top)^{-1} b.
+        \]
+        \begin{itemize}
+            \item \textbf{General:} Very difficult to find a closed form solution of $x$ in terms of $\lambda$, but in this case, we can find it. This is one of the few problems where we can find a closed form solution.
+        \end{itemize}
+    \end{enumerate}
+\end{derivation}
+
+\begin{warning}
+    For constrained optimization, you cannot just set the gradient to zero because it's not gauranteed to satisfy the constraints. However, if you use the Lagrangian method, you are effectively solving an unconstrainted optimization problem, so that you can set the gradient to zero.
+\end{warning}
+
+\begin{process}
+    \begin{enumerate}
+        \item Form the lagrangian function
+        \item Take the gradient of the lagrangian function with respect to $x$ and set it to zero
+        \item Solve for $x$ in terms of $\lambda$
+        \item Substitute $x$ back into the constraint to solve for $\lambda$
+        \item Substitute $\lambda$ back into $x$ to solve for $x$
+    \end{enumerate}
+\end{process}
 
 \subsubsection{Application: Optimal Control}
 \begin{example}
@@ -593,13 +778,28 @@
         where \(x[n]\) is the position and \(v[n]\) is the velocity.
 
         \customFigure[0.5]{00_Images/LS6.png}{Mass system}
+        \begin{itemize}
+            \item Pushing the mass with force \(p_n\) at time \(n\) from position $0$ to position $1$.
+        \end{itemize}
         
-        The equations of motion are:
+        \item The equations of motion are:
         \[
         x(t) = x(0) + vt + \frac{1}{2} a t^2, \quad v(t) = v(0) + at.
         \]
+        \begin{itemize}
+            \item $p_n = ma = a$ since the mass is 1 (i.e. applied force is equal to the acceleration)
+        \end{itemize}
+
+        \item \textbf{Goal:} We want to find the optimal force \(p_n\) (i.e. least amount of force) to push the mass from position \(0\) to position \(1\).
         
-        Discretizing, we have:
+        \item Discretizing, we have:
+        \[
+        x[n] = x[n-1] + v[n-1] + \frac{1}{2} p_n,
+        \]
+        \[
+        v[n] = v[n-1] + p_n.
+        \]
+        Therefore, in matrix form, we can write it as:
         \[
         \begin{bmatrix}
         x[n] \\ 
@@ -620,7 +820,6 @@
         1
         \end{bmatrix} p_n,
         \]
-        where \(p_n = ma\) is the applied force.
         
         Define:
         \[
@@ -641,9 +840,7 @@
         x_n = A x_{n-1} + B p_n.
         \]
         
-        \item \textbf{Iterative Evolution}
-        
-        Suppose \(x_0 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\) and the final state is \(\begin{bmatrix} 1\\ 0 \end{bmatrix}\) after 10 time steps. Then:
+        \item \textbf{Iterative Evolution} Suppose \(x_0 = \begin{bmatrix} 0 \\ 0 \end{bmatrix}\) and the final state is \(\begin{bmatrix} 1\\ 0 \end{bmatrix}\) after 10 time steps. Then:
         \[
         \begin{bmatrix}
         x[10] \\ 
@@ -692,22 +889,26 @@
         \[
         C = \begin{bmatrix}
         A^{10} B & A^9 B & A^8 B & \cdots & AB & B
-        \end{bmatrix}, \quad 
+        \end{bmatrix}_{2 \times 11}, \quad 
         p = \begin{bmatrix}
         p_0 \\ 
         \vdots \\ 
         p_{10}
-        \end{bmatrix}.
+        \end{bmatrix}_{11 \times 1}.
         \]
         
         \item \textbf{Optimization Problem:} We want to solve:
         \[
         \min \|p\|_2^2 \quad \text{subject to } Cp = 
         \begin{bmatrix}
-        0 \\ 
-        1
+        1 \\ 
+        0
         \end{bmatrix}.
         \]
+        \begin{itemize}
+            \item $Cp = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ because we want to reach the final state of position $1$ with velocity $0$.
+            \item Minimize the force applied to the mass subject to the constraint of reaching the final state.
+        \end{itemize}
         
         \item This is an underdetermined least squares problem, with the solution:
         \[
