@@ -1,0 +1,141 @@
+\subsection{Problem vs. Problem Instance}
+\begin{definition}
+    \begin{itemize}
+        \item A \textbf{problem} is a general question that we want to answer.
+        \item A \textbf{problem instance} is a specific input to the problem.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Hamiltonian Cycle Problem}
+\begin{definition}
+    A \textbf{Hamiltonian Cycle Problem} is defined as follows:
+    \begin{quote}
+    Given a graph, is there a simple path (i.e., no vertices are repeated) that traverses all vertices of the graph?
+    \end{quote}
+\end{definition}
+
+\subsubsection{Godelization}
+\begin{definition}
+    \textbf{Gödelization} maps a problem into a set of strings $\{0, 1\}^*$. For example, it can map strings to represent graphs without cycles.
+\end{definition}
+
+\begin{example}
+    The Hamiltonian Cycle problem can be represented as a set of strings $L_{HC}$
+    \customFigure[0.75]{00_Images/NP.png}{Transformation to Godelization}
+    \begin{itemize}
+        \item \textbf{Note:} The circled part represents the Hamiltonian Cycle problem. Otherwise, $G$ with no cycles is not part of the Hamiltonian Cycle problem.
+    \end{itemize}
+\end{example}
+
+\subsubsection{Optimization vs. Decision Problems}
+\begin{definition}
+    \begin{itemize}
+        \item An \textbf{optimization problem} asks for the best solution.
+        \item A \textbf{decision problem} asks for a yes/no answer.
+    \end{itemize}
+    \vspace{1em}
+    \[
+    \text{Decision} \leq \text{Optimization}
+    \]
+    \begin{itemize}
+        \item Given a solution to an optimization problem, we can immediately solve the corresponding decision problem.
+        \item If the decision problem is hard to solve, then the optimization problem is at least as hard.
+    \end{itemize}
+\end{definition}
+
+\begin{example} \textbf{Max Flow Problem}:
+    \begin{itemize}
+        \item Decision version: Does the graph have a flow of size $\geq 20$?
+        \item Optimization version: Find the maximum flow in the graph.
+    \end{itemize}
+\end{example}
+
+\subsection{Turing Machines and Language Recognition}
+\begin{definition}
+    A Turing machine (TM) can be conceptualized equivalently as:
+    \[
+    \text{Turing Machine} \equiv \text{Software (sw)} \equiv \text{Hardware (hw)} \equiv \text{Algorithm (algo)} \equiv \text{Complexity}.
+    \]
+\end{definition}
+
+\begin{example}
+    The goal of the TM is to recognize strings $w$:
+    \[
+    w \in L_{HC} \, ? \overset{\text{TM}_{\text{HC}}}{\rightarrow} 
+    \quad
+    \begin{cases}
+    y & \text{if } w \in L_{HC}, \\
+    n & \text{if } w \notin L_{HC}.
+    \end{cases}
+    \]    
+    where $L_{HC}$ is the Hamiltonian Cycle problem (i.e., the set of strings that represent graphs with Hamiltonian cycles since we used Goedelization).
+    \begin{itemize}
+        \item \textbf{TM Decides a Language $L$:} A TM \textbf{decides} $L$ if, after a finite number of steps, it halts with the correct answer.
+        
+        \item \textbf{TM Accepts a Language $L$:} A TM \textbf{accepts} $L$ if:
+        \begin{itemize}
+            \item Whenever the TM halts on input $w$, the answer is correct.
+            \item But as long as the TM rns, there is no guarantee if it will ever halt or not (i.e. it may run forever).
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsubsection{The Halting Problem}
+\begin{definition}
+    The \textbf{Halting Problem} is undecidable:
+    \begin{quote}
+    It is not possible to build a TM that decides whether another TM halts or not on a given input.
+    \end{quote}
+    (Turing, 1936)
+\end{definition}
+
+\subsection{Complexity Classes}
+\subsubsection{Complexity Class P}
+\begin{definition}
+    \[
+P = \{ L \subseteq \{0,1\}^* \mid \text{$\exists$ a polynomial-time algorithm to decide } L \}.
+\]
+\end{definition}
+
+\subsubsection{Problem Verification}
+\begin{definition}
+    An algorithm $A$ \textbf{verifies} a problem $L$ if, given an instance $x \in L$ of the problem, there exists a certificate (or witness or candidate solution) $y$ such that $A(x, y) = 1$. The language verified is:
+    \[
+    L = \{ x \in \{0, 1\}^* \mid \exists y \in \{0, 1\}^* \text{ s.t. } A(x, y) = 1 \}.
+    \]
+\end{definition}
+
+\subsubsection{Complexity Class NP}
+\begin{definition}
+    The class \textbf{NP} consists of problems that can be verified in polynomial time. Formally:
+    \[
+    L \in NP \iff \exists \text{ a polynomial-time algorithm } A \text{ and a constant } c \text{ s.t. } L \text{ contains the strings}
+    \]
+    \[
+    L = \{ x \in \{0,1\}^* \mid \exists \text{ certificate } y \text{ with } |y| = O(|x|^c) \text{ such that } A(x, y) = 1 \}.
+    \]
+\end{definition}
+
+\subsection{Complement of NP}
+\begin{definition}
+    If $L \in NP$, then the complement $\bar{L} \in \text{co-NP}$.
+\end{definition}
+
+\subsubsection{Relationships Between Complexity Classes}
+\begin{theorem}
+    \textbf{Theorem:}
+\[
+P \subseteq NP
+\]
+\begin{itemize}
+    \item If a problem can be solved in polynomial time, it can also be verified in polynomial time.
+\end{itemize}
+
+\textbf{Theorem:}
+\[
+P = \text{co-}P.
+\]
+
+\customFigure[0.75]{00_Images/NP1.png}{Relationships Between Complexity Classes}
+\end{theorem}
+
