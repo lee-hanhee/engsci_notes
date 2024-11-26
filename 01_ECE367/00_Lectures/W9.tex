@@ -1,2 +1,145 @@
 \subsection{Regularized least-squares}
+\begin{derivation}
+    \begin{enumerate}
+        \item Recall the overdetermined least squares (LS):
+        \[
+        \min_x \|Ax - b\|_2
+        \]
+        where $A \in \mathbb{R}^{m \times n}$, with $m > n$.
+    
+        \item Regularized Least Squares (LS):
+        \[
+        \min_x \|Ax - b\|_2^2 + \gamma \|x\|_2^2
+        \]
+        \begin{itemize}
+            \item This is a tradeoff between minimizing the norm of x and solving the LS problem.
+        \end{itemize}
+        The solution is given by:
+        \[
+        x^* = \left(A^\top A + \gamma I\right)^{-1} A^\top b
+        \]
+    
+        \item To understand regularized LS, we can formulate it as a constrained optimization problem, rather than an unconstrainted optimization problem:
+        \[
+        \min_{x \text{ s.t. } \|x\|_2^2 \leq t} \|Ax - b\|_2^2 
+        \]
+        The optimal point $x^{**}$ can be represented as:
+        \[
+        x^{**} = \text{argmin}_{\text{s.t. } \|x\|_2^2 \leq t} \|Ax - b\|_2^2 
+        \]
+        \customFigure[0.5]{00_Images/LS7.png}{Regularized Least Squares}
+        \begin{itemize}
+            \item The constraint is the unit circle in the 2D case, and the $||Ax-b||_2^2$ is the contour ellipse plot that grows in size until it intersects with the constraint, which is the optimal point. 
+        \end{itemize}
+    \end{enumerate}
+\end{derivation}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item In many cases, we are looking for a sparse solution $x$, i.e., we aim to solve:
+        \[
+        x^* = \min_{x \text{ s.t. } \|x\|_0 \leq t} \|Ax - b\|_2^2 
+        \]
+        Here, $\|x\|_0$ represents the number of non-zero entries in $x$.
+           
+        \item \textbf{Convex Relaxation} The $\ell_0$-norm constraint is difficult to handle. Instead, we replace it with the $\ell_1$-norm:
+        \[
+        \min_{x \text{ s.t. } \|x\|_1 \leq t} \|Ax - b\|_2^2 
+        \]
+        \begin{itemize}
+            \item $l1$ norm encourages sparsity, but $l2$ norm does not.
+        \end{itemize}
+
+        \item \textbf{LASSO Optimization:} The equivalent formulation is:
+        \[
+        \min_x \|Ax - b\|_2^2 + \gamma \|x\|_1
+        \]
+        \begin{itemize}
+            \item The LASSO optimization problem does not have an analytic solution, but it can be solved numerically since it belongs to the class of convex optimization problems. For $1D$, it does have an analytic solution.
+        \end{itemize}
+        \customFigure[0.75]{00_Images/LS8.png}{Optimization solution for $l1$ norm}
+        \begin{itemize}
+            \item \textbf{Note:} The solution occurs with one of the entries being 0, indicating the sparse solution that can be achieved with $l1$ norm.
+            \item \textbf{Why Sparse:} Reduces the memory and computational complexity since we only need to store and compute the non-zero entries.
+        \end{itemize}
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Application: Sparse Coding of Images}
+\begin{example}
+    \begin{itemize}
+        \item Suppose $M \in \mathbb{R}^{n \times n}$ is an image.
+        \item We aim to encode $M$ into $\tilde{M} = H M H^\top$, where $H$ is an orthogonal matrix chosen such that $\tilde{M}$ is sparse.
+        \item Instead of encoding $M$ exactly, we allow some loss.
+    \end{itemize}
+    \vspace{1em}
+
+    We aim to solve the following optimization problem:
+    \[
+    \min_X \frac{1}{2} \|H^\top X H - M\|_F^2 + \lambda \|X\|_1,
+    \]
+    where $\|X\|_1 = \sum_{ij} |x_{ij}|$.
+
+    \begin{itemize}
+        \item \textbf{Intuition:} First term is the loss, which is comparing the decoding of $X$ with the original image $M$. The second term is the sparsity constraint.
+        \item Note: $\tilde{M} = H M H^\top \implies M = H^\top \tilde{M} H$.
+        \item It turns out that this is equivalent to the LASSO optimization in the 1-dimensional case:
+        \[
+        \min_u \frac{1}{2} (u - a)^2 + \lambda |u|,
+        \]
+        where $f(u) = \frac{1}{2} (u - a)^2 + \lambda |u|$.
+    \end{itemize}
+    \vspace{1em}
+
+    \textbf{Solving the Optimization Problem}
+    \begin{enumerate}
+        \item If $u \geq 0$ and $a > \lambda$, then:
+        \[
+        \frac{\partial f(u)}{\partial u} = 0 \implies u - a + \lambda = 0 \implies u = a - \lambda.
+        \]
+
+        \item If $u \leq 0$ and $a < -\lambda$, then:
+        \[
+        \frac{\partial f(u)}{\partial u} = 0 \implies u - a - \lambda = 0 \implies u = a + \lambda.
+        \]
+
+        \item If $0 < a < \lambda$ and $u \geq 0$, then:
+        \[
+        \frac{\partial f(u)}{\partial u} = u - a + \lambda > 0,
+        \]
+        indicating that $f$ is increasing on $u > 0$. Thus, $u^* = 0$ is the solution in this case.
+
+        \item Similarly, for $-\lambda < a < 0$ and $u < 0$, the solution is $u^* = 0$.
+    \end{enumerate}
+    \customFigure[0.75]{00_Images/LS9.png}{Optimization solution for LASSO in 1D}
+\end{example}
+
 \subsection{Convex sets and convex functions}
+\subsubsection{General Form of an Optimization Problem}
+\begin{definition}
+    \begin{itemize}
+        \item The general form of an optimization problem is:
+        \[
+        \min f_o(x) \quad \text{subject to} \quad 
+        \begin{aligned}
+            &f_i(x) \leq 0, \quad i = 1, \ldots, m \quad \text{(inequality constraints)} \\
+            &h_i(x) = 0, \quad i = 1, \ldots, p \quad \text{(equality constraints)} 
+        \end{aligned}
+        \]
+    
+        \item The \textbf{feasible set} is defined as:
+        \[
+        C = \{x \mid f_i(x) \leq 0, \, i = 1, \ldots, m, \, h_i(x) = 0, \, i = 1, \ldots, p\}.
+        \]
+    
+        \item The \textbf{optimal value} $p^*$ is:
+        \[
+        p^* = \min f_o(x) \quad \text{subject to} \quad x \in C.
+        \]
+    
+        \item The \textbf{optimal point/optimal solution} $x^*$ is:
+        \[
+        x^* = \arg \min f_o(x) \quad \text{subject to} \quad x \in C.
+        \]
+    \end{itemize}
+\end{definition}

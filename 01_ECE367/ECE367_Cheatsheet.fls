@@ -565,7 +565,6 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/rm-lmbx5.tfm
-INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 INPUT ./00_Images/00_Vector_Space.png
@@ -573,6 +572,7 @@ INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
 INPUT ./00_Images/00_Vector_Space.png
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc
 INPUT ./00_Images/Norm_Balls.png
 INPUT ./00_Images/Norm_Balls.png
 INPUT ./00_Images/Norm_Balls.png
@@ -888,6 +888,21 @@ INPUT ./00_Images/LS6.png
 INPUT ./00_Lectures/W9.tex
 INPUT ./00_Lectures/W9.tex
 INPUT 00_Lectures/W9.tex
+INPUT ./00_Images/LS7.png
+INPUT ./00_Images/LS7.png
+INPUT ./00_Images/LS7.png
+INPUT ./00_Images/LS7.png
+INPUT ./00_Images/LS7.png
+INPUT ./00_Images/LS8.png
+INPUT ./00_Images/LS8.png
+INPUT ./00_Images/LS8.png
+INPUT ./00_Images/LS8.png
+INPUT ./00_Images/LS8.png
+INPUT ./00_Images/LS9.png
+INPUT ./00_Images/LS9.png
+INPUT ./00_Images/LS9.png
+INPUT ./00_Images/LS9.png
+INPUT ./00_Images/LS9.png
 INPUT ./00_Lectures/W10.tex
 INPUT ./00_Lectures/W10.tex
 INPUT 00_Lectures/W10.tex

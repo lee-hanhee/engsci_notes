@@ -1,0 +1,294 @@
+\subsection{W12 L3: RL}
+\begin{summary}
+    \begin{itemize}
+        \item MDP vs. RL
+        \item Active RL vs. Passive RL
+        \item Active RL
+        \begin{itemize}
+            \item Model-based Learning: Esimate $T$ and $R$ from samples.
+            \item Model-Free Learning
+            \begin{itemize}
+                \item Direct Evaluation: Estimates $V_\pi (s)$ from returns.
+                \item Temporal Difference Learning
+                \item Q-Learning
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{summary}
+
+\subsection{Motivation for RL: Unknown Transition and Reward Model}
+\begin{intuition}
+    What if the environment model is not entirely known? How can we find a policy? Here comes \textcolor{red}{RL}.
+        \begin{itemize}
+            \item \textcolor{blue}{Learning what?}
+            \begin{itemize}
+                \item The MDP model \textcolor{orange}{or} some parts of the model 
+                (e.g., value functions or Q-functions which are enough to find the optimal policy).
+            \end{itemize}
+            \item \textcolor{blue}{Learning from what?}
+            \begin{itemize}
+                \item From samples (aka episodes) of the process (i.e., transition of states).
+            \end{itemize}
+        \end{itemize}
+\end{intuition}
+
+\begin{warning}
+    Q-values are enough to find the optimal policy (i.e. learn the Q-values), rather than using the transition model. 
+    \begin{itemize}
+        \item \textbf{Note:} Q values allow you to find the optimal policy without finding the transition model.
+    \end{itemize}
+\end{warning}
+
+\subsection{RL Problem}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Assume} an MDP $(S, A, T, R, \gamma)$.
+        \begin{itemize}
+            \item \textbf{Note:} Don't have access to $T$ and $R$.
+        \end{itemize}
+        \item \textbf{Goal:} Looking for a good policy.
+        \item \textbf{New challenge:}
+        \begin{itemize}
+            \item We don't know \textcolor{orange}{$T$} or \textcolor{purple}{$R$}.
+            \item Must \textcolor{red}{explore} new states and actions to observe the environment.
+            \item Basic Idea: Learn how to maximize \textcolor{purple}{expected rewards} based on \textcolor{orange}{observed samples of transitions.}
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{MDP vs. RL}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{MDP}
+        \begin{itemize}
+            \item Solving MDP is an \textcolor{red}{offline} problem.
+            \begin{itemize}
+                \item \textcolor{red}{The model is known.}
+                \item The goal is to find a policy that collects maximum utility.
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{Reinforcement Learning (RL)}
+        \begin{itemize}
+            \item RL is an \textcolor{purple}{online} problem.
+            \begin{itemize}
+                \item \textcolor{purple}{The model is not known.}
+                \item The goal is to perform actions to learn the model and collect rewards.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\subsection{Passive vs. Active RL}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Passive RL:}
+        \begin{itemize}
+            \item How to learn from already given experiences.
+            \begin{itemize}
+                \item Similar to supervised learning: learns from already given labeled datapoints.
+            \end{itemize}
+        \end{itemize}
+        \item \textbf{Active RL:}
+        \begin{itemize}
+            \item How to collect new experience and learn from them (i.e. nobody gave you any episodes).
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsection{Approaches to Passive RL}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Model-Based Learning}
+        \begin{itemize}
+            \item Learn the MDP Dynamics (i.e., \textcolor{red}{$T$}) and Reward (i.e., \textcolor{red}{$R$}) from samples 
+            \begin{itemize}
+                \item Estimation of $T$ and $R$, $\hat{T}$ and $\hat{R}$.
+            \end{itemize}
+            \item Then, solve the MDP (i.e., use policy iteration or value iteration).
+        \end{itemize}
+        \item \textbf{Model-Free Learning}
+        \begin{itemize}
+            \item Directly learns $V(s)$ or $Q(s, a)$ from experience.
+            \begin{itemize}
+                \item Rather than finding $T$ and then calculating the expected value, we are calculating the expected value directly from the experience.
+            \end{itemize}
+            \item Uses $V(s)$ or $Q(s, a)$ to make decisions.
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Ultimate Goal for RL}
+\begin{intuition}
+    \begin{itemize}
+        \item Find an estimate of expected return in each state.
+        \item \textbf{Model-Based Learning:} Estimate the probability distribution of return from the samples, then use it to calculate the expected return.
+        \item \textbf{Model-Free Learning:} Estimate the expected return directly from samples.
+    \end{itemize}
+\end{intuition}
+
+\subsection{Model-Based Learning}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Basic Idea:}
+        \begin{itemize}
+            \item Learn an estimate MDP model (i.e., $T$) based on experience.
+            \item Then, solve the approximate MDP.
+        \end{itemize}
+        \item \textbf{Step 1: Learn empirical MDP model $T(s,a,s') = P(s' \mid s,a)$}
+        \begin{itemize}
+            \item Count outcomes $s'$ for each $s, a$.
+            \item Use the count to estimate $\hat{T}(s,a,s') = \hat{P}(s' \mid s,a)$.
+            \item Similarly estimate $\hat{R}(s,a,s')$.
+        \end{itemize}
+        \item \textbf{Step 2: Solve the learned MDP (e.g., with value iteration or policy iteration).}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/RL5.png}{Model Based Learning}
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{example}
+
+\subsubsection{Pros and Cons of Model-Based Learning}
+\begin{intuition} 
+    \begin{itemize}
+        \item \textbf{Pro:}
+        \begin{itemize}
+            \item Makes efficient use of experience (low sample complexity).
+        \end{itemize}
+        \item \textbf{Con:}
+        \begin{itemize}
+            \item May not scale to large state space.
+            \item Learns model on a state-action pair at a time.
+            \item Cannot solve MDP for very large $\vert S \vert$.
+            \item Much harder when the environment is partially observable.
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Model-Free Learning}
+\begin{intuition}
+    To approximate expectations w.r.t. a distribution, we can either:
+    \begin{itemize}
+        \item Estimate the distribution from samples, then compute the expectation based on the estimated distribution.
+        \item Or, bypass the distribution and estimate the expectation from the samples directly.
+    \end{itemize}
+\end{intuition}
+
+\begin{example} \textbf{Example Task: Estimating Expected Age of UofT Students}
+
+    \begin{itemize}
+        \item If the probability distribution of $A$ was known, we could find it easily:
+        \[
+        \mathbb{E}[A] = \sum_a P(a) \cdot a
+        \]
+        \item Without $P(A)$, we have to collect samples: $[a_1, a_2, \ldots, a_N]$.
+        \item \textbf{Model-Based Approach:}
+        \begin{itemize}
+            \item Estimate $P(A)$ first: $\hat{P}(A=a) = \frac{N_a}{N}$.
+            \item Then, use $\hat{P}$ to estimate $\mathbb{E}[A]$: 
+            \[
+            \hat{\mathbb{E}}[A] = \sum_a \hat{P}(A=a) \cdot a
+            \]
+        \end{itemize}
+        \item \textbf{Model-Free Approach:}
+        \begin{itemize}
+            \item Use the samples to estimate $\mathbb{E}[A]$:
+            \[
+            \hat{\mathbb{E}}[A] = \frac{\sum_i a_i}{N}
+            \]
+        \end{itemize}
+    \end{itemize}
+\end{example}
+
+\subsection{Simplified Passive RL Model}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Input:} Stream of transitions produced by following some fixed policy $\pi(s)$.
+        \item Example, we are given the following episodes:
+        \[
+        (s, \pi(s), s', r, \pi(s)',r',\ldots, \text{end}), \quad (s, \pi(s), r, s'', r'', \ldots, \text{end}), \ldots
+        \]
+        \item \textbf{Output:} Estimate of the state values $\hat{V}_\pi(s)$ 
+        \item \textbf{Note:} We don't know $T$ and $R$.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Direct Evaluation}
+\begin{itemize}
+    \item Direct Evaluation uses returns, the actual sums of discounted reward from $s$ onward.
+    \item Average over multiple trials and visits to $s$: Every time you visit $s$, find the sum of discounted reward from $s$ to the end.
+    \[
+    U_i(s) = R(s, \pi(s), s') + \gamma R(s', \pi(s'), s'') + \gamma^2 R(s'', \pi(s''), s''') + \dots
+    \]
+    \[
+    \hat{V}_\pi(s) = \frac{1}{N} \sum_i U_i(s)
+    \]
+    \item This is also known as \textbf{Direct Utility Estimation} or \textbf{Monte Carlo Evaluation}.
+\end{itemize}
+
+
+\subsubsection{Pros and Cons of Direct Evaluation}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Pros:}
+        \begin{itemize}
+            \item Does not require any knowledge of $T$ and $R$.
+            \item Converges to the right answer in the limit.
+        \end{itemize}
+        \item \textbf{Cons:}
+        \begin{itemize}
+            \item Ignores information about state connections.
+            \item Each state must be learned separately.
+            \item Slow to learn.
+        \end{itemize}
+    \end{itemize}
+\end{intuition}
+
+\subsection{How Can We Incorporate Information About State Connections?}
+\begin{intuition}
+    \begin{itemize}
+        \item \textbf{Direct Evaluation} waits for each episode to end.
+        \begin{itemize}
+            \item Then it finds the sum of discounted return of state $s$ for that episode.
+            \item Then, it updates $\hat{V}_\pi(s)$.
+        \end{itemize}
+        \item Why don’t we use a similar approach to \textbf{Policy Evaluation}?
+        \begin{itemize}
+            \item Policy Evaluation uses the state connection (by using Bellman equations):
+            \[
+            V_{\pi,k+1}(s) \leftarrow \sum_{s'} T(s, \pi(s), s') \left[ R(s, \pi(s), s') + \gamma V_{\pi,k}(s') \right]
+            \]
+            \item Sadly, we don’t have $R(\cdot)$ and $T(\cdot)$ :(
+        \end{itemize}
+        \item \textbf{Temporal Difference (TD) Learning to the rescue!}
+    \end{itemize}
+\end{intuition}
+
+\subsection{Before We Present TD, Let's Study Some Naive Ideas to Exploit State Connections}
+\begin{intuition}
+    \begin{itemize}
+        \item Idea 1: Use actual samples to estimate the expectation.
+        \item Idea 2: Update value of $s$ after each transition $(s, a, s', r)$.
+    \end{itemize}
+    \begin{itemize}
+        \item These two naive ideas help us better understand the design principle behind TD.
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Idea 1:}
+\begin{definition}
+    Let’s Take a Second Look at the State Value Recursion Relation:
+    \[
+    V_\pi(s) = \sum_{s'} T(s, \pi(s), s') \left[ R(s, \pi(s), s') + \gamma V_\pi(s') \right]
+    \]
+    \[
+    = \mathbb{E} \left[ R(s, \pi(s), s') + \gamma V_\pi(s') \mid s' \sim T(s, \pi(s), \cdot) \right]
+    \]
+    \begin{itemize}
+        \item Hence, to estimate $V_\pi(s)$, we must estimate the expectation above.
+        \item Just like what we saw earlier, estimate the expected value of a random variable by finding the average of its realizations.
+    \end{itemize}
+\end{definition}
