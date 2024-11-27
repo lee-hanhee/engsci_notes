@@ -126,10 +126,14 @@
             &h_i(x) = 0, \quad i = 1, \ldots, p \quad \text{(equality constraints)} 
         \end{aligned}
         \]
+        \begin{itemize}
+            \item $f_i: \; \mathbb{R}^n \rightarrow \mathbb{R}$
+            \item $h_i: \; \mathbb{R}^n \rightarrow \mathbb{R}$
+        \end{itemize}
     
         \item The \textbf{feasible set} is defined as:
         \[
-        C = \{x \mid f_i(x) \leq 0, \, i = 1, \ldots, m, \, h_i(x) = 0, \, i = 1, \ldots, p\}.
+        C = \{x \mid f_i(x) \leq 0, \, h_i(x) = 0, \, \forall i \}.
         \]
     
         \item The \textbf{optimal value} $p^*$ is:
@@ -143,3 +147,441 @@
         \]
     \end{itemize}
 \end{definition}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Objective:}  
+        \[
+        \min x_1 + x_2 \quad \text{subject to} \quad
+        \begin{aligned}
+            -x_1 &\leq 0, \\
+            -x_2 &\leq 0, \\
+            1 - x_1 - x_2 &\leq 0.
+        \end{aligned}
+        \]
+        \begin{itemize}
+            \item i.e. $x_1 \geq 0$, $x_2 \geq 0$, and $x_1 + x_2 \leq 1$, but they need to be in the form of $\leq$ constraints as defined. 
+        \end{itemize}
+        
+        \item The optimal point is:
+        \[
+        x^* = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+        \]
+        
+        \item and the optimal value is:
+        \[
+        p^* = f_0(x^*) = 2.
+        \]
+    \end{enumerate}
+    \customFigure[0.5]{00_Images/CF.png}{Optimization problem}
+    \begin{itemize}
+        \item Find the minimum constant $c$ such that the line $x_1 + x_2 = c$ intersects the feasible set while being the minimum. 
+    \end{itemize}
+\end{example}
+
+\subsubsection{Convex Set:}
+\begin{definition}
+    A set $C \subset \mathbb{R}^n$ is \textbf{convex} if, $\forall x, y \in C$ and $\forall \lambda \in [0, 1]$, we have:
+    \[
+    \lambda x + (1 - \lambda)y \in C.
+    \]
+
+    \begin{itemize}
+        \item Here, $\lambda x + (1 - \lambda)y$ is known as a \textbf{convex combination} of $x$ and $y$.
+        \item \textbf{Note:} The convex combination creates a line segment between $x$ and $y$ as you vary $\lambda$ from 0 to 1.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/CF1.png}{Convex and non-convex functions}
+    \begin{itemize}
+        \item 1st example: Convex b/c all line segments between two points are in the feasible set. 
+        \item 2nd example: Non-convex b/c not all line segments between two points are in the feasible set.
+    \end{itemize}
+\end{example}
+
+\subsubsection{Process for proving convex:}
+\begin{process}
+    \begin{enumerate}
+        \item Get two points $x, y \in C$.
+        \item Take a convex combination of $x$ and $y$: $\lambda x + (1 - \lambda)y$ and sub into the feasible set.
+        \item See if the point holds in the definition of the feasible set for $\lambda \in [0, 1]$.
+    \end{enumerate}
+\end{process}
+
+\begin{warning}
+    Exam questions is giving you subsets, and proving if they are convex or not convex by following the definition. 
+\end{warning}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Subspaces are Convex:} 
+        \begin{enumerate}
+            \item The null space of a matrix $A$, denoted $\mathcal{N}(A)$, is defined as:
+            \[
+            \mathcal{N}(A) = \{x \mid A x = 0\}.
+            \]
+            \item Let $x, y \in \mathcal{N}(A)$ and $\lambda \in [0, 1]$. Then:
+            \[
+            A(\lambda x + (1 - \lambda)y) = \lambda A x + (1 - \lambda) A y = 0 + 0 = 0.
+            \]
+            \item Thus, $\lambda x + (1 - \lambda)y \in \mathcal{N}(A)$, proving that $\mathcal{N}(A)$ is convex.
+        \end{enumerate}
+        \item \textbf{Affine Spaces are Convex:} 
+        \customFigure[0.5]{00_Images/CF2.png}{Sub space (includes 0 vector) and Affine space are convex}
+    
+        \item \textbf{Ellipsoids are Convex:} 
+        \customFigure[0.5]{00_Images/CF3.png}{Ellipsoids are convex}
+    
+        \item \textbf{Norm Balls are Convex:} $l_p$-norm balls are convex for $p \geq 1$. However, for $0 \leq p < 1$, $l_p$-norm balls are \textbf{non-convex}.
+        \customFigure[0.5]{00_Images/CF4.png}{Norm balls are convex}
+        \customFigure[0.5]{00_Images/CF6.png}{Non-convex norm balls}
+    
+        \item \textbf{Intersection and Union of Convex Sets:}
+        \begin{itemize}
+            \item The \textbf{intersection} of convex sets is always convex.
+            \item The \textbf{union} of convex sets is \textbf{not necessarily convex}.
+        \end{itemize}
+        \customFigure[0.5]{00_Images/CF5.png}{Intersection of convex sets is convex, but union is not}
+    \end{enumerate}    
+\end{example}
+
+\subsubsection{Convex Function:}
+\begin{definition}
+    A function $f : \mathbb{R}^n \to \mathbb{R}$ is \textbf{convex} if:
+    \begin{enumerate}
+        \item The domain of $f$, denoted as $\mathrm{Dom} \, f$, is a convex set.
+        \item For all $x, y \in \mathrm{Dom} \, f$ and for all $\lambda \in [0, 1]$, we have:
+        \[
+        f(\lambda x + (1 - \lambda)y) \leq \lambda f(x) + (1 - \lambda) f(y).
+        \]
+    \end{enumerate}
+    \begin{itemize}
+        \item The evaluation of $f$ at a convex combination of $x$ and $y$ is less than or equal to the line connecting $f(x)$ and $f(y)$.
+        \item i.e. Any line segment between two points in the graph of a convex function lies above the function. 
+    \end{itemize}
+    \customFigure[0.5]{00_Images/CF7.png}{Convex function}
+\end{definition}
+
+\subsubsection{Concave Function}
+\begin{definition}
+    A function $f : \mathbb{R}^n \to \mathbb{R}$ is \textbf{concave} if $-f$ is \textbf{convex}.
+    \begin{itemize}
+        \item \textbf{Note:} An \textbf{affine function} $f(x) = a^T x + b$ is both \textbf{convex} and \textbf{concave}.
+        \customFigure[0.5]{00_Images/CF9.png}{Affine function being both convex and concave}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \customFigure[0.75]{00_Images/CF8.png}{Convex function examples and non-examples}
+\end{example}
+
+\begin{warning}
+    See that we are looking to see if $-f$ is convex, not $f$ itself, so any max becomes a min and vice versa.
+\end{warning}
+
+\subsubsection{Connection Between Convex Sets and Convex Functions}
+\begin{definition}
+    If $f$ is a \textbf{convex function}, then its sublevel sets are \textbf{convex}. The sublevel set is defined as:
+    \[
+    S_\alpha = \{x \mid f(x) \leq \alpha\},
+    \]
+    is convex $\forall \alpha \in \mathbb{R}$.
+    \customFigure[0.5]{00_Images/CF10.png}{Sublevel sets of a convex function are convex}
+\end{definition}
+
+\begin{derivation}
+    Let $f: \mathbb{R}^n \to \mathbb{R}$ be a convex function. We aim to show that for any $\alpha \in \mathbb{R}$, the sublevel set
+    \[
+    S_\alpha = \{x \in \mathbb{R}^n \mid f(x) \leq \alpha\}
+    \]
+    is convex.
+
+    \begin{enumerate}
+        \item \textbf{Take two points in the sublevel set:} Let $x_1, x_2 \in S_\alpha$. By definition of the sublevel set:
+        \[
+        f(x_1) \leq \alpha \quad \text{and} \quad f(x_2) \leq \alpha.
+        \]
+
+        \item \textbf{Consider a convex combination:} Let $\lambda \in [0, 1]$ and define the convex combination:
+        \[
+        x_\lambda = \lambda x_1 + (1 - \lambda)x_2.
+        \]
+
+        \item \textbf{Use the definition of convexity of \(f\):} Since $f$ is convex:
+        \[
+        f(x_\lambda) \leq \lambda f(x_1) + (1 - \lambda)f(x_2).
+        \]
+
+        \item \textbf{Substitute the values of \(f(x_1)\) and \(f(x_2)\):} Since $f(x_1) \leq \alpha$ and $f(x_2) \leq \alpha$, we have:
+        \[
+        \lambda f(x_1) + (1 - \lambda)f(x_2) \leq \lambda \alpha + (1 - \lambda)\alpha = \alpha.
+        \]
+
+        \item \textbf{Conclude the proof:} Therefore:
+        \[
+        f(x_\lambda) \leq \alpha,
+        \]
+        which implies $x_\lambda \in S_\alpha$. Hence, $S_\alpha$ is convex.
+
+    \end{enumerate}
+
+\end{derivation}
+
+\subsubsection{Convex Optimization Problem (Motivation for Convex)}
+\begin{intuition}
+    Consider the optimization problem:
+    \[
+    \min f_0(x) \quad \text{s.t. } f_i(x) \leq 0 \text{ and } h_i(x) = 0.
+    \]
+
+    This can be rewritten as:
+    \[
+    \min f_0(x) \quad \text{s.t. } x \in C,
+    \]
+    where $C$ is the \textbf{feasible set}.
+    \vspace{1em}
+
+    \textbf{Convexity of the Feasible Set:}
+    \begin{enumerate}
+        \item \textbf{Sublevel Sets:} Each constraint $f_i(x) \leq 0$ defines a sublevel set (corresponding to $\alpha = 0$):
+        \[
+        \{x \mid f_i(x) \leq 0\}
+        \]
+        If $f_i$ is convex, then $\{x \mid f_i(x) \leq 0\}$ is a convex set (prev. shown)
+
+        \item \textbf{Equality Constraints:} If $h_i$ is affine, i.e., $h_i(x) = a_i^T x + b_i$, then the set:
+        \[
+        \{x \mid h_i(x) = 0\}
+        \]
+        is a convex set because affine functions (prev. shown) are both convex and concave.
+
+        \item \textbf{Intersection of Convex Sets:} The feasible set $C$ is the intersection of the convex sets.
+        \[
+        C = \{x \mid f_i(x) \leq 0\} \cap \{x \mid h_i(x) = 0\}.
+        \]
+        Since the intersection of convex sets is convex, $C$ is convex if all $f_i$ are convex and $h_i$ are affine.
+
+    \end{enumerate}
+
+    \vspace{1em}
+    \textbf{Note on Quasi-Convex Functions:} If $S_\alpha = \{x \mid f(x) \leq \alpha\}$ is convex for all $\alpha$, it does not necessarily mean that $f$ is convex. Such functions are called \textbf{quasi-convex} functions.
+    \customFigure[0.5]{00_Images/CF11.png}{Sublevel sets are convex doesn't mean the function is convex as shown by finding a line segment below the function.}
+    \begin{itemize}
+        \item Quasi Convex: Function whose sublevel sets are convex. 
+    \end{itemize}
+\end{intuition}
+
+\subsubsection{Differentiable Convex Functions}
+\begin{definition}
+    \textbf{First-Order Condition}
+    Suppose \( f: \mathbb{R}^n \to \mathbb{R} \) is differentiable. Then \( f \) is convex if and only if:
+    \[
+    f(x) \geq f(x_0) + \nabla f(x_0)^T (x - x_0), \quad \forall x, x_0 \in \mathbb{R}^n.
+    \]
+
+    \begin{itemize}
+        \item This inequality represents the first-order Taylor series approximation of \( f(x) \).
+    \end{itemize}
+    \customFigure[0.5]{00_Images/CF16.png}{Convex function and its tangent plane in 1D, where the function lies above the tangent plane}
+    \vspace{1em}
+
+    \textbf{Consequence:} 
+    \begin{itemize}
+        \item If \( f \) is convex and differentiable, and if \( x_0 \) is such that \( \nabla f(x_0) = 0 \), then \( x_0 \) is a global minimizer of \( f \) in an unconstrained optimization problem:
+        \[
+        \min_x f(x).
+        \]
+        \item This is true because if $\nabla f(x_0) = 0$, then the first order condition becomes:
+        \[
+        f(x) \geq f(x_0), \quad \forall x \in \mathbb{R}^n.
+        \]
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Why is this true?} If this condition is violated, \( f \) cannot be convex because it would bend below its tangent plane at some point, violating the definition of convexity.
+    \customFigure[0.5]{00_Images/CF18.png}{Convex function and its tangent plane in 1D, where the function bends}
+\end{derivation}
+
+\begin{definition}
+    \textbf{Second-Order Condition}
+    Suppose \( f: \mathbb{R}^n \to \mathbb{R} \) is twice differentiable. Then:
+    \begin{itemize}
+        \item \( f \) is convex if and only if:
+        \[
+        \nabla^2 f(x) \succeq 0, \quad \forall x \in \mathbb{R}^n,
+        \]
+        where \( \nabla^2 f(x) \) is the Hessian matrix, and positive semidefiniteness implies all eigenvalues are non-negative.
+
+        \item \( f \) is concave if and only if:
+        \[
+        \nabla^2 f(x) \preceq 0, \quad \forall x \in \mathbb{R}^n,
+        \]
+        meaning the Hessian is negative semidefinite (i.e. all eigenvalues are non-positive).
+    \end{itemize}
+\end{definition}
+
+\begin{derivation}
+    \textbf{Why is this true?}
+    To prove the second-order condition, consider the following fact:
+
+    \textbf{Fact:} \( f: \mathbb{R}^n \to \mathbb{R} \) is convex if and only if the function:
+    \[
+    g(t) = f(x_0 + tv)
+    \]
+    is convex for all \( t \in \mathbb{R} \), \( x_0 \in \mathbb{R}^n \), and \( v \in \mathbb{R}^n \).
+    \customFigure[0.5]{00_Images/CF19.png}{g is a tangent line that uses the points of $x_0$ and $v$ at $f$ and then $t$ is the slope of the tangent line}
+    \begin{enumerate}
+        \item Define the function \( g(t) = f(x_0 + tv) \), where \( t \in \mathbb{R} \).
+        \item Assume \( f \) is convex. By the definition of convexity, for any \( x_1, x_2 \in \mathbb{R}^n \) and \( \lambda \in [0,1] \):
+        \[
+        f(\lambda x_1 + (1 - \lambda)x_2) \leq \lambda f(x_1) + (1 - \lambda)f(x_2).
+        \]
+        \item For \( g(t) = f(x_0 + tv) \), consider \( t_1, t_2 \in \mathbb{R} \) and \( \lambda \in [0,1] \). Let:
+        \[
+        z_1 = x_0 + t_1 v \quad \text{and} \quad z_2 = x_0 + t_2 v.
+        \]
+        Then:
+        \[
+        \lambda z_1 + (1 - \lambda)z_2 = x_0 + (\lambda t_1 + (1 - \lambda)t_2)v.
+        \]
+        \item By the convexity of \( f \):
+        \[
+        f(\lambda z_1 + (1 - \lambda)z_2) \leq \lambda f(z_1) + (1 - \lambda)f(z_2).
+        \]
+        Substituting back for \( z_1 \) and \( z_2 \):
+        \[
+        f(x_0 + (\lambda t_1 + (1 - \lambda)t_2)v) \leq \lambda f(x_0 + t_1 v) + (1 - \lambda)f(x_0 + t_2 v).
+        \]
+        Hence:
+        \[
+        g(\lambda t_1 + (1 - \lambda)t_2) \leq \lambda g(t_1) + (1 - \lambda)g(t_2).
+        \]
+        This shows that \( g(t) \) is convex for any \( t \in \mathbb{R} \).
+    
+        \item Now assume \( g(t) \) is convex for all \( x_0 \in \mathbb{R}^n \) and \( v \in \mathbb{R}^n \). Let \( x_1, x_2 \in \mathbb{R}^n \) and \( \lambda \in [0,1] \). Set:
+        \[
+        x_1 = x_0 + t_1 v \quad \text{and} \quad x_2 = x_0 + t_2 v,
+        \]
+        where \( t_1 = 0 \) and \( t_2 = 1 \). Then, for \( g(t) = f(x_0 + t v) \):
+        \[
+        g(\lambda t_1 + (1 - \lambda)t_2) \leq \lambda g(t_1) + (1 - \lambda)g(t_2).
+        \]
+        Substituting \( t_1 = 0 \) and \( t_2 = 1 \):
+        \[
+        g(\lambda) \leq \lambda g(0) + (1 - \lambda)g(1).
+        \]
+        Equivalently:
+        \[
+        f(\lambda x_1 + (1 - \lambda)x_2) \leq \lambda f(x_1) + (1 - \lambda)f(x_2).
+        \]
+        This proves that \( f \) is convex.
+    
+        \item Therefore, \( f \) is convex if and only if \( g(t) \) is convex for all \( t \in \mathbb{R} \).
+    \end{enumerate}
+    \vspace{1em}
+
+    \textbf{Proof Outline:}
+    \begin{enumerate}
+        \item Let \( z = x + tv \), then expand \( f(z) \) using the second-order Taylor series, where $x-z=tv$:
+        \[
+        f(z) = f(x) + \nabla f(x)^T (tv) + \frac{1}{2} (tv)^T \nabla^2 f(x) (tv) + O(t^3) = f(x) + \nabla f(x)^T (tv) + \frac{1}{2} t^2 v^T \nabla^2 f(x) v + O(t^3).
+        \]
+        \begin{align*}
+            \nabla^2 f(x) \succeq 0 &\iff v^T \nabla^2 f(x) v \geq 0, \quad \forall v, \\
+            &\iff f(z) \geq f(x) + \nabla f(x)^T (z - x), \quad \text{b/c by last term in the TS of 2nd order is always positive}\\
+            &\iff f \text{ is convex by the first order condition} .
+        \end{align*}
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Solving Unconstrained Optimization Problems}
+\begin{process}
+    To solve the unconstrained optimization problem:
+    \[
+    \min_x f_0(x),
+    \]
+    if $f_0$ is twice differentiable, follow these steps:
+
+    \begin{enumerate}
+        \item \textbf{Check if $f_o$ is convex:} Verify the convexity of $f_o$ by checking the Hessian matrix:
+        \[
+        \nabla^2 f(x) \succeq 0,
+        \]
+        which means the Hessian is positive semidefinite for all $x$.
+
+        \item \textbf{Find the optimal point:} If $f$ is convex, find the optimal point $x^*$ such that:
+        \[
+        \nabla f(x^*) = 0.
+        \]
+        This ensures that $x^*$ is a global minimum of $f$.
+
+    \end{enumerate}
+
+    \noindent Thus, solving unconstrained optimization problems is straightforward when the function $f_0$ is convex, as the problem reduces to solving for the stationary point.
+
+    \customFigure[0.5]{00_Images/CF12.png}{Optimal point for convex function can be represented as a hyperplane that is tangent to the function at the optimal point}
+
+\end{process}
+
+\begin{warning}
+    This will be on the exam, where we will have to check for convexity, then take the gradient and set it to 0 to find the optimal point.
+\end{warning}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Exponential Function:} The function $f(x) = e^x$ is convex because:
+        \[
+        \frac{d^2 f(x)}{dx^2} = e^x \geq 0 \quad \text{for all } x.
+        \]
+    
+        \item \textbf{Exponential Decay:} The function $f(x) = e^{-x}$ is also convex because:
+        \[
+        \frac{d^2 f(x)}{dx^2} = e^{-x} \geq 0 \quad \text{for all } x.
+        \]
+        \customFigure[0.5]{00_Images/CF14.png}{Convex exponential functions}
+
+        \item \textbf{Negative Logarithm:} The function $f(x) = -\log(x)$ (for $x > 0$) is convex because:
+        \[
+        \frac{d^2 f(x)}{dx^2} = \frac{1}{x^2} \geq 0 \quad \text{for } x > 0.
+        \]
+        \customFigure[0.5]{00_Images/CF13.png}{Convex log functions}
+    
+        \item \textbf{Convex Combination of Convex Functions:} If $f_1$ and $f_2$ are convex functions, then for $\alpha_1 \geq 0$ and $\alpha_2 \geq 0$, the function:
+        \[
+        \alpha_1 f_1(x) + \alpha_2 f_2(x)
+        \]
+        is convex.
+    
+        \item \textbf{Affine Transformation of a Convex Function:} If $f: \mathbb{R}^n \to \mathbb{R}$ is convex and $g(x) = f(Ax + b)$, where $A$ is a matrix and $b$ is a vector, then $g(x)$ is also convex.
+    
+        \item \textbf{Quadratic Function:} The quadratic function:
+        \[
+        f(x) = \frac{1}{2}x^T A x + c^T x + d
+        \]
+        is convex if the matrix $A$ is positive semidefinite ($A \succeq 0$). This is because:
+        \[
+        \nabla^2 f(x) = A.
+        \]
+        \customFigure[0.5]{00_Images/CF15.png}{Convex quadratic functions. See that when $a \leq 0$, the function is concave, but not convex}
+    
+        \item \textbf{Norm Functions:} The $l_p$-norm function:
+        \[
+        f(x) = \|x\|_p, \quad p \geq 1
+        \]
+        is convex. This follows from the triangle inequality:
+        \[
+        \|\lambda x + (1 - \lambda)y\|_p \leq \lambda \|x\|_p + (1 - \lambda)\|y\|_p, \quad \text{for } \lambda \in [0, 1].
+        \]
+    \end{enumerate}    
+\end{example}
+
+
+
+
+
+
+
+
+

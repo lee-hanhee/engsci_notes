@@ -1,30 +1,30 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}QA}{5}{section.1}%
-\contentsline {section}{\numberline {2}Vectors, Norms, Inner Products (Ch. 2.1-2.2)}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Linear transformation}{5}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Matrix representation of a linear transformation}{5}{subsubsection.2.1.1}%
+\contentsline {section}{\numberline {1}QA}{6}{section.1}%
+\contentsline {section}{\numberline {2}Vectors, Norms, Inner Products (Ch. 2.1-2.2)}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Linear transformation}{6}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Matrix representation of a linear transformation}{6}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Vectors}{6}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Vector spaces}{6}{subsection.2.3}%
 \contentsline {subsubsection}{\numberline {2.3.1}How to prove or disprove a vector space?}{7}{subsubsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.4}Subspace}{8}{subsection.2.4}%
 \contentsline {subsection}{\numberline {2.5}Span}{8}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}How to draw the span?}{8}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.1}How to draw the span?}{9}{subsubsection.2.5.1}%
 \contentsline {subsection}{\numberline {2.6}Linear independent (LI) set}{9}{subsection.2.6}%
 \contentsline {subsubsection}{\numberline {2.6.1}How to determine if a set is linearly independent}{9}{subsubsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.7}Basis}{9}{subsection.2.7}%
-\contentsline {subsubsection}{\numberline {2.7.1}Dimension}{9}{subsubsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7}Basis}{10}{subsection.2.7}%
+\contentsline {subsubsection}{\numberline {2.7.1}Dimension}{10}{subsubsection.2.7.1}%
 \contentsline {subsection}{\numberline {2.8}Norms (Notion of distance)}{10}{subsection.2.8}%
-\contentsline {subsubsection}{\numberline {2.8.1}Norm balls}{10}{subsubsection.2.8.1}%
+\contentsline {subsubsection}{\numberline {2.8.1}Norm balls}{11}{subsubsection.2.8.1}%
 \contentsline {subsubsection}{\numberline {2.8.2}Motivation for Norms}{11}{subsubsection.2.8.2}%
-\contentsline {subsubsection}{\numberline {2.8.3}Distance metric}{11}{subsubsection.2.8.3}%
-\contentsline {subsection}{\numberline {2.9}Inner product (Notion of angle)}{11}{subsection.2.9}%
+\contentsline {subsubsection}{\numberline {2.8.3}Distance metric}{12}{subsubsection.2.8.3}%
+\contentsline {subsection}{\numberline {2.9}Inner product (Notion of angle)}{12}{subsection.2.9}%
 \contentsline {subsubsection}{\numberline {2.9.1}Examples of inner products}{12}{subsubsection.2.9.1}%
 \contentsline {subsubsection}{\numberline {2.9.2}Connection of inner product to angle}{12}{subsubsection.2.9.2}%
-\contentsline {subsubsection}{\numberline {2.9.3}Cauchy-Schwartz inequality and its generalization}{12}{subsubsection.2.9.3}%
+\contentsline {subsubsection}{\numberline {2.9.3}Cauchy-Schwartz inequality and its generalization}{13}{subsubsection.2.9.3}%
 \contentsline {subsubsection}{\numberline {2.9.4}Inner product induces a norm}{13}{subsubsection.2.9.4}%
-\contentsline {subsection}{\numberline {2.10}Orthogonal decomposition}{13}{subsection.2.10}%
-\contentsline {subsubsection}{\numberline {2.10.1}Mutually orthogonal}{13}{subsubsection.2.10.1}%
-\contentsline {subsubsection}{\numberline {2.10.2}Orthonormal basis}{13}{subsubsection.2.10.2}%
+\contentsline {subsection}{\numberline {2.10}Orthogonal decomposition}{14}{subsection.2.10}%
+\contentsline {subsubsection}{\numberline {2.10.1}Mutually orthogonal}{14}{subsubsection.2.10.1}%
+\contentsline {subsubsection}{\numberline {2.10.2}Orthonormal basis}{14}{subsubsection.2.10.2}%
 \contentsline {subsubsection}{\numberline {2.10.3}Orthogonal}{14}{subsubsection.2.10.3}%
 \contentsline {subsubsection}{\numberline {2.10.4}Orthogonal complement}{14}{subsubsection.2.10.4}%
 \contentsline {section}{\numberline {3}Orthogonal Decomposition, Projecting onto Subspaces, Gram-Schmidt, QR Decomposition, Projection onto Affine Sets, Hyperplanes and Half-Spaces (Ch. 2.2-2.3)}{15}{section.3}%
@@ -161,9 +161,17 @@
 \contentsline {subsubsection}{\numberline {12.1.1}Application: Sparse Coding of Images}{109}{subsubsection.12.1.1}%
 \contentsline {subsection}{\numberline {12.2}Convex sets and convex functions}{110}{subsection.12.2}%
 \contentsline {subsubsection}{\numberline {12.2.1}General Form of an Optimization Problem}{110}{subsubsection.12.2.1}%
-\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{111}{section.13}%
-\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{111}{subsection.13.1}%
-\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{111}{subsection.13.2}%
-\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{112}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{112}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{112}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {12.2.2}Convex Set:}{111}{subsubsection.12.2.2}%
+\contentsline {subsubsection}{\numberline {12.2.3}Process for proving convex:}{112}{subsubsection.12.2.3}%
+\contentsline {subsubsection}{\numberline {12.2.4}Convex Function:}{114}{subsubsection.12.2.4}%
+\contentsline {subsubsection}{\numberline {12.2.5}Concave Function}{114}{subsubsection.12.2.5}%
+\contentsline {subsubsection}{\numberline {12.2.6}Connection Between Convex Sets and Convex Functions}{115}{subsubsection.12.2.6}%
+\contentsline {subsubsection}{\numberline {12.2.7}Convex Optimization Problem (Motivation for Convex)}{116}{subsubsection.12.2.7}%
+\contentsline {subsubsection}{\numberline {12.2.8}Differentiable Convex Functions}{117}{subsubsection.12.2.8}%
+\contentsline {subsubsection}{\numberline {12.2.9}Solving Unconstrained Optimization Problems}{120}{subsubsection.12.2.9}%
+\contentsline {section}{\numberline {13}Lagrangian Method for Constrained Optimization, Linear Programming and Quadratic Programming (Ch. 8.5, 9.1-9.6)}{123}{section.13}%
+\contentsline {subsection}{\numberline {13.1}Lagrangian method for constrained optimization}{123}{subsection.13.1}%
+\contentsline {subsection}{\numberline {13.2}Linear programming and quadratic programming}{123}{subsection.13.2}%
+\contentsline {section}{\numberline {14}Numerical Algorithms for Unconstrained and Constrained Optimization (Ch. 12.1-12.3)}{124}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Numerical algorithms for unconstrained optimization}{124}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Numerical algorithms for constrained optimization}{124}{subsection.14.2}%

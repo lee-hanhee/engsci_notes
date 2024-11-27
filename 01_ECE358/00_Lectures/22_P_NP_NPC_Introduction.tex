@@ -136,6 +136,128 @@ P \subseteq NP
 P = \text{co-}P.
 \]
 
-\customFigure[0.75]{00_Images/NP1.png}{Relationships Between Complexity Classes}
+\customFigure[0.5]{00_Images/NP1.png}{Relationships Between Complexity Classes}
 \end{theorem}
 
+\subsection{Reducibility}
+\begin{intuition}
+    NP-complete languages/problems belong to NP and have the property that if we can solve one NP-complete problem in polynomial time, we can solve every problem in NP in polynomial time.
+\end{intuition}
+\begin{definition}
+    \begin{itemize}
+        \item \textbf{Informally:} If any instance of a problem $Q$ can be transformed into an instance of $Q'$ in polynomial time, the solution to which (i.e. for Q') provides a solution to the problem $Q$, then $Q$ is ``no more difficult'' than $Q'$.
+    
+        \item \textbf{Formally:} $L_1$ is polynomially reducible to $L_2$, denoted as $L_1 \leq_p L_2$, if there exists a polynomial-time algorithm $F$ such that:
+        \[
+        x \in L_1 \iff F(x) \in L_2
+        \]
+        If we can answer whether or not $x \in L_2$, we can answer whether or not $x \in L_1$ in polynomially more time.
+    
+        \customFigure[0.5]{00_Images/NP2.png}{Reducibility}
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item Let $Q = $ difference constraints.
+        \item Let $Q' = $ single-source shortest path (SSSP).
+    \end{itemize}
+    In polynomial time, we can transform a difference constraints problem to an SSSP problem. Since SSSP is solvable in polynomial time, difference constraints are also solvable in polynomial time.
+\end{example}
+
+\subsection{NP-Complete Problems}
+\begin{definition}
+    \begin{itemize}
+        \item $L \in NP-C \iff L \in NP$ and $\forall L' \in NP, L' \leq_p L$.
+        \item \textbf{Theorem:} If $\exists L \in NP-C \cap P$, then $P = NP$.
+        \item \textbf{Theorem:} $NP = CO-NP \iff \exists L \in NP-C \text{ such that } L \in NP$.
+        \item \textbf{Proof Outline:}
+        \begin{itemize}
+            \item $(\Rightarrow)$ Straightforward.
+            \item $(\Leftarrow)$ Assume $L \in NP-C$ and $\bar{L} \in NP$. Pick any $L' \in NP$ ($\bar{L'} \in CO-NP$).
+            \begin{itemize}
+                \item $L' \leq_p L$ and $\bar{L'} \leq_p \overline{L}$ implies that $L' \in NP$.
+                \item Since $\bar{L'} \in CO-NP$, $\overline{L} \in NP$, so $\overline{L'}$ is no harder than $L$, which is NP, so $L'$ is NP.
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\subsubsection{How to Prove $L \in NP-C$}
+\begin{process} Every problem in NP reduces to $L'$, which reduces to $L$.
+    \begin{enumerate}
+        \item Show $L \in NP$: give certificate/verifier (can be verified in poly-time).
+        \item Select a known $L' \in NP-C$ (if only 2, NP-hard).
+        \begin{itemize}
+            \item Show $L' \leq_p L$ ($x \in L'$ iff $f(x) \in L$).
+            \item Show $f$ is polynomial-time.
+        \end{itemize}
+    \end{enumerate}
+\end{process}
+
+\begin{example}
+\begin{enumerate}
+    \item \textbf{Cook's Theorem: CIRCUIT-SAT is NPC}
+    \begin{enumerate}
+        \item Common Mistake:
+        \begin{itemize}
+            \item To show \(L \in \text{NP-C}, L \leq_p L'\), \(L' \in \text{NP-C}\).
+            \item Reduction Chain:
+            \[
+            \text{3-SAT} \rightarrow \text{Clique} \rightarrow \text{Vertex Cover}
+            \]
+        \end{itemize}
+
+        \item CIRCUIT-SAT reduces to Formula-SAT:
+        \[
+        \text{Formula-SAT} \rightarrow \text{Ham-Cycle} \rightarrow \text{TSP}
+        \]
+    \end{enumerate}
+
+    \item \textbf{Formula-SAT}
+
+    A formula \(\phi\) contains \(n\)-Boolean variables and connectives:
+    \[
+    \land, \lor, \lnot, \Rightarrow, \Leftrightarrow
+    \]
+    Example:
+    \[
+    \phi = (x_1 \land x_2) \lor (x_3 \Leftrightarrow x_4 \lor x_5)
+    \]
+
+    \item \textbf{Decision Problem}
+    Given \(\phi\), is there a satisfying assignment to \(x_1, \ldots, x_n\) such that \(\phi = 1\)?
+
+    \begin{enumerate}
+        \item Show that Formula-SAT \(\in \text{NP}\):
+        \begin{itemize}
+            \item Just ``plug'' the binary variable values and evaluate \(\phi\) in polynomial time.
+        \end{itemize}
+        
+        \item Show that CIRCUIT-SAT \(\leq_p\) Formula-SAT:
+        \begin{itemize}
+            \item Example: Circuit given in the diagram.
+            \item \(\phi_d = \omega \Leftrightarrow (x_1 \land x_2) \land (z \Leftrightarrow (x_3 \lor x_4)) \land (y \Leftrightarrow (\omega \land z)) \land y\).
+            \item If any \(x_1, \ldots, x_4 \Rightarrow y = 1\), the assignment also makes \(\phi = 1\) and vice versa.
+            \item For each \(\lor, \land, \lnot\), introduce polynomial-time variables/directives, so time complexity is polynomial.
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Reduction to 3-SAT}
+
+    \begin{itemize}
+        \item Formula \(\phi\) is given in 3-Conjunctive Normal Form (CNF):
+        \[
+        \phi = (x_1 \lor x_2 \lor \lnot x_4) \land (x_2 \lor x_3 \lor \lnot x_5) \land (\lnot x_1 \lor x_4 \lor x_7) \land \ldots
+        \]
+        \item Each literal represents a variable or its negation.
+        \item Each clause contains at most 3 literals.
+    \end{itemize}
+
+    \item \textbf{Conclusion}
+    \begin{enumerate}
+        \item 2-SAT \(\in \phi\).
+        \item 2.5-SAT \(\in \text{NP-C}\).
+    \end{enumerate}
+    \end{enumerate}
+\end{example}

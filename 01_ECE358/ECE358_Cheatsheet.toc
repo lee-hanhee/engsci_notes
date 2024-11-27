@@ -281,4 +281,7 @@
 \contentsline {subsubsection}{\numberline {25.3.3}Complexity Class NP}{132}{subsubsection.25.3.3}%
 \contentsline {subsection}{\numberline {25.4}Complement of NP}{133}{subsection.25.4}%
 \contentsline {subsubsection}{\numberline {25.4.1}Relationships Between Complexity Classes}{133}{subsubsection.25.4.1}%
-\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{134}{section.26}%
+\contentsline {subsection}{\numberline {25.5}Reducibility}{133}{subsection.25.5}%
+\contentsline {subsection}{\numberline {25.6}NP-Complete Problems}{134}{subsection.25.6}%
+\contentsline {subsubsection}{\numberline {25.6.1}How to Prove $L \in NP-C$}{134}{subsubsection.25.6.1}%
+\contentsline {section}{\numberline {26}NP Completeness (NPC) (Ch. 34)}{136}{section.26}%
