@@ -1,2 +1,128 @@
 \subsection{Lagrangian method for constrained optimization}
+\subsubsection{Constrained Optimization Problem}
+\begin{intuition}
+    A constrained optimization problem is defined as:
+    \[
+    \min f(x) \quad \text{subject to} \quad x \in C,
+    \]
+    where \( C \) is the feasible set.
+
+    At the optimal point \( x^* \), the gradient of \( f \) is generally not zero (not necessarily equal to zero, as it depends on where the feasible set $C$ is):
+    \[
+    \nabla f(x^*) \neq 0 \quad \text{in general}.
+    \]
+
+    \textbf{How to Solve This Problem?}
+
+    It turns out that if:
+    \begin{itemize}
+        \item \( f \) is a convex function, and
+        \item \( C \) is a convex set,
+    \end{itemize}
+    then the constrained optimization problem is still "easy" to solve.
+    \customFigure[0.75]{00_Images/L21_1.png}{Constrainted Optimization Problem}
+\end{intuition}
+
+\begin{warning}
+    \begin{itemize}
+        \item You cannot take the gradient and set it equal to 0 because the global minimum doesn't necessarily belong to the feasible set.
+        \begin{itemize}
+            \item The new minimum $p^*$ associated with $x^*$ will be in the feasible set. So the gradient is not necessarily equal to 0 for a constrained optimization problem.
+        \end{itemize}
+    \end{itemize}
+\end{warning}
+
+\subsubsection{Convex Optimization Problem}
+\begin{definition}
+    An optimization problem is convex if it is of the form:
+    \[
+    \min f_0(x) \quad \text{subject to} \quad 
+    \begin{aligned}
+        & f_i(x) \leq 0, \quad i = 1, \dots, m, \\
+        & h_i(x) = 0, \quad i = 1, \dots, p,
+    \end{aligned}
+    \]
+    where:
+    \begin{itemize}
+        \item \( f_i(x) \) are convex functions for \( i = 0, 1, \dots, m \),
+        \item \( h_i(x) \) are affine functions for \( i = 1, \dots, p \).
+        \item \textbf{Note: Convex Feasible Set}  The feasible set \( C \) is defined as:
+        \[
+        C = \{ x \mid f_i(x) \leq 0 \; \forall i = 1, \dots, m, \; h_i(x) = 0 \; \forall i = 1, \dots, p \},
+        \]
+        and \( C \) is a convex set.
+    \end{itemize}
+\end{definition}
+
+\subsubsection{Theorem}
+\begin{theorem}
+    For convex optimization problems, any local optimum is also a global optimum.
+\end{theorem}
+
+\begin{intuition}
+    \begin{enumerate}
+        \item \textbf{Convex Unconstrained Optimization:} Start from any point in the $f$ and go towards the global optimum point. 
+        \item \textbf{Convex Constrainted Optimization:} Always start from any point in the convex set and go towards the global optimum that stays within the convex set.
+        \item \textbf{Non Convex Optimization:} There are local optimum that when you go towards the direction of a minimum, you can get stuck at a local optimum. 
+    \end{enumerate}
+    \customFigure{00_Images/L21_2.png}{Unconstrainted, Constrainted, Non-Convex Optimization}
+\end{intuition}
+
+\begin{derivation}
+    \begin{enumerate}
+        \item ATaC that $x \in C$ that is a local optimum, but not a global optimum, i.e. $\exists y \in C$ s.t. $f_o(y) < f_o(x)$.
+        \item Then there is another point $z = \lambda y + (1-\lambda) x$ with small $\lambda$ that is in the neighborhood of $x$, which belongs to $C$ because $x,y \in C$, where $C$ is a convex set.
+        \item $f_o (z) = f_o (\lambda y + (1-\lambda) x) \leq \lambda f_o (y) + (1-\lambda) f_o (x)$ since $f_o$ is a convex function, but $f_o(y) < f_o(x)$, therefore, $f_o(z) < \lambda f_o(x) + f_o (x) - \lambda f_o(x) \rightarrow f_o(z) < f_o(x)$.
+        \item But this contradicts that $x$ is a local optimum because $z$ is in the neighborhood of $x$ but is less than $f_o(x)$.
+    \end{enumerate}
+\end{derivation}
+
+\subsubsection{Lagrangian Method}
+\begin{process}
+    \begin{enumerate}
+        \item \textbf{Problem Setup:}
+        \[
+        \min f_0(x) \quad \text{subject to} \quad 
+        \begin{aligned}
+            & f_i(x) \leq 0, \quad i = 1, \dots, m \\
+            & h_i(x) = 0, \quad i = 1, \dots, p
+        \end{aligned}
+        \]
+        Here:
+        \begin{itemize}
+            \item \( f_0(x) \): Objective function (convex)
+            \item \( f_i(x) \): Inequality constraints
+            \item \( h_i(x) \): Equality constraints (affine)
+        \end{itemize}
+    
+        \item \textbf{Form the Lagrangian Function:}
+        \[
+        \mathcal{L}(x, \lambda, \nu) = f_0(x) + \sum_{i=1}^m \lambda_i f_i(x) + \sum_{i=1}^p \nu_i h_i(x)
+        \]
+        where:
+        \begin{itemize}
+            \item \( \lambda_i \): Lagrange multipliers for inequality constraints
+            \item \( \nu_i \): Lagrange multipliers for equality constraints
+        \end{itemize}
+    
+        \item \textbf{Solve for \( x^*(\lambda, \nu) \):}
+        \begin{itemize}
+            \item For each fixed \( \lambda \) and \( \nu \), solve:
+            \[
+            \min_x \mathcal{L}(x, \lambda, \nu)
+            \]
+            This step is an unconstrained optimization problem.
+            \item Denote the solution as \( x^*(\lambda, \nu) \).
+        \end{itemize}
+    
+        \item \textbf{Find Optimal \( (\lambda^*, \nu^*) \):}
+        \begin{itemize}
+            \item Determine \( (\lambda^*, \nu^*) \) such that the constraints are satisfied.
+            \item The optimal solution is:
+            \[
+            x^*(\lambda^*, \nu^*)
+            \]
+        \end{itemize}
+    \end{enumerate}
+\end{process}
 \subsection{Linear programming and quadratic programming}

@@ -515,7 +515,7 @@
         \[
         \nabla f(x^*) = 0.
         \]
-        This ensures that $x^*$ is a global minimum of $f$.
+        This ensures that $x^*$ is a global minimum of $f$. Note: the optimal $x^*$ will always satisfy $\nabla f(x^*) = 0$.
 
     \end{enumerate}
 
@@ -575,6 +575,99 @@
         \|\lambda x + (1 - \lambda)y\|_p \leq \lambda \|x\|_p + (1 - \lambda)\|y\|_p, \quad \text{for } \lambda \in [0, 1].
         \]
     \end{enumerate}    
+\end{example}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Example 1: \( f(x) = e^x + e^{-x} \)}
+        \begin{itemize}
+            \item \textbf{Convexity:} 
+            The sum of convex functions is convex; hence, \( f(x) \) is convex.
+        
+            \item \textbf{Optimization Problem:} 
+            \(\min_x f(x)\)
+        
+            \item \textbf{Solution Derivation:}
+            \begin{itemize}
+                \item Gradient: 
+                \[
+                \frac{\partial f(x)}{\partial x} = e^x - e^{-x}
+                \]
+                \item Setting the gradient to zero: 
+                \[
+                e^x - e^{-x} = 0 \implies x^* = 0
+                \]
+                \item Optimal value: 
+                \[
+                p^* = f(x^*) = 2
+                \]
+            \end{itemize}
+            \customFigure[0.75]{00_Images/L21.png}{Optimization solution for \( f(x) = e^x + e^{-x} \)}
+        \end{itemize}
+        
+        \item \textbf{Example 2: \( f(x) = \frac{1}{2} x^T A x + c^T x + d \)}
+        \begin{itemize}
+            \item \textbf{Convexity:} 
+            \begin{itemize}
+                \item Hessian: \( \nabla^2 f(x) = A \)
+                \item If \( A \succ 0 \) (positive definite), then \( f(x) \) is convex and invertible.
+            \end{itemize}
+        
+            \item \textbf{Optimization Problem:} 
+            \(\min_x f(x)\)
+        
+            \item \textbf{Solution Derivation:}
+            \begin{itemize}
+                \item Gradient: 
+                \[
+                \nabla f(x) = A x + c
+                \]
+                \item Setting the gradient to zero: 
+                \[
+                A x + c = 0 \implies x^* = -A^{-1} c
+                \]
+                \item Optimal value: 
+                \[
+                p^* = f(x^*) = -\frac{1}{2} c^T A^{-1} c + d
+                \]
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Example 3: \( f(x) = ||Ax - b||_2^2 \)}
+        \begin{itemize}
+            \item \textbf{Convexity:}
+            \begin{itemize}
+                \item Expand the expression: 
+                \[
+                ||Ax - b||_2^2 = (Ax - b)^T (Ax - b) = x^T A^T A x - 2b^T A x + b^T b
+                \]
+                \item Since \( A^T A \succeq 0 \) (i.e., \( A^T A \) is positive semi-definite), \( f(x) \) is convex.
+            \end{itemize}
+        
+            \item \textbf{Optimization Problem:} 
+            \(\min_x ||Ax - b||_2^2\) (least squares for overdetermined systems of linear equations).
+        
+            \item \textbf{Solution Derivation:}
+            \begin{itemize}
+                \item Gradient: 
+                \[
+                \nabla f(x) = 2A^T A x - 2A^T b
+                \]
+                \item Setting the gradient to zero: 
+                \[
+                2A^T A x - 2A^T b = 0 \implies x^* = (A^T A)^{-1} A^T b
+                \]
+                \item Note: This works if \( A^T A \) is invertible, which is true when the columns of \( A \) are linearly independent.
+            \end{itemize}
+        \end{itemize}
+        
+        \item \textbf{Non-Differentiable Convex Function: \( f(x) = \frac{1}{2} (x - a)^2 + \lambda |x|, \; \lambda \geq 0 \)}
+        \begin{itemize}
+            \item Convex, but not differentiable due to the \( |x| \) term.
+            \item \textbf{Reference:} See HW5: Sparse Coding of Images.
+        \end{itemize}
+        \customFigure[0.75]{00_Images/L21_0.png}{Optimization solution for \( f(x) = \frac{1}{2} (x - a)^2 + \lambda |x| \)}
+    \end{enumerate}
 \end{example}
 
 

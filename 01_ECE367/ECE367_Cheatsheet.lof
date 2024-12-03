@@ -1,80 +1,84 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{7}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{11}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{13}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{14}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{15}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces Visual representation of the projection problem.}}{17}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces Generalization of projection.}}{18}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Periodic triangle function.}}{18}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{20}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{20}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{23}{figure.11}%
-\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{24}{figure.12}%
-\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{26}{figure.13}%
-\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{27}{figure.14}%
-\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{30}{figure.15}%
-\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{33}{figure.16}%
-\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{33}{figure.17}%
-\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{34}{figure.18}%
-\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{34}{figure.19}%
-\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{35}{figure.20}%
-\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{36}{figure.21}%
-\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{36}{figure.22}%
-\contentsline {figure}{\numberline {23}{\ignorespaces Example of a 2D function.}}{37}{figure.23}%
-\contentsline {figure}{\numberline {24}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{37}{figure.24}%
-\contentsline {figure}{\numberline {25}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{39}{figure.25}%
-\contentsline {figure}{\numberline {26}{\ignorespaces Tangent plane.}}{40}{figure.26}%
-\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{41}{figure.27}%
-\contentsline {figure}{\numberline {28}{\ignorespaces The tangent plane is defined as this plane.}}{42}{figure.28}%
-\contentsline {figure}{\numberline {29}{\ignorespaces Range space.}}{45}{figure.29}%
-\contentsline {figure}{\numberline {30}{\ignorespaces Orthogonal complement.}}{46}{figure.30}%
-\contentsline {figure}{\numberline {31}{\ignorespaces Example of fundamental theorem of linear algebra.}}{47}{figure.31}%
-\contentsline {figure}{\numberline {32}{\ignorespaces Diagonal}}{48}{figure.32}%
-\contentsline {figure}{\numberline {33}{\ignorespaces Upper triangular}}{49}{figure.33}%
-\contentsline {figure}{\numberline {34}{\ignorespaces General matrix}}{49}{figure.34}%
-\contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{50}{figure.35}%
-\contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{55}{figure.36}%
-\contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{56}{figure.37}%
-\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{67}{figure.38}%
-\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{68}{figure.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{69}{figure.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Tilde axis.}}{71}{figure.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Bar axes.}}{71}{figure.42}%
-\contentsline {figure}{\numberline {43}{\ignorespaces X axes.}}{72}{figure.43}%
-\contentsline {figure}{\numberline {44}{\ignorespaces Single-variable Gaussian distribution}}{72}{figure.44}%
-\contentsline {figure}{\numberline {45}{\ignorespaces 3D-variable Gaussian distribution}}{73}{figure.45}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Cross-section of GD (i.e. Intersection of Gaussian distribution with horizontal hyperplane).}}{73}{figure.46}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Optimization problem}}{75}{figure.47}%
-\contentsline {figure}{\numberline {48}{\ignorespaces Another Derivation}}{86}{figure.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Frobenius Norm}}{88}{figure.49}%
-\contentsline {figure}{\numberline {50}{\ignorespaces PCA}}{92}{figure.50}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Tall matrix.}}{96}{figure.51}%
-\contentsline {figure}{\numberline {52}{\ignorespaces Least squares projection problem}}{97}{figure.52}%
-\contentsline {figure}{\numberline {53}{\ignorespaces Projection matrix onto $\mathcal {R}(A)$}}{100}{figure.53}%
-\contentsline {figure}{\numberline {54}{\ignorespaces Linear regression}}{101}{figure.54}%
-\contentsline {figure}{\numberline {55}{\ignorespaces Fat matrix.}}{104}{figure.55}%
-\contentsline {figure}{\numberline {56}{\ignorespaces Projection}}{104}{figure.56}%
-\contentsline {figure}{\numberline {57}{\ignorespaces Mass system}}{106}{figure.57}%
-\contentsline {figure}{\numberline {58}{\ignorespaces Regularized Least Squares}}{108}{figure.58}%
-\contentsline {figure}{\numberline {59}{\ignorespaces Optimization solution for $l1$ norm}}{109}{figure.59}%
-\contentsline {figure}{\numberline {60}{\ignorespaces Optimization solution for LASSO in 1D}}{110}{figure.60}%
-\contentsline {figure}{\numberline {61}{\ignorespaces Optimization problem}}{111}{figure.61}%
-\contentsline {figure}{\numberline {62}{\ignorespaces Convex and non-convex functions}}{111}{figure.62}%
-\contentsline {figure}{\numberline {63}{\ignorespaces Sub space (includes 0 vector) and Affine space are convex}}{112}{figure.63}%
-\contentsline {figure}{\numberline {64}{\ignorespaces Ellipsoids are convex}}{113}{figure.64}%
-\contentsline {figure}{\numberline {65}{\ignorespaces Norm balls are convex}}{113}{figure.65}%
-\contentsline {figure}{\numberline {66}{\ignorespaces Non-convex norm balls}}{113}{figure.66}%
-\contentsline {figure}{\numberline {67}{\ignorespaces Intersection of convex sets is convex, but union is not}}{114}{figure.67}%
-\contentsline {figure}{\numberline {68}{\ignorespaces Convex function}}{114}{figure.68}%
-\contentsline {figure}{\numberline {69}{\ignorespaces Affine function being both convex and concave}}{115}{figure.69}%
-\contentsline {figure}{\numberline {70}{\ignorespaces Convex function examples and non-examples}}{115}{figure.70}%
-\contentsline {figure}{\numberline {71}{\ignorespaces Sublevel sets of a convex function are convex}}{116}{figure.71}%
-\contentsline {figure}{\numberline {72}{\ignorespaces Sublevel sets are convex doesn't mean the function is convex as shown by finding a line segment below the function.}}{117}{figure.72}%
-\contentsline {figure}{\numberline {73}{\ignorespaces Convex function and its tangent plane in 1D, where the function lies above the tangent plane}}{118}{figure.73}%
-\contentsline {figure}{\numberline {74}{\ignorespaces Convex function and its tangent plane in 1D, where the function bends}}{118}{figure.74}%
-\contentsline {figure}{\numberline {75}{\ignorespaces g is a tangent line that uses the points of $x_0$ and $v$ at $f$ and then $t$ is the slope of the tangent line}}{119}{figure.75}%
-\contentsline {figure}{\numberline {76}{\ignorespaces Optimal point for convex function can be represented as a hyperplane that is tangent to the function at the optimal point}}{120}{figure.76}%
-\contentsline {figure}{\numberline {77}{\ignorespaces Convex exponential functions}}{121}{figure.77}%
-\contentsline {figure}{\numberline {78}{\ignorespaces Convex log functions}}{121}{figure.78}%
-\contentsline {figure}{\numberline {79}{\ignorespaces Convex quadratic functions. See that when $a \leq 0$, the function is concave, but not convex}}{122}{figure.79}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{14}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{15}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{16}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Visual representation of the projection problem.}}{18}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Generalization of projection.}}{19}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Periodic triangle function.}}{19}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Not orthogonal, but similar to projection with orthonormal basis.}}{21}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Gram-Schmidt Process for 2D.}}{21}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Projection onto a subspace defined by its orthogonal vectors}}{24}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Affine space of a 2D space, where the $x^{(0)}$ is the constant (i.e. shifting origin to the Affine set) that we are adding to shift all the vectors to the affine space.}}{25}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the Affine space.}}{27}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Projection problem visualization, where we are projecting the vector onto the affine space, which is in line with the orthogonal vectors.}}{28}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces 2D Hyperplane which is the line then the half space, which is separating the line into the above and below b.}}{31}{figure.15}%
+\contentsline {figure}{\numberline {16}{\ignorespaces l2 norm}}{34}{figure.16}%
+\contentsline {figure}{\numberline {17}{\ignorespaces l1 norm}}{34}{figure.17}%
+\contentsline {figure}{\numberline {18}{\ignorespaces l-infinity norm}}{35}{figure.18}%
+\contentsline {figure}{\numberline {19}{\ignorespaces Function: Convex projection because we are projecting one input and getting one output}}{35}{figure.19}%
+\contentsline {figure}{\numberline {20}{\ignorespaces Not a function: Non Convex projection because we are projecting one input and getting two outputs}}{36}{figure.20}%
+\contentsline {figure}{\numberline {21}{\ignorespaces Example of the different common sets.}}{37}{figure.21}%
+\contentsline {figure}{\numberline {22}{\ignorespaces Example of the different common sets for the l1 norm.}}{37}{figure.22}%
+\contentsline {figure}{\numberline {23}{\ignorespaces Example of a 2D function.}}{38}{figure.23}%
+\contentsline {figure}{\numberline {24}{\ignorespaces Example 2 of using the linear function, where the sublevel sets are the half-spaces.}}{38}{figure.24}%
+\contentsline {figure}{\numberline {25}{\ignorespaces Example of using function approximation for first order. The arrow denotes $x-x^{*}$ along the level curve.}}{40}{figure.25}%
+\contentsline {figure}{\numberline {26}{\ignorespaces Tangent plane.}}{41}{figure.26}%
+\contentsline {figure}{\numberline {27}{\ignorespaces The tangent plane is defined as the xy-plane since the first order approximation is zero.}}{42}{figure.27}%
+\contentsline {figure}{\numberline {28}{\ignorespaces The tangent plane is defined as this plane.}}{43}{figure.28}%
+\contentsline {figure}{\numberline {29}{\ignorespaces Range space.}}{46}{figure.29}%
+\contentsline {figure}{\numberline {30}{\ignorespaces Orthogonal complement.}}{47}{figure.30}%
+\contentsline {figure}{\numberline {31}{\ignorespaces Example of fundamental theorem of linear algebra.}}{48}{figure.31}%
+\contentsline {figure}{\numberline {32}{\ignorespaces Diagonal}}{49}{figure.32}%
+\contentsline {figure}{\numberline {33}{\ignorespaces Upper triangular}}{50}{figure.33}%
+\contentsline {figure}{\numberline {34}{\ignorespaces General matrix}}{50}{figure.34}%
+\contentsline {figure}{\numberline {35}{\ignorespaces Matrix norm tht maximizes $Av$ given $v$ with unit norm.}}{51}{figure.35}%
+\contentsline {figure}{\numberline {36}{\ignorespaces P are the pages, and the numbers in red are the probabilities of going to that page with the bot}}{56}{figure.36}%
+\contentsline {figure}{\numberline {37}{\ignorespaces Non-convergent Markov chains}}{57}{figure.37}%
+\contentsline {figure}{\numberline {38}{\ignorespaces Orthogonal matrix performed on two vectors causes a rotation and possibly a flip.}}{68}{figure.38}%
+\contentsline {figure}{\numberline {39}{\ignorespaces Flip.}}{69}{figure.39}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Projection}}{70}{figure.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Tilde axis.}}{72}{figure.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Bar axes.}}{72}{figure.42}%
+\contentsline {figure}{\numberline {43}{\ignorespaces X axes.}}{73}{figure.43}%
+\contentsline {figure}{\numberline {44}{\ignorespaces Single-variable Gaussian distribution}}{73}{figure.44}%
+\contentsline {figure}{\numberline {45}{\ignorespaces 3D-variable Gaussian distribution}}{74}{figure.45}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Cross-section of GD (i.e. Intersection of Gaussian distribution with horizontal hyperplane).}}{74}{figure.46}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Optimization problem}}{76}{figure.47}%
+\contentsline {figure}{\numberline {48}{\ignorespaces Another Derivation}}{87}{figure.48}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Frobenius Norm}}{89}{figure.49}%
+\contentsline {figure}{\numberline {50}{\ignorespaces PCA}}{93}{figure.50}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Tall matrix.}}{97}{figure.51}%
+\contentsline {figure}{\numberline {52}{\ignorespaces Least squares projection problem}}{98}{figure.52}%
+\contentsline {figure}{\numberline {53}{\ignorespaces Projection matrix onto $\mathcal {R}(A)$}}{101}{figure.53}%
+\contentsline {figure}{\numberline {54}{\ignorespaces Linear regression}}{102}{figure.54}%
+\contentsline {figure}{\numberline {55}{\ignorespaces Fat matrix.}}{105}{figure.55}%
+\contentsline {figure}{\numberline {56}{\ignorespaces Projection}}{105}{figure.56}%
+\contentsline {figure}{\numberline {57}{\ignorespaces Mass system}}{107}{figure.57}%
+\contentsline {figure}{\numberline {58}{\ignorespaces Regularized Least Squares}}{109}{figure.58}%
+\contentsline {figure}{\numberline {59}{\ignorespaces Optimization solution for $l1$ norm}}{110}{figure.59}%
+\contentsline {figure}{\numberline {60}{\ignorespaces Optimization solution for LASSO in 1D}}{111}{figure.60}%
+\contentsline {figure}{\numberline {61}{\ignorespaces Optimization problem}}{112}{figure.61}%
+\contentsline {figure}{\numberline {62}{\ignorespaces Convex and non-convex functions}}{112}{figure.62}%
+\contentsline {figure}{\numberline {63}{\ignorespaces Sub space (includes 0 vector) and Affine space are convex}}{113}{figure.63}%
+\contentsline {figure}{\numberline {64}{\ignorespaces Ellipsoids are convex}}{114}{figure.64}%
+\contentsline {figure}{\numberline {65}{\ignorespaces Norm balls are convex}}{114}{figure.65}%
+\contentsline {figure}{\numberline {66}{\ignorespaces Non-convex norm balls}}{114}{figure.66}%
+\contentsline {figure}{\numberline {67}{\ignorespaces Intersection of convex sets is convex, but union is not}}{115}{figure.67}%
+\contentsline {figure}{\numberline {68}{\ignorespaces Convex function}}{115}{figure.68}%
+\contentsline {figure}{\numberline {69}{\ignorespaces Affine function being both convex and concave}}{116}{figure.69}%
+\contentsline {figure}{\numberline {70}{\ignorespaces Convex function examples and non-examples}}{116}{figure.70}%
+\contentsline {figure}{\numberline {71}{\ignorespaces Sublevel sets of a convex function are convex}}{117}{figure.71}%
+\contentsline {figure}{\numberline {72}{\ignorespaces Sublevel sets are convex doesn't mean the function is convex as shown by finding a line segment below the function.}}{118}{figure.72}%
+\contentsline {figure}{\numberline {73}{\ignorespaces Convex function and its tangent plane in 1D, where the function lies above the tangent plane}}{119}{figure.73}%
+\contentsline {figure}{\numberline {74}{\ignorespaces Convex function and its tangent plane in 1D, where the function bends}}{119}{figure.74}%
+\contentsline {figure}{\numberline {75}{\ignorespaces g is a tangent line that uses the points of $x_0$ and $v$ at $f$ and then $t$ is the slope of the tangent line}}{120}{figure.75}%
+\contentsline {figure}{\numberline {76}{\ignorespaces Optimal point for convex function can be represented as a hyperplane that is tangent to the function at the optimal point}}{121}{figure.76}%
+\contentsline {figure}{\numberline {77}{\ignorespaces Convex exponential functions}}{122}{figure.77}%
+\contentsline {figure}{\numberline {78}{\ignorespaces Convex log functions}}{122}{figure.78}%
+\contentsline {figure}{\numberline {79}{\ignorespaces Convex quadratic functions. See that when $a \leq 0$, the function is concave, but not convex}}{123}{figure.79}%
+\contentsline {figure}{\numberline {80}{\ignorespaces Optimization solution for \( f(x) = e^x + e^{-x} \)}}{124}{figure.80}%
+\contentsline {figure}{\numberline {81}{\ignorespaces Optimization solution for \( f(x) = \frac {1}{2} (x - a)^2 + \lambda |x| \)}}{125}{figure.81}%
+\contentsline {figure}{\numberline {82}{\ignorespaces Constrainted Optimization Problem}}{126}{figure.82}%
+\contentsline {figure}{\numberline {83}{\ignorespaces Unconstrainted, Constrainted, Non-Convex Optimization}}{127}{figure.83}%
