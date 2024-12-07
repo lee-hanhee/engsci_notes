@@ -77,21 +77,22 @@
     \end{enumerate}
 \end{derivation}
 
-\subsubsection{Lagrangian Method}
+\subsection{Lagrangian Method}
 \begin{process}
     \begin{enumerate}
         \item \textbf{Problem Setup:}
         \[
-        \min f_0(x) \quad \text{subject to} \quad 
         \begin{aligned}
-            & f_i(x) \leq 0, \quad i = 1, \dots, m \\
-            & h_i(x) = 0, \quad i = 1, \dots, p
+            \min \ & f_0(x), \\
+            \text{s.t.} \ & f_i(x) \leq 0, \quad i = 1, \dots, m, \\
+            & h_i(x) = 0, \quad i = 1, \dots, p.
         \end{aligned}
         \]
+
         Here:
         \begin{itemize}
             \item \( f_0(x) \): Objective function (convex)
-            \item \( f_i(x) \): Inequality constraints
+            \item \( f_i(x) \): Inequality constraints (convex)
             \item \( h_i(x) \): Equality constraints (affine)
         \end{itemize}
     
@@ -118,11 +119,347 @@
         \item \textbf{Find Optimal \( (\lambda^*, \nu^*) \):}
         \begin{itemize}
             \item Determine \( (\lambda^*, \nu^*) \) such that the constraints are satisfied.
-            \item The optimal solution is:
+            \item The optimal solution of the original optimization problem is:
             \[
             x^*(\lambda^*, \nu^*)
             \]
         \end{itemize}
     \end{enumerate}
 \end{process}
+
+\begin{intuition}
+    Why is $h_i$ affine? Because if it was not affine, then $h$ would not be a convex set, even if $h$ is a convex function.
+    \begin{itemize}
+        \item I DONT GET THIS CAN YOU ELABORATE?
+    \end{itemize}
+    \customFigure[0.5]{00_Images/L22_0.png}{Example}
+\end{intuition}
+
+\subsubsection{Theorem}
+\begin{theorem}
+    If the optimization problem is convex, then, under certain conditions, there exists \((\lambda^*, \nu^*)\) for which \(x^*(\lambda^*, \nu^*)\) is the optimum \(x^*\) for the original optimization problem.
+\end{theorem}
+
+\subsubsection{Example}
+\begin{example}
+    \begin{enumerate}
+        \item Consider the optimization problem:
+        \[
+        \begin{aligned}
+            \min \ & \|x\|_2^2, \\
+            \text{s.t.} \ & A x = b.
+        \end{aligned}
+        \]
+        where \(A \in \mathbb{R}^{m \times n}\), \(m < n\), and the rows of \(A\) are linearly independent.
+        
+        \item The Lagrangian is given by:
+        \[
+        \mathcal{L}(x, \nu) = \|x\|_2^2 + \sum_{i=1}^m \nu_i (A x - b)_i,
+        \]
+        which can be written as:
+        \[
+        \mathcal{L}(x, \nu) = x^\top x + \nu^\top (A x - b).
+        \]
+        Here, \(\nu\) is the Lagrange multiplier and \(\mathcal{L}\) is a convex function.
+        \begin{itemize}
+            \item \textbf{Note:} Unconstrained optimization problem, then take gradient and set it equal to 0. 
+            \item \textbf{Note 1:} This is always convex because the sum of convex functions is convex. So if the constrainted is convex, then the Lagrangian is convex.
+        \end{itemize}
+    
+        \item Setting the gradient of \(\mathcal{L}\) with respect to \(x\) to zero:
+        \begin{align*}
+            \nabla_x \mathcal{L} &= 2x + A^\top \nu = 0, \\
+            \Rightarrow x &= -\frac{1}{2} A^\top \nu, \quad \text{denoted as } x^*(\nu).
+        \end{align*}
+        
+        \item To satisfy the constraint \(A x = b\), substitute \(x^*(\nu)\) into the constraint:
+        \begin{align*}
+            A x &= b, \\
+            A \left(-\frac{1}{2} A^\top \nu \right) &= b, \\
+            -\frac{1}{2} A A^\top \nu &= b, \\
+            \nu^* &= -2 (A A^\top)^{-1} b.
+        \end{align*}
+    
+        \item Using \(\nu^*\), compute \(x^*(\nu^*)\):
+        \begin{align*}
+            x^*(\nu^*) &= -\frac{1}{2} A^\top \nu^*, \\
+            &= -\frac{1}{2} A^\top \left(-2 (A A^\top)^{-1} b\right), \\
+            &= A^\top (A A^\top)^{-1} b.
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Problem Statement:} 
+        Suppose you have a store and want to decide how much shelf space to allocate to each merchandise. Let \(x_i\) represent the proportion of shelf space given to merchandise \(i\). The revenue related to \(x_i\) is modeled as:
+        \[
+        \log(1 + r_i x_i),
+        \]
+        where \(r_i > 0\) is the given revenue factor.
+    
+        \item \textbf{Goal:}
+        Maximize the total revenue:
+        \[
+        \begin{aligned}
+            \max \ & \sum_{i=1}^n \log(1 + r_i x_i), \\
+            \text{s.t.} \ & \sum_{i=1}^n x_i = 1, \\
+            & x_i \geq 0 \iff -x_i \leq 0, \, \forall i.
+        \end{aligned}
+        \]
+
+        Since maximizing a function is equivalent to minimizing its negative, we rewrite the problem as:
+       \[
+        \begin{aligned}
+            \min \ & -\sum_{i=1}^n \log(1 + r_i x_i), \\
+            \text{s.t.} \ & \sum_{i=1}^n x_i - 1 = 0, \\
+            & x_i \geq 0 \iff -x_i \leq 0, \, \forall i.
+        \end{aligned}
+        \]
+
+        The objective function is convex because \(\log(1 + r_i x_i)\) is concave.
+    
+        \item \textbf{Lagrangian Method:}
+        Define the Lagrangian:
+        \[
+        \mathcal{L}(x, \nu) = -\sum_{i=1}^n \log(1 + r_i x_i) + \nu \left( \sum_{i=1}^n x_i - 1 \right).
+        \]
+    
+        Compute the gradient with respect to \(x_i\) and set it to zero:
+        \begin{align*}
+            \frac{\partial \mathcal{L}}{\partial x_i} &= -\frac{r_i}{1 + r_i x_i} + \nu = 0, \\
+            \Rightarrow \frac{1}{\nu} &= \frac{1}{r_i} + x_i, \\
+            \Rightarrow x_i^*(\nu) &= \frac{1}{\nu} - \frac{1}{r_i}.
+        \end{align*}
+    
+        \item \textbf{Non-negativity Constraint:}
+        To ensure \(x_i \geq 0\), we define:
+        \[
+        x_i^*(\nu) = \left[ \frac{1}{\nu} - \frac{1}{r_i} \right]^+,
+        \]
+        where \([\cdot]^+\) denotes the positive part, i.e.,
+        \[
+        x_i^*(\nu) = 
+        \begin{cases} 
+            \frac{1}{\nu} - \frac{1}{r_i}, & \text{if } \frac{1}{\nu} > \frac{1}{r_i}, \\
+            0, & \text{otherwise}.
+        \end{cases}
+        \]
+    
+        \item \textbf{Final Step:}
+        The value of \(\nu\) is chosen such that:
+        \[
+        \sum_{i=1}^n x_i^*(\nu) = 1.
+        \]
+        \customFigure[0.75]{00_Images/L22_1.png}{Water Filling Procedure}
+        \begin{itemize}
+            \item \textbf{Constraint 2:} Keep adding water $x_i^*(\nu)$ to each merchandise until the total water is 1.
+            \item \textbf{Solution to Lagrangian:} 
+            \begin{itemize}
+                \item Add water to bucket $i$ if there is a positive difference of $\frac{1}{\nu} - \frac{1}{r_i}$.
+                \item Don't allocate any of the proportion $x_i$ to merchandise that has $1/r_i$ exceeding $1/\nu$, so $x^*_i = 0$.
+                \begin{itemize}
+                    \item This tells us which merchandise to not put on the shelf if it because low $r_i$ means high $1/r_i$, so you wouldn't want to put it on the shelf.
+                \end{itemize}
+            \end{itemize}
+            \item Have to use a numerical algorithm to solve this question.
+        \end{itemize}
+    \end{enumerate}    
+\end{example}
+
+\begin{warning}
+    In general, you want to form the Lagrangian with all the constraints, but here there is a trick that you can apply by only including one of the constraints in the Lagrangian.
+\end{warning}
+
+\begin{warning}
+    Any time you are doing the max of a concave function, you can convert it to a min of the negative of the function to make it convex.
+    \begin{equation*}
+        \max f(x) \iff \min -f(x)
+    \end{equation*}
+\end{warning}
+
+\begin{warning}
+    On the exam, you will be given english text and you will have to convert it to a mathematical optimization problem and solve it using Lagrangian method.
+\end{warning}
+
 \subsection{Linear programming and quadratic programming}
+\begin{intuition}
+    Specific examples of convex optimization problems are linear programming and quadratic programming.
+\end{intuition}
+
+\begin{warning}
+    In the final, he wants us to determine if a problem is a linear programming problem or not. Formulate the problem in the standard form.
+    \begin{itemize}
+        \item Given some text, formulate the problem in the standard form.
+    \end{itemize}
+\end{warning}
+
+\subsubsection{Linear Programming}
+\begin{definition}
+    The standard form of a linear program is:
+    \[
+    \begin{aligned}
+        \min \ & c^\top x \\
+        \text{s.t.} \ & Gx \leq h, \\
+        & Ax = b,
+    \end{aligned}
+    \]
+    where:
+    \begin{itemize}
+        \item \(c^\top x\) is the objective function to minimize.
+        \item \(Gx \leq h\) represents inequality constraints, where every entry in \(Gx\) is less than or equal to the corresponding entry in \(h\). 
+        \item \(Ax = b\) represents equality constraints.
+        \item \textbf{Note:} These are all affine functions.
+    \end{itemize}
+\end{definition}
+
+\begin{example} \textbf{Feeding soildiers (George Dantzig)}
+    \begin{enumerate}
+        \item \textbf{Problem Description:}  
+        Suppose that we want to feed soldiers with meat and potatoes. Each soldier should get a minimum daily requirement of nutrients. The nutritional information and costs are given in the table below:
+        \[
+        \begin{array}{|c|c|c|c|}
+        \hline
+        \text{Nutrient} & \text{Meat (g/kg)} & \text{Potato (g/kg)} & \text{Daily Requirement (g)} \\
+        \hline
+        \text{Carbs} & 1 & 5 & 10 \\
+        \text{Proteins} & 5 & 1 & 10 \\
+        \text{Fibers} & 1 & 8 & 8 \\
+        \hline
+        \text{Cost (\$/kg)} & 1 & 0.25 & - \\
+        \hline
+        \end{array}
+        \]
+    
+        \item \textbf{Goal:}  
+        Minimize the total cost of food while ensuring that the daily nutrient requirements are satisfied. Let:
+        \begin{itemize}
+            \item \(x_1\): quantity of meat (in kg),
+            \item \(x_2\): quantity of potatoes (in kg).
+        \end{itemize}
+    
+        \item \textbf{Mathematical Formulation:}  
+        The optimization problem is:
+        \[
+        \begin{aligned}
+            \min \ & x_1 + 0.25 x_2 \\
+            \text{s.t.} \ & x_1 + 5x_2 \geq 10, \\
+            & 5x_1 + x_2 \geq 10, \\
+            & x_1 + 8x_2 \geq 8, \\
+            & x_1 \geq 0, \\
+            & x_2 \geq 0.
+        \end{aligned}
+        \]
+    
+        \item \textbf{Matrix Form:}  
+        The problem can also be written in matrix form:
+        \[
+        \begin{aligned}
+            \min \ & \begin{bmatrix} 1 & 0.25 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \\
+            \text{s.t.} \ & 
+            \begin{bmatrix}
+            -1 & -5 \\
+            -5 & -1 \\
+            -1 & -8 \\
+            -1 & 0 \\
+            0 & -1
+            \end{bmatrix}
+            \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \leq
+            \begin{bmatrix}
+            -10 \\ -10 \\ -8 \\ 0 \\ 0
+            \end{bmatrix}.
+        \end{aligned}
+        \]
+        \customFigure[0.75]{00_Images/L22_2.png}{Plot the constraints and find the feasible region.}
+    
+        \item \textbf{Visualization:}  
+        The feasible region for this linear programming problem forms a polyhedron. The optimal solution \(x^*\) lies at a vertex of the feasible region. 
+        \begin{itemize}
+            \item Constraints define the boundary of the feasible region.
+            \item The objective function is minimized at one of the vertices of this region.
+        \end{itemize}
+        \customFigure[0.75]{00_Images/L22_3.png}{Linear Programming}
+    \end{enumerate}
+\end{example}
+
+\subsubsection{\( \ell_1 \) and \( \ell_\infty \) Minimization Problems}
+\begin{warning}
+    These problems will be on the final exam. Very important.
+\end{warning}
+\begin{example} 
+    \begin{enumerate}
+        \item \textbf{Recall:}
+        The standard \( \ell_2 \)-norm minimization problem is given by:
+        \[
+        \min_x \|A x - b\|_2.
+        \]
+    
+        \item \textbf{Question:}
+        What if we want to minimize \( \|A x - b\|_\infty \)? Recall:
+        \[
+        \|x\|_1 = \sum_{i=1}^n |x_i|, \quad \|x\|_\infty = \max_{i=1,\dots,n} |x_i|.
+        \]
+    
+        \item \textbf{Formulation:}
+        \begin{align*}
+            &\min \ \|Ax - b\|_\infty \\
+            &\text{s.t.} \ Gx \leq h \\
+            \iff & \\
+            &\min_{x, t} \ t \\
+            &\text{s.t.} \ \|Ax - b\|_\infty \leq t \\
+            &\ \quad Gx \leq h \\
+            \iff & \\
+            &\min_{x, t} \ t \\
+            &\text{s.t.} \ -t \leq (Ax - b)_i \leq t \quad \forall i \\
+            &\ \quad Gx \leq h \\
+            \iff & \\
+            &\min_{x, t} \ t \\
+            &\text{s.t.} \ Ax - b \leq t \cdot \mathbf{1} \\
+            &\ \quad Ax - b \geq -t \cdot \mathbf{1} \\
+            &\ \quad Gx \leq h \\
+            \iff & \\
+            &\min_{x, t} \ \begin{bmatrix} 0 & \dots & 0 & 1 \end{bmatrix}
+            \begin{bmatrix} x_1 \\ \vdots \\ x_n \\ t \end{bmatrix} \\
+            &\text{s.t.} \ \begin{bmatrix} A & \mathbf{-1}\\ -A & \mathbf{-1} \\ G & \mathbf{0} \end{bmatrix}
+            \begin{bmatrix} x_1 \\ \vdots \\ x_n \\ t \end{bmatrix}
+            \leq \begin{bmatrix} b \\ -b \\ h \end{bmatrix}
+        \end{align*}
+    \end{enumerate}
+\end{example}
+
+\begin{warning}
+    The final expression is in block matrix format.
+\end{warning}
+
+\begin{example}
+    \begin{enumerate}
+        \item \textbf{Problem Formulation:}
+        Minimize the \( \ell_1 \)-norm of \( A x - b \) subject to linear constraints:
+        \begin{align*}
+            \min_x & \ \|A x - b\|_1, \\
+            \text{s.t.} & \ G x \leq h, \\
+            & \|x\|_1 = \sum_{i=1}^n |x_i| 
+        \end{align*}
+        where \( A \in \mathbb{R}^{m \times n} \).
+    
+        \item \textbf{Matrix Formulation:}
+        \begin{align*}
+            &\min \ \|Ax - b\|_1 \\
+            &\text{s.t.} \ Gx \leq h, \\
+            &\|x\|_1 = \sum_{i=1}^n |x_i|, \\
+            \iff & \\
+            &\min_{x_1, \dots, x_n, t_1, \dots, t_m} \ \sum_{i=1}^m t_i \\
+            &\text{s.t.} \ -t_i \leq (Ax - b)_i \leq t_i, \quad \forall i, \\
+            &\quad Gx \leq h, \\
+            &\quad t_i \geq 0, \quad \forall i, \\
+            \iff & \\
+            &\min \ \begin{bmatrix} 0 & \dots & 0 & 1 & \dots & 1 \end{bmatrix}
+            \begin{bmatrix} x_1 \\ \vdots \\ x_n \\ t_1 \\ \vdots \\ t_n \end{bmatrix} \\
+            &\text{s.t.} \ \begin{bmatrix} A & -I \\ -A & -I \\ G & 0 \\ 0 & -I \end{bmatrix}
+            \begin{bmatrix} x_1 \\ \vdots \\ x_n \\ t_1 \\ \vdots \\ t_n\end{bmatrix}
+            \leq \begin{bmatrix} b \\ -b \\ h \\ 0 \end{bmatrix}.
+        \end{align*}
+    \end{enumerate}   
+
+     
+\end{example}

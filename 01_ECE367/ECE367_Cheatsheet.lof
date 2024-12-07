@@ -1,6 +1,6 @@
 \babel@toc {english}{}\relax 
 \contentsline {figure}{\numberline {1}{\ignorespaces Vector addition and scalar multiplication.}}{7}{figure.1}%
-\contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{11}{figure.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Norm balls of different p values.}}{12}{figure.2}%
 \contentsline {figure}{\numberline {3}{\ignorespaces Ordering of the vector spaces.}}{14}{figure.3}%
 \contentsline {figure}{\numberline {4}{\ignorespaces Drawing any x.}}{15}{figure.4}%
 \contentsline {figure}{\numberline {5}{\ignorespaces Error vector being perp. to S.}}{16}{figure.5}%
@@ -82,3 +82,7 @@
 \contentsline {figure}{\numberline {81}{\ignorespaces Optimization solution for \( f(x) = \frac {1}{2} (x - a)^2 + \lambda |x| \)}}{125}{figure.81}%
 \contentsline {figure}{\numberline {82}{\ignorespaces Constrainted Optimization Problem}}{126}{figure.82}%
 \contentsline {figure}{\numberline {83}{\ignorespaces Unconstrainted, Constrainted, Non-Convex Optimization}}{127}{figure.83}%
+\contentsline {figure}{\numberline {84}{\ignorespaces Example}}{128}{figure.84}%
+\contentsline {figure}{\numberline {85}{\ignorespaces Water Filling Procedure}}{131}{figure.85}%
+\contentsline {figure}{\numberline {86}{\ignorespaces Plot the constraints and find the feasible region.}}{133}{figure.86}%
+\contentsline {figure}{\numberline {87}{\ignorespaces Linear Programming}}{133}{figure.87}%
